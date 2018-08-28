@@ -13,9 +13,18 @@
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
-    <div class="container">
-        <h2 align="center">Crear Comision</h2>
+</div>
+    
+<div class="row">
+            <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+    <div class="col-md-9">
+    <div class="row text-center">
+        <br><br>
+                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+    </div><br>
+        <h3 align="center">Crear Comision</h3>
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
                 <input type="hidden" th:field="*{codigocomision}"/>
@@ -26,6 +35,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <input type="text" class="form-control" th:field="*{codigocomision}"/>
                                 </div>
                             </div>-->
+
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Nombre Comision:</label>
                     <div class="col-sm-10">
@@ -56,6 +66,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </form>
         </div>
+    </div>
     </div>
 
 </body>
