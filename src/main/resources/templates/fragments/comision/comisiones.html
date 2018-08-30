@@ -5,10 +5,15 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
+    <div class="row">
+            <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+        <div class="col-md-9">
 <div class="container">
     
     <div th:if="${not #lists.isEmpty(comisiones)}">
-        <h2 align="center">Listado de Comisiones</h2>
+        <h3 align="center">Listado de Comisiones</h3><br>
         <table class="table table-striped">
             <tr>
                 <th>Codigo</th>
@@ -33,6 +38,7 @@
         </table>
     </div>
 </div>
+            </div>
      <script th:inline="javascript">
         $(document).ready(function () {
     if([[${msg}]]===3){
