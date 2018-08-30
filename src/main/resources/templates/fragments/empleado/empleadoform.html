@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <style type="text/css">
+     .boton{
+  width:30px;
+  height:30px;
+  background-color:#03800b;
+  margin: 5px;
+  padding:10px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  font-size:11px;
+  line-height:32px;
+  text-transform: uppercase;
+  float:left;
+}
+.boton:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+.boton a{
+  color:#fff;
+  text-decoration:none;
+  padding:5px 5px 5px 0;
+}
+ </style>
+     
+    <title>SISADMRH-Crear Empleado</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+<!--<div class="container">-->
+ <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+    <h3 align="center">Crear Empleado</h3>
+    
+    
+   
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Empleado</a></li>
+    <li><a data-toggle="pill" href="#menu1">Contacto</a></li>
+    <li><a data-toggle="pill" href="#menu2">Dependientes</a></li>
+    <li><a data-toggle="pill" href="#menu3">Formacion Academica</a></li>
+    <li><a data-toggle="pill" href="#menu4">Capacitaciones Recibidas</a></li>
+    <li><a data-toggle="pill" href="#menu5">Experiencia Laboral</a></li>
+    <li><a data-toggle="pill" href="#menu6">Ubicacion Fisica</a></li>
+    <li><a data-toggle="pill" href="#menu7">Contrato</a></li>
+    <li><a data-toggle="pill" href="#menu8">Hijos con Discapacidad</a></li>
+    <li><a data-toggle="pill" href="#menu9">Dominio de Idiomas</a></li>
+    <li><a data-toggle="pill" href="#menu10">Habilidades y Destrezas</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <!--<h3>Empleado</h3>-->
+         <br>
+      <form class="form-horizontal" th:object="${empleado}" th:action="@{../empleado}" method="post">
+            <div class="col-md-6">
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Nombre(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Apellido(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Nacimiento(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechanacimiento" id="fechanacimiento"  />
+                </div>
+            </div>
+                 <div class="form-group">
+                <label class="col-sm-5 control-label">Nacionalidad(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="nacionalidad" >
+                        <option>Salvadoreño</option>
+                        <option>Hondureño</option>
+
+                    </select>
+                </div>
+            </div>
+                 <div class="form-group">
+                <label class="col-sm-5 control-label">Departamento de Nacimiento(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="depnacimiento" >
+                        <option>Santa Ana</option>
+                        <option>San Salvador</option>
+                         <option>San Miguel</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Municipio de Nacimiento(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="munnacimiento" >
+                        <option>Santa Tecla</option>
+                        <option>antiguo Cuscatlan</option>
+                         <option>Mejicanos</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Estado Familiar(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="estfamiliar" >
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                         <option>Viudo</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Sexo(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="sexo" >
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                    </select>
+                </div>
+            </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Residencia Permanente(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Telefono Fijo(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Telefono Movil(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">  
+                
+                  <div class="form-group">
+                <label class="col-sm-5 control-label">Departamento(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="depto" >
+                        <option>Santa Ana</option>
+                        <option>San Salvador</option>
+                         <option>San Miguel</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Municipio(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="mun" >
+                        <option>Santa Tecla</option>
+                        <option>antiguo Cuscatlan</option>
+                         <option>Mejicanos</option>
+                    </select>
+                </div>
+            </div>
+                
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">DUI(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">NIT(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">ISSS(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Publico(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechasepu" id="fechasepu"  />
+                </div>
+            </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Privado(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechasepr" id="fechasepr"  />
+                </div>
+            </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Ingreso al Ministerio(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechamin" id="fechamin"  />
+                </div>
+            </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Grupo Sanguineo(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                <label class="col-sm-5 control-label">Tipo de Pension(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="mun" >
+                        <option>AFP CONFIA</option>
+                        <option>AFP CRECER</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">NUP(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">BANCO(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Tipo de Cuenta(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="mun" >
+                        <option>Ahorros</option>
+                        <option>Corriente</option>
+                    </select>
+                </div>
+             
+            </div>
+                   <div class="form-group">
+                    <label class="col-sm-5 control-label">Numero de Cuenta(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+            </div>
+          <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+      </form>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        <br>
+      <form class="form-horizontal" th:object="${contacto}" th:action="@{../contacto}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                    </div>
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">Apellido(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">Direccion(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                     <div class="form-group">
+                <label class="col-sm-3 control-label">Sexo(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="sexocontanto" >
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                    </select>
+                </div>
+            </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                    </div>
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">Correo Electronico(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                </div>
+          <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+      </form>
+        
+      </div>
+    <div id="menu2" class="tab-pane fade">
+         <br>
+       <form class="form-horizontal" th:object="${dependiente}" th:action="@{../dependiente}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Apellidos(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Nacimiento(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechanacde" id="fechanacde"  />
+                </div>
+            </div>
+                  <div class="form-group">
+                <label class="col-sm-3 control-label">Parentesco(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="parentesco" >
+                        <option>Hijo</option>
+                        <option>Tio</option>
+                         <option>Hermano</option>
+                    </select>
+                </div>
+            </div>	
+                  <div class="form-group">
+                <label class="col-sm-3 control-label">Sexo(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="sexodep" >
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                    </select>
+                </div>
+            </div>
+                </div>
+            <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <!--<h3>Formacion Academica</h3>-->
+         <br>
+      <form class="form-horizontal" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Estudios Realizados(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Centro Educativo(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Años Aprobados(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Pais(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>El Salvador</option>
+                        <option>Estado Unidos</option>
+                         <option>Mexico</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechadfa" id="fechadfa"  />
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechahfa" id="fechahfa"  />
+                </div>
+            </div>
+                  <div class="form-group">
+                <label class="col-sm-3 control-label">Termino(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Titulo Obtenido(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+      </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      
+    </div>
+      
+      <div id="menu4" class="tab-pane fade">
+             <br>
+      <form class="form-horizontal" th:object="${caprecibidas}" th:action="@{../caprecibidas}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Tipo de Evento(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Especialidad del Evento(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Organismo Patrocinador(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                   <div class="form-group">
+                <label class="col-sm-3 control-label">Pais(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="caprepais" >
+                        <option>El Salvador</option>
+                        <option>Estado Unidos</option>
+                         <option>Mexico</option>
+                    </select>
+                </div>
+                
+            </div>
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha del Evento(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechacapreevento" id="fechacapreevento"  />
+                </div>
+            </div>
+                   <div class="form-group">
+                    <label class="col-sm-3 control-label">Duracion Horas(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                   <div class="form-group">
+                    <label class="col-sm-3 control-label">Duracion Dias(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+    </div>
+      
+      <div id="menu5" class="tab-pane fade">
+             <br>
+           <form class="form-horizontal" th:object="${exlaboral}" th:action="@{../exlaboral}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Sector(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Privado</option>
+                        <option>Publico</option>
+                    </select>
+                </div>
+            </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre de Institucion(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechadexlaboral" id="fechadexlaboral"  />
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechahexlaboral" id="fechahexlaboral"  />
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Salario Inicial(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Salario Final(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Causa del Retiro(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      </div>
+      <div id="menu6" class="tab-pane fade">
+             <br>
+           <form class="form-horizontal" th:object="${ubicacionfisica}" th:action="@{../ubicacionfisica}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Destacado en(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre de Jefe Inmediato(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo Nominal(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo Funcional(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Principales Tareas que desempeña(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechadubf" id="fechadubf"  />
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechahubf" id="fechahubf"  />
+                </div>
+            </div>
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      </div>
+      <div id="menu7" class="tab-pane fade">
+             <br>
+           <form class="form-horizontal" th:object="${contrato}" th:action="@{../contrato}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Salario Actual(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Unidad Pres.(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Linea de Trabajo(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Partida(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Subpartida(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Acuerdo o Nombramiento(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                    <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Inicio(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechaicontrato" id="fechaicontrato"  />
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Finalizacion(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechafcontrato" id="fechafcontrato"  />
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cambio de Plaza(*):</label>
+                    <div class="col-sm-5" align="left">
+                        <input type="checkbox"     />
+                    </div>
+                </div>
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      </div>
+      <div id="menu8" class="tab-pane fade">
+             <br>
+           <form class="form-horizontal" th:object="${discapacidad}" th:action="@{../discapacidad}" method="post">
+            <div class="col-md-12"  align="center">
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                    </div>
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">Apellido(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                      <div class="form-group">
+                    <label class="col-sm-3 control-label">Discapacidad(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>
+                     <div class="form-group">
+                <label class="col-sm-3 control-label">Tipo de Discapacidad(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Paralisis Facial</option>
+                        <option>Hidrosefalia</option>
+                    </select>
+                </div>
+            </div>
+                     <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Nacimiento(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechanacdis" id="fechanacdis"  />
+                </div>
+            </div>
+                    
+                
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      </div>
+       <div id="menu9" class="tab-pane fade">
+             <br>
+           <form class="form-horizontal" th:object="${idiomas}" th:action="@{../idiomas}" method="post">
+            <div class="col-md-12"  align="center">
+                 
+                     <div class="form-group">
+                <label class="col-sm-3 control-label">Idioma(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Ingles</option>
+                        <option>Frances</option>
+                    </select>
+                </div>
+            </div>
+                
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Habla(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Escribe(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Traduce(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+                
+                   
+                    
+                
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      </div>
+      
+         <div id="menu10" class="tab-pane fade">
+             <br>
+           <form class="form-horizontal" th:object="${destrezashabilidades}" th:action="@{../destrezashabilidades}" method="post">
+            <div class="col-md-12"  align="center">
+                 
+                     <div class="form-group">
+                <label class="col-sm-3 control-label">Habilidades(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Habilidad 1</option>
+                        <option>Habilidad 2</option>
+                    </select>
+                </div>
+            </div>
+                
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Destrezas(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Destreza 1</option>
+                        <option>Destreza 2</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Equipo de Oficina(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="mun" >
+                        <option>Impresora</option>
+                        <option>Fax</option>
+                        <option>Computadora de Escritorio</option>
+                        <option>Computadora Portatil</option>
+                    </select>
+                </div>
+            </div>
+                
+                   
+                    
+                
+          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>
+      </div>
+  </div><!-- tab -->
+
+               </div>
+            </div>
+
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+
+        
+       
+</body>
+<script src="../static/css/hydro/js/jquery.js"></script>
+	        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+// 		$(document).ready(function() {
+// 			$(function () {
+// 				$("#datepickersince").datepicker();
+// 			});
+
+// 			$(function () {
+// 				$("#datepickeruntil").datepicker();
+// 			});
+// 		});
+		
+		$(document).ready(function () {
+		    var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+                    
+		    $('#fechanacimiento').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		       dateFormat: 'yy-mm-dd'
+		    });
+		    
+		    $('#fechasepu').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechasepr').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechamin').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechanacde').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechahfa').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechadfa').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechacapreevento').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('fechadexlaboral').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    $('fechahexlaboral').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    $('fechadubf').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    $('fechahubf').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                     $('fechaicontrato').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                     $('fechafcontrato').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                     $('fechahubf').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+		});
+	</script>
+        
+        
+</html>

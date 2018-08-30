@@ -80,9 +80,9 @@ public class EvaluacionCapacitacionController extends UtilsController {
     public String saveEvaluacionCapacitacion(EvaluacionCapacitacionForm evaluacionCapacitacionForm,Model model) {
         try{
            evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacionForm.getEvaluacioncapacitacion());
-          model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
+        //  model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvualuacionCapacitacion());
           model.addAttribute("msg", 0);
-          return PREFIX + "evaluacioncapacitaciones";
+      //    return PREFIX + "evaluacioncapacitaciones";
         
         }
         catch(Exception e){
@@ -90,9 +90,9 @@ public class EvaluacionCapacitacionController extends UtilsController {
            model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
         model.addAttribute("capacitaciones", capacitaciones);
-        return PREFIX + "evaluacioncapacitacionform";
+      //  return PREFIX + "evaluacioncapacitacionform";
         }
-     // return PREFIX + "evaluacioncapacitaciones";
+      return PREFIX + "evaluacioncapacitaciones";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
         //return "redirect:./show/" + evaluacionCapacitacion.getCodigoevaluacioncapacitacion();

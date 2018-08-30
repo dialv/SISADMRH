@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">-->
+      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+     
+     
+    <title>SISADMRH-Reporte de Personal Pensionados</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+<!--<div class="container">-->
+<div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-7">
+    <h3 align="center">Generar Reporte de Personal Pensionados</h3>
+    <br><br><br>
+    
+        <form class="form-horizontal"  id="fromreportpensionado" > 
+          
+           <!--<div class="col-md-6">-->
+         
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control" type="text"  name="fechacontrataciondesde" id="fechacontrataciondesde"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control" type="text"  name="fechacontratacionhasta" id="fechacontratacionhasta"  />
+                </div>
+            </div>
+           
+           <!--</div>
+              <div class="col-md-6">
+                   </div>-->
+
+
+          
+        <div class="col-md-12">
+      <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
+                <button  class="btn btn-default"  id="generar">Consultar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+            </div>
+           </form>
+    </div>
+
+      <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+</div>
+
+        
+       
+</body>
+<script src="../static/css/hydro/js/jquery.js"></script>
+<script src="../static/css/stylemenu.js"></script>
+	        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+// 		$(document).ready(function() {
+// 			$(function () {
+// 				$("#datepickersince").datepicker();
+// 			});
+
+// 			$(function () {
+// 				$("#datepickeruntil").datepicker();
+// 			});
+// 		});
+		
+		$(document).ready(function () {
+		    var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+                    
+		    $('#fechacontratacionhasta').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		       dateFormat: 'yy-mm-dd'
+		    });
+		    
+		    $('#fechacontrataciondesde').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#generar').click(function(){
+            $("#fromreportpensionado").attr('action', '../pdfpensionadoreporte/');
+            $("form#fromreportpensionado").submit();
+            
+        });
+                    
+		});
+	</script>
+        
+<!--        <script>
+    $(document).ready(function () {
+        $('#fechainicial').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $('#fechafinal').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#generar').click(function(){
+            $("#fromreportpuesto").attr('action', '../pdf/'+ $("#fechacontrataciondesde").val().toString()+ $("#fechacontratacionhasta").val().toString());
+            $("form#fromreportpuesto").submit();
+            
+        });
+    });
+</script>-->
+        
+        
+</html>

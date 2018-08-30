@@ -111,6 +111,8 @@ public class Empleado implements Serializable {
     private List<Mision> misionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
     private List<Ubicacionfisica> ubicacionfisicaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
+    private List<Incapacidad> incapacidadList;
     
     
     private static final long serialVersionUID = 1L;
@@ -279,6 +281,13 @@ public List<Descuento> getDescuentoList() {
 
     public void setDescuentoList(List<Descuento> descuentoList) {
         this.descuentoList = descuentoList;
+    }
+     public List<Incapacidad> getIncapacidadList() {
+        return incapacidadList;
+    }
+
+    public void setIncapacidadList(List<Incapacidad> incapacidadList) {
+        this.incapacidadList = incapacidadList;
     }
 
     @Override

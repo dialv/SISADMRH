@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>SISADMRH-Detalle de Empleado</title>
+     <th:block th:include="../templates/header"></th:block>
+ 
+
+  
+</head>
+<body>
+ <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+    <h3 align="center">Consulta de Datos de Empleado</h3>
+        <div>
+            <form class="form-horizontal">
+                 <div class="col-md-6">
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">codigo:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Nombre de Empleado</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Apellido de Empleado:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${empleado.fechanacimientoempleado}">Fecha de Nacimiento</p>
+                    </div>
+                </div>
+                  </div> 
+                      <div class="col-md-6">
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Telefono Movil de Empleado</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Telefono Movil de Empleado</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-7 control-label">DUI:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${empleado.duiempleado}">DUI</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-7 control-label">NIT:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${empleado.nitempleador}">NIT</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-7 control-label">Email:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${empleado.emailempleado}">Email Empleado</p>
+                    </div>
+                </div>
+                  </div> 
+                
+                
+            </form>
+            <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                
+            </div>
+    </div>
+    </div>
+</div>
+      <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+     </div>
+
+</body>
+</html>

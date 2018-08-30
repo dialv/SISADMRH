@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5065368b-750f-41c4-8100-4b1ac3db73b7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="170"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT e.nombreempleado, e.apellidoempleado, 
+ p.nombrepuesto as 'Nombre de Plaza' ,
+ n.tituloobtenido as 'Nivel Escolar',
+ n.`estudiorealizado` as 'Estudios Realizados',
+ n.`fechadesdenivelescolaridad`  as 'Fecha Desde',
+ n.`fechahastanivelescolaridad` as 'Fecha Hasta',
+ n.`centroeducativo` as 'Institucion Educativa' 
+ FROM 
+ empleadonivelescolaridad en, 
+ empleado e, 
+ nivelescolaridad n , 
+ puesto p 
+ WHERE 
+e.codigopuesto=p.codigopuesto and e.estadoempleado=1 AND
+e.codigoempleado=en.codigoempleado and
+n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
+	</queryString>
+	<field name="nombreempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidoempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre de Plaza" class="java.lang.String"/>
+	<field name="Nivel Escolar" class="java.lang.String"/>
+	<field name="Estudios Realizados" class="java.lang.String"/>
+	<field name="Fecha Desde" class="java.sql.Date"/>
+	<field name="Fecha Hasta" class="java.sql.Date"/>
+	<field name="Institucion Educativa" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<staticText>
+				<reportElement x="143" y="20" width="494" height="20" uuid="26868bdf-6f7c-4199-a934-9f6c47778dc6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="734" y="50" width="70" height="20" uuid="f9ebfcbb-4bfc-45e1-9578-33ada4a71257"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="143" y="40" width="494" height="20" uuid="406d3c4f-bd78-49c0-ac36-65b03bc7f994"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE NIVELES DE ESCOLARIDAD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="703" y="30" width="74" height="20" uuid="dc4d375f-cdaa-4a68-beca-68321ca3f231"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="777" y="30" width="26" height="20" uuid="be740dfb-e360-424e-aa85-2f2c53509bb3"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="143" y="0" width="494" height="20" uuid="aea2d107-fe74-4d55-8f94-9244ba0ee81c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="105" height="50" uuid="ad33b2d8-31ec-4142-bd01-273b5bd58886"/>
+				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="647" y="50" width="114" height="20" uuid="2beca2da-7bb2-4989-a813-4bd7e15578db"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fecha de Generacion:]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-40" y="67" width="859" height="3" uuid="65f0cff4-1f74-47ce-ad9c-47c9ec4b8b24"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35">
+			<line>
+				<reportElement mode="Transparent" x="-20" y="20" width="839" height="1" forecolor="#000000" uuid="f2272a56-43ee-43e5-a857-3ce348fccec0"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="66" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="ab0ab516-abd6-4c31-b8b2-d505e5caf250"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="145" y="1" width="108" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="c3c07a15-4a04-45a5-a0e3-5d26089de277"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de Plaza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="266" y="0" width="94" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="ce8021dd-2e11-4635-9a09-6c1f8ee3a11e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel Escolar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="360" y="0" width="107" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="60655308-a7b4-49e2-8a33-5e9978615a46"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estudios Realizados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="467" y="0" width="69" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="38b31287-8731-420a-8da9-0588d1e678df"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="536" y="0" width="69" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="099e2de5-96da-480a-88cb-7f04ab390ec4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Hasta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="605" y="0" width="197" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="25d0a363-c1ba-4267-a44d-20d47b97953f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Institucion Educativa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="76" y="0" width="69" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="47f84e70-8134-43c8-b3f1-af414d39b160"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="10" y="0" width="66" height="20" forecolor="#000000" uuid="2581b4cf-1aa5-4ee6-b095-637819243b63"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="145" y="1" width="108" height="20" forecolor="#000000" uuid="cf672816-c281-4d25-af88-c72decfed290"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre de Plaza}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="266" y="0" width="94" height="20" forecolor="#000000" uuid="c94f8312-f8fe-4798-9890-ea79bbe98a9f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nivel Escolar}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="360" y="0" width="107" height="20" forecolor="#000000" uuid="b4c63fd0-b6a2-4afc-9c5c-6f52124f8998"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Estudios Realizados}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="467" y="0" width="69" height="20" forecolor="#000000" uuid="c41eacf6-5e35-4225-9df7-a41a3e44be05"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha Desde}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="536" y="0" width="69" height="20" forecolor="#000000" uuid="d3a54ae4-e3ac-4b44-8680-713e55ab5814"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha Hasta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="605" y="0" width="197" height="20" forecolor="#000000" uuid="40b6469a-4f1d-433d-a9cb-9fdbf3e588b3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Institucion Educativa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="76" y="1" width="69" height="20" forecolor="#000000" uuid="39eeeb84-d264-4575-bffc-7175e632c7df"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidoempleado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="0" y="4" width="804" height="13" backcolor="#E6E6E6" uuid="25ee026d-9e81-4680-b8c2-8b42797f2b79"/>
+				<textElement>
+					<font fontName="Times New Roman" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -8,6 +8,13 @@
     
 </head>
 <body>
+          <div class="contenedorizq"> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>
     <div th:if="${not #lists.isEmpty(evaluacioncapacitaciones)}">
         
        <div class="row">

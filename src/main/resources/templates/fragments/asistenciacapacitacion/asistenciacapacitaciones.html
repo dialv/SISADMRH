@@ -5,6 +5,13 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
+          <div class="contenedorizq"> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>
     <div class="container">
         
         <div th:if="${not #lists.isEmpty(asistenciacapacitaciones)}">

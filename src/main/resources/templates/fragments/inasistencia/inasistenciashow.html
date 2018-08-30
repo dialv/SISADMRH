@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>SISADMRH</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+  <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+        <h3 align="center">Datos de Inasistencia</h3>
+        <div>
+            <form class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">codigo inasistencia:</label>
+                    <div class="col-sm-10">
+                        <p class="" th:text="${inasistencia.codigoinasistencia}">codigo inasistencia</p></div>
+                    <!--<p class="" th:text="${capacitador.codigoempleado.nombreempleado}">codigo capacitador</p></div>-->
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Empleado:</label>
+                    <div class="col-sm-10">
+                        <p class="" th:text="${inasistencia.codigoempleado.nombreempleado}">Empleado</p>
+                    </div>
+                </div>
+  <div class="form-group">
+                                    <label class="col-sm-2 control-label">Justiciacion</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" th:text="${inasistencia.constanciainasistencia}">justiticacion</p>
+                                         <!--<p class="form-control-static" th:text="${capacitador.codigoempleado.codigoempleado}">Codigo Empleado</p>-->
+                                    </div>
+                                </div>
+                
+                        <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Desde:</label>
+                    <div class="col-sm-10">
+                        <p class="" th:text="${inasistencia.fechadesdeinasistencia}">Fecha Hasta</p>
+                    </div>
+                </div>
+                         <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Hasta:</label>
+                    <div class="col-sm-10">
+                        <p class="" th:text="${inasistencia.fechahastainasistencia}">Fecha Hasta</p>
+                    </div>
+                </div>
+               
+                 
+               
+               
+                
+              
+              
+
+               
+                              
+              
+            </form>
+              <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/inasistencias/}">Regresar</a></button>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+        </div>
+<div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+</body>
+</html>

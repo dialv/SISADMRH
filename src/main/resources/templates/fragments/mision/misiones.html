@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>SISADMRH-Listado de Misiones</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<!--<div class="container">-->
+    
+    <div th:if="${not #lists.isEmpty(misiones)}" >
+        
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            
+        <!--</div>-->
+        <h3 align="center">Listado de Misiones</h3>
+        <table class="table table-striped">
+            <tr >
+                <th>Codigo de Mision</th>
+                <th>Nombre de  Mision</th>
+                <th>Objetivo de Mimsion</th>
+                <th>Responsable del Gasto </th>
+                <th>Fecha de Salida</th>
+                <th>Fecha de Regreso</th>
+            </tr>
+            <tr th:each="mision : ${misiones}">
+                <td th:text="${mision.codigomision}">codigomision</td>
+                <td th:text="${mision.nombremision}">nombremision</td>
+                <td th:text="${mision.objetivomision}">objetivomision</td>
+                <td th:text="${mision.reponsablegasto}">reponsablegasto</td>
+                <td th:text="${mision.fechasalidamision}">fechasalidamision</td>
+                <td th:text="${mision.fecharegresomision}">fecharegresomision</td>
+                <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + mision.codigomision}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+        </div>
+   
+<!--</div>-->
+<div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+ </div>
+   </div> 
+</body>
+</html>

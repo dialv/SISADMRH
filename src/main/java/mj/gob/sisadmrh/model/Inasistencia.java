@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,6 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -28,12 +31,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "inasistencia")
 @NamedQueries({
-    @NamedQuery(name = "Inasistencia.findAll", query = "SELECT i FROM Inasistencia i")
-    , @NamedQuery(name = "Inasistencia.findByCodigoinasistencia", query = "SELECT i FROM Inasistencia i WHERE i.codigoinasistencia = :codigoinasistencia")
-    , @NamedQuery(name = "Inasistencia.findByMotivoinasistencia", query = "SELECT i FROM Inasistencia i WHERE i.motivoinasistencia = :motivoinasistencia")
-    , @NamedQuery(name = "Inasistencia.findByConstanciainasistencia", query = "SELECT i FROM Inasistencia i WHERE i.constanciainasistencia = :constanciainasistencia")
-    , @NamedQuery(name = "Inasistencia.findByFechadesdeinasistencia", query = "SELECT i FROM Inasistencia i WHERE i.fechadesdeinasistencia = :fechadesdeinasistencia")
-    , @NamedQuery(name = "Inasistencia.findByFechahastainasistencia", query = "SELECT i FROM Inasistencia i WHERE i.fechahastainasistencia = :fechahastainasistencia")})
+    @NamedQuery(name = "Inasistencia.findAll", query = "SELECT i FROM Inasistencia i")})
 public class Inasistencia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,6 +39,7 @@ public class Inasistencia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGOINASISTENCIA")
+     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoinasistencia;
     @Size(max = 200)
     @Column(name = "MOTIVOINASISTENCIA")
@@ -49,8 +48,10 @@ public class Inasistencia implements Serializable {
     @Column(name = "CONSTANCIAINASISTENCIA")
     private String constanciainasistencia;
     @Column(name = "FECHADESDEINASISTENCIA")
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
+      @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechadesdeinasistencia;
+      @DateTimeFormat(pattern = "YYYY-MM-dd")
     @Column(name = "FECHAHASTAINASISTENCIA")
     @Temporal(TemporalType.DATE)
     private Date fechahastainasistencia;

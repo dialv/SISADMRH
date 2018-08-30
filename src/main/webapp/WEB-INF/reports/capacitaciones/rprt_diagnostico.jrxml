@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="2" bottomMargin="20" uuid="5bf87770-2275-4d19-83ea-0a0d2f882ba6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     diagnosticocapacitacion.`codigodiagnosticocapacitacion` AS diagnosticocapacitacion_codigodiagnosticocapacitacion,
+     diagnosticocapacitacion.`cargoautorizadiagnosticocapacitacion` AS diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion,
+     diagnosticocapacitacion.`direccion` AS diagnosticocapacitacion_direccion,
+     diagnosticocapacitacion.`mescapacitacion` AS diagnosticocapacitacion_mescapacitacion,
+     diagnosticocapacitacion.`necesidadcapacitacion` AS diagnosticocapacitacion_necesidadcapacitacion,
+     diagnosticocapacitacion.`nombreautorizadiagnosticocapacitacion` AS diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion,
+     diagnosticocapacitacion.`resultadoobtener` AS diagnosticocapacitacion_resultadoobtener,
+     diagnosticocapacitacion.`codigocapacitacion` AS diagnosticocapacitacion_codigocapacitacion,
+     diagnosticocapacitacion.`temacapacitacion` AS diagnosticocapacitacion_temacapacitacion
+FROM
+     `diagnosticocapacitacion` diagnosticocapacitacion]]>
+	</queryString>
+	<field name="diagnosticocapacitacion_temacapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_direccion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_necesidadcapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_mescapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_resultadoobtener" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement x="143" y="0" width="469" height="20" uuid="2a6d1d68-ec28-4ce0-9479-3a2f587672da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="20" width="469" height="20" uuid="c9f35e08-fd6f-4130-bae8-b4fa8f22f48f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="678" y="30" width="74" height="20" uuid="076ef3a0-2097-4aaa-9894-fbf0bc542261"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="143" y="40" width="469" height="20" uuid="bae40fe9-8307-4c76-a506-d86633d7ca33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE TEMAS DE DIAGNOSTICOS DE NECESIDADES DE CAPACITACION]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="105" height="50" uuid="849471db-1f39-42ff-b69c-ae16576c3a4a"/>
+				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-21" y="70" width="840" height="3" uuid="ba226b4f-56c0-4e3a-bd72-c942969f4868"/>
+			</line>
+			<staticText>
+				<reportElement x="622" y="50" width="114" height="20" uuid="559ea0b1-4898-4e78-aa4b-db6bf7458b73"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fecha de Generacion:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="715" y="50" width="70" height="20" uuid="0ad030e7-e277-4119-882c-bd6f55542631"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="758" y="30" width="26" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="113" height="18" forecolor="#000000" uuid="8c8359fa-1916-4267-b5ff-49beffadff78"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tema]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="123" y="0" width="103" height="18" forecolor="#000000" uuid="cca56259-d6ea-4df7-9a2e-5804a0ed93bc"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="226" y="0" width="135" height="18" forecolor="#000000" uuid="2190657d-5372-48e2-a52d-7903820fbf29"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Necesidades de Capacitacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="361" y="0" width="91" height="18" forecolor="#000000" uuid="6f223216-894c-49e0-9ba6-d4b72a75374d"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes de Capacitacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="465" y="0" width="117" height="18" forecolor="#000000" uuid="9b8b9726-ff7b-4097-8c89-514478881e75"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resultados a Obtener]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="592" y="0" width="96" height="18" forecolor="#000000" uuid="abb45af3-6c11-4329-b6a0-163a0490eae6"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autorizado Por]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="699" y="0" width="98" height="18" forecolor="#000000" uuid="2d32e380-6a43-4e16-a12b-b13735be93c1"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo quien Autoriza]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-21" y="18" width="840" height="3" uuid="ddffd7a0-6734-42f8-9258-e6ad9803e92c"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="fdf9dd30-1607-4f58-9341-a52ac0b4ea20"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="113" height="18" uuid="1f4b9ebc-2b22-421e-aa95-337f97c3c940"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_temacapacitacion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="123" y="0" width="103" height="18" uuid="2cc25706-b5ca-4696-9c6e-395fadcd7de5"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_direccion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="238" y="0" width="111" height="18" uuid="cad25d03-2c3e-490c-a259-bfd27df77f53"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_necesidadcapacitacion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="361" y="0" width="91" height="18" uuid="e4b9a7a5-f831-4343-be71-1c2650ababc5"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_mescapacitacion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="465" y="0" width="117" height="18" uuid="c70b5aa5-9a4a-4faf-bce0-52c13641b66b"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_resultadoobtener}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="592" y="0" width="96" height="18" uuid="729218ac-cc19-493a-91d7-a099866d701c"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="699" y="0" width="98" height="18" uuid="f3977fb1-6e16-4056-b40c-0243a9cb3861"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="db554105-cde6-46f8-9160-54f019dcc39f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="13" backcolor="#E6E6E6" uuid="9bf10d63-7d84-4b29-a32d-2840bc8ae7e7"/>
+				<textElement>
+					<font fontName="Times New Roman" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

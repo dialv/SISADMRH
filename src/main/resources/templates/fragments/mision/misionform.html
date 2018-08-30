@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">-->
+      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <style type="text/css">
+     .boton{
+  width:30px;
+  height:30px;
+  background-color:#03800b;
+  margin: 5px;
+  padding:10px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  font-size:11px;
+  line-height:32px;
+  text-transform: uppercase;
+  float:left;
+}
+.boton:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+.boton a{
+  color:#fff;
+  text-decoration:none;
+  padding:5px 5px 5px 0;
+}
+ </style>
+     
+    <title>SISADMRH-Crear Mision</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+<!--<div class="container">-->
+ <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+    <h3 align="center">Crear Mision</h3>
+   
+        <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post">
+            <input type="hidden" th:field="*{codigomisiojn}"/>
+            <input type="hidden" th:field="*{nombremision}"/>
+           <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Nombre de Mision(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{nombremision}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nombre de Empleado(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="codigoempleado" >
+                        <option>Empleado 1</option>
+                        <option>Empleado 2</option>
+                        <option>Empleado 3</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Objetivo de Mision(*):</label>
+                <div class="col-sm-7">
+                    <input type="number" step="0.01" class="form-control" th:field="*{objetivomision}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Responsable del Gasto(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="reponsablegasto" >
+                        <option>ONG</option>
+                        <option>Ministerio</option>
+                        <option>Gobierno</option>
+
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Viaticos(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{viaticos}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Gasto Viaje(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{gastoviaje}"/>
+                </div>
+            </div>
+<div class="form-group">
+                <label class="col-sm-5 control-label">Gasto Terminales(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{gastoterminales}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Salida(*):</label>
+                <div class="col-sm-7">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Pais(*):</label>
+                <div class="col-sm-7">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                    <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
+                    <select class="form-control" name="pais" >
+                        <option>El Salvador</option>
+                        <option>Mexico</option>
+                        <option>Guatemala</option>
+
+                    </select>
+                </div>
+            </div>
+    <div class="form-group">
+                <label class="col-sm-5 control-label">Organismo Patrocinador(*):</label>
+                <div class="col-sm-7">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                    <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
+                    <select class="form-control" name="organismopatrocinador" >
+                        <option>ONG</option>
+                        <option>Ministerio</option>
+                        <option>Gobierno</option>
+
+                    </select>
+                </div>
+            </div>
+
+           
+           </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                <label class="col-sm-5 control-label">Ciudad(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{ciudad}"/>
+                </div>
+            </div>
+                 
+           
+           <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Regreso(*):</label>
+                <div class="col-sm-7">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" />
+                </div>
+            </div>
+           <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Acuerdo(*):</label>
+                <div class="col-sm-7">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control" type="text" th:field="*{fechaacuerdo}" name="fechaacuerdo" id="fechaacuerdo" />
+                </div>
+            </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Acuerdo(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{acuerdo}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Boleto Aeroe(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{boteoaereo}"/>
+                </div>
+            </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Boleto Terrestre(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{boteoaereo}"/>
+                </div>
+            </div>
+                  
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Cantidad de Dias(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{cantidaddia}"/>
+                </div>
+            </div>
+                  
+                  <div class="form-group">
+                <label class="col-sm-5 control-label">Cantidad de Meses(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{cantidadmeses}"/>
+                </div>
+            </div>
+                  
+                  <div class="form-group">
+                <label class="col-sm-5 control-label">Organismo que invita(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" th:field="*{organismoinvita}"/>
+                </div>
+            </div>
+            
+                   </div>
+
+ <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                    </form>
+
+            </div>
+            </div>
+
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+
+  </div>      
+       
+</body>
+<script src="../static/css/hydro/js/jquery.js"></script>
+	        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+// 		$(document).ready(function() {
+// 			$(function () {
+// 				$("#datepickersince").datepicker();
+// 			});
+
+// 			$(function () {
+// 				$("#datepickeruntil").datepicker();
+// 			});
+// 		});
+		
+		$(document).ready(function () {
+		    var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+                    
+		    $('#fechasalidamision').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		       dateFormat: 'yy-mm-dd'
+		    });
+		    
+		    $('#fecharegresomision').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechaacuerdo').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechacreacion').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechabaja').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechamodificacion').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+		});
+	</script>
+        
+        
+</html>
