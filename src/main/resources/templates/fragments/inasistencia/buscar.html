@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Buscar Por Motivo</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row" id="content_work">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+      <div class="col-md-8">
+          
+          
+          <br />
+          <div class="input-group col-sm-4">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+            <input type="text" name="buscar_inasistencia" id="buscar_inasistencia" class="form-control" placeholder="buscar_inasistencia" />
+          </div>
+          
+          
+          <br />
+          
+          
+          <h3>Busqueda Por motivo</h3>
+          <hr />
+  
+          
+          <div id="list_inasistencia">
+              <table class="table table-bordered">
+                  <thead>
+                  <th>Codigo inasistencia</th>
+                <th>Nombre Empleado</th>
+                <th>Motivo Inasistencia</th>
+                <th>Justificacion</th>
+                <th>Fecha Desde</th>
+                <th>Fecha Hasta</th>
+               
+<!--               <th>Acciones</th>-->
+                         
+                      
+                  </thead>
+                  
+                  <tbody>
+                  </tbody>
+              </table>
+              
+          </div>
+        
+          
+      </div>
+
+    
+      
+        <script type="text/javascript" th:src="@{/js/helpJs.js}"></script>
+      <script type="text/javascript">
+          $(document).ready(function (){
+              var content = $("#content_work");
+              Autocompletar_input(content,"buscar_inasistencia","/sisadmrh/inasistencias/buscar/listar/",'html',function(result) {
+    
+                        content.find("#list_inasistencia").html(result);
+    
+                });
+              
+              
+          });
+      </script>
+   </div>
+
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+
+</body>
+</html>

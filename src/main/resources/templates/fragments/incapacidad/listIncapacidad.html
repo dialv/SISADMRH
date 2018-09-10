@@ -1,0 +1,39 @@
+
+
+<div th:if="${#lists.size(capacitadores)} == 0" class="alert alert-success" role="alert">No hay datos...</div>
+
+<table th:if="${#lists.size(capacitadores)} != 0" class="table table-bordered">
+                  <thead>
+                      <th>Código</th>
+                      <<th>Nombre</th>
+                <th>Tema Dominio</th>
+                <th>Institucion</th>
+                <th>Tipo Capacitador</th>
+                <th>Tipo Agrupacion</th>
+                  <th>Dui</th>
+                  <th>Nit</th>
+                  <th>Carnet Residente</th>
+                  <th>Telefono</th>
+                  <th>Celular</th>
+                  <th>Email</th>
+                  </thead>
+                  
+                  <tbody th:each="c: ${capacitadores}">
+                      <td th:text="${c.codigocapacitador}"></td>
+                      <td th:text="${c.nombrecapacitador}"></td>
+                      <td th:text="${c.temadominio}"></td>
+                      <td th:text="${c.institucioncapacitador}"></td>
+                      <td th:text="${c.tipocapacitador}"></td>
+                      <td th:text="${c.tipoagrupacion}"></td>
+                        <td th:text="${c.duicapacitador}"></td>
+                      <td th:text="${c.nitcapacitador}"></td>
+                      <td th:text="${c.carnetresidencia}"></td>
+                       <td th:text="${c.telefonocapacitador}"></td>
+                        <td th:text="${c.telefonomovilcapacitador}"></td>
+                      <td th:text="${c.emailcapacitador}"></td>
+                     
+                      <td ></td>
+                      <td></td>
+                      <td></td>
+                  </tbody>
+        </table>

@@ -12,9 +12,20 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
-<div class="container">
-   
+    
+
+         
+            
     <div th:if="${not #lists.isEmpty(costocapacitaciones)}">
+   <div class="row">
+                <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+                <div class="col-md-9">
+                       <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/costos.png" width="150" th:src="@{/image/costos.png}"/>
+                         </div>
         <h3 align="center">Listado de costos de Capacitaciones</h3>
         <table class="table table-striped">
             <tr>
@@ -22,7 +33,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <th>Costo Persona</th>
                 <th>Numero de Personas</th>
                 <th>Costo de Capacitador</th>
-                <th>Nombre Capacitacion</th>
+                <th>Nombre Capacitación</th>
                 
                 <th>Acciones</th>
                 
@@ -38,9 +49,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                
                 
                 
-                <td><a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-default">Edit</a>
-               <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${costocapacitacion.codigocostocapacitacion} + '\');'" >Delete</a></td>
+                <td>
+                     <!--<a th:href="${'./new/costocapacitacion'}" class="btn btn-primary">Nuevo</a>-->
+                    <a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-success">Edit</a>
+               <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${costocapacitacion.codigocostocapacitacion} + '\');'" >Delete</a></td>
                 <!--<a th:href="${'./delete/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>

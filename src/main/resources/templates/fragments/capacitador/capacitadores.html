@@ -22,9 +22,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <th>Responsable del Capacitador</th>
                 <th>Nombre de Capacitador</th>
                 <th>Tema Dominio</th>
-                <th>Institucion</th>
+                <th>Institución</th>
                 <th>Tipo Capacitador</th>
-                <th>Tipo Agrupacion</th>
+                <th>Tipo Agrupación</th>
                   <th>Dui</th>
                   <th>Nit</th>
                   <th>Carnet Residente</th>
@@ -35,14 +35,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <th>Acciones</th>
             </tr>
             <tr th:each="capacitador : ${capacitadores}">
-                <td th:text="${capacitador.codigocapacitador}">Codigo</td>
+                <td th:text="${capacitador.codigocapacitador}">Código</td>
                  <td th:text="${capacitador.codigoempleado.nombreempleado}">Codigo</td>
                 
                 <td th:text="${capacitador.nombrecapacitador}">Nombre</td>
                 <td th:text="${capacitador.temadominio}">Tema</td>
-                <td th:text="${capacitador.institucioncapacitador}">Institucion</td>
+                <td th:text="${capacitador.institucioncapacitador}">Institución</td>
                 <td th:text="${capacitador.tipocapacitador}">Tipo Capacitador</td>
-                 <td th:text="${capacitador.tipoagrupacion}">Tipo Agrupacion</td>
+                 <td th:text="${capacitador.tipoagrupacion}">Tipo Agrupación</td>
                 <td th:text="${capacitador.duicapacitador}">Dui</td>
                 <td th:text="${capacitador.nitcapacitador}">Nit</td>
                 <td th:text="${capacitador.carnetresidencia}">Carnet</td>
@@ -52,9 +52,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <!--                <td th:text="${capacitador.codigoempleado.codigoempleado}">Email</td>-->
                 
                 <td>
-                    <a th:href="${'./show/' + capacitador.codigocapacitador}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + capacitador.codigocapacitador}" class="btn btn-default">Edit</a>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitador.codigocapacitador} + '\');'" >Delete</a></td>
+                      <!--<a th:href="${'./new/capacitador'}" class="btn btn-primary">Nuevo</a>-->
+                    <a th:href="${'./show/' + capacitador.codigocapacitador}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + capacitador.codigocapacitador}" class="btn btn-success">Edit</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitador.codigocapacitador} + '\');'" >Delete</a></td>
                 <!--<a th:href="${'./delete/' + capacitador.codigocapacitador}" class="btn btn-danger">Delete</a>-->
                 </td>
             </tr>

@@ -21,6 +21,7 @@ public interface IncapacidadService {
     void deleteIncapacidad(Integer id);
     Iterable<Incapacidad> findByEmpleado(String dato);
     
+    
 
     
 }

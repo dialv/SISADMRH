@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Comites</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<!--<div class="container">-->
+<div th:if="${not #lists.isEmpty(diagnosticocapacitaciones)}">
+            <div class="row">
+                <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+                <div class="col-md-9">
+                    <h3 align="center">Listado de Diagnosticos</h3>
+                    <table class="table table-striped">
+                        <tr>
+                             <th>Codigo Diagnostico</th>
+                              <th>Nombre Capacitación</th>
+                            <th>Nombre Dirección</th>
+                            <th>Necesidad de Capacitación</th>
+                           
+<!--                            <th>Que Mes es mas oportuno</th>
+                            <th>Años dejecucion</th>
+                            <th>Personal que recibira Capacitación</th>
+                            <th>Resultado que desea Obtener</th>
+                            <th>Nombre de quien Autoriza</th>
+                            <th>Cargo de quien Autoriza</th>-->
+                            <th>Acciones</th>
+                        </tr>
+                        
+                        <tr th:each="diagnosticocapacitacion : ${diagnosticocapacitaciones}">
+                            <td th:text="${diagnosticocapacitacion.codigodiagnosticocapacitacion}">Codigo de Diagnostico</td>
+                            <td th:text="${diagnosticocapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo de Diagnostico</td>
+                            <td th:text="${diagnosticocapacitacion.direccion}">Direccion</td>
+                            <td th:text="${diagnosticocapacitacion.necesidadcapacitacion}">Nesecidad</td>
+<!--                            <td th:text="${diagnosticocapacitacion.mescapacitacion}">Mes Mas Oportuno</td>
+                            <td th:text="${diagnosticocapacitacion.anioejecucion}">Anio Ejecucion</td>
+                            <td th:text="${diagnosticocapacitacion.personalrecibir}">Personal que recibira Capacitacion</td>
+                            <td th:text="${diagnosticocapacitacion.resultadoobtener}">Resultado que desea Obtener</td>
+                            <td th:text="${diagnosticocapacitacion.nombreautorizadiagnosticocapacitacion}">Nombre de Autorizador</td>
+                            <td th:text="${diagnosticocapacitacion.cargoautorizadiagnosticocapacitacion}">F. desde</td>
+                           -->
+<!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
+
+                            <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-info">Mostrar</a>
+                            <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-primary">Editar</a>
+                           <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Eliminar</a></td>
+                            <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-12">
+                    <th:block th:include="../templates/footer"></th:block>
+                </div>
+            </div>     
+    </div>
+<!--</div>-->
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../diagnosticocapacitaciones/';
+    });
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });
+</script> 
+ <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../diagnosticocapacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
+</body>
+</html>

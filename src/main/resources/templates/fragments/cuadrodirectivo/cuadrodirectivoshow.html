@@ -14,12 +14,12 @@
          <th:block th:include="../templates/menu"></th:block>
     </div> 
       <div class="col-md-8">
-        <h3 align="center">Datos de Cuadros directivos</h3>
+        <h3 align="center">Datos de Cuadros Directivos</h3>
         <div>
             <form class="form-horizontal">
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">codigo</label>
+                    <label class="col-sm-2 control-label">código</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${cuadrodirectivo.codigocuadrodirectivo}">cuadro Id</p></div>
                 </div>
@@ -39,14 +39,14 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">area:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${cuadrodirectivo.area}">area</p>
+                        <p class="form-control-static" th:text="${cuadrodirectivo.area}">Area</p>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Descripcion:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</p>
+                        <p class="form-control-static" th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripción</p>
                     </div>
                 </div>
                 
@@ -54,7 +54,7 @@
               
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha de Presentacion:</label>
+                    <label class="col-sm-2 control-label">Fecha de Presentación:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${#calendars.format(cuadrodirectivo.fechapresentacion, 'dd-MMM-yyyy')}">Valor de estado</p>
                     </div>

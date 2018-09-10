@@ -19,7 +19,7 @@
           <br />
           <div class="input-group col-sm-4">
               <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-            <input type="text" name="buscar_capacitador" id="buscar_capacitacion" class="form-control" placeholder="Buscar capacitador" />
+            <input type="text" name="buscar_capacitador" id="buscar_capacitador" class="form-control" placeholder="Buscar capacitador" />
           </div>
           
           
@@ -66,7 +66,7 @@
               var content = $("#content_work");
               Autocompletar_input(content,"buscar_capacitador","/sisadmrh/capacitadores/buscar/listar/",'html',function(result) {
     
-                        content.find("#list_capacitadores").html(result);
+                        content.find("#list_capacitador").html(result);
     
                 });
               

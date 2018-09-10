@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CuadroDirectivoServiceImpl implements CuadroDirectivoService{
+    
     private CuadroDirectivoRepository cuadroDirectivoRep;
     
     @Autowired
@@ -46,8 +47,8 @@ public class CuadroDirectivoServiceImpl implements CuadroDirectivoService{
     }
 
     @Override
-    public Iterable<CuadroDirectivo> findByDato(String dato) {
-    return cuadroDirectivoRep.findByDato("%"+dato+"%");
+    public Iterable<CuadroDirectivo> findByCuadro(String dato) {
+    return cuadroDirectivoRep.findByCuadro("%"+dato+"%");
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
     }

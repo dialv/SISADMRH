@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--    <script type="text/javascript" th:src="@{/validacion_controladores.js}"></script>
+    <script type="text/javascript" th:src="@{/validacion_controladores2.js}"></script>
+    <script type="text/javascript" th:src="@{/SweetAlert.min.js}"></script>
+    <script type="text/javascript" th:src="@{/jquery-ui.min.js}"></script>-->
+
+    <head lang="en">
+
+        <title>Crear Diagnostico</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div> 
+        <div class="col-md-8">
+            <h3 align="center" >Crear Diagnostico</h3>
+            <div>
+                <form class="form-horizontal" th:object="${diagnosticocapacitacion}" th:action="@{../diagnosticocapacitacion}" method="post">
+           <input type="hidden" th:field="*{codigodiagnosticocapacitacion}"/>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Capacitación:</label>
+                <div class="col-sm-7">
+                    <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
+                         <option value="0">-- Seleccione la Capacitación --</option>
+                                <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
+                            </select>
+                    <!--<input type="number" class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}"/>-->
+                </div>
+            </div>
+               <div class="form-group">  
+           <label class="col-sm-5 control-label">Nombre Dirección:</label>
+                <div class="col-sm-7">
+                     <select class="form-control" name="direccion" >
+                                    <option>Recursos Humanos</option>
+                                    <option>Finanzzas</option>
+                                    <option>Jurisprudencia</option>
+                                    <option>Investigación Secreta</option>
+                                      <option>Economia</option>
+                                       <option>Relaciones Diplomaticas</option>
+                                </select>
+                    <!--<input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder="Tipo Mision"  th:field="*{tipomision}"/>-->
+                </div>
+            </div>
+                      <div class="form-group">
+                        <label class="col-sm-5 control-label">Necesidad de Capacitación que tendra:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" size="50" maxlength="50" required="true" placeholder=""  th:field="*{necesidadcapacitacion}"/>
+                        </div>
+                    </div>
+<!--                        <div class="form-group">
+                        <label class="col-sm-5 control-label">Anio de Ejecucion:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control numeros"  maxlength="4" required="true" placeholder=""  th:field="*{necesidadcapacitacion}"/>
+                        </div>
+                    </div>-->
+                    
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Que Mes es mas oportuno hacer las Capacitaciones:</label>
+                        <div class="col-sm-7" >
+                              <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
+                            <ul>
+                                <li>
+                                    <input id="features1" name="mescapacitacion" type="checkbox" value="Enero" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features1">ENE</label>
+
+
+                                    <input id="features2" name="mescapacitacion" type="checkbox" value="Febrero" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features2">FEB</label>
+
+                                    <input id="features3" name="mescapacitacion" type="checkbox" value="Marzo" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features3">MAR</label>
+
+                                    <input id="features4" name="mescapacitacion" type="checkbox" value="Abril" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features4">ABR</label>
+
+                                    <input id="features5" name="mescapacitacion" type="checkbox" value="Mayo" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features5">MAY</label>
+
+                                    <input id="features6" name="mescapacitacion" type="checkbox" value="Junio" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features6">JUN</label>
+
+                                <li>             
+                                    <input id="features7" name="mescapacitacion" type="checkbox" value="Julio" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features7">JUL</label>
+
+                                    <input id="features8" name="mescapacitacion" type="checkbox" value="Agosto" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features8">AGO</label>
+
+                                    <input id="features9" name="mescapacitacion" type="checkbox" value="Setbiembre" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features9">SEP</label>
+
+                                    <input id="features10" name="mescapacitacion" type="checkbox" value="Obtubre" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features10">OCT</label>
+
+                                    <input id="features11" name="mescapacitacion" type="checkbox" value="Noviembre" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="feature11">NOV</label>
+
+                                    <input id="features12" name="mescapacitacion" type="checkbox" value="Diciembre" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features12">DIC</label>
+                                </li>
+                            </ul>  
+                        </div>
+                    </div>
+          <div class="form-group">
+                        <label class="col-sm-5 control-label">Anio dejecucion:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control numeros" size="4" maxlength="4" required="true" placeholder=""  th:field="*{anioejecucion}"/>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Personal que recibira Capacitacion:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder=""  th:field="*{personalrecibir}"/>
+                        </div>
+                    </div>
+                    
+                          <div class="form-group">
+                        <label class="col-sm-5 control-label">Resultado que desea Obtener en la Capacitacion:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" size="500" maxlength="500" required="true" placeholder=""  th:field="*{resultadoobtener}"/>
+                        </div>
+                    </div>
+
+    <div class="form-group">
+                        <label class="col-sm-5 control-label">Nombre de quien Autoriza:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" size="150" maxlength="150" required="true" placeholder=""  th:field="*{nombreautorizadiagnosticocapacitacion}"/>
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="form-group">
+                        <label class="col-sm-5 control-label">Cargo de quien Autoriza:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" size="150" maxlength="150" required="true" placeholder=""  th:field="*{cargoautorizadiagnosticocapacitacion}"/>
+                        </div>
+                    </div>
+
+            </div>
+             <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-info"><a href="#" th:href="@{/diagnosticocapacitaciones/}">Regresar</a></button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+        </div>
+        </div>
+        <!--            <div class="row">
+       
+                        
+                        <button type="submit" class="btn btn-default">Agregar</button>
+                    </div>-->
+       
+    </form>
+</div>
+
+
+</div>
+</div>
+</div>
+<div class="col-md-12">
+    <th:block th:include="../templates/footer"></th:block>
+</div>  
+
+<script>
+    $(document).ready(function () {
+    $('#fechadesdecomite').datepicker({
+    dateFormat: 'yy-mm-dd'
+    });
+    $('#fechahastacomite').datepicker({
+    dateFormat: 'yy-mm-dd'
+    });
+    });</script>
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../diagnosticocapacitaciones/';
+    });
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });
+</script> 
+
+
+
+</body>	
+</html>

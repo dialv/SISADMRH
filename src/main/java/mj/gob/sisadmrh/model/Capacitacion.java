@@ -82,11 +82,13 @@ public class Capacitacion implements Serializable {
     //private List<AsistenciaCapacitacion> asistenciacapacitacionList;
     
     @Column(name = "FECHACAPACITACIONDESDE")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+   // @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechacapacitaciondesde;
     
     @Column(name = "FECHACAPACITACIONHASTA")
-   @DateTimeFormat(pattern = "YYYY-MM-dd")
+  // @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechacapacitacionhasta;
     
     

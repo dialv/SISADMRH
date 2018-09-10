@@ -5,29 +5,35 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+     <div class="row">     
+    <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
-<div class="container">
+<div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
     
-    
+         <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/formacion.png" width="200" th:src="@{/image/formacion.png}"/>
     
     <div th:if="${not #lists.isEmpty(nivelescolaridades)}">
         <h3 align="center" >Lista de Niveles Escolares</h3>
         <table class="table table-striped">
             <tr>
                 <th>Centro Educativo</th>
-                <th>anios aprobados</th>
+                <th>Años aprobados</th>
                   <th>Estudios realizados</th>
                  <th>Finalizado</th>
                   <th>titulo obtenido</th>
-                   <th>Pais del nivel escolar</th>
-                   <th>Fecha desde</th>
-                   <th>Fecha hasta</th>
+                   <th>País del nivel escolar</th>
+                   <th>Fecha Desde</th>
+                   <th>Fecha Hasta</th>
                    <th>Acciones</th>
                    
                 
@@ -44,16 +50,48 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd-MMM-yyyy')}">fechahastanivelescolaridad</td>
                 
                 <td>
-                 <a th:href="${'./show/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-default">Edit</a>
-                <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Delete</a></td>
+                    
+                 <!--<a th:href="${'./new/nivelescolaridad'}" class="btn btn-primary">Nuevo</a>-->
+                 <a th:href="${'./new/nivelescolaridad'}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a>
+                <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a>
                 <!--<a th:href="${'./delete/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-danger">Delete</a>-->
                 </td>
             </tr>
         </table>
     </div>
+                        
 </div>
-     <script th:inline="javascript">
+         </div>
+         
+         <div class="col-md-12">
+                    <th:block th:include="../templates/footer"></th:block>
+                </div>   
+         </div>
+   <script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../nivelescolaridades/';
+    });
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });
+</script> 
+ <script th:inline="javascript">
         $(document).ready(function () {
     if([[${msg}]]===3){
        swal({
@@ -63,17 +101,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../roles/';
+                location.href = '../../nivelescolaridades/';
        }); 
-}
-    if([[${msg}]]===0){
-       swal({
-           
-                title: "Exito!",
-                text: "Registro ingresado correctamente",
-                type: "success",
-                icon: "success",
-       }) 
 }
     
     if([[${msg}]]===4){

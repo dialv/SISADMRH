@@ -110,7 +110,7 @@ public class Empleado implements Serializable {
     @ManyToMany
     private List<Mision> misionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Ubicacionfisica> ubicacionfisicaList;
+    private List<UbicacionFisica> ubicacionfisicaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
     private List<Incapacidad> incapacidadList;
     
@@ -315,10 +315,10 @@ public List<Descuento> getDescuentoList() {
         return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
     }
     @XmlTransient
-    public List<Ubicacionfisica> getUbicacionfisicaList() {
+    public List<UbicacionFisica> getUbicacionfisicaList() {
         return ubicacionfisicaList;
     }
-    public void setUbicacionfisicaList(List<Ubicacionfisica> ubicacionfisicaList) {
+    public void setUbicacionfisicaList(List<UbicacionFisica> ubicacionfisicaList) {
         this.ubicacionfisicaList = ubicacionfisicaList;
     }
 

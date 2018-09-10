@@ -1,0 +1,23 @@
+
+
+<div th:if="${#lists.size(cuadrodirectivos)} == 0" class="alert alert-success" role="alert">No hay datos...</div>
+
+<table th:if="${#lists.size(cuadrodirectivos)} != 0" class="table table-bordered">
+                  <thead>
+                      <th>codigocuadrodirectivo</th>
+                <th>responsablecuadrodirectivo</th>
+                <th>area</th>
+                <th>desripcioncuadrodirectivo</th>
+                <th>fechapresentacion</th>
+               
+                  </thead>
+                  
+                  <tbody th:each="cuadrodirectivo: ${cuadrodirectivos}">
+                     <td th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
+                <!--<td th:text="${cuadrodirectivo.responsablecuadrodirectivo}">Responsable</td>-->
+                <td th:text="${cuadrodirectivo.area}">area</td>
+                <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
+                <td th:text="${#calendars.format(cuadrodirectivo.fechapresentacion, 'dd-MMM-yyyy')}">F. Presentacion</td>
+                
+                  </tbody>
+        </table>

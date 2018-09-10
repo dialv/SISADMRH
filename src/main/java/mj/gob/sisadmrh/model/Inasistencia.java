@@ -49,9 +49,11 @@ public class Inasistencia implements Serializable {
     private String constanciainasistencia;
     @Column(name = "FECHADESDEINASISTENCIA")
     //@Temporal(TemporalType.DATE)
-      @DateTimeFormat(pattern = "YYYY-MM-dd")
+    //  @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechadesdeinasistencia;
-      @DateTimeFormat(pattern = "YYYY-MM-dd")
+     // @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "FECHAHASTAINASISTENCIA")
     @Temporal(TemporalType.DATE)
     private Date fechahastainasistencia;

@@ -9,6 +9,7 @@ import java.util.Optional;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
 import mj.gob.sisadmrh.repository.EvaluacionCapacitacionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,12 +18,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EvaluacionCapacitacionImpl  implements EvaluacionCapacitacionService{
-private EvaluacionCapacitacionRepository evaCapacitacionRep;
+@Autowired
+    private EvaluacionCapacitacionRepository evaCapacitacionRep;
 public void SetEvaluacionCapacitacionRepository(EvaluacionCapacitacionRepository evaluacionCapacitacionRepository){
 this.evaCapacitacionRep=evaluacionCapacitacionRepository;
 }
     @Override
-    public Iterable<EvaluacionCapacitacion> listAllEvualuacionCapacitacion() {
+    public Iterable<EvaluacionCapacitacion> listAllEvaluacionCapacitacion() {
       return evaCapacitacionRep.findAll();
     }
 

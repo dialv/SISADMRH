@@ -12,6 +12,7 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
+    
 <!--<div class="container">-->
 <div th:if="${not #lists.isEmpty(comites)}">
             <div class="row">
@@ -19,49 +20,58 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
                 <div class="col-md-9">
+                          <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
                     <h3 align="center">Listado de Comites</h3>
                     <table class="table table-striped">
                         <tr>
-                             <th>Codigo</th>
-                            <th>DUI</th>
-                            <th>Nit</th>
-                           
+                             <th>Código</th>
                             <th>Nombre</th>
                             <th>Responsable</th>
                             <th>Descripcion</th>
-                            <th>N de acuerdo</th>
+                            <th>Nº de Acuerdo</th>
                             <th>Miembros maximos</th>
-                            <th>F. desde</th>
-                            <th>F. hasta</th>
+                            <th>Fecha Deesde</th>
+                            <th>Fecha Hasta</th>
                             
                             <th>Acciones</th>
 
                         </tr>
                         <tr th:each="comite : ${comites}">
-                            <td th:text="${comite.codigocomite}">Codigo</td>
+                            <td th:text="${comite.codigocomite}">Código</td>
                             <td th:text="${comite.nombrecomite}">Nombre</td>
-                            <td th:text="${comite.dui}">DUI</td>
-                            <td th:text="${comite.nit}">NIT</td>
-                            <td th:text="${comite.responsablecomite}">Responsable</td>
-                            <td th:text="${comite.desripcioncomite}">Descripcion</td>
-                            <td th:text="${comite.numeroacuerdocomite}">Numero acuerdo</td>
-                            <td th:text="${comite.miembromaximo}">Miembro maximo</td>
-                            <td th:text="${comite.fechadesdecomite}">F. desde</td>
-                            <td th:text="${comite.fechahastacomite}">fechahastacomite</td>
+<!--                            <td th:text="${comite.dui}">DUI</td>
+                            <td th:text="${comite.nit}">NIT</td>-->
+                            <td th:text="${comite.codigoempleado.nombreempleado}">Responsable</td>
+                            <td th:text="${comite.desripcioncomite}">Descripción</td>
+                            <td th:text="${comite.numeroacuerdocomite}">Numero Acuerdo</td>
+                            <td th:text="${comite.miembromaximo}">Miembros Maximos</td>
+                            <!--<td th:text="${comite.fechadesdecomite}">Fecha Desde</td>-->
+                             <td th:text="${#calendars.format(comite.fechadesdecomite, 'dd/MM/yyyy')}">Fecha Desde</td>
+                            <!--<td th:text="${comite.fechahastacomite}">Fecha Hasta </td>-->
+                             <td th:text="${#calendars.format(comite.fechahastacomite, 'dd/MM/yyyy')}">F. Fecha Hasta</td>
 <!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
-                            <td><a th:href="${'./show/' + comite.codigocomite}" class="btn btn-default">Mostrar</a>
-                            <a th:href="${'./edit/' + comite.codigocomite}" class="btn btn-default">Edit</a>
-                           <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comite.codigocomite} + '\');'" >Delete</a></td>
+                            <td>
+                                 <!--<a th:href="${'./new/comite'}" class="btn btn-primary">Nuevo</a>-->
+                                <a th:href="${'./show/' + comite.codigocomite}" class="btn btn-info">Mostrar</a>
+                           <a th:href="${'./edit/' + comite.codigocomite}" class="btn btn-success">Editar</a>
+                                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comite.codigocomite} + '\');'" >Eliminar</a>
+                            </td>
+                           
                             <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
                         </tr>
                     </table>
+                  
                 </div>
-                <div class="col-md-12">
+                 <!--<nav th:replace="paginator-nav :: paginator"></nav>-->
+            </div>    
+             <div class="col-md-12">
                     <th:block th:include="../templates/footer"></th:block>
-                </div>
-            </div>     
+                </div>   
     </div>
+    
 <!--</div>-->
  <script th:inline="javascript">
         $(document).ready(function () {

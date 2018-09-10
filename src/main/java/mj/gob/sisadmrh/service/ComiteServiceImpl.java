@@ -11,6 +11,8 @@ import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.repository.ComiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -55,5 +57,14 @@ comiteRep.deleteById(id);
     public Iterable<Comite> findByDato(String dato) {
         return comiteRep.findByDato("%"+dato+"%");
         
+    }
+  public  Iterable<Comite> findByComite(String dato){
+  
+  return comiteRep.findByComite("%"+dato+"%");
+          }
+
+    @Override
+    public Page<Comite> listAllComite(Pageable pePageable) {
+return  comiteRep.findAll(pePageable);
     }
 }
