@@ -10,11 +10,13 @@ import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.repository.ContratoRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author IPalacios
  */
+@Service
 public class ContratoServicesImpl implements ContratoService {
     private ContratoRepository contratoRep;
     

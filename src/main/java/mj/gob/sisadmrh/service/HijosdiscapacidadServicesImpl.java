@@ -10,11 +10,13 @@ import mj.gob.sisadmrh.model.Hijodiscapacidad;
 import mj.gob.sisadmrh.repository.HijosdiscapacidadRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author IPalacios
  */
+@Service
 public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
     private HijosdiscapacidadRepository hijosdiscapacidadRep;
     
