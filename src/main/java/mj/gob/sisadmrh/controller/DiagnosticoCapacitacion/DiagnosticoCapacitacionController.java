@@ -14,7 +14,7 @@ import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Estado;
-import mj.gob.sisadmrh.model.UbicacionFisica;
+import mj.gob.sisadmrh.model.Ubicacionfisica;
 import mj.gob.sisadmrh.service.CapacitacionService;
 
 import mj.gob.sisadmrh.service.EmpleadoService;
@@ -78,7 +78,7 @@ private EmpleadoService empleadoService;
     public String newDiagnosticoCapacitacion(Model model) {
         model.addAttribute("diagnosticocapacitacion", new DiagnosticoCapacitacion());
         
-          Iterable<UbicacionFisica> ubicacionfisicas= ubicacionFisicaService.listAllUbicacionFisica();
+          Iterable<Ubicacionfisica> ubicacionfisicas= ubicacionFisicaService.listAllUbicacionFisica();
         model.addAttribute("ubicacionfisicas", ubicacionfisicas);
         
          Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();

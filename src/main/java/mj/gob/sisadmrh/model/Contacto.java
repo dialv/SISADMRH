@@ -26,14 +26,15 @@ import javax.validation.constraints.Size;
 @Table(name = "contacto")
 @NamedQueries({   //
     @NamedQuery(name = "Contacto.findAll", query = "SELECT c FROM Contacto c"),
-    @NamedQuery(name = "Contacto.findByCodigocontacto", query = "SELECT c FROM Contacto c WHERE c.codigocontacto = :codigocontacto"),
-    @NamedQuery(name = "Contacto.findByNombrecontacto", query = "SELECT c FROM Contacto c WHERE c.nombrecontacto = :nombrecontacto"),
-    @NamedQuery(name = "Contacto.findByApellidocontacto", query = "SELECT c FROM Contacto c WHERE c.apellidocontacto = :apellidocontacto"),
-    @NamedQuery(name = "Contacto.findByDireccion", query = "SELECT c FROM Contacto c WHERE c.direccion = :direccion"),
-    @NamedQuery(name = "Contacto.findByEmailcontacto", query = "SELECT c FROM Contacto c WHERE c.emailcontacto = :emailcontacto"),
-    @NamedQuery(name = "Contacto.findBySexocontacto", query = "SELECT c FROM Contacto c WHERE c.sexocontacto = :sexocontacto"),
-    @NamedQuery(name = "Contacto.findByTelefonofijocontacto", query = "SELECT c FROM Contacto c WHERE c.telefonofijocontacto = :telefonofijocontacto"),
-    @NamedQuery(name = "Contacto.findByTelefonomovilcontacto", query = "SELECT c FROM Contacto c WHERE c.telefonomovilcontacto = :telefonomovilcontacto")})
+//    @NamedQuery(name = "Contacto.findByCodigocontacto", query = "SELECT c FROM Contacto c WHERE c.codigocontacto = :codigocontacto"),
+//    @NamedQuery(name = "Contacto.findByNombrecontacto", query = "SELECT c FROM Contacto c WHERE c.nombrecontacto = :nombrecontacto"),
+//    @NamedQuery(name = "Contacto.findByApellidocontacto", query = "SELECT c FROM Contacto c WHERE c.apellidocontacto = :apellidocontacto"),
+//    @NamedQuery(name = "Contacto.findByDireccion", query = "SELECT c FROM Contacto c WHERE c.direccion = :direccion"),
+//    @NamedQuery(name = "Contacto.findByEmailcontacto", query = "SELECT c FROM Contacto c WHERE c.emailcontacto = :emailcontacto"),
+//    @NamedQuery(name = "Contacto.findBySexocontacto", query = "SELECT c FROM Contacto c WHERE c.sexocontacto = :sexocontacto"),
+//    @NamedQuery(name = "Contacto.findByTelefonofijocontacto", query = "SELECT c FROM Contacto c WHERE c.telefonofijocontacto = :telefonofijocontacto"),
+//    @NamedQuery(name = "Contacto.findByTelefonomovilcontacto", query = "SELECT c FROM Contacto c WHERE c.telefonomovilcontacto = :telefonomovilcontacto")
+})
 public class Contacto implements Serializable {
 
     private static final long serialVersionUID = 1L;
