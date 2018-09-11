@@ -26,7 +26,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>
       
         <table class="table table-striped">
-              <tr th:each="evaluacioncapacitacion : ${evaluacioncapacitaciones}">
+              <!--<tr th:each="evaluacioncapacitacion : ${evaluacioncapacitaciones}">-->
                 <th>Codigo Capacitación</th>
                 <th>Lugar Evaluacion</th>
                 <th>Hora</th>
@@ -58,7 +58,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <td th:text="${evaluacioncapacitacion.codigoevaluacioncapacitacion}">Codigo Evaluacion Capacitacion</td>
                 <!--<td th:text="${codigocapacitacion.nombrecapacitacion}">Nombre Capacitacion</td>-->
                 <td th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar Evaluacion</td>
-                <td th:text="${evaluacioncapacitacion.horaevualuacioncapacitacion}">Hora</td>
+      <td th:text="${#dates.format(evaluacioncapacitacion.horaevualuacioncapacitacion, 'dd/MM/yyyy HH:mm')}"></td>
                 <td th:text="${evaluacioncapacitacion.dominiotema}">Dominio Tema</td>
                 <td th:text="${evaluacioncapacitacion.habilidadcomunicacion}">Habilidad Comunicacion</td>
 <!--                <td th:text="${evaluacioncapacitacion.espectativa}">Llena sus Espectativas</td>

@@ -1,7 +1,8 @@
-package com.bolsadeideas.springboot.app.util.paginator;
+package  mj.gob.sisadmrh.util.paginador;
 
 import java.util.ArrayList;
 import java.util.List;
+import mj.gob.sisadmrh.util.paginador.PageItem;
 
 import org.springframework.data.domain.Page;
 

@@ -34,12 +34,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQuery(name = "Comite.findAll", query = "SELECT c FROM Comite c")})
 public class Comite implements Serializable {
     @Basic(optional = false)
-    @NotNull()
+   
     @Size(min = 1, max = 20)
     @Column(name = "NIT")
     private String nit;
     @Basic(optional = false)
-    @NotNull()
+   
     @Size(min = 1, max = 13)
     @Column(name = "DUI")
     private String dui;
