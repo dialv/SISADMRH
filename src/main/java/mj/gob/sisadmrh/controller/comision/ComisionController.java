@@ -44,7 +44,7 @@ public class ComisionController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("comision", comisionService.getComisionById(id));
-        return PREFIX + "comites";
+        return PREFIX + "comisionform";
     }
 
     @RequestMapping("new/comision")

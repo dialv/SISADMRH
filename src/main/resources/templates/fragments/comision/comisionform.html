@@ -13,43 +13,33 @@
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
-    
-<div class="row">
-            <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-    <div class="col-md-9">
-    <div class="row text-center">
-        <br><br>
-                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
-    </div><br>
-        <h3 align="center">Crear Comision</h3>
+</div><br>
+    <div class="container">
+        <h2 align="center">Crear Comision</h2>
         <div>
-            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
-<!--                <input type="hidden" th:field="*{codigocomision}"/>
-                <input type="hidden" th:field="*{nombrecomision}"/>-->
-<!--                            <div class="form-group">
+            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
+                <input type="hidden" th:field="*{codigocomision}"/>
+                <input type="hidden" th:field="*{nombrecomision}"/>
+                <!--            <div class="form-group">
                                 <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" th:field="*{codigocomision}"/>
                                 </div>
                             </div>-->
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Nombre Comision:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true" th:field="*{nombrecomision}"/>
                     </div>
                 </div>
-                <div class="form-group">
-                                <label class="col-sm-2 control-label">Numero de acuerdo comision:</label>
+                <!--            <div class="form-group">
+                                <label class="col-sm-2 control-label">Representa a:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" th:field="*{numeroacuerdocomision}"/>
+                                    <input type="text" class="form-control" th:field="*{descripcioncomision}"/>
                                 </div>
-                            </div>
+                            </div>-->
                 <div class="form-group">
-<!--                <label class="col-sm-2 control-label">Fecha Desde:</label>
+                    <label class="col-sm-2 control-label">Fecha Desde:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" required="true" th:field="*{fechadesdecomision}"/>
                     </div>
@@ -59,12 +49,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-10">
                         <input type="text" class="form-control" required="true" th:field="*{fechahastacomision}"/>
                     </div>
-                </div>-->
-               <div class="form-group">
-                    <label class="col-sm-2 control-label">acuerdo:</label>
-                    <div class="col-sm-10">
-                        <input type="file" name="file" class="" required="true" th:field="*{docaprovacion}"/>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -72,7 +56,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </form>
         </div>
-    </div>
     </div>
 
 </body>
