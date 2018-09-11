@@ -24,9 +24,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
+              <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/capacitacion.png" width="150" th:src="@{/image/capacitacion.png}"/>
+                         </div>
            <h3 align="center">Listado de Capacitaciones</h3>
       
-        <table class="table table-striped">
+       <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+                    <thead>
             <tr>
                 <th>Código</th>
                 <th>Nombre</th>
@@ -48,6 +53,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                <th>Acciones</th>
                 
             </tr>
+                    </thead>
             <tr th:each="capacitacion : ${capacitaciones}">
                 <td th:text="${capacitacion.codigocapacitacion}">Codigo</td>
                 <td th:text="${capacitacion.nombrecapacitacion}">Nombre</td>
@@ -90,7 +96,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    
    
      <script th:inline="javascript">
-        $(document).ready(function () {
+       $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
     if([[${msg}]]===3){
        swal({
            
