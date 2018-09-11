@@ -21,14 +21,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div th:if="${not #lists.isEmpty(comisiones)}">
         <h3 align="center">Listado de Comisiones</h3><br>
         <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+            <thead>
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                
-                 <th>Fecha Inicio</th>
-                  <th>Fecha Fin</th>
-                
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th></th>
             </tr>
+            </thead>
+            <tbody>
             <tr th:each="comision : ${comisiones}">
                 <td th:text="${comision.codigocomision}">Codigo</td>
                 <td th:text="${comision.nombrecomision}">Nombre</td>
@@ -36,18 +38,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
                   <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
                 
-                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a></td>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Delete</a></td>
+                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a>
+                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Delete</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
+            </tbody>
         </table>
     </div>
 </div>
             </div>
      <script th:inline="javascript">
         $(document).ready(function () {
-            $('#tablita').DataTable();
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
             
     if([[${msg}]]===3){
        swal({
