@@ -53,9 +53,9 @@ public class Descuento implements Serializable {
     private Float montopago;
     @Column(name = "SALARIO")
     private Float salario;
-    @ManyToMany(mappedBy = "descuentoList")
-    private List<Empleado> empleadoList;
-    
+//    @ManyToMany(mappedBy = "descuentoList")
+//    private List<Empleado> empleadoList;
+//    
 
     public Descuento() {
     }
@@ -128,13 +128,13 @@ public class Descuento implements Serializable {
         this.salario = salario;
     }
 
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     @Override
     public int hashCode() {

@@ -50,10 +50,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
      <script th:inline="javascript">
         $(document).ready(function () {
-            $('#tablita').DataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );
+            $('#tablita').DataTable({
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                }});
             
     if([[${msg}]]===3){
        swal({

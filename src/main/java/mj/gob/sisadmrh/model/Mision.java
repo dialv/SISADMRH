@@ -95,8 +95,8 @@ public class Mision implements Serializable {
     @Column(name = "FECHAREGRESOMISION")
     @Temporal(TemporalType.DATE)
     private Date fecharegresomision;
-    @ManyToMany(mappedBy = "misionList")
-    private List<Empleado> empleadoList;
+//    @ManyToMany(mappedBy = "misionList")
+//    private List<Empleado> empleadoList;
 
     public Mision() {
     }
@@ -187,14 +187,14 @@ public class Mision implements Serializable {
     public void setFecharegresomision(Date fecharegresomision) {
         this.fecharegresomision = fecharegresomision;
     }
-
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     @Override
     public int hashCode() {
