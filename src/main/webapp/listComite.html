@@ -1,0 +1,35 @@
+<div th:if="${#lists.size(comites)} == 0" class="alert alert-success" role="alert">No hay datos...</div>
+ <table th:if="${#lists.size(comites)} != 0" class="table table-bordered">
+                  <thead>
+                        <th>Codigo</th>
+<!--                            <th>DUI</th>
+                            <th>Nit</th>-->
+                           
+                            <th>Nombre</th>
+                            <th>Responsable</th>
+                            <th>Descripcion</th>
+                            <th>N de acuerdo</th>
+                            <th>Miembros maximos</th>
+                            <th>F. desde</th>
+                            <th>F. hasta</th>
+                  </thead>
+                  
+                  <tbody th:each="c: ${comites}">
+                      <td th:text="${c.codigocomite}"></td>
+                      <td th:text="${c.nombrecomite}"></td>
+                        <td th:text="${comite.codigocomite}">Codigo</td>
+                            <td th:text="${comite.nombrecomite}">Nombre</td>
+<!--                            <td th:text="${comite.dui}">DUI</td>
+                            <td th:text="${comite.nit}">NIT</td>-->
+                            <td th:text="${comite.responsablecomite}">Responsable</td>
+                            <td th:text="${comite.desripcioncomite}">Descripcion</td>
+                            <td th:text="${comite.numeroacuerdocomite}">Numero acuerdo</td>
+                            <td th:text="${comite.miembromaximo}">Miembro maximo</td>
+                            <td th:text="${comite.fechadesdecomite}">F. desde</td>
+                            <td th:text="${comite.fechahastacomite}">fechahastacomite</td>
+                      <!--<td th:text="${c.descripcioncapacitacion}"></td>-->
+                      <td ></td>
+                      <td></td>
+                      <td></td>
+                  </tbody>
+        </table>

@@ -25,31 +25,36 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <div class="col-md-9">
            <h3 align="center">Listado de Inasistencias</h3>
       
-        <table class="table table-striped">
+        <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+            
+            <thead>
             <tr>
-                <th>Codigo inasistencia</th>
+                <th>Código inasistencia</th>
                 <th>Nombre Empleado</th>
                 <th>Motivo Inasistencia</th>
-                <th>Justificacion</th>
+                <th>Justificación</th>
                 <th>Fecha Desde</th>
-                <th>FechaHasta</th>
+                <th>Fecha Hasta</th>
                
                <th>Acciones</th>
                 
             </tr>
+            </thead>
             <tr th:each="inasistencia : ${inasistencias}">
                 <td th:text="${inasistencia.codigoinasistencia}">Codigo</td>
                 <td th:text="${inasistencia.codigoempleado.nombreempleado}">Nombre</td>
                 <td th:text="${inasistencia.motivoinasistencia}">Motivo</td>
-                <td th:text="${inasistencia.constanciainasistencia}">Justificacion</td>
-                <td th:text="${inasistencia.fechadesdeinasistencia}"> Desde</td>
-                <td th:text="${inasistencia.fechahastainasistencia}"> Hasta</td>
+                <td th:text="${inasistencia.constanciainasistencia}">Justificación</td>
+                <!--<td th:text="${inasistencia.fechadesdeinasistencia}"> Desde</td>-->
+                <td th:text="${#calendars.format(inasistencia.fechadesdeinasistencia, 'dd/MM/yyyy')}">Fecha Desde</td>
+                  <td th:text="${#calendars.format(inasistencia.fechahastainasistencia, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <!--<td th:text="${inasistencia.fechahastainasistencia}"> Hasta</td>-->
               
                 
                 <td>
-                    <a th:href="${'./show/' + inasistencia.codigoinasistencia}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + inasistencia.codigoinasistencia}" class="btn btn-default">Edit</a>
-                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${inasistencia.codigoinasistencia} + '\');'" >Delete</a>
+                    <a th:href="${'./show/' + inasistencia.codigoinasistencia}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + inasistencia.codigoinasistencia}" class="btn btn-success">Editar</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${inasistencia.codigoinasistencia} + '\');'" >Eliminar</a>
                <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
                     <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
                 </td>
@@ -65,7 +70,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    
    
    <script th:inline="javascript">
-    $(document).ready(function () {
+     $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",

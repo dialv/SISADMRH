@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>-->
      <th:block th:include="../templates/header"></th:block>
     <title>Capacitaciones</title>
    
@@ -23,30 +24,36 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
+              <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/capacitacion.png" width="150" th:src="@{/image/capacitacion.png}"/>
+                         </div>
            <h3 align="center">Listado de Capacitaciones</h3>
       
-        <table class="table table-striped">
+       <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+                    <thead>
             <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Categoria</th>
-                <th>Descripcion Cat</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Descripción Categoría</th>
                 <th>Departamento Responsable</th>
-                <th>N horas</th>
-                <th>N Dias</th>
+                <th>Nº horas</th>
+                <th>Nº Días</th>
                 <th>Patrocinador</th>
                 <th>Tipo de Evento</th>
                 <th>Especialidad</th>
-                <th>Pais Capacitacion</th>
-                <th>Fecha Capacitacion Desde</th>
-                <th>Fecha Capacitacion Hasta</th>
-                <th>Tipo Capacitacion</th>
-                <th>Estado Capacitacion</th>
+                <th>País Capacitación</th>
+                <th>Fecha Capacitación Desde</th>
+                <th>Fecha Capacitación Hasta</th>
+                <th>Tipo Capacitación</th>
+                <th>Estado Capacitación</th>
                 <th>Nombre Capacitador</th>
                <th>Acciones</th>
                 
             </tr>
+                    </thead>
             <tr th:each="capacitacion : ${capacitaciones}">
                 <td th:text="${capacitacion.codigocapacitacion}">Codigo</td>
                 <td th:text="${capacitacion.nombrecapacitacion}">Nombre</td>
@@ -60,16 +67,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${capacitacion.tipoevento}">Tipo Evento</td>
                 <td th:text="${capacitacion.especialidadevento}">Especialidad</td>
                 <td th:text="${capacitacion.paiscapacitacion}">Pais Capacitacion</td>
-                <td th:text="${capacitacion.fechacapacitaciondesde}">Fecha Capacitacion Desde</td>
-                <td th:text="${capacitacion.fechacapacitacionhasta}">Fecha Capacitacion Hasta</td>
+               <td th:text="${#calendars.format(capacitacion.fechacapacitaciondesde, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <!--<td th:text="${capacitacion.fechacapacitaciondesde}">Fecha Capacitacion Desde</td>-->
+                 <td th:text="${#calendars.format(capacitacion.fechacapacitacionhasta, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <!--<td th:text="${capacitacion.fechacapacitacionhasta}">Fecha Capacitacion Hasta</td>-->
                 <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
                 <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
                 <td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>
                 
                 <td>
-                    <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-default">Edit</a>
-                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a>
+                     <a th:href="${'./new/capacitacion'}" class="btn btn-primary">Nuevo</a>
+                    <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-success">Editar</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Eliminar</a>
                <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
                     <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
                 </td>
@@ -86,7 +96,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    
    
      <script th:inline="javascript">
-        $(document).ready(function () {
+       $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
     if([[${msg}]]===3){
        swal({
            

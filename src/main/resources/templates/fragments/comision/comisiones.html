@@ -5,7 +5,11 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+        <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+        <div class="col-md-9">
+<div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
@@ -15,16 +19,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="container">
     
     <div th:if="${not #lists.isEmpty(comisiones)}">
-        <h2 align="center">Listado de Comisiones</h2>
-        <table class="table table-striped">
+        <h3 align="center">Listado de Comisiones</h3><br>
+        <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+            <thead>
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                
-                 <th>Fecha Inicio</th>
-                  <th>Fecha Fin</th>
-                
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th></th>
             </tr>
+            </thead>
+            <tbody>
             <tr th:each="comision : ${comisiones}">
                 <td th:text="${comision.codigocomision}">Codigo</td>
                 <td th:text="${comision.nombrecomision}">Nombre</td>
@@ -32,16 +38,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
                   <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
                 
-                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a></td>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Delete</a></td>
+                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a>
+                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Delete</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
+            </tbody>
         </table>
     </div>
 </div>
+            </div>
      <script th:inline="javascript">
         $(document).ready(function () {
+            $('#tablita').DataTable({
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                }});
+            
     if([[${msg}]]===3){
        swal({
            

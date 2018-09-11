@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@SessionAttributes("capacitador")
 @RequestMapping(value = "capacitadores")
 public class CapacitadorController extends UtilsController{
     
@@ -53,6 +56,8 @@ public class CapacitadorController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+      model.addAttribute("empleados", empleados);
         return PREFIX + "capacitadorform";
     }
      @RequestMapping("new/capacitador")
@@ -70,9 +75,10 @@ public class CapacitadorController extends UtilsController{
     
     
      @RequestMapping(value = "capacitador")
-    public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model) {
+    public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model,SessionStatus status) {
 try{
  capacitadorService.saveCapacitador(capacitador);
+ status.setComplete();
   model.addAttribute("msg", 0);
 } catch(Exception e){
   model.addAttribute("msg", 1);
@@ -128,7 +134,7 @@ try{
         
           ModelAndView mv = new ModelAndView(PREFIX +"listCapacitador");
           
-       Iterable<Capacitador> lista =  capacitadorService.findByDato(dato);
+       Iterable<Capacitador> lista =  capacitadorService.findByCapacitador(dato);
           
           
            mv.addObject("capacitadores", lista);

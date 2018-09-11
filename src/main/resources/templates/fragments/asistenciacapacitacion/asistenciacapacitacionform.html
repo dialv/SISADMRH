@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-    <title>Crear Asistencia Capacitacion</title>
+    <title>Crear Asistencia Capacitación</title>
     <th:block th:include="../templates/header"></th:block>
    
 </head>
@@ -18,11 +18,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center">Crear Asistencias de Capacitacion</h3>
+             <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/asistencia.png" width="150" th:src="@{/image/asistencia.png}"/>
+            <h3 align="center">Crear Asistencias de Capacitación</h3>
             <div>
                 <form class="form-horizontal" id="formascap" th:object="${formasistenciacapacitancion}" th:action="@{../asistenciacapacitacion}" method="post">
+                    
+                     <input type="hidden" name="codigocuadrodirectivo"/>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Capacitación:</label>
                         <div class="col-sm-10" >
                             <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
                                 <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
@@ -63,13 +68,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                    
                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">puesto:</label>
+                        <label class="col-sm-2 control-label ">Puesto:</label>
                         <div class="col-sm-10">
                             <input type="text" id="puesto" class="form-control" maxlength=""required="true" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">ubicacion fisica:</label>
+                        <label class="col-sm-2 control-label ">Ubicación Física:</label>
                         <div class="col-sm-10">
                             <input type="text" id="ubicacion" class="form-control " required="true" name="ubicacionasistenciacapacitacion" />
                         </div>

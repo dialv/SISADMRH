@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("costocapacitacion")
 @RequestMapping(value = "costocapacitaciones")//plural
 public class CostoCapacitacionController extends UtilsController{
     private CostoCapacitacionService costoCapacitacionService;
@@ -46,6 +49,8 @@ public class CostoCapacitacionController extends UtilsController{
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("costocapacitacion", costoCapacitacionService.getCostoCapacitacionById(id));
+         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+      model.addAttribute("capacitaciones", capacitaciones);
         return PREFIX + "costocapacitacionform";
     }
     
@@ -54,20 +59,20 @@ public class CostoCapacitacionController extends UtilsController{
         model.addAttribute("costocapacitacion", new CostoCapacitacion());
 //        manda a la vista las apacitaciones
          Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
-       
       model.addAttribute("capacitaciones", capacitaciones);
      //   model.addAttribute("capacitacion", new Capacitacion());
         return PREFIX + "costocapacitacionform";
     }
     
     @RequestMapping(value = "costocapacitacion")
-    public String saveCostoCapacitacion(CostoCapacitacion costoCapacitacion, Model model) {
+    public String saveCostoCapacitacion(CostoCapacitacion costoCapacitacion, Model model,SessionStatus status) {
         try{
          costoCapacitacionService.saveCostoCapacitacion(costoCapacitacion);
+         status.setComplete();
           model.addAttribute("msg", 0);
-      //   model.addAttribute("costocapacitaciones", costoCapacitacionService.listAllCostoCapacitacion());
-        // return PREFIX + "costocapacitacionform";
-        // return PREFIX + "costocapacitaciones";
+        model.addAttribute("costocapacitaciones", costoCapacitacionService.listAllCostoCapacitacion());
+         ///return PREFIX + "costocapacitacionform";
+         return PREFIX + "costocapacitaciones";
         }
         catch(Exception e){
          model.addAttribute("msg", 1);

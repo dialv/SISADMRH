@@ -22,5 +22,7 @@ public interface InasistenciaService {
 
     void deleteInasistencia(Integer id);
     Iterable<Inasistencia> findByEmpleado(String dato);
+    Iterable<Inasistencia> findByMotivo(String dato);
+    
     
 }

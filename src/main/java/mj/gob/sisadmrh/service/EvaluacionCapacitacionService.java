@@ -16,7 +16,7 @@ import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
  * @author jorge
  */
 public interface EvaluacionCapacitacionService {
-     Iterable <EvaluacionCapacitacion> listAllEvualuacionCapacitacion();
+     Iterable <EvaluacionCapacitacion> listAllEvaluacionCapacitacion();
     
     Optional<EvaluacionCapacitacion> getEvualuacionCapacitacionById(Integer id);
 

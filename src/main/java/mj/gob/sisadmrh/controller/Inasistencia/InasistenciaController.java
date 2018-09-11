@@ -16,12 +16,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
  * @author jorge
  */
 @Controller
+@SessionAttributes("inasistencia")
 @RequestMapping(value = "inasistencias")
 public class InasistenciaController extends UtilsController{
     @Autowired
@@ -39,6 +43,10 @@ public class InasistenciaController extends UtilsController{
        @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("inasistencia",inasistenciaService.getInasistenciaById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//         
+      model.addAttribute("empleados", empleados);
+//       return PREFIX + "inasistenciaform";
          return PREFIX + "inasistenciaform";
     }
     
@@ -53,9 +61,10 @@ public class InasistenciaController extends UtilsController{
     
     
        @RequestMapping(value = "inasistencia")
-    public String saveInasistencia(Inasistencia inasistencia,Model model) {
+    public String saveInasistencia(Inasistencia inasistencia,Model model,SessionStatus status) {
         try{
         inasistenciaService.saveInasistencia(inasistencia);
+        status.setComplete();
         
         model.addAttribute("msg", 0);
        // model.addAttribute("inasistencias", inasistenciaService.listAllInasistencia());
@@ -86,6 +95,25 @@ public class InasistenciaController extends UtilsController{
         }
          return PREFIX + "inasistencias";
         //return "redirect:/comisiones/";
+    }
+     @RequestMapping("buscar/")
+    public String buscar() {
+             
+        return PREFIX +"buscar";
+    }
+    
+    
+      @RequestMapping(value="buscar/listar/{dato}",method = { RequestMethod.GET})
+    public ModelAndView listInasistencia(@PathVariable("dato") String dato) {
+        
+          ModelAndView mv = new ModelAndView(PREFIX +"listInasistencia");
+          
+       Iterable<Inasistencia> lista =  inasistenciaService.findByMotivo(dato);
+          
+          
+           mv.addObject("inasistencias", lista);
+           mv.addObject("dato", dato);
+        return mv;
     }
     
 }

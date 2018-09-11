@@ -7,40 +7,40 @@ package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author daniel
+ * @author root
  */
 @Entity
-@Table(name = "EMPLEADO")
+@Table(name = "empleado")
 @NamedQueries({
-@NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
+    @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
 public class Empleado implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Size(max = 50)
     @Column(name = "NOMBREEMPLEADO")
     private String nombreempleado;
     @Size(max = 50)
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
+    @Column(name = "FECHANACIMIENTOEMPLEADO")
+    @Temporal(TemporalType.DATE)
+    private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
     private String nacionalidad;
@@ -63,8 +63,8 @@ public class Empleado implements Serializable {
     @Column(name = "TELEFONOFIJOEMPLEADO")
     private String telefonofijoempleado;
     @Size(max = 50)
-    @Column(name = "RECIDENCIAPERMANENTE")
-    private String recidenciapermanente;
+    @Column(name = "RESIDENCIAPERMANENTE")
+    private String residenciapermanente;
     @Size(max = 50)
     @Column(name = "ESTADOFAMILIAR")
     private String estadofamiliar;
@@ -83,6 +83,15 @@ public class Empleado implements Serializable {
     @Size(max = 9)
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
+    @Column(name = "FECHAINGRESOSECPUB")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresosecpub;
+    @Column(name = "FECHAINGRESOSECPRIV")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresosecpriv;
+    @Column(name = "FECHAINGRESOMINISTERIO")
+    @Temporal(TemporalType.DATE)
+    private Date fechaingresoministerio;
     @Size(max = 6)
     @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
@@ -98,73 +107,23 @@ public class Empleado implements Serializable {
     @Size(max = 50)
     @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
+    @Column(name = "ESTADOEMPLEADO")
+    private Integer estadoempleado;
     @Size(max = 1)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
-   // private List<Descuento> descuentoList;
-     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Inasistencia> inasistenciaList;
-    @JoinTable(name = "EMPLEADOMISION", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOMISION", referencedColumnName = "CODIGOMISION")})
-    @ManyToMany
-    private List<Mision> misionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Ubicacionfisica> ubicacionfisicaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Incapacidad> incapacidadList;
-    
-    
-    private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "CODIGOEMPLEADO")
     private Integer codigoempleado;
-    @Column(name = "FECHANACIMIENTOEMPLEADO")
-    @Temporal(TemporalType.DATE)
-    private Date fechanacimientoempleado;
-    @Column(name = "FECHAINGRESOSECPUB")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresosecpub;
-    @Column(name = "FECHAINGRESOSECPRIV")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresosecpriv;
-    @Column(name = "FECHAINGRESOMINISTERIO")
-    @Temporal(TemporalType.DATE)
-    private Date fechaingresoministerio;
-    @Column(name = "ESTADOEMPLEADO")
-    private Integer estadoempleado;
-    @JoinTable(name = "EMPLEADONIVELESCOLARIDAD", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGONIVELNIVELESCOLARIDAD", referencedColumnName = "CODIGONIVELNIVELESCOLARIDAD")})
-    @ManyToMany
-    private List<NivelEscolaridad> nivelescolaridadList;
-    @JoinTable(name = "EMPLEADOASISTENCIACAPACITACION", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOASISTENCIACAPACITACION", referencedColumnName = "CODIGOASISTENCIACAPACITACION")})
-    @ManyToMany
-    private List<AsistenciaCapacitacion> asistenciacapacitacionList;
-    @JoinTable(name = "EMPLEADOCAPACITACION", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")})
-    @ManyToMany
-    private List<Capacitacion> capacitacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Capacitador> capacitadorList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<Comite> comiteList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoempleado")
-    private List<CuadroDirectivo> cuadrodirectivoList;
-    
-    //private List<Descuento> descuentoList;
-
-@JoinTable(name = "empleadodescuento", joinColumns = {
-        @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")}, inverseJoinColumns = {
-        @JoinColumn(name = "CODIGODESCUENTO", referencedColumnName = "CODIGODESCUENTO")})
-    @ManyToMany
-    private List<Descuento> descuentoList;
-
+    @Size(max = 50)
+    @Column(name = "recidenciapermanente")
+    private String recidenciapermanente;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigopuesto")
+    private int codigopuesto;
 
     public Empleado() {
     }
@@ -173,153 +132,9 @@ public class Empleado implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
-    public Integer getCodigoempleado() {
-        return codigoempleado;
-    }
-
-    public void setCodigoempleado(Integer codigoempleado) {
+    public Empleado(Integer codigoempleado, int codigopuesto) {
         this.codigoempleado = codigoempleado;
-    }
-
-
-    public Date getFechanacimientoempleado() {
-        return fechanacimientoempleado;
-    }
-
-    public void setFechanacimientoempleado(Date fechanacimientoempleado) {
-        this.fechanacimientoempleado = fechanacimientoempleado;
-    }
-
-
-    public Date getFechaingresosecpub() {
-        return fechaingresosecpub;
-    }
-
-    public void setFechaingresosecpub(Date fechaingresosecpub) {
-        this.fechaingresosecpub = fechaingresosecpub;
-    }
-
-    public Date getFechaingresosecpriv() {
-        return fechaingresosecpriv;
-    }
-
-    public void setFechaingresosecpriv(Date fechaingresosecpriv) {
-        this.fechaingresosecpriv = fechaingresosecpriv;
-    }
-
-    public Date getFechaingresoministerio() {
-        return fechaingresoministerio;
-    }
-
-    public void setFechaingresoministerio(Date fechaingresoministerio) {
-        this.fechaingresoministerio = fechaingresoministerio;
-    }
-
-
-    public Integer getEstadoempleado() {
-        return estadoempleado;
-    }
-
-    public void setEstadoempleado(Integer estadoempleado) {
-        this.estadoempleado = estadoempleado;
-    }
-
-
-    public List<NivelEscolaridad> getNivelescolaridadList() {
-        return nivelescolaridadList;
-    }
-
-    public void setNivelescolaridadList(List<NivelEscolaridad> nivelescolaridadList) {
-        this.nivelescolaridadList = nivelescolaridadList;
-    }
-
-    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
-        return asistenciacapacitacionList;
-    }
-
-    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
-        this.asistenciacapacitacionList = asistenciacapacitacionList;
-    }
-
-    public List<Capacitacion> getCapacitacionList() {
-        return capacitacionList;
-    }
-
-    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
-        this.capacitacionList = capacitacionList;
-    }
-
-    public List<Capacitador> getCapacitadorList() {
-        return capacitadorList;
-    }
-
-    public void setCapacitadorList(List<Capacitador> capacitadorList) {
-        this.capacitadorList = capacitadorList;
-    }
-
-    public List<Comite> getComiteList() {
-        return comiteList;
-    }
-
-    public void setComiteList(List<Comite> comiteList) {
-        this.comiteList = comiteList;
-    }
-
-    public List<CuadroDirectivo> getCuadrodirectivoList() {
-        return cuadrodirectivoList;
-    }
-
-    public void setCuadrodirectivoList(List<CuadroDirectivo> cuadrodirectivoList) {
-        this.cuadrodirectivoList = cuadrodirectivoList;
-    }
-    
-    
-
-public List<Descuento> getDescuentoList() {
-        return descuentoList;
-    }
-
-    public void setDescuentoList(List<Descuento> descuentoList) {
-        this.descuentoList = descuentoList;
-    }
-     public List<Incapacidad> getIncapacidadList() {
-        return incapacidadList;
-    }
-
-    public void setIncapacidadList(List<Incapacidad> incapacidadList) {
-        this.incapacidadList = incapacidadList;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Empleado)) {
-            return false;
-        }
-        Empleado other = (Empleado) object;
-        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
-    }
-    @XmlTransient
-    public List<Ubicacionfisica> getUbicacionfisicaList() {
-        return ubicacionfisicaList;
-    }
-    public void setUbicacionfisicaList(List<Ubicacionfisica> ubicacionfisicaList) {
-        this.ubicacionfisicaList = ubicacionfisicaList;
+        this.codigopuesto = codigopuesto;
     }
 
     public String getNombreempleado() {
@@ -338,6 +153,14 @@ public List<Descuento> getDescuentoList() {
         this.apellidoempleado = apellidoempleado;
     }
 
+    public Date getFechanacimientoempleado() {
+        return fechanacimientoempleado;
+    }
+
+    public void setFechanacimientoempleado(Date fechanacimientoempleado) {
+        this.fechanacimientoempleado = fechanacimientoempleado;
+    }
+
     public String getNacionalidad() {
         return nacionalidad;
     }
@@ -348,9 +171,6 @@ public List<Descuento> getDescuentoList() {
 
     public String getTiponacionalidad() {
         return tiponacionalidad;
-    }
-    public List<Inasistencia> getInasistenciaList() {
-        return inasistenciaList;
     }
 
     public void setTiponacionalidad(String tiponacionalidad) {
@@ -397,12 +217,12 @@ public List<Descuento> getDescuentoList() {
         this.telefonofijoempleado = telefonofijoempleado;
     }
 
-    public String getRecidenciapermanente() {
-        return recidenciapermanente;
+    public String getResidenciapermanente() {
+        return residenciapermanente;
     }
 
-    public void setRecidenciapermanente(String recidenciapermanente) {
-        this.recidenciapermanente = recidenciapermanente;
+    public void setResidenciapermanente(String residenciapermanente) {
+        this.residenciapermanente = residenciapermanente;
     }
 
     public String getEstadofamiliar() {
@@ -453,6 +273,30 @@ public List<Descuento> getDescuentoList() {
         this.isssempleado = isssempleado;
     }
 
+    public Date getFechaingresosecpub() {
+        return fechaingresosecpub;
+    }
+
+    public void setFechaingresosecpub(Date fechaingresosecpub) {
+        this.fechaingresosecpub = fechaingresosecpub;
+    }
+
+    public Date getFechaingresosecpriv() {
+        return fechaingresosecpriv;
+    }
+
+    public void setFechaingresosecpriv(Date fechaingresosecpriv) {
+        this.fechaingresosecpriv = fechaingresosecpriv;
+    }
+
+    public Date getFechaingresoministerio() {
+        return fechaingresoministerio;
+    }
+
+    public void setFechaingresoministerio(Date fechaingresoministerio) {
+        this.fechaingresoministerio = fechaingresoministerio;
+    }
+
     public String getAfiliacionpension() {
         return afiliacionpension;
     }
@@ -493,6 +337,14 @@ public List<Descuento> getDescuentoList() {
         this.emailempleado = emailempleado;
     }
 
+    public Integer getEstadoempleado() {
+        return estadoempleado;
+    }
+
+    public void setEstadoempleado(Integer estadoempleado) {
+        this.estadoempleado = estadoempleado;
+    }
+
     public String getSexoempleado() {
         return sexoempleado;
     }
@@ -501,16 +353,53 @@ public List<Descuento> getDescuentoList() {
         this.sexoempleado = sexoempleado;
     }
 
-    public List<Mision> getMisionList() {
-        return misionList;
+    public Integer getCodigoempleado() {
+        return codigoempleado;
     }
 
-    public void setMisionList(List<Mision> misionList) {
-        this.misionList = misionList;
+    public void setCodigoempleado(Integer codigoempleado) {
+        this.codigoempleado = codigoempleado;
     }
-    
-     public void setInasistenciaList(List<Inasistencia> inasistenciaList) {
-        this.inasistenciaList = inasistenciaList;
+
+    public String getRecidenciapermanente() {
+        return recidenciapermanente;
+    }
+
+    public void setRecidenciapermanente(String recidenciapermanente) {
+        this.recidenciapermanente = recidenciapermanente;
+    }
+
+    public int getCodigopuesto() {
+        return codigopuesto;
+    }
+
+    public void setCodigopuesto(int codigopuesto) {
+        this.codigopuesto = codigopuesto;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Empleado)) {
+            return false;
+        }
+        Empleado other = (Empleado) object;
+        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
     }
     
 }

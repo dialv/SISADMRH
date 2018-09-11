@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "UBICACIONFISICA")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u")
+    @NamedQuery(name = "UbicacionFisica.findAll", query = "SELECT u FROM UbicacionFisica u")
    })
-public class Ubicacionfisica implements Serializable {
+public class UbicacionFisica implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -52,10 +52,10 @@ public class Ubicacionfisica implements Serializable {
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
 
-    public Ubicacionfisica() {
+    public UbicacionFisica() {
     }
 
-    public Ubicacionfisica(Integer codigoubicacion) {
+    public UbicacionFisica(Integer codigoubicacion) {
         this.codigoubicacion = codigoubicacion;
     }
 
@@ -117,10 +117,10 @@ public class Ubicacionfisica implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Ubicacionfisica)) {
+        if (!(object instanceof UbicacionFisica)) {
             return false;
         }
-        Ubicacionfisica other = (Ubicacionfisica) object;
+        UbicacionFisica other = (UbicacionFisica) object;
         if ((this.codigoubicacion == null && other.codigoubicacion != null) || (this.codigoubicacion != null && !this.codigoubicacion.equals(other.codigoubicacion))) {
             return false;
         }

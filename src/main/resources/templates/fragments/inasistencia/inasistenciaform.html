@@ -14,7 +14,12 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>
-    <div class="container">
+    <!--<div class="container">-->
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div> 
+        <div class="col-md-8">
         <h2 align="center">Crear Inasistencia</h2>
         <div>
             <form class="form-horizontal" th:object="${inasistencia}" th:action="@{../inasistencia}" method="post">
@@ -55,23 +60,31 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <input type="text" class="form-control" required="true" th:field="*{fechahastainasistencia}"/>
                     </div>
                 </div>
-
-                <div class="row">
+  <div class="col-md-12">
+                        <div class="row" align="center">
+                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/inasistencias/}">Regresar</a></button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
+                        </div>
+                         
+                    </div>
+<!--                <div class="row">
                     <button type="submit" class="btn btn-default">Agregar</button>
-                </div>
+                </div>-->
             </form>
         </div>
     </div>
+         </div>
 
 </body>
 <script>
     $(document).ready(function () {
         $('#fechadesdeinasistencia').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
 
         $('#fechahastainasistencia').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
        
     });

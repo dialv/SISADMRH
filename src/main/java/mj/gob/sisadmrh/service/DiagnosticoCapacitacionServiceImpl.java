@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
+import mj.gob.sisadmrh.model.UbicacionFisica;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,12 @@ import mj.gob.sisadmrh.repository.DiagnosticoCapacitacionRepository;
  */
 @Service
 public class DiagnosticoCapacitacionServiceImpl  implements DiagnosticoCapacitacionService{
-    
-    private DiagnosticoCapacitacionRepository diagnostivoRep;
     @Autowired
-    public void setDiagnosticoCapacitacionRepository(DiagnosticoCapacitacionRepository diagnosticoCapacitacionRepository) {
-        this.diagnostivoRep = diagnosticoCapacitacionRepository;
-    }
+    private DiagnosticoCapacitacionRepository diagnostivoRep;
+//    @Autowired
+//    public void setDiagnosticoCapacitacionRepository(DiagnosticoCapacitacionRepository diagnosticoCapacitacionRepository) {
+//        this.diagnostivoRep = diagnosticoCapacitacionRepository;
+//    }
 
     @Override
     public Iterable<DiagnosticoCapacitacion> listAllDiagnosticoCapacitacion() {
@@ -48,6 +49,11 @@ public class DiagnosticoCapacitacionServiceImpl  implements DiagnosticoCapacitac
     public void deleteDiagnosticoCapacitacion(Integer id) {
         diagnostivoRep.deleteById(id);
      
+    }
+
+    @Override
+    public Iterable<DiagnosticoCapacitacion> findByUbicacion(String dato) {
+        return diagnostivoRep.findByUbicacion("%"+dato+"%");
     }
     
 }

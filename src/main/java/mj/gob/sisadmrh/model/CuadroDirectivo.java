@@ -32,8 +32,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "CUADRODIRECTIVO")
 
-//@NamedQueries({
-//    @NamedQuery(name = "Cuadrodirectivo.findAll", query = "SELECT cd FROM Cuadrodirectivo cd")})
+@NamedQueries({
+    @NamedQuery(name = "CuadroDirectivo.findAll", query = "SELECT cd FROM CuadroDirectivo cd")})
 
 public class CuadroDirectivo implements Serializable {
     private static final long serialVersionUID = 1L;

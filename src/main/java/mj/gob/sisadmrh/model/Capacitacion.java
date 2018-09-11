@@ -83,10 +83,12 @@ public class Capacitacion implements Serializable {
     
     @Column(name = "FECHACAPACITACIONDESDE")
     @DateTimeFormat(pattern = "YYYY-MM-dd")
+    // @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechacapacitaciondesde;
     
     @Column(name = "FECHACAPACITACIONHASTA")
    @DateTimeFormat(pattern = "YYYY-MM-dd")
+   //  @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechacapacitacionhasta;
     
     
@@ -106,8 +108,8 @@ public class Capacitacion implements Serializable {
     private Date fechacapacitacion;
     @Column(name = "ESTADOCAPACITACION")
     private Integer estadocapacitacion;
-    @ManyToMany(mappedBy = "capacitacionList")
-    private List<Empleado> empleadoList;
+//    @ManyToMany(mappedBy = "capacitacionList")
+//    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITADOR", referencedColumnName = "CODIGOCAPACITADOR")
     @ManyToOne(optional = false)
     private Capacitador codigocapacitador;
@@ -170,13 +172,13 @@ public class Capacitacion implements Serializable {
         this.estadocapacitacion = estadocapacitacion;
     }
 
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     public Capacitador getCodigocapacitador() {
         return codigocapacitador;

@@ -1,0 +1,30 @@
+<div th:if="${#lists.size(comites)} == 0" class="alert alert-success" role="alert">No hay datos...</div>
+ <table th:if="${#lists.size(comites)} != 0" class="table table-bordered">
+                  <thead>
+                          <th>Codigo</th>
+<!--                            <th>DUI</th>
+                            <th>Nit</th>-->
+                           
+                            <th>Nombre</th>
+                            <th>Responsable</th>
+                            <th>Descripcion</th>
+                            <th>N de acuerdo</th>
+                            <th>Miembros maximos</th>
+                            <th>F. desde</th>
+                            <th>F. hasta</th>
+                  </thead>
+                  
+                  <tbody th:each="comite: ${comites}">
+                      <td th:text="${comite.codigocomite}"></td>
+                      <td th:text="${comite.nombrecomite}"></td>
+<!--                      <td th:text="${comite.dui}">DUI</td>
+                            <td th:text="${comite.nit}">NIT</td>-->
+                            <td th:text="${comite.responsablecomite}">Responsable</td>
+                            <td th:text="${comite.desripcioncomite}">Descripcion</td>
+                            <td th:text="${comite.numeroacuerdocomite}">Numero acuerdo</td>
+                            <td th:text="${comite.miembromaximo}">Miembro maximo</td>
+                            <td th:text="${comite.fechadesdecomite}">F. desde</td>
+                            <td th:text="${comite.fechahastacomite}">fechahastacomite</td>
+                     
+                  </tbody>
+        </table>

@@ -20,6 +20,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          <th:block th:include="../templates/menu"></th:block>
     </div> 
         <div class="col-md-8">
+             <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
              <h3 align="center" >Crear Comite</h3>
     <div>
         <form class="form-horizontal" th:object="${comite}" th:action="@{../comite}" method="post">
@@ -38,7 +41,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de comite:</label>
+                <label class="col-sm-2 control-label">Nombre de Comite:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" size="30" maxlength="30" required="true" placeholder="Escriba El nombre del Comite"  th:field="*{nombrecomite}"/>
                 </div>
@@ -60,13 +63,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>-->
             
             <div class="form-group">
-                <label class="col-sm-2 control-label ">Descripcion:</label>
+                <label class="col-sm-2 control-label ">Descripción:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control"required="true" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" th:field="*{desripcioncomite}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Numero de acuerdo:</label>
+                <label class="col-sm-2 control-label">Numero de Acuerdo:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{numeroacuerdocomite}"/>
                 </div>
@@ -83,7 +86,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Desde:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control"  placeholder="YYYY-MM-DD" required="true" th:field="*{fechadesdecomite}"/>
+                    <input type="text" class="form-control"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -100,8 +103,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>-->
 <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/comites/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="button" class="btn btn-info"><a href="#" th:href="@{/comites/}">Regresar</a></button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
@@ -119,11 +122,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    <script>
     $(document).ready(function () {
         $('#fechadesdecomite').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
 
         $('#fechahastacomite').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
     });
     
