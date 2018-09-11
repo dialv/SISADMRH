@@ -32,15 +32,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </thead>
             <tbody>
             <tr th:each="comision : ${comisiones}">
-                <td th:text="${comision.codigocomision}">Codigo</td>
+                <td th:text="${comision.codigocomision}">Código</td>
                 <td th:text="${comision.nombrecomision}">Nombre</td>
                 
                  <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
                   <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
                 
-                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a>
-                <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a>
-                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Delete</a></td>
+                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a>
+                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
             </tbody>
