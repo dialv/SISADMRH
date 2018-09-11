@@ -25,7 +25,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <br><br>
                         <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
     </div><br>
-        <h3 align="center">Subir archivos</h3>
+        <h3 align="center">Subir archivos </h3>
         <div>
 <!--            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
                 <input type="hidden" th:field="*{codigocomision}"/>
@@ -37,7 +37,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </form>-->
 
 <div class="form">
-									<form method="post" action="/f07/subirarchivo"
+									<form method="post" action="./upload"
 										enctype="multipart/form-data">
 										<h3>Selecci&oacute;n de Archivo</h3>
                                                                                 <div class="row">
@@ -73,6 +73,28 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
     </div>
     </div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+        if([[${msg}]]===2){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Ingresado Exitosamente",
+                type: "success",
+                icon: "success",
+       }); 
+}
+    
+    if([[${msg}]]===3){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+    </script>
 </body>
 </html>
 

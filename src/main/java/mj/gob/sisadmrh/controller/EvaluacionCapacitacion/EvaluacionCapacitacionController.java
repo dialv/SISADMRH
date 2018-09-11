@@ -73,6 +73,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
     public String newEvaluacionCapacitacion(Model model) {
         model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
           Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+         // System.out.println("numero:"+capacitadores);
         model.addAttribute("capacitaciones", capacitaciones);
         return PREFIX + "evaluacioncapacitacionform";
     }
@@ -82,12 +83,14 @@ public class EvaluacionCapacitacionController extends UtilsController {
         try{
            evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
            status.setComplete();
-        // model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+        //  model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
           model.addAttribute("msg", 0);
-         // return PREFIX + "evaluacioncapacitaciones";
+        //  return PREFIX + "evaluacioncapacitaciones";
+        
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
+          // return PREFIX + "evaluacioncapacitacionform";
         }
      return PREFIX + "evaluacioncapacitaciones";
        

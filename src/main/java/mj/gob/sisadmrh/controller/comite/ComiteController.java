@@ -6,7 +6,7 @@
 package mj.gob.sisadmrh.controller.comite;
 
 
-import com.bolsadeideas.springboot.app.util.paginator.PageRender;
+//import com.bolsadeideas.springboot.app.util.paginator.PageRender;
 import java.util.HashMap;
 import java.util.Map;
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -20,6 +20,7 @@ import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioServiceImpl;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.util.paginador.PageRender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -49,31 +50,32 @@ public class ComiteController extends UtilsController{
     public void setComiteService(ComiteService comiteService) {
         this.comiteService = comiteService;
     }
-    
+    @Autowired
      private EmpleadoService empleadoService;
      
-       @Autowired
-    public void setEmpleadoService(EmpleadoService empleadoService) {
-        this.empleadoService = empleadoService;
-    }
-    
+//       @Autowired
+//    public void setEmpleadoService(EmpleadoService empleadoService) {
+//        this.empleadoService = empleadoService;
+//    }
+//    
   @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("comite", comiteService.getComiteById(id));
          Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
-         // System.out.println("numero:"+capacitadores);
         model.addAttribute("empleados", empleados);
         return PREFIX + "comiteform";
     }
     private final String PREFIX = "fragments/comite/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(@RequestParam(name="page",defaultValue = "0") int page,Model model){
-        Pageable pageRequest=new PageRequest(page, 5);//para el paginado
-        Page<Comite> comites=comiteService.listAllComite(pageRequest);//paginado
-        PageRender<Comite> pageRender = new PageRender<Comite>("comites", comites);//pagninado
-        model.addAttribute("comites", comites);//
-        model.addAttribute("page", pageRender);
-        return PREFIX + "comites";
+      
+        
+       // Pageable pageRequest=new PageRequest(page, 5);//para el paginado
+    model.addAttribute("comites" ,comiteService.listAllComite());//paginado
+       // PageRender<Comite> pageRender = new PageRender<Comite>("comites", comites);//pagninado
+     //   model.addAttribute("comites", comites);//
+      //  model.addAttribute("page", pageRender);
+        return PREFIX + "comiteform";
     }
     
      
@@ -97,7 +99,7 @@ public class ComiteController extends UtilsController{
         }
         catch(Exception e)
         {
-        model.addAttribute("msg", 0);
+        model.addAttribute("msg", 1);
         }
       
         return PREFIX + "comiteform";

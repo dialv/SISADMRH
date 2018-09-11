@@ -59,8 +59,8 @@ public class AsistenciaCapacitacion implements Serializable {
     @Column(name = "CODIGOASISTENCIACAPACITACION")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoasistenciacapacitacion;
-    @ManyToMany(mappedBy = "asistenciacapacitacionList")
-    private List<Empleado> empleadoList;
+//    @ManyToMany(mappedBy = "asistenciacapacitacionList")
+//    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
     @ManyToOne(optional = false)
     private Capacitacion codigocapacitacion;
@@ -84,15 +84,15 @@ public class AsistenciaCapacitacion implements Serializable {
     public void setCodigoasistenciacapacitacion(Integer codigoasistenciacapacitacion) {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
-
-
-    public List<Empleado> getEmpleadoList() {
-        return empleadoList;
-    }
-
-    public void setEmpleadoList(List<Empleado> empleadoList) {
-        this.empleadoList = empleadoList;
-    }
+//
+//
+//    public List<Empleado> getEmpleadoList() {
+//        return empleadoList;
+//    }
+//
+//    public void setEmpleadoList(List<Empleado> empleadoList) {
+//        this.empleadoList = empleadoList;
+//    }
 
     public Capacitacion getCodigocapacitacion() {
         return codigocapacitacion;

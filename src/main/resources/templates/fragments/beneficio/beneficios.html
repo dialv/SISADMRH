@@ -25,9 +25,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        
         <table class="table table-striped">
             <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Nombre</th>
-                <th>descripcion</th>
+                <th>Descripción</th>
                  <th>Fecha Inicio</th>
                   <th>Fecha Fin</th>
                 
@@ -39,9 +39,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <td th:text="${beneficio.fechainiciobeneficio}">Fecha Inicio</td>
                   <td th:text="${beneficio.fechafinalizarbeneficio}">Fecha Fin</td>
                 
-                <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-default">Editar</a></td>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${beneficio.codigobeneficio} + '\');'" >Eliminar</a></td>
+                <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-info">Mostrar</a>
+                <a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-success">Editar</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${beneficio.codigobeneficio} + '\');'" >Eliminar</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
