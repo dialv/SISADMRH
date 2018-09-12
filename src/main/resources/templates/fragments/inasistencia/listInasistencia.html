@@ -1,0 +1,33 @@
+
+
+<div th:if="${#lists.size(inasistencias)} == 0" class="alert alert-success" role="alert">No hay datos...</div>
+
+<table th:if="${#lists.size(inasistencias)} != 0" class="table table-bordered">
+                  <thead>
+                 <th>Codigo inasistencia</th>
+                <th>Nombre Empleado</th>
+                <th>Motivo Inasistencia</th>
+                <th>Justificacion</th>
+                <th>Fecha Desde</th>
+                <th>Fecha Hasta</th>
+               
+<!--               <th>Acciones</th>-->
+                  
+                  <tbody  th:each="inasistencia : ${inasistencias}">
+                <td th:text="${inasistencia.codigoinasistencia}">Codigo</td>
+                <td th:text="${inasistencia.codigoempleado.nombreempleado}">Nombre</td>
+                <td th:text="${inasistencia.motivoinasistencia}">Motivo</td>
+                <td th:text="${inasistencia.constanciainasistencia}">Justificacion</td>
+                <td th:text="${inasistencia.fechadesdeinasistencia}"> Desde</td>
+                <td th:text="${inasistencia.fechahastainasistencia}"> Hasta</td>
+              
+                
+                <td>
+                    <a th:href="${'./show/' + inasistencia.codigoinasistencia}" class="btn btn-default">Mostrar</a>
+                <a th:href="${'./edit/' + inasistencia.codigoinasistencia}" class="btn btn-default">Edit</a>
+                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${inasistencia.codigoinasistencia} + '\');'" >Delete</a>
+               <td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>
+                    <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>  
+                </td>
+                  </tbody>
+        </table>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Crear Comision</title>
+    <th:block th:include="../templates/header"></th:block>
+    
+</head>
+<body> 
+ 
+      <div class="contenedorizq"><label  >pnt_gecoms</label> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>
+    
+<div class="row">
+            <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+    <div class="col-md-9">
+    <div class="row text-center">
+        <br><br>
+                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+    </div><br>
+        <h3 align="center">Subir archivos </h3>
+        <div>
+<!--            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
+                <input type="hidden" th:field="*{codigocomision}"/>
+                <input type="hidden" th:field="*{nombrecomision}"/>
+               
+                <div class="row">
+                    <button type="submit" class="btn btn-default">Agregar</button>
+                </div>
+            </form>-->
+
+<div class="form">
+									<form method="post" action="./upload"
+										enctype="multipart/form-data">
+										<h3>Selecci&oacute;n de Archivo</h3>
+                                                                                <div class="row">
+                                                                                    <div class="panel panel-default">
+                                                                                        <div class="panel-body">
+                                                                                            <div class="col-md-12" style="background-color:#d9edf7;">
+                                                                                                <div class="panel-info">
+                                                                                                    <div class="panel-heading">
+                                                                                                        <div class="col-md-5">
+                                                                                                            <input class="btn btn2" type="file" name="archivo" id="archivo" 
+                                                                                                                   title="Buscar archivo"/>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-2">
+                                                                                                            <button type="submit" name="save" value="Subir" id="save" class="btn btn-primary btn-form-add btn-sm">Cargar Datos</button>
+                                                                                                        </div>                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="clr">&nbsp;</div>
+										<div class="clr">&nbsp;</div>
+									</form>
+                                                                           <div class="col-md-2">
+                                                                                                <button type="button" name="limpiar" value="Limpiar" onclick="limpiar();" 
+                                                                                                        class="btn btn-warning btn-form-add btn-sm">Limpiar</button>
+                                                                                            </div>
+									<div id="result"></div>
+									<div class="clr">&nbsp;</div>
+
+								</div>
+        </div>
+    </div>
+    </div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+        if([[${msg}]]===2){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Ingresado Exitosamente",
+                type: "success",
+                icon: "success",
+       }); 
+}
+    
+    if([[${msg}]]===3){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+    </script>
+</body>
+</html>
+

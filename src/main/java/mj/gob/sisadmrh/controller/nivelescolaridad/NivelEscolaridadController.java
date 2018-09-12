@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.controller.nivelescolaridad;
 
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.NivelEscolaridad;
 import mj.gob.sisadmrh.service.EmpleadoService;
 
@@ -16,12 +17,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 //beneficio=nivelescolaridad y beneficios=nivelescolaridades
 @Controller
+@SessionAttributes("nivelescolaridad")
 @RequestMapping(value = "nivelescolaridades")
 public class NivelEscolaridadController {
-    
-    
+  
     private NivelEscolaridadService nivelEscolaridadService;
     @Autowired
     private EmpleadoService empleadoService;
@@ -42,6 +45,9 @@ public class NivelEscolaridadController {
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("nivelescolaridad", nivelEscolaridadService.getNivelEscolaridadById(id));
+         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//         
+      model.addAttribute("empleados", empleados);
         return PREFIX + "nivelescolaridadform";
     }
     
@@ -54,17 +60,21 @@ public class NivelEscolaridadController {
     }
     
     @RequestMapping(value = "nivelescolaridad")
-    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model) {
+    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model,SessionStatus status) {
         try{
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
+            status.setComplete();
             model.addAttribute("msg", 0);
             model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
-            return PREFIX + "nivelescolaridades";
+             Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+//         
+      model.addAttribute("empleados", empleados);
+         //   return PREFIX + "nivelescolaridades";
 
         } catch(Exception e){
              model.addAttribute("msg", 1);
         }
-       return PREFIX + "nivelescolaridadform";//
+       return PREFIX + "nivelescolaridades";//
       // return "redirect:/nivelescolaridades/"; 
        // return PREFIX + "nivelescolaridades";
         //return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();

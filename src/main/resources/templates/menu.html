@@ -52,7 +52,7 @@
                                
 				</li> 
                                 
-                                <li ><a href="#">Carga de Archivos Fuentes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
+                                <li ><a href="#" th:href="@{/archivos/}">Carga de Archivos Fuentes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Beneficios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
@@ -65,6 +65,7 @@
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Cuadros Directivos <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
+                                             <li><a href="#" th:href="@{/cuadrodirectivos/buscar/}">Buscar Cuadros directivos</a></li>
 						<li><a href="#" th:href="@{/cuadrodirectivos/}">Consultar Cuadros Directivos</a></li>
                                                 <li><a href="#" th:href="@{/cuadrodirectivos/new/cuadrodirectivo}">Crear Cuadros Directivos</a></li>
                                                 <li><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
@@ -114,6 +115,16 @@
 					</ul>
 				</li>
                                 
+                                <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Diagnosticos de Capacitaciones<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#" th:href="@{/diagnosticocapacitaciones/}">Consultar diagnostico</a></li>
+                                                 <li><a href="#" th:href="@{/diagnosticocapacitaciones/new/diagnosticocapacitacion}">Crear Diagnostico</a></li>
+<!--                                                 <li><a href="#" th:href="@{/asistenciacapacitaciones/report/}">Asistencia Capacitaciones</a></li>-->
+					</ul>
+				</li>
+                                
+                                
                                  <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Evualucion Capacitacion<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
@@ -127,6 +138,7 @@
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#" th:href="@{/comites/}">Consultar comites</a></li>
                                                  <li><a href="#" th:href="@{/comites/new/comite}">Crear comite</a></li>
+                                                  <li><a href="#" th:href="@{/comites/buscar/}">Buscar Comites</a></li>
                                                  <li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>
                                         </ul>
 				</li>
@@ -144,9 +156,9 @@
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Incapacidades <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-					</ul>
+						<li><a href="#"  th:href="@{/incapacidades/new/incapacidad}"> Crear Incapacidad</a></li>
+						<li><a href="#" th:href="@{/incapacidades/}">Consultar incapacidades</a></li>
+                                        </ul>
 				</li>
                                 
                                 
@@ -156,6 +168,16 @@
                                                 <li><a href="#" th:href="@{/comisiones/}">Consultar Comisiones</a></li>
                                                 <li><a href="#" th:href="@{/comisiones/new/comision}">Crear Comisiones</a></li>
                                                 <li><a href="#" th:href="@{/comisiones/reporte/comision}">Reporte de Comisiones</a></li>
+					</ul>
+				</li>
+                                
+                                  <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Inasistencias <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+                                              <li><a href="#" th:href="@{/inasistencias/buscar/}">Buscar Capacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/inasistencias/}">Consultar Inasistencias</a></li>
+                                                <li><a href="#" th:href="@{/inasistencias/new/inasistencia}">Crear Inasistencias</a></li>
+                                                <!--<li><a href="#" th:href="@{/comisiones/reporte/comision}">Reporte de Comisiones</a></li>-->
 					</ul>
 				</li>
                                 
@@ -179,8 +201,9 @@
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Empleados <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
+					     <li><a href="#" th:href="@{/empleados/}">Consultar Puestos</a></li>
+						<li><a href="#" th:href="@{/empleados/new/empleado}">Crear Empleado</a></li>
+						
 					</ul>
 				</li>
                                 
@@ -221,8 +244,25 @@
                                                 <li><a href="#" th:href="@{/otherreports/constanciaservicios/}">Constancia de Servicios</a></li>
                                                 <li><a href="#" th:href="@{/otherreports/misionesinternas/}">Reporte de Misiones Internas</a></li>
                                                 <li><a href="#" th:href="@{/otherreports/1misionesexternas/}">Reporte de Misiones externa1</a></li>
-                                                 <li><a href="#" th:href="@{/otherreports/2misionesexternas/}">Reporte de Misiones externa2</a></li>
-                                                    <li><a href="#" th:href="@{/otherreports/constanciasalariales/}">constancias salariales</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/2misionesexternas/}">Reporte de Misiones externa2</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/constanciasalariales/}">constancias salariales</a></li>
+                                                 <li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>
+                                                 <li><a href="#" th:href="@{/puestos/reporte/puesto}">Reporte Puestos a Caducar</a></li>
+                                                 <li><a href="#" th:href="@{/empleado/reporte/contrataciones}">Reporte Contrataciones</a></li>
+                                                 <li><a href="#" th:href="@{/empleado/reporte/despidos}">Reporte de Despidos</a></li>
+                                                 <li><a href="#" th:href="@{/empleado/reporte/estadisticoactivo}">Estadistico de Personal Activo</a></li>
+                                                 <li><a href="#" th:href="@{/capacitadores/report/}">Reporte Capacitador</a></li>
+                                                 <li><a href="#" th:href="@{/capacitaciones/reporte/}">Reporte de Capacitaciones</a></li>
+                                                 <li><a href="#" th:href="@{/capacitaciones/reporte/diagnostico}">Reporte de Temas de Diagnostico</a></li>
+                                                 <li><a href="#" th:href="@{/capacitaciones/reporte/capacitador}">Reporte de Capacitadores</a></li>
+                                                 <li><a href="#" th:href="@{/capacitaciones/reporte/personalcapacitado}">Estadistico de Personal Capacitado</a></li>
+                                                 <li><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
+                                                 <li><a href="#" th:href="@{/beneficios/report/}">Reporte de Beneficios</a></li>
+                                                 <li><a href="#" th:href="@{/otherreports/reporte/costocreporte}">Reporte de costos de Capacitacion</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/reporte/pdfplazaoreporte}">Reporte de Plazas Ocupadas</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/reporte/pensionadoreporte}">Reporte de Personal Pensionado</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/reporte/exoneradoreporte}">Reporte de Personal Exonerado de Marcacion</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/reporte/nivelesreporte}">Reporte de Niveles Escolares</a></li>
                                                 
                                                 
                                                   

@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -33,32 +34,33 @@ public class Caparecibidas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigocaparecibidas", nullable = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigocaparecibidas")
     private Integer codigocaparecibidas;
     @Size(max = 50)
-    @Column(name = "tipoevento", length = 50)
+    @Column(name = "tipoevento")
     private String tipoevento;
     @Size(max = 50)
-    @Column(name = "especialidad", length = 50)
+    @Column(name = "especialidad")
     private String especialidad;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "dhoras", nullable = false)
+    @Column(name = "dhoras")
     private int dhoras;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ddias", nullable = false)
+    @Column(name = "ddias")
     private int ddias;
     @Column(name = "fechaevento")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaevento;
     @Size(max = 200)
-    @Column(name = "organismo", length = 200)
+    @Column(name = "organismo")
     private String organismo;
     @Size(max = 200)
-    @Column(name = "pais", length = 200)
+    @Column(name = "pais")
     private String pais;
 
     public Caparecibidas() {

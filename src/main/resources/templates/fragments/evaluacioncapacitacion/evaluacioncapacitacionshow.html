@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Consulta Evaluacion de Capacitacion</title>
+        <title>Consulta Evaluacion de Capacitación</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -19,18 +19,18 @@
                 <form class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">codigo de evaluacion capacitacion:</label>
+                            <label class="col-sm-5 control-label">código de evaluación capacitación:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.codigoevaluacioncapacitacion}">codigo evaluacion capacitacion</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Capacitacion:</label>
+                            <label class="col-sm-5 control-label">Capacitación:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.codigocapacitacion.nombrecapacitacion}">Nombre Capacitacion</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Lugar de capacitacion:</label>
+                            <label class="col-sm-5 control-label">Lugar de capacitación:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitacion</p></div>
                         </div>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Habilidad de comunicacion:</label>
+                            <label class="col-sm-5 control-label">Habilidad de comunicación:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.habilidadcomunicacion}">Habilidad de comunicacion:</p>
                             </div>
@@ -64,7 +64,7 @@
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.claridadtema}">Contenido se desarrolla con claridad</p>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Aclara dudas con precision:</label>
+                                    <label class="col-sm-5 control-label">Aclara dudas con precisión:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.alclaradudas}">Aclara dudas con precision</p>
                                     </div>
@@ -88,13 +88,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Planeacion de tiempo:</label>
+                                    <label class="col-sm-5 control-label">Planeación de tiempo:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.planeaciontiempo}">Planeacion de tiempo</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Distribucion de Tiempo:</label>
+                                    <label class="col-sm-5 control-label">Distribución de Tiempo:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.distribuciontiempo}">Distribucion de Tiempo</p>
                                     </div>
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Es necesaria la Capacitacion:</label>
+                                    <label class="col-sm-5 control-label">Es necesaria la Capacitación:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.necesariocapacitacion}">Es necesaria la Capacitacion</p>
                                     </div>
@@ -171,7 +171,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/asistenciacapacitaciones/}">Regresar</a></button>
+                        <button type="button" class="btn btn-info"><a href="#" th:href="@{/asistenciacapacitaciones/}">Regresar</a></button>
                     </div>
                 </div>
             </div>

@@ -19,33 +19,33 @@
                 <form class="form-horizontal">
                   
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">codigo:</label>
+                            <label class="col-sm-5 control-label">código:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.codigocapacitacion}">codigo de capacitacion</p>
+                                <p class="" th:text="${capacitacion.codigocapacitacion}">codigo de capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de capacitacion:</label>
+                            <label class="col-sm-5 control-label">Nombre de capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.nombrecapacitacion}">Nombre de capacitacion</p>
+                                <p class="" th:text="${capacitacion.nombrecapacitacion}">Nombre de capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Descripcion Capacitacion:</label>
+                            <label class="col-sm-5 control-label">Descripción Capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.descripcioncapacitacion}">Descripcion Capacitacion</p>
+                                <p class="" th:text="${capacitacion.descripcioncapacitacion}">Descripcion Capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Categoria Capacitacion:</label>
+                            <label class="col-sm-5 control-label">Categoría Capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.categoriacapacitacion}">Categoria Capacitacion</p>
+                                <p class="" th:text="${capacitacion.categoriacapacitacion}">Categoría Capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Desripcion Categoria:</label>
+                            <label class="col-sm-5 control-label">Desripcion Categoría:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.descripcioncategoria}">Descripcion Categoria</p>
+                                <p class="" th:text="${capacitacion.descripcioncategoria}">Descripción Categoría</p>
                             </div>
                         </div>
 
@@ -57,16 +57,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Duracion Capacitacion en Horas:</label>
+                            <label class="col-sm-5 control-label">Duración Capacitación en Horas:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.duracionhoracapacitacion}">Duracion Capacitacion en Horas</p>
+                                <p class="" th:text="${capacitacion.duracionhoracapacitacion}">Duración Capacitación en Horas</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Duracion Capacitacion en Dias:</label>
+                            <label class="col-sm-5 control-label">Duración Capacitación en Días:</label>
                             <div class="col-sm-7">
-                                <p class="" th:text="${capacitacion.duraciondiacapacitacion}">Duracion Capacitacion en Dias </p>
+                                <p class="" th:text="${capacitacion.duraciondiacapacitacion}">Duración Capacitación en Días </p>
                             </div>
                         </div>
                          <div class="form-group">
@@ -88,37 +88,37 @@
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Pais donde se Desarrolla la Capacitacion:</label>
+                            <label class="col-sm-5 control-label">País donde se Desarrolla la Capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${capacitacion.paiscapacitacion}">Pais donde se Desarrolla la Capacitacion</p>
+                                <p class="form-control-static" th:text="${capacitacion.paiscapacitacion}">País donde se Desarrolla la Capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha de Capacitacion Desde:</label>
+                            <label class="col-sm-5 control-label">Fecha de Capacitación Desde:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${capacitacion.fechacapacitaciondesde}">Fecha de Capacitacion</p>
+                                <p class="form-control-static" th:text="${#calendars.format(capacitacion.fechacapacitaciondesde, 'dd/MM/yyyy')}">Fecha de Capacitación</p>
                             </div>
                         </div>
                     <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha de Capacitacion Hasta:</label>
+                            <label class="col-sm-5 control-label">Fecha de Capacitación Hasta:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${capacitacion.fechacapacitacionhasta}">Fecha de Capacitacion</p>
+                                <p class="form-control-static" th:text="${#calendars.format(capacitacion.fechacapacitacionhasta, 'dd/MM/yyyy')}">Fecha de Capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tipo de Capacitacion:</label>
+                            <label class="col-sm-5 control-label">Tipo de Capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${capacitacion.fechacapacitacion}">Tipo de Capacitacion</p>
+                                <p class="form-control-static" th:text="${capacitacion.tipocapacitacion}">Tipo de Capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Estado de Capacitacion:</label>
+                            <label class="col-sm-5 control-label">Estado de Capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${capacitacion.estadocapacitacion}">Estado de Capacitacion</p>
+                                <p class="form-control-static" th:text="${capacitacion.estadocapacitacion}">Estado de Capacitación</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Codigo de Capacitador:</label>
+                            <label class="col-sm-5 control-label">Código de Capacitador:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${capacitacion.codigocapacitador.codigoempleado.nombreempleado}">Nombre de Capacitador</p>
                             </div>
@@ -129,7 +129,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                         <button type="button" class="btn btn-default"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
+                         <button type="button" class="btn btn-info"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
                     </div>
                 </div>
             </div>

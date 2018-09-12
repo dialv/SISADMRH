@@ -147,7 +147,7 @@ public class NivelEscolaridad implements Serializable {
     public void setFechahastanivelescolaridad(Date fechahastanivelescolaridad) {
         this.fechahastanivelescolaridad = fechahastanivelescolaridad;
     }
-//
+
 //    public List<Empleado> getEmpleadoList() {
 //        return empleadoList;
 //    }

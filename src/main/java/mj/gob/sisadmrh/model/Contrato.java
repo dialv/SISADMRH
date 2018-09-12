@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,6 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -54,16 +57,17 @@ public class Contrato implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOCONTRATO")
     private Integer codigocontrato;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "SALARIOACTUAL")
     private Float salarioactual;
     @Column(name = "FECHAINICIOCONTRATO")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechainiciocontrato;
     @Column(name = "FECHAFINCONTRATO")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechafincontrato;
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)

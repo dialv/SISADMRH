@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Detalle de Incapacidades</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <h3 align="center">Consulta de Incapacidades</h3>
+            <div>
+                <form class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">codigo de Incapacidad:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.codigoincapacidad}">codigo de Incapacidad</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre de Incapacitado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.codigoempleado.nombreempleado}">Nombre de Incapacitado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Numero Formulario ISSS:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.numerofichaisss}">Numero Formulario ISSS</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Dui:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.dui}">Dui</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Numero ISSS:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.isss}">Numero ISSS</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Fecha Desde:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.fechadesdeincapacidad}">Fecha Desde</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Fecha Hasta:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.fechahastaincapacidad}">Fecha Hasta</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Tipo de Incapacidad:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.tipoincapacidad}">Tipo de Incapacidad</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Forma Incapacidad:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${incapacidad.formaincapacidad}">Forma Incapacidad</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Fondo:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${incapacidad.fondoincapacidad}">Fondo </p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Diagnostico:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${incapacidad.diagnostico}">Diagnostico </p>
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label class="col-sm-7 control-label">Subir Formulario:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${incapacidad.documento1}">Subir Formulario</p>
+                            </div>
+                        </div>
+                        
+                          <div class="form-group">
+                            <label class="col-sm-7 control-label">Subir Documento2:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${incapacidad.documento2}">Subir Documento2 </p>
+                            </div>
+                        </div>
+                        
+                    </div> 
+
+
+                </form>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/incapacidades/}">Regresar</a></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+    </div>
+
+</body>
+</html>

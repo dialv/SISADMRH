@@ -20,6 +20,7 @@ public interface CuadroDirectivoService {
     CuadroDirectivo saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo);
 
     void deleteCuadroDirectivo(Integer id);
-    Iterable<CuadroDirectivo> findByDato(String dato);
+//    Iterable<CuadroDirectivo> findByDato(String dato);
+     Iterable<CuadroDirectivo> findByCuadro(String dato);
     
 }

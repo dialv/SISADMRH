@@ -34,12 +34,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQuery(name = "Comite.findAll", query = "SELECT c FROM Comite c")})
 public class Comite implements Serializable {
     @Basic(optional = false)
-    @NotNull()
+   
     @Size(min = 1, max = 20)
     @Column(name = "NIT")
     private String nit;
     @Basic(optional = false)
-    @NotNull()
+   
     @Size(min = 1, max = 13)
     @Column(name = "DUI")
     private String dui;
@@ -64,12 +64,13 @@ public class Comite implements Serializable {
     private Integer miembromaximo;
     
     @Column(name = "FECHADESDECOMITE")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+   // @DateTimeFormat(pattern = "YYYY-MM-dd")
    // @DateTimeFormat(pattern = "dd-MM-YYYY")
+      @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechadesdecomite;
     
-   // @Column(name = "FECHAHASTACOMITE")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @Column(name = "FECHAHASTACOMITE")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
    //  @DateTimeFormat(pattern = "dd-MM-YYYY")
     private Date fechahastacomite;
     

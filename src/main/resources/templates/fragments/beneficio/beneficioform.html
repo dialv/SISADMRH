@@ -31,7 +31,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div>
         <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
             <input type="hidden" th:field="*{codigobeneficio}"/>
-            <input type="hidden" th:field="*{nombrebeneficio}"/>
+           
+            
 <!--            <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
                 <div class="col-sm-10">
@@ -45,7 +46,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripcion Beneficio:</label>
+                <label class="col-sm-2 control-label">Descripción Beneficio:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" size="100" maxlength="100" required="true" th:field="*{descripcionbeneficio}"/>
                 </div>
@@ -58,21 +59,21 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
 
 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de Finalizacion:</label>
+                <label class="col-sm-2 control-label">Fecha de Finalización:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" required="true" th:field="*{fechafinalizarbeneficio}"/>
                 </div>
             </div>
             
 
-<div class="row">
-    <div class="col-sm-offset-5 col-sm-2 text-center">
-        <div class="btn-group" data-toggle="buttons">
-            <button type="submit" class="btn btn-default">Agregar</button>
-                <button type="submit" class="btn btn-default">Cancelar</button>
-        </div>
-    </div>
-</div>
+<div class="col-md-12">
+                        <div class="row" align="center">
+                          
+                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
+                        </div>
+                    </div>
 
 <!--            <div class="row">
                 <button type="submit" class="btn btn-default">Agregar</button>

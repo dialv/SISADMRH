@@ -23,65 +23,65 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author developer
+ * @author root
  */
 @Entity
-@Table(name = "empleado", catalog = "SISADMRH", schema = "")
-//@NamedQueries({
-//    @NamedQuery(name = "Empleado_1.findAll", query = "SELECT e FROM Empleado_1 e")})
+@Table(name = "empleado")
+@NamedQueries({
+    @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Size(max = 50)
-    @Column(name = "NOMBREEMPLEADO", length = 50)
+    @Column(name = "NOMBREEMPLEADO")
     private String nombreempleado;
     @Size(max = 50)
-    @Column(name = "APELLIDOEMPLEADO", length = 50)
+    @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
     @Temporal(TemporalType.DATE)
     private Date fechanacimientoempleado;
     @Size(max = 50)
-    @Column(name = "NACIONALIDAD", length = 50)
+    @Column(name = "NACIONALIDAD")
     private String nacionalidad;
     @Size(max = 50)
-    @Column(name = "TIPONACIONALIDAD", length = 50)
+    @Column(name = "TIPONACIONALIDAD")
     private String tiponacionalidad;
     @Size(max = 50)
-    @Column(name = "DEPARTAMENTONACIMIENTO", length = 50)
+    @Column(name = "DEPARTAMENTONACIMIENTO")
     private String departamentonacimiento;
     @Size(max = 50)
-    @Column(name = "MUNICIPIONACIMIENTO", length = 50)
+    @Column(name = "MUNICIPIONACIMIENTO")
     private String municipionacimiento;
     @Size(max = 20)
-    @Column(name = "GRUPOSANQUINEO", length = 20)
+    @Column(name = "GRUPOSANQUINEO")
     private String gruposanquineo;
     @Size(max = 11)
-    @Column(name = "TELEFONOMOVILEMPLEADO", length = 11)
+    @Column(name = "TELEFONOMOVILEMPLEADO")
     private String telefonomovilempleado;
     @Size(max = 11)
-    @Column(name = "TELEFONOFIJOEMPLEADO", length = 11)
+    @Column(name = "TELEFONOFIJOEMPLEADO")
     private String telefonofijoempleado;
     @Size(max = 50)
-    @Column(name = "RESIDENCIAPERMANENTE", length = 50)
+    @Column(name = "RESIDENCIAPERMANENTE")
     private String residenciapermanente;
     @Size(max = 50)
-    @Column(name = "ESTADOFAMILIAR", length = 50)
+    @Column(name = "ESTADOFAMILIAR")
     private String estadofamiliar;
     @Size(max = 50)
-    @Column(name = "DEPARTAMENTORECIDENCIA", length = 50)
+    @Column(name = "DEPARTAMENTORECIDENCIA")
     private String departamentorecidencia;
     @Size(max = 50)
-    @Column(name = "MUNICIPIORESIDENCIA", length = 50)
+    @Column(name = "MUNICIPIORESIDENCIA")
     private String municipioresidencia;
     @Size(max = 10)
-    @Column(name = "DUIEMPLEADO", length = 10)
+    @Column(name = "DUIEMPLEADO")
     private String duiempleado;
     @Size(max = 17)
-    @Column(name = "NITEMPLEADOR", length = 17)
+    @Column(name = "NITEMPLEADOR")
     private String nitempleador;
     @Size(max = 9)
-    @Column(name = "ISSSEMPLEADO", length = 9)
+    @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
     @Temporal(TemporalType.DATE)
@@ -93,36 +93,36 @@ public class Empleado implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaingresoministerio;
     @Size(max = 6)
-    @Column(name = "AFILIACIONPENSION", length = 6)
+    @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
     @Size(max = 12)
-    @Column(name = "NUMEROAFILIACION", length = 12)
+    @Column(name = "NUMEROAFILIACION")
     private String numeroafiliacion;
     @Size(max = 2)
-    @Column(name = "TIPOCUENTA", length = 2)
+    @Column(name = "TIPOCUENTA")
     private String tipocuenta;
     @Size(max = 50)
-    @Column(name = "NOMBREINSTIUCIONDEPOSITAR", length = 50)
+    @Column(name = "NOMBREINSTIUCIONDEPOSITAR")
     private String nombreinstiuciondepositar;
     @Size(max = 50)
-    @Column(name = "EMAILEMPLEADO", length = 50)
+    @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
     @Column(name = "ESTADOEMPLEADO")
     private Integer estadoempleado;
     @Size(max = 1)
-    @Column(name = "SEXOEMPLEADO", length = 1)
+    @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
-    @Column(name = "CODIGOEMPLEADO", nullable = false)
+    @Column(name = "CODIGOEMPLEADO")
     private Integer codigoempleado;
     @Size(max = 50)
-    @Column(name = "recidenciapermanente", length = 50)
+    @Column(name = "recidenciapermanente")
     private String recidenciapermanente;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "codigopuesto", nullable = false)
+    @Column(name = "codigopuesto")
     private int codigopuesto;
 
     public Empleado() {
@@ -396,10 +396,10 @@ public class Empleado implements Serializable {
         }
         return true;
     }
-//
-//    @Override
-//    public String toString() {
-//        return "mj.gob.sisadmrh.model.Empleado_1[ codigoempleado=" + codigoempleado + " ]";
-//    }
+
+    @Override
+    public String toString() {
+        return "mj.gob.sisadmrh.model.Empleado[ codigoempleado=" + codigoempleado + " ]";
+    }
     
 }

@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -33,31 +34,32 @@ public class Formacionacademica implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigoformacionacademica", nullable = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigoformacionacademica")
     private Integer codigoformacionacademica;
     @Size(max = 50)
-    @Column(name = "estudiosrealizados", length = 50)
+    @Column(name = "estudiosrealizados")
     private String estudiosrealizados;
     @Size(max = 50)
-    @Column(name = "centroeducativo", length = 50)
+    @Column(name = "centroeducativo")
     private String centroeducativo;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "aniosaprobados", nullable = false)
+    @Column(name = "aniosaprobados")
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechahastaformacionacademica;
     @Size(max = 200)
-    @Column(name = "termino", length = 200)
+    @Column(name = "termino")
     private String termino;
     @Size(max = 200)
-    @Column(name = "tituloobtenido", length = 200)
+    @Column(name = "tituloobtenido")
     private String tituloobtenido;
 
     public Formacionacademica() {

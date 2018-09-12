@@ -14,7 +14,6 @@
     <class>mj.gob.sisadmrh.model.CuadroDirectivo</class>
     <class>mj.gob.sisadmrh.model.AsistenciaCapacitacion</class>
     <class>mj.gob.sisadmrh.model.Puesto</class>
-    <class>mj.gob.sisadmrh.model.Ubicacionfisica</class>
     <class>mj.gob.sisadmrh.model.Mision</class>
     <class>mj.gob.sisadmrh.model.Contrato</class>
     <class>mj.gob.sisadmrh.model.Empleado_1</class>
@@ -24,6 +23,15 @@
     <class>mj.gob.sisadmrh.model.Capacitador_1</class>
     <class>mj.gob.sisadmrh.model.EvaluacionCapacitacion</class>
     <class>mj.gob.sisadmrh.model.Inasistencia</class>
+    <class>mj.gob.sisadmrh.model.Incapacidad</class>
+    <class>mj.gob.sisadmrh.model.UbicacionFisica</class>
+    <class>mj.gob.sisadmrh.model.Evaluacioncapacitacion</class>
+    <class>mj.gob.sisadmrh.model.Ubicacionfisica</class>
+    <class>mj.gob.sisadmrh.model.Caparecibidas</class>
+    <class>mj.gob.sisadmrh.model.Dependiente</class>
+    <class>mj.gob.sisadmrh.model.Experiencialaboral</class>
+    <class>mj.gob.sisadmrh.model.Hijodiscapacidad</class>
+    <class>mj.gob.sisadmrh.model.Formacionacademica</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>

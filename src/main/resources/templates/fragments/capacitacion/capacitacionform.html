@@ -26,7 +26,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center">Crear Capacitacion</h3>
+            <h3 align="center">Crear Capacitación</h3>
             <div>
                 <form class="form-horizontal" th:object="${capacitacion}" th:action="@{../capacitacion}" method="post">
 
@@ -34,20 +34,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombre de Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Nombre de Capacitación:</label>
                         <div class="col-sm-10">
                             <input type="text" size="50" maxlength="50"  class="form-control" required="true" th:field="*{nombrecapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Descripcion Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Descripción Capacitación:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Categoria Capacitacion(*):</label>
+                        <label class="col-sm-2 control-label">Categoria Capacitación(*):</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                             <select class="form-control"   required="true"  name="categoriacapacitacion" >
@@ -60,7 +60,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Descripcion Categoria:</label>
+                        <label class="col-sm-2 control-label">Descripción Categoría:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncategoria}"/>
                         </div>
@@ -81,13 +81,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Duracion de Capacitacion en Horas:</label>
+                        <label class="col-sm-2 control-label">Duración de Capacitación en Horas:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control numeros" required="true" maxlength="4" th:field="*{duracionhoracapacitacion}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Duracion de Capacitacion en Dias:</label>
+                        <label class="col-sm-2 control-label">Duración de Capacitación en Días:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control numeros" required="true" maxlength="3" th:field="*{duraciondiacapacitacion}"/>
                         </div>
@@ -111,7 +111,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Pais de realizacion de Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Pais de realización de Capacitación:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{paiscapacitacion}"/>
                         </div>
@@ -129,14 +129,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Tipo de Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Tipo de Capacitación:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" size="20" maxlength="20"  required="true"th:field="*{tipocapacitacion}"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Estado de la Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Estado de la Capacitación:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control numeros" th:field="*{estadocapacitacion}"/>
                         </div>
@@ -157,8 +157,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     <div class="col-md-12">
                         <div class="row" align="center">
-                            <button type="button" class="btn btn-default"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-default">Guardar</button>
+                          
+                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
                         </div>
                     </div>

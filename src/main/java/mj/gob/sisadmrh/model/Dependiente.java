@@ -18,7 +18,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -32,32 +34,33 @@ public class Dependiente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigodependiente", nullable = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigodependiente")
     private Integer codigodependiente;
     @Size(max = 50)
-    @Column(name = "nombredependiente", length = 50)
+    @Column(name = "nombredependiente")
     private String nombredependiente;
     @Size(max = 50)
-    @Column(name = "apellidodependiente", length = 50)
+    @Column(name = "apellidodependiente")
     private String apellidodependiente;
     @Column(name = "fechanacimiento")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechanacimiento;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "salarioinicial", precision = 12)
+    @Column(name = "salarioinicial")
     private Float salarioinicial;
-    @Column(name = "salariofinal", precision = 12)
+    @Column(name = "salariofinal")
     private Float salariofinal;
     @Size(max = 200)
-    @Column(name = "parentesco", length = 200)
+    @Column(name = "parentesco")
     private String parentesco;
     @Size(max = 200)
-    @Column(name = "dependiente", length = 200)
+    @Column(name = "dependiente")
     private String dependiente;
     @Size(max = 20)
-    @Column(name = "sexo", length = 20)
+    @Column(name = "sexo")
     private String sexo;
 
     public Dependiente() {

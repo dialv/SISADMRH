@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 
  */
 @Controller
-@RequestMapping(value = "empleado")
+@RequestMapping(value = "empleados")
 public class EmpleadoController extends UtilsController{
     
     private EmpleadoService empleadoService;
@@ -46,8 +46,8 @@ public class EmpleadoController extends UtilsController{
     private final String PREFIX = "fragments/empleado/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("empleado", empleadoService.listAllEmpleado());
-        return PREFIX + "empleado";
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
+        return PREFIX + "empleados";
     }
     
     @RequestMapping("edit/{id}")
@@ -68,10 +68,10 @@ public class EmpleadoController extends UtilsController{
         return "redirect:./show/" + empleado.getCodigoempleado();
     }
     
-    @RequestMapping("show/{id}")
+    @RequestMapping("show/{id}")    
     public String showEmpleado(@PathVariable Integer id, Model model) {
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
-        return PREFIX +"empleadohow";
+        return PREFIX +"empleadoshow";
     }
 
     @RequestMapping("delete/{id}")
@@ -142,4 +142,6 @@ public class EmpleadoController extends UtilsController{
 //		params.put("FECHAFIN", fechafin);
         	generatePdf("estadisticoactivo", "rpt_estadisticoactivo", params, download,response);
     }
+    
+    
 }

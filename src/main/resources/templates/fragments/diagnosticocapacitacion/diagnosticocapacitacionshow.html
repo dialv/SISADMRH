@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Detalle de Diagnostico de Capacitaciones</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <h3 align="center">Detalle de Diagnostico de Capacitación</h3>
+            <div>
+                <form class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Código de Diagnostico de Capacitación:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.codigodiagnosticocapacitacion}">codigo de Diagnostico</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre de Capacitación:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.codigocapacitacion.nombrecapacitacion}">DUI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Dirección:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.direccion}">DUI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Necesidad de Capacitación</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.necesidadcapacitacion}">Necesidad de Capacitacion</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Que Mes es mas Oportuno:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.mescapacitacion}">Que Mes es mas oportuno</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Año dejecución:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.anioejecucion}">Anio dejecucion</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Personal que recibira Capacitación:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.personalrecibir}">Personal que recibira Capacitacion</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Resultado que desea Obtener</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.resultadoobtener}">Resultado que desea Obtener</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre de quien Autoriza:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.nombreautorizadiagnosticocapacitacion}">Nombre de quien Autoriza</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Cargo de quien Autoriza:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${diagnosticocapacitacion.cargoautorizadiagnosticocapacitacion}">Cargo de quien Autoriza</p>
+                            </div>
+                        </div>
+
+                     
+                       
+                        
+                        
+                    </div> 
+
+
+                </form>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/diagnosticocapacitaciones/}">Regresar</a></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+    </div>
+
+</body>
+</html>

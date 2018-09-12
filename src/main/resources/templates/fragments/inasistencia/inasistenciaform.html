@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Crear Inasistencias</title>
+    <th:block th:include="../templates/header"></th:block>
+    
+</head>
+<body>
+      <div class="contenedorizq"><label  >pnt_gecoms</label> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
+    <!--<div class="container">-->
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div> 
+        <div class="col-md-8">
+        <h2 align="center">Crear Inasistencia</h2>
+        <div>
+            <form class="form-horizontal" th:object="${inasistencia}" th:action="@{../inasistencia}" method="post">
+<!--                <input type="hidden" th:field="*{codigocomision}"/>
+                <input type="hidden" th:field="*{nombrecomision}"/>-->
+                             <div class="form-group">
+                        <label class="col-sm-2 control-label">Empleado :</label>
+                        <div class="col-sm-10" >
+                            <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
+                                <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                            </select>
+                            <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Motivo de Inasistencia:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{motivoinasistencia}"/>
+                    </div>
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Constancia de Inasistencia:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{constanciainasistencia}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Desde:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required="true" th:field="*{fechadesdeinasistencia}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha Hasta:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required="true" th:field="*{fechahastainasistencia}"/>
+                    </div>
+                </div>
+  <div class="col-md-12">
+                        <div class="row" align="center">
+                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/inasistencias/}">Regresar</a></button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
+                        </div>
+                         
+                    </div>
+<!--                <div class="row">
+                    <button type="submit" class="btn btn-default">Agregar</button>
+                </div>-->
+            </form>
+        </div>
+    </div>
+         </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $('#fechadesdeinasistencia').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $('#fechahastainasistencia').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+       
+    });
+</script>
+
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../inasistencias/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+</html>

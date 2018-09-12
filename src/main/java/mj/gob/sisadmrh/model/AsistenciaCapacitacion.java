@@ -84,7 +84,7 @@ public class AsistenciaCapacitacion implements Serializable {
     public void setCodigoasistenciacapacitacion(Integer codigoasistenciacapacitacion) {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
-
+//
 //
 //    public List<Empleado> getEmpleadoList() {
 //        return empleadoList;

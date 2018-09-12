@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@SessionAttributes("capacitacion")
 @RequestMapping(value = "capacitaciones")
 public class CapacitacionController extends UtilsController{
     
@@ -55,6 +58,9 @@ public class CapacitacionController extends UtilsController{
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitacion", capacitacionService.getCapacitacionById(id));
+         Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+         // System.out.println("numero:"+capacitadores);
+        model.addAttribute("capacitadores", capacitadores);
         return PREFIX + "capacitacionform";
     }
     
@@ -64,14 +70,15 @@ public class CapacitacionController extends UtilsController{
         
           Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
          // System.out.println("numero:"+capacitadores);
-        model.addAttribute("capacitadores", capacitadores);
-        return PREFIX + "capacitacionform";
+        model.addAttribute("capacitadores", capacitadores);//pasa los datos a la vista
+        return PREFIX + "capacitacionform";//retorna a la vista
     }
     
     @RequestMapping(value = "capacitacion")
-    public String saveCapacitacion(Capacitacion capacitacion,Model model) {
+    public String saveCapacitacion(Capacitacion capacitacion,Model model,SessionStatus status) {
         try{
            capacitacionService.saveCapacitacion(capacitacion);
+           status.setComplete();
            model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -108,13 +115,12 @@ public class CapacitacionController extends UtilsController{
         {
         model.addAttribute("msg", 4);
         }
-   return PREFIX + "capacitaciones";
-        //return "redirect:/capacitaciones/";
+   
+        return "redirect:/capacitaciones/";
     }
     
     @RequestMapping("report/")
-    public String reporte(Model model) {
-        model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
+    public String reporte() {
         return PREFIX + "capacitacionesreport";
     }
     

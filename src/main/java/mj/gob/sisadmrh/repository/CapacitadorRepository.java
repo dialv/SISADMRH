@@ -16,7 +16,12 @@ import org.springframework.data.repository.query.Param;
  * @author daniel
  */
 public interface CapacitadorRepository extends CrudRepository<Capacitador, Integer>{
-      @Query(value = "SELECT c.* FROM capacitador c WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
+    //Jala los capacitadores en el form capacitacion 
+    @Query(value = "SELECT c.* FROM capacitador c WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
     Iterable<Capacitador> findByDato(@Param("nom") String dato);
+    // busca los capacitadores por el nombre en un listcapacitador
+     @Query(value = "SELECT c.* FROM capacitador c "
+            + "WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
+     Iterable<Capacitador> findByCapacitador(@Param("nom") String dato);
     
 }

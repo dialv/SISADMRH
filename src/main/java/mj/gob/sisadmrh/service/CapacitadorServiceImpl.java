@@ -54,5 +54,10 @@ return capacitadorRep.save(capacitador);
         return capacitadorRep.findByDato("%"+dato+"%");
         
     }
+    //jala los capacitadores para buscarlos por nombre
+    public Iterable<Capacitador> findByCapacitador(String dato) {
+        return capacitadorRep.findByDato("%"+dato+"%");
+        
+    }
     
 }

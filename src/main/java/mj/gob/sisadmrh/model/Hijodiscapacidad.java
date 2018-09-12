@@ -18,7 +18,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -32,24 +34,25 @@ public class Hijodiscapacidad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigohijodiscapacidad", nullable = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigohijodiscapacidad")
     private Integer codigohijodiscapacidad;
     @Size(max = 50)
-    @Column(name = "nombrehijodiscapacidad", length = 50)
+    @Column(name = "nombrehijodiscapacidad")
     private String nombrehijodiscapacidad;
     @Size(max = 50)
-    @Column(name = "apellidohijodiscapacidad", length = 50)
+    @Column(name = "apellidohijodiscapacidad")
     private String apellidohijodiscapacidad;
     @Size(max = 50)
-    @Column(name = "nombrediscapacidad", length = 50)
+    @Column(name = "nombrediscapacidad")
     private String nombrediscapacidad;
     @Size(max = 50)
-    @Column(name = "tipodiscapacidad", length = 50)
+    @Column(name = "tipodiscapacidad")
     private String tipodiscapacidad;
     @Column(name = "fechanamimientohijosdiscapacidad")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechanamimientohijosdiscapacidad;
 
     public Hijodiscapacidad() {

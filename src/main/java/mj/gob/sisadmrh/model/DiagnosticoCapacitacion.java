@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,7 +27,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "DIAGNOSTICOCAPACITACION")
 //@NamedQueries({
-//@NamedQuery(name = "Diagnosticocapacitacion.findAll", query = "SELECT dc FROM Diagnosticocapacitacion dc")})
+//@NamedQuery(name = "DiagnosticoCapacitacion.findAll", query = "SELECT dc FROM DiagnostioCapacitacion dc")})
 
 public class DiagnosticoCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -33,7 +35,26 @@ public class DiagnosticoCapacitacion implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGODIAGNOSTICOCAPACITACION")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigodiagnosticocapacitacion;
+    //anioejecucion
+    @Column(name = "ANIOEJECUCION")
+    private Integer anioejecucion;
+    
+    @Size(max = 500)
+    @Column(name = "DIRECCION")
+    private String direccion;
+//direccion
+     @Column(name = "PERSONALRECIBIR")
+   private String	personalrecibir;
+
+    public String getPersonalrecibir() {
+        return personalrecibir;
+    }
+
+    public void setPersonalrecibir(String personalrecibir) {
+        this.personalrecibir = personalrecibir;
+    }
     @Size(max = 500)
     @Column(name = "NECESIDADCAPACITACION")
     private String necesidadcapacitacion;
@@ -47,8 +68,7 @@ public class DiagnosticoCapacitacion implements Serializable {
     @Column(name = "NOMBREAUTORIZADIAGNOSTICOCAPACITACION")
     private String nombreautorizadiagnosticocapacitacion;
     @Size(max = 100)
-    @Column(name = "DIRECCION")
-    private String direccion;
+    
     @Size(max = 100)
     @Column(name = "CARGOAUTORIZADIAGNOSTICOCAPACITACION")
     private String cargoautorizadiagnosticocapacitacion;
@@ -74,7 +94,13 @@ public class DiagnosticoCapacitacion implements Serializable {
     public String getNecesidadcapacitacion() {
         return necesidadcapacitacion;
     }
+ public Integer getAnioejecucion() {
+        return anioejecucion;
+    }
 
+    public void setAnioejecucion(Integer anioejecucion) {
+        this.anioejecucion = anioejecucion;
+    }
     public void setNecesidadcapacitacion(String necesidadcapacitacion) {
         this.necesidadcapacitacion = necesidadcapacitacion;
     }

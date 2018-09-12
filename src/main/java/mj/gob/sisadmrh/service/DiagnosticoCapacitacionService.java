@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
+import mj.gob.sisadmrh.model.Ubicacionfisica;
 
 
 
@@ -22,5 +23,6 @@ public interface DiagnosticoCapacitacionService {
    DiagnosticoCapacitacion saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion);
 
     void deleteDiagnosticoCapacitacion(Integer id);
+     Iterable<DiagnosticoCapacitacion> findByUbicacion(String dato);
     
 }

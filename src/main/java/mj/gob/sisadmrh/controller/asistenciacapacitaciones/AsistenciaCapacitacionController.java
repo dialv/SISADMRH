@@ -25,8 +25,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("asistenciacapacitacion")
 @RequestMapping(value = "asistenciacapacitaciones")
 public class AsistenciaCapacitacionController extends UtilsController{
     
@@ -59,7 +62,14 @@ public class AsistenciaCapacitacionController extends UtilsController{
     
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
+         AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
+         model.addAttribute("formasistenciacapacitancion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
+       
+         form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+        form.setEmpleados(empleadoService.listAllEmpleado());
+         model.addAttribute("formasistenciacapacitancion", form);
+        
+       // model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
         return PREFIX + "asistenciacapacitacionform";
     }
     
@@ -77,14 +87,17 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model) {
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model,SessionStatus status) {
         try{
          asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
+         status.setComplete();
         model.addAttribute("msg", 0);
          
         }
-        catch(Exception e){}
-       model.addAttribute("msg", 1);
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+      // model.addAttribute("msg", 1);
        return PREFIX + "asistenciacapacitaciones";
        
        // return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();

@@ -18,7 +18,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -32,29 +34,30 @@ public class Experiencialaboral implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codigoexperiencialaboral", nullable = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigoexperiencialaboral")
     private Integer codigoexperiencialaboral;
     @Size(max = 50)
-    @Column(name = "nombreinstitucion", length = 50)
+    @Column(name = "nombreinstitucion")
     private String nombreinstitucion;
     @Column(name = "fechadesdeexperiencialaboral")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechadesdeexperiencialaboral;
     @Column(name = "fechahastaexperiencialaboral")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechahastaexperiencialaboral;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "salarioinicial", precision = 12)
+    @Column(name = "salarioinicial")
     private Float salarioinicial;
-    @Column(name = "salariofinal", precision = 12)
+    @Column(name = "salariofinal")
     private Float salariofinal;
     @Size(max = 200)
-    @Column(name = "motivoretiro", length = 200)
+    @Column(name = "motivoretiro")
     private String motivoretiro;
     @Size(max = 20)
-    @Column(name = "sectorexperiencialaboral", length = 20)
+    @Column(name = "sectorexperiencialaboral")
     private String sectorexperiencialaboral;
 
     public Experiencialaboral() {

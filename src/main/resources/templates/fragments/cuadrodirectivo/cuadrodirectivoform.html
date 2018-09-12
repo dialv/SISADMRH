@@ -19,10 +19,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          <th:block th:include="../templates/menu"></th:block>
     </div> 
         <div class="col-md-8">
-            <h3 align="center">Crear cuadro directivos</h3>
+                <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/cuadro.png" width="100" th:src="@{/image/cuadro.png}"/>
+            <h3 align="center">Crear Cuadro Directivos</h3>
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
-
+ <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
 <!--            <div class="form-group">
                 <label class="col-sm-2 control-label">Responsaable:</label>
                 <div class="col-sm-10">
@@ -39,20 +42,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">area:(*)</label>
+                <label class="col-sm-2 control-label">Area:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
                 </div>
             </div>
             
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripcion:(*)</label>
+                <label class="col-sm-2 control-label">Descripción:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha presentacion:(*)</label>
+                <label class="col-sm-2 control-label">fecha presentación:(*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{fechapresentacion}"/>
                 </div>
@@ -63,8 +66,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                       
 <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/cuadrodirectivos/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="button" class="btn btn-info"><a href="#" th:href="@{/cuadrodirectivos/}">Regresar</a></button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>

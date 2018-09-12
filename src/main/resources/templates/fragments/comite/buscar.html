@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+         <title>Buscar comites por nombres</title>
+    <th:block th:include="../templates/header"></th:block>
+ </head>
+<body>
+    <div class="row" id="content_work">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+      <div class="col-md-8">
+          
+          
+          <br />
+          <div class="input-group col-sm-4">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+            <input type="text" name="buscar_comite" id="buscar_comite" class="form-control" placeholder="Buscar comite" />
+          </div>
+          
+          
+          <br />
+          
+          
+          <h3 align="center">Comites por Nombre</h3>
+          <hr />
+  
+          
+          <div id="list_comite">
+              <table class="table table-bordered">
+                  <thead>
+                      <th>Codigo</th>
+<!--                            <th>DUI</th>
+                            <th>Nit</th>
+                           -->
+                            <th>Nombre</th>
+                            <th>Responsable</th>
+                            <th>Descripcion</th>
+                            <th>N de acuerdo</th>
+                            <th>Miembros maximos</th>
+                            <th>F. desde</th>
+                            <th>F. hasta</th>
+                  </thead>
+                  
+                  <tbody>
+                  </tbody>
+              </table>
+              
+          </div>
+        
+          
+      </div>
+     
+      
+        <script type="text/javascript" th:src="@{/js/helpJs.js}"></script>
+      <script type="text/javascript">
+          $(document).ready(function (){
+              var content = $("#content_work");
+              Autocompletar_input(content,"buscar_comite","/sisadmrh/comites/buscar/listar/",'html',function(result) {
+    
+                        content.find("#list_comite").html(result);
+    
+                });
+              
+              
+          });
+      </script>
+   </div>
+     <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+ </body>
+</html> 

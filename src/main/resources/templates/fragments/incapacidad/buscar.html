@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>SISADMRH-Detalle de capacitaciones</title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row" id="content_work">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+      <div class="col-md-8">
+          
+          
+          <br />
+          <div class="input-group col-sm-4">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+            <input type="text" name="buscar_capacitador" id="buscar_capacitador" class="form-control" placeholder="Buscar capacitador" />
+          </div>
+          
+          
+          <br />
+          
+          
+          <h3>Lista de resultados</h3>
+          <hr />
+  
+          
+          <div id="list_capacitador">
+              <table class="table table-bordered">
+                  <thead>
+                            <th>Codigo Incapacidad</th>
+                              <th>Nombre Incapacitado</th>
+                            <th>Numero Formulario ISSS</th>
+                            <th>DUI</th>
+                             <th>Numero IISSS</th>
+                            <th>Fecha Desde</th>
+                            <th>Fecha Hasta</th>
+                            <th>Tipo de Incapacidad</th>
+                            <th>Forma Incapacidad</th>
+                            <th>Fondo</th>
+                            <th>Diagnostico</th>
+<!--                            <th>Diagnostico</th>-->
+<!--                            <th>Subir Formulario</th>
+                            <th>Subir Documento</th>-->
+                              <th>Accion</th>
+                         
+                      
+                  </thead>
+                  
+                  <tbody>
+                  </tbody>
+              </table>
+              
+          </div>
+        
+          
+      </div>
+
+    
+      
+        <script type="text/javascript" th:src="@{/js/helpJs.js}"></script>
+      <script type="text/javascript">
+          $(document).ready(function (){
+              var content = $("#content_work");
+              Autocompletar_input(content,"buscar_capacitador","/sisadmrh/capacitadores/buscar/listar/",'html',function(result) {
+    
+                        content.find("#list_capacitador").html(result);
+    
+                });
+              
+              
+          });
+      </script>
+   </div>
+
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+
+</body>
+</html>

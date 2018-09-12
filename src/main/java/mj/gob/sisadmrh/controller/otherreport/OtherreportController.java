@@ -317,4 +317,101 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_comites", params, download,response); 
 }
+    
+    
+    
+    @RequestMapping("reporte/pensionadoreporte")
+    public String reporteestadisticoactivo() {
+        return PREFIX + "pensionadoreporte";
+    }
+    
+    @RequestMapping(value = "pdfpensionadoreporte/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfestadisticoactivo(
+//            @PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+//		params.put("CODIGO", indice.toString());
+//		params.put("FECHAINICIO", fechainicio);
+//		params.put("FECHAFIN", fechafin);
+        	generatePdf("pensionadoreporte", "rpt_pensionado", params, download,response);
+    }
+    
+     @RequestMapping("reporte/exoneradoreporte")
+    public String reporteexoneradoreporte() {
+        return PREFIX + "exoneradoreporte";
+    }
+    
+    @RequestMapping(value = "pdfexoneradoreporte/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfexoneradoreporte(
+//            @PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+//		params.put("CODIGO", indice.toString());
+//		params.put("FECHAINICIO", fechainicio);
+//		params.put("FECHAFIN", fechafin);
+        	generatePdf("exoneradoreporte", "rpt_exonerado", params, download,response);
+    }
+    
+    @RequestMapping("reporte/nivelesreporte")
+    public String reportenivelesreporte() {
+        return PREFIX + "nivelesreporte";
+    }
+    
+    @RequestMapping(value = "pdfnivelesreporte/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfnivelesreporte(
+//            @PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+//		params.put("CODIGO", indice.toString());
+//		params.put("FECHAINICIO", fechainicio);
+//		params.put("FECHAFIN", fechafin);
+        	generatePdf("nivelesreporte", "rpt_nivelesescolares", params, download,response);
+    }
+    
+    @RequestMapping("reporte/plazaoreporte")
+    public String reporteplazaoreporte() {
+        return PREFIX + "plazaoreporte";
+    }
+    
+    @RequestMapping(value = "pdfplazaoreporte/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfplazaoreporte(
+//            @PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+//		params.put("CODIGO", indice.toString());
+//		params.put("FECHAINICIO", fechainicio);
+//		params.put("FECHAFIN", fechafin);
+        	generatePdf("plazaoreporte", "rpt_plazasocupadas", params, download,response);
+    }
+    
+     @RequestMapping("reporte/costocreporte")
+    public String reportecostocreporte() {
+        return PREFIX + "costocreporte";
+    }
+    
+    @RequestMapping(value = "pdfcostocreporte/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfcostocreporte(
+//            @PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+//		params.put("CODIGO", indice.toString());
+//		params.put("FECHAINICIO", fechainicio);
+//		params.put("FECHAFIN", fechafin);
+        	generatePdf("costocreporte", "rpt_costocapacitacion", params, download,response);
+    }
 }

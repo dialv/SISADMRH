@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -18,40 +20,50 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author developer
+ * @author IPalacios
  */
 @Entity
 @Table(name = "contacto")
-@NamedQueries({
-    @NamedQuery(name = "Contacto.findAll", query = "SELECT c FROM Contacto c")})
+@NamedQueries({   //
+    @NamedQuery(name = "Contacto.findAll", query = "SELECT c FROM Contacto c"),
+//    @NamedQuery(name = "Contacto.findByCodigocontacto", query = "SELECT c FROM Contacto c WHERE c.codigocontacto = :codigocontacto"),
+//    @NamedQuery(name = "Contacto.findByNombrecontacto", query = "SELECT c FROM Contacto c WHERE c.nombrecontacto = :nombrecontacto"),
+//    @NamedQuery(name = "Contacto.findByApellidocontacto", query = "SELECT c FROM Contacto c WHERE c.apellidocontacto = :apellidocontacto"),
+//    @NamedQuery(name = "Contacto.findByDireccion", query = "SELECT c FROM Contacto c WHERE c.direccion = :direccion"),
+//    @NamedQuery(name = "Contacto.findByEmailcontacto", query = "SELECT c FROM Contacto c WHERE c.emailcontacto = :emailcontacto"),
+//    @NamedQuery(name = "Contacto.findBySexocontacto", query = "SELECT c FROM Contacto c WHERE c.sexocontacto = :sexocontacto"),
+//    @NamedQuery(name = "Contacto.findByTelefonofijocontacto", query = "SELECT c FROM Contacto c WHERE c.telefonofijocontacto = :telefonofijocontacto"),
+//    @NamedQuery(name = "Contacto.findByTelefonomovilcontacto", query = "SELECT c FROM Contacto c WHERE c.telefonomovilcontacto = :telefonomovilcontacto")
+})
 public class Contacto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "codigocontacto", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigocontacto")
     private Integer codigocontacto;
     @Size(max = 50)
-    @Column(name = "nombrecontacto", length = 50)
+    @Column(name = "nombrecontacto")
     private String nombrecontacto;
     @Size(max = 50)
-    @Column(name = "apellidocontacto", length = 50)
+    @Column(name = "apellidocontacto")
     private String apellidocontacto;
     @Size(max = 100)
-    @Column(name = "direccion", length = 100)
+    @Column(name = "direccion")
     private String direccion;
     @Size(max = 100)
-    @Column(name = "emailcontacto", length = 100)
+    @Column(name = "emailcontacto")
     private String emailcontacto;
     @Size(max = 100)
-    @Column(name = "sexocontacto", length = 100)
+    @Column(name = "sexocontacto")
     private String sexocontacto;
     @Size(max = 11)
-    @Column(name = "telefonofijocontacto", length = 11)
+    @Column(name = "telefonofijocontacto")
     private String telefonofijocontacto;
     @Size(max = 11)
-    @Column(name = "telefonomovilcontacto", length = 11)
+    @Column(name = "telefonomovilcontacto")
     private String telefonomovilcontacto;
 
     public Contacto() {
