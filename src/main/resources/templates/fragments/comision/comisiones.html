@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Beneficios</title>
+    <title>Comisiones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -37,6 +37,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                  <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
                   <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
+                  <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
                 
                 <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-default">Mostrar</a>
                 <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-default">Edit</a>
@@ -101,6 +102,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
                         }
                     });
+        }
+        function descargapdf(idpdf){
+             location.href = './descarga/' + idpdf;
         }
     </script>
 </body>
