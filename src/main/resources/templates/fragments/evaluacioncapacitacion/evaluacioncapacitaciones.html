@@ -15,6 +15,7 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
+   
     <div th:if="${not #lists.isEmpty(evaluacioncapacitaciones)}">
         
        <div class="row">
@@ -23,10 +24,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
+             <br><br>
+          <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                         </div>
            <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>
       
-        <table class="table table-striped">
-              <!--<tr th:each="evaluacioncapacitacion : ${evaluacioncapacitaciones}">-->
+         <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+             <thead>
+                 <tr>
                 <th>Codigo Capacitación</th>
                 <th>Lugar Evaluacion</th>
                 <th>Hora</th>
@@ -53,6 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                <th>Acciones</th>
                 
             </tr>
+         </thead>
             <tr th:each="evaluacioncapacitacion : ${evaluacioncapacitaciones}">
                 <!--<td th:text="${capacitador.codigoempleado.nombreempleado}">Codigo</td>-->
                  <td th:text="${evaluacioncapacitacion.codigoevaluacioncapacitacion}">Codigo Evaluacion Capacitacion</td>
@@ -105,6 +112,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    
     <script th:inline="javascript">
     $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",

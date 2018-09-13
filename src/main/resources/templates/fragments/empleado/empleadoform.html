@@ -73,29 +73,31 @@
       <!--<h3>Empleado</h3>-->
          <br>
       <form class="form-horizontal" th:object="${empleado}" th:action="@{../empleado}" method="post">
+          <input type="hidden" th:field="*{codigoempleado}"/>
+            <input type="hidden" th:field="*{nombreempleado}"/>
             <div class="col-md-6">
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Nombre(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{nombreempleado}"  />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Apellido(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"     th:field="*{apellidoempleado}" />
                     </div>
                 </div>
                    <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de Nacimiento(*):</label>
                 <div class="col-sm-7">
-                     <input class="form-control" type="text"  name="fechanacimiento" id="fechanacimiento"  />
+                     <input class="form-control" type="text"  name="fechanacimiento" id="fechanacimiento"  th:field="*{fechanacimientoempleado}" />
                 </div>
             </div>
                  <div class="form-group">
                 <label class="col-sm-5 control-label">Nacionalidad(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="nacionalidad" >
+                    <select class="form-control" name="nacionalidad" th:field="*{nacionalidad}">
                         <option>Salvadoreño</option>
                         <option>Hondureño</option>
 
@@ -105,7 +107,7 @@
                  <div class="form-group">
                 <label class="col-sm-5 control-label">Departamento de Nacimiento(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="depnacimiento" >
+                    <select class="form-control" name="depnacimiento" th:field="*{departamentonacimiento}">
                         <option>Santa Ana</option>
                         <option>San Salvador</option>
                          <option>San Miguel</option>
@@ -115,7 +117,7 @@
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Municipio de Nacimiento(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="munnacimiento" >
+                    <select class="form-control" th:field="*{municipionacimiento}">
                         <option>Santa Tecla</option>
                         <option>antiguo Cuscatlan</option>
                          <option>Mejicanos</option>
@@ -125,7 +127,7 @@
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Estado Familiar(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="estfamiliar" >
+                    <select class="form-control" name="estfamiliar" th:field="*{estadofamiliar}">
                         <option>Soltero</option>
                         <option>Casado</option>
                          <option>Viudo</option>
@@ -135,7 +137,7 @@
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Sexo(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="sexo" >
+                    <select class="form-control" name="sexo" th:field="*{sexoempleado}">
                         <option>Femenino</option>
                         <option>Masculino</option>
                     </select>
@@ -144,19 +146,19 @@
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Residencia Permanente(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{recidenciapermanente}" />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Telefono Fijo(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{telefonofijoempleado} />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Telefono Movil(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{telefonomovilempleado}  />
                     </div>
                 </div>
             </div>
@@ -165,7 +167,7 @@
                   <div class="form-group">
                 <label class="col-sm-5 control-label">Departamento(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="depto" >
+                    <select class="form-control" name="depto" th:field="*{departamentorecidencia}">
                         <option>Santa Ana</option>
                         <option>San Salvador</option>
                          <option>San Miguel</option>
@@ -175,7 +177,7 @@
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Municipio(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="mun" th:field="*{municipioresidencia}" >
                         <option>Santa Tecla</option>
                         <option>antiguo Cuscatlan</option>
                          <option>Mejicanos</option>
@@ -186,52 +188,52 @@
                   <div class="form-group">
                     <label class="col-sm-5 control-label">DUI(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{duiempleado}"  />
                     </div>
                 </div>
                 
                   <div class="form-group">
                     <label class="col-sm-5 control-label">NIT(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{nitempleador}"   />
                     </div>
                 </div>
                 
                   <div class="form-group">
                     <label class="col-sm-5 control-label">ISSS(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{isssempleado}" />
                     </div>
                 </div>
                    <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Publico(*):</label>
                 <div class="col-sm-7">
-                     <input class="form-control" type="text"  name="fechasepu" id="fechasepu"  />
+                     <input class="form-control" type="text"  name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}" />
                 </div>
             </div>
                    <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Privado(*):</label>
                 <div class="col-sm-7">
-                     <input class="form-control" type="text"  name="fechasepr" id="fechasepr"  />
+                     <input class="form-control" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechaingresosecpriv}"/>
                 </div>
             </div>
                    <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de Ingreso al Ministerio(*):</label>
                 <div class="col-sm-7">
-                     <input class="form-control" type="text"  name="fechamin" id="fechamin"  />
+                     <input class="form-control" type="text"  name="fechamin" id="fechamin"  th:field="*{fechaingresoministerio}"/>
                 </div>
             </div>
                 
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Grupo Sanguineo(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{gruposanquineo}" />
                     </div>
                 </div>
                  <div class="form-group">
                 <label class="col-sm-5 control-label">Tipo de Pension(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="mun"  th:field="*{afiliacionpension}" >
                         <option>AFP CONFIA</option>
                         <option>AFP CRECER</option>
                     </select>
@@ -240,19 +242,19 @@
                 <div class="form-group">
                     <label class="col-sm-5 control-label">NUP(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{numeroafiliacion}"  />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-5 control-label">BANCO(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{nombreinstiuciondepositar}"  />
                     </div>
                 </div>
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Tipo de Cuenta(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="mun" th:field="*{tipocuenta}">
                         <option>Ahorros</option>
                         <option>Corriente</option>
                     </select>
@@ -262,7 +264,7 @@
                    <div class="form-group">
                     <label class="col-sm-5 control-label">Numero de Cuenta(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{tipocuenta} "/>
                     </div>
                 </div>
             </div>
@@ -278,29 +280,31 @@
     <div id="menu1" class="tab-pane fade">
         <br>
       <form class="form-horizontal" th:object="${contacto}" th:action="@{../contacto}" method="post">
+          <input type="hidden" th:field="*{codigocontacto}"/>
+            <input type="hidden" th:field="*{nombrecontacto}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{nombrecontacto}"  />
                     </div>
                     </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Apellido(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{apellidocontacto}"   />
                     </div>
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Direccion(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{direccion}"  />
                     </div>
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Sexo(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="sexocontanto" >
+                    <select class="form-control" name="sexocontanto"  th:field="*{sexocontacto}" >
                         <option>Femenino</option>
                         <option>Masculino</option>
                     </select>
@@ -309,19 +313,19 @@
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{telefonofijocontacto}" />
                     </div>
                     </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Telefono Movil(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{telefonomovilcontacto}"  />
                     </div>
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Correo Electronico(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{emailcontacto}"    />
                     </div>
                 </div>
                 </div>
@@ -338,29 +342,31 @@
     <div id="menu2" class="tab-pane fade">
          <br>
        <form class="form-horizontal" th:object="${dependiente}" th:action="@{../dependiente}" method="post">
+           <input type="hidden" th:field="*{codigodependiente}"/>
+            <input type="hidden" th:field="*{nombredependiente}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{nombredependiente}"  />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Apellidos(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{apellidodependiente}"  />
                     </div>
                 </div>
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Nacimiento(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechanacde" id="fechanacde"  />
+                     <input class="form-control" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" />
                 </div>
             </div>
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Parentesco(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="parentesco" >
+                    <select class="form-control" name="parentesco" th:field="*{parentesco}" >
                         <option>Hijo</option>
                         <option>Tio</option>
                          <option>Hermano</option>
@@ -370,7 +376,7 @@
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Sexo(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="sexodep" >
+                    <select class="form-control" name="sexodep" th:field="*{sexo}">
                         <option>Femenino</option>
                         <option>Masculino</option>
                     </select>
@@ -390,23 +396,24 @@
       <!--<h3>Formacion Academica</h3>-->
          <br>
       <form class="form-horizontal" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post">
+          <input type="hidden" th:field="*{codigoformacionacademica}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Estudios Realizados(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{estudiosrealizados}" />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Centro Educativo(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{centroeducativo}"   />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Años Aprobados(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{aniosaprobados}" />
                     </div>
                 </div>
                  <div class="form-group">
@@ -422,19 +429,19 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Desde(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechadfa" id="fechadfa"  />
+                     <input class="form-control" type="text"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}"/>
                 </div>
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechahfa" id="fechahfa"  />
+                     <input class="form-control" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechadesdeformacionacademica}" />
                 </div>
             </div>
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Termino(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="mun" th:field="*{termino}">
                         <option>Si</option>
                         <option>No</option>
                     </select>
@@ -443,7 +450,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Titulo Obtenido(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{tituloobtenido}" />
                     </div>
                 </div>
       </div>
@@ -461,29 +468,30 @@
       <div id="menu4" class="tab-pane fade">
              <br>
       <form class="form-horizontal" th:object="${caprecibidas}" th:action="@{../caprecibidas}" method="post">
+          <input type="hidden" th:field="*{codigocaparecibidas}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Tipo de Evento(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{tipoevento}"  />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Especialidad del Evento(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{especialidad}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Organismo Patrocinador(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{organismo}"   />
                     </div>
                 </div>
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Pais(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="caprepais" >
+                    <select class="form-control" name="caprepais" th:field="*{pais}"  >
                         <option>El Salvador</option>
                         <option>Estado Unidos</option>
                          <option>Mexico</option>
@@ -494,19 +502,19 @@
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha del Evento(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechacapreevento" id="fechacapreevento"  />
+                     <input class="form-control" type="text"  name="fechacapreevento" id="fechacapreevento"  th:field="*{fechaevento}" />
                 </div>
             </div>
                    <div class="form-group">
                     <label class="col-sm-3 control-label">Duracion Horas(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{dhoras}" />
                     </div>
                 </div>
                    <div class="form-group">
                     <label class="col-sm-3 control-label">Duracion Dias(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{ddias}"  />
                     </div>
                 </div>
           </div>
@@ -522,12 +530,13 @@
       
       <div id="menu5" class="tab-pane fade">
              <br>
-           <form class="form-horizontal" th:object="${exlaboral}" th:action="@{../exlaboral}" method="post">
+           <form class="form-horizontal" th:object="${experiencialaboral}" th:action="@{../experiencialaboral}" method="post">
+                <input type="hidden" th:field="*{codigoexperiencialaboral}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Sector(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="mun" th:field="*{sectorexperiencialaboral}">
                         <option>Privado</option>
                         <option>Publico</option>
                     </select>
@@ -536,7 +545,7 @@
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre de Institucion(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{nombreinstitucion}"  />
                     </div>
                 </div>
                 <div class="form-group">
@@ -548,32 +557,32 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Desde(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechadexlaboral" id="fechadexlaboral"  />
+                     <input class="form-control" type="text"  name="fechadexlaboral" id="fechadexlaboral"  th:field="*{fechadesdeexperiencialaboral}"/>
                 </div>
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechahexlaboral" id="fechahexlaboral"  />
+                     <input class="form-control" type="text"  name="fechahexlaboral" id="fechahexlaboral"  th:field="*{fechahastaexperiencialaboral}"/>
                 </div>
             </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Salario Inicial(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{salarioinicial}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Salario Final(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{salariofinal}" />
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Causa del Retiro(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{motivoretiro}"  />
                     </div>
                 </div>
           </div>
@@ -589,6 +598,7 @@
       <div id="menu6" class="tab-pane fade">
              <br>
            <form class="form-horizontal" th:object="${ubicacionfisica}" th:action="@{../ubicacionfisica}" method="post">
+                <input type="hidden" th:field="*{codigoubicacion}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Destacado en(*):</label>
@@ -599,7 +609,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre de Jefe Inmediato(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{jefeinmediato}"  />
                     </div>
                 </div>
                 <div class="form-group">
@@ -611,13 +621,13 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Cargo Funcional(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{cargofuncional}" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Principales Tareas que desempeña(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{teareadesempenia}" />
                     </div>
                 </div>
                 
@@ -646,58 +656,59 @@
       <div id="menu7" class="tab-pane fade">
              <br>
            <form class="form-horizontal" th:object="${contrato}" th:action="@{../contrato}" method="post">
+                <input type="hidden" th:field="*{codigocontrato}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Salario Actual(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{salarioactual}"  />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Unidad Pres.(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{unidadprecide}"   />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Linea de Trabajo(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"   th:field="*{lineatrabajo}"   />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Partida(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{partidacontrato}"   />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Subpartida(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"     th:field="*{subpartidacontrato}"  />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Acuerdo o Nombramiento(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"       />
                     </div>
                 </div>
                     <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Inicio(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechaicontrato" id="fechaicontrato"  />
+                     <input class="form-control" type="text"  name="fechaicontrato" id="fechaicontrato" th:field="*{fechainiciocontrato}" />
                 </div>
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Finalizacion(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechafcontrato" id="fechafcontrato"  />
+                     <input class="form-control" type="text"  name="fechafcontrato" id="fechafcontrato" th:field="*{fechafincontrato}" />
                 </div>
             </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Cambio de Plaza(*):</label>
-                    <div class="col-sm-5" align="left">
+                    <div class="col-sm-5" align="left" th:field="*{plazanominal}">
                         <input type="checkbox"     />
                     </div>
                 </div>
@@ -713,30 +724,31 @@
       </div>
       <div id="menu8" class="tab-pane fade">
              <br>
-           <form class="form-horizontal" th:object="${discapacidad}" th:action="@{../discapacidad}" method="post">
+           <form class="form-horizontal" th:object="${hijodiscapacidad}" th:action="@{../hijodiscapacidad}" method="post">
+                <input type="hidden" th:field="*{codigohijodiscapacidad}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"  th:field="*{nombrehijodiscapacidad}"   />
                     </div>
                     </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Apellido(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{apellidohijodiscapacidad}" />
                     </div>
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Discapacidad(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"     />
+                        <input type="text" class="form-control"    th:field="*{nombrediscapacidad}" />
                     </div>
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Discapacidad(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="mun" th:field="*{tipodiscapacidad}">
                         <option>Paralisis Facial</option>
                         <option>Hidrosefalia</option>
                     </select>
@@ -745,7 +757,7 @@
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Nacimiento(*):</label>
                 <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechanacdis" id="fechanacdis"  />
+                     <input class="form-control" type="text"  name="fechanacdis" id="fechanacdis" th:field="*{fechanamimientohijosdiscapacidad}" />
                 </div>
             </div>
                     

@@ -7,7 +7,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
-import mj.gob.sisadmrh.model.UbicacionFisica;
+import mj.gob.sisadmrh.model.Ubicacionfisica;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

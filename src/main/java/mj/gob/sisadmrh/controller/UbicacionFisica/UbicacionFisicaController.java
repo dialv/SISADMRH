@@ -8,7 +8,7 @@ package mj.gob.sisadmrh.controller.UbicacionFisica;
 import mj.gob.sisadmrh.controller.UtilsController;
 
 
-import mj.gob.sisadmrh.model.UbicacionFisica;
+import mj.gob.sisadmrh.model.Ubicacionfisica;
 
 
 import mj.gob.sisadmrh.service.UbicacionFisicaService;
@@ -47,14 +47,14 @@ public class UbicacionFisicaController extends UtilsController{
     
     @RequestMapping("new/ubicacionfisica")
     public String newUbicacionFisica(Model model) {
-        model.addAttribute("ubicacionfisica", new UbicacionFisica());
+        model.addAttribute("ubicacionfisica", new Ubicacionfisica());
         
          
         return PREFIX + "ubicacionfisicaform";
     }
     
     @RequestMapping(value = "ubicacionfisica")
-    public String saveUbicacionFisica(UbicacionFisica ubicacionFisica,Model model) {
+    public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model) {
         try{
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
            model.addAttribute("msg", 0);

@@ -70,12 +70,12 @@ public class ComiteController extends UtilsController{
     public String list(@RequestParam(name="page",defaultValue = "0") int page,Model model){
       
         
-        Pageable pageRequest=new PageRequest(page, 5);//para el paginado
-        Page<Comite> comites=comiteService.listAllComite(pageRequest);//paginado
-        PageRender<Comite> pageRender = new PageRender<Comite>("comites", comites);//pagninado
-        model.addAttribute("comites", comites);//
-        model.addAttribute("page", pageRender);
-        return PREFIX + "comites";
+       // Pageable pageRequest=new PageRequest(page, 5);//para el paginado
+    model.addAttribute("comites" ,comiteService.listAllComite());//paginado
+       // PageRender<Comite> pageRender = new PageRender<Comite>("comites", comites);//pagninado
+     //   model.addAttribute("comites", comites);//
+      //  model.addAttribute("page", pageRender);
+        return PREFIX + "comiteform";
     }
     
      
