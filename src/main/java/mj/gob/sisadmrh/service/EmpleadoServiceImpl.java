@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadobeneficio;
@@ -49,6 +50,11 @@ public class EmpleadoServiceImpl implements EmpleadoService{
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<Object[]> findabogados(String finicial, String ffinal) {
+        return empleadoRep.findabogados(finicial, ffinal);
+    }
 
+   
     
 }

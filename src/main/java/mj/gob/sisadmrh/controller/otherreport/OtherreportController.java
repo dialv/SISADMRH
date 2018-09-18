@@ -3,7 +3,9 @@ package mj.gob.sisadmrh.controller.otherreport;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.pojos.AbogadosPojo;
 import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.ComiteService;
@@ -25,6 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -128,11 +132,20 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_abogados", params, download,response);
     }
+ 
+    @RequestMapping("/abogadosxls")
+       public ModelAndView abogadosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> abogadosList = empleadoService.findabogados(fechainicio, fechafin); 
+              return new ModelAndView(new AbogadosView(), "abogadosList", abogadosList);
+       }
+
+    
     
     @RequestMapping(value = "motoristas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmotoristas(@PathVariable("indice") Long indice, 
