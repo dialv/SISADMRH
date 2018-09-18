@@ -39,8 +39,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <th>Forma Incapacidad</th>
                             <th>Fondo</th>
                             <th>Diagnostico</th>
-<!--                            <th>Diagnostico</th>-->
-<!--                            <th>Subir Formulario</th>
+                           
+                            
+                            <th>Subir Formulario</th><!--
                             <th>Subir Documento</th>-->
                               <th>Acciones</th>
 
@@ -62,8 +63,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <td th:text="${incapacidad.formaincapacidad}">Forma Incapacidad</td>
                             <td th:text="${incapacidad.fondoincapacidad}">Fondo</td>
                              <td th:text="${incapacidad.diagnostico}">Diagnostico</td>
-<!--                              <td th:text="${incapacidad.documento1}">Formulario</td>
-                               <td th:text="${incapacidad.documento2}">Documento Dos</td>
+                              <!--<td th:text="${incapacidad.documento1}">Formulario</td>-->
+                                <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Descargar Formulario</a></td>
+                
+                               <td th:text="${incapacidad.documento2}">Documento Dos</td><!--
                               <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
                 <td>
@@ -128,6 +131,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
                         }
                     });
+        }
+         function descargapdf(idpdf){
+             location.href = './descarga/' + idpdf;
         }
     </script>
      <script th:inline="javascript">

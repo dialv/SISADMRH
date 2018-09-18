@@ -75,7 +75,7 @@ public class ComiteController extends UtilsController{
        // PageRender<Comite> pageRender = new PageRender<Comite>("comites", comites);//pagninado
      //   model.addAttribute("comites", comites);//
       //  model.addAttribute("page", pageRender);
-        return PREFIX + "comiteform";
+        return PREFIX + "comites";
     }
     
      
