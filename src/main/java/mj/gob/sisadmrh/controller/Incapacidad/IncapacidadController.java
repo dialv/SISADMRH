@@ -64,16 +64,17 @@ public class IncapacidadController extends UtilsController {
         model.addAttribute("empleados", empleados);
         return PREFIX + "incapacidadform";
     }
-     @RequestMapping(value = "/descarga/{id}")
+   @RequestMapping(value = "/descarga/{id}")
     public void verDocumento(HttpServletResponse response, @PathVariable(value = "id") Integer id) 
            throws IOException{ 
-           streamReport(response, incapacidadService.getIncapacidadById(id).get().getDocumento1(), "acuerdo.pdf");
+           streamReport(response, incapacidadService.getIncapacidadById(id).get().getDocumento1(), "Documento.pdf");// es el comprobante de la incapacidad
     }
 
     @RequestMapping(value = "incapacidad")
     public String saveIncapacidad(Incapacidad incapacidad, Model model,SessionStatus status,@RequestParam("file") MultipartFile file) {
         try {
-            incapacidad.setDocumento1(file.getBytes());
+             incapacidad.setDocumento1(file.getBytes());// es el documento o constancia de incapacidad
+          //  incapacidad.setDocumento2(file.getBytes());
             incapacidadService.saveIIncapacidad(incapacidad);
             status.setComplete();
             model.addAttribute("msg", 0);

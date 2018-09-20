@@ -118,20 +118,21 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                      <div class="form-group">
-                    <label class="col-sm-2 control-label">acuerdo:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Subir Documento o Diagnostico:</label>
+                    <div class="col-sm-6">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                
                     </div>
                 </div>
+               
                          
-                                            <div class="form-group">
+<!--                                            <div class="form-group">
                         <label class="col-sm-4 control-label">Subir Documento 2:</label>
                         <div class="col-sm-6">
                             <input type="file" name="Subir Formulario2" value="documento2" />
                         </div>
-                    </div>
+                    </div>-->
                          
                   
                
@@ -184,11 +185,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <script>
     $(document).ready(function () {
         $('#fechadesdeincapacidad').datepicker({
-            dateFormat: 'yy-mm-dd'
+           dateFormat: 'dd/mm/yy'
         });
 
         $('#fechahastaincapacidad').datepicker({
-            dateFormat: 'yy-mm-dd'
+           dateFormat: 'dd/mm/yy'
         });
     });
     function descargapdf(idpdf){
