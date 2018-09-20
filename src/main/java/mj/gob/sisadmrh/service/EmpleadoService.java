@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Empleado;
 
@@ -21,4 +22,7 @@ public interface EmpleadoService {
     Empleado saveEmpleado(Empleado empleado);
 
     void deleteEmpleado(Integer id);
+    
+    List<Object[]> findabogados(String finicial, String ffinal);
+
 }

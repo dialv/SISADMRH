@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import java.util.List;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Empleado;
@@ -21,5 +22,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
 //            + "WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
 //
 //    Iterable<Capacitador> findByDato(@Param("nom") String dato);
-    
+    @Query(value="select  o.codigoempleado, o.nombreempleado, o.fechaingresoministerio from Empleado o where codigopuesto= 3"
+            + "AND o.fechaingresoministerio >= to_date(:FINICIAL,'dd-mm-yyyy') AND o.fechaingresoministerio <= to_date(:FFINAL,'dd-mm-yyyy')", nativeQuery = true) 
+             List<Object[]> findabogados(@Param("FINICIAL") String finicial, @Param("FFINAL") String ffinal);
 }
