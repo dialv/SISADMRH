@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.pojos.AbogadosPojo;
 import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CapacitacionService;
@@ -141,11 +142,9 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
        public ModelAndView abogadosxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              List<Object[]> abogadosList = empleadoService.findabogados(fechainicio, fechafin); 
+              Iterable <Empleado> abogadosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
               return new ModelAndView(new AbogadosView(), "abogadosList", abogadosList);
        }
-
-    
     
     @RequestMapping(value = "motoristas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmotoristas(@PathVariable("indice") Long indice, 
@@ -159,6 +158,16 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_motoristas", params, download,response);
     }
+        @RequestMapping("/motoristasxls")
+       public ModelAndView motoristasxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              Iterable <Empleado> motoristasList = empleadoService.findabogados(fechainicio, fechafin, 5); 
+              return new ModelAndView(new MotoristasView(), "motoristasList", motoristasList);
+       }
+
+    
+    
 
     @RequestMapping(value = "empleadoincapacidad/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfempleadoincapacidad(@PathVariable("indice") Long indice, 
@@ -214,6 +223,15 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
         	generatePdf("otherreports", "rpt_notarios", params, download,response);
     }
 
+    @RequestMapping("/notariosxls")
+       public ModelAndView notariosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              Iterable <Empleado> notariosList = empleadoService.findabogados(fechainicio, fechafin, 4); 
+              return new ModelAndView(new NotariosView(), "notariosList", notariosList);
+       }
+
+    
     @RequestMapping(value = "renuncias/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfrenuncias(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 

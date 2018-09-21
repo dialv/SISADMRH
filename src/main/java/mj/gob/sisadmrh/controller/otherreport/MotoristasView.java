@@ -23,17 +23,17 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
  *
  * @author root
  */
-public class AbogadosView extends AbstractXlsView{
+public class MotoristasView extends AbstractXlsView{
  
  @Override
  protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
  HttpServletResponse response) throws Exception {
  
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
- response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_abogados.xls\"");
+ response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_motoristas.xls\"");
         
- Iterable<Empleado> abogadoList = (Iterable<Empleado>) model.get("abogadosList");
- Sheet sheet = workbook.createSheet("Abogados Data");
+ Iterable<Empleado> abogadoList = (Iterable<Empleado>) model.get("motoristasList");
+ Sheet sheet = workbook.createSheet("Motoristas Data");
  Row header = sheet.createRow(0);
  header.createCell(0).setCellValue("Codigo de empleado");
  header.createCell(1).setCellValue("Fecha de ingreso");

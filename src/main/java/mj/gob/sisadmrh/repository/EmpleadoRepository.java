@@ -22,7 +22,12 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
 //            + "WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
 //
 //    Iterable<Capacitador> findByDato(@Param("nom") String dato);
-    @Query(value="select  o.codigoempleado, o.nombreempleado, o.fechaingresoministerio from Empleado o where codigopuesto= 3"
-            + "AND o.fechaingresoministerio >= to_date(:FINICIAL,'dd-mm-yyyy') AND o.fechaingresoministerio <= to_date(:FFINAL,'dd-mm-yyyy')", nativeQuery = true) 
-             List<Object[]> findabogados(@Param("FINICIAL") String finicial, @Param("FFINAL") String ffinal);
+    @Query(value="select  o.* from empleado o where codigopuesto= :tipo"
+            + " AND o.fechaingresoministerio >= :FINICIAL "
+            + " AND o.fechaingresoministerio <= :FFINAL"
+//            + "AND o.fechaingresoministerio <= STR_TO_DATE(:FFINAL,'%Y-%m-%d')"
+            , nativeQuery = true) 
+            Iterable <Empleado> findabogados(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal,
+                                             @Param("tipo") Integer tipo);
 }

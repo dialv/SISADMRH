@@ -23,6 +23,6 @@ public interface EmpleadoService {
 
     void deleteEmpleado(Integer id);
     
-    List<Object[]> findabogados(String finicial, String ffinal);
+    Iterable <Empleado> findabogados(String finicial, String ffinal, Integer tipo);
 
 }

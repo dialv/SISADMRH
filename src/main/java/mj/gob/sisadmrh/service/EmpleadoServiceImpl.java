@@ -51,8 +51,8 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     }
 
     @Override
-    public List<Object[]> findabogados(String finicial, String ffinal) {
-        return empleadoRep.findabogados(finicial, ffinal);
+    public Iterable<Empleado> findabogados(String finicial, String ffinal, Integer tipo) {
+        return empleadoRep.findabogados(finicial, ffinal, tipo);
     }
 
    
