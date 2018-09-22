@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -55,8 +56,32 @@ public class Inasistencia implements Serializable {
      // @DateTimeFormat(pattern = "YYYY-MM-dd")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "FECHAHASTAINASISTENCIA")
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     private Date fechahastainasistencia;
+     @Lob
+    @Column(name = "ACUERDO")
+    private byte[] acuerdo;
+     
+       @Lob
+    @Column(name = "SOLICITUD")
+    private byte[] solicitud;
+
+    public byte[] getAcuerdo() {
+        return acuerdo;
+    }
+
+    public void setAcuerdo(byte[] acuerdo) {
+        this.acuerdo = acuerdo;
+    }
+
+    public byte[] getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(byte[] solicitud) {
+        this.solicitud = solicitud;
+    }
+     
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;

@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import java.util.List;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Empleado;
@@ -21,5 +22,21 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
 //            + "WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
 //
 //    Iterable<Capacitador> findByDato(@Param("nom") String dato);
-    
+    @Query(value="select  o.* from empleado o where codigopuesto= :tipo"
+            + " AND o.fechaingresoministerio >= :FINICIAL "
+            + " AND o.fechaingresoministerio <= :FFINAL"
+            , nativeQuery = true) 
+            Iterable <Empleado> findabogados(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal,
+                                             @Param("tipo") Integer tipo);
+            
+    @Query(value="SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,"
+            + "c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e "
+            + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
+            + "inner join puesto p on ep.codigopuesto=p.codigopuesto "
+            + "INNER JOIN comite c on e.codigoempleado=c.codigoempleado "
+            + "where c.fechadesdecomite >= :FINICIAL  and c.fechahastacomite <= :FFINAL"
+            , nativeQuery = true) 
+            List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
 }

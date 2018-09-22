@@ -26,7 +26,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <div class="col-md-8">
             <h3 align="center">Registro de Incapacidades</h3>
             <div>
-                <form class="form-horizontal" th:object="${incapacidad}" th:action="@{../incapacidad}" method="post">
+                <form class="form-horizontal" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
                      <div class="col-md-6">
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Empleado:</label>
@@ -117,19 +117,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
                         </div>
                     </div>
-                                         <div class="form-group">
-                        <label class="col-sm-4 control-label">Subir Fromulario:</label>
-                        <div class="col-sm-6">
-                            <input type="file" name="Subir Formulario" value="documento1" />
-                        </div>
+                     <div class="form-group">
+                    <label class="col-sm-4 control-label">Subir Documento o Diagnostico:</label>
+                    <div class="col-sm-6">
+                        <input type="file" name="file" />
+                               <!--class="" required="true" th:field="*{docaprovacion}"-->
+                               
                     </div>
+                </div>
+               
                          
-                                            <div class="form-group">
+<!--                                            <div class="form-group">
                         <label class="col-sm-4 control-label">Subir Documento 2:</label>
                         <div class="col-sm-6">
                             <input type="file" name="Subir Formulario2" value="documento2" />
                         </div>
-                    </div>
+                    </div>-->
                          
                   
                
@@ -140,7 +143,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     <div class="col-md-12">
                         <div class="row" align="center">
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/capacitadores/}">Regresar</a></button>
+                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/incapacidadaes/}">Regresar</a></button>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
                         </div>
@@ -182,14 +185,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <script>
     $(document).ready(function () {
         $('#fechadesdeincapacidad').datepicker({
-            dateFormat: 'yy-mm-dd'
+           dateFormat: 'dd/mm/yy'
         });
 
         $('#fechahastaincapacidad').datepicker({
-            dateFormat: 'yy-mm-dd'
+           dateFormat: 'dd/mm/yy'
         });
     });
-    
+    function descargapdf(idpdf){
+             location.href = './descarga/' + idpdf;
+        }
 </script>
 
 <script type="text/javascript" th:src="@{/js/sweetalert.js}"></script>

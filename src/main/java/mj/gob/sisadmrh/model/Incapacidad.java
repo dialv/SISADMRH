@@ -77,11 +77,11 @@ public class Incapacidad implements Serializable {
     private byte[] documento2;
     @Column(name = "FECHADESDEINCAPACIDAD")
   //  @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+      @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechadesdeincapacidad;
     @Column(name = "FECHAHASTAINCAPACIDAD")
    // @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+      @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechahastaincapacidad;
     @Column(name = "FECHAEMISION")
   //  @Temporal(TemporalType.DATE)

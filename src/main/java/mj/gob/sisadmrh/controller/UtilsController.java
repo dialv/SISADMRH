@@ -60,7 +60,19 @@ public class UtilsController {
         File reportFile = new File(context.getRealPath(reportPath));
         return reportFile;
     }
+    
 
+    public void streamReport(HttpServletResponse response, byte[] data, String name)
+            throws IOException {
+
+        response.setContentType("application/pdf");
+        response.setHeader("Content-disposition", "attachment; filename=" + name);
+        response.setContentLength(data.length);
+        response.getOutputStream().write(data);
+        response.getOutputStream().flush();
+    }
+
+    
     public HttpServletRequest getRequest() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }

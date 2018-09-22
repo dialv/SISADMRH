@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
      <th:block th:include="../templates/header"></th:block>
-    <title>Capacitaciones</title>
+    <title>Incapacidades</title>
    
      
     
@@ -39,7 +39,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <th>Forma Incapacidad</th>
                             <th>Fondo</th>
                             <th>Diagnostico</th>
-<!--                            <th>Diagnostico</th>-->
+                            <th> Descargar Diagnostico</th>
 <!--                            <th>Subir Formulario</th>
                             <th>Subir Documento</th>-->
                               <th>Acciones</th>
@@ -62,9 +62,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <td th:text="${incapacidad.formaincapacidad}">Forma Incapacidad</td>
                             <td th:text="${incapacidad.fondoincapacidad}">Fondo</td>
                              <td th:text="${incapacidad.diagnostico}">Diagnostico</td>
+                             
 <!--                              <td th:text="${incapacidad.documento1}">Formulario</td>
                                <td th:text="${incapacidad.documento2}">Documento Dos</td>
                               <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
+ <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Descargar Documento</a></td>
 
                 <td>
                     <a th:href="${'./show/' + incapacidad.codigoincapacidad}" class="btn btn-info">Mostrar</a>
@@ -152,6 +154,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        });
     }
     });
+    function descargapdf(idpdf){
+             location.href = './descarga/' + idpdf;
+        }
 </script>  
 </body>
 </html>
