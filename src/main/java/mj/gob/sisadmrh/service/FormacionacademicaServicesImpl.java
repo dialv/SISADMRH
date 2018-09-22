@@ -10,11 +10,13 @@ import mj.gob.sisadmrh.model.Formacionacademica;
 import mj.gob.sisadmrh.repository.FormacionacademicaRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author IPalacios
  */
+@Service
 public class FormacionacademicaServicesImpl implements FormacionacademicaService {
     private FormacionacademicaRepository formacionacademicaRep;
     
@@ -43,4 +45,9 @@ public class FormacionacademicaServicesImpl implements FormacionacademicaService
         formacionacademicaRep.deleteById(id);
     }
     
+    @Override
+    public Iterable<Formacionacademica> findByDato(int id) {
+        return formacionacademicaRep.findByDato(id);
+        
+    }
 }

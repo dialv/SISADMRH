@@ -21,4 +21,6 @@ public interface DependienteService {
     Dependiente saveDependiente(Dependiente empleado);
 
     void deleteDependiente(Integer id);
+    
+    Iterable<Dependiente> findByDato(int id) ;
 }

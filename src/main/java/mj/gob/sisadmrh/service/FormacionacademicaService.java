@@ -21,4 +21,6 @@ public interface FormacionacademicaService {
     Formacionacademica saveFormacionacademica(Formacionacademica empleado);
 
     void deleteFormacionacademica(Integer id);
+    
+    Iterable<Formacionacademica> findByDato(int id) ;
 }

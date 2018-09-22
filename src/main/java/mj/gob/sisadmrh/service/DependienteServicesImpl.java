@@ -10,11 +10,13 @@ import mj.gob.sisadmrh.model.Dependiente;
 import mj.gob.sisadmrh.repository.DependienteRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author IPalacios
  */
+@Service
 public class DependienteServicesImpl implements DependienteService {
     private DependienteRepository dependienteRep;
     
@@ -41,6 +43,12 @@ public class DependienteServicesImpl implements DependienteService {
     @Override
     public void deleteDependiente(Integer id) {
         dependienteRep.deleteById(id);
+    }
+    
+    @Override
+    public Iterable<Dependiente> findByDato(int id) {
+        return dependienteRep.findByDato(id);
+        
     }
     
 }

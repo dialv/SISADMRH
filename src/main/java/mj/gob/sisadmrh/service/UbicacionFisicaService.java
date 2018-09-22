@@ -21,4 +21,6 @@ public interface UbicacionFisicaService {
 
     void deleteUbicacionFisica(Integer id);
    Iterable<Ubicacionfisica> findByUbicacion(String dato);
+   
+   Iterable<Ubicacionfisica> findByDato(int id) ;
 }

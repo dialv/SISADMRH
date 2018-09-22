@@ -13,13 +13,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -39,7 +43,7 @@ public class Empleado implements Serializable {
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
@@ -84,13 +88,13 @@ public class Empleado implements Serializable {
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresosecpub;
     @Column(name = "FECHAINGRESOSECPRIV")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresosecpriv;
     @Column(name = "FECHAINGRESOMINISTERIO")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresoministerio;
     @Size(max = 6)
     @Column(name = "AFILIACIONPENSION")
@@ -122,8 +126,10 @@ public class Empleado implements Serializable {
     private String recidenciapermanente;
     @Basic(optional = false)
     @NotNull
+//    @JoinColumn(name = "codigopuesto", referencedColumnName = "codigopuesto")
+//    @OneToOne(optional = false)
     @Column(name = "codigopuesto")
-    private int codigopuesto;
+    private int  codigopuesto;
 
     public Empleado() {
     }

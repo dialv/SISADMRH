@@ -9,54 +9,59 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author daniel
+ * @author developer
  */
 @Entity
-@Table(name = "UBICACIONFISICA")
-@XmlRootElement
+@Table(name = "ubicacionfisica")
 @NamedQueries({
-    @NamedQuery(name = "UbicacionFisica.findAll", query = "SELECT u FROM UbicacionFisica u")
-   })
-public class UbicacionFisica implements Serializable {
+    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u")})
+public class Ubicacionfisica implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGOUBICACION")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigoubicacion")
     private Integer codigoubicacion;
     @Size(max = 50)
-    @Column(name = "NOMBREUBICACION")
-    private String nombreubicacion;
+    @Column(name = "cargofuncional")
+    private String cargofuncional;
     @Size(max = 50)
-    @Column(name = "JEFEINMEDIATO")
+    @Column(name = "jefeinmediato")
     private String jefeinmediato;
     @Size(max = 50)
-    @Column(name = "CARGOFUNCIONAL")
-    private String cargofuncional;
+    @Column(name = "nombreubicacion")
+    private String nombreubicacion;
     @Size(max = 500)
-    @Column(name = "TEAREADESEMPENIA")
+    @Column(name = "teareadesempenia")
     private String teareadesempenia;
-    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
-    @ManyToOne(optional = false)
-    private Empleado codigoempleado;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "codigoempleado")
+    private int codigoempleado;
 
-    public UbicacionFisica() {
+    public Ubicacionfisica() {
     }
 
-    public UbicacionFisica(Integer codigoubicacion) {
+    public Ubicacionfisica(Integer codigoubicacion) {
         this.codigoubicacion = codigoubicacion;
+    }
+
+    public Ubicacionfisica(Integer codigoubicacion, int codigoempleado) {
+        this.codigoubicacion = codigoubicacion;
+        this.codigoempleado = codigoempleado;
     }
 
     public Integer getCodigoubicacion() {
@@ -67,12 +72,12 @@ public class UbicacionFisica implements Serializable {
         this.codigoubicacion = codigoubicacion;
     }
 
-    public String getNombreubicacion() {
-        return nombreubicacion;
+    public String getCargofuncional() {
+        return cargofuncional;
     }
 
-    public void setNombreubicacion(String nombreubicacion) {
-        this.nombreubicacion = nombreubicacion;
+    public void setCargofuncional(String cargofuncional) {
+        this.cargofuncional = cargofuncional;
     }
 
     public String getJefeinmediato() {
@@ -83,12 +88,12 @@ public class UbicacionFisica implements Serializable {
         this.jefeinmediato = jefeinmediato;
     }
 
-    public String getCargofuncional() {
-        return cargofuncional;
+    public String getNombreubicacion() {
+        return nombreubicacion;
     }
 
-    public void setCargofuncional(String cargofuncional) {
-        this.cargofuncional = cargofuncional;
+    public void setNombreubicacion(String nombreubicacion) {
+        this.nombreubicacion = nombreubicacion;
     }
 
     public String getTeareadesempenia() {
@@ -99,11 +104,11 @@ public class UbicacionFisica implements Serializable {
         this.teareadesempenia = teareadesempenia;
     }
 
-    public Empleado getCodigoempleado() {
+    public int getCodigoempleado() {
         return codigoempleado;
     }
 
-    public void setCodigoempleado(Empleado codigoempleado) {
+    public void setCodigoempleado(int codigoempleado) {
         this.codigoempleado = codigoempleado;
     }
 
@@ -117,10 +122,10 @@ public class UbicacionFisica implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UbicacionFisica)) {
+        if (!(object instanceof Ubicacionfisica)) {
             return false;
         }
-        UbicacionFisica other = (UbicacionFisica) object;
+        Ubicacionfisica other = (Ubicacionfisica) object;
         if ((this.codigoubicacion == null && other.codigoubicacion != null) || (this.codigoubicacion != null && !this.codigoubicacion.equals(other.codigoubicacion))) {
             return false;
         }

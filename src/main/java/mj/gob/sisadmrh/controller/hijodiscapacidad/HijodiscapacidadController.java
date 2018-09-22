@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 
  */
 @Controller
-@RequestMapping(value = "hijodiscapacidad")
+@RequestMapping(value = "hijodiscapacidades")
 public class HijodiscapacidadController extends UtilsController{
     
     private HijosdiscapacidadService hijodiscapacidadService;

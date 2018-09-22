@@ -46,7 +46,7 @@ public class ContactoController extends UtilsController{
         this.contactoService = contactoService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/contacto/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("contactos", contactoService.listAllContacto());
@@ -56,13 +56,13 @@ public class ContactoController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("contacto", contactoService.getContactoById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "contactoform";
     }
 
     @RequestMapping("new/contacto")
     public String newContacto(Model model) {
         model.addAttribute("contacto", new Contacto());
-        return PREFIX + "empleadoform";
+        return PREFIX + "contactoform";
     }
 
     @RequestMapping(value = "contacto")
@@ -74,15 +74,19 @@ public class ContactoController extends UtilsController{
     @RequestMapping("show/{id}")    
     public String showContacto(@PathVariable Integer id, Model model) {
         model.addAttribute("contacto", contactoService.getContactoById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"contactoform";
     }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
         contactoService.deleteContacto(id);
-        return "redirect:/empleado/";
+        return "redirect:/contacto/";
     }
     
-    
-    
+ 
+    @RequestMapping("empleado/contacto/{id}")
+        public String findContactoByEmpladoId(@PathVariable Integer id, Model model) {
+        model.addAttribute("costocapacitacion", contactoService.findByDato(id));
+        return "redirect:/contacto/";
+    }
 }

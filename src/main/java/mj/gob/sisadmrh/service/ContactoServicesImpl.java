@@ -10,11 +10,12 @@ import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.repository.ContactoRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 /**
  *
  * @author IPalacios
  */
+@Service
 public class ContactoServicesImpl implements ContactoService {
     private ContactoRepository contactoRep;
     
@@ -41,6 +42,12 @@ public class ContactoServicesImpl implements ContactoService {
     @Override
     public void deleteContacto(Integer id) {
         contactoRep.deleteById(id);
+    }
+    
+    @Override
+    public Iterable<Contacto> findByDato(int id) {
+        return contactoRep.findByDato(id);
+        
     }
     
 }

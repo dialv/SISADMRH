@@ -21,4 +21,6 @@ public interface CaparecibidasService {
     Caparecibidas saveCaparecibidas(Caparecibidas empleado);
 
     void deleteCaparecibidas(Integer id);
+    
+    Iterable<Caparecibidas> findByDato(int id) ;
 }

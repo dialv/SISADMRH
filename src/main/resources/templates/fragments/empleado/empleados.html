@@ -5,6 +5,13 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
+<div class="contenedorizq"><label  >pnt_cem13</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <!--<div class="container">-->
     
     <div th:if="${not #lists.isEmpty(empleados)}" >
@@ -13,9 +20,11 @@
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
-            
+            <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
         <!--</div>-->
-        <h3 align="center">Listado de Empleados</h3>
+        <h3 align="center">Empleados</h3>
         <table class="table table-striped">
             <tr >
                 <th>Codigo de Empleado</th>
@@ -24,6 +33,7 @@
                 <th>DUI</th>
                 <th>NIT</th>
                 <th>Email</th>
+                <th>Seleccionar</th>
             </tr>
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${empleado.codigoempleado}">codigoempleado</td>
@@ -32,9 +42,9 @@
                 <td th:text="${empleado.duiempleado}">duiempleado</td>
                 <td th:text="${empleado.nitempleador}">nitempleador</td>
                 <td th:text="${empleado.emailempleado}">emailempleado</td>
-                <td><a th:href="${'./show/' + empleado.codigoempleado}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + empleado.codigoempleado}" class="btn btn-default">Edit</a></td>
-                <td><a th:href="${'./delete/' + empleado.codigoempleado}" class="btn btn-danger">Delete</a></td>
+                <td><a th:href="${'./show/' + empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
+                <td><a th:href="${'./delete/' + empleado.codigoempleado}" class="btn btn-danger">Eliminar</a></td>
             </tr>
         </table>
         </div>
@@ -45,5 +55,12 @@
         </div>
  </div>
    </div> 
+
+     <script> 
+         $(document).ready(function(){
+            $("#tipoLista").on("change")
+         });
+     </script> 
+
 </body>
 </html>

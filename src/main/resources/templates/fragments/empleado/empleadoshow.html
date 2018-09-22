@@ -1,88 +1,611 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
+    <head lang="en">
 
-    <title>SISADMRH-Detalle de Empleado</title>
-     <th:block th:include="../templates/header"></th:block>
- 
+        <title>SISADMRH-Detalle de Empleado</title>
+    <th:block th:include="../templates/header"></th:block>
 
-  
+
+
 </head>
 <body>
- <div class="row">
- <div class="col-md-3">
+<div class="contenedorizq"><label  >pnt_cem14</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
+    <div class="row">
+        <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
-        <div class="col-md-8">
-    <h3 align="center">Consulta de Datos de Empleado</h3>
-        <div>
-            <form class="form-horizontal">
-                 <div class="col-md-6">
-                     <div class="form-group">
-                    <label class="col-sm-5 control-label">codigo:</label>
-                    <div class="col-sm-7">
-                        <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Nombre de Empleado</label>
-                    <div class="col-sm-7">
-                        <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
+        <div class="col-md-9">
+		 <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+            <h3 align="center">Consulta de Datos de Empleado</h3>
+            <div>
+                <form class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">codigo:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre de Empleado</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Apellido de Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.fechanacimientoempleado}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Telefono Movil de Empleado</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Telefono Movil de Empleado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">DUI:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.duiempleado}">DUI</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">NIT:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.nitempleador}">NIT</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Email:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.emailempleado}">Email Empleado</p>
+                            </div>
+                        </div>
+                    </div> 
+
+
+                </form>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Apellido de Empleado:</label>
-                    <div class="col-sm-7">
-                        <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="card-758749">
+                               
+								<!-- Contacto-->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734527"> Contactos </a>
+                                    </div>
+                                    <div id="card-element-734527" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Contactos															
+																<a href="contactos/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+														</div>	
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Contactos</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Nombre de  Contacto</th>
+															<th>Direccion</th>
+															<th>Telefono Fijo</th>
+															<th>Telefono Movi</th>
+															<th>Email</th>
+															</tr>
+															<tr th:each="contacto : ${contactos}">
+															<td th:text="${contacto.codigocontacto}">codigocontacto</td>
+															<td th:text="${contacto.nombrecontacto}">nombrecontacto</td>
+															<td th:text="${contacto.direccion}">direccion</td>                
+															<td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
+															<td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
+															<td th:text="${contacto.emailcontacto}">emailcontacto</td>
+															<td><a th:href="${'./show/' + contacto.codigocontacto}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + contacto.codigocontacto}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + contacto.codigocontacto}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Dependiente-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734528"> Dependientes </a>
+                                    </div>
+                                    <div id="card-element-734528" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Dependientes   
+																<a href="dependientes/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
+														</div>														
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Dependientes</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Nombre de  Dependiente</th>
+															<th>Parentesco</th>
+															</tr>
+															<tr th:each="dependiente : ${dependientes}">
+															<td th:text="${dependiente.codigodependiente}">codigodependiente</td>
+															<td th:text="${dependiente.nombredependiente}">nombredependiente</td>
+															<td th:text="${dependiente.parentesco}">parentesco</td>   
+															<td><a th:href="${'./show/' + dependiente.codigodependiente}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + dependiente.codigodependiente}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + dependiente.codigodependiente}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Formacion Academica-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734529"> Formacion Academica </a>
+                                    </div>
+                                    <div id="card-element-734529" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Formacion Academica   
+																<a href="formacionacademicas/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Formacion Academica</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Estudios Realizados</th>
+															<th>Centro Educativo</th>
+															<th>Titulo Obtenido</th>
+															<th>Fecha</th>
+															</tr>
+															<tr th:each="formacionacademica : ${formacionacademicas}">
+															<td th:text="${formacionacademica.codigoformacionacademica}">codigoformacionacademica</td>
+															<td th:text="${formacionacademica.estudiosrealizados}">estudiosrealizados</td>
+															<td th:text="${formacionacademica.centroeducativo}">centroeducativo</td>   
+															<td th:text="${formacionacademica.tituloobtenido}">tituloobtenido</td>   
+															<td th:text="${formacionacademica.fechadesdeformacionacademica}">fechadesdeformacionacademica</td>   
+															<td><a th:href="${'./show/' + formacionacademica.codigoformacionacademica}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + formacionacademica.codigoformacionacademica}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + formacionacademica.codigoformacionacademica}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Capacitaciones Recibidas-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734530"> Formacion Academica </a>
+                                    </div>
+                                    <div id="card-element-734530" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Capacitaciones Recibidas  
+																<a href="caparecibidas/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Capacitaciones Recibidas</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Estudios Realizados</th>
+															<th>Centro Educativo</th>
+															<th>Titulo Obtenido</th>
+															<th>Fecha</th>
+															</tr>
+															<tr th:each="caparecibida : ${caparecibidas}">
+															<td th:text="${caparecibida.codigocaparecibidas}">codigocaparecibidas</td>
+															<td th:text="${caparecibida.tipoevento}">tipoevento</td>
+															<td th:text="${caparecibida.especialidad}">especialidad</td>   
+															<td th:text="${caparecibida.organismo}">organismo</td>   
+															<td th:text="${caparecibida.fechaevento}">fechaevento</td>   
+															<td><a th:href="${'./show/' + caparecibida.codigocaparecibidas}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + caparecibida.codigocaparecibidas}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + caparecibida.codigocaparecibidas}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Experiencia Laboral-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734531"> Experiencia Laboral  </a>
+                                    </div>
+                                    <div id="card-element-734531" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Experiencia Laboral 
+																<a href="experiencialaborales/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Experiencia Laboral</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Institucion</th>
+															<th>Fecha Desde</th>
+															<th>Fecha Hasta</th>
+															<th>Salario</th>
+															<th>Sector</th>
+															</tr>
+															<tr th:each="experiencialaboral : ${experiencialaborales}">
+															<td th:text="${experiencialaboral.codigoexperiencialaboral}">codigoexperiencialaboral</td>
+															<td th:text="${experiencialaboral.nombreinstitucion}">nombreinstitucion</td>
+															<td th:text="${experiencialaboral.fechadesdeexperiencialaboral}">fechadesdeexperiencialaboral</td>   
+															<td th:text="${experiencialaboral.fechahastaexperiencialaboral}">fechahastaexperiencialaboral</td>   
+															<td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
+															<td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
+															<td><a th:href="${'./show/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Ubicacion Fisica-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734532"> Ubicacion Fisica </a>
+                                    </div>
+                                    <div id="card-element-734532" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Ubicacion Fisica  
+																<a href="ubicacionfisicas/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Ubicacion Fisica</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Cargo</th>
+															<th>Jefe Inmediato</th>
+															<th>Nombre Ubicacion</th>
+															</tr>
+															<tr th:each="ubicacionfisica : ${ubicacionfisicas}">
+															<td th:text="${ubicacionfisica.codigoubicacion}">codigoubicacion</td>
+															<td th:text="${ubicacionfisica.cargofuncional}">cargofuncional</td>
+															<td th:text="${ubicacionfisica.jefeinmediato}">jefeinmediato</td>   
+															<td th:text="${ubicacionfisica.nombreubicacion}">nombreubicacion</td>    
+															<td><a th:href="${'./show/' + ubicacionfisica.codigoubicacion}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + ubicacionfisica.codigoubicacion}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + ubicacionfisica.codigoubicacion}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Contrato-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734533"> Contrato</a>
+                                    </div>
+                                    <div id="card-element-734533" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Contrato 
+																<a href="contratos/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Contrato</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Fecha de Inicio</th>
+															<th>Fecha de Fin</th>
+															<th>Salario</th>
+															</tr>
+															<tr th:each="contrato : ${contratos}">
+															<td th:text="${contrato.codigocontrato}">codigocontrato</td>
+															<td th:text="${contrato.fechainiciocontrato}">fechainiciocontrato</td>
+															<td th:text="${contrato.fechafincontrato}">fechafincontrato</td>   
+															<td th:text="${contrato.salarioactual}">salarioactual</td>    
+															<td><a th:href="${'./show/' + contrato.codigocontrato}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + contrato.codigocontrato}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + contrato.codigocontrato}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Hijos con Discapacidad-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734534"> Hijos con Discapacidad</a>
+                                    </div>
+                                    <div id="card-element-734534" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Hijos con Discapacidad 
+																<a href="hijodiscapacidades/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Hijos con Discapacidad</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Nombre</th>
+															<th>Discapacidad</th>
+															<th>Tipo de Discapacidad</th>
+															</tr>
+															<tr th:each="hijodiscapacidad : ${hijodiscapacidades}">
+															<td th:text="${hijodiscapacidad.codigohijodiscapacidad}">codigohijodiscapacidad</td>
+															<td th:text="${hijodiscapacidad.nombrehijodiscapacidad}">nombrehijodiscapacidad</td>
+															<td th:text="${hijodiscapacidad.nombrediscapacidad}">nombrediscapacidad</td>   
+															<td th:text="${hijodiscapacidad.tipodiscapacidad}">tipodiscapacidad</td>    
+															<td><a th:href="${'./show/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+									<!--Idiomas-->
+									<div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734535"> Idiomas</a>
+                                    </div>
+                                    <div id="card-element-734535" class="collapse">
+                                        <div class="card-body"> 
+                                           		<div class="panel panel-primary">
+														<div class="panel-heading">
+															<h3 class="panel-title"> 
+																Idiomas
+																<a href="idiomas/new/{id}" title="" class="btn-sm btn-success pull-right">
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																</a>
+															</h3>
+														</div>
+														<div class="panel-body">
+														 <div class="row text-center">
+															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
+														</div>
+															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+															<div class="row">
+
+															<div class="col-md-12">
+
+															<!--</div>-->
+															<h3 align="center">Idiomas</h3>
+															<table class="table table-striped">
+															<tr >
+															<th>Codigo</th>
+															<th>Nombre</th>
+															<th>Escribe</th>
+															<th>Habla</th>
+															<th>Traduce</th>
+															<th>Nivel</th>
+															</tr>
+															<tr th:each="idioma : ${idiomas}">
+															<td th:text="${idioma.codigoidioma}">codigoidioma</td>
+															<td th:text="${idioma.nombreidioma}">nombreidioma</td>
+															<td th:text="${idioma.escribe}">escribe</td>  
+															<td th:text="${idioma.habla}">habla</td>   
+															<td th:text="${idioma.traduce}">traduce</td> 
+															<td th:text="${idioma.nivel}">nivel</td> 															
+															<td><a th:href="${'./show/' + idioma.codigoidioma}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'./edit/' + idioma.codigoidioma}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'./delete/' + idioma.codigoidioma}" class="btn btn-danger">Eliminar</a></td>
+															</tr>
+															</table>
+															</div>
+															<!--</div>-->   
+														</div>
+													</div>       
+                                              
+                                                    
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div><!--fin-->
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
-                    <div class="col-sm-7">
-                        <p class="form-control-static" th:text="${empleado.fechanacimientoempleado}">Fecha de Nacimiento</p>
-                    </div>
-                </div>
-                  </div> 
-                      <div class="col-md-6">
-                          <div class="form-group">
-                    <label class="col-sm-7 control-label">Telefono Movil de Empleado</label>
-                    <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Telefono Movil de Empleado</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-7 control-label">DUI:</label>
-                    <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${empleado.duiempleado}">DUI</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-7 control-label">NIT:</label>
-                    <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${empleado.nitempleador}">NIT</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-7 control-label">Email:</label>
-                    <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${empleado.emailempleado}">Email Empleado</p>
-                    </div>
-                </div>
-                  </div> 
-                
-                
-            </form>
-            <div class="col-md-12">
-            <div class="row" align="center">
-                <button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
-                
+
+
             </div>
-    </div>
-    </div>
-</div>
-      <div class="col-md-12">
+        </div>
+        <div class="col-md-12">
             <th:block th:include="../templates/footer"></th:block>
         </div>
-     </div>
+    </div>
 
 </body>
 </html>

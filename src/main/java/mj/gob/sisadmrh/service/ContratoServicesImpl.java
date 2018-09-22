@@ -10,11 +10,13 @@ import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.repository.ContratoRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
- * @author IPalacios
+ * @author amachuca
  */
+@Service
 public class ContratoServicesImpl implements ContratoService {
     private ContratoRepository contratoRep;
     
@@ -42,5 +44,12 @@ public class ContratoServicesImpl implements ContratoService {
     public void deleteContrato(Integer id) {
         contratoRep.deleteById(id);
     }
+    
+    @Override
+    public Iterable<Contrato> findByDato(int id) {
+        return contratoRep.findByDato(id);
+        
+    }
+    
     
 }

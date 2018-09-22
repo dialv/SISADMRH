@@ -32,6 +32,16 @@
     <class>mj.gob.sisadmrh.model.Experiencialaboral</class>
     <class>mj.gob.sisadmrh.model.Hijodiscapacidad</class>
     <class>mj.gob.sisadmrh.model.Formacionacademica</class>
+    <class>mj.gob.sisadmrh.model.Empleadocontacto</class>
+    <class>mj.gob.sisadmrh.model.Empleadocontrato</class>
+    <class>mj.gob.sisadmrh.model.Empleadoidioma</class>
+    <class>mj.gob.sisadmrh.model.Empleadocaparecibidas</class>
+    <class>mj.gob.sisadmrh.model.Empleadoformacion</class>
+    <class>mj.gob.sisadmrh.model.Empleadoubicacionfisica</class>
+    <class>mj.gob.sisadmrh.model.Empleadohijodiscapacidad</class>
+    <class>mj.gob.sisadmrh.model.Empleadodependiente</class>
+    <class>mj.gob.sisadmrh.model.Empleadoexperiencialaboral</class>
+    <class>mj.gob.sisadmrh.model.Idioma</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>

@@ -21,4 +21,6 @@ public interface ExperiencialaboralService {
     Experiencialaboral saveExperiencialaboral(Experiencialaboral empleado);
 
     void deleteExperiencialaboral(Integer id);
+    
+    Iterable<Experiencialaboral> findByDato(int id) ;
 }

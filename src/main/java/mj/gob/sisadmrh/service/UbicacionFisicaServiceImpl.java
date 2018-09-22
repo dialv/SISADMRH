@@ -44,4 +44,10 @@ public class UbicacionFisicaServiceImpl implements UbicacionFisicaService{
     public Iterable<Ubicacionfisica> findByUbicacion(String dato) {
         return ubicacionFisicaRep.findByUbicacion("%"+dato+"%");
     } 
+    
+     @Override
+    public Iterable<Ubicacionfisica> findByDato(int id) {
+        return ubicacionFisicaRep.findByDato(id);
+        
+    }
 }

@@ -21,4 +21,6 @@ public interface ContratoService {
     Contrato saveContrato(Contrato empleado);
 
     void deleteContrato(Integer id);
+    
+    Iterable<Contrato> findByDato(int id) ;
 }

@@ -21,4 +21,6 @@ public interface ContactoService {
     Contacto saveContacto(Contacto empleado);
 
     void deleteContacto(Integer id);
+    
+    Iterable<Contacto> findByDato(int id) ;
 }

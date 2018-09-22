@@ -6,12 +6,15 @@
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.Experiencialaboral;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author IPalacios
  */
 public interface ExperiencialaboralRepository extends CrudRepository<Experiencialaboral, Integer>{
-    
+     @Query(value = "SELECT d.* FROM experiencialaboral d , empleadoexperiencialaboral ed WHERE d.codigoexperiencialaboral = ed.codigoexperiencialaboral and ed.codigoempleado= :id ", nativeQuery = true)
+    Iterable<Experiencialaboral> findByDato(@Param("id") int dato);
 }
