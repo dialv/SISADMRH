@@ -244,7 +244,14 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_renuncias", params, download,response);
     }
-    
+    @RequestMapping("/renunciasxls")
+       public ModelAndView renunciasxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> renunciasList = empleadoService.renuncias(fechainicio, fechafin); 
+              return new ModelAndView(new RenunciasView(), "renunciasList", renunciasList);
+       }
+
     
    @RequestMapping(value = "cumpleanieros/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfcumpleanieros(@PathVariable("indice") Long indice, 

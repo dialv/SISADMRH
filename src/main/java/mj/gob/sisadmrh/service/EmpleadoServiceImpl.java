@@ -55,6 +55,9 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         return empleadoRep.findabogados(finicial, ffinal, tipo);
     }
 
-   
+    @Override
+    public List<Object[]> renuncias(String finicial, String ffinal) {
+        return empleadoRep.renuncias(finicial, ffinal);
+    }
     
 }

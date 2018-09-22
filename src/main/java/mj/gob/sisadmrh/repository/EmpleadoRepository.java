@@ -25,9 +25,18 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
     @Query(value="select  o.* from empleado o where codigopuesto= :tipo"
             + " AND o.fechaingresoministerio >= :FINICIAL "
             + " AND o.fechaingresoministerio <= :FFINAL"
-//            + "AND o.fechaingresoministerio <= STR_TO_DATE(:FFINAL,'%Y-%m-%d')"
             , nativeQuery = true) 
             Iterable <Empleado> findabogados(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal,
                                              @Param("tipo") Integer tipo);
+            
+    @Query(value="SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,"
+            + "c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e "
+            + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
+            + "inner join puesto p on ep.codigopuesto=p.codigopuesto "
+            + "INNER JOIN comite c on e.codigoempleado=c.codigoempleado "
+            + "where c.fechadesdecomite >= :FINICIAL  and c.fechahastacomite <= :FFINAL"
+            , nativeQuery = true) 
+            List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
 }
