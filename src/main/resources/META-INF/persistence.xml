@@ -24,7 +24,6 @@
     <class>mj.gob.sisadmrh.model.EvaluacionCapacitacion</class>
     <class>mj.gob.sisadmrh.model.Inasistencia</class>
     <class>mj.gob.sisadmrh.model.Incapacidad</class>
-    <class>mj.gob.sisadmrh.model.UbicacionFisica</class>
     <class>mj.gob.sisadmrh.model.Evaluacioncapacitacion</class>
     <class>mj.gob.sisadmrh.model.Ubicacionfisica</class>
     <class>mj.gob.sisadmrh.model.Caparecibidas</class>
