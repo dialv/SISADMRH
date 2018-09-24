@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Capacitacion;
@@ -67,4 +68,12 @@ comiteRep.deleteById(id);
     public Page<Comite> listAllComite(Pageable pePageable) {
 return  comiteRep.findAll(pePageable);
     }
+      @Override
+    public List<Comite> findByeComitesR(String finicial, String ffinal, String codigo) {
+        return comiteRep.findByeComitesR(finicial, ffinal, codigo);// metood para generar exel de los comites
+    }
+
+   
+
+    
 }

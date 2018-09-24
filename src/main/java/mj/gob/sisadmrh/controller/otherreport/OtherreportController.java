@@ -21,6 +21,7 @@ import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -355,7 +356,14 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_comites", params, download,response); 
 }
-    
+      @RequestMapping("/comitesxls")
+       public ModelAndView comitesxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin,
+              @RequestParam(value="codigo",required = false) String codigo){
+              List<Comite> comitesList = comiteService.findByeComitesR(fechainicio, fechafin, codigo);
+              return new ModelAndView(new ComitesView(), "comitesList", comitesList);
+       }
     
     
     @RequestMapping("reporte/pensionadoreporte")
