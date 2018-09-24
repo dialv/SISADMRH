@@ -34,7 +34,8 @@ public interface ComiteRepository extends PagingAndSortingRepository<Comite, Int
      
      //consulta para generar el exel
      @Query(value="select e.nombreempleado,"
-      + " p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite from empleado e "
+      + " p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,"
+             + "c.fechahastacomite from empleado e "
    + " inner join empleadopuesto ep on ep.codigoempleado=ep.codigoempleado "
    + " inner join puesto p on ep.codigopuesto=p.codigopuesto "
    + " inner join comite c on e.codigoempleado=c.codigoempleado "
@@ -42,8 +43,7 @@ public interface ComiteRepository extends PagingAndSortingRepository<Comite, Int
   + " and c.fechadesdecomite>=:FINICIAL "
   + " and c.fechahastacomite<=:FFINAL "
 , nativeQuery = true) 
-
-    public List<Comite> findByeComitesR(@Param("FINICIAL") String finicial, 
+  List<Object[]> findByeComitesR(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal,
                                              @Param("CODIGO") String codigo);
 }

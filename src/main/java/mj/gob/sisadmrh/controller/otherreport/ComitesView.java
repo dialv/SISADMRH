@@ -5,6 +5,8 @@
  */
 package mj.gob.sisadmrh.controller.otherreport;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -52,9 +54,10 @@ public class ComitesView   extends AbstractXlsView{
  Row row = sheet.createRow(rowNum++);
  row.createCell(0).setCellValue((String) comites[0]);
  row.createCell(1).setCellValue((String) comites[1]);
- row.createCell(2).setCellValue((String) comites[2]);
+ row.createCell(2).setCellValue((Integer) comites[2]);
  row.createCell(3).setCellValue((String) comites[3]);
- row.createCell(4).setCellValue((String) comites[4]);
+ row.createCell(4).setCellValue((Timestamp) comites[4]);
+ row.createCell(5).setCellValue((Timestamp) comites[5]);
  }
 
 // int rowNum = 1;

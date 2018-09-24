@@ -43,10 +43,19 @@ public class OtherreportController extends UtilsController{
  
 @Autowired
 private ComiteService comiteService;// instancia para jalar los comites
+//@Autowired
+//public void getListComitesExcel(ComiteService comiteService){
+//    this.comiteService=comiteService;
+//}
+        
+
 @Autowired
 private EmpleadoService empleadoService;// instancia para listar empleados como filtro de reporte
 @Autowired
 private CapacitacionService capacitacionSerice;// instancia para jalar las capacitaciones
+
+
+
     private final String PREFIX = "fragments/otherreports/";
 
     @RequestMapping("abogados/")
@@ -361,7 +370,10 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
-              List<Comite> comitesList = comiteService.findByeComitesR(fechainicio, fechafin, codigo);
+              
+              
+         
+              List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin, codigo);
               return new ModelAndView(new ComitesView(), "comitesList", comitesList);
        }
     
