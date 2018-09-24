@@ -40,11 +40,13 @@ public class ComitesView   extends AbstractXlsView{
   List<Object[]> comitesList = (List<Object[]>) model.get("comitesList");
  Sheet sheet = workbook.createSheet("Comites Data");
  Row header = sheet.createRow(0);
+ 
  header.createCell(0).setCellValue("Nombre Empleado");
  header.createCell(1).setCellValue("Puesto");
- header.createCell(2).setCellValue("Comite");
-  header.createCell(3).setCellValue("Desde");
-  header.createCell(4).setCellValue("Hasta");
+  header.createCell(2).setCellValue("Acuerdo");
+ header.createCell(3).setCellValue("Comite");
+  header.createCell(4).setCellValue("Desde");
+  header.createCell(5).setCellValue("Hasta");
   
   
    

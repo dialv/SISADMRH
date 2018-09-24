@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 
 /**
  *
@@ -52,7 +53,7 @@ private ComiteService comiteService;// instancia para jalar los comites
 @Autowired
 private EmpleadoService empleadoService;// instancia para listar empleados como filtro de reporte
 @Autowired
-private CapacitacionService capacitacionSerice;// instancia para jalar las capacitaciones
+private CapacitacionService capacitacionService;// instancia para jalar las capacitaciones
 
 
 
@@ -100,7 +101,7 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
     
      @RequestMapping("capacitaciones/")
     public String reportecapacitaciones(Model model) {
-        model.addAttribute("capacitaciones", capacitacionSerice.listAllCapacitacion());
+        model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
      @RequestMapping("comites/")
@@ -275,7 +276,7 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_cumpleanieros", params, download,response);
     } 
-
+//..................pARA GENERAR EL REPORTE PDF DE CAPACITACIONES ................................................
     @RequestMapping(value = "capacitaciones/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfcapacitaciones(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -288,6 +289,16 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_capacitaciones", params, download,response);
     } 
+    // ................... Para generar el reporte en excel de capacitaciones............
+      @RequestMapping("/capacitacionesxls")
+       public ModelAndView capacitacionesxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin,
+              @RequestParam(value="codigo",required = false) String codigo){
+              List<Object[]> capacitacionesList = capacitacionService.findByCapacitacionesR(fechainicio, fechafin, codigo);
+              return new ModelAndView((View) new CapacitacionesView(), "capacitacionesList", capacitacionesList);
+       }
+    
         @RequestMapping(value = "constanciasalariales/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfconstanciasalariales(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
