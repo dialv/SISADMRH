@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Experiencialaboral;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface ExperiencialaboralService {

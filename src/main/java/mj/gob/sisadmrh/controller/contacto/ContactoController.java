@@ -14,8 +14,11 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contacto;
+import mj.gob.sisadmrh.model.Empleadocontacto;
+import mj.gob.sisadmrh.model.EmpleadocontactoPK;
 import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.ContactoService;
+//import mj.gob.sisadmrh.service.EmpleadoContactoService;
 //import mj.gob.sisadmrh.service.ContactoContactoService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +41,12 @@ public class ContactoController extends UtilsController{
     private ContactoService contactoService;
 //    private ContactoContactoService contactoContactoService;
     
+//     private EmpleadoContactoService  empleadocontacto ;
+//    @Autowired
+//    public void setEmpleadoContactoService(EmpleadoContactoService empleadocontacto){
+//    this.empleadocontacto=empleadocontacto;
+//    }
+    
 
 
     
@@ -59,34 +68,41 @@ public class ContactoController extends UtilsController{
         return PREFIX + "contactoform";
     }
 
-    @RequestMapping("new/contacto")
-    public String newContacto(Model model) {
+    @RequestMapping("new/{id}") 
+    public String newContacto(Model model,@PathVariable Integer id) {
+//        EmpleadocontactoPK empCto = new EmpleadocontactoPK();
+//        empCto.setCodigoempleado(id);
+//        model.addAttribute("empleadoContacto", empCto );
         model.addAttribute("contacto", new Contacto());
         return PREFIX + "contactoform";
     }
 
     @RequestMapping(value = "contacto")
     public String saveContacto(Contacto contacto) {
+       
         contactoService.saveContacto(contacto);
+//        emp.setCodigocontacto(contacto.getCodigocontacto()); 
+//        emp.setCodigoempleado(contacto.getCodigocontacto());
+//        empleadocontactoPK.saveEmpleadoContacto(emp);
         return "redirect:./show/" + contacto.getCodigocontacto();
     }
     
     @RequestMapping("show/{id}")    
     public String showContacto(@PathVariable Integer id, Model model) {
         model.addAttribute("contacto", contactoService.getContactoById(id).get());
-        return PREFIX +"contactoform";
+        return PREFIX +"contactoshow";
     }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
         contactoService.deleteContacto(id);
-        return "redirect:/contacto/";
+        return "redirect:/contactos/";
     }
     
  
-    @RequestMapping("empleado/contacto/{id}")
-        public String findContactoByEmpladoId(@PathVariable Integer id, Model model) {
-        model.addAttribute("costocapacitacion", contactoService.findByDato(id));
-        return "redirect:/contacto/";
-    }
+//    @RequestMapping("empleado/contacto/{id}")
+//        public String findContactoByEmpladoId(@PathVariable Integer id, Model model) {
+//        model.addAttribute("costocapacitacion", contactoService.findByDato(id));
+//        return "redirect:/contacto/";
+//    }
 }
