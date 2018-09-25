@@ -45,7 +45,7 @@ public class UbicacionFisicaController extends UtilsController{
         return PREFIX + "ubicacionfisicaform";
     }
     
-    @RequestMapping("new/ubicacionfisica")
+    @RequestMapping("new/{id}")
     public String newUbicacionFisica(Model model) {
         model.addAttribute("ubicacionfisica", new Ubicacionfisica());
         
@@ -62,7 +62,7 @@ public class UbicacionFisicaController extends UtilsController{
         catch(Exception e){
            model.addAttribute("msg", 1);
         }
-       return PREFIX + "ubicacionfisicaform";
+       return PREFIX + "ubicacionfisicashow";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }

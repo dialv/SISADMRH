@@ -40,82 +40,98 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Empleado</title>
+    <title>SISADMRH-Crear Experiencia Laboral</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
+    <div class="contenedorizq"><label  >pnt_cem6</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-    <h3 align="center">Crear Contacto</h3>
+            <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
+            </div>
+    <h3 align="center">Crear Experiencia Laboral</h3>
     
 
-    <div id="menu1" class="tab-pane fade">
+    
         <br>
-      <form class="form-horizontal" th:object="${contacto}" th:action="@{../contacto}" method="post">
-          <input type="hidden" th:field="*{codigocontacto}"/>
-            <input type="hidden" th:field="*{nombrecontacto}"/>
+<form class="form-horizontal" th:object="${experiencialaboral}" th:action="@{../experiencialaboral}" method="post">
+                <input type="hidden" th:field="*{codigoexperiencialaboral}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{nombrecontacto}"  />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{apellidocontacto}"   />
-                    </div>
-                </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Direccion(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{direccion}"  />
-                    </div>
-                </div>
-                     <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
+                <label class="col-sm-3 control-label">Sector(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="sexocontanto"  >
-                            <!--th:field="*{sexocontacto}" >-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
+                    <select class="form-control" name="sectorexperiencialaboral" >
+                        <!--th:field="*{sectorexperiencialaboral}">-->
+                        <option>Privado</option>
+                        <option>Publico</option>
                     </select>
                 </div>
             </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
+                    <label class="col-sm-3 control-label">Nombre de Institucion(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonofijocontacto}" />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonomovilcontacto}"  />
+                        <input type="text" class="form-control"   th:field="*{nombreinstitucion}"  />
                     </div>
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Correo Electronico(*):</label>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{emailcontacto}"    />
+                        <input type="text" class="form-control"   th:field="*{cargo}"   />
                     </div>
                 </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechadexlaboral" id="fechadexlaboral"  th:field="*{fechadesdeexperiencialaboral}"/>
                 </div>
-          <div class="col-md-12">
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechahexlaboral" id="fechahexlaboral"  th:field="*{fechahastaexperiencialaboral}"/>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Salario Inicial(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"    th:field="*{salarioinicial}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Salario Final(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"    th:field="*{salariofinal}" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Causa del Retiro(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"   th:field="*{motivoretiro}"  />
+                    </div>
+                </div>
+          </div>
+           <div class="col-md-12">
             <div class="row" align="center">
                 <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
-      </form>
+                </form>
         
-      </div>
+      
   
 
                </div>

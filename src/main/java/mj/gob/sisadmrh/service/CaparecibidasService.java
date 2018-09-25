@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Caparecibidas;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface CaparecibidasService {
