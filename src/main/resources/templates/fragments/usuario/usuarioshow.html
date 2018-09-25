@@ -3,14 +3,15 @@
 <head lang="en">
 
     <title>SISADMRH</title>
-     <th:block th:include="../templates/header"></th:block>
- 
-
-  
+     <th:block th:include="../templates/header"></th:block> 
 </head>
 <body>
-<div class="container">
-    <h2>Datos de Usuario</h2>
+<div class="row">
+     <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+    <div class="col-md-9">
+<h2>Datos de Usuario</h2>
         <div>
             <form class="form-horizontal">
                 
@@ -63,7 +64,20 @@
                 </div>
             </form>
     </div>
+    </div>
 </div>
 
 </body>
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${lol}]]===0){
+       swal("Exito!", "Registro agregado correctamente", "success");
+    }
+    
+    if([[${lol}]]===1){
+       swal("ERROR!", "Ocurrio un error en el proceso", "error");
+    }
+    });
+</script>
 </html>
