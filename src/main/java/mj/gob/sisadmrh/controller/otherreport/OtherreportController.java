@@ -271,11 +271,21 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_cumpleanieros", params, download,response);
+                
     } 
+      // ---------       -- para generar el exel de cimpleaqnieros---------------------
+       @RequestMapping("/cumpleanierosxls")
+       public ModelAndView cumpleanierosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin)
+            {
+              List<Object[]> cumplesList = empleadoService.findBycumples(fechainicio, fechafin);
+              return new ModelAndView((View) new CumpleanierosView(), "cumplesList", cumplesList);
+       }
 //..................pARA GENERAR EL REPORTE PDF DE CAPACITACIONES ................................................
     @RequestMapping(value = "capacitaciones/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfcapacitaciones(@PathVariable("indice") Long indice, 

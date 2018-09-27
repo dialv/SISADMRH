@@ -39,4 +39,15 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             , nativeQuery = true) 
             List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+@Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,"
+        + "e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e "
+        + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
+        + "inner join puesto p on ep.codigopuesto=p.codigopuesto "
+        + "inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado "
+        + "INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion "
+        + "where e.fechanacimientoempleado >= :FINICIAL  and e.fechanacimientoempleado <= :FFINAL"
+, nativeQuery = true)
+ 
+ List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
 }
