@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Dependiente;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface DependienteService {

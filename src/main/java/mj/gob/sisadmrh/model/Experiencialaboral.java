@@ -56,6 +56,17 @@ public class Experiencialaboral implements Serializable {
     @Size(max = 200)
     @Column(name = "motivoretiro")
     private String motivoretiro;
+    @Size(max = 200)
+    @Column(name = "cargo")
+    private String cargo;
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
     @Size(max = 20)
     @Column(name = "sectorexperiencialaboral")
     private String sectorexperiencialaboral;

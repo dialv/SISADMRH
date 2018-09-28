@@ -3,16 +3,24 @@ package mj.gob.sisadmrh.controller.beneficios;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import javax.persistence.TemporalType;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadobeneficio;
+import mj.gob.sisadmrh.model.EmpleadobeneficioPK;
 import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +29,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 /**
  *
@@ -32,7 +41,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BeneficioController extends UtilsController{
     
     private BeneficioService beneficioService;
+    @Autowired
     private EmpleadoBeneficioService empleadoBeneficioService;
+    @Autowired
+    private EmpleadoService empleadoService;
     
 
 
@@ -55,7 +67,7 @@ public class BeneficioController extends UtilsController{
         return PREFIX + "beneficioform";
     }
 
-    @RequestMapping("new/beneficio")
+    @RequestMapping("new/{id}")
     public String newBeneficio(Model model) {
         model.addAttribute("beneficio", new Beneficio());
         return PREFIX + "beneficioform";
@@ -92,6 +104,38 @@ public class BeneficioController extends UtilsController{
         }
        return PREFIX + "beneficios";
        // return "redirect:/beneficios/";
+    }
+    
+    @RequestMapping("asignar/{id}")
+    public String newEmpleadoBeneficio(Model model) {
+        model.addAttribute("beneficio", new Beneficio());
+        
+        Iterable<Beneficio> beneficio = beneficioService.listAllBeneficios();
+//         
+      model.addAttribute("beneficios", beneficio);
+        return PREFIX + "beneficioempleadoform";
+    }
+    @RequestMapping(value = "beneficio/asignar/{id}")
+    public String saveEmpleadoBeneficio(Beneficio beneficio,Model model,@PathVariable Integer id) {
+        try{
+         Empleadobeneficio emben = new  Empleadobeneficio();  
+         emben.setBeneficio(beneficio);
+         Empleado em = empleadoService.getEmpleadoById(id).get();
+         emben.setEmpleado(empleadoService.getEmpleadoById(id).get());
+         EmpleadobeneficioPK embenpk = new EmpleadobeneficioPK();
+         embenpk.setCodigobeneficio(beneficio.getCodigobeneficio());
+         embenpk.setCodigoempleado(em.getCodigoempleado());
+         emben.setEmpleadobeneficioPK(embenpk);
+         emben.setFechabeneficio(new Date());
+         empleadoBeneficioService.saveEmpleadobeneficio(emben);
+         model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+        }
+       return PREFIX+"beneficioform";
+        
+       // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }
     
     @RequestMapping("report/")

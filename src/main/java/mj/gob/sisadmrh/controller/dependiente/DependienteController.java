@@ -47,7 +47,7 @@ public class DependienteController extends UtilsController{
         this.dependienteService = dependienteService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/dependiente/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("dependientes", dependienteService.listAllDependiente());
@@ -57,13 +57,13 @@ public class DependienteController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("dependiente", dependienteService.getDependienteById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "dependienteform";
     }
 
-    @RequestMapping("new/dependiente")
+    @RequestMapping("new/{id}")
     public String newDependiente(Model model) {
         model.addAttribute("dependiente", new Dependiente());
-        return PREFIX + "empleadoform";
+        return PREFIX + "dependienteform";
     }
 
     @RequestMapping(value = "dependiente")
@@ -75,13 +75,13 @@ public class DependienteController extends UtilsController{
     @RequestMapping("show/{id}")    
     public String showDependiente(@PathVariable Integer id, Model model) {
         model.addAttribute("dependiente", dependienteService.getDependienteById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"dependienteshow";
     }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
         dependienteService.deleteDependiente(id);
-        return "redirect:/empleado/";
+        return "redirect:/dependientes/";
     }
     
     
