@@ -26,4 +26,6 @@ public interface EmpleadoService {
     Iterable <Empleado> findabogados(String finicial, String ffinal, Integer tipo);
 
     List<Object[]> renuncias(String finicial, String ffinal);
+     List<Object[]> findBycumples(String finicial, String ffinal);
+    
 }

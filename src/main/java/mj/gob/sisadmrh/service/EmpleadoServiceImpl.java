@@ -59,5 +59,12 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     public List<Object[]> renuncias(String finicial, String ffinal) {
         return empleadoRep.renuncias(finicial, ffinal);
     }
+
+    @Override
+    public List<Object[]> findBycumples(String finicial, String ffinal) {
+return empleadoRep.findByCumples(finicial,ffinal)   ;
+        }
+
+  
     
 }
