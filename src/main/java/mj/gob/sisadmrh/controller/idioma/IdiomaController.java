@@ -79,6 +79,7 @@ public class IdiomaController extends UtilsController{
     }
 
     @RequestMapping(value = "idioma")
+<<<<<<< HEAD
     public String saveIdioma(Idioma idioma,Model model) {
        try{
             idiomaService.saveIdioma(idioma);
@@ -88,6 +89,11 @@ public class IdiomaController extends UtilsController{
             model.addAttribute("msg", 1);
         }
         
+=======
+    public String saveIdioma(Idioma idioma) {
+       
+        idiomaService.saveIdioma(idioma);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 //        emp.setCodigoidioma(idioma.getCodigoidioma()); 
 //        emp.setCodigoempleado(idioma.getCodigoidioma());
 //        empleadoidiomaPK.saveEmpleadoIdioma(emp);
@@ -101,6 +107,7 @@ public class IdiomaController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
+<<<<<<< HEAD
     public String delete(@PathVariable Integer id,Model model) {
         try{
           idiomaService.deleteIdioma(id);
@@ -110,6 +117,10 @@ public class IdiomaController extends UtilsController{
             model.addAttribute("msg", 4);
         }
         
+=======
+    public String delete(@PathVariable Integer id) {
+        idiomaService.deleteIdioma(id);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/idiomas/";
     }
     

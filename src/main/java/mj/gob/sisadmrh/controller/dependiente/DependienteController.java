@@ -87,6 +87,7 @@ public class DependienteController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
+<<<<<<< HEAD
     public String delete(@PathVariable Integer id,Model model) {
         
          try{
@@ -96,6 +97,10 @@ public class DependienteController extends UtilsController{
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
+=======
+    public String delete(@PathVariable Integer id) {
+        dependienteService.deleteDependiente(id);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/dependientes/";
     }
     

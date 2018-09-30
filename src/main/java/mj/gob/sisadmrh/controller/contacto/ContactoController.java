@@ -16,13 +16,19 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contacto;
+<<<<<<< HEAD
 import mj.gob.sisadmrh.model.Empleado;
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 import mj.gob.sisadmrh.model.Empleadocontacto;
 import mj.gob.sisadmrh.model.EmpleadocontactoPK;
 import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.ContactoService;
+<<<<<<< HEAD
 import mj.gob.sisadmrh.service.EmpleadoContactoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 //import mj.gob.sisadmrh.service.EmpleadoContactoService;
 //import mj.gob.sisadmrh.service.ContactoContactoService;
 import net.sf.jasperreports.engine.JRException;
@@ -86,6 +92,7 @@ public class ContactoController extends UtilsController{
         return PREFIX + "contactoform";
     }
 
+<<<<<<< HEAD
     @RequestMapping(value = "contacto/{id}")
     public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id) {
        try{
@@ -106,6 +113,12 @@ public class ContactoController extends UtilsController{
          model.addAttribute("msg", 1);
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
+=======
+    @RequestMapping(value = "contacto")
+    public String saveContacto(Contacto contacto) {
+       
+        contactoService.saveContacto(contacto);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 //        emp.setCodigocontacto(contacto.getCodigocontacto()); 
 //        emp.setCodigoempleado(contacto.getCodigocontacto());
 //        empleadocontactoPK.saveEmpleadoContacto(emp);
@@ -119,6 +132,7 @@ public class ContactoController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
+<<<<<<< HEAD
     public String delete(@PathVariable Integer id,Model model) {
        
          try{
@@ -128,6 +142,10 @@ public class ContactoController extends UtilsController{
         catch(Exception e){
          model.addAttribute("msg", 4);
         }
+=======
+    public String delete(@PathVariable Integer id) {
+        contactoService.deleteContacto(id);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/contactos/";
     }
     

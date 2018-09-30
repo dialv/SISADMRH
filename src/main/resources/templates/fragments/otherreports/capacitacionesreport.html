@@ -43,7 +43,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                      <div class="form-group">    
-                         <td><a class="btn btn-default" id="generar">Generar</a></td>
+                         <td><a class="btn btn-default" id="pdf">PDF</a></td>
+                    </div>
+                      <div class="form-group">    
+                         <td><a class="btn btn-default" id="excel">EXCEL</a></td>
                     </div>
                 </form>
             </div>
@@ -62,8 +65,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $('#fechafinal').datepicker({
             dateFormat: 'yy-mm-dd'
         });
-        $('#generar').click(function(){
+        $('#pdf').click(function(){
             $("#formreport").attr('action', '../capacitaciones/'+ $("#codigo").val().toString());
+            $("form#formreport").submit();
+            
+        });
+         $('#excel').click(function(){
+         $("#formreport").attr('action', '../capacitacionesxls');
             $("form#formreport").submit();
             
         });

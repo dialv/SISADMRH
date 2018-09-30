@@ -8,8 +8,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 import javax.persistence.TemporalType;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -117,7 +120,10 @@ public class BeneficioController extends UtilsController{
       model.addAttribute("beneficios", beneficio);
         return PREFIX + "beneficioempleadoform";
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
     @RequestMapping(value = "beneficio/asignar/{id}")
     public String saveEmpleadoBeneficio(Beneficio beneficio,Model model,@PathVariable Integer id) {
         try{
@@ -135,7 +141,10 @@ public class BeneficioController extends UtilsController{
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
+<<<<<<< HEAD
           Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         }
        return PREFIX+"beneficioform";
         

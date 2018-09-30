@@ -34,6 +34,7 @@ public class Empleadocontacto implements Serializable {
     @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
+<<<<<<< HEAD
 
     public Contacto getContacto() {
         return contacto;
@@ -51,6 +52,8 @@ public class Empleadocontacto implements Serializable {
         this.empleado = empleado;
     }
     
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 
     public Empleadocontacto() {
     }

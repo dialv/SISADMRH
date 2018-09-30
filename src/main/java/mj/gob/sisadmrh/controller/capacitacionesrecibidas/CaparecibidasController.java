@@ -75,8 +75,11 @@ public class CaparecibidasController extends UtilsController{
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
+<<<<<<< HEAD
 //        return PREFIX+"caprecibidasform";
         
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
     }
     

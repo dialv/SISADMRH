@@ -86,6 +86,7 @@ public class ExperiencialaboralController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
+<<<<<<< HEAD
     public String delete(@PathVariable Integer id,Model model) {
          try{
             experiencialaboralService.deleteExperiencialaboral(id);
@@ -95,6 +96,10 @@ public class ExperiencialaboralController extends UtilsController{
             model.addAttribute("msg", 4);
         }
        
+=======
+    public String delete(@PathVariable Integer id) {
+        experiencialaboralService.deleteExperiencialaboral(id);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/experiencialaborales/";
     }
     

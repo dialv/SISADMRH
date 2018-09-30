@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.repository.CapacitacionRepository;
@@ -48,6 +49,13 @@ this.capacitacionRep=capacitacionRepository;
     public Iterable<Capacitacion> findByDato(String dato) {
         return capacitacionRep.findByDato("%"+dato+"%");
         
+    }
+
+    
+
+    @Override
+    public List<Object[]> findByCapacitacionesR(String finicial, String ffinal, String codigo) {
+       return capacitacionRep.findByCapacitacionesR(finicial, ffinal, codigo); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

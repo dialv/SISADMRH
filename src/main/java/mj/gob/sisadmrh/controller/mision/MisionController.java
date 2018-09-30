@@ -8,9 +8,13 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
+<<<<<<< HEAD
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Mision;
 import mj.gob.sisadmrh.service.EmpleadoService;
+=======
+import mj.gob.sisadmrh.model.Mision;
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 import mj.gob.sisadmrh.service.MisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +23,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+<<<<<<< HEAD
 //import org.springframework.web.multipart.MultipartFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -33,10 +40,13 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping(value = "misiones")
 public class MisionController extends UtilsController{
     
+<<<<<<< HEAD
     @Autowired
     private EmpleadoService empleadoService;
 //    @Autowired
     
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
     private MisionService misionService;
     
 
@@ -63,12 +73,16 @@ public class MisionController extends UtilsController{
     @RequestMapping("new/mision")
     public String newMision(Model model) {
         model.addAttribute("mision", new Mision());
+<<<<<<< HEAD
         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
         model.addAttribute("empleados", empleados);
+=======
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return PREFIX + "misionform";
     }
 
 
+<<<<<<< HEAD
 //  @RequestMapping(value = "/descarga/{id}")
 //    public void verDocumento(HttpServletResponse response, @PathVariable(value = "id") Integer id) 
 //           throws IOException{ 
@@ -94,12 +108,29 @@ public class MisionController extends UtilsController{
 //        model.addAttribute("misiones", misionService.listAllMisiones());
         
 //        return PREFIX+"misiones";
+=======
+
+    
+    @RequestMapping(value = "mision" )
+    public String saveMision(Mision mision,Model model, @RequestParam("file") MultipartFile file) {
+        try{
+        misionService.saveMision(mision);
+        
+        model.addAttribute("msg", 0);
+        model.addAttribute("misiones", misionService.listAllMisiones());
+        return PREFIX+"misiones";
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         }
         catch(Exception e){
           model.addAttribute("msg", 1);
         }
+<<<<<<< HEAD
 //         return PREFIX+"misionform";
        return "redirect:./show/" + mision.getCodigomision();
+=======
+         return PREFIX+"misionform";
+       // return "redirect:./show/" + mision.getCodigomision();
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
     }
     
     @RequestMapping("show/{id}")
@@ -118,8 +149,13 @@ public class MisionController extends UtilsController{
         model.addAttribute("msg", 4);
          
         }
+<<<<<<< HEAD
 //         return PREFIX + "misiones";
         return "redirect:/misiones/";
+=======
+         return PREFIX + "misiones";
+        //return "redirect:/misiones/";
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
     }
     
     

@@ -86,6 +86,7 @@ public class ContratoController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
+<<<<<<< HEAD
     public String delete(@PathVariable Integer id,Model model) {
          try{
             contratoService.deleteContrato(id);
@@ -95,6 +96,10 @@ public class ContratoController extends UtilsController{
             model.addAttribute("msg", 4);
         }
         
+=======
+    public String delete(@PathVariable Integer id) {
+        contratoService.deleteContrato(id);
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/contratos/";
     }
     

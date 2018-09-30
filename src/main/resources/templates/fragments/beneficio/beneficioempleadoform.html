@@ -29,11 +29,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
   
   
     <div>
+<<<<<<< HEAD
         <!--th:action="@{../beneficio}"-->
         <form class="form-horizontal" id="asignar" th:object="${beneficio}"   method="post">
             <!--<input type="hidden" th:field="*{codigobeneficio}" id="codben"/>-->
            <!--<span th:object="${empleado}">--> 
              <input type="hidden" id="codem"  />
+=======
+        <form class="form-horizontal" id="asignar" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
+            <input type="hidden" th:field="*{codigobeneficio}"/>
+           <!--<span th:object="${empleado}">--> 
+             <input type="text" id="codem"  />
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
           <!--</span>-->
             
 <!--            <div class="form-group">
@@ -59,7 +66,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="row" align="center">
                           
                             <button type="button" class="btn btn-info"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<<<<<<< HEAD
                             <button type="submit" class="btn btn-primary" id="Asignarbtn"  >Asignar</button>
+=======
+                            <button type="submit" class="btn btn-primary">Asignar</button>
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
                             <!--<button type="reset" class="btn btn-default">Limpiar</button>-->
                         </div>
                     </div>
@@ -85,8 +96,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        
     });
     
+<<<<<<< HEAD
     $('#Asignarbtn').click(function(){
             $("#asignar").attr('action', '../beneficio/asignar/'+ $("#codem").val().toString());
+=======
+    $('#Asignar').click(function(){
+            $("#asignar").attr('action', '../beneficios/asignar/'+ $("#codem").val().toString());
+>>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
             $("form#asignar").submit();
             
         });
