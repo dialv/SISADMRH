@@ -9,21 +9,11 @@
   
 </head>
 <body>
-       <div class="contenedorizq"><label  >pnt_cme</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
-            </div>
     <h3 align="center">Consulta de Datos de Mision</h3>
         <div>
             <form class="form-horizontal">
@@ -48,12 +38,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Responsable Gasto:</label>
                     <div class="col-sm-7">
-                        <p class="form-control-static" th:text="${mision.responsablegasto}">Responsable Gasto</p>
+                        <p class="form-control-static" th:text="${mision.reponsablegasto}">Responsable Gasto</p>
                     </div>
                 </div>
                   </div> 
                       <div class="col-md-6">
-                        
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Viaticos:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.viaticos}">Viaticos</p>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-7 control-label">Gasto Viaje:</label>
                     <div class="col-sm-5">
@@ -90,27 +85,4 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
      </div>
 
 </body>
-  <script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../comisiones/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script> 
 </html>

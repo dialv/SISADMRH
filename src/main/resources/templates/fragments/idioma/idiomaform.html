@@ -40,71 +40,90 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Empleado</title>
+    <title>SISADMRH-Crear Idioma</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
+    <div class="contenedorizq"><label  >pnt_cem10</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-    <h3 align="center">Crear Contacto</h3>
+            <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
+            </div>
+    <h3 align="center">Crear Idioma</h3>
     
 
-    <div id="menu1" class="tab-pane fade">
+    
         <br>
-      <form class="form-horizontal" th:object="${contacto}" th:action="@{../contacto}" method="post">
-          <input type="hidden" th:field="*{codigocontacto}"/>
-            <input type="hidden" th:field="*{nombrecontacto}"/>
+      <form class="form-horizontal" th:object="${idioma}" th:action="@{../idioma}" method="post">
+<!--          <span th:object="${empleadoContacto}"> 
+             <input type="text" th:field="*{codigoempleado}"/>
+          </span>-->
+            <input type="hidden" th:field="*{codigoidioma}"/>
+            <input type="hidden" th:field="*{nombreidioma}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <label class="col-sm-3 control-label">Nombre de Idioma(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{nombrecontacto}"  />
+                        <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombreidioma}"  />
                     </div>
                     </div>
                       <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
+                    <label class="col-sm-3 control-label">Habla(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{apellidocontacto}"   />
+                        <select class="form-control" name="habla"  >
+                            <!--th:field="*{sexoidioma}" >-->
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
                     </div>
                 </div>
                       <div class="form-group">
-                    <label class="col-sm-3 control-label">Direccion(*):</label>
+                    <label class="col-sm-3 control-label">Escribe(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{direccion}"  />
+                         <select class="form-control" name="escribe"  >
+                            <!--th:field="*{sexoidioma}" >-->
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
                     </div>
                 </div>
                      <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
+                <label class="col-sm-3 control-label">Traduce(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="sexocontanto"  >
-                            <!--th:field="*{sexocontacto}" >-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
+                    <select class="form-control" name="traduce"  >
+                            <!--th:field="*{sexoidioma}" >-->
+                        <option>Si</option>
+                        <option>No</option>
                     </select>
                 </div>
             </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonofijocontacto}" />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonomovilcontacto}"  />
-                    </div>
+                    <label class="col-sm-3 control-label">Nivel(*):</label>
+<!--                    <div class="col-sm-5">
+                        <input type="text" class="form-control"    th:field="*{nivel}" />
+                    </div>-->
+<div class="col-sm-5">
+                    <select class="form-control" name="nivel"  >
+                            <!--th:field="*{sexoidioma}" >-->
+                        <option>Basico</option>
+                        <option>Intermedio</option>
+                        <option>Avanzado</option>
+                    </select>
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Correo Electronico(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{emailcontacto}"    />
                     </div>
-                </div>
+                      
+                      
                 </div>
           <div class="col-md-12">
             <div class="row" align="center">
@@ -113,9 +132,10 @@
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
+            <!--</span>-->
       </form>
         
-      </div>
+      
   
 
                </div>

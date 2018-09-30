@@ -47,7 +47,7 @@ public class ContratoController extends UtilsController{
         this.contratoService = contratoService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/contrato/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("contratos", contratoService.listAllContrato());
@@ -57,31 +57,45 @@ public class ContratoController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("contrato", contratoService.getContratoById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "contratoform";
     }
 
-    @RequestMapping("new/contrato")
+    @RequestMapping("new/{id}")
     public String newContrato(Model model) {
         model.addAttribute("contrato", new Contrato());
-        return PREFIX + "empleadoform";
+        return PREFIX + "contratoform";
     }
 
     @RequestMapping(value = "contrato")
-    public String saveContrato(Contrato contrato) {
-        contratoService.saveContrato(contrato);
+    public String saveContrato(Contrato contrato,Model model) {
+        try{
+            contratoService.saveContrato(contrato);
+            model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 1);
+        }
+        
         return "redirect:./show/" + contrato.getCodigocontrato();
     }
     
     @RequestMapping("show/{id}")    
     public String showContrato(@PathVariable Integer id, Model model) {
         model.addAttribute("contrato", contratoService.getContratoById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"contratoshow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        contratoService.deleteContrato(id);
-        return "redirect:/empleado/";
+    public String delete(@PathVariable Integer id,Model model) {
+         try{
+            contratoService.deleteContrato(id);
+            model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 4);
+        }
+        
+        return "redirect:/contratos/";
     }
     
     

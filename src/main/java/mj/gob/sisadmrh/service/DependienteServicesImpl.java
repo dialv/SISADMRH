@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 @Service
 public class DependienteServicesImpl implements DependienteService {

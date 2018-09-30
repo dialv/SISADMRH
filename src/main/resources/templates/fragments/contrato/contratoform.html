@@ -40,82 +40,100 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Empleado</title>
+    <title>SISADMRH-Crear Contrato</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
+    <div class="contenedorizq"><label  >pnt_ce11</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-    <h3 align="center">Crear Contacto</h3>
+            <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+            </div>
+    <h3 align="center">Crear Contrato</h3>
     
 
-    <div id="menu1" class="tab-pane fade">
+    
         <br>
-      <form class="form-horizontal" th:object="${contacto}" th:action="@{../contacto}" method="post">
-          <input type="hidden" th:field="*{codigocontacto}"/>
-            <input type="hidden" th:field="*{nombrecontacto}"/>
+  <form class="form-horizontal" th:object="${contrato}" th:action="@{../contrato}" method="post">
+                <input type="hidden" th:field="*{codigocontrato}"/>
+                <input type="hidden" id="codem" th:field="*{codigoempleado}"/>
             <div class="col-md-12"  align="center">
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <label class="col-sm-3 control-label">Salario Actual(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{nombrecontacto}"  />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{apellidocontacto}"   />
+                        <input type="text" class="form-control"  class="form-control num_decimal"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
                     </div>
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Direccion(*):</label>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Unidad Pres.(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{direccion}"  />
+                        <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{unidadprecide}"   />
                     </div>
                 </div>
-                     <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Linea de Trabajo(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"   required="true" size="100" maxlength="100" th:field="*{lineatrabajo}"   />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Partida(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"  required="true" size="9" maxlength="9"  th:field="*{partidacontrato}"   />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Subpartida(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"    required="true" size="100" maxlength="100" th:field="*{subpartidacontrato}"  />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Acuerdo o Nombramiento(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"       />
+                    </div>
+                </div>
+                    <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Inicio(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="sexocontanto"  >
-                            <!--th:field="*{sexocontacto}" >-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
-                    </select>
+                     <input class="form-control" type="text"  name="fechaicontrato" id="fechaicontrato" th:field="*{fechainiciocontrato}" />
                 </div>
             </div>
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonofijocontacto}" />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonomovilcontacto}"  />
-                    </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de Finalizacion(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechafcontrato" id="fechafcontrato" th:field="*{fechafincontrato}" />
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Correo Electronico(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{emailcontacto}"    />
+            </div>
+<!--                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cambio de Plaza(*):</label>
+                    <div class="col-sm-5" align="left" th:field="*{plazanominal}">
+                        <input type="checkbox"     />
                     </div>
-                </div>
-                </div>
-          <div class="col-md-12">
+                </div>-->
+          </div>
+           <div class="col-md-12">
             <div class="row" align="center">
                 <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
-      </form>
+                </form>
         
-      </div>
+      
   
 
                </div>
@@ -128,6 +146,29 @@
         
        
 </body>
+ <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../comites/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -148,12 +189,12 @@
 		    var currentDate = date.getDate();
 		    var currentYear = date.getFullYear();
                     
-		    $('#fechanacimiento').datepicker({
+		    $('#fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
 		       dateFormat: 'yy-mm-dd'
 		    });
 		    
-		    $('#fechasepu').datepicker({
+		    $('#fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
 		        dateFormat: 'yy-mm-dd'
 		    });
@@ -220,6 +261,18 @@
 		        dateFormat: 'yy-mm-dd'
 		    });
 		});
+                
+                var URLactual = window.location.href;
+                if (URLactual.includes("edit")){
+//                    alert("str");
+                }
+                else{
+//                    alert("str1");
+var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+//alert(str);
+$(function () {
+          document.getElementById("codem").value = str;
+      });}
 	</script>
         
         

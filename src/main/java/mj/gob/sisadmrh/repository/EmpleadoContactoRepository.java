@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.repository;
 
-import mj.gob.sisadmrh.model.Empleadobeneficio;
+import mj.gob.sisadmrh.model.Empleadocontacto;
 import org.springframework.data.repository.CrudRepository;
 
-public interface EmpleadoBeneficioRepository extends CrudRepository<Empleadobeneficio, Integer>{
+public interface EmpleadoContactoRepository extends CrudRepository<Empleadocontacto, Integer>{
     
 }

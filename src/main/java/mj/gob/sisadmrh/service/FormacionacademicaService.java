@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Formacionacademica;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface FormacionacademicaService {

@@ -6,14 +6,18 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -65,6 +69,8 @@ public class Contacto implements Serializable {
     @Size(max = 11)
     @Column(name = "telefonomovilcontacto")
     private String telefonomovilcontacto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contacto", fetch = FetchType.LAZY)
+    private List<Empleadocontacto> empleadocontactoList;
 
     public Contacto() {
     }

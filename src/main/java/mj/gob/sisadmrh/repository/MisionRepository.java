@@ -5,13 +5,13 @@
  */
 package mj.gob.sisadmrh.repository;
 
-import mj.gob.sisadmrh.model.Comision;
+import mj.gob.sisadmrh.model.Mision;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author dialv
  */
-public interface ComisionRepository extends CrudRepository<Comision, Integer>{
+public interface MisionRepository extends CrudRepository<Mision, Integer>{
     
 }
