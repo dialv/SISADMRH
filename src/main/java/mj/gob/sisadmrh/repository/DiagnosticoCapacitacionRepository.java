@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package mj.gob.sisadmrh.repository;
-
-import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
-import mj.gob.sisadmrh.model.Mision;
-import mj.gob.sisadmrh.model.Ubicacionfisica;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

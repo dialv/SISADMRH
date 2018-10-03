@@ -6,10 +6,7 @@
 package mj.gob.sisadmrh.controller.UbicacionFisica;
 
 import mj.gob.sisadmrh.controller.UtilsController;
-
-
-import mj.gob.sisadmrh.model.Ubicacionfisica;
-
+import mj.gob.sisadmrh.model.UbicacionFisica;
 
 import mj.gob.sisadmrh.service.UbicacionFisicaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,14 +44,14 @@ public class UbicacionFisicaController extends UtilsController{
     
     @RequestMapping("new/ubicacionfisica")
     public String newUbicacionFisica(Model model) {
-        model.addAttribute("ubicacionfisica", new Ubicacionfisica());
+        model.addAttribute("ubicacionfisica", new UbicacionFisica());
         
          
         return PREFIX + "ubicacionfisicaform";
     }
     
     @RequestMapping(value = "ubicacionfisica")
-    public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model) {
+    public String saveUbicacionFisica(UbicacionFisica ubicacionFisica,Model model) {
         try{
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
            model.addAttribute("msg", 0);

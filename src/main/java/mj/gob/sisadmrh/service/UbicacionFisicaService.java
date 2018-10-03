@@ -6,19 +6,19 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Ubicacionfisica;
+import mj.gob.sisadmrh.model.UbicacionFisica;
 
 /**
  *
  * @author jorge
  */
 public interface UbicacionFisicaService {
-    Iterable <Ubicacionfisica> listAllUbicacionFisica();
+    Iterable <UbicacionFisica> listAllUbicacionFisica();
     
-    Optional<Ubicacionfisica> getUbicacionFisicaById(Integer id);
+    Optional<UbicacionFisica> getUbicacionFisicaById(Integer id);
 
-    Ubicacionfisica saveUbicacionFisica(Ubicacionfisica ubicacionFisica);
+    UbicacionFisica saveUbicacionFisica(UbicacionFisica ubicacionFisica);
 
     void deleteUbicacionFisica(Integer id);
-   Iterable<Ubicacionfisica> findByUbicacion(String dato);
+   Iterable<UbicacionFisica> findByUbicacion(String dato);
 }

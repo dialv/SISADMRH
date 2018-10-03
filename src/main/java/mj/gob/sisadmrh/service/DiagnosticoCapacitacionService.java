@@ -7,9 +7,6 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
-import mj.gob.sisadmrh.model.Ubicacionfisica;
-
-
 
 /**
  *

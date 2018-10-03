@@ -6,7 +6,7 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Ubicacionfisica;
+import mj.gob.sisadmrh.model.UbicacionFisica;
 import mj.gob.sisadmrh.repository.UbicacionFisicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,18 +21,18 @@ public class UbicacionFisicaServiceImpl implements UbicacionFisicaService{
     private UbicacionFisicaRepository ubicacionFisicaRep;
 
     @Override
-    public Iterable<Ubicacionfisica> listAllUbicacionFisica() {
+    public Iterable<UbicacionFisica> listAllUbicacionFisica() {
        return ubicacionFisicaRep.findAll();
         
     }
 
     @Override
-    public Optional<Ubicacionfisica> getUbicacionFisicaById(Integer id) {
+    public Optional<UbicacionFisica> getUbicacionFisicaById(Integer id) {
         return ubicacionFisicaRep.findById(id);
     }
 
     @Override
-    public Ubicacionfisica saveUbicacionFisica(Ubicacionfisica ubicacionFisica) {
+    public UbicacionFisica saveUbicacionFisica(UbicacionFisica ubicacionFisica) {
         return ubicacionFisicaRep.save(ubicacionFisica);
     }
 
@@ -41,7 +41,7 @@ public class UbicacionFisicaServiceImpl implements UbicacionFisicaService{
         ubicacionFisicaRep.deleteById(id);
     }
     @Override
-    public Iterable<Ubicacionfisica> findByUbicacion(String dato) {
+    public Iterable<UbicacionFisica> findByUbicacion(String dato) {
         return ubicacionFisicaRep.findByUbicacion("%"+dato+"%");
     } 
 }
