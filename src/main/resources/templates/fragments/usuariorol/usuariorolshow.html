@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>SISADMRH</title>
+     <th:block th:include="../templates/header"></th:block>
+ 
+
+  
+</head>
+<body>
+<div class="container">
+    <h2>Datos de Usuario</h2>
+        <div>
+            <form class="form-horizontal">
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">codigo:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.codigousuario}">Usuario Id</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.nombreusuario}">Nombre</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">contraseña:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.contraseniausuario}">contraseña</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">control pass:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.controlcontrasenia}">control pass</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">estado:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.estadousuario}">estado</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">fechaing:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.fechaingreso}">fecha ing</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">fecha cad:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.fechacaducidad}">fecha cad</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">fecha baj:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.fechabaja}">fecha baj</p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+</body>
+</html>
