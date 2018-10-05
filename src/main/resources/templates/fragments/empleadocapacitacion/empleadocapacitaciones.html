@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Usuarios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+          <div class="contenedorizq"> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>
+<div class="row">
+ <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+    <div class="col-md-9">
+         <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Todos los Usuarios</h3>
+    <div th:if="${not #lists.isEmpty(empleadocapacitaciones)}">
+        <div class="table-responsive">
+  <table class="table">
+        <!--<table class="table table-striped">-->
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <!--<th>Contrasena</th>-->
+                <th>Control contra</th>
+                <th>Estado</th>
+                <th>Fecha Ingreso </th>
+                <th>Fecha Caducidad</th>
+                <th>Fecha Baja</th>
+                <th>Acciones</th>
+                <th>  </th>
+                <th>  </th>
+                
+            </tr>
+            <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
+                <td th:text="${empleadocapacitacion.codigoempleado.nombreempleado}">Codigo</td>
+                <td th:text="${empleadocapacitacion.codigocapacitacion.nombrecapacitacion}">Nombre</td>
+           
+                <td><a th:href="${'./show/' + empleadocapacitacion.codigoempleado}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + empleadocapacitacion.codigoempleado}" class="btn btn-default">Editar</a></td>
+                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${empleadocapacitacion.codigoempleado} + '\');'" >Eliminar</a></td>
+                <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
+            </tr>
+        </table>
+    </div>
+</div>
+    </div>
+</body
+ </html>

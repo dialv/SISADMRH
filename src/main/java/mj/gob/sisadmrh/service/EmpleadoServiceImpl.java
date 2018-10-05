@@ -65,6 +65,16 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 return empleadoRep.findByCumples(finicial,ffinal)   ;
         }
 
+    @Override
+    public List<Object[]> findByNivelEscolar(String finicial, String ffinal) {
+return empleadoRep.findByNivelEscolar(finicial,ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByPlazasOcupadas(String finicial, String ffinal) {
+   return empleadoRep.findByPlazasOcupadas(finicial, ffinal);
+    }
+
   
     
 }

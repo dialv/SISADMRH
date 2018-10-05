@@ -21,6 +21,7 @@ import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.MisionService;
 
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,8 @@ private EmpleadoService empleadoService;// instancia para listar empleados como 
 @Autowired
 private CapacitacionService capacitacionService;// instancia para jalar las capacitaciones
 
-
+@Autowired
+private MisionService misionService;
 
     private final String PREFIX = "fragments/otherreports/";
 
@@ -347,7 +349,14 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesinternas", params, download,response);
     }
-    
+    /****************************Para Generar Reporte de Misiones Internas**********************/
+      public ModelAndView misionInternaxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin
+              ){
+              List<Object[]> misionInternaList = misionService.findByMisionExterna1(fechainicio, fechafin);
+              return new ModelAndView(new MisionesInternasView(), "misionInternaList", misionInternaList);
+       }
      @RequestMapping(value = "2misionesexternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdf2misionesexternas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -360,7 +369,15 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesexternas2", params, download,response);// adebio llamarse rpt_misionesexternas2
     }
-    
+    //************Gernerar Reporte Misiones dos en exel*************************
+    @RequestMapping("/misionExt2xls")
+       public ModelAndView misionExt2xls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin
+              ){
+              List<Object[]> misionExt2List = misionService.findByMisionExterna1(fechainicio, fechafin);
+              return new ModelAndView(new MisionesExternas2View(), "misionExt2List", misionExt2List);
+       }
     
      @RequestMapping(value = "1misionesexternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdf1misionesexternas(@PathVariable("indice") Long indice, 
@@ -369,17 +386,32 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+		//params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesexternas1", params, download,response);
     }
+    
+    //----------Reporte de Misiones externas 1
+     @RequestMapping("/misionExt1xls")
+       public ModelAndView misionExt1xls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin
+              ){
+              List<Object[]> misionExt1List = misionService.findByMisionExterna1(fechainicio, fechafin);
+              return new ModelAndView(new MisionesExternas1View(), "misionExt1List", misionExt1List);
+       }
+    
+    
+    
+    
    @RequestMapping(value = "comites/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfcomites(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
+     
+            HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
@@ -391,14 +423,62 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
-              
-              
-         
               List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin, codigo);
               return new ModelAndView(new ComitesView(), "comitesList", comitesList);
        }
+    /* ****************Report de niveles de Escolaridad en pdf******************************* */
+                    @RequestMapping("nivel/")
+    public String reportMivelesEscolares() {
+        return PREFIX + "nivelesreporte";
+    }
     
+       @RequestMapping(value = "nivel/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfNivelesEscolares(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+     
+            HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+		//params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_nivelesescolares", params, download,response); 
+}/* ******************Para Generar Exel de Niveles escolares ************************ */
+      @RequestMapping("/nivelesescolarexls")
+       public ModelAndView NivelesEscolaresxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin)
+             {
+              List<Object[]> nivelesEscolaresList = empleadoService.findByNivelEscolar(fechainicio, fechafin);
+              return new ModelAndView(new EscolaridadView(), "nivelesEscolaresList", nivelesEscolaresList);
+       } 
+    /* ****************Report de plazas ocupadas en pdf******************************* */
+                    @RequestMapping("plazasocupadas/")
+    public String reportPlazasOcupadas() {
+        return PREFIX + "plazaoreporte";
+    }
     
+       @RequestMapping(value = "plazasocupadas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfPlazasOcupadas(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+     
+            HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+		//params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_plazasocupadas", params, download,response); 
+}/* ******************Para Generar Exel de Plazas ocupadas ************************ */
+      @RequestMapping("/plazasocupadasxls")
+       public ModelAndView plazasocupadasxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> plazasocupadasList = empleadoService.findByPlazasOcupadas(fechainicio, fechafin);
+              return new ModelAndView(new PlazasOcupadasView(), "plazasocupadasList", plazasocupadasList);
+       }
     @RequestMapping("reporte/pensionadoreporte")
     public String reporteestadisticoactivo() {
         return PREFIX + "pensionadoreporte";
@@ -493,4 +573,5 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
 //		params.put("FECHAFIN", fechafin);
         	generatePdf("costocreporte", "rpt_costocapacitacion", params, download,response);
     }
+    
 }

@@ -31,7 +31,8 @@ public class CapacitacionesView  extends AbstractXlsView{
         
   List<Object[]> capacitacionesList = (List<Object[]>) model.get("capacitacionesList");
  Sheet sheet = workbook.createSheet("Comites Data");
- Row header = sheet.createRow(0);
+ sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CAPACITACIONES");
+ Row header = sheet.createRow(2);
  header.createCell(0).setCellValue("Nombre Empleado");
  header.createCell(1).setCellValue("Puesto");
  header.createCell(2).setCellValue("Horas");
@@ -43,7 +44,7 @@ public class CapacitacionesView  extends AbstractXlsView{
   
   
    
- int rowNum = 1;
+ int rowNum = 3;
 
   for(Object[] capacitaciones : capacitacionesList){
  Row row = sheet.createRow(rowNum++);

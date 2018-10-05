@@ -10,6 +10,9 @@ package mj.gob.sisadmrh.model;
 import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,15 +24,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "empleadocapacitacion")
 @NamedQueries({
-    @NamedQuery(name = "Empleadocapacitacion.findAll", query = "SELECT e FROM Empleadocapacitacion e")
-    , @NamedQuery(name = "Empleadocapacitacion.findByCodigoempleado", query = "SELECT e FROM Empleadocapacitacion e WHERE e.empleadocapacitacionPK.codigoempleado = :codigoempleado")
-    , @NamedQuery(name = "Empleadocapacitacion.findByCodigocapacitacion", query = "SELECT e FROM Empleadocapacitacion e WHERE e.empleadocapacitacionPK.codigocapacitacion = :codigocapacitacion")})
+    @NamedQuery(name = "Empleadocapacitacion.findAll", query = "SELECT e FROM Empleadocapacitacion e")})
 public class Empleadocapacitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected EmpleadocapacitacionPK empleadocapacitacionPK;
+  @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Capacitacion capacitacion;
 
+    public Capacitacion getCapacitacion() {
+        return capacitacion;
+    }
+
+    public void setCapacitacion(Capacitacion capacitacion) {
+        this.capacitacion = capacitacion;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Empleado empleado;
     public Empleadocapacitacion() {
     }
 
@@ -37,7 +59,7 @@ public class Empleadocapacitacion implements Serializable {
         this.empleadocapacitacionPK = empleadocapacitacionPK;
     }
 
-    public Empleadocapacitacion(String codigoempleado, int codigocapacitacion) {
+    public Empleadocapacitacion(Integer codigoempleado, int codigocapacitacion) {
         this.empleadocapacitacionPK = new EmpleadocapacitacionPK(codigoempleado, codigocapacitacion);
     }
 

@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
  *
  * @author jorge
  */
-@Component("fragments/cumpleanieros.xlsx")
+@Component("fragments/plazasocupadas.xlsx")
 public class CumpleanierosView extends AbstractXlsView{
 
     @Override
@@ -32,7 +32,8 @@ public class CumpleanierosView extends AbstractXlsView{
 //               e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion where month(e.fechanacimientoempleado)=month(NOW())
         List<Object[]> cumplesList = (List<Object[]>) model.get("cumplesList");
  Sheet sheet = workbook.createSheet("Lista de cumpleanieros");
- Row header = sheet.createRow(0);
+ sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CUMPLEANIEROS");
+ Row header = sheet.createRow(2);
 // header.createCell(0).setCellValue("Codigo empleado");
  header.createCell(0).setCellValue("fecha");
  header.createCell(1).setCellValue("Empleado");
@@ -40,7 +41,7 @@ public class CumpleanierosView extends AbstractXlsView{
  header.createCell(3).setCellValue("Ubicacion");
 
   
- int rowNum = 1;
+ int rowNum = 3;
  for(Object[] cumples : cumplesList){
  Row row = sheet.createRow(rowNum++);
  row.createCell(0).setCellValue((Timestamp) cumples[0]);

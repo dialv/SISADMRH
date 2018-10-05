@@ -25,7 +25,7 @@ public class EmpleadocapacitacionPK implements Serializable {
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "CODIGOEMPLEADO")
-    private String codigoempleado;
+    private Integer codigoempleado;
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGOCAPACITACION")
@@ -34,16 +34,16 @@ public class EmpleadocapacitacionPK implements Serializable {
     public EmpleadocapacitacionPK() {
     }
 
-    public EmpleadocapacitacionPK(String codigoempleado, int codigocapacitacion) {
+    public EmpleadocapacitacionPK(Integer codigoempleado, int codigocapacitacion) {
         this.codigoempleado = codigoempleado;
         this.codigocapacitacion = codigocapacitacion;
     }
 
-    public String getCodigoempleado() {
+    public Integer getCodigoempleado() {
         return codigoempleado;
     }
 
-    public void setCodigoempleado(String codigoempleado) {
+    public void setCodigoempleado(Integer codigoempleado) {
         this.codigoempleado = codigoempleado;
     }
 

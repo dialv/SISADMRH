@@ -27,5 +27,7 @@ public interface EmpleadoService {
 
     List<Object[]> renuncias(String finicial, String ffinal);
      List<Object[]> findBycumples(String finicial, String ffinal);
+      List<Object[]> findByNivelEscolar(String finicial, String ffinal);
+              List<Object[]> findByPlazasOcupadas(String finicial, String ffinal);
     
 }

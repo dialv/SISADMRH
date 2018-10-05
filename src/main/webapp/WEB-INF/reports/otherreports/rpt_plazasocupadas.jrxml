@@ -13,6 +13,9 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
+        <parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT p.codigopuesto as 'codigo Puesto',p.nombrepuesto as 'Nombre Puesto',e.nombreempleado, e.apellidoempleado,e.sexoempleado as 'Sexo',p.sueldobase as 'sueldo Basico',p.`fechanombramiento`as 'Fecha de Nombramiento', p.`fechacontratacionhasta`as 'Fecha de Desvinculacion',p.ubicacionpuesto as 'Ubicacion',p.sublinea as 'Linea de Trabajo'
  FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and p.estadopuesto=2]]>

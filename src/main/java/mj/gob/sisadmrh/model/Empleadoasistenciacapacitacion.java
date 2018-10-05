@@ -10,6 +10,9 @@ package mj.gob.sisadmrh.model;
 import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,15 +32,37 @@ public class Empleadoasistenciacapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected EmpleadoasistenciacapacitacionPK empleadoasistenciacapacitacionPK;
+ @JoinColumn(name = "CODIGOASISTENCIACAPACITACION", referencedColumnName = "CODIGOASISTENCIACAPACITACION", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private AsistenciaCapacitacion asistenciaCapacitacion;
+    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Empleado empleado;
 
     public Empleadoasistenciacapacitacion() {
+    }
+
+    public AsistenciaCapacitacion getAsistenciaCapacitacion() {
+        return asistenciaCapacitacion;
+    }
+
+    public void setAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
+        this.asistenciaCapacitacion = asistenciaCapacitacion;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public Empleadoasistenciacapacitacion(EmpleadoasistenciacapacitacionPK empleadoasistenciacapacitacionPK) {
         this.empleadoasistenciacapacitacionPK = empleadoasistenciacapacitacionPK;
     }
 
-    public Empleadoasistenciacapacitacion(String codigoempleado, int codigoasistenciacapacitacion) {
+    public Empleadoasistenciacapacitacion(Integer codigoempleado, int codigoasistenciacapacitacion) {
         this.empleadoasistenciacapacitacionPK = new EmpleadoasistenciacapacitacionPK(codigoempleado, codigoasistenciacapacitacion);
     }
 

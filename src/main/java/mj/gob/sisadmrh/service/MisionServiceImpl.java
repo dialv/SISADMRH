@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Mision;
 import mj.gob.sisadmrh.repository.MisionRepository;
@@ -39,6 +40,21 @@ public class MisionServiceImpl implements MisionService {
     @Override
     public void deleteMision(Integer id) {
         misionRep.deleteById(id);
+    }
+
+    @Override
+    public List<Object[]> findByMisionExterna1(String finicial, String ffinal) {
+        return misionRep.findByMisionExterna1(finicial,  ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByMisionExterna2(String finicial, String ffinal) {
+        return misionRep.findByMisionExterna2(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByMisionInterna(String finicial, String ffinal) {
+        return misionRep.findByMisionInterna(finicial, ffinal);
     }
 
 }
