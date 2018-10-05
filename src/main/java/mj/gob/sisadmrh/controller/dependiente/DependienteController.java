@@ -67,16 +67,8 @@ public class DependienteController extends UtilsController{
     }
 
     @RequestMapping(value = "dependiente")
-    public String saveDependiente(Dependiente dependiente,Model model) {
-        
-        
-         try{
-            dependienteService.saveDependiente(dependiente);
-            model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 1);
-        }
+    public String saveDependiente(Dependiente dependiente) {
+        dependienteService.saveDependiente(dependiente);
         return "redirect:./show/" + dependiente.getCodigodependiente();
     }
     
@@ -87,20 +79,8 @@ public class DependienteController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-<<<<<<< HEAD
-    public String delete(@PathVariable Integer id,Model model) {
-        
-         try{
-            dependienteService.deleteDependiente(id);
-            model.addAttribute("msg", 3);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 4);
-        }
-=======
     public String delete(@PathVariable Integer id) {
         dependienteService.deleteDependiente(id);
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/dependientes/";
     }
     

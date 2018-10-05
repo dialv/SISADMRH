@@ -67,15 +67,8 @@ public class ContratoController extends UtilsController{
     }
 
     @RequestMapping(value = "contrato")
-    public String saveContrato(Contrato contrato,Model model) {
-        try{
-            contratoService.saveContrato(contrato);
-            model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 1);
-        }
-        
+    public String saveContrato(Contrato contrato) {
+        contratoService.saveContrato(contrato);
         return "redirect:./show/" + contrato.getCodigocontrato();
     }
     
@@ -86,20 +79,8 @@ public class ContratoController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-<<<<<<< HEAD
-    public String delete(@PathVariable Integer id,Model model) {
-         try{
-            contratoService.deleteContrato(id);
-            model.addAttribute("msg", 3);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 4);
-        }
-        
-=======
     public String delete(@PathVariable Integer id) {
         contratoService.deleteContrato(id);
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/contratos/";
     }
     

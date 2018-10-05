@@ -5,13 +5,6 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-            <div class="contenedorizq"><label  >pnt_cme</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>
 <!--<div class="container">-->
     
     <div th:if="${not #lists.isEmpty(misiones)}" >
@@ -20,9 +13,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
-           <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
-            </div> 
+            
         <!--</div>-->
         <h3 align="center">Listado de Misiones</h3>
         <table class="table table-striped">
@@ -36,15 +27,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </tr>
             <tr th:each="mision : ${misiones}">
                 <td th:text="${mision.codigomision}">codigomision</td>
-                <!--<td th:text="${mision.tipomision}">tipomision</td>-->
                 <td th:text="${mision.nombremision}">nombremision</td>
                 <td th:text="${mision.objetivomision}">objetivomision</td>
-                <td th:text="${mision.responsablegasto}">reponsablegasto</td>
+                <td th:text="${mision.reponsablegasto}">reponsablegasto</td>
                 <td th:text="${mision.fechasalidamision}">fechasalidamision</td>
                 <td th:text="${mision.fecharegresomision}">fecharegresomision</td>
-                <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-info">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success">Modificar</a></td>
-                <td><a th:href="${'./delete/' + mision.codigomision}" class="btn btn-danger">Eliminar</a></td>
+                <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + mision.codigomision}" class="btn btn-danger">Delete</a></td>
             </tr>
         </table>
         </div>

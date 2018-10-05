@@ -48,7 +48,7 @@ public class Idioma implements Serializable {
     @Size(max = 2)
     @Column(name = "traduce")
     private String traduce;
-    @Size(max = 12)
+    @Size(max = 2)
     @Column(name = "nivel")
     private String nivel;
 

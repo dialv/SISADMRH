@@ -72,51 +72,31 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Salario Actual(*):</label>
                     <div class="col-sm-5">
-<<<<<<< HEAD
-                        <input type="text" class="form-control"  class="form-control num_decimal"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
-=======
                         <input type="text" class="form-control"   th:field="*{salarioactual}"  />
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Unidad Pres.(*):</label>
                     <div class="col-sm-5">
-<<<<<<< HEAD
-                        <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{unidadprecide}"   />
-=======
                         <input type="text" class="form-control"   th:field="*{unidadprecide}"   />
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Linea de Trabajo(*):</label>
                     <div class="col-sm-5">
-<<<<<<< HEAD
-                        <input type="text" class="form-control"   required="true" size="100" maxlength="100" th:field="*{lineatrabajo}"   />
-=======
                         <input type="text" class="form-control"   th:field="*{lineatrabajo}"   />
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Partida(*):</label>
                     <div class="col-sm-5">
-<<<<<<< HEAD
-                        <input type="text" class="form-control"  required="true" size="9" maxlength="9"  th:field="*{partidacontrato}"   />
-=======
                         <input type="text" class="form-control"    th:field="*{partidacontrato}"   />
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Subpartida(*):</label>
                     <div class="col-sm-5">
-<<<<<<< HEAD
-                        <input type="text" class="form-control"    required="true" size="100" maxlength="100" th:field="*{subpartidacontrato}"  />
-=======
                         <input type="text" class="form-control"     th:field="*{subpartidacontrato}"  />
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
                     </div>
                 </div>
                  <div class="form-group">
@@ -166,32 +146,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
        
 </body>
-<<<<<<< HEAD
- <script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../comites/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script> 
-=======
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

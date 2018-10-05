@@ -15,6 +15,4 @@ public interface BeneficioService {
     Beneficio saveBeneficio(Beneficio beneficio);
 
     void deleteBeneficio(Integer id);
-    
-    Iterable<Beneficio> findByDato(int id) ;
 }

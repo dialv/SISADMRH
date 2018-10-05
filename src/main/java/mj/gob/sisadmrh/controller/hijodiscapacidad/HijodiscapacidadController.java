@@ -67,15 +67,8 @@ public class HijodiscapacidadController extends UtilsController{
     }
 
     @RequestMapping(value = "hijodiscapacidad")
-    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model) {
-        try{
-            hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
-            model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 1);
-        }
-        
+    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad) {
+        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
         return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
     }
     
@@ -86,20 +79,8 @@ public class HijodiscapacidadController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-<<<<<<< HEAD
-    public String delete(@PathVariable Integer id,Model model) {
-        try{
-            hijodiscapacidadService.deleteHijodiscapacidad(id);
-            model.addAttribute("msg", 3);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 4);
-        }
-       
-=======
     public String delete(@PathVariable Integer id) {
         hijodiscapacidadService.deleteHijodiscapacidad(id);
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/hijodiscapacidades/";
     }
     

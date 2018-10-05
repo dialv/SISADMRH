@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
-import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Caparecibidas;
 import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contrato;
@@ -25,7 +24,6 @@ import mj.gob.sisadmrh.model.Idioma;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.model.Puesto;
 import mj.gob.sisadmrh.model.Ubicacionfisica;
-import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CaparecibidasService;
 import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.ContratoService;
@@ -123,12 +121,6 @@ public class EmpleadoController extends UtilsController{
     this.idiomaRep=idiomaRep;
     }
     
-     private BeneficioService beneficioRep ;
-    @Autowired
-    public void setBeneficioService(BeneficioService beneficioRep){
-    this.beneficioRep=beneficioRep;
-    }
-    
     
     @Autowired
     public void setEmpleadoService(EmpleadoService empleadoService) {
@@ -157,8 +149,6 @@ public class EmpleadoController extends UtilsController{
       model.addAttribute("puestos", puestos);
         return PREFIX + "empleadoform";
     }
-    
-
 
     @RequestMapping(value = "empleado")
     public String saveEmpleado(@Valid Empleado empleado,BindingResult result, Model model,SessionStatus status)  {
@@ -207,9 +197,6 @@ public class EmpleadoController extends UtilsController{
       
        Iterable<Idioma> idioma = idiomaRep.findByDato(id);
       model.addAttribute("idiomas", idioma);
-      
-      Iterable<Beneficio> beneficio = beneficioRep.findByDato(id);
-      model.addAttribute("beneficio", beneficio);
       
       
         

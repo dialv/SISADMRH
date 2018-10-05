@@ -80,25 +80,11 @@ public class FormacionacaemicaController extends UtilsController{
         
         try {
             formacionacademica.setDoctitulo(file.getBytes());
-<<<<<<< HEAD
-             
-        } catch (IOException ex) {
-            Logger.getLogger(FormacionacaemicaController.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-         try {
-=======
         } catch (IOException ex) {
             Logger.getLogger(FormacionacaemicaController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         formacionacademicaService.saveFormacionacademica(formacionacademica);
-        model.addAttribute("msg", 0);
-         }catch(Exception e){
-            model.addAttribute("msg", 1);
-        }
-        
         return "redirect:./show/" + formacionacademica.getCodigoformacionacademica();
     }
     
@@ -109,20 +95,8 @@ public class FormacionacaemicaController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-<<<<<<< HEAD
-    public String delete(@PathVariable Integer id,Model model) {
-         try{
-            formacionacademicaService.deleteFormacionacademica(id);;
-            model.addAttribute("msg", 3);
-        }
-        catch(Exception e){
-            model.addAttribute("msg", 4);
-        }
-        
-=======
     public String delete(@PathVariable Integer id) {
         formacionacademicaService.deleteFormacionacademica(id);
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/formacionacademicas/";
     }
     

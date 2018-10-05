@@ -7,8 +7,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,19 +14,10 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contacto;
-<<<<<<< HEAD
-import mj.gob.sisadmrh.model.Empleado;
-=======
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 import mj.gob.sisadmrh.model.Empleadocontacto;
 import mj.gob.sisadmrh.model.EmpleadocontactoPK;
 import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.ContactoService;
-<<<<<<< HEAD
-import mj.gob.sisadmrh.service.EmpleadoContactoService;
-import mj.gob.sisadmrh.service.EmpleadoService;
-=======
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 //import mj.gob.sisadmrh.service.EmpleadoContactoService;
 //import mj.gob.sisadmrh.service.ContactoContactoService;
 import net.sf.jasperreports.engine.JRException;
@@ -50,10 +39,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ContactoController extends UtilsController{
     
     private ContactoService contactoService;
-    @Autowired
-    private EmpleadoContactoService empleadoContactoService;
-    @Autowired
-    private EmpleadoService empleadoService;
 //    private ContactoContactoService contactoContactoService;
     
 //     private EmpleadoContactoService  empleadocontacto ;
@@ -92,33 +77,10 @@ public class ContactoController extends UtilsController{
         return PREFIX + "contactoform";
     }
 
-<<<<<<< HEAD
-    @RequestMapping(value = "contacto/{id}")
-    public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id) {
-       try{
-          
-        
-        contactoService.saveContacto(contacto);
-        Empleadocontacto emcon = new  Empleadocontacto();
-        emcon.setContacto(contacto);
-        Empleado em = empleadoService.getEmpleadoById(id).get();
-        EmpleadocontactoPK emconpk = new EmpleadocontactoPK();
-        emconpk.setCodigocontacto(contacto.getCodigocontacto());
-        emconpk.setCodigoempleado(em.getCodigoempleado());
-        emcon.setEmpleadocontactoPK(emconpk);
-        empleadoContactoService.saveEmpleadocontacto(emcon);
-        model.addAttribute("msg", 0);
-         }
-        catch(Exception e){
-         model.addAttribute("msg", 1);
-         Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
-        }
-=======
     @RequestMapping(value = "contacto")
     public String saveContacto(Contacto contacto) {
        
         contactoService.saveContacto(contacto);
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
 //        emp.setCodigocontacto(contacto.getCodigocontacto()); 
 //        emp.setCodigoempleado(contacto.getCodigocontacto());
 //        empleadocontactoPK.saveEmpleadoContacto(emp);
@@ -132,20 +94,8 @@ public class ContactoController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-<<<<<<< HEAD
-    public String delete(@PathVariable Integer id,Model model) {
-       
-         try{
-         contactoService.deleteContacto(id);
-          model.addAttribute("msg", 3);
-        }
-        catch(Exception e){
-         model.addAttribute("msg", 4);
-        }
-=======
     public String delete(@PathVariable Integer id) {
         contactoService.deleteContacto(id);
->>>>>>> eceb235497f17a196ae6f76834129201b8cae4ad
         return "redirect:/contactos/";
     }
     
