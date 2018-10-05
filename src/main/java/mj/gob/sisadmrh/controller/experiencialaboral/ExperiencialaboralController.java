@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 
  */
 @Controller
-@RequestMapping(value = "experiencialaboral")
+@RequestMapping(value = "experiencialaborales")
 public class ExperiencialaboralController extends UtilsController{
     
     private ExperiencialaboralService experiencialaboralService;
@@ -47,41 +47,55 @@ public class ExperiencialaboralController extends UtilsController{
         this.experiencialaboralService = experiencialaboralService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/experiencialaboral/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("experiencialaboral", experiencialaboralService.listAllExperiencialaboral());
-        return PREFIX + "experiencialaboral";
+        model.addAttribute("experiencialaborales", experiencialaboralService.listAllExperiencialaboral());
+        return PREFIX + "experiencialaborales";
     }
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("experiencialaboral", experiencialaboralService.getExperiencialaboralById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "experienciaform";
     }
 
-    @RequestMapping("new/experiencialaboral")
+    @RequestMapping("new/{id}")
     public String newExperiencialaboral(Model model) {
         model.addAttribute("experiencialaboral", new Experiencialaboral());
-        return PREFIX + "empleadoform";
+        return PREFIX + "experienciaform";
     }
 
     @RequestMapping(value = "experiencialaboral")
-    public String saveExperiencialaboral(Experiencialaboral experiencialaboral) {
-        experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+    public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model) {
+         try{
+             experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+            model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 1);
+        }
+       
         return "redirect:./show/" + experiencialaboral.getCodigoexperiencialaboral();
     }
     
     @RequestMapping("show/{id}")    
     public String showExperiencialaboral(@PathVariable Integer id, Model model) {
         model.addAttribute("experiencialaboral", experiencialaboralService.getExperiencialaboralById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"experienciashow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        experiencialaboralService.deleteExperiencialaboral(id);
-        return "redirect:/empleado/";
+    public String delete(@PathVariable Integer id,Model model) {
+         try{
+            experiencialaboralService.deleteExperiencialaboral(id);
+            model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 4);
+        }
+       
+        return "redirect:/experiencialaborales/";
     }
     
     

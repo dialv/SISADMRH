@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Empleadobeneficio implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHABENEFICIO")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechabeneficio;
     @JoinColumn(name = "CODIGOBENEFICIO", referencedColumnName = "CODIGOBENEFICIO", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

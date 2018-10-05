@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>SISADMRH-Listado de Empleados</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+<!--<div class="container">-->
+    
+    <div th:if="${not #lists.isEmpty(contactos)}" >
+         <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            
+        <!--</div>-->
+        <h3 align="center">Listado de contactos</h3>
+        <table class="table table-striped">
+            <tr >
+                <th>Codigo de Contacto</th>
+                <th>Nombre de  Contacto</th>
+                <th>Direccion</th>
+                <th>Telefono Fijo</th>
+                <th>Telefono Movi</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="empleado : ${empleados}">
+                <td th:text="${contacto.codigocontacto}">codigocontacto</td>
+                <td th:text="${contacto.nombrecontacto}">nombrecontacto</td>
+                <td th:text="${contacto.direccion}">direccion</td>                
+                <td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
+                <td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
+                <td th:text="${contacto.emailcontacto}">emailcontacto</td>
+                <td><a th:href="${'./show/' + empleado.codigoempleado}" class="btn btn-default">Mostrar</a></td>
+                <td><a th:href="${'./edit/' + empleado.codigoempleado}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'./delete/' + empleado.codigoempleado}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+        </div>
+   
+<!--</div>-->
+<div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+ </div>
+   </div> 
+</body>
+</html>

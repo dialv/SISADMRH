@@ -40,5 +40,11 @@ public class BeneficioServiceImpl implements BeneficioService {
     public void deleteBeneficio(Integer id) {
         beneficioRep.deleteById(id);
     }
+    
+    @Override
+    public Iterable<Beneficio> findByDato(int id) {
+        return beneficioRep.findByDato(id);
+        
+    }
 
 }

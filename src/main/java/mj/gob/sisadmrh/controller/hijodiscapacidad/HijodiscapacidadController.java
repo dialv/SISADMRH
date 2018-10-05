@@ -47,41 +47,55 @@ public class HijodiscapacidadController extends UtilsController{
         this.hijodiscapacidadService = hijodiscapacidadService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/hijodiscapacidad/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("hijodiscapacidad", hijodiscapacidadService.listAllHijodiscapacidad());
-        return PREFIX + "hijodiscapacidad";
+        model.addAttribute("hijodiscapacidades", hijodiscapacidadService.listAllHijodiscapacidad());
+        return PREFIX + "hijodiscapacidades";
     }
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "hijodiscapacidadform";
     }
 
-    @RequestMapping("new/hijodiscapacidad")
+    @RequestMapping("new/{id}")
     public String newHijodiscapacidad(Model model) {
         model.addAttribute("hijodiscapacidad", new Hijodiscapacidad());
-        return PREFIX + "empleadoform";
+        return PREFIX + "hijodiscapacidadform";
     }
 
     @RequestMapping(value = "hijodiscapacidad")
-    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad) {
-        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model) {
+        try{
+            hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+            model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 1);
+        }
+        
         return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
     }
     
     @RequestMapping("show/{id}")    
     public String showHijodiscapacidad(@PathVariable Integer id, Model model) {
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"hijodiscapacidadshow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        hijodiscapacidadService.deleteHijodiscapacidad(id);
-        return "redirect:/empleado/";
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+            hijodiscapacidadService.deleteHijodiscapacidad(id);
+            model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 4);
+        }
+       
+        return "redirect:/hijodiscapacidades/";
     }
     
     
