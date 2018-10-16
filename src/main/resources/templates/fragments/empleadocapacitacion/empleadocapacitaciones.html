@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Usuarios</title>
+    <title>Empleado capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -20,25 +20,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Asignaciones de empledo capacitaciones</h3>
+        <h3 align="center">Capacitaciones asignados a empleados</h3>
     <div th:if="${not #lists.isEmpty(empleadocapacitaciones)}">
         <div class="table-responsive">
   <table class="table">
         <!--<table class="table table-striped">-->
             <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-              
-              
+                <th>Nombre de empleado</th>
+                <th>Nombre capacitacion</th>
+               
                 
             </tr>
             <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
-                <td th:text="${empleadocapacitacion.codigoempleado.nombreempleado}">Codigo</td>
-                <td th:text="${empleadocapacitacion.codigocapacitacion.nombrecapacitacion}">Nombre</td>
-           
-                <td><a th:href="${'./show/' + empleadocapacitacion.codigoempleado}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + empleadocapacitacion.codigoempleado}" class="btn btn-default">Editar</a></td>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${empleadocapacitacion.codigoempleado} + '\');'" >Eliminar</a></td>
+                <td th:text="${empleadocapacitacion.empleado.nombreempleado}">Nombre empleado</td>
+                <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Nombre Capacitacion</td>
                 <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
@@ -47,25 +42,74 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </body
 <script th:inline="javascript">
-    $(document).ready(function () {
-    if ([[${msg}]] === 0){
-    swal({
-    title: "Exito!",
-            text: "Registro agregado correctamente",
-            type: "success",
-            icon: "success"
-    }).then(function() {
-    location.href = '../empleadocapacitaciones/';
-    });
+     $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../inasistencias/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
     }
-     if ([[${msg}]] === 1){
-    swal({
-    title: "ERROR!",
-            text: "Ocurrio un error en el proceso",
-            type: "error",
-            icon: "error"
     });
-    }
-    });
+      function descargapdf(idpdf){
+             location.href = './descarga/' + idpdf;
+        }
 </script> 
- </html>
+     <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../empleadocapacitaciones/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
+</html>
