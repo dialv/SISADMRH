@@ -41,10 +41,12 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
 					
                                         <ul class="dropdown-menu forAnimate" role="menu">
-						 <li><a href="#" th:href="@{/usuarios/}">Consultar Usuarios</a></li>
-                                                 <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
-                                                 <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
+						<li><a href="#" th:href="@{/usuarios/}">Consultar Usuarios</a></li>
+                                                <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
+                                                <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
                                                 <li><a href="#" th:href="@{/roles/new/rol}">Crear Rol</a></li>
+                                                <li><a href="#" th:href="@{/usuariosroles/}">Consultar roles asignados</a></li>
+                                                <li><a href="#" th:href="@{/usuariosroles/new/usuariorol}">Asignar Roles</a></li>
                                               
 					</ul>
                                         
@@ -113,7 +115,7 @@
 <!--                                                 <li><a href="#" th:href="@{/costocapacitaciones/report/}">Reporte comites</a></li>-->
                                         </ul>
 				</li>
-				<li class="dropdown">//
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignar asistencia capacitacion <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>

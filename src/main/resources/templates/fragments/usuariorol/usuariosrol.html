@@ -21,36 +21,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
         <h3 align="center">Todos los Usuarios</h3>
-    <div th:if="${not #lists.isEmpty(usuarios)}">
+    <div th:if="${not #lists.isEmpty(usuariorols)}">
         <div class="table-responsive">
   <table class="table">
         <!--<table class="table table-striped">-->
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <!--<th>Contrasena</th>-->
-                <th>Control contra</th>
-                <th>Estado</th>
-                <th>Fecha Ingreso </th>
-                <th>Fecha Caducidad</th>
-                <th>Fecha Baja</th>
-                <th>Acciones</th>
-                <th>  </th>
-                <th>  </th>
+               
                 
             </tr>
-            <tr th:each="usuario : ${usuarios}">
-                <td th:text="${usuario.codigousuario}">Codigo</td>
-                <td th:text="${usuario.nombreusuario}">Nombre</td>
-                <!--<td th:text="${usuario.contraseniausuario}">Contrasena</td>-->
-                <td th:text="${usuario.controlcontrasenia}">control</td>
-                <td th:text="${usuario.estadousuario}">Estado</td>
-                <td th:text="${usuario.fechaingreso}">fecha Ingreso</td>
-                <td th:text="${usuario.fechacaducidad}">Fecha Caducidad</td>
-                <td th:text="${usuario.fechabaja}">Fecha Baja</td>
-                <td><a th:href="${'./show/' + usuario.codigousuario}" class="btn btn-default">Mostrar</a></td>
-                <td><a th:href="${'./edit/' + usuario.codigousuario}" class="btn btn-default">Editar</a></td>
-                 <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${usuario.codigousuario} + '\');'" >Eliminar</a></td>
+            <tr th:each="usuariorol : ${usuariorols}">
+                <td th:text="${usuariorol.usuario.nombreusuario}">Codigo</td>
+                <td th:text="${usuariorol.rol.nombrerol}">Codigo</td>
                 <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
