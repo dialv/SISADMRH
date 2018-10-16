@@ -311,8 +311,9 @@ private MisionService misionService;
               return new ModelAndView((View) new CapacitacionesView(), "capacitacionesList", capacitacionesList);
        }
     
-        @RequestMapping(value = "constanciasalariales/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+        @RequestMapping(value = "constanciasalariales/{indice}/rpt/{rpt}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfconstanciasalariales(@PathVariable("indice") Long indice, 
+             @PathVariable("rpt") Integer rpt,
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
@@ -321,11 +322,15 @@ private MisionService misionService;
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
+        	//generatePdf("otherreports", "rpt_constanciasalariales", params, download,response);
+                if(rpt==1)
         	generatePdf("otherreports", "rpt_constanciasalariales", params, download,response);
+                else generateWord("otherreports", "rpt_constanciasalariales", params, download,response);
     }
     
-      @RequestMapping(value = "constanciaservicios/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+      @RequestMapping(value = "constanciaservicios/{indice}/rpt/{rpt}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfconstanciaservicios(@PathVariable("indice") Long indice, 
+            @PathVariable("rpt") Integer rpt,
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
@@ -333,8 +338,11 @@ private MisionService misionService;
                 Map<String, Object> params = new HashMap<>();
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
-		params.put("FECHAFIN", fechafin);
+		params.put("FECHAFIN", fechafin); 
+                if(rpt==1)
         	generatePdf("otherreports", "rpt_constanciaservicios", params, download,response);
+                else generateWord("otherreports", "rpt_constanciaservicios", params, download,response);
+                    
     }
     
     @RequestMapping(value = "misionesinternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })

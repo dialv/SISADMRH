@@ -12,6 +12,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -121,6 +122,9 @@ public class Capacitacion implements Serializable {
     private List<DiagnosticoCapacitacion> diagnosticocapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
     private List<CostoCapacitacion> costocapacitacionList;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "capacitacion", fetch = FetchType.LAZY)
+    private List<Empleadocapacitacion> empleadocapacitacion;
 
     public Capacitacion() {
     }
@@ -218,6 +222,14 @@ public class Capacitacion implements Serializable {
 
     public void setCostocapacitacionList(List<CostoCapacitacion> costocapacitacionList) {
         this.costocapacitacionList = costocapacitacionList;
+    }
+
+    public List<Empleadocapacitacion> getEmpleadocapacitacion() {
+        return empleadocapacitacion;
+    }
+
+    public void setEmpleadocapacitacion(List<Empleadocapacitacion> empleadocapacitacion) {
+        this.empleadocapacitacion = empleadocapacitacion;
     }
 
     @Override

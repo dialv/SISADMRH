@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.controller.empleadocapacitacion;
 
+
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Empleadocapacitacion;
 import mj.gob.sisadmrh.model.EmpleadocapacitacionPK;
@@ -36,6 +37,7 @@ public class EmpleadoCapacitacionController  {
     private CapacitacionService capacitacionService;
     @Autowired
     private EmpleadoService empleadoService;
+    
   private final String PREFIX = "fragments/empleadocapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
@@ -65,7 +67,7 @@ public class EmpleadoCapacitacionController  {
         llave.setCodigocapacitacion(empleadocapacitacion.getCapacitacion().getCodigocapacitacion());
         llave.setCodigoempleado(empleadocapacitacion.getEmpleado().getCodigoempleado());
         
-         empleadocapacitacion.setEmpleadocapacitacionPK(llave);//no sampa
+         empleadocapacitacion.setEmpleadocapacitacionPK(llave);//aqui tenia el pedo
         empleadoCapacitacionSevice.saveEmpleadoCapacitacion(empleadocapacitacion);
          model.addAttribute("msg", 0);
         }

@@ -42,8 +42,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
                     </div>
-                     <div class="form-group">    
-                         <td><a class="btn btn-default" id="generar">Generar</a></td>
+                      <div class="form-group">    
+                         <td><a class="btn btn-default" id="generatePdf">pdf</a></td>
+                    </div>
+                      <div class="form-group">    
+                         <td><a class="btn btn-default" id="generateWord">word</a></td>
                     </div>
                 </form>
             </div>
@@ -62,8 +65,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $('#fechafinal').datepicker({
             dateFormat: 'yy-mm-dd'
         });
-        $('#generar').click(function(){
-            $("#formreport").attr('action', '../constanciaservicios/'+ $("#codigo").val().toString());
+        $('#generatePdf').click(function(){
+            $("#formreport").attr('action', '../constanciaservicios/'+ $("#codigo").val().toString() + '/rpt/1');
+            $("form#formreport").submit();
+            
+        });
+        $('#generateWord').click(function(){
+            $("#formreport").attr('action', '../constanciaservicios/'+ $("#codigo").val().toString()+ '/rpt/2');
             $("form#formreport").submit();
             
         });

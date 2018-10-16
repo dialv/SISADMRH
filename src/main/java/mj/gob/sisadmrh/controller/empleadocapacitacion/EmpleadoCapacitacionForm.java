@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.controller.empleadocapacitacion;
 
 import java.io.Serializable;
 import mj.gob.sisadmrh.model.Capacitacion;
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadocapacitacion;
 
@@ -17,6 +18,7 @@ import mj.gob.sisadmrh.model.Empleadocapacitacion;
 public class EmpleadoCapacitacionForm implements Serializable{
     private Iterable<Empleado> empleados;
       private Iterable<Capacitacion> capacitaciones;
+      private Iterable<Capacitador> capacitador;
       private Empleadocapacitacion empleadocapacitacion;
 
     public Iterable<Empleado> getEmpleados() {
@@ -41,6 +43,14 @@ public class EmpleadoCapacitacionForm implements Serializable{
 
     public void setEmpleadocapacitacion(Empleadocapacitacion empleadocapacitacion) {
         this.empleadocapacitacion = empleadocapacitacion;
+    }
+
+    public Iterable<Capacitador> getCapacitador() {
+        return capacitador;
+    }
+
+    public void setCapacitador(Iterable<Capacitador> capacitador) {
+        this.capacitador = capacitador;
     }
     
 }

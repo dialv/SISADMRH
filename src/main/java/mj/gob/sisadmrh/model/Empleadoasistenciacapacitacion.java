@@ -34,7 +34,7 @@ public class Empleadoasistenciacapacitacion implements Serializable {
     protected EmpleadoasistenciacapacitacionPK empleadoasistenciacapacitacionPK;
  @JoinColumn(name = "CODIGOASISTENCIACAPACITACION", referencedColumnName = "CODIGOASISTENCIACAPACITACION", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private AsistenciaCapacitacion asistenciaCapacitacion;
+    private AsistenciaCapacitacion asistenciacapacitacion;
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
@@ -43,11 +43,11 @@ public class Empleadoasistenciacapacitacion implements Serializable {
     }
 
     public AsistenciaCapacitacion getAsistenciaCapacitacion() {
-        return asistenciaCapacitacion;
+        return asistenciacapacitacion;
     }
 
     public void setAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
-        this.asistenciaCapacitacion = asistenciaCapacitacion;
+        this.asistenciacapacitacion = asistenciaCapacitacion;
     }
 
     public Empleado getEmpleado() {

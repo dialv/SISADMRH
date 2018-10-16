@@ -16,7 +16,15 @@ import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
  */
 public class EmpleadoAsistenciaCapacitacionForm  implements Serializable{
        private Iterable<Empleado> empleados;
-      private Iterable<AsistenciaCapacitacion> asistenciaCapacitaciones;
+      private Iterable<AsistenciaCapacitacion> asistenciacapacitaciones;
+
+    public Iterable<AsistenciaCapacitacion> getAsistenciacapacitaciones() {
+        return asistenciacapacitaciones;
+    }
+
+    public void setAsistenciacapacitaciones(Iterable<AsistenciaCapacitacion> asistenciacapacitaciones) {
+        this.asistenciacapacitaciones = asistenciacapacitaciones;
+    }
       private Empleadoasistenciacapacitacion empleadoasistenciacapacitacion;
 
     public Iterable<Empleado> getEmpleados() {
@@ -27,13 +35,7 @@ public class EmpleadoAsistenciaCapacitacionForm  implements Serializable{
         this.empleados = empleados;
     }
 
-    public Iterable<AsistenciaCapacitacion> getAistenciaCapacitaciones() {
-        return asistenciaCapacitaciones;
-    }
 
-    public void setAsistenciaCapacitaciones(Iterable<AsistenciaCapacitacion> asistenciaCapacitaciones) {
-        this.asistenciaCapacitaciones = asistenciaCapacitaciones;
-    }
 
     public Empleadoasistenciacapacitacion getEmpleadoasistenciacapacitacion() {
         return empleadoasistenciacapacitacion;
