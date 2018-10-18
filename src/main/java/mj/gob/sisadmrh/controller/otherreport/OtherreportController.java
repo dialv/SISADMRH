@@ -502,7 +502,7 @@ private MisionService misionService;
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
 //		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+//		params.puta proba man("FECHAFIN", fechafin);
         	generatePdf("pensionadoreporte", "rpt_pensionado", params, download,response);
     }
     
