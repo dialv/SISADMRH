@@ -65,8 +65,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
     
         <br>
-<form class="form-horizontal" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" id="formformacion" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
           <input type="hidden" th:field="*{codigoformacionacademica}"/>
+          <input type="hidden" id="codem"  />
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Estudios Realizados(*):</label>
@@ -139,8 +140,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
       </div>
            <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
@@ -250,6 +251,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		        dateFormat: 'yy-mm-dd'
 		    });
 		});
+                $('#btnGuardar').click(function(){
+            $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
+            $("form#formformacion").submit();
+            
+        });
 	</script>
         
          <script th:inline="javascript">
@@ -261,7 +267,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success"
        }).then(function() {
-                location.href = '../comites/';
+                 location.href = '../../empleados/';
        }); 
 }
     
@@ -275,4 +281,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     }
     });
 </script> 
+  <script>       
+            var URLactual = window.location.href;
+                if (URLactual.includes("edit")){
+//                    alert("str");
+                }
+                else{
+//                    alert("str1");
+var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+//alert(str);
+$(function () {
+          document.getElementById("codem").value = str;
+      });}
+	</script>
 </html>

@@ -65,8 +65,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
     
         <br>
- <form class="form-horizontal" th:object="${caparecibida}" th:action="@{../caparecibida}" method="post">
+ <form class="form-horizontal" id="formcaprecibidas" th:object="${caparecibida}" th:action="@{../caparecibida}" method="post">
           <input type="hidden" th:field="*{codigocaparecibidas}"/>
+          <input type="hidden" id="codem"  />
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Tipo de Evento(*):</label>
@@ -119,8 +120,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           </div>
            <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
@@ -140,29 +141,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        
 </body>
         
-        <script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../comites/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script> 
+      
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -255,8 +234,48 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		        dateFormat: 'yy-mm-dd'
 		    });
 		});
+                  $('#btnGuardar').click(function(){
+            $("#formcaprecibidas").attr('action', '../caparecibida/'+ $("#codem").val().toString());
+            $("form#formcaprecibidas").submit();
+            
+        });
 	</script>
 
-        
+          <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                 location.href = '../../empleados/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+        <script>       
+            var URLactual = window.location.href;
+                if (URLactual.includes("edit")){
+//                    alert("str");
+                }
+                else{
+//                    alert("str1");
+var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+//alert(str);
+$(function () {
+          document.getElementById("codem").value = str;
+      });}
+	</script>
         
 </html>

@@ -76,7 +76,8 @@ public class ContratoController extends UtilsController{
             model.addAttribute("msg", 1);
         }
         
-        return "redirect:./show/" + contrato.getCodigocontrato();
+//        return "redirect:./show/" + contrato.getCodigocontrato();
+ return PREFIX + "contratoform";
     }
     
     @RequestMapping("show/{id}")    
@@ -95,7 +96,8 @@ public class ContratoController extends UtilsController{
             model.addAttribute("msg", 4);
         }
         
-        return "redirect:/contratos/";
+//        return "redirect:/contratos/";
+        return PREFIX +"contratos";
     }
     
     

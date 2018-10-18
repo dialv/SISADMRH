@@ -51,12 +51,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
-        <div class="col-md-8">
-    <h3 align="center">Crear Puestos</h3>
+        <div class="col-md-8"> <br><br>
+            <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/puestos.png}"/>
+            </div> 
+    <h3 align="center">Crear Puesto de Trabajo</h3>
    
         <form class="form-horizontal" th:object="${puesto}" th:action="@{../puesto}" method="post">
             <input type="hidden" th:field="*{codigopuesto}"/>
-            <input type="hidden" th:field="*{nombrepuesto}"/>
+            <!--<input type="hidden" th:field="*{nombrepuesto}"/>-->
            <div class="col-md-6">
 <!--            <div class="form-group">
                 <label class="col-sm-5 control-label">Codigo de Puesto(*):</label>
@@ -278,5 +281,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
 	</script>
         
-        
+        <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../puestos/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
 </html>

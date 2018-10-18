@@ -13,8 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadoexperiencialaboral;
+import mj.gob.sisadmrh.model.EmpleadoexperiencialaboralPK;
 import mj.gob.sisadmrh.model.Experiencialaboral;
 import mj.gob.sisadmrh.model.Experiencialaboral;
+import mj.gob.sisadmrh.service.EmpleadoExperiencialaboralService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.ExperiencialaboralService;
 import mj.gob.sisadmrh.service.ExperiencialaboralService;
 //import mj.gob.sisadmrh.service.ExperiencialaboralExperiencialaboralService;
@@ -38,7 +43,10 @@ public class ExperiencialaboralController extends UtilsController{
     
     private ExperiencialaboralService experiencialaboralService;
 //    private ExperiencialaboralExperiencialaboralService experiencialaboralExperiencialaboralService;
-    
+    @Autowired
+    private EmpleadoExperiencialaboralService empleadoExperiencialaboralService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
 
     
@@ -66,17 +74,26 @@ public class ExperiencialaboralController extends UtilsController{
         return PREFIX + "experienciaform";
     }
 
-    @RequestMapping(value = "experiencialaboral")
-    public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model) {
+    @RequestMapping(value = "experiencialaboral/{id}")
+    public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model,@PathVariable Integer id) {
          try{
              experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+            Empleadoexperiencialaboral emcon = new  Empleadoexperiencialaboral();
+            emcon.setExperiencialaboral(experiencialaboral);
+            Empleado em = empleadoService.getEmpleadoById(id).get();
+            EmpleadoexperiencialaboralPK emconpk = new EmpleadoexperiencialaboralPK();
+            emconpk.setCodigoexperiencialaboral(experiencialaboral.getCodigoexperiencialaboral());
+            emconpk.setCodigoempleado(em.getCodigoempleado());
+            emcon.setEmpleadoexperiencialaboralPK(emconpk);
+            empleadoExperiencialaboralService.saveEmpleadoexperiencialaboral(emcon);
             model.addAttribute("msg", 0);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
        
-        return "redirect:./show/" + experiencialaboral.getCodigoexperiencialaboral();
+//        return "redirect:./show/" + experiencialaboral.getCodigoexperiencialaboral();
+ return PREFIX + "experienciaform";
     }
     
     @RequestMapping("show/{id}")    
@@ -95,7 +112,8 @@ public class ExperiencialaboralController extends UtilsController{
             model.addAttribute("msg", 4);
         }
        
-        return "redirect:/experiencialaborales/";
+//        return "redirect:/experiencialaborales/";
+        return PREFIX +"experiencialaborales";
     }
     
     

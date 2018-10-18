@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
         <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post"  enctype="multipart/form-data">
             <input type="hidden" th:field="*{codigomision}"/>
-            <input type="hidden" th:field="*{nombremision}"/>
+            <!--<input type="hidden" th:field="*{nombremision}"/>-->
            <div class="col-md-6">
            <div class="form-group">
                 <label class="col-sm-5 control-label">Tipo de Mision(*):</label>

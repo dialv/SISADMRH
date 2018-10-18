@@ -110,7 +110,8 @@ public class ContactoController extends UtilsController{
 //        emp.setCodigoempleado(contacto.getCodigocontacto());
 //        empleadocontactoPK.saveEmpleadoContacto(emp);
 //        return "redirect:./show/" + contacto.getCodigocontacto();
-         return PREFIX +"/show/" + contacto.getCodigocontacto();
+//         return PREFIX +"/show/" + contacto.getCodigocontacto();
+         return PREFIX + "contactoform";
     }
     
     @RequestMapping("show/{id}")    
@@ -129,7 +130,9 @@ public class ContactoController extends UtilsController{
         catch(Exception e){
          model.addAttribute("msg", 4);
         }
-        return "redirect:/contactos/";
+//        return "redirect:/contactos/";
+         
+        return PREFIX + "contactos";
     }
     
  

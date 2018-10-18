@@ -13,10 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Idioma;
 import mj.gob.sisadmrh.model.Idioma;
 import mj.gob.sisadmrh.model.Empleadoidioma;
 import mj.gob.sisadmrh.model.EmpleadoidiomaPK;
+import mj.gob.sisadmrh.service.EmpleadoIdiomaService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.IdiomaService;
 import mj.gob.sisadmrh.service.IdiomaService;
 //import mj.gob.sisadmrh.service.EmpleadoIdiomaService;
@@ -40,6 +43,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class IdiomaController extends UtilsController{
     
     private IdiomaService idiomaService;
+    @Autowired
+    private EmpleadoIdiomaService empleadoIdiomaService;
+    @Autowired
+    private EmpleadoService empleadoService;
 //    private IdiomaIdiomaService idiomaIdiomaService;
     
 //     private EmpleadoIdiomaService  empleadoidioma ;
@@ -78,10 +85,18 @@ public class IdiomaController extends UtilsController{
         return PREFIX + "idiomaform";
     }
 
-    @RequestMapping(value = "idioma")
-    public String saveIdioma(Idioma idioma,Model model) {
+    @RequestMapping(value = "idioma/{id}")
+    public String saveIdioma(Idioma idioma,Model model,@PathVariable Integer id) {
        try{
             idiomaService.saveIdioma(idioma);
+            Empleadoidioma emcon = new  Empleadoidioma();
+        emcon.setIdioma(idioma);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadoidiomaPK emconpk = new EmpleadoidiomaPK();
+        emconpk.setCodigoidioma(idioma.getCodigoidioma());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadoidiomaPK(emconpk);
+        empleadoIdiomaService.saveEmpleadoidioma(emcon);
             model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -91,7 +106,8 @@ public class IdiomaController extends UtilsController{
 //        emp.setCodigoidioma(idioma.getCodigoidioma()); 
 //        emp.setCodigoempleado(idioma.getCodigoidioma());
 //        empleadoidiomaPK.saveEmpleadoIdioma(emp);
-        return "redirect:./show/" + idioma.getCodigoidioma();
+//        return "redirect:./show/" + idioma.getCodigoidioma();
+  return PREFIX + "idiomaform";
     }
     
     @RequestMapping("show/{id}")    
@@ -110,7 +126,8 @@ public class IdiomaController extends UtilsController{
             model.addAttribute("msg", 4);
         }
         
-        return "redirect:/idiomas/";
+//        return "redirect:/idiomas/";
+        return PREFIX + "idiomas";
     }
     
  

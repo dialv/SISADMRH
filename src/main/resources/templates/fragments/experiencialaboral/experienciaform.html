@@ -65,8 +65,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
     
         <br>
-<form class="form-horizontal" th:object="${experiencialaboral}" th:action="@{../experiencialaboral}" method="post">
+<form class="form-horizontal" id="formex" th:object="${experiencialaboral}" th:action="@{../experiencialaboral}" method="post">
                 <input type="hidden" th:field="*{codigoexperiencialaboral}"/>
+                <input type="hidden" id="codem"  />
             <div class="col-md-12"  align="center">
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Sector(*):</label>
@@ -125,7 +126,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <div class="col-md-12">
             <div class="row" align="center">
                 <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
@@ -236,8 +237,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		        dateFormat: 'yy-mm-dd'
 		    });
 		});
+                $('#btnGuardar').click(function(){
+            $("#formex").attr('action', '../experiencialaboral/'+ $("#codem").val().toString());
+            $("form#formex").submit();
+            
+        });
 	</script>
-          <script th:inline="javascript">
+           <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
@@ -246,7 +252,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success"
        }).then(function() {
-                location.href = '../comites/';
+                 location.href = '../../empleados/';
        }); 
 }
     
@@ -260,5 +266,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     }
     });
 </script> 
+        <script>       
+            var URLactual = window.location.href;
+                if (URLactual.includes("edit")){
+//                    alert("str");
+                }
+                else{
+//                    alert("str1");
+var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+//alert(str);
+$(function () {
+          document.getElementById("codem").value = str;
+      });}
+	</script> 
         
 </html>

@@ -99,7 +99,7 @@ public class MisionController extends UtilsController{
           model.addAttribute("msg", 1);
         }
 //         return PREFIX+"misionform";
-       return "redirect:./show/" + mision.getCodigomision();
+       return PREFIX + "misionform";
     }
     
     @RequestMapping("show/{id}")
@@ -118,8 +118,8 @@ public class MisionController extends UtilsController{
         model.addAttribute("msg", 4);
          
         }
-//         return PREFIX + "misiones";
-        return "redirect:/misiones/";
+         return PREFIX + "misiones";
+//        return "redirect:/misiones/";
     }
     
     

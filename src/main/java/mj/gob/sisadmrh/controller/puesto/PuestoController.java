@@ -51,9 +51,17 @@ public class PuestoController extends UtilsController{
     }
 
     @RequestMapping(value = "puesto")
-    public String savePuesto(Puesto puesto) {
+    public String savePuesto(Puesto puesto,Model model) {
+        try{
         puestoService.savePuesto(puesto);
-        return "redirect:./show/" + puesto.getCodigopuesto();
+       
+          model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+        }
+       return PREFIX+"puestoform";
+//        return "redirect:./show/" + puesto.getCodigopuesto();
     }
     
     @RequestMapping("show/{id}")
@@ -63,9 +71,16 @@ public class PuestoController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        puestoService.deletePuesto(id);
-        return "redirect:/puestos/";
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+            puestoService.deletePuesto(id);
+          model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 4);
+        }
+//        return "redirect:/puestos/";
+         return PREFIX + "puestos";
     }
     
     @RequestMapping("reporte/puesto")

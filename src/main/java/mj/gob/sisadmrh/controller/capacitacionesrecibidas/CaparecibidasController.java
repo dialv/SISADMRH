@@ -15,8 +15,13 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Caparecibidas;
 import mj.gob.sisadmrh.model.Caparecibidas;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadocaparecibidas;
+import mj.gob.sisadmrh.model.EmpleadocaparecibidasPK;
 import mj.gob.sisadmrh.service.CaparecibidasService;
 import mj.gob.sisadmrh.service.CaparecibidasService;
+import mj.gob.sisadmrh.service.EmpleadoCaprecibidasService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 //import mj.gob.sisadmrh.service.CaparecibidasCaparecibidasService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +43,10 @@ public class CaparecibidasController extends UtilsController{
     
     private CaparecibidasService caparecibidasService;
 //    private CaparecibidasCaparecibidasService caparecibidasCaparecibidasService;
-    
+    @Autowired
+    private EmpleadoCaprecibidasService empleadoCaparecibidasService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
 
     
@@ -66,10 +74,20 @@ public class CaparecibidasController extends UtilsController{
         return PREFIX + "caprecibidasform";
     }
 
-    @RequestMapping(value = "caparecibida")
-    public String saveCaparecibidas(Caparecibidas caparecibidas,Model model) {
+    @RequestMapping(value = "caparecibida/{id}")
+    public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id) {
         try{
             caparecibidasService.saveCaparecibidas(caparecibidas);
+            
+        Empleadocaparecibidas emcon = new  Empleadocaparecibidas();
+        emcon.setCaparecibidas(caparecibidas);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        
+        EmpleadocaparecibidasPK emconpk = new EmpleadocaparecibidasPK();
+        emconpk.setCodigocaparecibidas(caparecibidas.getCodigocaparecibidas());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadocaparecibidasPK(emconpk);
+        empleadoCaparecibidasService.saveEmpleadocaprecibidas(emcon);
             model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -77,7 +95,8 @@ public class CaparecibidasController extends UtilsController{
         }
 //        return PREFIX+"caprecibidasform";
         
-        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
+//        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
+ return PREFIX + "caprecibidasform";
     }
     
     @RequestMapping("show/{id}")    
@@ -95,7 +114,8 @@ public class CaparecibidasController extends UtilsController{
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        return "redirect:/caparecibidas/";
+//        return "redirect:/caparecibidas/";
+        return PREFIX +"caparecibidas";
     }
     
     

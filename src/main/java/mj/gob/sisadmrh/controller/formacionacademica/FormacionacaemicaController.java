@@ -15,8 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadoformacion;
+import mj.gob.sisadmrh.model.EmpleadoformacionPK;
 import mj.gob.sisadmrh.model.Formacionacademica;
 import mj.gob.sisadmrh.model.Formacionacademica;
+import mj.gob.sisadmrh.service.EmpleadoFormacionacademicaService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.FormacionacademicaService;
 import mj.gob.sisadmrh.service.FormacionacademicaService;
 //import mj.gob.sisadmrh.service.FormacionacademicaFormacionacademicaService;
@@ -41,7 +46,10 @@ public class FormacionacaemicaController extends UtilsController{
     
     private FormacionacademicaService formacionacademicaService;
 //    private FormacionacademicaFormacionacademicaService formacionacademicaFormacionacademicaService;
-    
+     @Autowired
+    private EmpleadoFormacionacademicaService empleadoFormacionaademicaService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
 
     
@@ -75,8 +83,8 @@ public class FormacionacaemicaController extends UtilsController{
            streamReport(response, formacionacademicaService.getFormacionacademicaById(id).get().getDoctitulo(), "Titulo.pdf");
     }
     
-    @RequestMapping(value = "formacionacademica")
-    public String saveFormacionacademica(Formacionacademica formacionacademica,Model model, @RequestParam("file") MultipartFile file) {
+    @RequestMapping(value = "formacionacademica/{id}")
+    public String saveFormacionacademica(Formacionacademica formacionacademica,Model model, @RequestParam("file") MultipartFile file,@PathVariable Integer id) {
         
         try {
             formacionacademica.setDoctitulo(file.getBytes());
@@ -87,12 +95,22 @@ public class FormacionacaemicaController extends UtilsController{
         }
          try {
         formacionacademicaService.saveFormacionacademica(formacionacademica);
+        
+        Empleadoformacion emcon = new  Empleadoformacion();
+        emcon.setFormacionacademica(formacionacademica);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadoformacionPK emconpk = new EmpleadoformacionPK();
+        emconpk.setCodigoformacionacademica(formacionacademica.getCodigoformacionacademica());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadoformacionPK(emconpk);
+        empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
         model.addAttribute("msg", 0);
          }catch(Exception e){
             model.addAttribute("msg", 1);
         }
         
-        return "redirect:./show/" + formacionacademica.getCodigoformacionacademica();
+//        return "redirect:./show/" + formacionacademica.getCodigoformacionacademica();
+        return PREFIX + "formacionacademicaform";
     }
     
     @RequestMapping("show/{id}")    
@@ -111,7 +129,8 @@ public class FormacionacaemicaController extends UtilsController{
             model.addAttribute("msg", 4);
         }
         
-        return "redirect:/formacionacademicas/";
+//        return "redirect:/formacionacademicas/";
+         return PREFIX +"formacionacademicas";
     }
     
     
