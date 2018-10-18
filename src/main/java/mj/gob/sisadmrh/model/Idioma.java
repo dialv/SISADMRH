@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -29,8 +30,10 @@ public class Idioma implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Basic(optional = false)
     @Column(name = "codigoidioma")
     private Integer codigoidioma;
     @Size(max = 50)
@@ -45,7 +48,7 @@ public class Idioma implements Serializable {
     @Size(max = 2)
     @Column(name = "traduce")
     private String traduce;
-    @Size(max = 2)
+    @Size(max = 12)
     @Column(name = "nivel")
     private String nivel;
 

@@ -13,8 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadohijodiscapacidad;
+import mj.gob.sisadmrh.model.EmpleadohijodiscapacidadPK;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
+import mj.gob.sisadmrh.service.EmpleadoHijosdiscapacidadService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
 //import mj.gob.sisadmrh.service.HijodiscapacidadHijodiscapacidadService;
@@ -38,7 +43,10 @@ public class HijodiscapacidadController extends UtilsController{
     
     private HijosdiscapacidadService hijodiscapacidadService;
 //    private HijodiscapacidadHijodiscapacidadService hijodiscapacidadHijodiscapacidadService;
-    
+    @Autowired
+    private EmpleadoHijosdiscapacidadService empleadoHijosdiscapacidadService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
 
     
@@ -47,41 +55,65 @@ public class HijodiscapacidadController extends UtilsController{
         this.hijodiscapacidadService = hijodiscapacidadService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/hijodiscapacidad/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("hijodiscapacidad", hijodiscapacidadService.listAllHijodiscapacidad());
-        return PREFIX + "hijodiscapacidad";
+        model.addAttribute("hijodiscapacidades", hijodiscapacidadService.listAllHijodiscapacidad());
+        return PREFIX + "hijodiscapacidades";
     }
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "hijodiscapacidadform";
     }
 
-    @RequestMapping("new/hijodiscapacidad")
+    @RequestMapping("new/{id}")
     public String newHijodiscapacidad(Model model) {
         model.addAttribute("hijodiscapacidad", new Hijodiscapacidad());
-        return PREFIX + "empleadoform";
+        return PREFIX + "hijodiscapacidadform";
     }
 
-    @RequestMapping(value = "hijodiscapacidad")
-    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad) {
-        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
-        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
+    @RequestMapping(value = "hijodiscapacidad/{id}")
+    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id) {
+        try{
+            hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+            Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
+        emcon.setHijodiscapacidad(hijodiscapacidad);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadohijodiscapacidadPK emconpk = new EmpleadohijodiscapacidadPK();
+        emconpk.setCodigohijodiscapacidad(hijodiscapacidad.getCodigohijodiscapacidad());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadohijodiscapacidadPK(emconpk);
+        empleadoHijosdiscapacidadService.saveEmpleadohijodiscapacidad(emcon);
+            model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 1);
+        }
+        
+//        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
+ return PREFIX + "hijodiscapacidadform";
     }
     
     @RequestMapping("show/{id}")    
     public String showHijodiscapacidad(@PathVariable Integer id, Model model) {
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"hijodiscapacidadshow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        hijodiscapacidadService.deleteHijodiscapacidad(id);
-        return "redirect:/empleado/";
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+            hijodiscapacidadService.deleteHijodiscapacidad(id);
+            model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 4);
+        }
+       
+//        return "redirect:/hijodiscapacidades/";
+        return PREFIX +"hijodiscapacidades";
     }
     
     

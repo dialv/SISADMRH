@@ -6,9 +6,14 @@
 package mj.gob.sisadmrh.controller.UbicacionFisica;
 
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadoubicacionfisica;
+import mj.gob.sisadmrh.model.EmpleadoubicacionfisicaPK;
 
 
 import mj.gob.sisadmrh.model.Ubicacionfisica;
+import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.EmpleadoUbicacionfisicaService;
 
 
 import mj.gob.sisadmrh.service.UbicacionFisicaService;
@@ -29,7 +34,10 @@ public class UbicacionFisicaController extends UtilsController{
     
     @Autowired
     private UbicacionFisicaService ubicacionFisicaService;
-     
+     @Autowired
+    private EmpleadoUbicacionfisicaService empleadoUbicacionfisicaService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
   
     private final String PREFIX = "fragments/ubicacionfisica/";
@@ -45,7 +53,7 @@ public class UbicacionFisicaController extends UtilsController{
         return PREFIX + "ubicacionfisicaform";
     }
     
-    @RequestMapping("new/ubicacionfisica")
+    @RequestMapping("new/{id}")
     public String newUbicacionFisica(Model model) {
         model.addAttribute("ubicacionfisica", new Ubicacionfisica());
         
@@ -53,16 +61,24 @@ public class UbicacionFisicaController extends UtilsController{
         return PREFIX + "ubicacionfisicaform";
     }
     
-    @RequestMapping(value = "ubicacionfisica")
-    public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model) {
+    @RequestMapping(value = "ubicacionfisica/{id}")
+    public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model,@PathVariable Integer id) {
         try{
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
+           Empleadoubicacionfisica emcon = new  Empleadoubicacionfisica();
+        emcon.setUbicacionfisica(ubicacionFisica);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadoubicacionfisicaPK emconpk = new EmpleadoubicacionfisicaPK();
+        emconpk.setCodigoubicacion(ubicacionFisica.getCodigoubicacion());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadoubicacionfisicaPK(emconpk);
+        empleadoUbicacionfisicaService.saveEmpleadoubicacionfisica(emcon);
            model.addAttribute("msg", 0);
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
         }
-       return PREFIX + "ubicacionfisicaform";
+       return PREFIX + "ubicacionfisicashow";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
@@ -86,7 +102,8 @@ public class UbicacionFisicaController extends UtilsController{
         model.addAttribute("msg", 4);
         }
    
-        return "redirect:/ubicacionfisicas/";
+//        return "redirect:/ubicacionfisicas/";
+        return PREFIX +"ubicacionfisicas";
     }
     
 }

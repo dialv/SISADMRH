@@ -11,35 +11,55 @@ import java.io.Serializable;
  *
  * @author root
  */
-public class AbogadosPojo implements Serializable{
+public class CapacitadorPojo implements Serializable{
 
-private Integer codigoempleado; 
-private String nombreempleado; 
-private String fechaingresoministerio;
+private Integer tipocapacitador; 
+private String nombrecapacitador; 
+private String temadominio;
+private String  telefonomovilcapacitador;
+private String  emailcapacitador;
 
-    public Integer getCodigoempleado() {
-        return codigoempleado;
+    public Integer getTipocapacitador() {
+        return tipocapacitador;
     }
 
-    public void setCodigoempleado(Integer codigoempleado) {
-        this.codigoempleado = codigoempleado;
+    public void setTipocapacitador(Integer tipocapacitador) {
+        this.tipocapacitador = tipocapacitador;
     }
 
-    public String getNombreempleado() {
-        return nombreempleado;
+    public String getNombrecapacitador() {
+        return nombrecapacitador;
     }
 
-    public void setNombreempleado(String nombreempleado) {
-        this.nombreempleado = nombreempleado;
+    public void setNombrecapacitador(String nombrecapacitador) {
+        this.nombrecapacitador = nombrecapacitador;
     }
 
-    public String getFechaingresoministerio() {
-        return fechaingresoministerio;
+    public String getTemadominio() {
+        return temadominio;
     }
 
-    public void setFechaingresoministerio(String fechaingresoministerio) {
-        this.fechaingresoministerio = fechaingresoministerio;
+    public void setTemadominio(String temadominio) {
+        this.temadominio = temadominio;
     }
+
+    public String getTelefonomovilcapacitador() {
+        return telefonomovilcapacitador;
+    }
+
+    public void setTelefonomovilcapacitador(String telefonomovilcapacitador) {
+        this.telefonomovilcapacitador = telefonomovilcapacitador;
+    }
+
+    public String getEmailcapacitador() {
+        return emailcapacitador;
+    }
+
+    public void setEmailcapacitador(String emailcapacitador) {
+        this.emailcapacitador = emailcapacitador;
+    }
+
+   
 
 
 }

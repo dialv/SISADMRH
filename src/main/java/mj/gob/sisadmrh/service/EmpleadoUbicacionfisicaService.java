@@ -1,18 +1,18 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Empleadobeneficio;
+import mj.gob.sisadmrh.model.Empleadoubicacionfisica;
 
 /**
  *
  * @author dialv
  */
-public interface EmpleadoBeneficioService {
-    Iterable <Empleadobeneficio> listAllEmpleadobeneficios();
+public interface EmpleadoUbicacionfisicaService {
+    Iterable <Empleadoubicacionfisica> listAllEmpleadoubicacionfisicas();
     
-    Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id);
+    Optional<Empleadoubicacionfisica> getEmpleadoubicacionfisicaById(Integer id);
 
-    Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio beneficio);
+    Empleadoubicacionfisica saveEmpleadoubicacionfisica(Empleadoubicacionfisica ubicacionfisica);
 
-    void deleteEmpleadobeneficio(Integer id);
+    void deleteEmpleadoubicacionfisica(Integer id);
 }

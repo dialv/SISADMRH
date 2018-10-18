@@ -39,46 +39,65 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
+        <div class="contenedorizq"><label  >pnt_cme</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-    <h3 align="center">Crear Mision</h3>
-   
-        <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post">
-            <input type="hidden" th:field="*{codigomisiojn}"/>
-            <input type="hidden" th:field="*{nombremision}"/>
-           <div class="col-md-6">
-
-            <div class="form-group">
-                <label class="col-sm-5 control-label">Nombre de Mision(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{nombremision}"/>
-                </div>
+             <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
             </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de Empleado(*):</label>
+    <h3 align="center">Crear Mision</h3>
+        
+        <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post"  enctype="multipart/form-data">
+            <input type="hidden" th:field="*{codigomision}"/>
+            <!--<input type="hidden" th:field="*{nombremision}"/>-->
+           <div class="col-md-6">
+           <div class="form-group">
+                <label class="col-sm-5 control-label">Tipo de Mision(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="codigoempleado" >
-                        <option>Empleado 1</option>
-                        <option>Empleado 2</option>
-                        <option>Empleado 3</option>
+                    <select class="form-control" name="tipomision"  >
+                        <option>Externa</option>
+                        <option>Interna</option>
+                        <!--<option>Gobierno</option>-->
 
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Objetivo de Mision(*):</label>
+                <label class="col-sm-5 control-label">Nombre de Mision(*):</label>
                 <div class="col-sm-7">
-                    <input type="number" step="0.01" class="form-control" th:field="*{objetivomision}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombremision}"/>
                 </div>
             </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Objetivo de Mision(*):</label>
+                <div class="col-sm-7">
+                    <input type="text" step="0.01" class="form-control" required="true" size="100" maxlength="100" th:field="*{objetivomision}"/>
+                </div>
+            </div>
+<!--             <div class="form-group">
+                        <label class="col-sm-5 control-label">Empleado :</label>
+                        <div class="col-sm-7" >
+                            <select class="form-control"  th:field="*{codigoempleado}" >
+                                <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                            </select>
+                            <input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>
+                        </div>
+                    </div>-->
+           
             <div class="form-group">
                 <label class="col-sm-5 control-label">Responsable del Gasto(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="reponsablegasto" >
+                    <select class="form-control" name="responsablegasto"  >
                         <option>ONG</option>
                         <option>Ministerio</option>
                         <option>Gobierno</option>
@@ -90,19 +109,19 @@
             <div class="form-group">
                 <label class="col-sm-5 control-label">Viaticos(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{viaticos}"/>
+                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{viaticos}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label">Gasto Viaje(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{gastoviaje}"/>
+                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{gastoviaje}"/>
                 </div>
             </div>
 <div class="form-group">
                 <label class="col-sm-5 control-label">Gasto Terminales(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{gastoterminales}"/>
+                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{gastoterminales}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -141,11 +160,11 @@
 
            
            </div>
-              <div class="col-md-6">
-                  <div class="form-group">
+         <div class="col-md-6">
+             <div class="form-group">
                 <label class="col-sm-5 control-label">Ciudad(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{ciudad}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{ciudad}"/>
                 </div>
             </div>
                  
@@ -157,63 +176,80 @@
                      <input class="form-control" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" />
                 </div>
             </div>
+              
+                  
+                  
            <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de Acuerdo(*):</label>
                 <div class="col-sm-7">
-                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechaacuerdo}" name="fechaacuerdo" id="fechaacuerdo" />
+                     <input class="form-control" type="text" th:field="*{fechaacuerdomision}" name="fechaacuerdomision" id="fechaacuerdo" />
                 </div>
-            </div>
-                   <div class="form-group">
-                <label class="col-sm-5 control-label">Acuerdo(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{acuerdo}"/>
+           </div>
+             
+             <div class="form-group">
+                    <label class="col-sm-5 control-label">Acuerdo</label>
+                    <div class="col-sm-7">
+                        <input type="file" name="file" />
+                               <!--class="" required="true" th:field="*{docaprovacion}"-->
+                               
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
+<!--                    <div class="form-group">
+                    <label class="col-sm-5 control-label">Acuerdo:</label>
+                    <div class="col-sm-7">
+                        <input type="file" name="file" />
+                               class="" required="true" th:field="*{docaprovacion}"
+                               
+                    </div>
+                </div>-->
+
+<!--                <div class="row">
+                    <button type="submit" class="btn btn-default">Agregar</button>
+                </div>-->
+           <div class="form-group">
                 <label class="col-sm-5 control-label">Boleto Aeroe(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{boteoaereo}"/>
+                    <input type="text" class="form-control" required="true" size="20" maxlength="20" th:field="*{boleto}"/>
                 </div>
             </div>
-                   <div class="form-group">
+                  <div class="form-group">
                 <label class="col-sm-5 control-label">Boleto Terrestre(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{boteoaereo}"/>
+                    <input type="text" class="form-control" required="true" size="20" maxlength="20" th:field="*{boletoterr}"/>
                 </div>
             </div>
                   
                    <div class="form-group">
                 <label class="col-sm-5 control-label">Cantidad de Dias(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{cantidaddia}"/>
+                    <input type="number" class="form-control numeros" required="true" maxlength="3" th:field="*{cantidaddia}"/>
                 </div>
             </div>
                   
                   <div class="form-group">
                 <label class="col-sm-5 control-label">Cantidad de Meses(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{cantidadmeses}"/>
+                    <input type="number" class="form-control numeros" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
                 </div>
             </div>
                   
-                  <div class="form-group">
+<!--                  <div class="form-group">
                 <label class="col-sm-5 control-label">Organismo que invita(*):</label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" th:field="*{organismoinvita}"/>
                 </div>
-            </div>
+            </div>-->
             
-                   </div>
+        </div>
 
- <div class="col-md-12">
-            <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>
-    </div>
-                    </form>
+                <div class="col-md-12">
+                           <div class="row" align="center">
+                               <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
+                               <button type="submit" class="btn btn-default">Guardar</button>
+                               <button type="reset" class="btn btn-default">Limpiar</button>
+                           </div>
+                   </div>
+        </form>
 
             </div>
             </div>
@@ -222,7 +258,7 @@
             <th:block th:include="../templates/footer"></th:block>
         </div>
 
-  </div>      
+      
        
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
@@ -276,6 +312,29 @@
 		    });
 		});
 	</script>
+        <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../comisiones/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
         
         
 </html>

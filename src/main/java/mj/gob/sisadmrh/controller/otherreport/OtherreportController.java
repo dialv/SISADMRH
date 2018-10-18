@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
+import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.pojos.AbogadosPojo;
 import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CapacitacionService;
+import mj.gob.sisadmrh.service.CapacitadorService;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import mj.gob.sisadmrh.service.EmpleadoService;
@@ -46,11 +48,19 @@ private ComiteService comiteService;// instancia para jalar los comites
 private EmpleadoService empleadoService;// instancia para listar empleados como filtro de reporte
 @Autowired
 private CapacitacionService capacitacionSerice;// instancia para jalar las capacitaciones
+
+@Autowired
+private CapacitadorService capacitadorService;
     private final String PREFIX = "fragments/otherreports/";
 
     @RequestMapping("abogados/")
     public String reporteabogados() {
         return PREFIX + "abogadosreport";
+    }
+    
+     @RequestMapping("capacitadores/")
+    public String reportecapacitadores() {
+        return PREFIX + "capacitadoresreporte";
     }
     @RequestMapping("empleadoincapacidad/")
     public String reporteempleadoincapacidad(Model model) {
@@ -144,6 +154,26 @@ private CapacitacionService capacitacionSerice;// instancia para jalar las capac
               @RequestParam(value="fechafinal", required = false) String fechafin){
               Iterable <Empleado> abogadosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
               return new ModelAndView(new AbogadosView(), "abogadosList", abogadosList);
+       }
+       
+       @RequestMapping(value = "capacitadores/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfacapacitadores(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_capacitador", params, download,response);
+    }
+       
+       @RequestMapping("/capacitadoresxls")
+       public ModelAndView capacitadoresxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              Iterable <Capacitador> capacitadorsList = capacitadorService.findCapacitadores(fechainicio, fechafin); 
+              return new ModelAndView(new CapacitadorView(), "capacitadorList", capacitadorsList);
        }
     
     @RequestMapping(value = "motoristas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })

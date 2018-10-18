@@ -19,7 +19,10 @@ public interface CapacitadorService {
 
     void deleteCapacitador(Integer id);
      Iterable<Capacitador> findByDato(String dato);
-       Iterable<Capacitador> findByCapacitador(String dato);
+     Iterable<Capacitador> findByCapacitador(String dato);
+     
+      Iterable <Capacitador> findCapacitadores(String finicial, String ffinal);
+
     
     
 }

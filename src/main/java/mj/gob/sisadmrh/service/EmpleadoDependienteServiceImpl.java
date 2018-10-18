@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Empleadobeneficio;
-import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
+import mj.gob.sisadmrh.model.Empleadodependiente;
+import mj.gob.sisadmrh.repository.EmpleadoDependienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,35 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
+public class EmpleadoDependienteServiceImpl implements EmpleadoDependienteService {
 
     
-    private EmpleadoBeneficioRepository empleadobeneficiorep;
+    private EmpleadoDependienteRepository empleadodependienterep;
 
     @Autowired
-    public void setEmpleadoBeneficioRepository(EmpleadoBeneficioRepository empleadoBeneficioRepository) {
-        this.empleadobeneficiorep = empleadoBeneficioRepository;
+    public void setEmpleadoDependienteRepository(EmpleadoDependienteRepository empleadoDependienteRepository) {
+        this.empleadodependienterep = empleadoDependienteRepository;
     }
 
 
     @Override
-    public Iterable<Empleadobeneficio> listAllEmpleadobeneficios() {
-           return empleadobeneficiorep.findAll();
+    public Iterable<Empleadodependiente> listAllEmpleadodependientes() {
+           return empleadodependienterep.findAll();
     }
 
     @Override
-    public Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id) {
-        return empleadobeneficiorep.findById(id);
+    public Optional<Empleadodependiente> getEmpleadodependienteById(Integer id) {
+        return empleadodependienterep.findById(id);
     }
 
     @Override
-    public Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio empleadobeneficio) {
-        return empleadobeneficiorep.save(empleadobeneficio);
+    public Empleadodependiente saveEmpleadodependiente(Empleadodependiente empleadodependiente) {
+        return empleadodependienterep.save(empleadodependiente);
     }
 
     @Override
-    public void deleteEmpleadobeneficio(Integer id) {
-        empleadobeneficiorep.deleteById(id);
+    public void deleteEmpleadodependiente(Integer id) {
+        empleadodependienterep.deleteById(id);
     }
 
 

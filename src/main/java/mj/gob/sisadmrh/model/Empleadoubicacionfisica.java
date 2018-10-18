@@ -10,6 +10,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -28,6 +31,28 @@ public class Empleadoubicacionfisica implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected EmpleadoubicacionfisicaPK empleadoubicacionfisicaPK;
+     @JoinColumn(name = "codigoubicacion", referencedColumnName = "codigoubicacion", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Ubicacionfisica ubicacionfisica;
+
+    public Ubicacionfisica getUbicacionfisica() {
+        return ubicacionfisica;
+    }
+
+    public void setUbicacionfisica(Ubicacionfisica ubicacionfisica) {
+        this.ubicacionfisica = ubicacionfisica;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Empleado empleado;
     @Basic(optional = false)
     @NotNull
     @Column(name = "b_activo")

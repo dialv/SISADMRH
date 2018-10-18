@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Empleadobeneficio;
-import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
+import mj.gob.sisadmrh.model.Empleadoexperiencialaboral;
+import mj.gob.sisadmrh.repository.EmpleadoExperiencialaboralRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,35 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
+public class EmpleadoExperiencialaboralServiceImpl implements EmpleadoExperiencialaboralService {
 
     
-    private EmpleadoBeneficioRepository empleadobeneficiorep;
+    private EmpleadoExperiencialaboralRepository empleadoexperiencialaboralrep;
 
     @Autowired
-    public void setEmpleadoBeneficioRepository(EmpleadoBeneficioRepository empleadoBeneficioRepository) {
-        this.empleadobeneficiorep = empleadoBeneficioRepository;
+    public void setEmpleadoExperiencialaboralRepository(EmpleadoExperiencialaboralRepository empleadoExperiencialaboralRepository) {
+        this.empleadoexperiencialaboralrep = empleadoExperiencialaboralRepository;
     }
 
 
     @Override
-    public Iterable<Empleadobeneficio> listAllEmpleadobeneficios() {
-           return empleadobeneficiorep.findAll();
+    public Iterable<Empleadoexperiencialaboral> listAllEmpleadoexperiencialaborals() {
+           return empleadoexperiencialaboralrep.findAll();
     }
 
     @Override
-    public Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id) {
-        return empleadobeneficiorep.findById(id);
+    public Optional<Empleadoexperiencialaboral> getEmpleadoexperiencialaboralById(Integer id) {
+        return empleadoexperiencialaboralrep.findById(id);
     }
 
     @Override
-    public Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio empleadobeneficio) {
-        return empleadobeneficiorep.save(empleadobeneficio);
+    public Empleadoexperiencialaboral saveEmpleadoexperiencialaboral(Empleadoexperiencialaboral empleadoexperiencialaboral) {
+        return empleadoexperiencialaboralrep.save(empleadoexperiencialaboral);
     }
 
     @Override
-    public void deleteEmpleadobeneficio(Integer id) {
-        empleadobeneficiorep.deleteById(id);
+    public void deleteEmpleadoexperiencialaboral(Integer id) {
+        empleadoexperiencialaboralrep.deleteById(id);
     }
 
 

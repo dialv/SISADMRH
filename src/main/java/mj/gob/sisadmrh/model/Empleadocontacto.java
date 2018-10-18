@@ -8,6 +8,9 @@ package mj.gob.sisadmrh.model;
 import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,6 +28,29 @@ public class Empleadocontacto implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected EmpleadocontactoPK empleadocontactoPK;
+    @JoinColumn(name = "codigocontacto", referencedColumnName = "codigocontacto", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Contacto contacto;
+    @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado", insertable = false, updatable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Empleado empleado;
+
+    public Contacto getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(Contacto contacto) {
+        this.contacto = contacto;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    
 
     public Empleadocontacto() {
     }

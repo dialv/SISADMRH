@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Empleadobeneficio;
-import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
+import mj.gob.sisadmrh.model.Empleadoformacion;
+import mj.gob.sisadmrh.repository.EmpleadoFormacionacademicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,35 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
+public class EmpleadoFormacionacademicaServiceImpl implements EmpleadoFormacionacademicaService {
 
     
-    private EmpleadoBeneficioRepository empleadobeneficiorep;
+    private EmpleadoFormacionacademicaRepository empleadoformacionacademicarep;
 
     @Autowired
-    public void setEmpleadoBeneficioRepository(EmpleadoBeneficioRepository empleadoBeneficioRepository) {
-        this.empleadobeneficiorep = empleadoBeneficioRepository;
+    public void setEmpleadoFormacionacademicaRepository(EmpleadoFormacionacademicaRepository empleadoFormacionacademicaRepository) {
+        this.empleadoformacionacademicarep = empleadoFormacionacademicaRepository;
     }
 
 
     @Override
-    public Iterable<Empleadobeneficio> listAllEmpleadobeneficios() {
-           return empleadobeneficiorep.findAll();
+    public Iterable<Empleadoformacion> listAllEmpleadoformacionacademicas() {
+           return empleadoformacionacademicarep.findAll();
     }
 
     @Override
-    public Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id) {
-        return empleadobeneficiorep.findById(id);
+    public Optional<Empleadoformacion> getEmpleadoformacionacademicaById(Integer id) {
+        return empleadoformacionacademicarep.findById(id);
     }
 
     @Override
-    public Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio empleadobeneficio) {
-        return empleadobeneficiorep.save(empleadobeneficio);
+    public Empleadoformacion saveEmpleadoformacionacademica(Empleadoformacion empleadoformacionacademica) {
+        return empleadoformacionacademicarep.save(empleadoformacionacademica);
     }
 
     @Override
-    public void deleteEmpleadobeneficio(Integer id) {
-        empleadobeneficiorep.deleteById(id);
+    public void deleteEmpleadoformacionacademica(Integer id) {
+        empleadoformacionacademicarep.deleteById(id);
     }
 
 

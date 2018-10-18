@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Idioma;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface IdiomaService {

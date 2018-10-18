@@ -1,19 +1,19 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Comision;
+import mj.gob.sisadmrh.model.Mision;
 
 /**
  *
  * @author dialv
  */
-public interface ComisionService {
-    Iterable <Comision> listAllComisiones();
+public interface MisionService {
+    Iterable <Mision> listAllMisiones();
     
-    Optional<Comision> getComisionById(Integer id);
+    Optional<Mision> getMisionById(Integer id);
 
-    Comision saveComision(Comision comision);
+    Mision saveMision(Mision mision);
 
-    void deleteComision(Integer id);
+    void deleteMision(Integer id);
     
 }

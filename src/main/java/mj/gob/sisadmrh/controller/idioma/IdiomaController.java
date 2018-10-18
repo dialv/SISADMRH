@@ -1,7 +1,8 @@
-package mj.gob.sisadmrh.controller.contacto;
+package mj.gob.sisadmrh.controller.idioma;
 
-import mj.gob.sisadmrh.controller.contacto.*;
-import mj.gob.sisadmrh.controller.contacto.*;
+import mj.gob.sisadmrh.controller.idioma.*;
+import mj.gob.sisadmrh.controller.idioma.*;
+import mj.gob.sisadmrh.controller.idioma.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,11 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
-import mj.gob.sisadmrh.model.Contacto;
-import mj.gob.sisadmrh.model.Contacto;
-import mj.gob.sisadmrh.service.ContactoService;
-import mj.gob.sisadmrh.service.ContactoService;
-//import mj.gob.sisadmrh.service.ContactoContactoService;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Idioma;
+import mj.gob.sisadmrh.model.Idioma;
+import mj.gob.sisadmrh.model.Empleadoidioma;
+import mj.gob.sisadmrh.model.EmpleadoidiomaPK;
+import mj.gob.sisadmrh.service.EmpleadoIdiomaService;
+import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.IdiomaService;
+import mj.gob.sisadmrh.service.IdiomaService;
+//import mj.gob.sisadmrh.service.EmpleadoIdiomaService;
+//import mj.gob.sisadmrh.service.IdiomaIdiomaService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,61 +39,101 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 
  */
 @Controller
-@RequestMapping(value = "contactos")
-public class ContactoController extends UtilsController{
+@RequestMapping(value = "idiomas")
+public class IdiomaController extends UtilsController{
     
-    private ContactoService contactoService;
-//    private ContactoContactoService contactoContactoService;
+    private IdiomaService idiomaService;
+    @Autowired
+    private EmpleadoIdiomaService empleadoIdiomaService;
+    @Autowired
+    private EmpleadoService empleadoService;
+//    private IdiomaIdiomaService idiomaIdiomaService;
+    
+//     private EmpleadoIdiomaService  empleadoidioma ;
+//    @Autowired
+//    public void setEmpleadoIdiomaService(EmpleadoIdiomaService empleadoidioma){
+//    this.empleadoidioma=empleadoidioma;
+//    }
     
 
 
     
     @Autowired
-    public void setContactoService(ContactoService contactoService) {
-        this.contactoService = contactoService;
+    public void setIdiomaService(IdiomaService idiomaService) {
+        this.idiomaService = idiomaService;
     }
     
-    private final String PREFIX = "fragments/contacto/";
+    private final String PREFIX = "fragments/idioma/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("contactos", contactoService.listAllContacto());
-        return PREFIX + "contactos";
+        model.addAttribute("idiomas", idiomaService.listAllIdioma());
+        return PREFIX + "idiomas";
     }
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("contacto", contactoService.getContactoById(id));
-        return PREFIX + "contactoform";
+        model.addAttribute("idioma", idiomaService.getIdiomaById(id));
+        return PREFIX + "idiomaform";
     }
 
-    @RequestMapping("new/contacto")
-    public String newContacto(Model model) {
-        model.addAttribute("contacto", new Contacto());
-        return PREFIX + "contactoform";
+    @RequestMapping("new/{id}") 
+    public String newIdioma(Model model,@PathVariable Integer id) {
+//        EmpleadoidiomaPK empCto = new EmpleadoidiomaPK();
+//        empCto.setCodigoempleado(id);
+//        model.addAttribute("empleadoIdioma", empCto );
+        model.addAttribute("idioma", new Idioma());
+        return PREFIX + "idiomaform";
     }
 
-    @RequestMapping(value = "contacto")
-    public String saveContacto(Contacto contacto) {
-        contactoService.saveContacto(contacto);
-        return "redirect:./show/" + contacto.getCodigocontacto();
+    @RequestMapping(value = "idioma/{id}")
+    public String saveIdioma(Idioma idioma,Model model,@PathVariable Integer id) {
+       try{
+            idiomaService.saveIdioma(idioma);
+            Empleadoidioma emcon = new  Empleadoidioma();
+        emcon.setIdioma(idioma);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadoidiomaPK emconpk = new EmpleadoidiomaPK();
+        emconpk.setCodigoidioma(idioma.getCodigoidioma());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadoidiomaPK(emconpk);
+        empleadoIdiomaService.saveEmpleadoidioma(emcon);
+            model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 1);
+        }
+        
+//        emp.setCodigoidioma(idioma.getCodigoidioma()); 
+//        emp.setCodigoempleado(idioma.getCodigoidioma());
+//        empleadoidiomaPK.saveEmpleadoIdioma(emp);
+//        return "redirect:./show/" + idioma.getCodigoidioma();
+  return PREFIX + "idiomaform";
     }
     
     @RequestMapping("show/{id}")    
-    public String showContacto(@PathVariable Integer id, Model model) {
-        model.addAttribute("contacto", contactoService.getContactoById(id).get());
-        return PREFIX +"contactoform";
+    public String showIdioma(@PathVariable Integer id, Model model) {
+        model.addAttribute("idioma", idiomaService.getIdiomaById(id).get());
+        return PREFIX +"idiomashow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        contactoService.deleteContacto(id);
-        return "redirect:/contacto/";
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
+          idiomaService.deleteIdioma(id);
+            model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 4);
+        }
+        
+//        return "redirect:/idiomas/";
+        return PREFIX + "idiomas";
     }
     
  
-    @RequestMapping("empleado/contacto/{id}")
-        public String findContactoByEmpladoId(@PathVariable Integer id, Model model) {
-        model.addAttribute("costocapacitacion", contactoService.findByDato(id));
-        return "redirect:/contacto/";
-    }
+//    @RequestMapping("empleado/idioma/{id}")
+//        public String findIdiomaByEmpladoId(@PathVariable Integer id, Model model) {
+//        model.addAttribute("costocapacitacion", idiomaService.findByDato(id));
+//        return "redirect:/idioma/";
+//    }
 }

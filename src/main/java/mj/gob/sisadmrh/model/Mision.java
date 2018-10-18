@@ -7,12 +7,13 @@ package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -20,89 +21,112 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author daniel
+ * @author developer
  */
 @Entity
-@Table(name = "MISION")
+@Table(name = "mision")
 @NamedQueries({
     @NamedQuery(name = "Mision.findAll", query = "SELECT m FROM Mision m")})
 public class Mision implements Serializable {
-    @Size(max = 50)
-    @Column(name = "NOMBREMISION")
-    private String nombremision;
-    @Size(max = 100)
-    @Column(name = "OBJETIVOMISION")
-    private String objetivomision;
-    @Size(max = 50)
-    @Column(name = "RESPONSABLEGASTO")
-    private String responsablegasto;
-    @Size(max = 50)
-    @Column(name = "ORGANISMOPATROCINADOR")
-    private String organismopatrocinador;
-    @Size(max = 50)
-    @Column(name = "ORGANISMOINVITA")
-    private String organismoinvita;
-    @Size(max = 100)
-    @Column(name = "DEPARTAMENTOMISION")
-    private String departamentomision;
-    @Size(max = 50)
-    @Column(name = "PAISDESTINO")
-    private String paisdestino;
-    @Size(max = 50)
-    @Column(name = "CIUDAD")
-    private String ciudad;
-    @Size(max = 30)
-    @Column(name = "TIPOTRANSPORTE")
-    private String tipotransporte;
-    @Column(name = "VIATICOS")
-    private Float viaticos;
-    @Size(max = 50)
-    @Column(name = "DOCUMENTO")
-    private String documento;
-    @Size(max = 20)
-    @Column(name = "BOLETO")
-    private String boleto;
-    @Column(name = "NUMEROACUERDO")
-    private Integer numeroacuerdo;
+
     private static final long serialVersionUID = 1L;
-    @Id
+       @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGOMISION")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigomision")
     private Integer codigomision;
-    @Column(name = "CANTIDADDIA")
+    @Column(name = "cantidaddia")
     private Integer cantidaddia;
-    @Column(name = "FECHAACUERDOMISION")
-    @Temporal(TemporalType.DATE)
-    private Date fechaacuerdomision;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "GASTOVIAJE")
-    private Float gastoviaje;
-    @Column(name = "GASTOTERMINALES")
-    private Float gastoterminales;
-    @Column(name = "GASTOSTOTALES")
-    private Float gastostotales;
-    @Column(name = "CANTIDADMESES")
+    @Column(name = "cantidadmeses")
     private Integer cantidadmeses;
-    @Column(name = "TIPOMISION")
-    private Integer tipomision;
-    @Column(name = "FECHASALIDAMISION")
-    @Temporal(TemporalType.DATE)
-    private Date fechasalidamision;
-    @Column(name = "FECHAREGRESOMISION")
-    @Temporal(TemporalType.DATE)
+    @Size(max = 100)
+    @Column(name = "departamentomision")
+    private String departamentomision;
+    @Size(max = 50)
+    @Column(name = "documento")
+    private String documento;
+    @Column(name = "fechaacuerdomision")
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
+    private Date fechaacuerdomision;
+    @Column(name = "fecharegresomision")
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fecharegresomision;
-//    @ManyToMany(mappedBy = "misionList")
-//    private List<Empleado> empleadoList;
+    @Column(name = "fechasalidamision")
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
+    private Date fechasalidamision;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "gastostotales")
+    private Float gastostotales;
+    @Column(name = "gastoterminales")
+    private Float gastoterminales;
+    @Column(name = "gastoviaje")
+    private Float gastoviaje;
+    @Size(max = 50)
+    @Column(name = "nombremision")
+    private String nombremision;
+    @Size(max = 100)
+    @Column(name = "objetivomision")
+    private String objetivomision;
+    @Size(max = 50)
+    @Column(name = "paisdestino")
+    private String paisdestino;
+    @Size(max = 50)
+    @Column(name = "responsablegasto")
+    private String responsablegasto;
+    @Size(max = 50)
+    @Column(name = "tipomision")
+    private String tipomision;
+    @Size(max = 30)
+    @Column(name = "tipotransporte")
+    private String tipotransporte;
+    @Size(max = 20)
+    @Column(name = "boleto")
+    private String boleto;
+    @Column(name = "numeroacuerdo")
+    private Integer numeroacuerdo;
+    @Size(max = 50)
+    @Column(name = "ciudad")
+    private String ciudad;
+    @Size(max = 50)
+    @Column(name = "organismoinvita")
+    private String organismoinvita;
+    @Size(max = 50)
+    @Column(name = "organismopatrocinador")
+    private String organismopatrocinador;
+    @Column(name = "viaticos")
+    private Float viaticos;
+    @Size(max = 200)
+    @Column(name = "boletoterr")
+    private String boletoterr;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Column(name = "docacuerdo")
+    private byte[] docacuerdo;
+
+    public byte[] getDocacuerdo() {
+        return docacuerdo;
+    }
+
+    public void setDocacuerdo(byte[] docacuerdo) {
+        this.docacuerdo = docacuerdo;
+    }
 
     public Mision() {
     }
 
     public Mision(Integer codigomision) {
         this.codigomision = codigomision;
+    }
+    
+    public Mision(Integer codigomision, byte[] docacuerdo) {
+        this.codigomision = codigomision;
+        this.docacuerdo = docacuerdo;
     }
 
     public Integer getCodigomision() {
@@ -113,46 +137,12 @@ public class Mision implements Serializable {
         this.codigomision = codigomision;
     }
 
-
     public Integer getCantidaddia() {
         return cantidaddia;
     }
 
     public void setCantidaddia(Integer cantidaddia) {
         this.cantidaddia = cantidaddia;
-    }
-
-    public Date getFechaacuerdomision() {
-        return fechaacuerdomision;
-    }
-
-    public void setFechaacuerdomision(Date fechaacuerdomision) {
-        this.fechaacuerdomision = fechaacuerdomision;
-    }
-
-    public Float getGastoviaje() {
-        return gastoviaje;
-    }
-
-    public void setGastoviaje(Float gastoviaje) {
-        this.gastoviaje = gastoviaje;
-    }
-
-
-    public Float getGastoterminales() {
-        return gastoterminales;
-    }
-
-    public void setGastoterminales(Float gastoterminales) {
-        this.gastoterminales = gastoterminales;
-    }
-
-    public Float getGastostotales() {
-        return gastostotales;
-    }
-
-    public void setGastostotales(Float gastostotales) {
-        this.gastostotales = gastostotales;
     }
 
     public Integer getCantidadmeses() {
@@ -163,13 +153,36 @@ public class Mision implements Serializable {
         this.cantidadmeses = cantidadmeses;
     }
 
-
-    public Integer getTipomision() {
-        return tipomision;
+    public String getDepartamentomision() {
+        return departamentomision;
     }
 
-    public void setTipomision(Integer tipomision) {
-        this.tipomision = tipomision;
+    public void setDepartamentomision(String departamentomision) {
+        this.departamentomision = departamentomision;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public Date getFechaacuerdomision() {
+        return fechaacuerdomision;
+    }
+
+    public void setFechaacuerdomision(Date fechaacuerdomision) {
+        this.fechaacuerdomision = fechaacuerdomision;
+    }
+
+    public Date getFecharegresomision() {
+        return fecharegresomision;
+    }
+
+    public void setFecharegresomision(Date fecharegresomision) {
+        this.fecharegresomision = fecharegresomision;
     }
 
     public Date getFechasalidamision() {
@@ -180,21 +193,133 @@ public class Mision implements Serializable {
         this.fechasalidamision = fechasalidamision;
     }
 
-    public Date getFecharegresomision() {
-        return fecharegresomision;
+    public Float getGastostotales() {
+        return gastostotales;
     }
 
-    public void setFecharegresomision(Date fecharegresomision) {
-        this.fecharegresomision = fecharegresomision;
+    public void setGastostotales(Float gastostotales) {
+        this.gastostotales = gastostotales;
     }
-//
-//    public List<Empleado> getEmpleadoList() {
-//        return empleadoList;
-//    }
-//
-//    public void setEmpleadoList(List<Empleado> empleadoList) {
-//        this.empleadoList = empleadoList;
-//    }
+
+    public Float getGastoterminales() {
+        return gastoterminales;
+    }
+
+    public void setGastoterminales(Float gastoterminales) {
+        this.gastoterminales = gastoterminales;
+    }
+
+    public Float getGastoviaje() {
+        return gastoviaje;
+    }
+
+    public void setGastoviaje(Float gastoviaje) {
+        this.gastoviaje = gastoviaje;
+    }
+
+    public String getNombremision() {
+        return nombremision;
+    }
+
+    public void setNombremision(String nombremision) {
+        this.nombremision = nombremision;
+    }
+
+    public String getObjetivomision() {
+        return objetivomision;
+    }
+
+    public void setObjetivomision(String objetivomision) {
+        this.objetivomision = objetivomision;
+    }
+
+    public String getPaisdestino() {
+        return paisdestino;
+    }
+
+    public void setPaisdestino(String paisdestino) {
+        this.paisdestino = paisdestino;
+    }
+
+    public String getResponsablegasto() {
+        return responsablegasto;
+    }
+
+    public void setResponsablegasto(String responsablegasto) {
+        this.responsablegasto = responsablegasto;
+    }
+
+    public String getTipomision() {
+        return tipomision;
+    }
+
+    public void setTipomision(String tipomision) {
+        this.tipomision = tipomision;
+    }
+
+    public String getTipotransporte() {
+        return tipotransporte;
+    }
+
+    public void setTipotransporte(String tipotransporte) {
+        this.tipotransporte = tipotransporte;
+    }
+
+    public String getBoleto() {
+        return boleto;
+    }
+
+    public void setBoleto(String boleto) {
+        this.boleto = boleto;
+    }
+
+    public Integer getNumeroacuerdo() {
+        return numeroacuerdo;
+    }
+
+    public void setNumeroacuerdo(Integer numeroacuerdo) {
+        this.numeroacuerdo = numeroacuerdo;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getOrganismoinvita() {
+        return organismoinvita;
+    }
+
+    public void setOrganismoinvita(String organismoinvita) {
+        this.organismoinvita = organismoinvita;
+    }
+
+    public String getOrganismopatrocinador() {
+        return organismopatrocinador;
+    }
+
+    public void setOrganismopatrocinador(String organismopatrocinador) {
+        this.organismopatrocinador = organismopatrocinador;
+    }
+
+    public Float getViaticos() {
+        return viaticos;
+    }
+
+    public void setViaticos(Float viaticos) {
+        this.viaticos = viaticos;
+    }
+
+    public String getBoletoterr() {
+        return boletoterr;
+    }
+
+    public void setBoletoterr(String boletoterr) {
+        this.boletoterr = boletoterr;
+    }
 
     @Override
     public int hashCode() {
@@ -219,108 +344,6 @@ public class Mision implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Mision[ codigomision=" + codigomision + " ]";
-    }
-    public Integer getNumeroacuerdo() {
-        return numeroacuerdo;
-    }
-    public void setNumeroacuerdo(Integer numeroacuerdo) {
-        this.numeroacuerdo = numeroacuerdo;
-    }
-
-    public String getNombremision() {
-        return nombremision;
-    }
-
-    public void setNombremision(String nombremision) {
-        this.nombremision = nombremision;
-    }
-
-    public String getObjetivomision() {
-        return objetivomision;
-    }
-
-    public void setObjetivomision(String objetivomision) {
-        this.objetivomision = objetivomision;
-    }
-
-    public String getResponsablegasto() {
-        return responsablegasto;
-    }
-
-    public void setResponsablegasto(String responsablegasto) {
-        this.responsablegasto = responsablegasto;
-    }
-
-    public String getOrganismopatrocinador() {
-        return organismopatrocinador;
-    }
-
-    public void setOrganismopatrocinador(String organismopatrocinador) {
-        this.organismopatrocinador = organismopatrocinador;
-    }
-
-    public String getOrganismoinvita() {
-        return organismoinvita;
-    }
-
-    public void setOrganismoinvita(String organismoinvita) {
-        this.organismoinvita = organismoinvita;
-    }
-
-    public String getDepartamentomision() {
-        return departamentomision;
-    }
-
-    public void setDepartamentomision(String departamentomision) {
-        this.departamentomision = departamentomision;
-    }
-
-    public String getPaisdestino() {
-        return paisdestino;
-    }
-
-    public void setPaisdestino(String paisdestino) {
-        this.paisdestino = paisdestino;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getTipotransporte() {
-        return tipotransporte;
-    }
-
-    public void setTipotransporte(String tipotransporte) {
-        this.tipotransporte = tipotransporte;
-    }
-
-    public Float getViaticos() {
-        return viaticos;
-    }
-
-    public void setViaticos(Float viaticos) {
-        this.viaticos = viaticos;
-    }
-
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    public String getBoleto() {
-        return boleto;
-    }
-
-    public void setBoleto(String boleto) {
-        this.boleto = boleto;
     }
     
 }

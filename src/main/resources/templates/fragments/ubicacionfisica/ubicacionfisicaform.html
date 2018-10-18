@@ -40,82 +40,92 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Empleado</title>
+    <title>SISADMRH-Crear Ubicacion Fisica</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
+    <div class="contenedorizq"><label  >pnt_cem9</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div><br>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-    <h3 align="center">Crear Contacto</h3>
+            <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+            </div>
+    <h3 align="center">Crear Ubicacion Fisica</h3>
     
 
-    <div id="menu1" class="tab-pane fade">
+    
         <br>
-      <form class="form-horizontal" th:object="${contacto}" th:action="@{../contacto}" method="post">
-          <input type="hidden" th:field="*{codigocontacto}"/>
-            <input type="hidden" th:field="*{nombrecontacto}"/>
+      
+ <form class="form-horizontal" id="formubicacion" th:object="${ubicacionfisica}" th:action="@{../ubicacionfisica}" method="post">
+                <input type="hidden" th:field="*{codigoubicacion}"/>
+                 <input type="hidden" id="codem" th:field="*{codigoempleado}"/>
+                  <input type="hidden" id="codem"  />
             <div class="col-md-12"  align="center">
+                
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <label class="col-sm-3 control-label">Destacado en(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{nombrecontacto}"  />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{apellidocontacto}"   />
+                        <input type="text" class="form-control"   required="false" size="50" maxlength="50"  />
                     </div>
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Direccion(*):</label>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Nombre de Jefe Inmediato(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{direccion}"  />
+                        <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{jefeinmediato}"  />
                     </div>
                 </div>
-                     <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
+<!--                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo Nominal(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"     />
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Cargo Funcional(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{cargofuncional}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Principales Tareas que desempeña(*):</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" required="true" size="500" maxlength="500"   th:field="*{teareadesempenia}" />
+                    </div>
+                </div>
+                
+<!--                 <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="sexocontanto"  >
-                            <!--th:field="*{sexocontacto}" >-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
-                    </select>
+                     <input class="form-control" type="text"  name="fechadubf" id="fechadubf"  />
                 </div>
             </div>
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonofijocontacto}" />
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    th:field="*{telefonomovilcontacto}"  />
-                    </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-5">
+                     <input class="form-control" type="text"  name="fechahubf" id="fechahubf"  />
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Correo Electronico(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   th:field="*{emailcontacto}"    />
-                    </div>
-                </div>
-                </div>
-          <div class="col-md-12">
+            </div>-->
+          </div>
+           <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
     </div>
-      </form>
+                </form>
         
-      </div>
+      
   
 
                </div>
@@ -128,6 +138,7 @@
         
        
 </body>
+
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -220,6 +231,56 @@
 		        dateFormat: 'yy-mm-dd'
 		    });
 		});
+                
+                  $('#btnGuardar').click(function(){
+            $("#formcontacto").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
+            $("form#formcontacto").submit();
+            
+        });
+var URLactual = window.location.href;
+var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+//alert(str);
+$(function () {
+          document.getElementById("codem").value = str;
+      });
+	</script>
+        
+        
+        <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                 location.href = '../../empleados/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+        <script>       
+            var URLactual = window.location.href;
+                if (URLactual.includes("edit")){
+//                    alert("str");
+                }
+                else{
+//                    alert("str1");
+var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+//alert(str);
+$(function () {
+          document.getElementById("codem").value = str;
+      });}
 	</script>
         
         

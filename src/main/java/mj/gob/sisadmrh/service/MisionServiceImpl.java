@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Comision;
-import mj.gob.sisadmrh.repository.ComisionRepository;
+import mj.gob.sisadmrh.model.Mision;
+import mj.gob.sisadmrh.repository.MisionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,34 +11,34 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class ComisionServiceImpl implements ComisionService {
+public class MisionServiceImpl implements MisionService {
 
     
-    private ComisionRepository comisionRep;
+    private MisionRepository misionRep;
 
     @Autowired
-    public void setComisionRepository(ComisionRepository comisionRepository) {
-        this.comisionRep = comisionRepository;
+    public void setMisionRepository(MisionRepository misionRepository) {
+        this.misionRep = misionRepository;
     }
 
     @Override
-    public Iterable<Comision> listAllComisiones() {
-        return comisionRep.findAll();
+    public Iterable<Mision> listAllMisiones() {
+        return misionRep.findAll();
     }
 
     @Override
-    public Optional<Comision> getComisionById(Integer id) {
-        return comisionRep.findById(id);
+    public Optional<Mision> getMisionById(Integer id) {
+        return misionRep.findById(id);
     }
 
     @Override
-    public Comision saveComision(Comision comision) {
-        return comisionRep.save(comision);
+    public Mision saveMision(Mision mision) {
+        return misionRep.save(mision);
     }
 
     @Override
-    public void deleteComision(Integer id) {
-        comisionRep.deleteById(id);
+    public void deleteMision(Integer id) {
+        misionRep.deleteById(id);
     }
 
 }

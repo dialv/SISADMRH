@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Empleadobeneficio;
-import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
+import mj.gob.sisadmrh.model.Empleadoidioma;
+import mj.gob.sisadmrh.repository.EmpleadoIdiomaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,35 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
+public class EmpleadoIdiomaServiceImpl implements EmpleadoIdiomaService {
 
     
-    private EmpleadoBeneficioRepository empleadobeneficiorep;
+    private EmpleadoIdiomaRepository empleadoidiomarep;
 
     @Autowired
-    public void setEmpleadoBeneficioRepository(EmpleadoBeneficioRepository empleadoBeneficioRepository) {
-        this.empleadobeneficiorep = empleadoBeneficioRepository;
+    public void setEmpleadoIdiomaRepository(EmpleadoIdiomaRepository empleadoIdiomaRepository) {
+        this.empleadoidiomarep = empleadoIdiomaRepository;
     }
 
 
     @Override
-    public Iterable<Empleadobeneficio> listAllEmpleadobeneficios() {
-           return empleadobeneficiorep.findAll();
+    public Iterable<Empleadoidioma> listAllEmpleadoidiomas() {
+           return empleadoidiomarep.findAll();
     }
 
     @Override
-    public Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id) {
-        return empleadobeneficiorep.findById(id);
+    public Optional<Empleadoidioma> getEmpleadoidiomaById(Integer id) {
+        return empleadoidiomarep.findById(id);
     }
 
     @Override
-    public Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio empleadobeneficio) {
-        return empleadobeneficiorep.save(empleadobeneficio);
+    public Empleadoidioma saveEmpleadoidioma(Empleadoidioma empleadoidioma) {
+        return empleadoidiomarep.save(empleadoidioma);
     }
 
     @Override
-    public void deleteEmpleadobeneficio(Integer id) {
-        empleadobeneficiorep.deleteById(id);
+    public void deleteEmpleadoidioma(Integer id) {
+        empleadoidiomarep.deleteById(id);
     }
 
 

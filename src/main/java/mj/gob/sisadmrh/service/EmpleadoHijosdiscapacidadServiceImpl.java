@@ -1,8 +1,8 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Empleadobeneficio;
-import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
+import mj.gob.sisadmrh.model.Empleadohijodiscapacidad;
+import mj.gob.sisadmrh.repository.EmpleadoHijosdiscapacidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,35 @@ import org.springframework.stereotype.Service;
  * @author dialv
  */
 @Service
-public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
+public class EmpleadoHijosdiscapacidadServiceImpl implements EmpleadoHijosdiscapacidadService {
 
     
-    private EmpleadoBeneficioRepository empleadobeneficiorep;
+    private EmpleadoHijosdiscapacidadRepository empleadohijodiscapacidadrep;
 
     @Autowired
-    public void setEmpleadoBeneficioRepository(EmpleadoBeneficioRepository empleadoBeneficioRepository) {
-        this.empleadobeneficiorep = empleadoBeneficioRepository;
+    public void setEmpleadoHijosdiscapacidadRepository(EmpleadoHijosdiscapacidadRepository empleadoHijosdiscapacidadRepository) {
+        this.empleadohijodiscapacidadrep = empleadoHijosdiscapacidadRepository;
     }
 
 
     @Override
-    public Iterable<Empleadobeneficio> listAllEmpleadobeneficios() {
-           return empleadobeneficiorep.findAll();
+    public Iterable<Empleadohijodiscapacidad> listAllEmpleadohijodiscapacidads() {
+           return empleadohijodiscapacidadrep.findAll();
     }
 
     @Override
-    public Optional<Empleadobeneficio> getEmpleadobeneficioById(Integer id) {
-        return empleadobeneficiorep.findById(id);
+    public Optional<Empleadohijodiscapacidad> getEmpleadohijodiscapacidadById(Integer id) {
+        return empleadohijodiscapacidadrep.findById(id);
     }
 
     @Override
-    public Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio empleadobeneficio) {
-        return empleadobeneficiorep.save(empleadobeneficio);
+    public Empleadohijodiscapacidad saveEmpleadohijodiscapacidad(Empleadohijodiscapacidad empleadohijodiscapacidad) {
+        return empleadohijodiscapacidadrep.save(empleadohijodiscapacidad);
     }
 
     @Override
-    public void deleteEmpleadobeneficio(Integer id) {
-        empleadobeneficiorep.deleteById(id);
+    public void deleteEmpleadohijodiscapacidad(Integer id) {
+        empleadohijodiscapacidadrep.deleteById(id);
     }
 
 
