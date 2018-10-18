@@ -7,9 +7,12 @@ package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +20,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -130,7 +134,11 @@ public class Empleado implements Serializable {
 //    @OneToOne(optional = false)
     @Column(name = "codigopuesto")
     private int  codigopuesto;
-
+ @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
+    private List<Empleadocapacitacion> empleadocapacitacionList;
+ 
+ @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
+    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
     public Empleado() {
     }
 
@@ -381,6 +389,22 @@ public class Empleado implements Serializable {
 
     public void setCodigopuesto(int codigopuesto) {
         this.codigopuesto = codigopuesto;
+    }
+
+    public List<Empleadocapacitacion> getEmpleadocapacitacionList() {
+        return empleadocapacitacionList;
+    }
+
+    public void setEmpleadocapacitacionList(List<Empleadocapacitacion> empleadocapacitacionList) {
+        this.empleadocapacitacionList = empleadocapacitacionList;
+    }
+
+    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
+        return empleadoasistenciacapacitacionList;
+    }
+
+    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
+        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
     }
 
     @Override

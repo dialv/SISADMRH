@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 
  */
 @Controller
+@SessionAttributes("usuario")
 @RequestMapping(value = "usuarios")
 public class UsuarioController {
     
@@ -47,13 +50,15 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = "usuario")
-    public String saveUsuario(Usuario usuario,Model model) {
+    public String saveUsuario(Usuario usuario,Model model, SessionStatus status) {
         try{
             
         Date fecha = new Date();
         usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
         usuarioService.saveUsuario(usuario);
+        status.setComplete();
+        
          model.addAttribute("msg", 0);
         }
         catch(Exception e){

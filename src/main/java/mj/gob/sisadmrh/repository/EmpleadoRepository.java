@@ -39,4 +39,33 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             , nativeQuery = true) 
             List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+@Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,"
+        + "e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e "
+        + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
+        + "inner join puesto p on ep.codigopuesto=p.codigopuesto "
+        + "inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado "
+        + "INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion "
+        + "where e.fechanacimientoempleado >= :FINICIAL  and e.fechanacimientoempleado <= :FFINAL"
+, nativeQuery = true)
+ 
+ List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+ 
+ 
+  @Query(value = " SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto, ne.tituloobtenido, ne.estudiorealizado, ne.fechadesdenivelescolaridad, ne.fechahastanivelescolaridad, ne.centroeducativo from empleado e"
+          + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
+          + " inner join puesto p on ep.codigopuesto=p.codigopuesto"
+          + " inner join empleadonivelescolaridad ene on e.codigoempleado=ene.codigoempleado"
+          + " inner join nivelescolaridad ne on ene.codigonivelnivelescolaridad"
+          + " WHERE ne.fechadesdenivelescolaridad >= :FINICIAL  "
+          + " and ne.fechahastanivelescolaridad <= :FFINAL",nativeQuery = true)
+  List<Object[]> findByNivelEscolar(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+  
+  @Query(value = " SELECT p.codigopuesto,p.nombrepuesto,e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.sueldobase,p.fechanombramiento,p.fechacontrataciondesde, p.fechacontratacionhasta,p.ubicacionpuesto,p.sublinea FROM puesto p "
+          + "  inner join empleadopuesto ep on p.codigopuesto=ep.codigopuesto "
+          + " inner join empleado e on ep.codigoempleado=e.codigoempleado "
+          + " where p.fechacontrataciondesde >= :FINICIAL and p.fechacontratacionhasta <= :FFINAL ",nativeQuery = true)
+  List<Object[]> findByPlazasOcupadas(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal); 
 }

@@ -26,6 +26,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
+import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +106,45 @@ public class UtilsController {
                 response.setHeader("Content-Disposition",
                         "attachment; filename=\"" + siglasFormulario + ".pdf" + "\"");
             }
+            InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            IOUtils.copy(is, response.getOutputStream());
+            response.flushBuffer();
+        } catch (IOException | JRException e) {
+            throw e;
+        } finally {
+            con.close();
+        }
+
+    }
+    public void generateWord(String siglasFormulario, String reportCode, Map<String, Object> paramsFormulario,
+                            Boolean download, HttpServletResponse response) throws Exception {
+        Connection con = dataSource.getConnection();
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("IMAGE_PATH", getPath("/report_images/"));
+        params.put("SUBREPORT_DIR", getPath("/WEB-INF/reports/" + siglasFormulario + "/"));
+        params.putAll(paramsFormulario);
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(getReportFile(
+                "//WEB-INF/reports/" + siglasFormulario + "/" + reportCode + ".jasper").getPath());
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, con);
+        List<JasperPrint> jasperPrintList = new ArrayList<>();
+        jasperPrintList.add(jasperPrint);
+	
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            JRDocxExporter s = new JRDocxExporter();
+            s.setParameter(JRExporterParameter.JASPER_PRINT_LIST, jasperPrintList);
+            s.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, baos);
+            s.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, reportCode + ".docx");
+           s.exportReport();
+            
+			response.setContentType("application/msword");
+            response.setContentLength(baos.toByteArray().length);
+            if (!isNullOrEmpty(download) && download) {
+                response.setHeader("Content-Disposition",
+                        "attachment; filename=\"" + siglasFormulario + ".docx" + "\"");
+            }
+								
             InputStream is = new ByteArrayInputStream(baos.toByteArray());
             IOUtils.copy(is, response.getOutputStream());
             response.flushBuffer();

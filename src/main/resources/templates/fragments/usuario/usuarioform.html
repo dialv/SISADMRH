@@ -27,8 +27,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div>
         <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
             <input type="hidden" th:field="*{codigousuario}"/>
-            <input type="hidden" th:field="*{nombreusuario}"/>
-<!--            <div class="form-group">
+        <!--    <input type="hidden" th:field="*{nombreusuario}"/>
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo de Usuario:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{codigousuario}"/>
@@ -37,7 +37,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Usuario:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}" placeholder="Digite el nombre de Usuario"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}" />
                 </div>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control numeros " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}" placeholder="Digite confirmacion de contrasena de Usuario"/>
+                    <input type="text" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}" placeholder="Digite confirmacion de contrasena de Usuario"/>
                 </div>
             </div>
 <!--            <div class="form-group">
@@ -78,8 +78,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>-->
 <div class="col-md-12">
 <div class="row" align="center">
-      
-            <button type="submit" class="btn btn-default">Agregar</button>
+            <button type="button" class="btn btn-info"><a href="#" th:href="@{/usuarios/}">Regresar</a></button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
             <button type="reset" class="btn btn-default">Limpiar</button>
         
     </div>

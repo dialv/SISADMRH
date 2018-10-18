@@ -8,8 +8,10 @@ package mj.gob.sisadmrh.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +20,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,8 +31,8 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "asistenciacapacitacion")
-@NamedQueries({
-    @NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT a FROM AsistenciaCapacitacion a")})
+//@NamedQueries({
+//    @NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT a FROM AsistenciaCapacitacion a")})
 public class AsistenciaCapacitacion implements Serializable {
 
     @Basic(optional = false)
@@ -42,8 +45,6 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 11)
     @Column(name = "TELEFONO")
     private String telefono;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Correo electrónico no válido")//if the field contains email address consider using this annotation to enforce field validation
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Correo electrónico no válido")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
@@ -63,9 +64,19 @@ public class AsistenciaCapacitacion implements Serializable {
 //    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
     @ManyToOne(optional = false)
-    private Capacitacion codigocapacitacion;
+   private Capacitacion codigocapacitacion;
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "asistenciacapacitacion", fetch = FetchType.LAZY)
+    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
 
     public AsistenciaCapacitacion() {
+    }
+
+    public Capacitacion getCodigocapacitacion() {
+        return codigocapacitacion;
+    }
+
+    public void setCodigocapacitacion(Capacitacion codigocapacitacion) {
+        this.codigocapacitacion = codigocapacitacion;
     }
 
     public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion) {
@@ -84,23 +95,16 @@ public class AsistenciaCapacitacion implements Serializable {
     public void setCodigoasistenciacapacitacion(Integer codigoasistenciacapacitacion) {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
-//
-//
-//    public List<Empleado> getEmpleadoList() {
-//        return empleadoList;
-//    }
-//
-//    public void setEmpleadoList(List<Empleado> empleadoList) {
-//        this.empleadoList = empleadoList;
-//    }
 
-    public Capacitacion getCodigocapacitacion() {
-        return codigocapacitacion;
+    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
+        return empleadoasistenciacapacitacionList;
     }
 
-    public void setCodigocapacitacion(Capacitacion codigocapacitacion) {
-        this.codigocapacitacion = codigocapacitacion;
+    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
+        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
     }
+
+   
 
     @Override
     public int hashCode() {

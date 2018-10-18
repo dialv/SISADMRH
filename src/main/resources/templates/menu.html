@@ -41,10 +41,12 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
 					
                                         <ul class="dropdown-menu forAnimate" role="menu">
-						 <li><a href="#" th:href="@{/usuarios/}">Generar Reportes</a></li>
-                                                 <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
-                                                 <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
+						<li><a href="#" th:href="@{/usuarios/}">Consultar Usuarios</a></li>
+                                                <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
+                                                <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
                                                 <li><a href="#" th:href="@{/roles/new/rol}">Crear Rol</a></li>
+                                                <li><a href="#" th:href="@{/usuariosroles/}">Consultar roles asignados</a></li>
+                                                <li><a href="#" th:href="@{/usuariosroles/new/usuariorol}">Asignar Roles</a></li>
                                               
 					</ul>
                                         
@@ -80,6 +82,14 @@
                                                 <li><a href="#" th:href="@{/capacitaciones/report/}">Reporte de Capacitaciones</a></li>
 					</ul>
 				</li>
+                                
+                                <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Empleado Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#" th:href="@{/capacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/empleadocapacitaciones/new/empleadocapacitacion}">Crear EmpleadoCapacitaciones</a></li>
+					</ul>
+				</li>
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitador <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
@@ -105,7 +115,13 @@
 <!--                                                 <li><a href="#" th:href="@{/costocapacitaciones/report/}">Reporte comites</a></li>-->
                                         </ul>
 				</li>
-				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignar asistencia capacitacion <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<ul class="dropdown-menu forAnimate" role="menu">
+						<li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Crear Empleado Asistencia Capacitaciones</a></li>
+					</ul>
+				</li>
                                 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar asistencias Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
@@ -247,6 +263,7 @@
                                                 <li><a href="#" th:href="@{/otherreports/2misionesexternas/}">Reporte de Misiones externa2</a></li>
                                                 <li><a href="#" th:href="@{/otherreports/constanciasalariales/}">constancias salariales</a></li>
                                                  <li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>
+                                                 <li><a href="#" th:href="@{/otherreports/plazasocupadas/}">Reporte Plazas Ocupadas</a></li>
                                                  <li><a href="#" th:href="@{/puestos/reporte/puesto}">Reporte Puestos a Caducar</a></li>
                                                  <li><a href="#" th:href="@{/empleado/reporte/contrataciones}">Reporte Contrataciones</a></li>
                                                  <li><a href="#" th:href="@{/empleado/reporte/despidos}">Reporte de Despidos</a></li>
@@ -259,7 +276,7 @@
                                                  <li><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
                                                  <li><a href="#" th:href="@{/beneficios/report/}">Reporte de Beneficios</a></li>
                                                  <li><a href="#" th:href="@{/otherreports/reporte/costocreporte}">Reporte de costos de Capacitacion</a></li>
-                                                <li><a href="#" th:href="@{/otherreports/reporte/pdfplazaoreporte}">Reporte de Plazas Ocupadas</a></li>
+                                                <!--<li><a href="#" th:href="@{/otherreports/reporte/plazaoreporte}">Reporte de Plazas Ocupadas ala berg</a></li>-->
                                                 <li><a href="#" th:href="@{/otherreports/reporte/pensionadoreporte}">Reporte de Personal Pensionado</a></li>
                                                 <li><a href="#" th:href="@{/otherreports/reporte/exoneradoreporte}">Reporte de Personal Exonerado de Marcacion</a></li>
                                                 <li><a href="#" th:href="@{/otherreports/reporte/nivelesreporte}">Reporte de Niveles Escolares</a></li>

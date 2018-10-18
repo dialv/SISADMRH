@@ -17,17 +17,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3>GENERACION DE REPORTE DE CUMPLEANIEROS</h3>
+            <h3 align="center">GENERACION DE CUMPLEANIEROS
+            </h3>
             <div>
                 <form class="form-horizontal" id="formreport">
-<!--
-                    <div class="form-group">
+
+<!--                    <div class="form-group">
                         <label class="col-sm-3 control-label" >Codigo de empleado:</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
                     </div>-->
-<!--                     <div class="form-group">    
+                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechainicial" name="fechainicial"/>
@@ -36,9 +37,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
-                    </div>-->
+                    </div>
                      <div class="form-group">    
-                         <td><a class="btn btn-default" id="generar">Generar</a></td>
+                         <td><a class="btn btn-default" id="pdf">pdf</a></td>
+                    </div>
+                     <div class="form-group">    
+                         <td><a class="btn btn-default" id="excel">excel</a></td>
                     </div>
                 </form>
             </div>
@@ -57,8 +61,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $('#fechafinal').datepicker({
             dateFormat: 'yy-mm-dd'
         });
-        $('#generar').click(function(){
+        $('#pdf').click(function(){
             $("#formreport").attr('action', '../cumpleanieros/1');
+            $("form#formreport").submit();
+            
+        });
+        $('#excel').click(function(){
+            $("#formreport").attr('action', '../cumpleanierosxls');
             $("form#formreport").submit();
             
         });
