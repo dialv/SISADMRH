@@ -286,6 +286,9 @@ jQuery(document).ready(function() {
     NumTelefono();
     FechaOcho();
     NumDUI();
+    NumISSS();
+    NumNUP();
+    NumCuenta();
     NumNIT();
     Configfechas();
     DateRestrictBeforeYears();
@@ -354,6 +357,21 @@ var NumNITs = function(num_nit) {
 var NumDUI = function() {
     jQuery('.num_dui').each(function() {
         jQuery(this).mask('00000000-0');
+    });
+};
+var NumISSS = function() {
+    jQuery('.num_isss').each(function() {
+        jQuery(this).mask('000000000');
+    });
+};
+var NumCuenta = function() {
+    jQuery('.num_cuenta').each(function() {
+        jQuery(this).mask('00000000000000000');
+    });
+};
+var NumNUP = function() {
+    jQuery('.num_nup').each(function() {
+        jQuery(this).mask('000000000000');
     });
 };
 var FechaOcho = function() {

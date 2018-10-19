@@ -21,7 +21,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
         <h3 align="center">Asignacion de asistencias de capacitaciones</h3>
-    <div th:if="${not #lists.isEmpty(empleadoasistenciacapacitaciones)}">
+    <!--<div th:if="${not #lists.isEmpty(empleadoasistenciacapacitaciones)}">-->
         <div class="table-responsive">
   <table class="table">
         <!--<table class="table table-striped">-->
@@ -31,14 +31,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                
                 
             </tr>
-            <tr th:each="empleadoasistenciacapacitacion : ${empleadoasistenciacapacitaciones}">
-                <td th:text="${empleadoasistenciacapacitacion.empleado.nombreempleado}">Nombre empleado</td>
-                <td th:text="${empleadoasistenciacapacitacion.asistenciacapacitacion.ubicacionasistenciacapacitacion}">Codigo</td>
+            <tr th:each="empleado : ${empleados}">
+                <td th:text="${empleado.codigoempleado}">Nombre empleado</td>
+                <!--<td th:text="${empleadoasistenciacapacitacion.asistenciacapacitacion.codigoasistenciacapacitacion}">Codigo</td>-->
+                <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
+            </tr>
+            <tr th:each="asistenciacapcitacion : ${asistenciacapcitaciones}">
+                <!--<td th:text="${empleado.codigoempleado}">Nombre empleado</td>-->
+                <td th:text="${asistenciacapcitaciones.codigoasistenciacapacitacion}">Codigo</td>
                 <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
     </div>
-</div>
+<!--</div>-->
     </div>
 </body
 

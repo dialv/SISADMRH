@@ -15,7 +15,7 @@ import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
  * @author jorge
  */
 public class EmpleadoAsistenciaCapacitacionForm  implements Serializable{
-       private Iterable<Empleado> empleados;
+      private Iterable<Empleado> empleados;
       private Iterable<AsistenciaCapacitacion> asistenciacapacitaciones;
 
     public Iterable<AsistenciaCapacitacion> getAsistenciacapacitaciones() {

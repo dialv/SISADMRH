@@ -56,7 +56,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8"><br><br>
+            <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
     <h3 align="center">Crear Empleado</h3>
     
     
@@ -64,7 +67,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
       <form class="form-horizontal" th:object="${empleado}" th:action="@{../empleado}" method="post">
           <input type="hidden" th:field="*{codigoempleado}"/>
-            <input type="hidden" th:field="*{nombreempleado}"/>
+            <!--<input type="hidden" th:field="*{nombreempleado}"/>-->
             <div class="col-md-6">
                 
             
@@ -82,13 +85,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Nombre(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"    th:field="*{nombreempleado}"  />
+                        <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombreempleado}"  />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Apellido(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"     th:field="*{apellidoempleado}" />
+                        <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{apellidoempleado}" />
                     </div>
                 </div>
                    <div class="form-group">
@@ -144,7 +147,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Sexo(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="sexo" >
+                    <select class="form-control" name="sexoempleado" >
                             <!--th:field="*{sexoempleado}">-->
                         <option>Femenino</option>
                         <option>Masculino</option>
@@ -154,34 +157,34 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Residencia Permanente(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"    th:field="*{recidenciapermanente}" />
+                        <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{recidenciapermanente}" />
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Telefono Fijo(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"    th:field="*{telefonofijoempleado} "/>
+                        <input type="text"  class="form-control num_telefono" required="true"    th:field="*{telefonofijoempleado} "/>
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-5 control-label">Telefono Movil(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"   th:field="*{telefonomovilempleado}  "/>
+                        <input type="text"  class="form-control num_telefono" required="true"   th:field="*{telefonomovilempleado}  "/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Email(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"   th:field="*{emailempleado}  "/>
+                        <input type="email" class="form-control"  required="true" th:field="*{emailempleado}  "/>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">  
                 
                   <div class="form-group">
-                <label class="col-sm-5 control-label">Departamento(*):</label>
+                <label class="col-sm-5 control-label">Departamento de Residencia(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="depto" >
+                    <select class="form-control" name="departamentorecidencia" >
                             <!--th:field="*{departamentorecidencia}">-->
                         <option>Santa Ana</option>
                         <option>San Salvador</option>
@@ -190,9 +193,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-5 control-label">Municipio(*):</label>
+                <label class="col-sm-5 control-label">Municipio de Residencia(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="municipioresidencia" >
                             <!--th:field="*{municipioresidencia}" >-->
                         <option>Santa Tecla</option>
                         <option>antiguo Cuscatlan</option>
@@ -204,27 +207,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <div class="form-group">
                     <label class="col-sm-5 control-label">DUI(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"   th:field="*{duiempleado}"  />
+                        <input type="text" class="form-control num_dui" required="true"   th:field="*{duiempleado}"  />
                     </div>
                 </div>
                 
                   <div class="form-group">
                     <label class="col-sm-5 control-label">NIT(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"    th:field="*{nitempleador}"   />
+                        <input type="text" class="form-control num_nit" required="true"  th:field="*{nitempleador}"   />
                     </div>
                 </div>
                 
                   <div class="form-group">
                     <label class="col-sm-5 control-label">ISSS(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"    th:field="*{isssempleado}" />
+                        <input type="text" class="form-control num_isss" required="true"  th:field="*{isssempleado}" />
                     </div>
                 </div>
                    <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Publico(*):</label>
                 <div class="col-sm-7">
-                     <input class="form-control" type="text"  name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}" />
+                     <input class="form-control" type="text"   name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}" />
                 </div>
             </div>
                    <div class="form-group">
@@ -243,13 +246,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Grupo Sanguineo(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"    th:field="*{gruposanquineo}" />
+                        <!--<input type="text" class="form-control"    th:field="*{gruposanquineo}" />-->
+                          <select class="form-control" name="gruposanquineo" >
+                            <!--th:field="*{departamentorecidencia}">-->
+                        <option>Grupo A</option>
+                        <option>Grupo B</option>
+                         <option>Grupo AB</option>
+                         <option>Grupo 0</option>
+                    </select>
                     </div>
                 </div>
                  <div class="form-group">
                 <label class="col-sm-5 control-label">Tipo de Pension(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="afiliacionpension" >
                             <!--th:field="*{afiliacionpension}" >-->
                         <option>AFP CONFIA</option>
                         <option>AFP CRECER</option>
@@ -259,19 +269,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-5 control-label">NUP(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"   th:field="*{numeroafiliacion}"  />
+                        <input type="text" class="form-control num_nup" required="true"  th:field="*{numeroafiliacion}"  />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-5 control-label">BANCO(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"   th:field="*{nombreinstiuciondepositar}"  />
+                        <input type="text" class="form-control"   required="true" size="50"   th:field="*{nombreinstiuciondepositar}"  />
                     </div>
                 </div>
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Tipo de Cuenta(*):</label>
                 <div class="col-sm-7">
-                    <select class="form-control" name="mun" >
+                    <select class="form-control" name="tipocuenta" >
                             <!--th:field="*{tipocuenta}">-->
                         <option>Ahorros</option>
                         <option>Corriente</option>
@@ -282,13 +292,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                    <div class="form-group">
                     <label class="col-sm-5 control-label">Numero de Cuenta(*):</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control"   th:field="*{tipocuenta} "/>
+                        <input type="text"  class="form-control num_cuenta"   required="true" size="30" th:field="*{numerocuenta} "/>
                     </div>
                 </div>
             </div>
           <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
@@ -414,5 +424,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
 	</script>
         
-        
+         <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                 location.href = '../empleados/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
 </html>

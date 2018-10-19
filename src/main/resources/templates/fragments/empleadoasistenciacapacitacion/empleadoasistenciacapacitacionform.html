@@ -23,11 +23,11 @@
             </div>
             <h3 align="center">Asignar empleados a Capacitaciones</h3>
             <div>
-                <form class="form-horizontal" th:object="${formempleadoasistenciacapacitacion}" th:action="@{../empleadoasistenciacapacitacion}" method="post" >
+                <form class="form-horizontal" id="formempasis" th:object="${formempleadoasistenciacapacitacion}" th:action="@{../empleadoasistenciacapacitacion}" method="post" >
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombre empleado:</label>
                         <div class="col-sm-8">
-                        <select class="form-control" name="empleado.codigoempleado" >
+                        <select class="form-control" name="empleado.codigoempleado" id="empleado" >
                                 <option th:each="c:${formempleadoasistenciacapacitacion.empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
                         </select>
                         </div>
@@ -35,14 +35,14 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombre Capacitacion:</label>
                         <div class="col-sm-8">
-                        <select class="form-control" name="asistenciacapacitacion.codigoasistenciacapacitacion" >
+                        <select class="form-control" name="asistenciacapacitacion.codigoasistenciacapacitacion" id="asistencia" >
                                 <option th:each="c:${formempleadoasistenciacapacitacion.asistenciacapacitaciones}" th:value="${c.codigoasistenciacapacitacion}" th:text="${c.codigocapacitacion.nombrecapacitacion}"></option>
                         </select>
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="row" align="center">
-                             <button type="submit" class="btn btn-default">Agregar</button>
+                             <button type="submit" class="btn btn-default" id="btnGuardar">Agregar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
                          </div>
                     </div>
@@ -62,7 +62,17 @@
     $('#fechabaja').datepicker({
     dateFormat: 'yy-mm-dd'
     });
-    });</script>
+    
+     $('#btnGuardar').click(function(){
+//         alert($("#asistencia").val().toString());          
+            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/'+ $("#asistencia").val()+"/"+$("#empleado").val());
+//            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/');
+            $("form#formempasis").submit();
+    });
+
+   });
+
+</script>
  </body>
 <script th:inline="javascript">
     $(document).ready(function () {

@@ -161,16 +161,16 @@ public class EmpleadoController extends UtilsController{
 
 
     @RequestMapping(value = "empleado")
-    public String saveEmpleado(@Valid Empleado empleado,BindingResult result, Model model,SessionStatus status)  {
+    public String saveEmpleado(@Valid Empleado empleado,  Model model)  {//,SessionStatus status
       try {
           empleadoService.saveEmpleado(empleado);
-         status.setComplete();
+//         status.setComplete();
             model.addAttribute("msg", 0);
           } catch(Exception e){
             model.addAttribute("msg", 1);
           }
-
-        return "redirect:./show/" + empleado.getCodigoempleado();
+return PREFIX + "empleadoform";
+//        return "redirect:./show/" + empleado.getCodigoempleado();
     }
     
 
@@ -217,9 +217,17 @@ public class EmpleadoController extends UtilsController{
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id,Model model) {
+        try{
         empleadoService.deleteEmpleado(id);
-        return "redirect:/empleados/";
+         model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 4);
+         
+        }
+        return PREFIX + "empleados";
+//        return "redirect:/empleados/";
     }
     
     @RequestMapping("reporte/contrataciones")

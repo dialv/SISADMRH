@@ -48,7 +48,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${empleado.emailempleado}">emailempleado</td>
                 <td><a th:href="${'./show/' + empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
-                <td><a th:href="${'./delete/' + empleado.codigoempleado}" class="btn btn-danger">Eliminar</a></td>
+                <!--<td><a th:href="${'./delete/' + empleado.codigoempleado}" class="btn btn-danger">Eliminar</a></td>-->
+                <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${empleado.codigoempleado} + '\');'" >Eliminar</a></td>
+                
+                													
             </tr>
         </table>
         </div>
@@ -65,6 +68,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         }} );
+    
+    
     });
      </script> 
      <script> 
@@ -74,6 +79,46 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             $("#tipoLista").on("change")
          });
      </script> 
-
+ <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../empleados/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = './delete/' + id;
+                        } else {
+                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
 </body>
 </html>

@@ -13,10 +13,19 @@ import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
  * @author jorge
  */
 public interface EmpleadoAsistenciaCapacitacionService {
-    Iterable <Empleadoasistenciacapacitacion> listAllEmpleadoAsistenciaCapacitacion();
+//    Iterable <Empleadoasistenciacapacitacion> listAllEmpleadoAsistenciaCapacitacion();
+    
+//    Optional<Empleadoasistenciacapacitacion> getEmpleadoAsistenciaCapacitacionById(Integer id);
+//     Empleadoasistenciacapacitacion saveEmpleadoAsistenciaCapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion);
+//     void deleteEmpleadoAsistenciaCapacitacion(Integer id);
+     
+     
+     Iterable <Empleadoasistenciacapacitacion> listAllEmpleadoAsistenciaCapacitacion();
     
     Optional<Empleadoasistenciacapacitacion> getEmpleadoAsistenciaCapacitacionById(Integer id);
-     Empleadoasistenciacapacitacion saveEmpleadoAsistenciaCapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion);
-     void deleteEmpleadoAsistenciaCapacitacion(Integer id);
+
+    Empleadoasistenciacapacitacion saveEmpleadoAsistenciaCapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion);
+
+    void deleteEmpleadoAsistenciaCapacitacion(Integer id);
     
 }

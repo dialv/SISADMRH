@@ -100,24 +100,27 @@ public class Empleado implements Serializable {
     @Column(name = "FECHAINGRESOMINISTERIO")
      @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresoministerio;
-    @Size(max = 6)
+    @Size(max = 12)
     @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
     @Size(max = 12)
     @Column(name = "NUMEROAFILIACION")
     private String numeroafiliacion;
-    @Size(max = 2)
+    @Size(max = 12)
     @Column(name = "TIPOCUENTA")
     private String tipocuenta;
     @Size(max = 50)
     @Column(name = "NOMBREINSTIUCIONDEPOSITAR")
     private String nombreinstiuciondepositar;
+    @Size(max = 30)
+    @Column(name = "NUMEROCUENTA")
+    private String numerocuenta;
     @Size(max = 50)
     @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
     @Column(name = "ESTADOEMPLEADO")
     private Integer estadoempleado;
-    @Size(max = 1)
+    @Size(max = 12)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
     @Id
@@ -358,7 +361,13 @@ public class Empleado implements Serializable {
     public void setEstadoempleado(Integer estadoempleado) {
         this.estadoempleado = estadoempleado;
     }
+public String getNumerocuenta() {
+        return numerocuenta;
+    }
 
+    public void setNumerocuenta(String numerocuenta) {
+        this.numerocuenta = numerocuenta;
+    }
     public String getSexoempleado() {
         return sexoempleado;
     }

@@ -5,6 +5,8 @@
  */
 package mj.gob.sisadmrh.controller.empleadoasistenciacapacitacion;
 
+import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
 import mj.gob.sisadmrh.model.EmpleadoasistenciacapacitacionPK;
 import mj.gob.sisadmrh.service.AsistenciaCapacitacionService;
@@ -16,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -45,28 +48,45 @@ public class EmpleadoAsistenciaCapacitacionController {
     }
      @RequestMapping("new/empleadoasistenciacapacitacion")
     public String newAsistenciaEmpleadoCapacitacion(Model model) {
-        EmpleadoAsistenciaCapacitacionForm form = new  EmpleadoAsistenciaCapacitacionForm();
-        form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciaCapacitacion());
+       EmpleadoAsistenciaCapacitacionForm form = new  EmpleadoAsistenciaCapacitacionForm();
+      form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciaCapacitacion());
       form.setEmpleados(empleadoService.listAllEmpleado());
-      form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
+//      form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
    
       
        model.addAttribute("formempleadoasistenciacapacitacion", form);
        
         return PREFIX + "empleadoasistenciacapacitacionform";
     }
-     @RequestMapping(value = "empleadoasistenciacapacitacion")
-    public String saveEmpleadoAsistenciaCapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion,Model model) {
+     @RequestMapping(value = "empleadoasistenciacapacitacion/{idasistencia}/{idempleado}")
+//      @RequestMapping(value = "empleadoasistenciacapacitacion", method = { RequestMethod.POST, RequestMethod.GET })
+    public String saveEmpleadoAsistenciaCapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion,Model model,@PathVariable Integer idasistencia,@PathVariable Integer idempleado) {
         try{
        EmpleadoasistenciacapacitacionPK llave = new EmpleadoasistenciacapacitacionPK();
-       llave.setCodigoasistenciacapacitacion(empleadoasistenciacapacitacion.getAsistenciaCapacitacion().getCodigoasistenciacapacitacion());
-       llave.setCodigoempleado(empleadoasistenciacapacitacion.getEmpleado().getCodigoempleado());
+       
+       llave.setCodigoasistenciacapacitacion(idasistencia);
+       llave.setCodigoempleado(idempleado);
 //        llave.setCodigocapacitacion(empleadocapacitacion.getCapacitacion().getCodigocapacitacion());
 //        llave.setCodigoempleado(empleadocapacitacion.getEmpleado().getCodigoempleado());
         empleadoasistenciacapacitacion.setEmpleadoasistenciacapacitacionPK(llave);
         empleadoAsistenciaCapacitacionService.saveEmpleadoAsistenciaCapacitacion(empleadoasistenciacapacitacion);
-//         empleadocapacitacion.setEmpleadocapacitacionPK(llave);//aqui tenia el pedo
-//        empleadoCapacitacionSevice.saveEmpleadoCapacitacion(empleadocapacitacion);
+        
+        
+//         Empleado em = empleadoService.getEmpleadoById(idempleado);
+//         AsistenciaCapacitacion asc = asistenciaCapacitacionService.getAsistenciaCapacitacionById(idasistencia).get();
+      
+//         empleadoasistenciacapacitacion.setEmpleado(em);
+//         empleadoasistenciacapacitacion.setAsistenciaCapacitacion(asc);
+         
+         model.addAttribute("empleados", empleadoService.getEmpleadoById(idempleado));
+         model.addAttribute("asistenciacapcitaciones", asistenciaCapacitacionService.getAsistenciaCapacitacionById(idasistencia));
+//        llave.setNombreempleado(em.getNombreempleado());
+//        llave.setUbicacionasistenciacapacitacion(asc.getUbicacionasistenciacapacitacion());
+        
+//        empleadoasistenciacapacitacion.getEmpleado().getCodigoempleado();
+//        empleadoasistenciacapacitacion.getEmpleado().getCodigoempleado();
+//        model.addAttribute("empleadoasistenciacapacitaciones",empleadoasistenciacapacitacion);
+         
          model.addAttribute("msg", 0);
         }
         catch(Exception e){

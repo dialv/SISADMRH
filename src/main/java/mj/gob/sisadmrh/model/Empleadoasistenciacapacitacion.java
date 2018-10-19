@@ -32,10 +32,10 @@ public class Empleadoasistenciacapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected EmpleadoasistenciacapacitacionPK empleadoasistenciacapacitacionPK;
- @JoinColumn(name = "CODIGOASISTENCIACAPACITACION", referencedColumnName = "CODIGOASISTENCIACAPACITACION", insertable = false, updatable = false)
+   @JoinColumn(name = "codigoasistenciacapacitacion", referencedColumnName = "codigoasistenciacapacitacion", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private AsistenciaCapacitacion asistenciacapacitacion;
-    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO", insertable = false, updatable = false)
+    @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
 
