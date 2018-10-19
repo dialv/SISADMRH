@@ -63,6 +63,7 @@ return capacitadorRep.save(capacitador);
      @Override
     public Iterable<Capacitador> findCapacitadores(String finicial, String ffinal) {
         return capacitadorRep.findCapacitadores(finicial, ffinal);
+        
     }
     
 }
