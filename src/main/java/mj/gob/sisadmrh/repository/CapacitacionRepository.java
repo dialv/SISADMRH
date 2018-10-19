@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.repository;
 
 import java.util.List;
 import mj.gob.sisadmrh.model.Capacitacion;
+import mj.gob.sisadmrh.model.Capacitador;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -45,5 +46,27 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
     public List<Object[]> findByCapacitacionesR(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal,
                                              @Param("CODIGO") String codigo);
+    
+    
+    
+      @Query(value="SELECT\n" +
+                    "     capacitador.codigocapacitador,\n" +
+                    "     capacitador.carnetresidencia ,\n" +
+                    "     capacitador.duicapacitador ,\n" +
+                    "     capacitador.emailcapacitador,\n" +
+                    "     capacitador.nitcapacitador ,\n" +
+                    "     capacitador.nombrecapacitador ,\n" +
+                    "     capacitador.telefonocapacitador ,\n" +
+                    "     capacitador.telefonomovilcapacitador ,\n" +
+                    "     capacitador.temadominio ,\n" +
+                    "     capacitador.tipocapacitador ,\n" +
+                    "     capacitador.codigoempleado ,\n" +
+                    "     capacitador.institucioncapacitador ,\n" +
+                    "     capacitador.tipoagrupacion \n" +
+                    "FROM\n" +
+                    "     capacitador capacitador"
+            , nativeQuery = true) 
+            Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
 }
 
