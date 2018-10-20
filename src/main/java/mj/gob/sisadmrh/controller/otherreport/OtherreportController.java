@@ -241,6 +241,15 @@ private HijosdiscapacidadService hijosdiscapacidadService;
         	generatePdf("otherreports", "rpt_historial", params, download,response);
     }
 
+   @RequestMapping("/historialxls")
+       public ModelAndView historialxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="codigo",required = false) String codigo, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]>  historialList = empleadoService.findByPuestosEmpleados(codigo);
+              return new ModelAndView(new HijoscapView(), "historialList", historialList);
+       }
+
 
 
     @RequestMapping(value = "notarios/{indice}", method = { RequestMethod.POST, RequestMethod.GET })

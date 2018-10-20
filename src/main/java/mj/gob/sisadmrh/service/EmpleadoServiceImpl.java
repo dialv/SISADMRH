@@ -91,6 +91,11 @@ return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
 return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
     }
 
+    @Override
+    public List<Object[]> findByPuestosEmpleados(String codigo) {
+return  empleadoRep.findByPuestosEmpleados(codigo);
+    }
+
   
     
 }

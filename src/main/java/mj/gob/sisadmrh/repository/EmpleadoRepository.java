@@ -91,6 +91,13 @@ List<Object[]> findByPensionados(@Param("FINICIAL") String finicial,
 @Query(value = " select p.codigopuesto,p.nombrepuesto,p.fechacontrataciondesde,p.fechacontratacionhasta,p.ubicacionpuesto,p.numerosubpartidapuesto,p.numeropartidapuesto from puesto p where  p.fechacontratacionhasta between curdate() and curdate() + interval 60 day",nativeQuery = true)
 List<Object[]> findByPuestosCaducar(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+
+@Query(value = "SELECT e.codigoempleado, e.nombreempleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, "
+        + " d.fechacontrataciondesde, d.fechacontratacionhasta FROM empleado e INNER JOIN empleadopuesto p " +
+"on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto " +
+"where " +
+"e.codigoempleado=:CODIGO",nativeQuery = true)
+List<Object[]> findByPuestosEmpleados(@Param("CODIGO") String codigo);
                                             
 
 }
