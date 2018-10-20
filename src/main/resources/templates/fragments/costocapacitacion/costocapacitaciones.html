@@ -52,11 +52,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                
                 
                 
-                <td>
+                
                      <!--<a th:href="${'./new/costocapacitacion'}" class="btn btn-primary">Nuevo</a>-->
-                    <a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-success">Edit</a>
-               <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${costocapacitacion.codigocostocapacitacion} + '\');'" >Delete</a></td>
+                  <td>  <a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-info">Mostrar</a></td>
+              <td>  <a th:href="${'./edit/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-success">Editar</a></td>
+              <td> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${costocapacitacion.codigocostocapacitacion} + '\');'" >Eliminar</a></td>
                 <!--<a th:href="${'./delete/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>

@@ -51,8 +51,10 @@
           
         <div class="col-md-12">
       <div class="row" align="center">
+          <button  class="btn btn-default"  id="pdf">PDF</button>
+                 <button  class="btn btn-default"  id="excel">excel</button>
                 <button type="button" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
-                <button  class="btn btn-default"  id="generar">Consultar</button>
+                
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
             </div>
@@ -98,8 +100,14 @@
 		        dateFormat: 'yy-mm-dd'
 		    });
                     
-                    $('#generar').click(function(){
+                    $('#pdf').click(function(){
             $("#fromreportpensionado").attr('action', '../pdfpensionadoreporte/');
+            $("form#fromreportpensionado").submit();
+            
+        });
+        
+                   $('#excel').click(function(){
+            $("#fromreportpensionado").attr('action', '../pensionadosxls');
             $("form#fromreportpensionado").submit();
             
         });

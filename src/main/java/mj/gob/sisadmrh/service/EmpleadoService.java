@@ -29,5 +29,8 @@ public interface EmpleadoService {
      List<Object[]> findBycumples(String finicial, String ffinal);
       List<Object[]> findByNivelEscolar(String finicial, String ffinal);
               List<Object[]> findByPlazasOcupadas(String finicial, String ffinal);
+              List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal);
+              List<Object[]> findByPensionados(String finicial, String ffinal);
+                      List<Object[]> findByPuestosCaducar(String finicial, String ffinal);
     
 }

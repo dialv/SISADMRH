@@ -364,7 +364,7 @@ private MisionService misionService;
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesinternas", params, download,response);
     }
-    /****************************Para Generar Reporte de Misiones Internas**********************/
+    /* ***************************Para Generar Reporte de Misiones Internas********************* */
       public ModelAndView misionInternaxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin
@@ -509,10 +509,44 @@ private MisionService misionService;
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
 //		params.put("FECHAINICIO", fechainicio);
-//		params.puta proba man("FECHAFIN", fechafin);
+//		params.put("FECHAFIN", fechafin);
         	generatePdf("pensionadoreporte", "rpt_pensionado", params, download,response);
     }
-    
+   
+    @RequestMapping("/pensionadosxls")
+       public ModelAndView pensionadosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> pensionadosList = empleadoService.findByPensionados(fechainicio, fechafin);
+              return new ModelAndView(new PersonalPensionadoView(), "pensionadosList", pensionadosList);
+       }
+    /* Reporte   de cpuestos a caducar en exel */
+           @RequestMapping("puestoscaducar/")
+    public String reportepuestoscaducar() {
+        return PREFIX + "puestoreporte";
+    }
+           @RequestMapping(value = "puestoscaducar/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfPuestoCaducar(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+     
+            HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+		//params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_puestos", params, download,response); 
+}
+     @RequestMapping("/puestoscaducasxls")
+       public ModelAndView puestoscaducarxls(
+//              
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> puestosCaducarList = empleadoService.findByPuestosCaducar(fechainicio, fechafin);
+              return new ModelAndView(new PuestosCaducarView(), "puestosCaducarList", puestosCaducarList);
+       }
+        
      @RequestMapping("reporte/exoneradoreporte")
     public String reporteexoneradoreporte() {
         return PREFIX + "exoneradoreporte";
@@ -527,10 +561,19 @@ private MisionService misionService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("exoneradoreporte", "rpt_exonerado", params, download,response);
     }
+    
+    /* exonerado de marcacion exel */
+      @RequestMapping("/exoneradomarcacionxls")
+       public ModelAndView exoneradomarcacionxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> exoneradoMarcacionLis = empleadoService.findByExoneradoMarcacion(fechainicio, fechafin);
+              return new ModelAndView(new ExoneradoMarcacionView(), "exoneradoMarcacionLis", exoneradoMarcacionLis);
+       }
     
     @RequestMapping("reporte/nivelesreporte")
     public String reportenivelesreporte() {

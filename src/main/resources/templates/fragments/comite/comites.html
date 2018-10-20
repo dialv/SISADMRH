@@ -55,12 +55,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                              <td th:text="${#calendars.format(comite.fechahastacomite, 'dd/MM/yyyy')}">F. Fecha Hasta</td>
 <!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
-                            <td>
+                           
                                  <!--<a th:href="${'./new/comite'}" class="btn btn-primary">Nuevo</a>-->
-                                <a th:href="${'./show/' + comite.codigocomite}" class="btn btn-info">Mostrar</a>
-                           <a th:href="${'./edit/' + comite.codigocomite}" class="btn btn-success">Editar</a>
-                                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comite.codigocomite} + '\');'" >Eliminar</a>
-                            </td>
+                               <td>  <a th:href="${'./show/' + comite.codigocomite}" class="btn btn-info">Mostrar</a> </td>
+                          <td>  <a th:href="${'./edit/' + comite.codigocomite}" class="btn btn-success">Editar</a> </td>
+                              <td>   <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comite.codigocomite} + '\');'" >Eliminar</a> </td>
+                           
                            
                             <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
                         </tr>

@@ -20,11 +20,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmpleadoServiceImpl implements EmpleadoService{
-    private EmpleadoRepository empleadoRep;
     @Autowired
-    public void setEmpleadoRepository(EmpleadoRepository empleadoRepository) {
-        this.empleadoRep = empleadoRepository;
-    }
+    private EmpleadoRepository empleadoRep;
+//    @Autowired
+//    public void setEmpleadoRepository(EmpleadoRepository empleadoRepository) {
+//        this.empleadoRep = empleadoRepository;
+//    }
 
     @Override
     public Iterable<Empleado> listAllEmpleado() {
@@ -73,6 +74,21 @@ return empleadoRep.findByNivelEscolar(finicial,ffinal);
     @Override
     public List<Object[]> findByPlazasOcupadas(String finicial, String ffinal) {
    return empleadoRep.findByPlazasOcupadas(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal) {
+return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByPensionados(String finicial, String ffinal) {
+      return  empleadoRep.findByPensionados(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByPuestosCaducar(String finicial, String ffinal) {
+return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
     }
 
   

@@ -51,12 +51,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd-MMM-yyyy')}">fechadesdenivelescolaridad</td>
                 <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd-MMM-yyyy')}">fechahastanivelescolaridad</td>
                 
-                <td>
+               
                     
-                 <!--<a th:href="${'./new/nivelescolaridad'}" class="btn btn-primary">Nuevo</a>-->
-                 <a th:href="${'./new/nivelescolaridad'}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a>
-                <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a>
+                  <!--<a th:href="${'./new/nivelescolaridad'}" class="btn btn-primary">Nuevo</a>-->
+                <td>  <a th:href="${'./new/nivelescolaridad'}" class="btn btn-info">Mostrar</a> <td>
+                <td> <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a> <td>
+                <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a> <td>
                 <!--<a th:href="${'./delete/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-danger">Delete</a>-->
                 </td>
             </tr>
