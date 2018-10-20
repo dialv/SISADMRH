@@ -22,6 +22,8 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
 //            + "WHERE c.nombrecapacitador LIKE :nom ", nativeQuery = true)
 //
 //    Iterable<Capacitador> findByDato(@Param("nom") String dato);
+    
+    /* GERAR REPORTE EXEL DE ABOGADOS */
     @Query(value="select  o.* from empleado o where codigopuesto= :tipo"
             + " AND o.fechaingresoministerio >= :FINICIAL "
             + " AND o.fechaingresoministerio <= :FFINAL"
@@ -29,7 +31,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             Iterable <Empleado> findabogados(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal,
                                              @Param("tipo") Integer tipo);
-            
+        /*GENERAR REPORTE DE RENUNCIAS VOLUNTARIAS */    
     @Query(value="SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,"
             + "c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e "
             + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
@@ -39,6 +41,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             , nativeQuery = true) 
             List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+            /*PARA GENERAR REPORTES DE CUMPLEANIEROS EXEL */
 @Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,"
         + "e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e "
         + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
@@ -51,7 +54,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
  List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
  
- 
+ /*PARA GENERAR REPORTE DE NIVELES ESCOLARES EXEL */
   @Query(value = " SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto, ne.tituloobtenido, ne.estudiorealizado, ne.fechadesdenivelescolaridad, ne.fechahastanivelescolaridad, ne.centroeducativo from empleado e"
           + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
           + " inner join puesto p on ep.codigopuesto=p.codigopuesto"
@@ -61,11 +64,33 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
           + " and ne.fechahastanivelescolaridad <= :FFINAL",nativeQuery = true)
   List<Object[]> findByNivelEscolar(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
-  
+  /* PARA GNERAR REPORTE PLAZAS OCUPADAS EXEL***************************/
   @Query(value = " SELECT p.codigopuesto,p.nombrepuesto,e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.sueldobase,p.fechanombramiento,p.fechacontrataciondesde, p.fechacontratacionhasta,p.ubicacionpuesto,p.sublinea FROM puesto p "
           + "  inner join empleadopuesto ep on p.codigopuesto=ep.codigopuesto "
           + " inner join empleado e on ep.codigoempleado=e.codigoempleado "
           + " where p.fechacontrataciondesde >= :FINICIAL and p.fechacontratacionhasta <= :FFINAL ",nativeQuery = true)
   List<Object[]> findByPlazasOcupadas(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal); 
+  
+  // PARA GENERAR REPORTE DE EXEL EXONERADO DE MARCACION----------------------------------------------
+   @Query(value = " SELECT  e.nombreempleado, e.apellidoempleado, p.nombrepuesto ,u.nombreubicacion ,cd.acuerdocuadrodirectivo  , cd.fechapresentaciondesde , cd.fechapresentacionhasta \n" +
+" FROM `empleado` e, puesto p ,empleadopuesto ep, ubicacionfisica u, cuadrodirectivo cd " +
+" WHERE\n" +
+" e.codigopuesto=ep.codigopuesto AND " +
+" ep.codigopuesto=p.codigopuesto and " +
+" e.codigopuesto=p.codigopuesto and " +
+" e.estadoempleado=2 and " +
+" e.codigoempleado=u.codigoempleado and " +
+" e.codigoempleado=cd.codigoempleado and cd.fechapresentaciondesde>= :FINICIAL and cd.fechapresentacionhasta <= :FFINAL  ",nativeQuery = true)
+List<Object[]> findByExoneradoMarcacion(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal); 
+// reporte exel para personal pensionado
+@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL" ,nativeQuery = true)
+List<Object[]> findByPensionados(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+@Query(value = " select p.codigopuesto,p.nombrepuesto,p.fechacontrataciondesde,p.fechacontratacionhasta,p.ubicacionpuesto,p.numerosubpartidapuesto,p.numeropartidapuesto from puesto p where  p.fechacontratacionhasta between curdate() and curdate() + interval 60 day",nativeQuery = true)
+List<Object[]> findByPuestosCaducar(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+                                            
+
 }

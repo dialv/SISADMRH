@@ -100,13 +100,13 @@
 		    });
                     
                     $('#generar').click(function(){
-            $("#fromreportpuesto").attr('action', '../pdf/');
+            $("#fromreportpuesto").attr('action', '../puestoscaducar/1');
             $("form#fromreportpuesto").submit();
             
         });
                    $('#excel').click(function(){
-            $("#fromreportpensionado").attr('action', '../puestoscaducasxls');
-            $("form#fromreportpensionado").submit();
+            $("#fromreportpuesto").attr('action', '../puestoscaducasxls');
+            $("form#fromreportpuesto").submit();
             
         });
                     

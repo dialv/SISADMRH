@@ -50,7 +50,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <th>Tipo Capacitación</th>
                 <th>Estado Capacitación</th>
                 <th>Nombre Capacitador</th>
-               <th>Acciones</th>
+               <th align="center">Acciones</th>
                 
             </tr>
                     </thead>
@@ -75,14 +75,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
                 <td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>
                 
-                <td>
-                     <a th:href="${'./new/capacitacion'}" class="btn btn-primary">Nuevo</a>
-                    <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-success">Editar</a>
-                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Eliminar</a>
+              
+                   <!--<td>  <a th:href="${'./new/capacitacion'}" class="btn btn-primary">Nuevo</a> </td>-->
+                  <td>  <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-info">Mostrar</a> </td>
+               <td> <a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-success">Editar</a> </td>
+               <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Eliminar</a> </td>
                <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
                     <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
-                </td>
+               
             </tr>
         </table>
             

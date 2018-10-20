@@ -46,9 +46,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${usuario.fechaingreso}">fecha Ingreso</td>
                 <td th:text="${usuario.fechacaducidad}">Fecha Caducidad</td>
                 <td th:text="${usuario.fechabaja}">Fecha Baja</td>
-                <td><a th:href="${'./show/' + usuario.codigousuario}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + usuario.codigousuario}" class="btn btn-success">Editar</a>
-                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${usuario.codigousuario} + '\');'" >Eliminar</a></td>
+                <td><a th:href="${'./show/' + usuario.codigousuario}" class="btn btn-info">Mostrar</a></td>
+                <td> <a th:href="${'./edit/' + usuario.codigousuario}" class="btn btn-success">Editar</a></td>
+                <td> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${usuario.codigousuario} + '\');'" >Eliminar</a></td>
             </tr>
         </table>
     </div>
