@@ -21,6 +21,7 @@ import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
 import mj.gob.sisadmrh.service.ComiteService;
+import mj.gob.sisadmrh.service.HijosdiscapacidadService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.MisionService;
@@ -61,6 +62,9 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
 private CapacitadorService capacitadorService;
 @Autowired
 private MisionService misionService;
+@Autowired
+private HijosdiscapacidadService hijosdiscapacidadService;
+
 
     private final String PREFIX = "fragments/otherreports/";
 
@@ -214,6 +218,15 @@ private MisionService misionService;
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_hijoscapesp", params, download,response);
     }
+    
+    @RequestMapping("/hijoscapxls")
+       public ModelAndView hijoscapxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]>  hijoscapList = hijosdiscapacidadService.findhijoscap();
+              return new ModelAndView(new HijoscapView(), "hijoscapList", hijoscapList);
+       }
+
 
     @RequestMapping(value = "historial/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfhistorial(@PathVariable("indice") Long indice, 

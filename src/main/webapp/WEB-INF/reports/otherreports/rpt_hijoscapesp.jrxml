@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="102"/>
-	<property name="ireport.y" value="96"/>
+	<property name="ireport.x" value="149"/>
+	<property name="ireport.y" value="234"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -11,9 +11,10 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.codigoempleado, e.nombreempleado, p.nombrepuesto from empleadohijodiscapacidad h
+		<![CDATA[select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad,
+p.nombrehijodiscapacidad from empleadohijodiscapacidad h
 inner join empleado e on e.codigoempleado=h.codigoempleado
-inner join puesto p on e.codigopuesto = p.codigopuesto]]>
+inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -21,7 +22,10 @@ inner join puesto p on e.codigopuesto = p.codigopuesto]]>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombrepuesto" class="java.lang.String">
+	<field name="tipodiscapacidad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombrehijodiscapacidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="nombreempleado">
@@ -113,43 +117,53 @@ inner join puesto p on e.codigopuesto = p.codigopuesto]]>
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="45933b9f-8ac2-4df1-a559-c0d867795b56" x="119" y="22" width="132" height="20"/>
+				<reportElement uuid="7d5ce8fa-46e5-4d3c-91ca-ac84bd169b2e" x="138" y="22" width="113" height="20"/>
 				<textElement/>
 				<text><![CDATA[Codigo de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6" x="335" y="22" width="122" height="20"/>
+				<reportElement uuid="766c785a-b6c8-4008-a2c9-285473e894d0" x="289" y="22" width="138" height="20"/>
 				<textElement/>
 				<text><![CDATA[Nombre de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9346201c-9115-461c-86a7-ff61f8be41da" x="547" y="22" width="100" height="20"/>
+				<reportElement uuid="a05511e5-1861-4959-a097-bed05db3d284" x="451" y="22" width="124" height="20"/>
 				<textElement/>
-				<text><![CDATA[nombre de puesto]]></text>
+				<text><![CDATA[Tipo de Discapacidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f9a14dd0-046e-47fc-ab36-2052b06d71cf" x="611" y="22" width="171" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nombre de Hijo Con Discapacidad]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3" x="119" y="24" width="100" height="20"/>
+				<reportElement uuid="653b80f4-a65b-4588-ac96-59a7e8de9d0b" x="136" y="55" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1a8282f8-9255-4a06-9e33-7690f1ed0c42" x="335" y="24" width="100" height="20"/>
+				<reportElement uuid="8591ebf6-9f70-425b-836d-b0a7c8e29eb7" x="138" y="36" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ef8906af-28e9-4801-82ac-143df59c0611" x="289" y="36" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="78bf1c6b-2f0b-438d-8ea6-9ef4e5d264c0" x="622" y="41" width="100" height="20"/>
+				<reportElement uuid="7577289a-031a-46f3-a27d-7efce72a54a0" x="451" y="36" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tipodiscapacidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="ec5ad86d-9f86-417f-9d41-e6fc9b22f9af" x="547" y="24" width="100" height="20"/>
+				<reportElement uuid="de99b313-a212-412c-8fd1-d9d805e7358f" x="611" y="36" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nombrehijodiscapacidad}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
