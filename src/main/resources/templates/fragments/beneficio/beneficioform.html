@@ -31,53 +31,79 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div>
         <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
             <input type="hidden" th:field="*{codigobeneficio}"/>
-           
-            
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigobeneficio}"/>
-                </div>
-            </div>-->
-            <div class="form-group">
+  
+          <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Beneficio:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{nombrebeneficio}"/>
                 </div>
+                 <div class="col-sm-1 ">
+                        <b><a id="boton" class="btn btn-info" href="#" onmouseover="javascript:mostrarAyuda()" onmouseout ="javascript:ocultarAyuda()">a</a></b>
+                    </div>
+                    <div id="ayuda" class="popup ">
+			<b>
+				Ingrese el nombre: Utilice Maximo 30 caracteres
+			</b>
             </div>
+                 </div>
+              
             <div class="form-group">
                 <label class="col-sm-2 control-label">Descripción Beneficio:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" size="100" maxlength="100" required="true" th:field="*{descripcionbeneficio}"/>
+                
                 </div>
+                <div class="col-sm-1 ">
+                        <b><a id="boton" class="btn btn-info" href="#" onmouseover="javascript:mostrarAyuda()" onmouseout ="javascript:ocultarAyuda()">a</a></b>
+                    </div>
+                    <div id="ayuda1"  class="popup ">
+			<b>
+				Ingrese la Descripcion: Utilice Maximo 100 caracteres
+			</b>
             </div>
+                 </div>
+                  
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de inicio:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control"  required="true" th:field="*{fechainiciobeneficio}"/>
                 </div>
+                <div class="col-sm-1 ">
+                        <b><a id="boton" class="btn btn-info" href="#" onmouseover="javascript:mostrarAyuda()" onmouseout ="javascript:ocultarAyuda()">a</a></b>
+                    </div>
+                    <div id="ayuda" class="popup ">
+			<b>
+				Ingrese el Nombre
+			</b>
             </div>
-
+                 </div>
+ 
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de Finalización:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" required="true" th:field="*{fechafinalizarbeneficio}"/>
                 </div>
+                <div class="col-sm-1 ">
+                        <b><a id="boton" class="btn btn-info" href="#" onmouseover="javascript:mostrarAyuda()" onmouseout ="javascript:ocultarAyuda()">a</a></b>
+                    </div>
+                    <div id="ayuda" class="popup ">
+			<b>
+				Ingrese el Nombre
+			</b>
             </div>
+                 </div>
             
 
 <div class="col-md-12">
                         <div class="row" align="center">
-                          
-                            <button type="button" class="btn btn-primary btn btn-link"> <span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/beneficios/}">.</a> </button>
-                            <button type="button" class="btn btn-link">Regresar</button>
-                            
+                             <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/beneficios/}">Reg</a></button>
                             <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-                            <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left"></span><a href="#" th:href="@{/beneficios/}">Regresar</a></button>
+                            
+                           
                             <!--<button type="button" class="btn btn-success">  <span class="glyphicon glyphicon-plus-sign"></span> Agregar</button>-->
                             
-  </button>  
+  <!--</button>-->  
                         </div>
                     </div>
 
