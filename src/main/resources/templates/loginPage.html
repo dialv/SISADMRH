@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+<head>
         <link th:href="@{/css/login.css}" rel="stylesheet" media="screen"/>
-<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
         <title>Login</title>
 </head>
 <body>
@@ -28,17 +26,14 @@
                     </div>
                    </div>
                 </div>
-    
-    <!-- /login?error=true -->
     <br>
-
     <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
-          <div class="row text-center" align="center">
-                             <img src="../../static/image/login.jpg" width="210" th:src="@{/image/login.jpg}" />
-                    </div>
-        <h2>Introduzca nombre de usuario y contraseña:</h1>
+        <div class="row text-center" align="center">
+            <img src="../../static/image/login.jpg" width="210" th:src="@{/image/login.jpg}" />
+        </div>
+        <h2>Introduzca nombre de usuario y contraseña:</h2>
         <div class="inset">
-            <p>
+            
             <div th:if="${#request.getParameter('error') == 'true'}"
                  style="color:red;margin:10px 0px;">
                 ACCESO NO PERMITIDO!!!<br />
@@ -49,8 +44,9 @@
                 </span>
 
             </div>
-                <label for="username">USUARIO</label>
-                <input type="text"  name="username" id ="username" >
+            <p>
+            <label for="username">USUARIO</label>
+            <input type="text"  name="username" id ="username">
             </p>
             <p>
                 <label for="password">CONTRASEÑA</label>
@@ -62,17 +58,9 @@
             </p>
         </div>
         <p class="p-container">
-            <td><input name="submit" type="submit" value="Login" /></td>
+           <input name="submit" type="submit" value="Login" />
         </p>
       </form>
-
-    <br>
-    Username/pass:
-    <ul>
-        <li>dbuser1/123</li>
-        <li>dbadmin1/123</li>
-    </ul>  
-    </div>
    <div class="col-md-12">
             <th:block th:include="footer"></th:block>
    </div>

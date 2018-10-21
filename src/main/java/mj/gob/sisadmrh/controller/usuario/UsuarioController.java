@@ -5,6 +5,7 @@ import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.UsuarioRepository;
 import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,9 @@ public class UsuarioController {
     public void setUsuarioService(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
+    
+    @Autowired
+    BCryptPasswordEncoder paswordEnc; 
     
     private final String PREFIX = "fragments/usuario/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -56,6 +60,7 @@ public class UsuarioController {
         Date fecha = new Date();
         usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
+        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
         

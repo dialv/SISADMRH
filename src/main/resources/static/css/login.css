@@ -6,7 +6,15 @@ body {
 	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   color:whitesmoke;
   font-size:12px;
-  background:#186218/*url(/images/classy_fabric.png)*/;
+  /*background:#186218/*url(/images/classy_fabric.png)*/
+  background-image: url(/sisadmrh/image/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
 }
 
 form {
