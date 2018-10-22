@@ -31,6 +31,7 @@ public class Usuariorol implements Serializable {
     @JoinColumn(name = "CODIGOROL", referencedColumnName = "CODIGOROL", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Rol rol;
+    
     @JoinColumn(name = "CODIGOUSUARIO", referencedColumnName = "CODIGOUSUARIO", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario usuario;

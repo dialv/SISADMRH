@@ -6,12 +6,16 @@
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.Formacionacademica;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author IPalacios
  */
-public interface FormacionacademicaRepository extends CrudRepository<Formacionacademica, Integer>{
-    
+//public interface FormacionacademicaRepository extends CrudRepository<Formacionacademica, Integer>{
+     public interface FormacionacademicaRepository extends CrudRepository<Formacionacademica, Integer>{
+        @Query(value = "SELECT d.* FROM formacionacademica d , empleadoformacion ed WHERE d.codigoformacionacademica = ed.codigoformacionacademica and ed.codigoempleado= :id ", nativeQuery = true)
+    Iterable<Formacionacademica> findByDato(@Param("id") int dato);
 }

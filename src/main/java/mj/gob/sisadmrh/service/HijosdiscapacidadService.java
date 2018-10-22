@@ -5,12 +5,13 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface HijosdiscapacidadService {
@@ -21,4 +22,8 @@ public interface HijosdiscapacidadService {
     Hijodiscapacidad saveHijodiscapacidad(Hijodiscapacidad empleado);
 
     void deleteHijodiscapacidad(Integer id);
+    
+    Iterable<Hijodiscapacidad> findByDato(int id) ;
+    
+    List<Object[]> findhijoscap();
 }

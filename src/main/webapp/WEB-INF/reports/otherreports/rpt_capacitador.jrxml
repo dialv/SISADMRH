@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b42cddd-411e-45f3-b007-dc7d1b2481d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     capacitador.`codigocapacitador` AS capacitador_codigocapacitador,
+     capacitador.`carnetresidencia` AS capacitador_carnetresidencia,
+     capacitador.`duicapacitador` AS capacitador_duicapacitador,
+     capacitador.`emailcapacitador` AS capacitador_emailcapacitador,
+     capacitador.`nitcapacitador` AS capacitador_nitcapacitador,
+     capacitador.`nombrecapacitador` AS capacitador_nombrecapacitador,
+     capacitador.`telefonocapacitador` AS capacitador_telefonocapacitador,
+     capacitador.`telefonomovilcapacitador` AS capacitador_telefonomovilcapacitador,
+     capacitador.`temadominio` AS capacitador_temadominio,
+     capacitador.`tipocapacitador` AS capacitador_tipocapacitador,
+     capacitador.`codigoempleado` AS capacitador_codigoempleado,
+     capacitador.`institucioncapacitador` AS capacitador_institucioncapacitador,
+     capacitador.`tipoagrupacion` AS capacitador_tipoagrupacion
+FROM
+     `capacitador` capacitador]]>
+	</queryString>
+	<field name="capacitador_codigocapacitador" class="java.lang.Integer"/>
+	<field name="capacitador_nombrecapacitador" class="java.lang.String"/>
+	<field name="capacitador_tipocapacitador" class="java.lang.String"/>
+	<field name="capacitador_telefonomovilcapacitador" class="java.lang.String"/>
+	<field name="capacitador_emailcapacitador" class="java.lang.String"/>
+	<field name="capacitador_temadominio" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="85">
+			<textField>
+				<reportElement x="459" y="30" width="74" height="20" uuid="381ade50-b892-440a-9f60-ac9752613405"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="505" y="65" width="70" height="20" uuid="5fb20cd9-d5af-4494-8485-fe34e1872912"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="418" y="65" width="114" height="20" uuid="df2e868f-1920-437e-a2e8-b629d7dd1694"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fecha de Generacion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="265" height="20" uuid="dde66ef4-874e-481c-9b36-fbd78bb8a8ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="40" width="265" height="20" uuid="576d3dc8-2b82-4530-b594-b77a6de495c0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE CAPACITADORES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-5" y="0" width="105" height="50" uuid="f0282b78-cee0-4812-9a11-fcda8bf7762a"/>
+				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="138" y="20" width="265" height="20" uuid="73dabb7b-2083-466a-bc66-04e0d1d02f42"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="533" y="30" width="26" height="20" uuid="0e4a0f73-d910-4993-b03e-1b1f92695f7d"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-40" y="82" width="615" height="3" uuid="f0db306d-0ca2-42d3-9870-2a7b4454a9c2"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="89e61ee6-0a34-49c2-baa2-2464d007d21b"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="100" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5bad4120-5e48-417e-93e9-744284a3fe27"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Capacitador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="110" y="0" width="101" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="90329b24-197c-409f-ad29-8bb7c4f12749"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Capacitador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="221" y="0" width="85" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="4bed08c9-10e1-4d1b-8112-5d8cdbc2fdcd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono Movil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="306" y="0" width="112" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="e5b0ded0-c0d8-4746-a333-f306e0fe286e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="418" y="0" width="134" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="a80af39f-1e86-4180-8969-4323788b37d3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Temas de Docminio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="100" height="20" uuid="b3d555ca-2d9d-4428-a708-b5df7daf20b4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capacitador_nombrecapacitador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="110" y="0" width="101" height="20" uuid="db631a7c-a4e1-4932-b58a-2a3aa4c874e8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capacitador_tipocapacitador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="221" y="0" width="85" height="20" uuid="17518cf7-92f1-40ba-b458-314b9d67d4a4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capacitador_telefonomovilcapacitador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="306" y="0" width="112" height="20" uuid="44d3df89-ca59-4001-82bb-4ab68e8667f2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capacitador_emailcapacitador}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="418" y="0" width="134" height="20" uuid="b2602596-d40c-4f43-af5e-9ec35ff47311"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capacitador_temadominio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="4" y="4" width="555" height="13" backcolor="#E6E6E6" uuid="49530a96-c282-4137-9bcf-092e6b63a991"/>
+				<textElement>
+					<font fontName="Times New Roman" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

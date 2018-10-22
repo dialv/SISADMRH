@@ -5,16 +5,16 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
 import mj.gob.sisadmrh.repository.HijosdiscapacidadRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 @Service
 public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
@@ -45,4 +45,15 @@ public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
         hijosdiscapacidadRep.deleteById(id);
     }
     
+    @Override
+    public Iterable<Hijodiscapacidad> findByDato(int id) {
+        return hijosdiscapacidadRep.findByDato(id);
+        
+    }
+    
+    @Override
+    public List<Object[]> findhijoscap(){
+        return hijosdiscapacidadRep.findhijoscap();
+        
+    }
 }

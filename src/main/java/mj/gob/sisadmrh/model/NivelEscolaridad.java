@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -63,11 +64,16 @@ public class NivelEscolaridad implements Serializable {
     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechadesdenivelescolaridad;
     @Column(name = "FECHAHASTANIVELESCOLARIDAD")
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
      @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechahastanivelescolaridad;
-//    @ManyToMany(mappedBy = "nivelescolaridadList")
-//    private List<Empleado> empleadoList;
+    @Lob
+    @Column(name = "TITULO")
+    private byte[] titulo;//sube el formularios
+
+    
+//   @ManyToMany(mappedBy = "nivelescolaridadList")
+//   private List<Empleado> empleadoList;
 
     public NivelEscolaridad() {
     }
@@ -148,13 +154,20 @@ public class NivelEscolaridad implements Serializable {
         this.fechahastanivelescolaridad = fechahastanivelescolaridad;
     }
 
+    public byte[] getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(byte[] titulo) {
+        this.titulo = titulo;
+    }
 //    public List<Empleado> getEmpleadoList() {
 //        return empleadoList;
 //    }
 //
 //    public void setEmpleadoList(List<Empleado> empleadoList) {
-//        this.empleadoList = empleadoList;
-//    }
+//       this.empleadoList = empleadoList;
+//   }
 
     @Override
     public int hashCode() {

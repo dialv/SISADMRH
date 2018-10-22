@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="des" uuid="f8a8dd62-0fc9-449b-ab86-30e2c846dfd5"/>
+	<subDataset name="descuento" uuid="88b8cd6b-7a30-4a58-b2c8-e2e086926a4e">
+		<queryString language="SQL">
+			<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total,d.montodescuento,c.salarioactual
+from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado 
+inner join empleadodescuento ed on e.codigoempleado=ed.codigoempleado
+ inner join descuento d on ed.codigodescuento=d.codigodescuento 
+ inner join empleadoexperiencialaboral ee on e.codigoempleado = ee.codigoempleado 
+inner join experiencialaboral el on ee.codigoexperiencialaboral=el.codigoexperiencialaboral]]>
+		</queryString>
+		<field name="Total" class="java.lang.Double"/>
+		<field name="montodescuento" class="java.lang.Float">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="salarioactual" class="java.lang.Float">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="salarioactual">
+			<groupExpression><![CDATA[$F{salarioactual}]]></groupExpression>
+		</group>
+		<group name="montodescuento">
+			<groupExpression><![CDATA[$F{montodescuento}]]></groupExpression>
+		</group>
+		<group name="Total">
+			<groupExpression><![CDATA[$F{Total}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2017-10-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2018-09-20"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total, e.nombreempleado,c.salarioactual,c.fechainiciocontrato,c.fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,el.nombreinstitucion, CURRENT_DATE from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado inner join empleadodescuento ed on e.codigoempleado=ed.codigoempleado inner join descuento d on ed.codigodescuento=d.codigodescuento inner join empleadoexperiencialaboral ee on e.codigoempleado = ee.codigoempleado inner join experiencialaboral el on ee.codigoexperiencialaboral=el.codigoexperiencialaboral
+WHERE e.codigoempleado= $P{CODIGO} and
+c.fechainiciocontrato>=$P{FECHAINICIO} and
+c.fechafincontrato <= $P{FECHAFIN}]]>
+	</queryString>
+	<field name="Total" class="java.lang.Double"/>
+	<field name="nombreempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="salarioactual" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechainiciocontrato" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechafincontrato" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sistemapago" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plazanominal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montopago" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montodescuento" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreinstitucion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CURRENT_DATE" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="208" y="20" width="173" height="20" uuid="92646f55-b86a-406f-b483-3937bdd29a9a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Ministrio de Justicia y Segruridad Publica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="64" width="64" height="20" uuid="598b059c-c836-4d9a-9f00-aa02191a6297"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="43" width="173" height="20" uuid="ff0ff36a-d21b-48a0-8a36-d2f2e3e11abd"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="8" width="100" height="20" uuid="ce3f3878-6d02-4709-a00e-5a40b03d9145"/>
+				<text><![CDATA[Constancia Salarial]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="30" width="80" height="20" uuid="1c634514-dc50-40e0-bce0-51abeda387cb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="507" y="30" width="40" height="20" uuid="07d33278-4802-4c35-87d1-e03ac665e740"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="451" y="7" width="100" height="20" uuid="1d302d02-d934-453e-8f10-74156b845839"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="411" y="8" width="40" height="20" uuid="88e9db8a-3a8b-4174-91e8-ad4201c9bf97"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="31" width="29" height="20" uuid="2a809ba7-8a89-4d40-81ff-a2d55dd8ad25"/>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="32" width="31" height="20" uuid="b0cf2130-63f4-45e8-9c29-55570e8b5584"/>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="197" y="32" width="100" height="20" uuid="cec00a1a-473f-4dee-a80c-21eb6d7f70ac"/>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="32" width="100" height="20" uuid="7a7b72cb-e892-4d64-b4e5-84f70380a4fd"/>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="173" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="0" y="12" width="572" height="94" isPrintWhenDetailOverflows="true" uuid="536dacfd-b0c8-48d3-8bb5-b6533ce84a8b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Hace constar que <b>"+$F{nombreempleado}+"</b> presta servicios para esta Institucion desde"
++$F{fechainiciocontrato}+" hasta "+ $F{fechafincontrato}+ " ambas fechas inclusive, nombrado por el sistema de pago "+
+$F{sistemapago}+" En plaza Nominal "+$F{plazanominal}+
+" devengando un salario mensual de $"+$F{salarioactual}+
+" A quien se le efectuan los siguientes descuentos:<br/><br/>"
+
++"Detalle "
+
++"<table>"
++" <tr>"
++" <th>Detalle.</th>"
++" <th>Descuento</th>"
++"</tr>"
++"<tr>"
++" <td>Salario Actual</td>"
++" <td>"+$F{salarioactual}+"</td>"  </table>"
++"</tr>"
++"<tr>"
++"<td>Monto Descuento</td>"
++"<td>"+$F{montodescuento}+"</td> "
++"</tr>"
++"</table>"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 4" style="table 4" x="80" y="33" width="180" height="140" uuid="3677dd6c-66be-48e3-afee-b399e20b090d"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="descuento" uuid="2ae0aadb-3e23-494a-ac6d-a9d1921601d2">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="ae1be2af-7d1a-4a96-a9cb-8feeaa56141b">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="92" width="90" height="30" uuid="167bfa3c-5378-470e-ae91-f8daedb24f13"/>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 4_CH" height="42" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="200" y="72" width="90" height="20" uuid="1e38069d-e4d8-4619-a720-b29c380c4685"/>
+								<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="379a9043-5218-48b4-9466-fc1d397d5f2b">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="-10" y="62" width="90" height="30" uuid="7ed99cc1-5d69-48d4-96a9-68d1775c0bf9"/>
+								<text><![CDATA[montodescuento]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 4_CH" height="42" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="110" y="32" width="113" height="20" uuid="cfea9429-815b-4f60-9305-f37db42fcc3e"/>
+								<textFieldExpression><![CDATA[$F{montodescuento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="145" uuid="38fb8676-997f-4398-9617-5a19bee7df30">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="-90" y="0" width="90" height="30" uuid="812f9206-7c35-45e3-ba6e-039926aead35"/>
+								<text><![CDATA[salarioactual]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table 4_CH" height="42" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="5d492ce5-d5e5-4a47-bfc1-0a128c29632d"/>
+								<textFieldExpression><![CDATA[$F{salarioactual}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="178" y="3" width="199" height="20" uuid="a904b1d4-d690-45ac-8066-9b4ccd020c67"/>
+				<text><![CDATA[Derechos Reservados  UES/FIA/ESISI]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

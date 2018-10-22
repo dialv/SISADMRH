@@ -20,9 +20,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <h3>GENERACION DE CONSTANCIA SALARIAL
             </h3>
             <div>
-                <form class="form-horizontal" id="formreport" th:object="${empleados}">
+                <form class="form-horizontal" id="formreport">
 
-                    <div class="form-group">
+                   <div class="form-group">
                         <label class="col-sm-3 control-label" >Nombre de Empleado:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="codigo" name="codigo">
@@ -42,8 +42,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
                     </div>
-                     <div class="form-group">    
-                         <td><a class="btn btn-default" id="generar">Generar</a></td>
+                      <div class="form-group">    
+                         <td><a class="btn btn-default" id="generatePdf">pdf</a></td>
+                    </div>
+                      <div class="form-group">    
+                         <td><a class="btn btn-default" id="generateWord">word</a></td>
                     </div>
                 </form>
             </div>
@@ -62,8 +65,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $('#fechafinal').datepicker({
             dateFormat: 'yy-mm-dd'
         });
-        $('#generar').click(function(){
-            $("#formreport").attr('action', '../constanciasalariales/'+ $("#codigo").val().toString());
+        $('#generatePdf').click(function(){
+            $("#formreport").attr('action', '../constanciasalariales/'+ $("#codigo").val().toString() + '/rpt/1');
+            $("form#formreport").submit();
+            
+        });
+        $('#generateWord').click(function(){
+            $("#formreport").attr('action', '../constanciasalariales/'+ $("#codigo").val().toString()+ '/rpt/2');
             $("form#formreport").submit();
             
         });

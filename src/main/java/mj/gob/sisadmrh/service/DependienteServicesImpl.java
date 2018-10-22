@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 @Service
 public class DependienteServicesImpl implements DependienteService {
@@ -43,6 +43,12 @@ public class DependienteServicesImpl implements DependienteService {
     @Override
     public void deleteDependiente(Integer id) {
         dependienteRep.deleteById(id);
+    }
+    
+    @Override
+    public Iterable<Dependiente> findByDato(int id) {
+        return dependienteRep.findByDato(id);
+        
     }
     
 }

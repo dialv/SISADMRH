@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>asignacion de asistencias a capacitaciones</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+          <div class="contenedorizq"> 
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>
+<div class="row">
+ <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+    <div class="col-md-9">
+         <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Asignacion de asistencias de capacitaciones</h3>
+    <!--<div th:if="${not #lists.isEmpty(empleadoasistenciacapacitaciones)}">-->
+        <div class="table-responsive">
+  <table class="table">
+        <!--<table class="table table-striped">-->
+            <tr>
+                <th>Nombre empleado</th>
+                <th>Ubicacion Fisica</th>
+               
+                
+            </tr>
+            <tr th:each="empleado : ${empleados}">
+                <td th:text="${empleado.codigoempleado}">Nombre empleado</td>
+                <!--<td th:text="${empleadoasistenciacapacitacion.asistenciacapacitacion.codigoasistenciacapacitacion}">Codigo</td>-->
+                <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
+            </tr>
+            <tr th:each="asistenciacapcitacion : ${asistenciacapcitaciones}">
+                <!--<td th:text="${empleado.codigoempleado}">Nombre empleado</td>-->
+                <td th:text="${asistenciacapcitaciones.codigoasistenciacapacitacion}">Codigo</td>
+                <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
+            </tr>
+        </table>
+    </div>
+<!--</div>-->
+    </div>
+</body
+
+</html>

@@ -11,10 +11,9 @@ import mj.gob.sisadmrh.repository.CaparecibidasRepository;
 import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 @Service
 public class CaparecibidasServicesImpl implements CaparecibidasService {
@@ -43,6 +42,12 @@ public class CaparecibidasServicesImpl implements CaparecibidasService {
     @Override
     public void deleteCaparecibidas(Integer id) {
         caparecibidasRep.deleteById(id);
+    }
+    
+    @Override
+    public Iterable<Caparecibidas> findByDato(int id) {
+        return caparecibidasRep.findByDato(id);
+        
     }
     
 }

@@ -18,20 +18,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
      <div class="col-md-9">
           <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/beneficio.png}"/>
                     </div>
         <h3 align="center">Beneficios</h3>
     <div th:if="${not #lists.isEmpty(beneficios)}">
        
-        <table class="table table-striped">
+        <table id = "tablita" class="table table-striped">
+            <thead>
             <tr>
-                <th>Código</th>
+                <th>Co&acute;digo</th>
                 <th>Nombre</th>
-                <th>Descripción</th>
-                 <th>Fecha Inicio</th>
-                  <th>Fecha Fin</th>
+                <th>Descripcio&acute;n</th>
+                <th>Fecha Inicio</th>
+                 <th>Fecha Fin</th>
+                 <th>Acciones</th>
                 
             </tr>
+            </thead>
             <tr th:each="beneficio : ${beneficios}">
                 <td th:text="${beneficio.codigobeneficio}">Codigo</td>
                 <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
@@ -50,6 +53,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
      <script th:inline="javascript">
         $(document).ready(function () {
+        $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );    
     if([[${msg}]]===3){
        swal({
            

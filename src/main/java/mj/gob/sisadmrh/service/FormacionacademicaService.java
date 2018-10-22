@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Formacionacademica;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface FormacionacademicaService {
@@ -21,4 +21,6 @@ public interface FormacionacademicaService {
     Formacionacademica saveFormacionacademica(Formacionacademica empleado);
 
     void deleteFormacionacademica(Integer id);
+    
+    Iterable<Formacionacademica> findByDato(int id) ;
 }

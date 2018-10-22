@@ -40,8 +40,9 @@ public class UsuarioRolController {
     private final String PREFIX = "fragments/usuariorol/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
+        
         model.addAttribute("usuariorols", usuariorolService.listAllUsuariosrol());
-        return PREFIX + "usuariorols";
+        return PREFIX + "usuariosrol";
     }
     
     @RequestMapping("edit/{id}")
@@ -73,7 +74,13 @@ public class UsuarioRolController {
         catch(Exception e){
          model.addAttribute("msg", 1);
         }
-        return PREFIX+"usuariorolform";
+        UsuarioRolform form = new UsuarioRolform();
+        form.setRoles(rolService.listAllRoles());
+        form.setUsuarios(usuarioService.listAllUsuarios());
+        form.setUsuariorol(new Usuariorol());
+        model.addAttribute("formusuariorol", form);
+        return PREFIX + "usuariorolform";
+
        // return "redirect:./show/" + usuariorol.getCodigousuariorol();
     }
     
@@ -92,7 +99,7 @@ public class UsuarioRolController {
         catch(Exception e){
         model.addAttribute("msg", 4);
         }
-        return PREFIX + "usuariorols";
+        return PREFIX + "usuariosrol";
        // return "redirect:/usuariorols/";
     }
 };

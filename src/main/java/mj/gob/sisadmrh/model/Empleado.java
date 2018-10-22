@@ -7,19 +7,27 @@ package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -39,7 +47,7 @@ public class Empleado implements Serializable {
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
@@ -84,32 +92,35 @@ public class Empleado implements Serializable {
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresosecpub;
     @Column(name = "FECHAINGRESOSECPRIV")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresosecpriv;
     @Column(name = "FECHAINGRESOMINISTERIO")
-    @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "YYYY-MM-dd")
     private Date fechaingresoministerio;
-    @Size(max = 6)
+    @Size(max = 12)
     @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
     @Size(max = 12)
     @Column(name = "NUMEROAFILIACION")
     private String numeroafiliacion;
-    @Size(max = 2)
+    @Size(max = 12)
     @Column(name = "TIPOCUENTA")
     private String tipocuenta;
     @Size(max = 50)
     @Column(name = "NOMBREINSTIUCIONDEPOSITAR")
     private String nombreinstiuciondepositar;
+    @Size(max = 30)
+    @Column(name = "NUMEROCUENTA")
+    private String numerocuenta;
     @Size(max = 50)
     @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
     @Column(name = "ESTADOEMPLEADO")
     private Integer estadoempleado;
-    @Size(max = 1)
+    @Size(max = 12)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
     @Id
@@ -122,9 +133,15 @@ public class Empleado implements Serializable {
     private String recidenciapermanente;
     @Basic(optional = false)
     @NotNull
+//    @JoinColumn(name = "codigopuesto", referencedColumnName = "codigopuesto")
+//    @OneToOne(optional = false)
     @Column(name = "codigopuesto")
-    private int codigopuesto;
-
+    private int  codigopuesto;
+ @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
+    private List<Empleadocapacitacion> empleadocapacitacionList;
+ 
+ @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
+    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
     public Empleado() {
     }
 
@@ -344,7 +361,13 @@ public class Empleado implements Serializable {
     public void setEstadoempleado(Integer estadoempleado) {
         this.estadoempleado = estadoempleado;
     }
+public String getNumerocuenta() {
+        return numerocuenta;
+    }
 
+    public void setNumerocuenta(String numerocuenta) {
+        this.numerocuenta = numerocuenta;
+    }
     public String getSexoempleado() {
         return sexoempleado;
     }
@@ -375,6 +398,22 @@ public class Empleado implements Serializable {
 
     public void setCodigopuesto(int codigopuesto) {
         this.codigopuesto = codigopuesto;
+    }
+
+    public List<Empleadocapacitacion> getEmpleadocapacitacionList() {
+        return empleadocapacitacionList;
+    }
+
+    public void setEmpleadocapacitacionList(List<Empleadocapacitacion> empleadocapacitacionList) {
+        this.empleadocapacitacionList = empleadocapacitacionList;
+    }
+
+    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
+        return empleadoasistenciacapacitacionList;
+    }
+
+    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
+        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
     }
 
     @Override

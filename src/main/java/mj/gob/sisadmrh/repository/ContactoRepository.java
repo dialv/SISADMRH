@@ -6,12 +6,20 @@
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.Contacto;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.User;
 
 /**
  *
  * @author IPalacios
  */
+
 public interface ContactoRepository extends CrudRepository<Contacto, Integer>{
+        @Query(value = "SELECT c.* FROM contacto c, empleadocontacto ec WHERE c.codigocontacto = ec.codigocontacto and ec.codigoempleado= :id ", nativeQuery = true)
+    Iterable<Contacto> findByDato(@Param("id") int dato);
+    
+
     
 }

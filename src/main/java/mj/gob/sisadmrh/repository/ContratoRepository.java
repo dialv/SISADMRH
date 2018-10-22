@@ -6,12 +6,16 @@
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.Contrato;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author IPalacios
  */
 public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
+       @Query(value = "SELECT d.* FROM contrato d  WHERE d.codigoempleado= :id ", nativeQuery = true)
+    Iterable<Contrato> findByDato(@Param("id") int dato);
     
 }

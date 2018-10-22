@@ -5,7 +5,7 @@
  */
 package mj.gob.sisadmrh.repository;
 
-import mj.gob.sisadmrh.model.UbicacionFisica;
+import mj.gob.sisadmrh.model.Ubicacionfisica;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -14,10 +14,15 @@ import org.springframework.data.repository.query.Param;
  *
  * @author jorge
  */
-public interface UbicacionFisicaRepository  extends CrudRepository<UbicacionFisica, Integer>{
+public interface UbicacionFisicaRepository  extends CrudRepository<Ubicacionfisica, Integer>{
     @Query(value = "SELECT u.* FROM UbicacionFisica u "
             + "WHERE u.nombreubicacion LIKE :nom ", nativeQuery = true)
 
-    Iterable<UbicacionFisica> findByUbicacion(@Param("nom") String dato);
+    Iterable<Ubicacionfisica> findByUbicacion(@Param("nom") String dato);
+    
+      @Query(value = "SELECT d.* FROM ubicacionfisica d  WHERE d.codigoempleado= :id ", nativeQuery = true)
+    Iterable<Ubicacionfisica> findByDato(@Param("id") int dato);
     
 }
+
+

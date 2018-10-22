@@ -53,6 +53,7 @@
       <div class="row" align="center">
                 <button type="button" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
                 <button  class="btn btn-default"  id="generar">Consultar</button>
+                 <button  class="btn btn-default"  id="excel">excel</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
             </div>
             </div>
@@ -101,6 +102,11 @@
                     $('#generar').click(function(){
             $("#fromreportpuesto").attr('action', '../pdf/');
             $("form#fromreportpuesto").submit();
+            
+        });
+                   $('#excel').click(function(){
+            $("#fromreportpensionado").attr('action', '../puestoscaducasxls');
+            $("form#fromreportpensionado").submit();
             
         });
                     

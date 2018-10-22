@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 @Service
 public class ContratoServicesImpl implements ContratoService {
@@ -44,5 +44,12 @@ public class ContratoServicesImpl implements ContratoService {
     public void deleteContrato(Integer id) {
         contratoRep.deleteById(id);
     }
+    
+    @Override
+    public Iterable<Contrato> findByDato(int id) {
+        return contratoRep.findByDato(id);
+        
+    }
+    
     
 }

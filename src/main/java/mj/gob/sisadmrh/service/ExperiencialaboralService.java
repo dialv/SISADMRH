@@ -10,7 +10,7 @@ import mj.gob.sisadmrh.model.Experiencialaboral;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 
 public interface ExperiencialaboralService {
@@ -21,4 +21,6 @@ public interface ExperiencialaboralService {
     Experiencialaboral saveExperiencialaboral(Experiencialaboral empleado);
 
     void deleteExperiencialaboral(Integer id);
+    
+    Iterable<Experiencialaboral> findByDato(int id) ;
 }

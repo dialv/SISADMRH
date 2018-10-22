@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-    <title>Beneficios</title>
+    <head lang="en">
+        <title>Roles</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-        <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-        <div class="col-md-9">
-<div class="contenedorizq"> 
+          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
-<div class="container">
-    
+    <div class="row">
+             <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Listado de Comisiones</h3>
     <div th:if="${not #lists.isEmpty(comisiones)}">
-        <h3 align="center">Listado de Comisiones</h3><br>
-        <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
+        <table id="tablita" class="table table-striped " style="width:100%" >
             <thead>
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
-                <th></th>
+                <th>Acuerdo</th>
+                <th>Acciones</th>
             </tr>
             </thead>
-            <tbody>
+            
             <tr th:each="comision : ${comisiones}">
                 <td th:text="${comision.codigocomision}">Código</td>
                 <td th:text="${comision.nombrecomision}">Nombre</td>
                 
                  <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
                   <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
+                  <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
                 
-                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a>
-                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
+                <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a></td>
+                <td></td>  <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
+              <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
-            </tbody>
+            
         </table>
     </div>
 </div>
@@ -101,6 +105,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
                         }
                     });
+        }
+        function descargapdf(idpdf){
+             location.href = './descarga/' + idpdf;
         }
     </script>
 </body>

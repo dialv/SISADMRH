@@ -5,6 +5,8 @@
  */
 package mj.gob.sisadmrh.controller.Inasistencia;
 
+import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Inasistencia;
@@ -16,8 +18,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -59,10 +63,15 @@ public class InasistenciaController extends UtilsController{
        return PREFIX + "inasistenciaform";
                 }
     
-    
+     @RequestMapping(value = "/descarga/{id}")
+    public void verDocumento(HttpServletResponse response, @PathVariable(value = "id") Integer id) 
+           throws IOException{ 
+           streamReport(response, inasistenciaService.getInasistenciaById(id).get().getAcuerdo(), "acuerdo.pdf");
+    }
        @RequestMapping(value = "inasistencia")
-    public String saveInasistencia(Inasistencia inasistencia,Model model,SessionStatus status) {
+    public String saveInasistencia(Inasistencia inasistencia,Model model,SessionStatus status,@RequestParam("file") MultipartFile file) {
         try{
+            inasistencia.setAcuerdo(file.getBytes());
         inasistenciaService.saveInasistencia(inasistencia);
         status.setComplete();
         

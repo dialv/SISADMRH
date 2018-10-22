@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author IPalacios
+ * @author Mmachuca
  */
 @Service
 public class FormacionacademicaServicesImpl implements FormacionacademicaService {
@@ -45,4 +45,9 @@ public class FormacionacademicaServicesImpl implements FormacionacademicaService
         formacionacademicaRep.deleteById(id);
     }
     
+    @Override
+    public Iterable<Formacionacademica> findByDato(int id) {
+        return formacionacademicaRep.findByDato(id);
+        
+    }
 }

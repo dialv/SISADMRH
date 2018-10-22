@@ -15,8 +15,14 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Dependiente;
 import mj.gob.sisadmrh.model.Dependiente;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.EmpleadocontactoPK;
+import mj.gob.sisadmrh.model.Empleadodependiente;
+import mj.gob.sisadmrh.model.EmpleadodependientePK;
 import mj.gob.sisadmrh.service.DependienteService;
 import mj.gob.sisadmrh.service.DependienteService;
+import mj.gob.sisadmrh.service.EmpleadoDependienteService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 //import mj.gob.sisadmrh.service.DependienteDependienteService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +44,10 @@ public class DependienteController extends UtilsController{
     
     private DependienteService dependienteService;
 //    private DependienteDependienteService dependienteDependienteService;
-    
+     @Autowired
+    private EmpleadoDependienteService empleadoDependienteService;
+    @Autowired
+    private EmpleadoService empleadoService;
 
 
     
@@ -47,7 +56,7 @@ public class DependienteController extends UtilsController{
         this.dependienteService = dependienteService;
     }
     
-    private final String PREFIX = "fragments/empleado/";
+    private final String PREFIX = "fragments/dependiente/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("dependientes", dependienteService.listAllDependiente());
@@ -57,31 +66,58 @@ public class DependienteController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("dependiente", dependienteService.getDependienteById(id));
-        return PREFIX + "empleadoform";
+        return PREFIX + "dependienteform";
     }
 
-    @RequestMapping("new/dependiente")
+    @RequestMapping("new/{id}")
     public String newDependiente(Model model) {
         model.addAttribute("dependiente", new Dependiente());
-        return PREFIX + "empleadoform";
+        return PREFIX + "dependienteform";
     }
 
-    @RequestMapping(value = "dependiente")
-    public String saveDependiente(Dependiente dependiente) {
-        dependienteService.saveDependiente(dependiente);
-        return "redirect:./show/" + dependiente.getCodigodependiente();
+//    @RequestMapping(value = "dependiente/{id}")
+    @RequestMapping(value = "dependiente/{id}")
+    public String saveDependiente(Dependiente dependiente,Model model,@PathVariable Integer id) {
+        
+        
+         try{
+            dependienteService.saveDependiente(dependiente);
+            
+        Empleadodependiente emcon = new  Empleadodependiente();
+        emcon.setDependiente(dependiente);
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadodependientePK emconpk = new EmpleadodependientePK();
+        emconpk.setCodigodependiente(dependiente.getCodigodependiente());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadodependientePK(emconpk);
+        empleadoDependienteService.saveEmpleadodependiente(emcon);
+            model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 1);
+        }
+//        return "redirect:./show/" + dependiente.getCodigodependiente();
+           return PREFIX + "dependienteform";
     }
     
     @RequestMapping("show/{id}")    
     public String showDependiente(@PathVariable Integer id, Model model) {
         model.addAttribute("dependiente", dependienteService.getDependienteById(id).get());
-        return PREFIX +"empleadoshow";
+        return PREFIX +"dependienteshow";
     }
 
     @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        dependienteService.deleteDependiente(id);
-        return "redirect:/empleado/";
+    public String delete(@PathVariable Integer id,Model model) {
+        
+         try{
+            dependienteService.deleteDependiente(id);
+            model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+            model.addAttribute("msg", 4);
+        }
+//        return "redirect:/dependientes/";
+        return PREFIX + "dependientes";
     }
     
     

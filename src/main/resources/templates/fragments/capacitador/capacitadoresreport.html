@@ -30,8 +30,11 @@
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
                     </div>
+                       <div class="form-group">    
+                         <td><a class="btn btn-default" id="generar">pdf</a></td>
+                    </div>
                      <div class="form-group">    
-                         <td><a class="btn btn-default" id="generar">Generar</a></td>
+                         <td><a class="btn btn-default" id="excel">excel</a></td>
                     </div>
                 </form>
             </div>
@@ -50,8 +53,16 @@
         $('#fechafinal').datepicker({
             dateFormat: 'yy-mm-dd'
         });
+        
         $('#generar').click(function(){
             $("#formcapacitador").attr('action', '../pdf/'+ $("#codigo").val().toString());
+            $("form#formcapacitador").submit();
+            
+        });
+    });
+    
+     $('#excel').click(function(){
+            $("#formcapacitador").attr('action', '../capacitadoresxls');
             $("form#formcapacitador").submit();
             
         });

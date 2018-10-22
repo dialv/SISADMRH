@@ -1,7 +1,10 @@
 package mj.gob.sisadmrh.controller.comision;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Comision;
@@ -53,9 +56,17 @@ public class ComisionController extends UtilsController{
         return PREFIX + "comisionform";
     }
 
+     @RequestMapping(value = "/descarga/{id}")
+    public void verDocumento(HttpServletResponse response, @PathVariable(value = "id") Integer id) 
+           throws IOException{ 
+           streamReport(response, comisionService.getComisionById(id).get().getDocaprovacion(), "acuerdo.pdf");
+    }
+
+    
     @RequestMapping(value = "comision" )
     public String saveComision(Comision comision,Model model, @RequestParam("file") MultipartFile file) {
         try{
+        comision.setDocaprovacion(file.getBytes());
         comisionService.saveComision(comision);
         
         model.addAttribute("msg", 0);

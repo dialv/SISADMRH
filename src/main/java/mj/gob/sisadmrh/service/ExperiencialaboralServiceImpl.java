@@ -40,5 +40,11 @@ public class ExperiencialaboralServiceImpl implements ExperiencialaboralService 
     public void deleteExperiencialaboral(Integer id) {
         experiencialaboralRep.deleteById(id);
     }
+    
+     @Override
+    public Iterable<Experiencialaboral> findByDato(int id) {
+        return experiencialaboralRep.findByDato(id);
+        
+    }
 
 }
