@@ -6,7 +6,7 @@ body {
 	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   color:whitesmoke;
   font-size:12px;
-  /*background:#186218/*url(/images/classy_fabric.png)*/
+  background:#186218; 
   background-image: url(/sisadmrh/image/background.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -18,7 +18,7 @@ background-size: cover;
 }
 
 form {
- 	background: #333f32; 
+  background-image: url(/sisadmrh/image/metal.jpg);
   width:600px;
   margin:30px auto;
   border-radius:0.4em;
@@ -159,3 +159,18 @@ label:hover ~ input[type=password] {
 .col_der {float: right; width: 20%; background-color: white; }
 .col_izq {float: left; width: 20%; background-color: white; padding: 2%}
 .col_cen {float: left; width: 60%; text-align: center; padding: 1%}
+
+
+.h2mod {
+  font-size:20px;
+  text-shadow:1px 1px 10px black;
+  text-align:center;
+  position:relative;
+}
+.fotmod {
+  font-size:20px;
+  text-shadow:1px 1px 10px white;
+  text-align:center;
+  position:relative;
+  color:black;
+}
