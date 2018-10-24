@@ -78,7 +78,9 @@ public class CapacitadorController extends UtilsController{
     public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model,SessionStatus status) {
 try{
  capacitadorService.saveCapacitador(capacitador);
- status.setComplete();
+ status.setComplete();//MAANEJA LA SESION PARA EDITAR LOS FORMULARIOS
+  bitacoraService.BitacoraRegistry("se  creo un Capacitador",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
   model.addAttribute("msg", 0);
 } catch(Exception e){
   model.addAttribute("msg", 1);
@@ -105,6 +107,8 @@ try{
     public String delete(@PathVariable Integer id) {
         try{} catch(Exception e){}
         capacitadorService.deleteCapacitador(id);
+         bitacoraService.BitacoraRegistry("se elimino un Capacitador",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         return "redirect:/capacitadores/";
     }
     

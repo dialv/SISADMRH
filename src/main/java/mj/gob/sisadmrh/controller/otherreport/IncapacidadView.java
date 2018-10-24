@@ -35,10 +35,10 @@ public class IncapacidadView  extends AbstractXlsView {
  header.createCell(2).setCellValue("Nombre de empleado");
  header.createCell(3).setCellValue("Nombre de incapacidad");
  header.createCell(4).setCellValue("cargo ");
- header.createCell(4).setCellValue("DUI ");
- header.createCell(5).setCellValue("Fecha Desde");
- header.createCell(6).setCellValue("Fecha Hasta");
- header.createCell(7).setCellValue("Afiliacion al ISSS");
+ header.createCell(5).setCellValue("DUI ");
+ header.createCell(6).setCellValue("Fecha Desde");
+ header.createCell(7).setCellValue("Fecha Hasta");
+ header.createCell(8).setCellValue("Afiliacion al ISSS");
  header.createCell(9).setCellValue("Tipo de Incapacidad");
  header.createCell(10).setCellValue("Forma de Incapacidad");
  header.createCell(11).setCellValue("Subsidio");

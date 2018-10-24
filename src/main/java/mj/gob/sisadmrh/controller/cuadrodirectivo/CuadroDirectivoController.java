@@ -76,6 +76,8 @@ public class CuadroDirectivoController extends UtilsController{
          cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);
          status.setComplete();
          model.addAttribute("msg", 0);
+          bitacoraService.BitacoraRegistry("se guardo un Cuadro Directivo",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("cuadrodirectivos", cuadroDirectivoService.listAllCuadroDirectivo());
          return PREFIX + "cuadrodirectivos";
         }
@@ -98,6 +100,8 @@ public class CuadroDirectivoController extends UtilsController{
     public String delete(@PathVariable Integer id, Model model) {
         try{
          cuadroDirectivoService.deleteCuadroDirectivo(id);
+         bitacoraService.BitacoraRegistry("se elimino un Cuadro Directivo",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("msg", 3);
         }
         catch(Exception e){

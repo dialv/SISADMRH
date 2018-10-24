@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.controller.nivelescolaridad;
 
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.NivelEscolaridad;
 import mj.gob.sisadmrh.service.EmpleadoService;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @SessionAttributes("nivelescolaridad")
 @RequestMapping(value = "nivelescolaridades")
-public class NivelEscolaridadController {
+public class NivelEscolaridadController extends UtilsController{
   
     private NivelEscolaridadService nivelEscolaridadService;
     @Autowired
@@ -64,6 +65,8 @@ public class NivelEscolaridadController {
         try{
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
             status.setComplete();
+             bitacoraService.BitacoraRegistry("se guardo un nivel escolaridad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
             model.addAttribute("msg", 0);
             model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
              Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
@@ -90,6 +93,8 @@ public class NivelEscolaridadController {
     public String delete(@PathVariable Integer id, Model model) {
         try{
          nivelEscolaridadService.deleteNivelEscolaridad(id);
+         bitacoraService.BitacoraRegistry("se elimino un un Nivel Escolar",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("msg", 3);
         }
         catch(Exception e){

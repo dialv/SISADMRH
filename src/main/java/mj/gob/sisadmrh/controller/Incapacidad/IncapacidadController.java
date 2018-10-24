@@ -76,7 +76,9 @@ public class IncapacidadController extends UtilsController {
              incapacidad.setDocumento1(file.getBytes());// es el documento o constancia de incapacidad
           //  incapacidad.setDocumento2(file.getBytes());
             incapacidadService.saveIIncapacidad(incapacidad);
-            status.setComplete();
+            status.setComplete();//para controlar la edicion de form
+             bitacoraService.BitacoraRegistry("se Creo  una Incapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());// para controlar el vento de la bitacora
             model.addAttribute("msg", 0);
         } catch (Exception e) {
             model.addAttribute("msg", 1);
@@ -94,6 +96,8 @@ public class IncapacidadController extends UtilsController {
     public String delete(@PathVariable Integer id, Model model) {
         try {
             incapacidadService.deleteIncapacidad(id);
+            bitacoraService.BitacoraRegistry("se elimino una incapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 3);
         } catch (Exception e) {
             model.addAttribute("msg", 4);

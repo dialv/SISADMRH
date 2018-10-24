@@ -50,8 +50,8 @@ public class EstadoController extends UtilsController{
     public String saveEstado(EstadoForm estadoform,Model model) {
          try{
         estadoService.saveEstado(estadoform.getEstado());
-        bitacoraService.BitacoraRegistry("se guardo estado",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());
+        bitacoraService.BitacoraRegistry("se Creo un Estado",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
         model.addAttribute("estados", estadoService.listAllEstado());
         return PREFIX + "estados";
