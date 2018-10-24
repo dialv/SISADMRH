@@ -61,11 +61,11 @@ public class NivelEscolaridad implements Serializable {
     @Column(name = "PAISNIVELESCOLARIDAD")
     private String paisnivelescolaridad;
     @Column(name = "FECHADESDENIVELESCOLARIDAD")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechadesdenivelescolaridad;
     @Column(name = "FECHAHASTANIVELESCOLARIDAD")
     //@Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+      @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechahastanivelescolaridad;
     @Lob
     @Column(name = "TITULO")

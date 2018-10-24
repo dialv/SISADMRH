@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Capacitacion</title>
+        <title>Crear Capacitación</title>
 <!--         <th:block th:include="../templates/header"></th:block>-->
         <link rel="stylesheet"
 	th:href="@{/css/bootstrap.min.css}" />
@@ -35,22 +35,35 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombre de Capacitación:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <input type="text" size="50" maxlength="50"  class="form-control" required="true" th:field="*{nombrecapacitacion}"/>
                         </div>
+                            <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capa')" onmouseout ="javascript:ocultarAyuda('capa')">a</a></b>
+                        
+                        <span class="popuptext" id="capa">Ingrese la Capacitación. Solo se aceptan 50 caracteres.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descripción Capacitación:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}"/>
+                        <div class="col-sm-9">
+                            <textarea rows="4" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}">
+
+                            </textarea>
+                            <!--<input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}"/>-->
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcionn')" onmouseout ="javascript:ocultarAyuda('descripcionn')">a</a></b>
+                        
+                        <span class="popuptext" id="descripcionn">Ingrese la Descripcion de la Capacitacion. Solo se permiten 500 Caracteres como maximo.!</span>
+                    </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Categoria Capacitación(*):</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                            <select class="form-control"   required="true"  name="categoriacapacitacion" >
+                            <select class="form-control"   required="true"  name="categoriacapacitacion"  >
                                 <option>Desarrollo laboral</option>
                                 <option>Desarrollo Personal</option>
                                 <option>Desarrollo Social</option>
@@ -60,16 +73,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Descripción Categoría:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncategoria}"/>
+                       <label class="col-sm-2 control-label">Descripción Categoría:</label>
+                        <div class="col-sm-9">
+                            <textarea rows="4" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncategoria}">
+
+                            </textarea>
+                            <!--<input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}"/>-->
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcionn')" onmouseout ="javascript:ocultarAyuda('descripcionn')">a</a></b>
+                        
+                        <span class="popuptext" id="descripcionn">Ingrese la Descripcion de la Categoria. Solo se permiten 500 Caracteres como maximo.!</span>
+                    </div>
                     </div>
 
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Departamento Responsable(*):</label>
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                             <select class="form-control" required="true"  name="departamentoresponsable" >
                                 <option>Recursos humanos</option>
@@ -78,61 +99,119 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                             </select>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dep')" onmouseout ="javascript:ocultarAyuda('dep')">a</a></b>
+                        
+                        <span class="popuptext" id="dep">Ingrese El departamento Responsable. Solo se permiten 50 Caracteres como maximo.!</span>
+                    </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Duración de Capacitación en Horas:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-1">
                             <input type="text" class="form-control numeros" required="true" maxlength="4" th:field="*{duracionhoracapacitacion}"/>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dh')" onmouseout ="javascript:ocultarAyuda('dh')">a</a></b>
+                        
+                        <span class="popuptext" id="dh">Ingrese la Duración en Horas. Solo se permiten la Combinacion de digitos del 0 al 9.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Duración de Capacitación en Días:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-1">
                             <input type="text" class="form-control numeros" required="true" maxlength="3" th:field="*{duraciondiacapacitacion}"/>
                         </div>
+                         <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dd')" onmouseout ="javascript:ocultarAyuda('dd')">a</a></b>
+                        
+                        <span class="popuptext" id="dd">Ingrese la Duración en Dias. Solo se permiten la Combinacion de digitos del 0 al 9.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Organismo Patrocianador:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control"size="200" maxlength="200"  required="true" th:field="*{organismopatrocinador}"/>
+                        <div class="col-sm-9">
+                                        <textarea rows="2" cols="50" class="form-control" size="200" maxlength="500"  required="true" th:field="*{organismopatrocinador}">
+
+                            </textarea>
+                            <!--<input type="text" class="form-control" size="500" maxlength="500"  required="true" th:field="*{descripcioncapacitacion}"/>-->
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('organismopatrocinador')" onmouseout ="javascript:ocultarAyuda('organismopatrocinador')">a</a></b>
+                        
+                        <span class="popuptext" id="organismopatrocinador">Ingrese el Organismo Patrocinador. Solo se permiten 200 Caracteres como maximo.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tipo Evento:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control"required="true" size="200" maxlength="200"  th:field="*{tipoevento}"/>
+                        <div class="col-sm-9">
+                                        <textarea rows="2" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{tipoevento}">
+
+                            </textarea>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoevento')" onmouseout ="javascript:ocultarAyuda('tipoevento')">a</a></b>
+                        
+                        <span class="popuptext" id="tipoevento">Ingrese el Tipo evento. Solo se permiten 200 Caracteres como maximo.!</span>
                     </div>
+                        </div>
+                    
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Especialidad de Evento:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" required="true" size="200" maxlength="200"  th:field="*{especialidadevento}"/>
+                        <div class="col-sm-9">
+                                                  <textarea rows="2" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{especialidadevento}">
+
+                            </textarea>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('especialidad')" onmouseout ="javascript:ocultarAyuda('especialidad')">a</a></b>
+                        
+                        <span class="popuptext" id="especialidad">Ingrese la Especialdiad del evento. Solo se permiten 200 Caracteres como maximo.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Pais de realización de Capacitación:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{paiscapacitacion}"/>
                         </div>
+                         <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('pais')" onmouseout ="javascript:ocultarAyuda('pais')">a</a></b>
+                        
+                        <span class="popuptext" id="pais">Ingrese la El país. Solo se permiten 100 Caracteres como maximo.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha Desde:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" required="true" th:field="*{fechacapacitaciondesde}"/>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control fecha_format" id="fdesde" required="true" th:field="*{fechacapacitaciondesde}" onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                         </div>
+                           <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
+                        
+                        <span class="popuptext" id="fechadesde">Ingrese la Fecha de inicio de la capacitación. Haga un clic en la caja vacía.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha  Hasta:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" required="true" th:field="*{fechacapacitacionhasta}"/>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechacapacitacionhasta}" onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" onmouseout ="javascript:ocultarAyuda('fechahasta')">a</a></b>
+                        
+                        <span class="popuptext" id="fechahasta">Ingrese la Fecha de finalizacion de la Capacaitación. Haga un clic en la caja vacía.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tipo de Capacitación:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control" size="20" maxlength="20"  required="true"th:field="*{tipocapacitacion}"/>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipocapacitacin')" onmouseout ="javascript:ocultarAyuda('tipocapacitacin')">a</a></b>
+                        
+                        <span class="popuptext" id="tipocapacitacin">Ingrese el tipo  de Capacaitación. Solo se permiten 20 Caracteres como maximo.!.!</span>
+                    </div>
                     </div>
 
                     <div class="form-group">
@@ -140,27 +219,38 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-10">
                             <input type="text" class="form-control numeros" th:field="*{estadocapacitacion}"/>
                         </div>
+                         <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('estadocapacitacion')" onmouseout ="javascript:ocultarAyuda('estadocapacitacion')">a</a></b>
+                        
+                        <span class="popuptext" id="estadocapacitacion">Ingrese el estado  de  la Capacaitación. Solo se permiten la combinacion de los digitos del 0 al 9.!.!</span>
+                    </div>
                     </div>
                     
                   
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Capacitador:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                                                     <!--<input type="number" class="form-control" th:field="*{codigocapacitador.codigocapacitador}"/>-->
 
                             <select class="form-control" th:field="*{codigocapacitador.codigocapacitador}" >
                                 <option th:each="c:${capacitadores}" th:value="${c.codigocapacitador}" th:text="${c.nombrecapacitador}"></option>
                             </select>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitador')" onmouseout ="javascript:ocultarAyuda('capacitador')">a</a></b>
+                        
+                        <span class="popuptext" id="capacitador">Seleccione El Capacitador. Solo se permiten  50 Caracteres!</span>
+                    </div>
                     </div>
 
 
                     <div class="col-md-12">
                         <div class="row" align="center">
                           
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="reset" class="btn btn-default">Limpiar</button>
+                              <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/capacitaciones/}">Reg</a></button>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+                        
                         </div>
                     </div>
 
@@ -198,13 +288,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     });
 </script>    
     <script>
+        function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
         $(document).ready(function () {
-            $('#fechacapacitaciondesde').datepicker({
-                dateFormat: 'yy-mm-dd'
+            $('#fdesde').datepicker({
+                dateFormat: 'dd/mm/yy'
             });
 
-            $('#fechacapacitacionhasta').datepicker({
-                dateFormat: 'yy-mm-dd'
+            $('#fhasta').datepicker({
+               dateFormat: 'dd/mm/yy'
             });
         });
     </script>

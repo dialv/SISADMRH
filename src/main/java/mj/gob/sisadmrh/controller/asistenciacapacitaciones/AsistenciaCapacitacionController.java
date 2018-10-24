@@ -92,7 +92,8 @@ public class AsistenciaCapacitacionController extends UtilsController{
          asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
          status.setComplete();
         model.addAttribute("msg", 0);
-         
+         model.addAttribute("asistenciacapacitaciones", asistenciaCapacitacionService.listAllAsistenciaCapacitacion());
+          return PREFIX + "asistenciacapacitaciones";
         }
         catch(Exception e){
         model.addAttribute("msg", 1);

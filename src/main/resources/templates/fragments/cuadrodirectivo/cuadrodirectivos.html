@@ -1,141 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-    <title>cuadro directivo</title>
+    <head lang="en">
+        <title>cuadro directivo</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>
-<div class="row">
-   <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-     <div class="col-md-9">
-        
-          <div class="row text-center">
-                        <img src="../../static/image/cuadros.png" width="100" th:src="@{/image/cuadros.png}"/>
-                    </div>
-        <h3 align="center">Listado de Cuadro Directivos</h3>
-    <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
-       
-       <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
-             <thead> 
-            <tr>
-                <th>Código</th>
-                <th>Responsable</th>
-                <th>Area</th>
-                <th>Descripción</th>
-                <th>Fecha Presentación</th>
-               
-                 <th>Acciones</th>
-                
-            </tr>
-             </thead>
-            <tr th:each="cuadrodirectivo : ${cuadrodirectivos}">
-                <td align="center" th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
-                <td th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">Responsable</td>
-                <td th:text="${cuadrodirectivo.area}">area</td>
-                <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
-                <td th:text="${#calendars.format(cuadrodirectivo.fechapresentacion, 'dd-MMM-yyyy')}">F. Presentacion</td>
-                
-                
-                
-                
-<!--                     <a th:href="${'./new/cuadrodirectivo'}" class="btn btn-primary">Nuevo</a>-->
-                 <td>   <a th:href="${'./show/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-info">Mostrar</a></td>
-              <td>  <a th:href="${'./edit/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-success">Editar</a></td>
-              <td> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${cuadrodirectivo.codigocuadrodirectivo} + '\');'" >Eliminar</a></td>
-                <!--<a th:href="${'./delete/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-danger">Delete</a>-->
-                
-            </tr>
-        </table>
+    <div class="contenedorizq"> 
+        <label  class="der">
+            <script >
+                var f = new Date();
+                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());</script></label>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+
+            <div class="row text-center">
+                <img src="../../static/image/cuadros.png" width="100" th:src="@{/image/cuadros.png}"/>
+            </div>
+            <h3 align="center">Listado de Cuadro Directivos</h3>
+            <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
+
+                <table id="tablita" class="table table-striped">
+                    <thead> 
+                        <tr>
+                            <th>Código</th>
+                            <th>Responsable</th>
+                            <th>Area</th>
+                            <th>Descripción</th>
+                            <th>Fecha Presentación Desde</th>
+                            <th>Fecha Presentación Hasta</th>
+
+                            <th></th><th></th><th></th>
+
+                        </tr>
+                    </thead>
+                    <tr th:each="cuadrodirectivo : ${cuadrodirectivos}">
+                        <td align="center" th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
+                        <td th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">Responsable</td>
+                        <td th:text="${cuadrodirectivo.area}">area</td>
+                        <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
+                        <td th:text="${#calendars.format(cuadrodirectivo.fechapresentaciondesde, 'dd/MM/yyyy')}">F. Presentacion Desde</td>
+                        <td th:text="${#calendars.format(cuadrodirectivo.fechapresentacionhasta, 'dd/MM/yyyy')}">F. Presentacion Hasta</td>
+
+                        <td>  <a th:href="${'./show/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-info">Mostrar</a></td>
+                        <td> <a th:href="${'./edit/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-success">Editar</a></td>
+                        <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${cuadrodirectivo.codigocuadrodirectivo} + '\');'" >Eliminar</a></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 <script th:inline="javascript">
-   $(document).ready(function () {
-            $('#tablita').DataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../cuadrodirectivos/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script> 
-<script>
     $(document).ready(function () {
-        $('#fechapresentacion').datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
-
-        
-        
+    $('#tablita').DataTable({
+    "language": {
+    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+    }});
     });
 </script>
-  
- <script th:inline="javascript">
-        $(document).ready(function () {
-    if([[${msg}]]===3){
-       swal({
-           
-                title: "Exito!",
-                text: "Registro Eliminado correctamente",
-                type: "success",
-                icon: "success",
-       }).then(function() {
-                location.href = '../../roles/';
-       }); 
-}
-    
-    if([[${msg}]]===4){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error al eliminar el registro",
-                type: "error",
-                icon: "error"
-       });
+<script th:inline="javascript">
+    $(document).ready(function () {
+
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../cuadrodirectivos/';
+    });
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });</script> 
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 3){
+    swal({
+
+    title: "Exito!",
+            text: "Registro Eliminado correctamente",
+            type: "success",
+            icon: "success",
+    }).then(function() {
+    location.href = '../../roles/';
+    });
+    }
+
+    if ([[${msg}]] === 4){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error al eliminar el registro",
+            type: "error",
+            icon: "error"
+    });
     }
     });
-        
-        function eliminar(id) {
-            swal({
-                title: "Desea Eliminar?",
-                text: "favor confirme que desea eliminar este registro!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            location.href = './delete/' + id;
-                        } else {
-                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
-                        }
-                    });
-        }
-    </script>
+    function eliminar(id) {
+    swal({
+    title: "Desea Eliminar?",
+            text: "favor confirme que desea eliminar este registro!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+    })
+            .then((willDelete) => {
+            if (willDelete) {
+            location.href = './delete/' + id;
+            } else {
+            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+            }
+            });
+    }
+</script>
+
 </html>

@@ -31,47 +31,67 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div>
         <form class="form-horizontal" th:object="${beneficio}" th:action="@{../beneficio}" method="post">
             <input type="hidden" th:field="*{codigobeneficio}"/>
-           
-            
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Beneficio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigobeneficio}"/>
-                </div>
-            </div>-->
-            <div class="form-group">
+  
+          <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Beneficio:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{nombrebeneficio}"/>
                 </div>
-            </div>
+              <div class="popup"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
+                        
+                        <span class="popuptext" id="nombre">Ingrese el Nombre del Beneficio solo se admitiran 30 caracteres.!</span>
+                    </div>
+                 </div>
+              
             <div class="form-group">
                 <label class="col-sm-2 control-label">Descripción Beneficio:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" size="100" maxlength="100" required="true" th:field="*{descripcionbeneficio}"/>
+                
                 </div>
-            </div>
+              <div class="popup"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcion')" onmouseout ="javascript:ocultarAyuda('descripcion')">a</a></b>
+                        
+                        <span class="popuptext" id="descripcion">Ingrese la Descripcion del beneficio, solo se admitiran 5100 caracteres.!</span>
+                    </div>
+                 </div>
+                  
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de inicio:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control"  required="true" th:field="*{fechainiciobeneficio}"/>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control fecha_format" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
-            </div>
-
+               <div class="popup"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
+                        
+                        <span class="popuptext" id="fechainicio">Seleccione la Fecha Desde, dando clic  en el control.!</span>
+                    </div>
+                 </div>
+ 
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de Finalización:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" required="true" th:field="*{fechafinalizarbeneficio}"/>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
-            </div>
+              <div class="popup"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
+                        
+                        <span class="popuptext" id="fechafin">Seleccine la fecha, dando un clic en el control!</span>
+                    </div>
+                 </div>
             
 
 <div class="col-md-12">
                         <div class="row" align="center">
-                          
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/capacitaciones/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="reset" class="btn btn-default">Limpiar</button>
+                             <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/beneficios/}">Reg</a></button>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+                            
+                           
+                            <!--<button type="button" class="btn btn-success">  <span class="glyphicon glyphicon-plus-sign"></span> Agregar</button>-->
+                            
+  <!--</button>-->  
                         </div>
                     </div>
 
@@ -85,16 +105,35 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 </body>
 <script>
+     function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
     $(document).ready(function () {
-        $('#fechainiciobeneficio').datepicker({
+        $('#fdesde').datepicker({
             dateFormat: 'yy-mm-dd'
         });
 
-        $('#fechafinalizarbeneficio').datepicker({
+        $('#fhasta').datepicker({
             dateFormat: 'yy-mm-dd'
         });
        
     });
+    			function Fechas(idinicial,idfinal){
+                        var foo=document.getElementById(idfinal).value
+                            if( foo != 0){
+                            ValidarFecha(document.getElementById(idinicial).value,document.getElementById(idfinal).value,idinicial,idfinal);
+                        }
+                    }
 </script>
 
 </body>

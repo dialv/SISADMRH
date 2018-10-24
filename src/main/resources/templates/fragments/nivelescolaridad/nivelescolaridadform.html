@@ -27,52 +27,78 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div>
         <form class="form-horizontal" th:object="${nivelescolaridad}" th:action="@{../nivelescolaridad}" method="post">
           
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de nivel escolaridad:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{codigonivelnivelescolaridad}"/>
-                </div>
-            </div>-->
+
 
 <div class="form-group">
                 <label class="col-sm-2 control-label">Estudios realizados:(*)</label>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <input type="text" class="form-control" required="true" size="100" maxlength="100" th:field="*{estudiorealizado}"/> 
                 </div>
+                     <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('estudiosrealizados')" onmouseout ="javascript:ocultarAyuda('estudiosrealizados')">a</a></b>
+                        
+                        <span class="popuptext" id="estudiosrealizados">Ingrese sus estudios realizados.Solo se permiten maximo 100 caracteres!</span>
+                    </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Centro educativo:(*)</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" required="true" size="100" maxlength="100" th:field="*{centroeducativo}"/>
                 </div>
+                 <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('cceducativo')" onmouseout ="javascript:ocultarAyuda('cceducativo')">a</a></b>
+                        
+                        <span class="popuptext" id="cceducativo">Ingrese El nombre de la Institucion donde saca su nivel escolar.Solo se permiten maximo 100 caracteres!</span>
+                    </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Años aprobados:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                     <input type="text" class="form-control numeros" maxlength="2"th:field="*{aniosaprobados}"/>
                 </div>
+                  <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('aprobados')" anios ="javascript:ocultarAyuda('aprobados')">a</a></b>
+                        
+                        <span class="popuptext" id="aprobados">Ingrese los Años aprobados en el nivel escolar.Solo se permiten la combinacion de los digitos del 0 al 9!</span>
+                    </div>
             </div>
              <div class="form-group">
                 <label class="col-sm-2 control-label">País Nivel escolaridad:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{paisnivelescolaridad}"/>
                 </div>
+                <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('paiss')" onmouseout ="javascript:ocultarAyuda('paiss')">a</a></b>
+                        
+                        <span class="popuptext" id="paiss">Ingrese El Pais donde ha obtenido su Nivel escolar.Solo se permiten maximo 50 caracteres!</span>
+                    </div>
+                
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha desde nivel escolar:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " required="true" th:field="*{fechadesdenivelescolaridad}"/>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control  fecha_format" id="fdesde" required="true" th:field="*{fechadesdenivelescolaridad}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
+                 <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
+                        
+                        <span class="popuptext" id="fechadesde">Ingrese la Fecha de inicio del Nivel Escolar. Haga un clic en la caja vacía.!</span>
+                    </div>
             </div>
              <div class="form-group">
                 <label class="col-sm-2 control-label">fecha hasta nivel escolaridad:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " th:field="*{fechahastanivelescolaridad}"/>
+                <div class="col-sm-2">                                                                                        
+                    <input type="text" class="form-control fecha_format" id="fhasta" th:field="*{fechahastanivelescolaridad}" onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
+                  <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" onmouseout ="javascript:ocultarAyuda('fechahasta')">a</a></b>
+                        
+                        <span class="popuptext" id="fechahasta">Ingrese la Fecha de finalizacion del Nivel Escolar. Haga un clic en la caja vacía.!</span>
+                    </div>
             </div>
              <div class="form-group">
                 <label class="col-sm-2 control-label">Finalizado:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                     <select class="form-control"  required="true" name="finalizado" >
                         <option>Si</option>
                         <option>No</option>
@@ -81,13 +107,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </select>
                     <!--<input type="text" class="form-control" th:field="*{finalizado}"/>-->
                 </div>
+                 <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fin')" onmouseout ="javascript:ocultarAyuda('fin')">a</a></b>
+                        
+                        <span class="popuptext" id="fin">Seleccione Si o NO segun el estado del Nivel Escolar. Haga un clic en la lista desplegable.!</span>
+                    </div>
             </div>
             
              <div class="form-group">
                 <label class="col-sm-2 control-label">Titulo Obtenido:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-6">
                     <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{tituloobtenido}"/>
                 </div>
+                   <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('titulo')" onmouseout ="javascript:ocultarAyuda('titulo')">a</a></b>
+                        
+                        <span class="popuptext" id="titulo">Ingrese Nombre del titulo Obtenido segun su escolaridad. Se permiten solamente 50 Caracteres!</span>
+                    </div>
             </div>
             
             
@@ -99,9 +135,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             
             <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-info"><a href="#" th:href="@{/nivelescolaridades/}">Regresar</a></button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                 <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/nivelescolaridades/}">Reg</a></button>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
     </div>
         </form>
@@ -113,13 +149,28 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/footer"></th:block>
         </div> 
     <script>
-    $(document).ready(function () {
-        $('#fechadesdenivelescolaridad').datepicker({
-            dateFormat: 'yy-mm-dd'
+         function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+//        funcion para validar los campos fecha
+    $(document).ready(function () {//esto es ejecucion jquery cuando inicia con un $ las funciones para este script deben ir entre las etiquetas del script no en las de jquery
+        
+        $('#fdesde').datepicker({
+           dateFormat: 'dd/mm/yy'
         });
 
-        $('#fechahastanivelescolaridad').datepicker({
-            dateFormat: 'yy-mm-dd'
+        $('#fhasta').datepicker({
+           dateFormat: 'dd/mm/yy'
         });
     });
 </script>
@@ -148,4 +199,5 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     }
     });
 </script>  
+
 </html>
