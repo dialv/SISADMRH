@@ -41,6 +41,7 @@
     <class>mj.gob.sisadmrh.model.Empleadodependiente</class>
     <class>mj.gob.sisadmrh.model.Empleadoexperiencialaboral</class>
     <class>mj.gob.sisadmrh.model.Idioma</class>
+    <class>mj.gob.sisadmrh.model.Bitacora</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>

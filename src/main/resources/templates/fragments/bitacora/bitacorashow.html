@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>SISADMRH</title>
+     <th:block th:include="../templates/header"></th:block>
+ 
+
+  
+</head>
+<body>
+<div class="row">
+     <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+        <h3 align="center">Detalle de Bitacoras</h3>
+    
+        <div>
+            <form class="form-horizontal">
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">código de bitacora:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${bitacora.codigobitacora}">codigo bitacora</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Evento:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${bitacora.nombreeventobitacora}">evento</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fecha del Evento:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${bitacora.fechabitacora}">Fecha del Evento</p>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">ip de origen</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${bitacora.ip}">ip de origen</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Usuario:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${bitacora.codigousuariobitacora}">Usuario</p>
+                    </div>
+                </div>
+                
+            </form>
+             <div class="col-md-12">
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/bitacoras/}">Regresar</a></button>
+
+                    </div>
+                </div>
+    </div>
+</div>
+    </div>
+
+</body>
+</html>

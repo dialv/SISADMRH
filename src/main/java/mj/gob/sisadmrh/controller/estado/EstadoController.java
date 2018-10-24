@@ -1,10 +1,7 @@
 package mj.gob.sisadmrh.controller.estado;
 
-import mj.gob.sisadmrh.model.Estado;
-//import mj.gob.sisadmrh.model.Usuario;
-//import mj.gob.sisadmrh.repository.UsuarioRepository;
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.service.EstadoService;
-//import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping(value = "estados")
-public class EstadoController {
+public class EstadoController extends UtilsController{
     
     private EstadoService estadoService;
     
@@ -53,7 +50,8 @@ public class EstadoController {
     public String saveEstado(EstadoForm estadoform,Model model) {
          try{
         estadoService.saveEstado(estadoform.getEstado());
-        
+        bitacoraService.BitacoraRegistry("se guardo estado",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
         model.addAttribute("msg", 0);
         model.addAttribute("estados", estadoService.listAllEstado());
         return PREFIX + "estados";
@@ -78,6 +76,8 @@ public class EstadoController {
     public String delete(@PathVariable Integer id,Model model) {
         try{
         estadoService.deleteEstado(id);
+        bitacoraService.BitacoraRegistry("se elimino estado",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
         model.addAttribute("msg", 3);
         }
         catch(Exception e)
