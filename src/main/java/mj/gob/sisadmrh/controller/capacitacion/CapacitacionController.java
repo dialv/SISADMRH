@@ -120,7 +120,8 @@ public class CapacitacionController extends UtilsController{
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+         model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
     

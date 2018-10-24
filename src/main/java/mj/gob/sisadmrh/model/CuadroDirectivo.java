@@ -18,9 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -47,7 +45,8 @@ public class CuadroDirectivo implements Serializable {
    @Column(name = "RESPONSABLECUADRODIRECTIVO")
     
     private String responsablecuadrodirectivo;
-
+     @Column(name = "ACUERDOCUADRODIRECTIVO")
+private Integer acuerdocuadrodirectivo;
     @Size(max = 30)
     @Column(name = "AREA")
     
@@ -56,15 +55,26 @@ public class CuadroDirectivo implements Serializable {
     @Column(name = "DESRIPCIONCUADRODIRECTIVO")
      
     private String desripcioncuadrodirectivo;
-    @Column(name = "FECHAPRESENTACION")
-   @DateTimeFormat(pattern = "YYYY-MM-dd")
-     
-    private Date fechapresentacion;
+    @Column(name = "FECHAPRESENTACIONDESDE")
+  @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date fechapresentaciondesde;
+    
+     @Column(name = "FECHAPRESENTACIONHASTA")
+  @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date fechapresentacionhasta;
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
 
     public CuadroDirectivo() {
+    }
+
+    public Integer getAcuerdocuadrodirectivo() {
+        return acuerdocuadrodirectivo;
+    }
+
+    public void setAcuerdocuadrodirectivo(Integer acuerdocuadrodirectivo) {
+        this.acuerdocuadrodirectivo = acuerdocuadrodirectivo;
     }
 
     public CuadroDirectivo(Integer codigocuadrodirectivo) {
@@ -103,13 +113,23 @@ public class CuadroDirectivo implements Serializable {
         this.desripcioncuadrodirectivo = desripcioncuadrodirectivo;
     }
 
-    public Date getFechapresentacion() {
-        return fechapresentacion;
+    public Date getFechapresentaciondesde() {
+        return fechapresentaciondesde;
     }
 
-    public void setFechapresentacion(Date fechapresentacion) {
-        this.fechapresentacion = fechapresentacion;
+    public void setFechapresentaciondesde(Date fechapresentaciondesde) {
+        this.fechapresentaciondesde = fechapresentaciondesde;
     }
+
+    public Date getFechapresentacionhasta() {
+        return fechapresentacionhasta;
+    }
+
+    public void setFechapresentacionhasta(Date fechapresentacionhasta) {
+        this.fechapresentacionhasta = fechapresentacionhasta;
+    }
+
+
 
     public Empleado getCodigoempleado() {
         return codigoempleado;

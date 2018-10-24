@@ -38,7 +38,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <th>Descargar Acuerdo</th>
                
                
-               <th>Acciones</th>
+              <th></th><th></th><th></th>
                 
             </tr>
             </thead>
@@ -70,14 +70,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
     </div>  
     </div>
-   
-   
    <script th:inline="javascript">
-     $(document).ready(function () {
+      $(document).ready(function () {
             $('#tablita').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         }} );
+    });
+	</script>
+</html>
+   
+   <script th:inline="javascript">
+     $(document).ready(function () {
+       ;
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",

@@ -28,26 +28,36 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <input type="hidden" name="codigocuadrodirectivo"/>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Capacitación:</label>
-                        <div class="col-sm-10" >
+                        <div class="col-sm-6" >
                             <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
                                 <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
                         </div>
+                        <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacion')" onmouseout ="javascript:ocultarAyuda('capacitacion')">a</a></b>
+                        
+                        <span class="popuptext" id="capacitacion">Seleccione la Capacitacion de la Lista.!</span>
+                    </div>
                     </div>
 
  
                      <div class="form-group">
-                        <label class="col-sm-2 control-label ">codigo empleado:</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-2 control-label ">Codigo empleado:</label>
+                        <div class="col-sm-3">
                             <input type="text" class="form-control numeros" required="true" name="codigoempleado"/>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('codigoempleado')" onmouseout ="javascript:ocultarAyuda('codigoempleado')">a</a></b>
+                        
+                        <span class="popuptext" id="codigoempleado">Seleccione el código empleado, debe ser los digitos del 1 al 9.!</span>
+                    </div>
                     </div>
 
                    
                                  <div class="form-group">
                         <label class="col-sm-2 control-label">Empleado:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                             <!--<select class="form-control" id="combo" th:field="*{asistenciaCapacitacion.codigoempleado.codigoempleado}" >-->
                             <select class="form-control" id="combo"  >
                             <option value="0">-- Seleccione un empleado --</option>
@@ -56,12 +66,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
                             <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('codempledo')" onmouseout ="javascript:ocultarAyuda('codempledo')">a</a></b>
+                        
+                        <span class="popuptext" id="codempledo">Seleccione El empleado de la lista de la Lista.!</span>
+                    </div>
                                         </div>
                      <div class="form-group">
                         <label class="col-sm-2 control-label ">Horas Recibidas:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas"/>
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('horas')" onmouseout ="javascript:ocultarAyuda('horas')">a</a></b>
+                        
+                        <span class="popuptext" id="horas">Ingrese las horas, solo la combinacion de digitos del 0 al 9.!</span>
+                    </div>
                     </div>
                    
 
@@ -69,29 +89,49 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                    
                     <div class="form-group">
                         <label class="col-sm-2 control-label ">Puesto:</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="puesto" class="form-control" maxlength=""required="true" />
+                        <div class="col-sm-6">
+                            <input type="text" id="puesto" class="form-control" maxlength="50"required="true" />
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('puestos')" onmouseout ="javascript:ocultarAyuda('puestos')">a</a></b>
+                        
+                        <span class="popuptext" id="puestos">Ingrese el puesto, solo se aceptan 50 caracteres.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label ">Ubicación Física:</label>
-                        <div class="col-sm-10">
-                            <input type="text" id="ubicacion" class="form-control " required="true" name="ubicacionasistenciacapacitacion" />
+                        <div class="col-sm-6">
+                            <input type="text" id="ubicacion" class="form-control " size="50" maxlength="50"required="true" name="ubicacionasistenciacapacitacion" />
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ubicacionn')" onmouseout ="javascript:ocultarAyuda('ubicacionn')">a</a></b>
+                        
+                        <span class="popuptext" id="ubicacionn">Seleccione El empleado de la lista de la Lista.!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label ">Telefono:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" name="telefono"/>
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('telefono')" onmouseout ="javascript:ocultarAyuda('telefono')">a</a></b>
+                        
+                        <span class="popuptext" id="telefono">Ingrese el Numero de telefono. solo se Permiten digitos del 0 al 9.!</span>
+                    </div>
                     </div>
 
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Correo:</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" required="true" name="email"/>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" size="50" minlength="50" required="true" name="email"/>
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('correo')" onmouseout ="javascript:ocultarAyuda('correo')">a</a></b>
+                        
+                        <span class="popuptext" id="correo">Ingrese el correo. Solo se aceptan 20 caracteres, es Obligatorio la @.!</span>
+                    </div>
                     </div>
 
                     <!--             <div class="form-group">

@@ -26,41 +26,68 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
  <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
-<!--            <div class="form-group">
-                <label class="col-sm-2 control-label">Responsaable:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{responsablecuadrodirectivo}"/>
-                </div>
-            </div>-->
+
  <div class="form-group">
                 <label class="col-sm-2 control-label">Responsable Directo:(*):</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                      <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
                             </select>
                    <!--<input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
                 </div>
+                <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('cuadrodirectivo')" onmouseout ="javascript:ocultarAyuda('cuadrodirectivo')">a</a></b>
+
+                                <span class="popuptext" id="cuadrodirectivo">Seleccione el encargado del Cuadro Directivo.!</span>
+                            </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Area:(*)</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
                 </div>
+                <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('areaa')" onmouseout ="javascript:ocultarAyuda('areaa')">a</a></b>
+
+                                <span class="popuptext" id="areaa">Ingrese el area a la que pertenece el Empleado. Solo se permiten 30 caracteres!</span>
+                            </div>
             </div>
-            
+          
             <div class="form-group">
                 <label class="col-sm-2 control-label">Descripción:(*)</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
                 </div>
+                <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('area')" onmouseout ="javascript:ocultarAyuda('area')">a</a></b>
+
+                                <span class="popuptext" id="area">Ingrese una Descripcion del cuadro Directivo. Solo se permiten 100 caracteres!</span>
+                            </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">fecha presentación:(*)</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{fechapresentacion}"/>
+                <label class="col-sm-2 control-label">Fecha presentación desde:(*)</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"
+isDat(this.value,'desde')/>
                 </div>
+                              <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaprsentaciondesde')" onmouseout ="javascript:ocultarAyuda('fechaprsentaciondesde')">a</a></b>
+
+                                <span class="popuptext" id="fechaprsentaciondesde">Ingrese la fecha de presentacion Desde!</span>
+                            </div>
             </div>
- <!--aca sirve para jalar los nombres de los empleados-->
+   <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Hasta:(*)</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control fecha_format" id="fhasta" th:field="*{fechapresentacionhasta}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                </div>
+                              <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechapresentacionhasta')" onmouseout ="javascript:ocultarAyuda('fechapresentacionhasta')">a</a></b>
+
+                                <span class="popuptext" id="fechapresentacionhasta">Ingrese la fecha de presentacion hasta!</span>
+                            </div>
+            </div>
+ 
  
             
                       
@@ -105,9 +132,25 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     });
 </script> 
 <script>
+    function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
     $(document).ready(function () {
-        $('#fechapresentacion').datepicker({
-            dateFormat: 'yy-mm-dd'
+        $('#fdesde').datepicker({
+           dateFormat: 'dd/mm/yy'
+        });
+         $('#fhasta').datepicker({
+           dateFormat: 'dd/mm/yy'
         });
 
         

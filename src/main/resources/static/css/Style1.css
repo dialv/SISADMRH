@@ -1,0 +1,129 @@
+	.ayudadiv{
+        position: absolute;
+        left: 5px;
+        top: 50px;
+        border: solid gray 1px;
+        width: 250px;
+        background-color: white;
+        box-shadow: 6px 6px 5px #999;
+        -webkit-box-shadow: 6px 6px 5px #999;
+        -moz-box-shadow: 6px 6px 5px #999;
+        visibility: hidden;
+        z-index: 5000;
+    }
+    
+    .btnayuda{
+        -moz-box-shadow:inset 0px 1px 0px 0px #04B4AE;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #04B4AE;
+        box-shadow:inset 0px 1px 0px 0px #04B4AE;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #04B4AE    ), color-stop(1, #04B4AE) );
+        background:-moz-linear-gradient( center top, #ffffff 5%, #d1d1d1 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d1d1d1');
+        background-color:#04B4AE;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius:50px;
+        border:1px solid #dcdcdc;
+        display:inline-block;
+        color:#0000;
+        font-family:arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:2px 8px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #ffffff;
+    }
+        .btnayuda:hover {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d1d1d1), color-stop(1, #ffffff) );
+        background:-moz-linear-gradient( center top, #d1d1d1 5%, #ffffff 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d1d1', endColorstr='#ffffff');
+        background-color:#d1d1d1;
+    }
+	#boton:active {
+        /*position:relative;*/
+        /*top:1px;*/
+    }
+    .botonhelp{
+  width:10px;
+  height:10px;
+  background-color:#04B4AE;
+  margin: 0px;
+  padding:20px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  font-size:30px;
+  line-height:5px;
+  
+  /*float:center;*/
+}
+.botonhelp:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+.botonhelp a{
+  color:#ffff;
+  text-decoration:none;
+  padding:3px 3px 3px 0;
+/*   padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;*/
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}

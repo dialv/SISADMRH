@@ -33,32 +33,52 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             
             <div class="form-group">
                 <label class="col-sm-2 control-label">Costo Por Persona:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                     <input type="text" class="form-control num_decimal" required="true" maxlength="6" th:field="*{costopersona}"/>
                 </div>
+                 <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numeropersonas')" onmouseout ="javascript:ocultarAyuda('numeropersonas')">a</a></b>
+
+                                <span class="popuptext" id="numeropersonas">Ingrese el Costo por persona.!</span>
+                            </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Numero de Personas:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                     <input type="text" class="form-control numeros" required="true" maxlength="2" th:field="*{numeropersona}"/>
                 </div>
+                <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nump')" onmouseout ="javascript:ocultarAyuda('nump')">a</a></b>
+
+                                <span class="popuptext" id="nump">Ingrese el Numero de Personas. Solo es permitido la combinacion de los dititos del 0 al 9.!</span>
+                            </div>
             </div>
             
             <div class="form-group">
                 <label class="col-sm-2 control-label">Costo Capacitador:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-2">
                     <input type="text" class="form-control num_decimal"  required="true" maxlength="6" th:field="*{costocapacitador}"/>
                 </div>
+                          <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('costopers')" onmouseout ="javascript:ocultarAyuda('costopers')">a</a></b>
+
+                                <span class="popuptext" id="costopers">Ingrese el Costo por persona . Solo es permititido numeros.!</span>
+                            </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Capacitación:</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
                          <option value="0">-- Seleccione la Capacitación --</option>
                                 <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                     <!--<input type="number" class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}"/>-->
                 </div>
+                 <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacionn')" onmouseout ="javascript:ocultarAyuda('capacitacionn')">a</a></b>
+
+                                <span class="popuptext" id="capacitacionn">Seleccione la Capacitación.!</span>
+                            </div>
             </div>
             
             

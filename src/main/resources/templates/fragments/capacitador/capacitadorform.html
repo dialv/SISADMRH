@@ -35,24 +35,33 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Empleado Responsable del Capacitador:</label>
-                        <div class="col-sm-10" >
+                        <div class="col-sm-5" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
                             </select>
-                            <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
                         </div>
+                            <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitadorr')" onmouseout ="javascript:ocultarAyuda('capacitadorr')">a</a></b>
+                        
+                        <span class="popuptext" id="capacitadorr">Seleccione el encargado del capacitador.!</span>
+                    </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombre Capacitador:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" th:field="*{nombrecapacitador}"/>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control"required="true" size="100" maxlength="100" th:field="*{nombrecapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nombrecapacitador')}" th:errors="*{nombrecapacitador}"></small>
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombrecapacitador')" onmouseout ="javascript:ocultarAyuda('nombrecapacitador')">a</a></b>
+                        
+                        <span class="popuptext" id="nombrecapacitador">Ingrese el nombre del Capacitador.Solo se permiten 100 caracteres!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tema de Dominio(*):</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-9">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                             <select class="form-control"  required="true" name="temadominio" >
                                 <option>Terapia Psicologia</option>
@@ -61,11 +70,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                             </select>
                         </div>
+                              <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tema')" onmouseout ="javascript:ocultarAyuda('tema')">a</a></b>
+                        
+                        <span class="popuptext" id="tema">Seleccione el Tema de Dominio del Capacitador.!</span>
+                    </div>
                     </div>
                    
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Institución(*):</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-9">
 
                             <select class="form-control" required="true" name="institucioncapacitador" >
                                 <option>Publico</option>
@@ -74,10 +88,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                             </select>
                         </div>
+                              <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('institucionn')" onmouseout ="javascript:ocultarAyuda('institucionn')">a</a></b>
+                        
+                        <span class="popuptext" id="institucionn">Seleccione la Institución!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tipo Capacitador(*):</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-9">
 
                             <select class="form-control" required="true" name="tipocapacitador" >
                                 <option>Interno</option>
@@ -86,10 +105,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                             </select>
                         </div>
+                              <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipocapacitador')" onmouseout ="javascript:ocultarAyuda('tipocapacitador')">a</a></b>
+                        
+                        <span class="popuptext" id="tipocapacitador">Seleccione El tipo de Capacitador!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tipo Agrupación(*):</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-9">
 
                             <select class="form-control" required="true"name="tipoagrupacion" >
                                 <option>Interno</option>
@@ -98,48 +122,83 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                             </select>
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoagrupacion')" onmouseout ="javascript:ocultarAyuda('tipoagrupacion')">a</a></b>
+                        
+                        <span class="popuptext" id="tipoagrupacion">Seleccione El tipo de Agrupacioón!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Dui:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control num_dui" required="true" th:field="*{duicapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>
                         </div>
+                           <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('duii')" onmouseout ="javascript:ocultarAyuda('duii')">a</a></b>
+                        
+                        <span class="popuptext" id="duii">Ingrese el DUI. Solo es permitido digitos del o al 9. !!</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nit:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control num_nit" required="true"th:field="*{nitcapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nitcapacitador')}" th:errors="*{nitcapacitador}"></small>
                         </div>
+                         <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nitt')" onmouseout ="javascript:ocultarAyuda('nitt')">a</a></b>
+                        
+                        <span class="popuptext" id="nitt">Ingrese el NIT. Solo es permitido digitos del o al 9. !</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Carnet:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="5" onkeypress="return valida(event)" th:field="*{carnetresidencia}"/>
                               <small class="form-text text-danger" th:if="${#fields.hasErrors('carnetresidencia')}" th:errors="*{carnetresidencia}"></small>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('carnet')" onmouseout ="javascript:ocultarAyuda('carnet')">a</a></b>
+                        
+                        <span class="popuptext" id="carnet">Ingrese el Carnet. Solo es permitido digitos del o al 9. !</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Telefono:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonocapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonocapacitador')}" th:errors="*{telefonocapacitador}"></small>
                         </div>
+                         <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('telefonoo')" onmouseout ="javascript:ocultarAyuda('telefonoo')">a</a></b>
+                        
+                        <span class="popuptext" id="telefonoo">Ingrese el Telefono Fijo. Solo es permitido digitos del o al 9. !</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Movil:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonomovilcapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonomovilcapacitador')}" th:errors="*{telefonomovilcapacitador}"></small>
                         </div>
+                          <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('celular')" onmouseout ="javascript:ocultarAyuda('celular')">a</a></b>
+                        
+                        <span class="popuptext" id="celular">Ingrese el Telefono Movil. Solo es permitido digitos del o al 9. !</span>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Email:</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" size="200" maxlength="200" required="true" th:field="*{emailcapacitador}"/>
+                        <div class="col-sm-5">
+                            <input type="email" class="form-control" size="50" maxlength="50" required="true" th:field="*{emailcapacitador}"/>
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('emailcapacitador')}" th:errors="*{emailcapacitador}"></small>-->
                         </div>
+                           <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('mail')" onmouseout ="javascript:ocultarAyuda('mail')">a</a></b>
+                        
+                        <span class="popuptext" id="mail">Ingrese el Correo Electronico. Solo es permitido 50  caracteres, la @ es obligatoria. !</span>
+                    </div>
                     </div>
 
 
