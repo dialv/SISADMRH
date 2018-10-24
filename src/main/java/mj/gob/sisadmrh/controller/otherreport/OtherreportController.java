@@ -205,6 +205,14 @@ private HijosdiscapacidadService hijosdiscapacidadService;
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_empleadoincapacidad", params, download,response);
     }
+   /* reporte de exel para incapacidades ***********************/
+    @RequestMapping("/empleadoincapacidadxls")
+       public ModelAndView empleadoincapacidadxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]>  empleadoincapacidadList = empleadoService.findByIncapacidad(fechainicio, fechafin);
+              return new ModelAndView(new IncapacidadView(), "empleadoincapacidadList", empleadoincapacidadList);
+       }
 
     @RequestMapping(value = "hijoscapesp/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfhijoscapesp(@PathVariable("indice") Long indice, 
@@ -246,8 +254,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="codigo",required = false) String codigo, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              List<Object[]>  historialList = empleadoService.findByPuestosEmpleados(codigo);
-              return new ModelAndView(new HijoscapView(), "historialList", historialList);
+              List<Object[]>  historialList = empleadoService.findByPuestosEmpleados(codigo);//PARA GERNARAR EL HISTORIAL LABORAL
+              return new ModelAndView(new HistorialView(), "historialList", historialList);
        }
 
 

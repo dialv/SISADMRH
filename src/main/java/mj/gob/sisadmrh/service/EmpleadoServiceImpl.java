@@ -96,6 +96,11 @@ return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
 return  empleadoRep.findByPuestosEmpleados(codigo);
     }
 
+    @Override
+    public List<Object[]> findByIncapacidad(String finicial, String ffinal) {
+return empleadoRep.findByIncapacidad(finicial, ffinal);
+    }
+
   
     
 }

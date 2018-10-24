@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -9,7 +9,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e INNER JOIN puesto p on e.codigoempleado=p.codigoempleado INNER JOIN comite c on e.codigoempleado=c.codigoempleado where c.fechadesdecomite >= $P{FECHAINICIO} and c.fechahastacomite <=$P{FECHAFIN}]]>
+		<![CDATA[SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER JOIN comite c on e.codigoempleado=c.codigoempleado where c.fechadesdecomite >= $P{FECHAINICIO} and c.fechahastacomite <=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -23,10 +23,10 @@
 	<field name="nombrecomite" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechadesdecomite" class="java.sql.Date">
+	<field name="fechadesdecomite" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechahastacomite" class="java.sql.Date">
+	<field name="fechahastacomite" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="nombreempleado">
@@ -47,26 +47,23 @@
 	<title>
 		<band height="105" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42" x="351" y="59" width="260" height="20"/>
-				<textElement/>
+				<reportElement x="351" y="59" width="260" height="20" uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42"/>
 				<text><![CDATA[MINISTERIO DE JUSTICA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="db6f5eb3-86ed-4034-ba10-eab3fd2e2b42" x="335" y="30" width="222" height="20"/>
-				<textElement/>
+				<reportElement x="335" y="30" width="222" height="20" uuid="db6f5eb3-86ed-4034-ba10-eab3fd2e2b42"/>
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="4029d439-49b0-4518-9158-407c5b425ee8" x="389" y="50" width="84" height="20"/>
-				<textElement/>
+				<reportElement x="389" y="50" width="84" height="20" uuid="4029d439-49b0-4518-9158-407c5b425ee8"/>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402" x="697" y="0" width="105" height="60"/>
+				<reportElement x="697" y="0" width="105" height="60" uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402"/>
 				<imageExpression><![CDATA["../../resources/static/image/GOES.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c" x="0" y="0" width="193" height="105"/>
+				<reportElement x="0" y="0" width="193" height="105" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
 				<imageExpression><![CDATA["../../resources/static/image/LOGOMJ.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -74,43 +71,36 @@
 	<pageHeader>
 		<band height="75" splitType="Stretch">
 			<textField>
-				<reportElement uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49" x="675" y="35" width="80" height="20"/>
+				<reportElement x="675" y="35" width="80" height="20" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="d63d0eb3-1543-473d-a0be-53844c71f01f" x="755" y="35" width="40" height="20"/>
-				<textElement/>
+				<reportElement x="755" y="35" width="40" height="20" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce" x="322" y="7" width="175" height="20"/>
-				<textElement/>
+				<reportElement x="322" y="7" width="175" height="20" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
 				<text><![CDATA[Reporte de Empleados con Incapacidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73" x="251" y="42" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="251" y="42" width="100" height="20" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="490e45c9-0353-42d5-8b19-b6879e26d467" x="457" y="42" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="457" y="42" width="100" height="20" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="59271047-626e-4fd6-94f2-bf1b30e293a5" x="357" y="42" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="357" y="42" width="100" height="20" uuid="59271047-626e-4fd6-94f2-bf1b30e293a5"/>
 				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="8ab75876-80ee-4d3e-8042-58f322695998" x="575" y="42" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="575" y="42" width="100" height="20" uuid="8ab75876-80ee-4d3e-8042-58f322695998"/>
 				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="defd1f57-b9e1-4411-9a1b-4f605b930187" x="629" y="7" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="629" y="7" width="100" height="20" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
@@ -127,25 +117,23 @@
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<line>
-				<reportElement uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f" x="0" y="49" width="811" height="5"/>
+				<reportElement x="0" y="49" width="811" height="5" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
 			</line>
 		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0" x="649" y="17" width="80" height="20"/>
+				<reportElement x="649" y="17" width="80" height="20" uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="316ce86a-a98a-43ff-8585-bc1380d26aac" x="729" y="17" width="40" height="20"/>
-				<textElement/>
+				<reportElement x="729" y="17" width="40" height="20" uuid="316ce86a-a98a-43ff-8585-bc1380d26aac"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="b4d2a374-0ef3-492f-99d2-ae1e1d29c79c" x="19" y="16" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="19" y="16" width="100" height="20" uuid="b4d2a374-0ef3-492f-99d2-ae1e1d29c79c"/>
 				<text><![CDATA[Total Registros]]></text>
 			</staticText>
 		</band>

@@ -48,7 +48,7 @@ public class HistorialView extends AbstractXlsView{
  int rowNum = 3;
  for(Object[] historial :historialList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(2).setCellValue((double) historial[0]);
+ row.createCell(2).setCellValue((Integer) historial[0]);
  row.createCell(3).setCellValue((String) historial[1]);
  row.createCell(4).setCellValue((String) historial[2]);
  row.createCell(5).setCellValue((String) historial[3]);

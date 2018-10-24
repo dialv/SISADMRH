@@ -43,12 +43,12 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
                                              @Param("FFINAL") String ffinal);
             /*PARA GENERAR REPORTES DE CUMPLEANIEROS EXEL */
 @Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,"
-        + "e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e "
-        + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
-        + "inner join puesto p on ep.codigopuesto=p.codigopuesto "
-        + "inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado "
-        + "INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion "
-        + "where e.fechanacimientoempleado >= :FINICIAL  and e.fechanacimientoempleado <= :FFINAL"
+        + " e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e "
+        + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
+        + " inner join puesto p on ep.codigopuesto=p.codigopuesto "
+        + " inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado "
+        + " INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion "
+        + " where e.fechanacimientoempleado >= :FINICIAL  and e.fechanacimientoempleado <= :FFINAL "
 , nativeQuery = true)
  
  List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 
@@ -92,12 +92,20 @@ List<Object[]> findByPensionados(@Param("FINICIAL") String finicial,
 List<Object[]> findByPuestosCaducar(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 
-@Query(value = "SELECT e.codigoempleado, e.nombreempleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, "
+@Query(value = " SELECT e.codigoempleado, e.nombreempleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, "
         + " d.fechacontrataciondesde, d.fechacontratacionhasta FROM empleado e INNER JOIN empleadopuesto p " +
-"on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto " +
-"where " +
-"e.codigoempleado=:CODIGO",nativeQuery = true)
-List<Object[]> findByPuestosEmpleados(@Param("CODIGO") String codigo);
-                                            
+" on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto " +
+" where " +
+" e.codigoempleado=:CODIGO",nativeQuery = true)
+List<Object[]> findByPuestosEmpleados(@Param("CODIGO") String codigo);// ES EL METODO DE HISTORIAL LABRORAL
+
+ @Query(value = " select e.nombreempleado,i.nombreincapacidad, p.nombrepuesto,e.duiempleado,i.fechadesdeincapacidad,i.fechahastaincapacidad,"
+         + " i.numerofichaisss,i.tipoincapacidad,i.formaincapacidad,i.subsidio,i.fechaemision from empleado e "
+         + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto "
+         + " inner join incapacidad i on e.codigoempleado=i.codigoempleado "
+         + " where i.fechahastaincapacidad >= :FINICIAL and i.fechahastaincapacidad <= :FFINAL ",nativeQuery = true)
+List<Object[]> findByIncapacidad(
+                                             @Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);                                           
 
 }

@@ -19,10 +19,10 @@ public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapac
     @Query(value = "SELECT d.* FROM hijodiscapacidad d , empleadohijodiscapacidad ed WHERE d.codigohijodiscapacidad = ed.codigohijodiscapacidad and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Hijodiscapacidad> findByDato(@Param("id") int dato);
     
-    @Query(value =  "select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad," +
-                    "p.nombrehijodiscapacidad from empleadohijodiscapacidad h" +
-                    "inner join empleado e on e.codigoempleado=h.codigoempleado" +
-                    "inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ", nativeQuery = true)
+    @Query(value =  " select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad," +
+                    " p.nombrehijodiscapacidad from empleadohijodiscapacidad h" +
+                    " inner join empleado e on e.codigoempleado=h.codigoempleado" +
+                    " inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ", nativeQuery = true)
      List<Object[]> findhijoscap();
     
     
