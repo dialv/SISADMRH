@@ -84,7 +84,7 @@
 				</li>
                                 
                                 <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Empleado Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitaciones <br> de Empleados  <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#" th:href="@{/capacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
                                                 <li><a href="#" th:href="@{/empleadocapacitaciones/new/empleadocapacitacion}">Crear EmpleadoCapacitaciones</a></li>
@@ -103,14 +103,14 @@
                                 
 
                                  <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Costos de capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Costos <br> de capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#" th:href="@{/costocapacitaciones/}">Consultar Costo Capacitaciones</a></li>
                                                  <li><a href="#" th:href="@{/costocapacitaciones/new/costocapacitacion}">Crear Costo Capacitacion</a></li>
                                                     <ul class="dropdown-menu forAnimate" >
                                                       <li><a href="#" th:href="@{/costocapacitaciones/new/costocapacitacion}">Crear Costo Capacitacion2</a></li>
                                                     </ul>
-                                                 </li>
+                                                 
 <!--                                                 <li><a href="#" th:href="@{/costocapacitaciones/report/}">Reporte comites</a></li>-->
                                         </ul>
 				</li>
@@ -118,13 +118,13 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignar asistencia capacitacion <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
-                                                <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Crear Empleado Asistencia Capacitaciones</a></li>
+                                                <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Crear Asistencia de Empleado <br> a Capacitaciones</a></li>
 					</ul>
 				</li>
                                 <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar asistencias Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar asistencias <br> Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#" th:href="@{/asistenciacapacitaciones/}">Consultar Asistencia de Capacitacion</a></li>
+						<li><a href="#" th:href="@{/asistenciacapacitaciones/}">Consultar Asistencia <br> de Capacitacion</a></li>
                                                  <li><a href="#" th:href="@{/asistenciacapacitaciones/new/asistenciacapacitacion}">Crear Asistencia Capacitacion</a></li>
 <!--                                                 <li><a href="#" th:href="@{/asistenciacapacitaciones/report/}">Asistencia Capacitaciones</a></li>-->
 					</ul>
@@ -247,8 +247,8 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
 						<li><a href="#" th:href="@{/otherreports/abogados/}">Reporte de Abogados</a></li>
-						<li><a href="#" th:href="@{/otherreports/empleadoincapacidad/}">Reporte de Empleados con incapacidad</a></li>
-						<li><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de empleados con hijos con capacidades especiales</a></li>
+						<li><a href="#" th:href="@{/otherreports/empleadoincapacidad/}">Reporte de Empleados  <br>  con incapacidad</a></li>
+						<li><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de empleados con hijos <br> con capacidades especiales</a></li>
 						<li><a href="#" th:href="@{/otherreports/historial/}">Reporte de Historial Laboral</a></li>
 						<li><a href="#" th:href="@{/otherreports/motoristas/}">Reporte de Motoristas</a></li>
 						<li><a href="#" th:href="@{/otherreports/notarios/}">Reporte de Notarios</a></li>
@@ -278,7 +278,7 @@
                                                  <li><a href="#" th:href="@{/otherreports/reporte/costocreporte}">Reporte de costos de Capacitacion</a></li>
                                                 <!--<li><a href="#" th:href="@{/otherreports/reporte/plazaoreporte}">Reporte de Plazas Ocupadas ala berg</a></li>-->
                                                 <li><a href="#" th:href="@{/otherreports/reporte/pensionadoreporte}">Reporte de Personal Pensionado</a></li>
-                                                <li><a href="#" th:href="@{/otherreports/reporte/exoneradoreporte}">Reporte de Personal Exonerado de Marcacion</a></li>
+                                                <li><a href="#" th:href="@{/otherreports/reporte/exoneradoreporte}">Reporte de Personal Exonerado  <br>  de Marcacion</a></li>
                                                 <li><a href="#" th:href="@{/otherreports/reporte/nivelesreporte}">Reporte de Niveles Escolares</a></li>
                                                 
                                                 

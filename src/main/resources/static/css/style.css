@@ -1,3 +1,14 @@
+.fondoloco{
+  background:#186218; 
+  background-image: url(/sisadmrh/image/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -187,19 +198,27 @@ body {
   padding:5px 5px 5px 0;
 }
 .celdauser{
-    color: white;
+    font-size:18px;
+    text-shadow:2px 2px 5px white;
+    color: green;
     float: left;
-    margin-left: 10%;
-    margin-top: 1%;
+    margin-left: 66px;
+}
+.celdauser1{
+    color: black;
+    float: left;
+    margin-left: 50px;
 }
 .celdauser a{
-    color: white;
+    color: black;
     float: left;
-    margin-left: 10%;
+    margin-left: 50px;
 }
 
 .celdauser a:hover { 
-   color: yellow;
+   color: blue;
+    float: left;
+    margin-left: 50px;
 }
 
 
@@ -213,4 +232,10 @@ body {
 .der{
   float: right;
   margin: 0% 1%;
+}
+.hmod {
+  font-size:25px;
+  text-shadow:2px 2px 5px black;
+  text-align:center;
+  position:relative;
 }
