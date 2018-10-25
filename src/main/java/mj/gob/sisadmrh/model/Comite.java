@@ -35,14 +35,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Comite implements Serializable {
     @Basic(optional = false)
    
-    @Size(min = 1, max = 20)
-    @Column(name = "NIT")
-    private String nit;
-    @Basic(optional = false)
-   
-    @Size(min = 1, max = 13)
-    @Column(name = "DUI")
-    private String dui;
+    
     @Size(max = 50)
     @Column(name = "NOMBRECOMITE")
     private String nombrecomite;
@@ -159,21 +152,9 @@ public class Comite implements Serializable {
         return "mj.gob.sisadmrh.model.Comite[ codigocomite=" + codigocomite + " ]";
     }
 
-    public String getNit() {
-        return nit;
-    }
+   
 
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getDui() {
-        return dui;
-    }
-
-    public void setDui(String dui) {
-        this.dui = dui;
-    }
+  
 
     public String getNombrecomite() {
         return nombrecomite;

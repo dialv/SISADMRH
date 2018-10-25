@@ -56,7 +56,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                
                     
                   <!--<a th:href="${'./new/nivelescolaridad'}" class="btn btn-primary">Nuevo</a>-->
-                  <td>  <a th:href="${'./new/nivelescolaridad'}" class="btn btn-info">Mostrar</a> </td>
+                   <td>  <a th:href="${'./show/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-info">Mostrar</a></td>
                 <td> <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a> </td>
                 <td> <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a> </td>
                 <!--<a th:href="${'./delete/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-danger">Delete</a>-->

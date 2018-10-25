@@ -61,9 +61,9 @@
 
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Hora(*):</label>
+                            <label class="col-sm-3 control-label">Fecha y Hora(*):</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="horaevualuacioncapacitacion"/>
+                                <input input data-format="dd/MM/yyyy hh:mm:ss" type="text"id="hra" class="form-control fecha_datetime" name="horaevualuacioncapacitacion"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('hora')" onmouseout ="javascript:ocultarAyuda('hora')">a</a></b>
@@ -403,7 +403,7 @@
             type: "success",
             icon: "success"
     }).then(function() {
-    location.href = '../capacitaciones/';
+    location.href = '../evaluacioncapacitaciones/';
     });
     }
 
@@ -418,15 +418,30 @@
     });</script>    
 <script>
     $(document).ready(function () {
-    $('#fechacapacitaciondesde').datepicker({
-    dateFormat: 'yy-mm-dd'
+    $('#hra').datepicker({
+//     format: 'DD-MM-YYYY HH:mm'
+  ateFormat: 'dd/MM/yyyy hh:mm:ss'
     });
     $('#fechacapacitacionhasta').datepicker({
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'dd/mm/yy'
     });
     });
+    
 </script>
-
+<!--<script type="text/javascript">
+$(function () {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes();
+    var dateTime = date+' '+time;
+    $("#horaevualuacioncapacitacion").datetimepicker({
+        format: 'dd-mm-yy hh:ii',
+        autoclose: true,
+        todayBtn: true,
+        startDate: dateTime
+    });
+});
+</script>-->
 
 </body>	
 </html>

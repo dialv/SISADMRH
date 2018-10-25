@@ -257,7 +257,7 @@ jQuery(document).ready(function() {
             }
         }
     });
-    jQuery('.num_decimal').mask('00.00');
+    jQuery('.num_decimal').mask('000.00');
 //    jQuery('.moneda').mask('000000000000.00', {reverse: true});    
 
     jQuery("#iconalert").dialog({
