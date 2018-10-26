@@ -51,10 +51,10 @@ public class Formacionacademica implements Serializable {
     @Column(name = "aniosaprobados")
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechahastaformacionacademica;
     @Size(max = 200)
     @Column(name = "termino")

@@ -21,7 +21,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
      <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
-     <div class="col-md-9">
+     <div class="col-md-8">
           <div class="row text-center">
                         <img src="../../static/image/beneficios.png" width="200" th:src="@{/image/beneficios.png}"/>
                     </div>
@@ -43,12 +43,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>-->
               <div class="form-group">
-                        <label class="col-sm-5 control-label">Beneficios:</label>
+                        <label class="col-sm-3 control-label">Beneficios:</label>
                         <div class="col-sm-7" >
                             <select class="form-control"  th:field="*{codigobeneficio}" >
                                 <option th:each="c:${beneficios}" th:value="${c.codigobeneficio}" th:text="${c.nombrebeneficio}"></option>
                             </select>
                         </div>
+                        <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione el beneficio a asignar al Empleado desplegando la lista.!</span>
+                    </div>
                     </div>
             
 
@@ -58,8 +63,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-md-12">
                         <div class="row" align="center">
                           
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary" id="Asignarbtn"  >Asignar</button>
+                            <!--<button type="button" class="btn btn-info"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
+                            <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/empleados/}">.</a></button>
+                            <button type="submit" class="btn btn-success" id="Asignarbtn"><span class="glyphicon glyphicon-floppy-disk"></span>Asignar</button>
+
+                            <!--<button type="submit" class="btn btn-primary" id="Asignarbtn"  >Asignar</button>-->
                             <!--<button type="reset" class="btn btn-default">Limpiar</button>-->
                         </div>
                     </div>

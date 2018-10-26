@@ -28,19 +28,30 @@
           
            <!--<div class="col-md-6">-->
          
-            <div class="form-group">
+        
+             <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha Desde(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text"  name="fechacontrataciondesde" id="fechacontrataciondesde"  />
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechainicial" id="fechainicial"  onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/>
                 </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text"  name="fechacontratacionhasta" id="fechacontratacionhasta"  />
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Seleccione o digite la Fecha de fin para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
            
            <!--</div>
@@ -50,11 +61,10 @@
 
           
         <div class="col-md-12">
-      <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
-                <button  class="btn btn-default"  id="generar">Consultar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>
+       <div class="row" align="center">    
+                         <td><a class="btn btn-danger" id="generar">PDF</a></td>
+                         <td><a class="btn btn-success" id="excel">EXCEL</a></td>
+                    </div>
             </div>
            </form>
     </div>
@@ -72,6 +82,19 @@
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+            function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFechaReporte(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -88,18 +111,18 @@
 		    var currentDate = date.getDate();
 		    var currentYear = date.getFullYear();
                     
-		    $('#fechacontratacionhasta').datepicker({
+		    $('#fechainicial').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
-		    $('#fechacontrataciondesde').datepicker({
+		    $('#fechafinal').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#generar').click(function(){
-            $("#fromreportpensionado").attr('action', '../pdfpensionadoreporte/');
+            $("#fromreportpensionado").attr('action', '../pensionadospdf/');
             $("form#fromreportpensionado").submit();
             
         });
@@ -110,11 +133,11 @@
 <!--        <script>
     $(document).ready(function () {
         $('#fechainicial').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
 
         $('#fechafinal').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
         $('#generar').click(function(){
             $("#fromreportpuesto").attr('action', '../pdf/'+ $("#fechacontrataciondesde").val().toString()+ $("#fechacontratacionhasta").val().toString());

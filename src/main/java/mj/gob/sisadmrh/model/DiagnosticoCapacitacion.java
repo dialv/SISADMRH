@@ -64,6 +64,10 @@ public class DiagnosticoCapacitacion implements Serializable {
     @Size(max = 500)
     @Column(name = "RESULTADOOBTENER")
     private String resultadoobtener;
+    @Size(max = 200)
+    @Column(name = "TEMACAPACITACION")
+    private String temacapacitacion;
+
     @Size(max = 150)
     @Column(name = "NOMBREAUTORIZADIAGNOSTICOCAPACITACION")
     private String nombreautorizadiagnosticocapacitacion;
@@ -135,6 +139,14 @@ public class DiagnosticoCapacitacion implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+    
+    public String getTemacapacitacion() {
+        return temacapacitacion;
+    }
+
+    public void setTemacapacitacion(String temacapacitacion) {
+        this.temacapacitacion = temacapacitacion;
     }
 
     public String getCargoautorizadiagnosticocapacitacion() {

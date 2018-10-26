@@ -68,4 +68,31 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
           + " where p.fechacontrataciondesde >= :FINICIAL and p.fechacontratacionhasta <= :FFINAL ",nativeQuery = true)
   List<Object[]> findByPlazasOcupadas(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal); 
+  
+  @Query(value = "SELECT e.codigoempleado,e.nombreempleado,e.apellidoempleado,p.nombrepuesto,p.ubicacionpuesto,c.fechainiciocontrato,c.salarioactual FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto",nativeQuery = true)
+  List<Object[]> ContratacionesExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+  @Query(value = "SELECT e.nombreempleado, e.apellidoempleado,p.ubicacionpuesto,p.nombrepuesto,p.numeropartidapuesto, p.numerosubpartidapuesto,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto"
+          ,nativeQuery = true)
+  List<Object[]> DespidosExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+  
+  @Query(value = "SELECT count(e.codigoempleado) as nempleados,sum(p.sueldobase) as sumsueldo,p.ubicacionpuesto FROM `empleado`e , puesto p WHERE e.estadoempleado=1 and e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto"
+          ,nativeQuery = true)
+  List<Object[]> PseronalActivoExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+   @Query(value = "SELECT count(a.codigoempleado) as Noempleados, a.ubicacionasistenciacapacitacion as Ubicacion, count(c.nombrecapacitacion) as NoCapacitaciones,c.nombrecapacitacion, c.fechacapacitaciondesde as FechaCapacitacion,c.fechacapacitacionhasta \n" +
+"FROM `asistenciacapacitacion`a ,`capacitacion` c\n" +
+"WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.fechacapacitaciondesde"
+          ,nativeQuery = true)
+  List<Object[]> EstadisticocapacitadoExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+  
+  @Query(value = "SELECT \n" +
+" e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.acuerdo ,p.sueldobase ,p.fechacontrataciondesde , p.fechacontratacionhasta ,p.nombrepuesto,p.ubicacionpuesto\n" +
+"FROM `empleado` e, puesto p \n" +
+"WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1"
+          ,nativeQuery = true)
+  List<Object[]> PersonalIndemnizadooExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
 }

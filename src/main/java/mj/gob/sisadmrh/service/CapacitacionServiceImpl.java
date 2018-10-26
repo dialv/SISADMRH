@@ -58,4 +58,14 @@ this.capacitacionRep=capacitacionRepository;
        return capacitacionRep.findByCapacitacionesR(finicial, ffinal, codigo); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public List<Object[]> CostoCapacitacionExcel(String finicial, String ffinal) {
+   return capacitacionRep.CostoCapacitacionExcel(finicial, ffinal);
+   }
+    @Override
+    public List<Object[]> EvaluacionCapacitacionesExcel(String finicial, String ffinal, String codigo) {
+       return capacitacionRep.EvaluacionCapacitacionesExcel(finicial, ffinal, codigo); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

@@ -24,5 +24,8 @@ public interface DiagnosticoCapacitacionService {
 
     void deleteDiagnosticoCapacitacion(Integer id);
      Iterable<DiagnosticoCapacitacion> findByUbicacion(String dato);
+     
+       Iterable <DiagnosticoCapacitacion> Diagnosticoexcel(String finicial, String ffinal);
+
     
 }

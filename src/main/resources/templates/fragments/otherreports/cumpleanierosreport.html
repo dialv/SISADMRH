@@ -28,7 +28,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
                     </div>-->
-                     <div class="form-group">    
+<!--                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechainicial" name="fechainicial"/>
@@ -37,12 +37,41 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
+                    </div>-->
+
+ <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechainicial" id="fechainicial"  onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/>
+                </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
                     </div>
-                     <div class="form-group">    
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Seleccione o digite la Fecha de fin para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
+            </div>
+<!--                     <div class="form-group">    
                          <td><a class="btn btn-default" id="pdf">pdf</a></td>
                     </div>
                      <div class="form-group">    
                          <td><a class="btn btn-default" id="excel">excel</a></td>
+                    </div>-->
+ <div class="row" align="center">    
+                         <td><a class="btn btn-danger" id="pdf">PDF</a></td>
+                         <td><a class="btn btn-success" id="excel">EXCEL</a></td>
                     </div>
                 </form>
             </div>
@@ -53,13 +82,26 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </body>
 <script>
+    function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFechaReporte(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
     $(document).ready(function () {
         $('#fechainicial').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
 
         $('#fechafinal').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
         $('#pdf').click(function(){
             $("#formreport").attr('action', '../cumpleanieros/1');

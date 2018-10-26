@@ -68,11 +68,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  <form class="form-horizontal" id="formcaprecibidas" th:object="${caparecibida}" th:action="@{../caparecibida}" method="post">
           <input type="hidden" th:field="*{codigocaparecibidas}"/>
           <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+            <div class="col-md-12"  >
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Tipo de Evento(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true"  th:field="*{tipoevento}"  />
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup14')" onmouseout ="javascript:ocultarAyuda('poppup14')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup14">Seleccione el tipo de evento en el que participara el Empleado desplegando la lista.!</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -80,16 +85,26 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-5">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true"   th:field="*{especialidad}" />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup16')" onmouseout ="javascript:ocultarAyuda('poppup16')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup16">Ingrese la especialidad del evento en el que participara el Empleado solo se admitiran 50 caracteres .!</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Organismo Patrocinador(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-7">
                         <input type="text" class="form-control"  size="200" maxlength="200" required="true"   th:field="*{organismo}"   />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup27')" onmouseout ="javascript:ocultarAyuda('poppup27')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup27">Ingrese el Organismo patrocinador del evento en el que participara el Empleado solo se admitiran 100 caracteres .!</span>
                     </div>
                 </div>
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Pais(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-3">
                     <select class="form-control" name="pais" >
                             <!--th:field="*{pais}"  >-->
                         <option>El Salvador</option>
@@ -97,32 +112,56 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                          <option>Mexico</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup14')" onmouseout ="javascript:ocultarAyuda('poppup14')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup14">Seleccione el pais en el que realizara el evento en el que participara el Empleado desplegando la lista.!</span>
+                    </div>
                 
             </div>
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha del Evento(*):</label>
-                <div class="col-sm-5">
-                     <input class="form-control" type="text" required="true"  name="fechacapreevento" id="fechacapreevento"  th:field="*{fechaevento}" />
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" required="true"  name="fechacapreevento" id="fechacapreevento"  th:field="*{fechaevento}" onchange="isDat(this.value,'fechacapreevento')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup19')" onmouseout ="javascript:ocultarAyuda('poppup19')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup19">Seleccione o digite la Fecha del evento en el que participara el Empleado el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
                    <div class="form-group">
                     <label class="col-sm-3 control-label">Duracion Horas(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-1">
                         <input type="text" class="form-control numeros"  required="true"   th:field="*{dhoras}" />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup18')" onmouseout ="javascript:ocultarAyuda('poppup18')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup18">Ingrese las horas que durara el evento en el que particiapra el Empleado solo se admitiran  caracteres numericos.!</span>
                     </div>
                 </div>
                    <div class="form-group">
                     <label class="col-sm-3 control-label">Duracion Dias(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-1">
                         <input type="text" class="form-control numeros"   required="true" th:field="*{ddias}"  />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup19')" onmouseout ="javascript:ocultarAyuda('poppup19')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup19">Ingrese las dias que durara el evento en el que particiapra el Empleado solo se admitiran  caracteres numericos.!</span>
                     </div>
                 </div>
           </div>
            <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>-->
+<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/empleados/}">.</a></button>
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
             </div>
     </div>
                 </form>
@@ -146,6 +185,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+             
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -164,75 +211,45 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechanacimiento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fechasepu').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechasepr').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamin').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechanacde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechahfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechadfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacapreevento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
-                    $('fechadexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    $('fechahexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    $('fechadubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                     $('fechaicontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                     $('fechafcontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                     $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
+              
 		});
                   $('#btnGuardar').click(function(){
             $("#formcaprecibidas").attr('action', '../caparecibida/'+ $("#codem").val().toString());
@@ -241,7 +258,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         });
 	</script>
 
-          <script th:inline="javascript">
+              <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
@@ -277,5 +294,4 @@ $(function () {
           document.getElementById("codem").value = str;
       });}
 	</script>
-        
 </html>

@@ -70,13 +70,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <input type="text" th:field="*{codigoempleado}"/>
           </span>-->
             <input type="hidden" th:field="*{codigohijodiscapacidad}"/>
-            <input type="hidden" th:field="*{nombrehijodiscapacidad}"/>
+<!--            <input type="hidden" th:field="*{nombrehijodiscapacidad}"/>-->
             <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+            <div class="col-md-12"  >
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombrehijodiscapacidad}"  />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el Nombre del Hijo del  Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                     </div>
                       <div class="form-group">
@@ -84,27 +89,47 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-5">
                         <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{apellidohijodiscapacidad}"   />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el Apellido del Hijo del Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre Discapacidad(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombrediscapacidad}"  />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup6')" onmouseout ="javascript:ocultarAyuda('poppup6')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup6">Seleccione el nombre de la discpacidad del Hijo del Empleado desplegando la lista.!</span>
+                    </div>
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Discapacidad(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <select class="form-control" name="tipodiscapacidad"  >
                             <!--th:field="*{sexocontacto}" >-->
                         <option>Mental</option>
                         <option>Fisica</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione la discapacidad del Hijo del Empleado desplegando la lista.!</span>
+                    </div>
             </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Fecha de Nacimiento:</label>
-                    <div class="col-sm-5">
-                          <input class="form-control" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}"/>
+                    <div class="col-sm-2">
+                          <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value,'fechasepr')"/>
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup4">Seleccione o digite la Fecha de Nacimiento del Hijo del Empleado el formtado debe ser  dia/mes/año .!</span>
                     </div>
                     </div>
                      
@@ -112,10 +137,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
           <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/empleados/}">.</a></button>
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>
+            </div>-->
     </div>
             <!--</span>-->
       </form>
@@ -138,6 +167,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+            function fechaNac(val,id){
+                        var foo=FechaNacimiento(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -156,78 +198,78 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechanacimiento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fechasepu').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechasepr').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamin').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechanacde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechahfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechadfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacapreevento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('fechadexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechadubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
 		});
 	 $('#btnGuardar').click(function(){
-            $("#formcontacto").attr('action', '../contacto/'+ $("#codem").val().toString());
+            $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
             $("form#formcontacto").submit();
             
         });

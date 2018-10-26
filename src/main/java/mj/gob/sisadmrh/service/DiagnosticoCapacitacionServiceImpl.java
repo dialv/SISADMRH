@@ -56,4 +56,10 @@ public class DiagnosticoCapacitacionServiceImpl  implements DiagnosticoCapacitac
         return diagnostivoRep.findByUbicacion("%"+dato+"%");
     }
     
+     @Override
+    public Iterable<DiagnosticoCapacitacion> Diagnosticoexcel(String finicial, String ffinal) {
+        return diagnostivoRep.Diagnosticoexcel(finicial, ffinal);
+        
+    }
+    
 }

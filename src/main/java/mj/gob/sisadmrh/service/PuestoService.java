@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Puesto;
 
@@ -15,4 +16,8 @@ public interface PuestoService {
     Puesto savePuesto(Puesto puesto);
 
     void deletePuesto(Integer id);
+    
+    List<Object[]> PuestosoExcel(String finicial, String ffinal);
+    
+    
 }

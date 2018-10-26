@@ -52,7 +52,7 @@ public class Hijodiscapacidad implements Serializable {
     @Column(name = "tipodiscapacidad")
     private String tipodiscapacidad;
     @Column(name = "fechanamimientohijosdiscapacidad")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechanamimientohijosdiscapacidad;
 
     public Hijodiscapacidad() {

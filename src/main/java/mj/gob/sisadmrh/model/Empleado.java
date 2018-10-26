@@ -47,7 +47,7 @@ public class Empleado implements Serializable {
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
@@ -92,13 +92,13 @@ public class Empleado implements Serializable {
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaingresosecpub;
     @Column(name = "FECHAINGRESOSECPRIV")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaingresosecpriv;
     @Column(name = "FECHAINGRESOMINISTERIO")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaingresoministerio;
     @Size(max = 12)
     @Column(name = "AFILIACIONPENSION")

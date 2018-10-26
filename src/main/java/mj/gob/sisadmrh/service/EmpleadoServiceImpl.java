@@ -75,6 +75,29 @@ return empleadoRep.findByNivelEscolar(finicial,ffinal);
    return empleadoRep.findByPlazasOcupadas(finicial, ffinal);
     }
 
-  
+  @Override
+    public List<Object[]> ContratacionesExcel(String finicial, String ffinal) {
+   return empleadoRep.ContratacionesExcel(finicial, ffinal);
+    }
+     
+    @Override
+    public List<Object[]> DespidosExcel(String finicial, String ffinal) {
+   return empleadoRep.DespidosExcel(finicial, ffinal);
+    }
+    
+    @Override
+    public List<Object[]> PseronalActivoExcel(String finicial, String ffinal) {
+   return empleadoRep.PseronalActivoExcel(finicial, ffinal);
+   
+    }
+    
+    @Override
+    public List<Object[]> EstadisticocapacitadoExcel(String finicial, String ffinal) {
+   return empleadoRep.EstadisticocapacitadoExcel(finicial, ffinal);
+    }
+    @Override
+    public List<Object[]> PersonalIndemnizadooExcel(String finicial, String ffinal) {
+   return empleadoRep.PersonalIndemnizadooExcel(finicial, ffinal);
+    }
     
 }

@@ -68,5 +68,21 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
             , nativeQuery = true) 
             Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+            
+              @Query(value = "SELECT  co.`numeropersona` as 'Cantidad de Personas',c.nombrecapacitacion as 'Tema',co.`costopersona` as'Costo por Persomna', (`costocapacitador`+(`numeropersona`*`costopersona`)) as 'Costo Total'\n" +
+"FROM `costocapacitacion`co,capacitacion c \n" +
+"WHERE co.`codigocapacitacion`=c.`codigocapacitacion`"
+          ,nativeQuery = true)
+  List<Object[]> CostoCapacitacionExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal);
+  
+  @Query(value = "SELECT e.*,c.nombrecapacitacion,c.fechacapacitacion,ca.nombrecapacitador FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`= :CODIGO \n" +
+"and c.fechacapacitaciondesde >= :FINICIAL\n" +
+"and c.fechacapacitacionhasta <= :FFINAL", 
+         nativeQuery = true)
+
+    public List<Object[]> EvaluacionCapacitacionesExcel(@Param("FINICIAL") String finicial, 
+                                             @Param("FFINAL") String ffinal,
+                                             @Param("CODIGO") String codigo);
 }
 

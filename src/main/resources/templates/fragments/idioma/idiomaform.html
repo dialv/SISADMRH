@@ -71,49 +71,69 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           </span>-->
             <input type="hidden" th:field="*{codigoidioma}"/>
             <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+            <div class="col-md-12"  >
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre de Idioma(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombreidioma}"  />
                     </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el Nombre del idioma del Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                     </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Habla(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <select class="form-control" name="habla"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione el estado de habla para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Escribe(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                          <select class="form-control" name="escribe"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup51')" onmouseout ="javascript:ocultarAyuda('poppup51')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup51">Seleccione el estado de escritura para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Traduce(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-2">
                     <select class="form-control" name="traduce"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup41')" onmouseout ="javascript:ocultarAyuda('poppup41')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup41">Seleccione el estado de traduccion para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
             </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nivel(*):</label>
 <!--                    <div class="col-sm-5">
                         <input type="text" class="form-control"    th:field="*{nivel}" />
                     </div>-->
-<div class="col-sm-5">
+<div class="col-sm-2">
                     <select class="form-control" name="nivel"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Basico</option>
@@ -121,15 +141,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <option>Avanzado</option>
                     </select>
                 </div>
+ <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup71')" onmouseout ="javascript:ocultarAyuda('poppup71')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup71">Seleccione el nivel para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
                     </div>
                       
                       
                 </div>
           <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>-->
+<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/empleados/}">.</a></button>
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
             </div>
     </div>
             <!--</span>-->

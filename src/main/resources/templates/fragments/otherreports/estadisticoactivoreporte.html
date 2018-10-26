@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">-->
+      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+     
+     
+    <title>SISADMRH-Estradistico de Personal Activo</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+<!--<div class="container">-->
+<div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-7">
+    <h3 align="center">Generar Estradistico de Personal Activo</h3>
+    <br><br><br>
+    
+        <form class="form-horizontal"  id="fromrepordespidos" > 
+          
+           <!--<div class="col-md-6">-->
+<!--           <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>
+                     <input class="form-control" type="text"  name="fechainicial" id="fechainicial"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>
+                     <input class="form-control" type="text"  name="fechafinal" id="fechafinal"  />
+                </div>
+            </div>-->
+ <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechainicial" id="fechainicial"  onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/>
+                </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Seleccione o digite la Fecha de fin para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
+            </div>
+           
+           <!--</div>
+              <div class="col-md-6">
+                   </div>-->
+
+
+          
+        <div class="col-md-12">
+       <div class="row" align="center">    
+                         <td><a class="btn btn-danger" id="generar">PDF</a></td>
+                         <td><a class="btn btn-success" id="excel">EXCEL</a></td>
+                    </div>
+            </div>
+           </form>
+    </div>
+
+      <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+</div>
+
+        
+       
+</body>
+<script src="../static/css/hydro/js/jquery.js"></script>
+<script src="../static/css/stylemenu.js"></script>
+	        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+            function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFechaReporte(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+// 		$(document).ready(function() {
+// 			$(function () {
+// 				$("#datepickersince").datepicker();
+// 			});
+
+// 			$(function () {
+// 				$("#datepickeruntil").datepicker();
+// 			});
+// 		});
+		
+		$(document).ready(function () {
+		    var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+                    
+		    $('#fechainicial').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		       dateFormat: 'dd/mm/yy'
+		    });
+		    
+		    $('#fechafinal').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'dd/mm/yy'
+		    });
+                    
+//                    $('#generar').click(function(){
+//            $("#fromreportdiagnostico").attr('action', '../pdfdiagnostico/');
+//            $("form#fromreportdiagnostico").submit();
+//            
+//        });
+                 $('#generar').click(function(){
+            $("#fromrepordespidos").attr('action', '../personalactivopdf/');
+            $("form#fromrepordespidos").submit();
+            
+        });
+   
+     $('#excel').click(function(){
+            $("#fromrepordespidos").attr('action', '../personalactivoxls');
+            $("form#fromrepordespidos").submit();
+            
+        });   
+		});
+	</script>
+        
+<!--        <script>
+    $(document).ready(function () {
+        $('#fechainicial').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $('#fechafinal').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+        $('#generar').click(function(){
+            $("#fromreportpuesto").attr('action', '../pdf/'+ $("#fechacontrataciondesde").val().toString()+ $("#fechacontratacionhasta").val().toString());
+            $("form#fromreportpuesto").submit();
+            
+        });
+    });
+</script>-->
+        
+        
+</html>

@@ -54,7 +54,7 @@ public class Caparecibidas implements Serializable {
     @Column(name = "ddias")
     private int ddias;
     @Column(name = "fechaevento")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechaevento;
     @Size(max = 200)
     @Column(name = "organismo")

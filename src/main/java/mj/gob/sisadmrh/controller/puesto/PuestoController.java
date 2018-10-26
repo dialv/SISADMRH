@@ -80,14 +80,10 @@ public class PuestoController extends UtilsController{
          model.addAttribute("msg", 4);
         }
 //        return "redirect:/puestos/";
-         return PREFIX + "puestos";
+         return PREFIX + "puestoform";
     }
     
-    @RequestMapping("reporte/puesto")
-    public String newReportePuesto(Model model) {
-        model.addAttribute("puesto", new Puesto());
-        return PREFIX + "puestoreporte";
-    }
+  
     
 // @RequestMapping("report/")
 //    public String reporte() {
@@ -102,16 +98,17 @@ public class PuestoController extends UtilsController{
 //        	generatePdf("puestos", "rpt_puestos", params, download,response);
 //    }
     
-     @RequestMapping(value = "/pdf/", method = { RequestMethod.POST, RequestMethod.GET })
-    public void pdf( 
-            @RequestParam(required = false) Boolean download, 
-            @RequestParam(value="fechacontrataciondesde",required = false) String fechainicio, 
-            @RequestParam(value="fechacontratacionhasta", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
-                Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
-		params.put("FECHAINICIO", fechainicio);
-		params.put("FECHAFIN", fechafin);
-        	generatePdf("puestos", "rpt_puestos", params, download,response);
-    }
+//    @RequestMapping(value = "puestospdf/", method = { RequestMethod.POST, RequestMethod.GET })
+//    public void pdfestadisticoactivo(
+////            @PathVariable("indice") Long indice, 
+//            @RequestParam(required = false) Boolean download, 
+//            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+//            @RequestParam(value="fechafinal", required = false) String fechafin, 
+//                HttpServletResponse response) throws Exception {
+//                Map<String, Object> params = new HashMap<>();
+////		params.put("CODIGO", indice.toString());
+////		params.put("FECHAINICIO", fechainicio);
+////		params.puta proba man("FECHAFIN", fechafin);
+//        	generatePdf("puestos", "rpt_puestos", params, download,response);
+//    }
 }

@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Puesto;
 import mj.gob.sisadmrh.repository.PuestoRepository;
@@ -40,5 +41,8 @@ public class PuestoServiceImpl implements PuestoService {
     public void deletePuesto(Integer id) {
         puestoRep.deleteById(id);
     }
-
+@Override
+    public List<Object[]> PuestosoExcel(String finicial, String ffinal) {
+   return puestoRep.PuestosoExcel(finicial, ffinal);
+    }
 }

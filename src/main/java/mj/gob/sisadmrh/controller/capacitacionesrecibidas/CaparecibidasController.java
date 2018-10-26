@@ -77,7 +77,7 @@ public class CaparecibidasController extends UtilsController{
     @RequestMapping(value = "caparecibida/{id}")
     public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id) {
         try{
-            caparecibidasService.saveCaparecibidas(caparecibidas);
+        caparecibidasService.saveCaparecibidas(caparecibidas);
             
         Empleadocaparecibidas emcon = new  Empleadocaparecibidas();
         emcon.setCaparecibidas(caparecibidas);
@@ -96,7 +96,7 @@ public class CaparecibidasController extends UtilsController{
 //        return PREFIX+"caprecibidasform";
         
 //        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
- return PREFIX + "caprecibidasform";
+         return PREFIX + "caprecibidasform";
     }
     
     @RequestMapping("show/{id}")    
