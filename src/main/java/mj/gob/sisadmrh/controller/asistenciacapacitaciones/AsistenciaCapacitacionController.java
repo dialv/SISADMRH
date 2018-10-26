@@ -91,8 +91,11 @@ public class AsistenciaCapacitacionController extends UtilsController{
         try{
          asistenciaCapacitacionService.saveAsistenciaCapacitacion(asistencia);
          status.setComplete();
+          bitacoraService.BitacoraRegistry("se guardo una asistencia Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
-         
+         model.addAttribute("asistenciacapacitaciones", asistenciaCapacitacionService.listAllAsistenciaCapacitacion());
+          return PREFIX + "asistenciacapacitaciones";
         }
         catch(Exception e){
         model.addAttribute("msg", 1);
@@ -113,6 +116,8 @@ public class AsistenciaCapacitacionController extends UtilsController{
     public String delete(@PathVariable Integer id,Model model) {
         try{
         asistenciaCapacitacionService.deleteAsistenciaCapacitacion(id);
+        bitacoraService.BitacoraRegistry("se elimino una asistencia capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 3);
         }
         catch(Exception e){

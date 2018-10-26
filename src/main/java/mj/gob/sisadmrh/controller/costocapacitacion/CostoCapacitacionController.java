@@ -69,6 +69,8 @@ public class CostoCapacitacionController extends UtilsController{
         try{
          costoCapacitacionService.saveCostoCapacitacion(costoCapacitacion);
          status.setComplete();
+          bitacoraService.BitacoraRegistry("se guardo Un cosot capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("msg", 0);
         model.addAttribute("costocapacitaciones", costoCapacitacionService.listAllCostoCapacitacion());
          ///return PREFIX + "costocapacitacionform";
@@ -92,6 +94,8 @@ public class CostoCapacitacionController extends UtilsController{
     public String delete(@PathVariable Integer id,Model model) {
         try{
               costoCapacitacionService.deleteCostoCapacitacion(id);
+              bitacoraService.BitacoraRegistry("se elimino un costo Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
                 model.addAttribute("msg", 3);
         }
        

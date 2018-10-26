@@ -4,67 +4,75 @@
     <head lang="en">
 
         <title>Crear Capacitación</title>
-<!--         <th:block th:include="../templates/header"></th:block>-->
+        <!--         <th:block th:include="../templates/header"></th:block>-->
         <link rel="stylesheet"
-	th:href="@{/css/bootstrap.min.css}" />
-<link rel="stylesheet"
-	th:href="@{/css/jquery-ui.min.css}" />
+              th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet"
+              th:href="@{/css/jquery-ui.min.css}" />
     <th:block th:include="../templates/header"></th:block>
-   
+
 </head>
 <body>
-    
-     <div class="contenedorizq"><label  >pnt_ceca</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>
+
+    <div class="contenedorizq"><label  >pnt_ceca</label>  
+        <label  class="der">
+            <script >
+                var f = new Date();
+                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());</script></label>
+    </div><br>
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center">Crear Capacitacion</h3>
+            <h3 align="center">Crear Evaluación Capacitación</h3>
             <div>
                 <form class="form-horizontal" th:object="${evaluacioncapacitacion}" th:action="@{../evaluacioncapacitacion}" method="post">
 
-   <div class="col-md-6">
-       <input type="hidden" th:field="*{codigoevaluacioncapacitacion}"/>
+                    <div class="col-md-6">
+                        <input type="hidden" th:field="*{codigoevaluacioncapacitacion}"/>
 
-<div class="form-group">
-                <label class="col-sm-5 control-label">Capacitación:</label>
-                <div class="col-sm-7">
-                    <select class="form-control" name="codigocapacitacion.codigocapacitacion">
-                         <option value="">-- Seleccione la Capacitación --</option>
-                                <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
-                            </select>
-                </div>
-            </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Lugar de la Capacitación(*):</label>
+                            <label class="col-sm-3 control-label">Capacitación:</label>
                             <div class="col-sm-7">
+                                <select class="form-control" name="codigocapacitacion.codigocapacitacion">
+                                    <option value="">-- Seleccione la Capacitación --</option>
+                                    <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
+                                </select>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacion')" onmouseout ="javascript:ocultarAyuda('capacitacion')">a</a></b>
+
+                                <span class="popuptext" id="capacitacion">Seleccion La Capacitaciaon a Evaluar. .!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Lugar de la Capacitación(*):</label>
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" max="100" maxlength="100" required="true" name="lugarcapacitacion"/>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('stadosperior')" onmouseout ="javascript:ocultarAyuda('stadosperior')">a</a></b>
+
+                                <span class="popuptext" id="stadosperior">Ingrese el lugar donde se lleva acabo la Capacaitacion.  .!</span>
+                            </div>
                         </div>
 
-                        <!--                        <div class="form-group">
-                                                    <label class="col-sm-5 control-label">Fecha(*):</label>
-                                                    <div class="col-sm-7">
-                                                        <input type="text" class="form-control" th:field="*{nombrepuesto}"/>
-                                                    </div>
-                                                </div>-->
 
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Hora(*):</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" name="horaevualuacioncapacitacion"/>
+                            <label class="col-sm-3 control-label">Fecha y Hora(*):</label>
+                            <div class="col-sm-6">
+                                <input input data-format="dd/MM/yyyy hh:mm:ss" type="text"id="hra" class="form-control fecha_datetime" name="horaevualuacioncapacitacion"/>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('hora')" onmouseout ="javascript:ocultarAyuda('hora')">a</a></b>
+
+                                <span class="popuptext" id="hora">Ingrese la Hora de en que se la Evaluacion.  .!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Dominio del tema(*):</label>
+                            <label class="col-sm-3 control-label">Dominio del tema(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                                 <select class="form-control" name="dominiotema" >
@@ -73,10 +81,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcion')" onmouseout ="javascript:ocultarAyuda('opcion')">a</a></b>
+
+                                <span class="popuptext" id="opcion">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Habilidades de Comunicación(*):</label>
+                            <label class="col-sm-3 control-label">Habilidades de Comunicación(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="habilidadcomunicacion" >
@@ -86,9 +99,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('comunicacion')" onmouseout ="javascript:ocultarAyuda('comunicacion')">a</a></b>
+
+                                <span class="popuptext" id="comunicacion">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Llena sus Espectativas(*):</label>
+                            <label class="col-sm-3 control-label">Llena sus Espectativas(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="espectativa" >
@@ -96,10 +114,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('espectativa')" onmouseout ="javascript:ocultarAyuda('espectativa')">a</a></b>
+
+                                <span class="popuptext" id="espectativa">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Contenido se Desarrollo con Claridad(*):</label>
+                            <label class="col-sm-3 control-label">Contenido se Desarrollo con Claridad(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="claridadtema" >
@@ -107,10 +130,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('claridad')" onmouseout ="javascript:ocultarAyuda('claridad')">a</a></b>
+
+                                <span class="popuptext" id="claridad">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Aclara dudas con precisión(*):</label>
+                            <label class="col-sm-3 control-label">Aclara dudas con precisión(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="alclaradudas" >
@@ -118,10 +146,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dudas')" onmouseout ="javascript:ocultarAyuda('dudas')">a</a></b>
+
+                                <span class="popuptext" id="dudas">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Mantiene el Interes del Tema(*):</label>
+                            <label class="col-sm-3 control-label">Mantiene el Interes del Tema(*):</label>
                             <div class="col-sm-3">
 
                                 <select class="form-control" name="interestema" >
@@ -129,10 +162,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('interes')" onmouseout ="javascript:ocultarAyuda('interes')">a</a></b>
+
+                                <span class="popuptext" id="interes">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Satisface en el tema(*):</label>
+                            <label class="col-sm-3 control-label">Satisface en el tema(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{nivelpuesto}"/>-->
                                 <select class="form-control" name="satifacciondetema" >
@@ -140,10 +178,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('satisfaccion')" onmouseout ="javascript:ocultarAyuda('satisfaccion')">a</a></b>
+
+                                <span class="popuptext" id="satisfaccion">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Comprensión del tema(*):</label>
+                            <label class="col-sm-3 control-label">Comprensión del tema(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="comprenciondetema" >
@@ -151,11 +194,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('comprencion')" onmouseout ="javascript:ocultarAyuda('comprencion')">a</a></b>
+
+                                <span class="popuptext" id="comprencion">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Planeación del tiempo(*):</label>
+                            <label class="col-sm-3 control-label">Planeación del tiempo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="planeaciontiempo" >
@@ -163,10 +211,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('planeacion')" onmouseout ="javascript:ocultarAyuda('planeacion')">a</a></b>
+
+                                <span class="popuptext" id="planeacion">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Distribución del Tiempo(*):</label>
+                            <label class="col-sm-3 control-label">Distribución del Tiempo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="distribuciontiempo" >
@@ -174,9 +227,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('distribucion')" onmouseout ="javascript:ocultarAyuda('distribucion')">a</a></b>
+
+                                <span class="popuptext" id="distribucion">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Contenido Claro(*):</label>
+                            <label class="col-sm-3 control-label">Contenido Claro(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="contenidoclaro" >
@@ -184,19 +242,30 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('claro')" onmouseout ="javascript:ocultarAyuda('claro')">a</a></b>
+
+                                <span class="popuptext" id="claro">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">El contenido Es aplicable a su trabajo(*):</label>
+                            <label class="col-sm-3 control-label">El contenido Es aplicable a su trabajo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="contenidoaplicadotrabajo" >
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
+
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnn')" onmouseout ="javascript:ocultarAyuda('opcionnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnn">Seleccion Si o No segun sucriterio. .!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Satisfecho con el contenido(*):</label>
+                            <label class="col-sm-3 control-label">Satisfecho con el contenido(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="satisfechocontenido" >
@@ -204,9 +273,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnnn">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Es necesaria la Capacitación(*):</label>
+                            <label class="col-sm-3 control-label">Es necesaria la Capacitación(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="necesariocapacitacion" >
@@ -214,9 +288,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnnnn">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">El equipo tecnologico es el adecuado(*):</label>
+                            <label class="col-sm-3 control-label">El equipo tecnologico es el adecuado(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="equipotecnologico" >
@@ -224,9 +303,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnnnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnnnnn">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Material Usado fue el apropiado(*):</label>
+                            <label class="col-sm-3 control-label">Material Usado fue el apropiado(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="materialutilizado" >
@@ -234,9 +318,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnnnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnnnnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnnnnnn">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tiempo Capacitación fue optimo(*):</label>
+                            <label class="col-sm-3 control-label">Tiempo Capacitación fue optimo(*):</label>
                             <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="tiempocapacitacionoptimo" >
@@ -244,11 +333,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnnnnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnnnnnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnnnnnnn">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Puntualidad Fecha y Hora(*):</label>
-                            <div class="col-sm-6">
+                            <label class="col-sm-3 control-label">Puntualidad Fecha y Hora(*):</label>
+                            <div class="col-sm-3">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="puntualidad" >
                                     <!--<option> </option>-->
@@ -256,76 +350,98 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                     <option>No</option>
                                 </select>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnnnnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnnnnnn')">a</a></b>
+
+                                <span class="popuptext" id="opcionnnnnnnn">Seleccion Si o No segun sucriterio. .!</span>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Comentario o Sugerencia(*):</label>
+                            <label class="col-sm-3 control-label">Comentario o Sugerencia(*):</label>
                             <div class="col-sm-7">
-                                
+
                                 <input type="text" class="form-control" max="100" maxlength="100" required="true" name="comentario"/>
                             </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('comentario')" onmouseout ="javascript:ocultarAyuda('comentario')">a</a></b>
+
+                                <span class="popuptext" id="comentario">Ingrese un comentario si lo desea. .!</span>
+                            </div>
                         </div>
-                    
 
 
-                    
-                        </div> 
-                     <div class="col-md-12">
+
+
+                    </div> 
+                    <div class="col-md-12">
                         <div class="row" align="center">
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/evaluacioncapacitaciones/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="reset" class="btn btn-default">Limpiar</button>
-                        </div>
-                         
-                    </div>
-            </form>
-                     </div> 
+                            <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/evaluacioncapacitaciones/}">Reg</a></button>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
-              
-            </div>
+                        </div>
+                </form>
+            </div> 
 
 
         </div>
-    </div>
-    <div class="col-md-12">
-        <th:block th:include="../templates/footer"></th:block>
-        
-    </div>  
-    <script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../capacitaciones/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script>    
-    <script>
-        $(document).ready(function () {
-            $('#fechacapacitaciondesde').datepicker({
-                dateFormat: 'yy-mm-dd'
-            });
 
-            $('#fechacapacitacionhasta').datepicker({
-                dateFormat: 'yy-mm-dd'
-            });
-        });
-    </script>
+
+    </div>
+</div>
+<div class="col-md-12">
+    <th:block th:include="../templates/footer"></th:block>
+
+</div>  
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../evaluacioncapacitaciones/';
+    });
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });</script>    
+<script>
+    $(document).ready(function () {
+    $('#hra').datepicker({
+//     format: 'DD-MM-YYYY HH:mm'
+  ateFormat: 'dd/MM/yyyy hh:mm:ss'
+    });
+    $('#fechacapacitacionhasta').datepicker({
+    dateFormat: 'dd/mm/yy'
+    });
+    });
     
+</script>
+<!--<script type="text/javascript">
+$(function () {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes();
+    var dateTime = date+' '+time;
+    $("#horaevualuacioncapacitacion").datetimepicker({
+        format: 'dd-mm-yy hh:ii',
+        autoclose: true,
+        todayBtn: true,
+        startDate: dateTime
+    });
+});
+</script>-->
 
 </body>	
 </html>

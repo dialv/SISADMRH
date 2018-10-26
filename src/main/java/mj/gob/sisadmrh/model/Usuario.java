@@ -54,16 +54,16 @@ public class Usuario implements Serializable {
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
    @Column(name = "FECHAINGRESO")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
    // @Temporal(TemporalType.DATE)
     private Date fechaingreso;
     @Column(name = "FECHACADUCIDAD")
     //@Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechacaducidad;
     @Column(name = "FECHABAJA")
   //  @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechabaja;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Usuariorol> usuariorolList;

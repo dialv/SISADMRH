@@ -35,7 +35,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                    <th>País del nivel escolar</th>
                    <th>Fecha Desde</th>
                    <th>Fecha Hasta</th>
-                   <th>Acciones</th>
+                 <th></th><th></th><th></th>
                    
                 
             </tr>
@@ -48,17 +48,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${nivelescolaridad.finalizado}">finalizado</td>
                 <td th:text="${nivelescolaridad.tituloobtenido}">Titulo Obtenido</td>
                 <td th:text="${nivelescolaridad. paisnivelescolaridad}">Pais nivel escolaridad</td>
-                <td th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd-MMM-yyyy')}">fechadesdenivelescolaridad</td>
-                <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd-MMM-yyyy')}">fechahastanivelescolaridad</td>
-                
-                <td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MMM/yyyy')}">Fecha Desde</td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd/MMM/yyyy')}">Fecha Hasta</td>
+<!--                <td th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MM/yyyy')}">fechadesdenivelescolaridad</td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd/MM/yyyy')}">fechahastanivelescolaridad</td>
+                -->
+               
                     
-                 <!--<a th:href="${'./new/nivelescolaridad'}" class="btn btn-primary">Nuevo</a>-->
-                 <a th:href="${'./new/nivelescolaridad'}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a>
-                <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a>
+                  <!--<a th:href="${'./new/nivelescolaridad'}" class="btn btn-primary">Nuevo</a>-->
+                   <td>  <a th:href="${'./show/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-info">Mostrar</a></td>
+                <td> <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a> </td>
+                <td> <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a> </td>
                 <!--<a th:href="${'./delete/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-danger">Delete</a>-->
-                </td>
+                
             </tr>
         </table>
     </div>
@@ -72,10 +74,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          </div>
    <script th:inline="javascript">
    $(document).ready(function () {
-            $('#tablita').DataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );
+    
     if ([[${msg}]] === 0){
     swal({
     title: "Exito!",
@@ -138,5 +137,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     });
         }
     </script>
+    <script th:inline="javascript">
+      $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
+    });
+	</script>
+        
 </body>
 </html>

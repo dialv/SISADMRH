@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
 import mj.gob.sisadmrh.repository.HijosdiscapacidadRepository;
@@ -47,6 +48,12 @@ public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
     @Override
     public Iterable<Hijodiscapacidad> findByDato(int id) {
         return hijosdiscapacidadRep.findByDato(id);
+        
+    }
+    
+    @Override
+    public List<Object[]> findhijoscap(){
+        return hijosdiscapacidadRep.findhijoscap();
         
     }
 }

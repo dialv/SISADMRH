@@ -28,7 +28,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
-                    <th>opciones</th>
+                    <th></th><th></th><th></th>
 
                 </tr>
                   </thead> 
@@ -36,23 +36,25 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <td th:text="${rol.codigorol}">Codigo</td>
                     <td th:text="${rol.nombrerol}">Nombre</td>
                     <td th:text="${rol.descripcionrol}">descripcion</td>
-                    <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-info">Mostrar</a>
-                    <a th:href="${'./edit/' + rol.codigorol}" class="btn btn-success">Editar</a>
+                    <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-info">Mostrar</a></td>
+                     <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-success">Editar</a></td>
                     <!--<td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>-->
-                    <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Borrar</a></td>
+                   <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Borrar</a></td>
                 </tr>
             </table>
         </div>
          </div>
     </div>
     <script th:inline="javascript">
-        $(document).ready(function () {
-        $('#tablita').DataTable( {
+      $(document).ready(function () {
+            $('#tablita').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );    
-            
-            
+        }} );
+    });
+    </script>
+    <script th:inline="javascript">
+     
         if ([[${msg}]] === 3){
         swal({
 

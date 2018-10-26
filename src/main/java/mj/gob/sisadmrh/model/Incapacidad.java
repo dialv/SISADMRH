@@ -45,6 +45,9 @@ public class Incapacidad implements Serializable {
     @Size(max = 12)
     @Column(name = "NUMEROFICHAISSS")
     private String numerofichaisss;
+     @Size(max = 70)
+    @Column(name = "NOMBREINCAPACIDAD")
+    private String nombreincapacidad;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "SUBSIDIO")
     private Float subsidio;
@@ -107,6 +110,14 @@ public class Incapacidad implements Serializable {
 
     public void setCodigoincapacidad(Integer codigoincapacidad) {
         this.codigoincapacidad = codigoincapacidad;
+    }
+
+    public String getNombreincapacidad() {
+        return nombreincapacidad;
+    }
+
+    public void setNombreincapacidad(String nombreincapacidad) {
+        this.nombreincapacidad = nombreincapacidad;
     }
 
     public String getNumerofichaisss() {

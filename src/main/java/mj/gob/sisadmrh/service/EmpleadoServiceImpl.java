@@ -20,11 +20,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmpleadoServiceImpl implements EmpleadoService{
-    private EmpleadoRepository empleadoRep;
     @Autowired
-    public void setEmpleadoRepository(EmpleadoRepository empleadoRepository) {
-        this.empleadoRep = empleadoRepository;
-    }
+    private EmpleadoRepository empleadoRep;
+//    @Autowired
+//    public void setEmpleadoRepository(EmpleadoRepository empleadoRepository) {
+//        this.empleadoRep = empleadoRepository;
+//    }
 
     @Override
     public Iterable<Empleado> listAllEmpleado() {
@@ -75,6 +76,7 @@ return empleadoRep.findByNivelEscolar(finicial,ffinal);
    return empleadoRep.findByPlazasOcupadas(finicial, ffinal);
     }
 
+
   @Override
     public List<Object[]> ContratacionesExcel(String finicial, String ffinal) {
    return empleadoRep.ContratacionesExcel(finicial, ffinal);
@@ -99,5 +101,33 @@ return empleadoRep.findByNivelEscolar(finicial,ffinal);
     public List<Object[]> PersonalIndemnizadooExcel(String finicial, String ffinal) {
    return empleadoRep.PersonalIndemnizadooExcel(finicial, ffinal);
     }
+
+    @Override
+    public List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal) {
+return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByPensionados(String finicial, String ffinal) {
+      return  empleadoRep.findByPensionados(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByPuestosCaducar(String finicial, String ffinal) {
+return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByPuestosEmpleados(String codigo) {
+return  empleadoRep.findByPuestosEmpleados(codigo);
+    }
+
+    @Override
+    public List<Object[]> findByIncapacidad(String finicial, String ffinal) {
+return empleadoRep.findByIncapacidad(finicial, ffinal);
+    }
+
+  
+
     
 }

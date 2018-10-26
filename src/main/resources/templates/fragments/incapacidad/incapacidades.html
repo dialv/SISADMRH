@@ -42,7 +42,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <th> Descargar Diagnostico</th>
 <!--                            <th>Subir Formulario</th>
                             <th>Subir Documento</th>-->
-                              <th>Acciones</th>
+                              <th></th><th></th><th></th>
 
                         </tr>
              </thead>
@@ -68,13 +68,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
  <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Descargar Documento</a></td>
 
-                <td>
-                    <a th:href="${'./show/' + incapacidad.codigoincapacidad}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' +incapacidad.codigoincapacidad}" class="btn btn-primary">Edit</a>
-                 <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Eliminar</a>
+                
+                  <td>  <a th:href="${'./show/' + incapacidad.codigoincapacidad}" class="btn btn-info">Mostrar</a></td>
+               <td> <a th:href="${'./edit/' +incapacidad.codigoincapacidad}" class="btn btn-primary">Edit</a></td>
+                <td> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Eliminar</a></td>
                <!--<td><a th:href="${'./delete/' + capacitacion.codigocapacitacion}" class="btn btn-danger">Delete</a></td>-->
                     <!--<td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Delete</a></td>-->  
-                </td>
+                
             </tr>
         </table>
             
@@ -89,10 +89,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    
      <script th:inline="javascript">
         $(document).ready(function () {
-            $('#tablita').DataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );
+         
     if([[${msg}]]===3){
        swal({
            
@@ -158,5 +155,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              location.href = './descarga/' + idpdf;
         }
 </script>  
+ <script th:inline="javascript">
+      $(document).ready(function () {
+            $('#tablita').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }} );
+    });
+	</script>
 </body>
 </html>

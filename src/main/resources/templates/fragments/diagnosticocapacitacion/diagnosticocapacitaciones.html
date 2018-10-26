@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Comites</title>
+    <title>Diagnostico Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -32,7 +32,7 @@
                             <th>Resultado que desea Obtener</th>
                             <th>Nombre de quien Autoriza</th>
                             <th>Cargo de quien Autoriza</th>-->
-                            <th>Acciones</th>
+                            <th></th><th></th><th></th>
                         </tr>
                         </thead>
                         <tr th:each="diagnosticocapacitacion : ${diagnosticocapacitaciones}">
@@ -49,9 +49,9 @@
                            -->
 <!--                              <td th:text="${codigoempleado.codigoempleado}">fechahastacomite</td>-->
 
-                            <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-info">Mostrar</a>
-                            <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-primary">Editar</a>
-                           <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Eliminar</a></td>
+                            <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-info">Mostrar</a></td>
+                          <td>  <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-primary">Editar</a></td>
+                          <td> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Eliminar</a></td>
                             <!--<a th:href="${'./delete/' + comite.codigocomite}" class="btn btn-danger">Delete</a></td>-->
                         </tr>
                     </table>
@@ -63,12 +63,17 @@
     </div>
 <!--</div>-->
 <script th:inline="javascript">
-    
-       $(document).ready(function () {
+      $(document).ready(function () {
             $('#tablita').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         }} );
+    });
+	</script>
+<script th:inline="javascript">
+    
+       $(document).ready(function () {
+            
     if ([[${msg}]] === 0){
     swal({
     title: "Exito!",

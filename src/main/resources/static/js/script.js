@@ -149,3 +149,4 @@ function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
     
 }
 
+

@@ -6,6 +6,8 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -22,7 +24,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.exolab.castor.types.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  *
@@ -45,8 +49,9 @@ public class EvaluacionCapacitacion implements Serializable {
     @Column(name = "LUGARCAPACITACION")
     private String lugarcapacitacion;
     @Column(name = "HORAEVUALUACIONCAPACITACION")
-  //  @Temporal(TemporalType.TIMESTAMP)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+ // @Temporal(TemporalType.TIME)
+//@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horaevualuacioncapacitacion;
     @Size(max = 4)
     @Column(name = "DOMINIOTEMA")
@@ -140,6 +145,9 @@ public class EvaluacionCapacitacion implements Serializable {
         this.horaevualuacioncapacitacion = horaevualuacioncapacitacion;
     }
 
+ 
+   
+ 
     public String getDominiotema() {
         return dominiotema;
     }

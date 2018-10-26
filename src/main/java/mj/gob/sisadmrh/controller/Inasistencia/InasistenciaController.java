@@ -74,7 +74,8 @@ public class InasistenciaController extends UtilsController{
             inasistencia.setAcuerdo(file.getBytes());
         inasistenciaService.saveInasistencia(inasistencia);
         status.setComplete();
-        
+         bitacoraService.BitacoraRegistry("se Creo una Inasistencias",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
        // model.addAttribute("inasistencias", inasistenciaService.listAllInasistencia());
       // return PREFIX+"inasistencias";
@@ -96,6 +97,8 @@ public class InasistenciaController extends UtilsController{
     public String delete(@PathVariable Integer id,Model model) {
         try{
         inasistenciaService.deleteInasistencia(id);
+        bitacoraService.BitacoraRegistry("se elimino una Inasistencias",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);
         }
         catch(Exception e){

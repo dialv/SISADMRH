@@ -19,6 +19,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import mj.gob.sisadmrh.service.BitacoraService;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -40,6 +41,10 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class UtilsController {
     @Autowired
     DataSource dataSource;
+    
+    @Autowired
+    public BitacoraService bitacoraService;
+    
     
     public static String EMPTY_STRING = "";
 
@@ -154,5 +159,13 @@ public class UtilsController {
             con.close();
         }
 
+    }
+
+    public BitacoraService getBitacoraService() {
+        return bitacoraService;
+    }
+
+    public void setBitacoraService(BitacoraService bitacoraService) {
+        this.bitacoraService = bitacoraService;
     }
 }

@@ -52,6 +52,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         
                         <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
                     </div>
+
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
@@ -68,6 +69,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <div class="row" align="center">    
                          <td><a class="btn btn-danger" id="generar">PDF</a></td>
                          <td><a class="btn btn-success" id="excel">EXCEL</a></td>
+
                     </div>
                 </form>
             </div>
@@ -101,6 +103,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         });
         $('#generar').click(function(){
             $("#formreport").attr('action', '../hijoscapesp/'+ $("#codigo").val().toString());
+            $("form#formreport").submit();
+            
+        });
+        $('#excel').click(function(){
+            $("#formreport").attr('action', '../hijoscapxls');
             $("form#formreport").submit();
             
         });

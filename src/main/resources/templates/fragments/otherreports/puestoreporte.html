@@ -60,11 +60,12 @@
 
           
         <div class="col-md-12">
+src/main/resources/templates/fragments/otherreports/puestoreporte.html
        <div class="row" align="center">    
                          <td><a class="btn btn-danger" id="generar">PDF</a></td>
                          <td><a class="btn btn-success" id="excel">EXCEL</a></td>
                     </div>
-            </div>
+           </div>
            </form>
     </div>
 
@@ -125,13 +126,14 @@
             $("form#fromreportpuesto").submit();
             
         });
+src/main/resources/templates/fragments/otherreports/puestoreporte.html
         
         $('#excel').click(function(){
             $("#fromreportpuesto").attr('action', '../puestosxls');
             $("form#fromreportpuesto").submit();
             
         });  
-                    
+                   
 		});
 	</script>
         

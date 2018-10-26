@@ -10,7 +10,8 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e 
-inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto  ep.codigopuesto=p.codigopuesto 
+inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto
+inner join puesto p on ep.codigopuesto=p.codigopuesto   
  INNER JOIN comite c on e.codigoempleado=c.codigoempleado where c.fechadesdecomite >= $P{FECHAINICIO} and c.fechahastacomite <=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">
@@ -25,10 +26,10 @@ inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto
 	<field name="nombrecomite" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechadesdecomite" class="java.sql.Date">
+	<field name="fechadesdecomite" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechahastacomite" class="java.sql.Date">
+	<field name="fechahastacomite" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="nombreempleado">

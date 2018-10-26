@@ -84,6 +84,8 @@ public class EvaluacionCapacitacionController extends UtilsController {
            evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
            status.setComplete();
         //  model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+         bitacoraService.BitacoraRegistry("se creo una Evaluacion Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("msg", 0);
         //  return PREFIX + "evaluacioncapacitaciones";
         
@@ -111,6 +113,8 @@ public class EvaluacionCapacitacionController extends UtilsController {
         try{
        
        evaluacionCapacitacionService.deleteEvualuacionCapacitacion(id);
+       bitacoraService.BitacoraRegistry("se elimino una  Evaluacion Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);
         }
         catch(Exception e)

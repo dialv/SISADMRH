@@ -26,113 +26,38 @@
 
     <body>
         <!--<div class="container">-->
-            <div th:fragment="header">
-                <div class="jumbotron row">
-                     <div  class="col-md-3">
-                         <div class="row text-center">
+        <div th:fragment="header">
+            <div class="row fondoloco">
+                <div  class="col-md-3">
+                    <div class="row text-center">
                         <img src="../../static/image/gob.png" width="200" th:src="@{/image/gob.png}"/>
                     </div>
-                   </div>
-                     <div class="col-md-6">
-                         <div class="row text-center">
-                        <div class="">
-                            <h2>Ministerio de Justicia y Seguridad Publica</h2>
-                            <h2>Departamento de Recursos Humanos</h2>
-                            <h2>SISADMRH</h2>
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row text-center">
+                        <h2 class="hmod">Ministerio de Justicia y Seguridad Publica
+                        <br>Departamento de Recursos Humanos
+                        <br>SISADMRH</h2>
                     </div>
-                   </div>
-                     <div class="col-md-3">
-                         <div class="row text-center">
+                </div>
+                <div class="col-md-3">
+                    <div class="row text-center">
                         <img src="../../static/image/mjsp.png" width="200" th:src="@{/image/mjsp.png}"/>
                     </div>
-                   </div>
-                    <div class="celdauser"> <b th:if="${messageuser != null}" th:utext="${messageuser}" ></b><br>
-                    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a></div>
-                    
-                    <!--
-                    <div class="row text-center">
-                        <img src="../../static/image/UESlogo.jpg" width="100" th:src="@{/image/UESlogo.jpg}"/>
-                    </div>-->
                 </div>
-                <!--
-<nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
-                            <ul class="nav navbar-nav">
-                                <li><a href="#" th:href="@{/usuarios/}">Usuarios</a></li>
-                                <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li><a href="#" th:href="@{/roles/}">ROLES</a></li>
-                                <li><a href="#" th:href="@{/roles/new/rol}">Crear Rol</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li><a href="#" th:href="@{/beneficios/}">BENEFICIOS</a></li>
-                                <li><a href="#" th:href="@{/beneficios/new/beneficio}">Crear BENEFICIO</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li><a href="#" th:href="@{/estados/}">Estados</a></li>
-                                <li><a href="#" th:href="@{/estados/new/estado}">Crear estado</a></li>
-                                
-                                <li><a href="#" th:href="@{/nivelescolaridades/}">Niveles escolares</a></li>
-                                <li><a href="#" th:href="@{/nivelescolaridades/new/nivelescolaridad}">Crear Nivel escolar</a></li>
-                            </ul>
-
-                        </div>
+                <div class="celdauser col-md-12">
+                    <div class="col-md-4">
                     </div>
-                </nav>-->
-                
-<!--                 <nav class="navbar navbar-inverse nav flex-column">
-                    <div class="container-fluid">
-
-                      <ul class="nav navbar-nav ">
-                        <li class="active"><a class="navbar-brand" href="#" th:href="@{/}">Inicio</a></li>
-                        <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuario
-                          <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                                <li><a href="#" th:href="@{/usuarios/}">Consultar Usuarios</a></li>
-                                <li><a href="#" th:href="@{/usuarios/new/usuario}">Crear Usuario</a></li>
-                          </ul>
-                        </li>
-                        <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Roles
-                          <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                                <li><a href="#" th:href="@{/roles/}">Consultar Roles</a></li>
-                                <li><a href="#" th:href="@{/roles/new/rol}">Crear Rol</a></li>
-                          </ul>
-                        </li>
-                        <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Puesto
-                          <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                               <li><a href="#" th:href="@{/puestos/}">Consultar Puestos</a></li>
-                               <li><a href="#" th:href="@{/puestos/new/puesto}">Crear Puesto</a></li>
-                               <li><a href="#" th:href="@{/puestos/reporte/puesto}">Reporte Puestos a Caducar</a></li>
-                          </ul>
-                        </li>
-                        
-                      </ul>
+                    <div class="celdauser col-md-4">
+                     USUARIO:<b th:if="${#request.userPrincipal != null}" th:utext="${#request.userPrincipal.getName()}" ></b>
                     </div>
-                </nav>-->
-              
-                
-                
+                    <div class="celdauser1 col-md-2">
+                    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a>
+                    </div>
+                </div>
+
             </div>
-        <!--</div>-->
 
-
-     
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-       
+        </div>
     </body>
 </html>

@@ -79,6 +79,8 @@ public class BeneficioController extends UtilsController{
     public String saveBeneficio(Beneficio beneficio,Model model) {
         try{
          beneficioService.saveBeneficio(beneficio);
+          bitacoraService.BitacoraRegistry("se guardo un beneficio",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -97,6 +99,8 @@ public class BeneficioController extends UtilsController{
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
+        bitacoraService.BitacoraRegistry("se elimino un Beneficio",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         try{
          beneficioService.deleteBeneficio(id);
           model.addAttribute("msg", 3);

@@ -36,50 +36,79 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Motivo de Inasistencia:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{motivoinasistencia}"/>
+                    <div class="col-sm-9">
+                       <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{motivoinasistencia}">
+
+                            </textarea>
+                        <!--<input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{motivoinasistencia}"/>-->
                     </div>
+                       <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('inasistencia')" onmouseout ="javascript:ocultarAyuda('inasistencia')">a</a></b>
+
+                                <span class="popuptext" id="inasistencia">Ingrese el Motivo de la Inasistencia. Solo es permitido digitos 200 caracteres. !!</span>
+                            </div>
                 </div>
                 
                 
                  <div class="form-group">
                     <label class="col-sm-2 control-label">Constancia de Inasistencia:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{constanciainasistencia}"/>
+                    <div class="col-sm-9">
+                        <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{constanciainasistencia}">
+
+                            </textarea>
+                        <!--<input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{constanciainasistencia}"/>-->
                     </div>
+                        <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('constancia')" onmouseout ="javascript:ocultarAyuda('constancia')">a</a></b>
+
+                                <span class="popuptext" id="constancia">Ingrese la justificaciion. Solo es permitido digitos 200 caracteres. !!</span>
+                            </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Desde:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" required="true" th:field="*{fechadesdeinasistencia}"/>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control fecha_format" id="fdesde" required="true" th:field="*{fechadesdeinasistencia}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                    </div>
+                       <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
+                        
+                        <span class="popuptext" id="fechadesde">Ingrese la Fecha de inicio de la Inasistencia. Haga un clic en la caja vacía.!</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Hasta:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" required="true" th:field="*{fechahastainasistencia}"/>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechahastainasistencia}"onmouseout ="javascript:ocultarAyuda('fechahasta')"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    </div>
+                     <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" >a</a></b>
+                        
+                        <span class="popuptext" id="fechahasta">Ingrese la Fecha de finalizacion de la Inasistencia. Haga un clic en la caja vacía.!</span>
                     </div>
                 </div>
   <div class="col-md-12">
       
          <div class="form-group">
                     <label class="col-sm-2 control-label">acuerdo:</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                
                     </div>
+                     <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('documento')" onmouseout ="javascript:ocultarAyuda('documento')">a</a></b>
+                        
+                        <span class="popuptext" id="documento">Seleccione un archivo desde una ubicacion de su Ordenador. Haga un clic en el boton subir.!</span>
+                    </div>
                 </div>
                         <div class="row" align="center">
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/inasistencias/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="reset" class="btn btn-default">Limpiar</button>
+                           <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/inasistencias/}">Reg</a></button>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                         </div>
                          
                     </div>
-<!--                <div class="row">
-                    <button type="submit" class="btn btn-default">Agregar</button>
-                </div>-->
+
             </form>
         </div>
     </div>
@@ -87,12 +116,25 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 </body>
 <script>
+    function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
     $(document).ready(function () {
-        $('#fechadesdeinasistencia').datepicker({
+        $('#fdesde').datepicker({
             dateFormat: 'dd/mm/yy'
         });
 
-        $('#fechahastainasistencia').datepicker({
+        $('#fhasta').datepicker({
             dateFormat: 'dd/mm/yy'
         });
        

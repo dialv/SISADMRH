@@ -79,6 +79,8 @@ public class CapacitacionController extends UtilsController{
         try{
            capacitacionService.saveCapacitacion(capacitacion);
            status.setComplete();
+            bitacoraService.BitacoraRegistry("se guardo una Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
            model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -109,6 +111,8 @@ public class CapacitacionController extends UtilsController{
         try{
        
         capacitacionService.deleteCapacitacion(id);
+        bitacoraService.BitacoraRegistry("se elimino una Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);
         }
         catch(Exception e)
@@ -120,7 +124,8 @@ public class CapacitacionController extends UtilsController{
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+         model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
     

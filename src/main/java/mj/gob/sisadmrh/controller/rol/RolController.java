@@ -2,6 +2,7 @@ package mj.gob.sisadmrh.controller.rol;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Rol;
 import mj.gob.sisadmrh.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @SessionAttributes("rol")
 @RequestMapping(value = "roles")
-public class RolController {
+public class RolController  extends UtilsController{
     
     private RolService rolService;
     
@@ -54,6 +55,8 @@ public class RolController {
         try{
         rolService.saveRol(rol);
         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo un Rol",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -73,6 +76,8 @@ public class RolController {
     public String delete(@PathVariable Integer id, Model model) {
          try{
         rolService.deleteRol(id);
+        bitacoraService.BitacoraRegistry("se elimino un Rol",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 3);
         }
         catch(Exception e){

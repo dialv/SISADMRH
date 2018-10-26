@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45e48802-dec0-4c73-a163-d1ad4215b739">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="82"/>
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     puesto.`CODIGOPUESTO` AS puesto_CODIGOPUESTO,
+     puesto.`CATEGORIAPUESTO` AS puesto_CATEGORIAPUESTO,
+     puesto.`SUELDOBASE` AS puesto_SUELDOBASE,
+     puesto.`NOMBREPUESTO` AS puesto_NOMBREPUESTO,
+     puesto.`NOMBREJERARQUIA` AS puesto_NOMBREJERARQUIA,
+     puesto.`ESTADOPLANILLA` AS puesto_ESTADOPLANILLA,
+     puesto.`FECHAAUTORIZACIONPUESTO` AS     puesto_FECHAAUTORIZACIONPUESTO,
+     puesto.`FECHABAJA` AS puesto_FECHABAJA,
+     puesto.`FECHACONTRATACIONDESDE` AS puesto_FECHACONTRATACIONDESDE,
+     puesto.`FECHACONTRATACIONHASTA` AS puesto_FECHACONTRATACIONHASTA,
+     puesto.`FECHANOMBRAMIENTO` AS puesto_FECHANOMBRAMIENTO,
+     puesto.`FECHAMODIFICACION` AS puesto_FECHAMODIFICACION,
+     puesto.`NIVELPUESTO` AS puesto_NIVELPUESTO,
+     puesto.`SUBLINEA` AS puesto_SUBLINEA,
+     puesto.`TIPOFINANZA` AS puesto_TIPOFINANZA,
+     puesto.`UBICACIONPUESTO` AS puesto_UBICACIONPUESTO,
+     puesto.`FORMAPAGO` AS puesto_FORMAPAGO,
+     puesto.`CATEGORIASUELDO` AS puesto_CATEGORIASUELDO,
+     puesto.`FECHAVACANTE` AS puesto_FECHAVACANTE,
+     puesto.`ULTIMOEMPLEADO` AS puesto_ULTIMOEMPLEADO,
+     puesto.`NUMEROPARTIDAPUESTO` AS puesto_NUMEROPARTIDAPUESTO,
+     puesto.`NUMEROSUBPARTIDAPUESTO` AS puesto_NUMEROSUBPARTIDAPUESTO,
+     puesto.`SUELDOTOPEPUESTO` AS puesto_SUELDOTOPEPUESTO,
+     puesto.`CODIGOCARGOPUESTO` AS puesto_CODIGOCARGOPUESTO,
+     puesto.`FECHAAPROBACION` AS puesto_FECHAAPROBACION,
+     puesto.`FECHACREACION` AS puesto_FECHACREACION,
+     puesto.`ESTADOPUESTO` AS puesto_ESTADOPUESTO
+FROM
+     `puesto` puesto
+WHERE
+     FECHACONTRATACIONHASTA <= $P{FECHAINICIO}
+ AND FECHACONTRATACIONHASTA >= $P{FECHAFIN}]]>
+	</queryString>
+	<field name="puesto_CODIGOPUESTO" class="java.lang.Integer"/>
+	<field name="puesto_CATEGORIAPUESTO" class="java.lang.String"/>
+	<field name="puesto_SUELDOBASE" class="java.lang.Float"/>
+	<field name="puesto_NOMBREPUESTO" class="java.lang.String"/>
+	<field name="puesto_NOMBREJERARQUIA" class="java.lang.String"/>
+	<field name="puesto_ESTADOPLANILLA" class="java.lang.String"/>
+	<field name="puesto_FECHAAUTORIZACIONPUESTO" class="java.sql.Date"/>
+	<field name="puesto_FECHABAJA" class="java.sql.Date"/>
+	<field name="puesto_FECHACONTRATACIONDESDE" class="java.sql.Date"/>
+	<field name="puesto_FECHACONTRATACIONHASTA" class="java.sql.Date"/>
+	<field name="puesto_FECHANOMBRAMIENTO" class="java.sql.Date"/>
+	<field name="puesto_FECHAMODIFICACION" class="java.sql.Date"/>
+	<field name="puesto_NIVELPUESTO" class="java.lang.String"/>
+	<field name="puesto_SUBLINEA" class="java.lang.String"/>
+	<field name="puesto_TIPOFINANZA" class="java.lang.String"/>
+	<field name="puesto_UBICACIONPUESTO" class="java.lang.String"/>
+	<field name="puesto_FORMAPAGO" class="java.lang.String"/>
+	<field name="puesto_CATEGORIASUELDO" class="java.lang.String"/>
+	<field name="puesto_FECHAVACANTE" class="java.sql.Date"/>
+	<field name="puesto_ULTIMOEMPLEADO" class="java.lang.String"/>
+	<field name="puesto_NUMEROPARTIDAPUESTO" class="java.lang.String"/>
+	<field name="puesto_NUMEROSUBPARTIDAPUESTO" class="java.lang.String"/>
+	<field name="puesto_SUELDOTOPEPUESTO" class="java.lang.Float"/>
+	<field name="puesto_CODIGOCARGOPUESTO" class="java.lang.String"/>
+	<field name="puesto_FECHAAPROBACION" class="java.sql.Date"/>
+	<field name="puesto_FECHACREACION" class="java.sql.Date"/>
+	<field name="puesto_ESTADOPUESTO" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement x="-13" y="70" width="568" height="1" uuid="8573895e-c343-42e9-9a8d-a90562d7abe1"/>
+			</line>
+			<textField>
+				<reportElement x="464" y="30" width="74" height="20" uuid="6aaf2a70-8623-4efb-81a8-4d09ded974f4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="538" y="30" width="26" height="20" uuid="d37d7200-bcd9-40d9-8801-8cf978751fec"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="50" width="70" height="20" uuid="b8b36ba1-871e-4651-875a-d8da76e4f677"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="170" y="50" width="182" height="20" uuid="6693b54d-1c8b-42e9-acbe-211507d3a81b"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PUESTOS A CADUCAR]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="105" height="50" uuid="c995a476-8778-43a9-9a78-2d53f20376ad"/>
+				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="143" y="0" width="265" height="20" uuid="31d689a4-ca57-4a25-bd58-2c845d56d6b6"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="20" width="211" height="20" uuid="660b0ca1-88a4-4271-a940-c8baf80a7c2c"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="50" width="114" height="20" uuid="788b00d6-16f2-4348-b3d3-4e42268c96ec"/>
+				<text><![CDATA[Fecha de Generacion:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<line>
+				<reportElement x="-13" y="21" width="568" height="1" uuid="56bdbc96-4986-4749-b88d-03034e3fbb51"/>
+			</line>
+			<staticText>
+				<reportElement x="-13" y="6" width="78" height="20" uuid="83bff103-8d68-466a-8b07-82e0b28cc320"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Codigo Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="6" width="78" height="20" uuid="deecbfa4-4054-4e18-a9de-2ce6b4cf3a44"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Nombre Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="6" width="71" height="20" uuid="f7565169-b918-48c0-846f-59b3cf97e954"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Fecha Desde ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="6" width="71" height="20" uuid="af025e36-6608-4b1b-89c4-4447144dc8f6"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Fecha Hasta ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="6" width="71" height="20" uuid="bef44f85-92c5-4eb4-b1dd-293b1c10b91a"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="6" width="71" height="20" uuid="1d51b996-af76-4230-88bc-b375feeddddb"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Sublinea]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="6" width="71" height="20" uuid="b09eee6d-f224-4cc8-80ec-afaca29afe4a"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[No. Partida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="508" y="6" width="71" height="20" uuid="2cc1aced-3ff2-4427-9106-7998591be07e"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[No. Subpartida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="41" height="20" uuid="6f5d15df-a0ba-4c70-8e0c-64ac33febd05"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{puesto_CODIGOPUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="0" width="78" height="20" uuid="cbb73e51-89af-417e-97d4-25293749b3fe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{puesto_NOMBREPUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="0" width="71" height="20" uuid="1ec60a8c-0c84-4d12-b8a8-8833a3491eb1"/>
+				<textFieldExpression><![CDATA[$F{puesto_FECHACONTRATACIONDESDE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="0" width="71" height="20" uuid="d66ad430-88d3-4177-ba2d-7abc952f22a4"/>
+				<textFieldExpression><![CDATA[$F{puesto_FECHACONTRATACIONHASTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="71" height="20" uuid="b294a92f-5d9e-4a17-8b92-0556ca76cb76"/>
+				<textFieldExpression><![CDATA[$F{puesto_UBICACIONPUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="71" height="20" uuid="ac50ab3d-9206-428e-b5c8-0a4d2612ddde"/>
+				<textFieldExpression><![CDATA[$F{puesto_SUBLINEA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="0" width="71" height="20" uuid="1f5e3f77-0ac6-4e4e-b12e-e006546f26a3"/>
+				<textFieldExpression><![CDATA[$F{puesto_NUMEROPARTIDAPUESTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="0" width="71" height="20" uuid="dd0460b3-408a-4980-a70d-6f8f1826e1c1"/>
+				<textFieldExpression><![CDATA[$F{puesto_NUMEROSUBPARTIDAPUESTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="60" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="438" y="30" width="100" height="20" uuid="629deae5-0261-45bc-8c0f-1e8da51865c7"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="15" width="568" height="1" uuid="065de079-304c-4465-9dd2-e757d4f62ead"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

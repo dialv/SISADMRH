@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
 
@@ -23,4 +24,6 @@ public interface HijosdiscapacidadService {
     void deleteHijodiscapacidad(Integer id);
     
     Iterable<Hijodiscapacidad> findByDato(int id) ;
+    
+    List<Object[]> findhijoscap();
 }

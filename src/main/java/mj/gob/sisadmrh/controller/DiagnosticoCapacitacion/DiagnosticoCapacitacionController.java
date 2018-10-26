@@ -92,6 +92,8 @@ private EmpleadoService empleadoService;
         try{
           diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
           status.setComplete();
+           bitacoraService.BitacoraRegistry("se creo un Diagnostico Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
            model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -114,6 +116,8 @@ private EmpleadoService empleadoService;
     public String delete(@PathVariable Integer id,Model model) {
         try{
        diagnosticoCapacitacionService.deleteDiagnosticoCapacitacion(id);
+        bitacoraService.BitacoraRegistry("Se eliminado un un Diagnostico Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);
         }
         catch(Exception e)

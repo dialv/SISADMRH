@@ -61,10 +61,12 @@
 
           
         <div class="col-md-12">
+<<<<<<< HEAD
        <div class="row" align="center">    
                          <td><a class="btn btn-danger" id="generar">PDF</a></td>
                          <td><a class="btn btn-success" id="excel">EXCEL</a></td>
                     </div>
+
             </div>
            </form>
     </div>
@@ -121,8 +123,15 @@
 		        dateFormat: 'dd/mm/yy'
 		    });
                     
+
                     $('#generar').click(function(){
             $("#fromreportpensionado").attr('action', '../pensionadospdf/');
+            $("form#fromreportpensionado").submit();
+            
+        });
+        
+                   $('#excel').click(function(){
+            $("#fromreportpensionado").attr('action', '../pensionadosxls');
             $("form#fromreportpensionado").submit();
             
         });

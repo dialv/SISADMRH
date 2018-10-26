@@ -1,10 +1,12 @@
 package mj.gob.sisadmrh.controller.usuario;
 
 import java.util.Date;
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.UsuarioRepository;
 import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @SessionAttributes("usuario")
 @RequestMapping(value = "usuarios")
-public class UsuarioController {
+public class UsuarioController extends UtilsController{
     
     private UsuarioService usuarioService;
     
@@ -29,6 +31,9 @@ public class UsuarioController {
     public void setUsuarioService(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
+    
+    @Autowired
+    BCryptPasswordEncoder paswordEnc; 
     
     private final String PREFIX = "fragments/usuario/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -56,9 +61,11 @@ public class UsuarioController {
         Date fecha = new Date();
         usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
+        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
-        
+         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -78,6 +85,8 @@ public class UsuarioController {
     public String delete(@PathVariable Integer id,Model model) {
         try{
         usuarioService.deleteUsuario(id);
+        bitacoraService.BitacoraRegistry("se elimino un Usuario",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);}
         
         catch(Exception e){
