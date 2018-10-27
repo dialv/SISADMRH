@@ -43,7 +43,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
                 
                 <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a></td>
-                <td></td>  <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
+                <td> <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
               <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
