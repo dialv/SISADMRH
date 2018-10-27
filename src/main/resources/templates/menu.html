@@ -262,9 +262,11 @@
                                     <li><a href="#" th:href="@{/otherreports/evaluacioncap/}">Reporte de Evaluacion <br>de Capacitaciones</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+<!--                            <li class="dropdown"active>
                                 <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Sessión</a>
-                            </li>
+                            </li>-->
+                             <li class="active"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Sessión<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
+                            
                         </ul>
                     </div>
                 </div>

@@ -45,15 +45,28 @@
                         <img src="../../static/image/mjsp.png" width="200" th:src="@{/image/mjsp.png}"/>
                     </div>
                 </div>
-                <div class="celdauser col-md-12">
-                    <div class="col-md-4">
+                <div class="col-lg-11">
+                    <div class="col-md-9">
                     </div>
-                    <div class="celdauser col-md-4">
+                    <div class="col-md-1">
+                        <img src="../../static/image/user.png" class="imauser" th:src="@{/image/user.png}"/>
+                    </div>
+                    <div class="celdauser col-md-1">
                      USUARIO:<b th:if="${#request.userPrincipal != null}" th:utext="${#request.userPrincipal.getName()}" ></b>
                     </div>
-                    <div class="celdauser1 col-md-2">
-                    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a>
+                    
+                </div>
+
+                <div class="celdauser1 col-lg-12">
+                <div class="col-md-8">
+               </div>
+                    <div class="col-md-2">
                     </div>
+                <div class="col-md-2">
+                          <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a>
+                  
+               </div>
+                   
                 </div>
 
             </div>

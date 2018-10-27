@@ -202,12 +202,25 @@ body {
     text-shadow:2px 2px 5px white;
     color: green;
     float: left;
-    margin-left: 66px;
+    margin-left: 48px;
 }
 .celdauser1{
+    font-size:18px;
+    text-shadow:2px 2px 5px white;
     color: black;
     float: left;
-    margin-left: 50px;
+    margin-left: -24px;
+}
+.celdauser1 a{
+    color: black;
+    float: left;
+    margin-left: -24px;
+}
+
+.celdauser1 a:hover { 
+   color: blue;
+    float: left;
+    margin-left: -24px;
 }
 .celdauser a{
     color: black;
@@ -238,4 +251,17 @@ body {
   text-shadow:2px 2px 5px black;
   text-align:center;
   position:relative;
+}
+.imauser {
+    position: absolute;
+    height: 49px;
+    margin-left: 100px;
+}
+
+img1 {
+       width: 48px;
+   height: 48px;
+
+   display: block;
+   width: 100%;
 }
