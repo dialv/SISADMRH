@@ -46,6 +46,9 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>-->
+
+<script> Textheader('pnt_cme',document.title);</script>
+
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -55,7 +58,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
             </div>
+
+    <h3 align="center"> </h3>
+
     <!--<h3 align="center">Crear Mision</h3>-->
+
         
         <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post"  enctype="multipart/form-data">
             <input type="hidden" th:field="*{codigomision}"/>

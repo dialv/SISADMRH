@@ -9,13 +9,14 @@
 
 </head>
 <body>
-<div class="contenedorizq"><label  >pnt_cem14</label>  
+    <script> Textheader('pnt_cem14',document.title);</script>
+<!--<div class="contenedorizq"><label  >pnt_cem14</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -24,7 +25,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		 <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-            <h3 align="center">Consulta de Datos de Empleado</h3>
+            <h3 align="center"></h3>
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
@@ -81,23 +82,42 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 
                 </form>
-                <div class="col-md-12">
+<!--                <div class="col-md-12">
                     <div class="row" align="center">
-                        <!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
+                        <button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
 <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar<a href="#" th:href="@{/empleados/}">.</a></button>
-                    </div>
-                </div>
 
-                <div class="container-fluid">
-                    <div class="row">
+                    </div>
+                </div>-->
+                <div >
+     </div>
+
+                                                                            <!--<div class="row">-->
+                                                                                    <!--<div class="panel panel-default">-->
+                                                                                        <!--<div class="panel-body">-->
+                                                                                            <div class="col-md-12" style="background-color:#d9edf7;">
+                                                                                                <div class="panel-info">
+                                                                                                    <div class="panel-heading">
+                                                                                                          Para Gestionar informacion extra del Empleado se listan las siguientes opciones :
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        <!--</div>-->
+                                                                                    <!--</div>-->
+
+                                                                                <!--</div>-->
+                <div class="container-fluid ">
+                    <div class="row ">
                         <div class="col-md-12">
                             <div id="card-758749">
                                
 								<!-- Contacto-->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734527"> Contactos </a>
+                                <div class="card panel panel-default">
+                                    <div class="card-header" >
+                                         
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734527"> <img src="../../static/image/images.jpeg"  th:src="@{/image/agenda.png}"/> Contactos </a>
                                     </div>
+                                    
                                     <div id="card-element-734527" class="collapse">
                                         <div class="card-body"> 
                                            		<div class="panel panel-primary">
@@ -106,7 +126,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 																Contactos
                                                                                                                                 <!--<a th:text="${currentUser}" th:href="@{|/user/${currentUser}|}"></a>-->
 																<a th:href="@{|../../contactos/new/${empleado.codigoempleado}|}"  title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -159,9 +179,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Dependiente-->
-									<div class="card">
+			          <div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734528"> Dependientes </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734528"> <img src="../../static/image/images.jpeg"  th:src="@{/image/familia.png}"/> Dependientes </a>
                                     </div>
                                     <div id="card-element-734528" class="collapse">
                                         <div class="card-body"> 
@@ -170,7 +190,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Dependientes   
 																<a th:href="@{|../../dependientes/new/${empleado.codigoempleado}|}"  title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -217,9 +237,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Formacion Academica-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734529"> Formacion Academica </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734529"><img src="../../static/image/images.jpeg"  th:src="@{/image/graduacion.png}"/> Formacion Academica </a>
                                     </div>
                                     <div id="card-element-734529" class="collapse">
                                         <div class="card-body"> 
@@ -228,7 +248,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Formacion Academica   
 																<a th:href="@{|../../formacionacademicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -280,9 +300,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Capacitaciones Recibidas-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734530"> Capacitaciones Recibidas</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734530"><img src="../../static/image/images.jpeg"  th:src="@{/image/presentacion.png}"/> Capacitaciones Recibidas</a>
                                     </div>
                                     <div id="card-element-734530" class="collapse">
                                         <div class="card-body"> 
@@ -291,7 +311,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Capacitaciones Recibidas  
 																<a th:href="@{|../../caparecibidas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -342,9 +362,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Experiencia Laboral-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734531"> Experiencia Laboral  </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734531"> <img src="../../static/image/images.jpeg"  th:src="@{/image/colaboracion.png}"/>Experiencia Laboral  </a>
                                     </div>
                                     <div id="card-element-734531" class="collapse">
                                         <div class="card-body"> 
@@ -353,7 +373,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Experiencia Laboral 
 																<a th:href="@{|../../experiencialaborales/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -406,9 +426,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Ubicacion Fisica-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734532"> Ubicacion Fisica </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734532">  <img src="../../static/image/images.jpeg"  th:src="@{/image/anteproyecto.png}"/>Ubicacion Fisica </a>
                                     </div>
                                     <div id="card-element-734532" class="collapse">
                                         <div class="card-body"> 
@@ -417,7 +437,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Ubicacion Fisica  
 																<a th:href="@{|../../ubicacionfisicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -466,9 +486,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Contrato-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734533"> Contrato</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734533"> <img src="../../static/image/images.jpeg"  th:src="@{/image/certificado.png}"/>Contrato</a>
                                     </div>
                                     <div id="card-element-734533" class="collapse">
                                         <div class="card-body"> 
@@ -477,7 +497,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Contrato 
 																<a th:href="@{|../../contratos/new/${empleado.codigoempleado}|}"title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -526,9 +546,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Hijos con Discapacidad-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734534"> Hijos con Discapacidad</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734534"><img src="../../static/image/images.jpeg"  th:src="@{/image/discapacitado.png}"/> Hijos con Discapacidad</a>
                                     </div>
                                     <div id="card-element-734534" class="collapse">
                                         <div class="card-body"> 
@@ -537,7 +557,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Hijos con Discapacidad 
 																<a th:href="@{|../../hijodiscapacidades/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -586,9 +606,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Idiomas-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734535"> Idiomas</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734535"><img src="../../static/image/images.jpeg"  th:src="@{/image/traducir.png}"/>  Idiomas</a>
                                     </div>
                                     <div id="card-element-734535" class="collapse">
                                         <div class="card-body"> 
@@ -597,7 +617,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Idiomas
 																<a th:href="@{|../../idiomas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -648,10 +668,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                                 </div>
                                             </div> 
                                         </div>
+                                      </div>
 										<!--Beneficio-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734536"> Beneficios</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734536"><img src="../../static/image/images.jpeg"  th:src="@{/image/diagrama.png}"/> Beneficios</a>
                                     </div>
                                     <div id="card-element-734536" class="collapse">
                                         <div class="card-body"> 
@@ -660,7 +681,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Beneficos
 																<a th:href="@{|../../beneficios/asignar/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -715,7 +736,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                 </div>
+<div class="col-md-12">
+                    <div class="row" align="center">
+                        <!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
+<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar<a href="#" th:href="@{/empleados/}">.</a></button>
 
+                    </div>
+                </div>
 
             </div>
         </div>

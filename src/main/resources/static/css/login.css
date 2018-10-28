@@ -6,7 +6,7 @@ body {
 	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   color:whitesmoke;
   font-size:12px;
-  background:#186218; 
+  background:#23527c; 
   background-image: url(/sisadmrh/image/background.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -156,8 +156,8 @@ label:hover ~ input[type=password] {
  	background:#27292c;
 }
 
-.col_der {float: right; width: 20%; background-color: white; }
-.col_izq {float: left; width: 20%; background-color: white; padding: 2%}
+.col_der {float: right; width: 20%; padding: 2% }
+.col_izq {float: left; width: 20%;  padding: 2%}
 .col_cen {float: left; width: 60%; text-align: center; padding: 1%}
 
 
