@@ -39,8 +39,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${beneficio.codigobeneficio}">Codigo</td>
                 <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
                 <td th:text="${beneficio.descripcionbeneficio}">descripcion</td>
-                 <td th:text="${beneficio.fechainiciobeneficio}">Fecha Inicio</td>
-                  <td th:text="${beneficio.fechafinalizarbeneficio}">Fecha Fin</td>
+                <td th:text="${#calendars.format(beneficio.fechainiciobeneficio, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <td th:text="${#calendars.format(beneficio.fechafinalizarbeneficio, 'dd/MM/yyyy')}">Fecha Desde</td>
+                 
                 
                 <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-info">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-success">Editar</a></td>

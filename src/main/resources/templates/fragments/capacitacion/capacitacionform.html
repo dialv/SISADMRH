@@ -25,8 +25,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div> 
-        <div class="col-md-8">
-            <!--<h3 align="center">Crear Capacitación</h3>-->
+        <div class="col-md-9">
+    <div class="row text-center">
+        <br><br>
+                        <img src="../../static/image/capacitacion.png" width="150" th:src="@{/image/capacitacion.png}"/>
+    </div><br>
             <div>
                 <form class="form-horizontal" th:object="${capacitacion}" th:action="@{../capacitacion}" method="post">
 
@@ -208,21 +211,21 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <input type="text" class="form-control" size="20" maxlength="20"  required="true"th:field="*{tipocapacitacion}"/>
                         </div>
                           <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipocapacitacin')" onmouseout ="javascript:ocultarAyuda('tipocapacitacin')">a</a></b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoCap')" onmouseout ="javascript:ocultarAyuda('tipoCap')">a</a></b>
                         
-                        <span class="popuptext" id="tipocapacitacin">Ingrese el tipo  de Capacaitación. Solo se permiten 20 Caracteres como maximo.!.!</span>
+                        <span class="popuptext" id="tipoCap">Ingrese el tipo  de Capacaitación. Solo se permiten 20 Caracteres como maximo.!.!</span>
                     </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Estado de la Capacitación:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-1">
                             <input type="text" class="form-control numeros" th:field="*{estadocapacitacion}"/>
                         </div>
                          <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('estadocapacitacion')" onmouseout ="javascript:ocultarAyuda('estadocapacitacion')">a</a></b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('estadocapacitac')" onmouseout ="javascript:ocultarAyuda('estadocapacitac')">a</a></b>
                         
-                        <span class="popuptext" id="estadocapacitacion">Ingrese el estado  de  la Capacaitación. Solo se permiten la combinacion de los digitos del 0 al 9.!.!</span>
+                        <span class="popuptext" id="estadocapacitac">Ingrese el estado  de  la Capacaitación. Solo se permiten la combinacion de los digitos del 0 al 9.!.!</span>
                     </div>
                     </div>
                     
