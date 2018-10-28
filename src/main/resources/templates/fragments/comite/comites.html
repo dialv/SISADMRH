@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Comites</title>
+    <title>Listado de Comites</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
-    
+    -->
 <!--<div class="container">-->
 <div th:if="${not #lists.isEmpty(comites)}">
             <div class="row">
@@ -78,6 +78,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <!--</div>-->
 
 <script th:inline="javascript">
+    Textheader('pnt_crco',document.title);
     $(document).ready(function () {
            
     if([[${msg}]]===0){

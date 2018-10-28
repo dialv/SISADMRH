@@ -5,13 +5,13 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-        <div class="contenedorizq"> 
+<!--        <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
 <div class="row">
      <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -20,7 +20,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/beneficio.png}"/>
                     </div>
-        <h3 align="center">Beneficios</h3>
+        <!--<h3 align="center">Beneficios</h3>-->
     <div th:if="${not #lists.isEmpty(beneficios)}">
        
         <table id = "tablita" class="table table-striped">
@@ -61,6 +61,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     });
     </script>
      <script th:inline="javascript">
+         Textheader('pnt_crbe',document.title);
         $(document).ready(function () {
         
         

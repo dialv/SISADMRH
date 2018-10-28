@@ -39,13 +39,13 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-        <div class="contenedorizq"><label  >pnt_cme</label>  
+<!--        <div class="contenedorizq"><label  >pnt_cme</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -55,7 +55,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
             </div>
-    <h3 align="center">Crear Mision</h3>
+    <!--<h3 align="center">Crear Mision</h3>-->
         
         <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post"  enctype="multipart/form-data">
             <input type="hidden" th:field="*{codigomision}"/>
@@ -427,6 +427,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
 	</script>
         <script th:inline="javascript">
+            Textheader('pnt_cme',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

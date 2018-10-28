@@ -8,13 +8,13 @@
     
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
     <div th:if="${not #lists.isEmpty(incapacidades)}">
         
        <div class="row">
@@ -89,7 +89,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
    
      <script th:inline="javascript">
         $(document).ready(function () {
-         
+         Textheader('pnt_creinca',document.title);
     if([[${msg}]]===3){
        swal({
            
