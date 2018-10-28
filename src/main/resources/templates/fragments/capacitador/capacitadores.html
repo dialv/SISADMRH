@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Capacitadores</title>
+    <title>Listado de Capacitadores</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
 <div class="row">
         
         <div class="col-md-3">
@@ -22,7 +22,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/capacitador.png" width="150" th:src="@{/image/capacitador.png}"/>
                          </div>
-           <h3 align="center">Listado de Capacitadores</h3>
+           <!--<h3 align="center">Listado de Capacitadores</h3>-->
    
     <div th:if="${not #lists.isEmpty(capacitadores)}">
         <!--<h3 align="center">Listado de Capacitadores</h3>-->
@@ -82,6 +82,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
   
   <script th:inline="javascript">
+      Textheader('pnt_ccap',document.title);
     $(document).ready(function () {
         
     if([[${msg}]]===0){

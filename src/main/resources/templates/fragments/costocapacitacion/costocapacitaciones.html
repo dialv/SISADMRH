@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Costo de Capacitaciones</title>
+    <title>Listado de Costo de Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
     
 <div class="row">
             <div class="col-md-3">
@@ -27,7 +27,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/costos.png" width="150" th:src="@{/image/costos.png}"/>
                          </div>
-        <h3 align="center">Listado de costos de Capacitaciones</h3>
+        <!--<h3 align="center">Listado de costos de Capacitaciones</h3>-->
         <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
             <thead>
             <tr>
@@ -70,6 +70,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  
 </body>
   <script th:inline="javascript">
+        Textheader('pnt_cosc',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

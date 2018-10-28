@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Capacitación</title>
+        <title>Crear Evaluacion Capacitación</title>
         <!--         <th:block th:include="../templates/header"></th:block>-->
         <link rel="stylesheet"
               th:href="@{/css/bootstrap.min.css}" />
@@ -14,18 +14,20 @@
 </head>
 <body>
 
-    <div class="contenedorizq"><label  >pnt_ceca</label>  
+<!--    <div class="contenedorizq"><label  >pnt_ceca</label>  
         <label  class="der">
             <script >
                 var f = new Date();
                 document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());</script></label>
-    </div><br>
+    </div><br>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center">Crear Evaluación Capacitación</h3>
+            <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="100" th:src="@{/image/evaluacion.png}"/>
+<!--            <h3 align="center">Registro de Incapacidades</h3>-->
             <div>
                 <form class="form-horizontal" th:object="${evaluacioncapacitacion}" th:action="@{../evaluacioncapacitacion}" method="post">
 
@@ -395,6 +397,7 @@
 
 </div>  
 <script th:inline="javascript">
+     Textheader('pnt_evca',document.title);
     $(document).ready(function () {
     if ([[${msg}]] === 0){
     swal({

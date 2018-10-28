@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Evaulacion Capacitaciones</title>
+        <title>Listado de Evaulacion Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
     <div class="row">
              <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -111,7 +111,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	</script>
     <script th:inline="javascript">
     $(document).ready(function () {
-      
+      Textheader('pnt_evca',document.title);
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",
