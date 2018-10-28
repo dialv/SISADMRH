@@ -6,7 +6,7 @@ body {
 	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   color:whitesmoke;
   font-size:12px;
-  background:#186218; 
+  background:#23527c; 
   background-image: url(/sisadmrh/image/background.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -89,7 +89,7 @@ input[type=text],
 input[type=password] {
     width:100%;
   padding:8px 5px;
-  background:linear-gradient(#449d44, #449d44 );
+  background:linear-gradient(#546383, #546383 );
   border:1px solid #222;
   color: white;
   box-shadow:
@@ -135,7 +135,7 @@ input[type=submit] {
     inset 0 1px 0 rgba(255,255,255,0.3),
     inset 0 10px 10px rgba(255,255,255,0.1);
   border-radius:0.3em;
-  background:#03800b;
+  background:#28497d;
   color:white;
   float:right;
   font-weight:bold;
@@ -156,8 +156,8 @@ label:hover ~ input[type=password] {
  	background:#27292c;
 }
 
-.col_der {float: right; width: 20%; background-color: white; }
-.col_izq {float: left; width: 20%; background-color: white; padding: 2%}
+.col_der {float: right; width: 20%; padding: 2% }
+.col_izq {float: left; width: 20%;  padding: 2%}
 .col_cen {float: left; width: 60%; text-align: center; padding: 1%}
 
 

@@ -17,12 +17,17 @@
 <body>
 <!--<div class="container">-->
 <div class="row">
+    <script> Textheader('pnt_reporte_pcad1',document.title);</script>
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-7">
-    <h3 align="center">Generar Reporte de Puestos a Caducar</h3>
-    <br><br><br>
+   <h3></h3>
+<div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/reportes.png}"/>
+</div> 
+            <div>
+                <br>
     
         <form class="form-horizontal"  id="fromreportpuesto" > 
           
@@ -60,7 +65,7 @@
 
           
         <div class="col-md-12">
-src/main/resources/templates/fragments/otherreports/puestoreporte.html
+
        <div class="row" align="center">    
                          <td><a class="btn btn-danger" id="generar">PDF</a></td>
                          <td><a class="btn btn-success" id="excel">EXCEL</a></td>
@@ -68,7 +73,7 @@ src/main/resources/templates/fragments/otherreports/puestoreporte.html
            </div>
            </form>
     </div>
-
+</div>
       <div class="col-md-12">
             <th:block th:include="../templates/footer"></th:block>
         </div>
