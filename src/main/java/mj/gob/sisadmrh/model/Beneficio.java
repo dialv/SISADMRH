@@ -51,11 +51,11 @@ public class Beneficio implements Serializable {
     private String descripcionbeneficio;
     @Column(name = "FECHAINICIOBENEFICIO")
     //@Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+       @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechainiciobeneficio;
     @Column(name = "FECHAFINALIZARBENEFICIO")
     //@Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+       @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechafinalizarbeneficio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "beneficio", fetch = FetchType.LAZY)
     private List<Empleadobeneficio> empleadobeneficioList;

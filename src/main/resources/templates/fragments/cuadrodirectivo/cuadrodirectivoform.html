@@ -7,13 +7,13 @@
  
   </head>
 <body>
-       <div class="contenedorizq"><label  >pnt_crcd</label>  
+<!--       <div class="contenedorizq"><label  >pnt_crcd</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
      <div class="row">
         <div class="col-md-3">
          <th:block th:include="../templates/menu"></th:block>
@@ -22,7 +22,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <br><br>
           <div class="row text-center">
                         <img src="../../static/image/cuadro.png" width="100" th:src="@{/image/cuadro.png}"/>
-            <h3 align="center">Crear Cuadro Directivos</h3>
+            <!--<h3 align="center">Crear Cuadro Directivos</h3>-->
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
  <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
@@ -109,6 +109,7 @@ isDat(this.value,'desde')/>
 
 </body>
 <script th:inline="javascript">
+    Textheader('pnt_crcd',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
