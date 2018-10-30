@@ -8,9 +8,9 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
-import mj.gob.sisadmrh.model.Empleado;
+//import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Mision;
-import mj.gob.sisadmrh.service.EmpleadoService;
+//import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.MisionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +24,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.web.multipart.MultipartFile;
 
+
+
+
 /**
  *
  * @author dialv
@@ -33,9 +36,6 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping(value = "misiones")
 public class MisionController extends UtilsController{
     
-    @Autowired
-    private EmpleadoService empleadoService;
-//    @Autowired
     
     private MisionService misionService;
     
@@ -63,8 +63,6 @@ public class MisionController extends UtilsController{
     @RequestMapping("new/mision")
     public String newMision(Model model) {
         model.addAttribute("mision", new Mision());
-        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
-        model.addAttribute("empleados", empleados);
         return PREFIX + "misionform";
     }
 
@@ -76,30 +74,20 @@ public class MisionController extends UtilsController{
 //    }
     
     @RequestMapping(value = "mision" )
-    public String saveMision(Mision mision,Model model, @RequestParam("file") MultipartFile file) {
-//    public String saveMision(Mision mision,Model model) {    
-          try {
-           mision.setDocacuerdo(file.getBytes());
-             
-        } catch (IOException ex) {
-            Logger.getLogger(MisionController.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-        
+     public String saveComision(Mision mision,Model model, @RequestParam("file") MultipartFile file) {
         try{
-        
+        mision.setDocacuerdo(file.getBytes());
         misionService.saveMision(mision);
         
         model.addAttribute("msg", 0);
 //        model.addAttribute("misiones", misionService.listAllMisiones());
         
-//        return PREFIX+"misiones";
         }
         catch(Exception e){
           model.addAttribute("msg", 1);
         }
-//         return PREFIX+"misionform";
-       return PREFIX + "misionform";
+         return PREFIX+"misionform";
+       // return "redirect:./show/" + comision.getCodigocomision();
     }
     
     @RequestMapping("show/{id}")

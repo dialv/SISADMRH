@@ -5,21 +5,25 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-     <div class="contenedorizq">
+<!--     <div class="contenedorizq">
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3 align="center">Reporte de Evaluacion de Capacitaciones
-            </h3>
-            <div>
+           <script> Textheader('pnt_reporte_relc1',document.title);</script>
+<h3></h3>
+<div class="row text-center">
+				<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/reportes.png}"/>
+</div> 
+			<div>
+				<br>
                 <form class="form-horizontal" id="formreport" th:object="${evcapacitaciones}">
 
                    <div class="form-group">

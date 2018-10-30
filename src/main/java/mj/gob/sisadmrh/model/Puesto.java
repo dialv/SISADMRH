@@ -115,31 +115,31 @@ public class Puesto implements Serializable {
     @Column(name = "estadopuesto")
     private Integer estadopuesto;
     @Column(name = "fechaaprobacion")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechaaprobacion;
     @Column(name = "fechaautorizacionpuesto")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechaautorizacionpuesto;
     @Column(name = "fechabaja")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechabaja;
     @Column(name = "fechacontrataciondesde")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechacontrataciondesde;
     @Column(name = "fechacontratacionhasta")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechacontratacionhasta;
     @Column(name = "fechacreacion")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechacreacion;
     @Column(name = "fechamodificacion")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechamodificacion;
     @Column(name = "fechanombramiento")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechanombramiento;
     @Column(name = "fechavacante")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechavacante;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "sueldobase")
