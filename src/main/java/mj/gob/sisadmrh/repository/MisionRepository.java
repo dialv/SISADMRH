@@ -40,12 +40,8 @@ public interface MisionRepository extends CrudRepository<Mision, Integer>{
 List<Object[]> findByMisionExterna2(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 //Para generar reporte de Misiones internas
-@Query(value = "select count(m.codigomision) totalRegistros, e.nombreempleado,p.nombrepuesto,m.nombremision,"
-        + "m.objetivomision,m.fechasalidamision,m.fecharegresomision,m.departamentomision from empleado e"
-        + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto"
-        + " inner join puesto p on ep.codigopuesto=p.codigopuesto"
-        + " inner join empleadomision em on e.codigoempleado=em.codigoempleado "
-        + "inner join mision m on em.codigomision=m.codigomision"
+@Query(value = "select  e.nombreempleado,p.nombrepuesto,m.nombremision,"
+        + "m.objetivomision,m.fechasalidamision,m.fecharegresomision,m.departamentomision from e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.fechasalidamision,m.fecharegresomision,m.departamentomision from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto"
      + " where m.fechasalidamision>=:FINICIAL" 
 + " AND m.fecharegresomision<=:FFINAL",nativeQuery = true)
 List<Object[]> findByMisionInterna(@Param("FINICIAL") String finicial, 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2dcbe6cb-3379-4a1c-aaae-d0184a031b8a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="149"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -16,12 +16,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select count(m.codigomision) totalRegistros, e.nombreempleado,p.nombrepuesto,m.nombremision, m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad,m.fechasalidamision,m.fecharegresomision from empleado e 
-							inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto 
-							inner join empleadomision em on e.codigoempleado=em.codigoempleado inner join mision m on em.codigomision=m.codigomision
-where m.codigomision=$P{CODIGO}
-AND m.fechasalidamision>=$P{FECHAINICIO}
-AND m.fecharegresomision<=$P{FECHAFIN}]]>
+		<![CDATA[select count(m.codigomision) totalRegistros,e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
+where m.fechasalidamision>=$P{FECHAINICIO}
+AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 	</queryString>
 	<field name="totalRegistros" class="java.lang.Long"/>
 	<field name="nombreempleado" class="java.lang.String">
@@ -43,12 +40,6 @@ AND m.fecharegresomision<=$P{FECHAFIN}]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="ciudad" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechasalidamision" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fecharegresomision" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>

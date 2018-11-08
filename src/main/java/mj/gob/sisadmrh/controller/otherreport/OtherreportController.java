@@ -141,21 +141,14 @@ private HijosdiscapacidadService hijosdiscapacidadService;
         return PREFIX + "constanciaserviciosreport";
     }
     
-               @RequestMapping("misionesinternas/")
-    public String reportemisionesinternas() {
-        return PREFIX + "misionesinternasreport";
-    }
+             
     
      @RequestMapping("1misionesexternas/")
     public String reporte1misionesexternas() {
         return PREFIX + "1misionesexternasreport";
     }
     
-      @RequestMapping("2misionesexternas/")
-    public String reporte2misionesexternas() {
-        return PREFIX + "2misionesexternasreport";
-    }
-    
+  
     
     @RequestMapping(value = "abogados/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfabogados(@PathVariable("indice") Long indice, 
@@ -388,7 +381,10 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 else generateWord("otherreports", "rpt_constanciaservicios", params, download,response);
                     
     }
-    
+      @RequestMapping("misionesinternas/")
+    public String reportemisionesinternas() {
+        return PREFIX + "misionesinternasreport";
+    }
     @RequestMapping(value = "misionesinternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmisionesinternas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -402,6 +398,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
         	generatePdf("otherreports", "rpt_misionesinternas", params, download,response);
     }
     /* ***************************Para Generar Reporte de Misiones Internas********************* */
+    @RequestMapping("/misionInternaxls")
       public ModelAndView misionInternaxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin
@@ -409,6 +406,11 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               List<Object[]> misionInternaList = misionService.findByMisionExterna1(fechainicio, fechafin);
               return new ModelAndView(new MisionesInternasView(), "misionInternaList", misionInternaList);
        }
+          @RequestMapping("2misionesexternas/")
+    public String reporte2misionesexternas() {
+        return PREFIX + "2misionesexternasreport";
+    }
+    
      @RequestMapping(value = "2misionesexternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdf2misionesexternas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
