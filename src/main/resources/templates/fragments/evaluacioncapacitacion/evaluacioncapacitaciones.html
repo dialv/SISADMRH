@@ -20,7 +20,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
                          </div>
-        <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>
+<!--        <h3 align="center">Listado de Evaluaciones de Capacitacion</h3>-->
        <div th:if="${not #lists.isEmpty(evaluacioncapacitaciones)}">
           <table id="tablita" class="table table-striped table-bordered" >
              <thead>

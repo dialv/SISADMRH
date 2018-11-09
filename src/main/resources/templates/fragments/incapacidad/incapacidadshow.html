@@ -14,12 +14,15 @@
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3 align="center">Consulta de Incapacidades</h3>
+            <!--<h3 align="center">Consulta de Incapacidades</h3>-->
+            <div class="row text-center">
+            <img src="../../static/image/asistencia.png" width="100" th:src="@{/image/asistencia.png}"/>
+           </div>
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">codigo de Incapacidad:</label>
+                            <label class="col-sm-5 control-label">Código de Incapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${incapacidad.codigoincapacidad}">codigo de Incapacidad</p></div>
                         </div>
@@ -75,31 +78,31 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fondo:</label>
-                            <div class="col-sm-5">
+                            <label class="col-sm-5 control-label">Fondo:</label>
+                            <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${incapacidad.fondoincapacidad}">Fondo </p>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Diagnostico:</label>
-                            <div class="col-sm-5">
+                            <label class="col-sm-5 control-label">Diagnostico:</label>
+                            <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${incapacidad.diagnostico}">Diagnostico </p>
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-7 control-label">Subir Formulario:</label>
-                            <div class="col-sm-5">
+                            <label class="col-sm-5 control-label">Subir Formulario:</label>
+                            <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${incapacidad.documento1}">Subir Formulario</p>
                             </div>
                         </div>
                         
-                          <div class="form-group">
+<!--                          <div class="form-group">
                             <label class="col-sm-7 control-label">Subir Documento2:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${incapacidad.documento2}">Subir Documento2 </p>
                             </div>
-                        </div>
+                        </div>-->
                         
                     </div> 
 
@@ -107,7 +110,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/incapacidades/}">Regresar</a></button>
+                         <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/incapacidades/}">Reg</a></button>
 
                     </div>
                 </div>
@@ -119,4 +122,7 @@
     </div>
 
 </body>
+<script>
+    Textheader('pnt_creinca',document.title);
+</script>
 </html>

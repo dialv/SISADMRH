@@ -17,6 +17,10 @@
         </div> 
         <div class="col-md-8">
             <!--<h3 align="center" >Crear Diagnostico</h3>-->
+                  <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                         </div>
             <div>
                 <form class="form-horizontal" th:object="${diagnosticocapacitacion}" th:action="@{../diagnosticocapacitacion}" method="post">
            <input type="hidden" th:field="*{codigodiagnosticocapacitacion}"/>
