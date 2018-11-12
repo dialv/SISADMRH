@@ -26,26 +26,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             
                 <br>
     
-        <form class="form-horizontal"  id="fromreportexonerado" > 
+        <form class="form-horizontal"  id="formreport" > 
           
-           <!--<div class="col-md-6">-->
-         
-            
-<!--            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>
-                     <input class="form-control" type="text"  name="fechainicial" id="fechainicial"  />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>
-                     <input class="form-control" type="text"  name="fechafinal" id="fechafinal"  />
-                </div>
-            </div>-->
- <div class="form-group">
+          
+ <div 
+     class="form-group">
                 <label class="col-sm-5 control-label">Fecha Desde(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
@@ -81,10 +66,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                          <td><a class="btn btn-danger" id="pdf">PDF</a></td>
                          <td><a class="btn btn-success" id="excel">EXCEL</a></td>
                     </div>
-
+  </div>
                 </form>
 
-            </div>
+          
         </div>
         <div class="col-md-12">
             <th:block th:include="../templates/footer"></th:block>

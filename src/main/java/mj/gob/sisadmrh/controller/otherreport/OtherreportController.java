@@ -403,7 +403,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin
               ){
-              List<Object[]> misionInternaList = misionService.findByMisionExterna1(fechainicio, fechafin);
+              List<Object[]> misionInternaList = misionService.findByMisionInterna(fechainicio, fechafin);
               return new ModelAndView(new MisionesInternasView(), "misionInternaList", misionInternaList);
        }
           @RequestMapping("2misionesexternas/")
@@ -429,7 +429,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin
               ){
-              List<Object[]> misionExt2List = misionService.findByMisionExterna1(fechainicio, fechafin);
+              List<Object[]> misionExt2List = misionService.findByMisionExterna2(fechainicio, fechafin);
               return new ModelAndView(new MisionesExternas2View(), "misionExt2List", misionExt2List);
        }
     

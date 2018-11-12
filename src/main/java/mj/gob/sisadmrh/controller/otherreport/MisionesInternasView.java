@@ -45,7 +45,7 @@ public class MisionesInternasView extends AbstractXlsView{
  Row row = sheet.createRow(rowNum++);
  row.createCell(0).setCellValue((String) misiones[0]);
  row.createCell(1).setCellValue((String) misiones[1]);
- row.createCell(2).setCellValue((Integer) misiones[2]);
+ row.createCell(2).setCellValue((String) misiones[2]);
  row.createCell(3).setCellValue((String) misiones[3]);
  row.createCell(4).setCellValue((Date) misiones[4]);
  row.createCell(5).setCellValue((Date) misiones[5]);

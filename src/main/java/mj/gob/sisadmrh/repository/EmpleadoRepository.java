@@ -42,13 +42,12 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
             /*PARA GENERAR REPORTES DE CUMPLEANIEROS EXEL */
-@Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,"
-        + " e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e "
-        + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
-        + " inner join puesto p on ep.codigopuesto=p.codigopuesto "
-        + " inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado "
-        + " INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion "
-        + " where e.fechanacimientoempleado >= :FINICIAL  and e.fechanacimientoempleado <= :FFINAL "
+@Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado\n" +
+"					from SISADMRH.empleado e\n" +
+"INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto\n" +
+" INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto"
+        + " INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado"
+        + " where concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))>=:FINICIAL and concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))<= :FFINAL "
 , nativeQuery = true)
  
  List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 
@@ -59,7 +58,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
           + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
           + " inner join puesto p on ep.codigopuesto=p.codigopuesto"
           + " inner join empleadonivelescolaridad ene on e.codigoempleado=ene.codigoempleado"
-          + " inner join nivelescolaridad ne on ene.codigonivelnivelescolaridad"
+          + " inner join nivelescolaridad ne on ene.codigonivelnivelescolaridad=ne.codigonivelnivelescolaridad"
           + " WHERE ne.fechadesdenivelescolaridad >= :FINICIAL  "
           + " and ne.fechahastanivelescolaridad <= :FFINAL",nativeQuery = true)
   List<Object[]> findByNivelEscolar(@Param("FINICIAL") String finicial, 
