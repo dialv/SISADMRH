@@ -13,8 +13,11 @@
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
-        <div class="col-md-8">
-            <h3 align="center">Consulta de Evaluacion de Capacitaciones</h3>
+        <div class="col-md-6">
+            <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                         </div>
+            <!--<h3 align="center">Consulta de Evaluacion de Capacitaciones</h3>-->
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
@@ -63,11 +66,15 @@
                             <label class="col-sm-5 control-label">Contenido se desarrolla con claridad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.claridadtema}">Contenido se desarrolla con claridad</p>
+                                </div>
+                        </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-5 control-label">Aclara dudas con precisión:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.alclaradudas}">Aclara dudas con precision</p>
                                     </div>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-5 control-label">Mantiene el Interes del tema:</label>
@@ -81,6 +88,8 @@
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.satifacciondetema}">Satisfaccion en el tema</p>
                                     </div>
                                 </div>
+                        </div>
+                        <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-sm-5 control-label">Comprencion del Tema:</label>
                                     <div class="col-sm-7">
@@ -155,10 +164,14 @@
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.puntualidad}">Puntalidad en Fecha y Hora</p>
                                     </div>
                                 </div>
-
-
-
+</div>
+</form>
+  <div class="col-md-12">
+                    <div class="row" align="center">
+ <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/evaluacioncapacitaciones/}">Reg</a></button>                    </div>
+                </div>
                             </div>
+            
                         </div>
 
 
@@ -168,11 +181,8 @@
                     </div> 
 
 
-                </form>
-                <div class="col-md-12">
-                    <div class="row" align="center">
- <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/evaluacioncapacitaciones/}">Reg</a></button>                    </div>
-                </div>
+                
+              
             </div>
         </div>
         <div class="col-md-12">
@@ -181,4 +191,7 @@
     </div>
 
 </body>
+<script>
+     Textheader('pnt_evca',document.title);
+</script>
 </html>

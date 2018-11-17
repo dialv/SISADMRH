@@ -19,35 +19,37 @@ import org.springframework.data.repository.query.Param;
 //para generar el reporte de excel de misiones externas `
 public interface MisionRepository extends CrudRepository<Mision, Integer>{
     //Para generar reportes de Misiones Externas1
-    @Query(value="select e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from empleado e"
-            + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
-            + " inner join puesto p on ep.codigopuesto=p.codigopuesto "
-            + " inner join empleadomision em on e.codigoempleado=em.codigoempleado "
-            + " inner join mision m on em.codigomision=m.codigomision" 
-            + " where m.fechasalidamision >= :FINICIAL and m.fecharegresomision <= :FFINAL "
+    @Query(value="select e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad "
+            + " from mision m "
+        + " inner join empleadomision em on m.codigomision=em.codigomision "
+        + " inner join empleado e on e.codigoempleado=em.codigoempleado "
+        + " inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado "
+        + " inner join puesto p on p.codigopuesto=ep.codigopuesto "
+            + " where m.fechasalidamision >= :FINICIAL and m.fecharegresomision <= :FFINAL and tipomision LIKE 'externa'  "
 , nativeQuery = true)
 
     List<Object[]> findByMisionExterna1(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
     //Para generar reportes de Misiones Externas2
-    @Query(value = "SELECT  m.fechasalidamision,m.fecharegresomision,m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos,m.organismopatrocinador,"
-            + "m.organismoinvita from empleado e " +
-" inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto " +
-" inner join empleadomision em on e.codigoempleado=em.codigoempleado inner join mision m on em.codigomision=m.codigomision " +
-
+    @Query(value = "SELECT  m.fechasalidamision,m.fecharegresomision,m.gastoviaje,m.numeroacuerdo,m.boleto,m.organismopatrocinador,"
+            + "m.organismoinvita  from mision m "
+        + " inner join empleadomision em on m.codigomision=em.codigomision "
+        + " inner join empleado e on e.codigoempleado=em.codigoempleado "
+        + " inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado "
+        + " inner join puesto p on p.codigopuesto=ep.codigopuesto  "+
 " where m.fechasalidamision>=:FINICIAL" +
-" AND m.fecharegresomision<=:FFINAL",nativeQuery = true)
+" AND m.fecharegresomision<=:FFINAL and tipomision LIKE 'externa' ",nativeQuery = true)
 List<Object[]> findByMisionExterna2(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 //Para generar reporte de Misiones internas
-@Query(value = "select count(m.codigomision) totalRegistros, e.nombreempleado,p.nombrepuesto,m.nombremision,"
-        + "m.objetivomision,m.fechasalidamision,m.fecharegresomision,m.departamentomision from empleado e"
-        + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto"
-        + " inner join puesto p on ep.codigopuesto=p.codigopuesto"
-        + " inner join empleadomision em on e.codigoempleado=em.codigoempleado "
-        + "inner join mision m on em.codigomision=m.codigomision"
+@Query(value = "select  e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,"
+        + " m.fechasalidamision,m.fecharegresomision,m.departamentomision from mision m "
+        + " inner join empleadomision em on m.codigomision=em.codigomision "
+        + " inner join empleado e on e.codigoempleado=em.codigoempleado "
+        + " inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado "
+        + " inner join puesto p on p.codigopuesto=ep.codigopuesto "
      + " where m.fechasalidamision>=:FINICIAL" 
-+ " AND m.fecharegresomision<=:FFINAL",nativeQuery = true)
++ " AND m.fecharegresomision<=:FFINAL and tipomision LIKE 'interna' ",nativeQuery = true)
 List<Object[]> findByMisionInterna(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 

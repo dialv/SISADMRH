@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>cuadro directivo</title>
+        <title>Listado de Cuadro Directivo</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="contenedorizq"> 
+<!--    <div class="contenedorizq"> 
         <label  class="der">
             <script >
                 var f = new Date();
                 document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());</script></label>
-    </div>
+    </div>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -20,7 +20,7 @@
             <div class="row text-center">
                 <img src="../../static/image/cuadros.png" width="100" th:src="@{/image/cuadros.png}"/>
             </div>
-            <h3 align="center">Listado de Cuadro Directivos</h3>
+            <!--<h3 align="center">Listado de Cuadro Directivos</h3>-->
             <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
 
                 <table id="tablita" class="table table-striped">
@@ -56,6 +56,7 @@
     </div>
 </body>
 <script th:inline="javascript">
+    Textheader('pnt_crcd',document.title);
     $(document).ready(function () {
     $('#tablita').DataTable({
     "language": {

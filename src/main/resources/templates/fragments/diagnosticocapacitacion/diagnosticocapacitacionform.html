@@ -7,7 +7,7 @@
 
     <head lang="en">
 
-        <title>Crear Diagnostico</title>
+        <title>Crear Tema de Diagnostico de Necesidades de Capacitacion</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -16,7 +16,11 @@
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center" >Crear Diagnostico</h3>
+            <!--<h3 align="center" >Crear Diagnostico</h3>-->
+                  <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                         </div>
             <div>
                 <form class="form-horizontal" th:object="${diagnosticocapacitacion}" th:action="@{../diagnosticocapacitacion}" method="post">
            <input type="hidden" th:field="*{codigodiagnosticocapacitacion}"/>
@@ -233,6 +237,7 @@
 
 <script>
     $(document).ready(function () {
+        Textheader('pnt_tdnc',document.title);
     $('#fechadesdecomite').datepicker({
     dateFormat: 'yy-mm-dd'
     });

@@ -98,12 +98,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             dateFormat: 'yy-mm-dd'
         });
         $('#pdf').click(function(){
-            $("#formreport").attr('action', '../1misionesexternas/1')
+            $("#formreport").attr('action', '../misionesinternas/1')
             $("form#formreport").submit();
             
         });
         $('#excel').click(function(){
-            $("#formreport").attr('action', '../ misionInternaxls');
+            $("#formreport").attr('action', '../misionInternaxls');
             $("form#formreport").submit();
         });
     });

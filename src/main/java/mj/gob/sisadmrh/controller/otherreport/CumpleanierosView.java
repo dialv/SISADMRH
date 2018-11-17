@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.controller.otherreport;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -35,19 +36,19 @@ public class CumpleanierosView extends AbstractXlsView{
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CUMPLEANIEROS");
  Row header = sheet.createRow(2);
 // header.createCell(0).setCellValue("Codigo empleado");
- header.createCell(0).setCellValue("fecha");
- header.createCell(1).setCellValue("Empleado");
+ header.createCell(1).setCellValue("Fecha");
  header.createCell(2).setCellValue("Puesto");
  header.createCell(3).setCellValue("Ubicacion");
+ header.createCell(4).setCellValue("Empleado");
 
-  
+ 
  int rowNum = 3;
  for(Object[] cumples : cumplesList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((Timestamp) cumples[0]);
- row.createCell(1).setCellValue((String) cumples[1]);
- row.createCell(2).setCellValue((String) cumples[2]);
- row.createCell(3).setCellValue((String) cumples[3]);
+ row.createCell(1).setCellValue((String) cumples[0]);
+ row.createCell(2).setCellValue((String) cumples[1]);
+ row.createCell(3).setCellValue((String) cumples[2]);
+ row.createCell(4).setCellValue((String) cumples[3]);
 
  }
  }

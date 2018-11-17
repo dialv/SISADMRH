@@ -7,13 +7,13 @@
   
   </head>
 <body>
-      <div class="contenedorizq"><label  >pnt_geus</label>
+<!--      <div class="contenedorizq"><label  >pnt_geus</label>
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <div class="row">
       <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -48,7 +48,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}" placeholder="Digite la contrasena de Usuario"/>
+                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
                 </div>
                 <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}" placeholder="Digite confirmacion de contrasena de Usuario"/>
+                    <input type="text" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                 </div>
                 <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
@@ -76,7 +76,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Ingreso:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fdesde" th:field="*{fechaingreso}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                    <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fdesde" th:field="*{fechaingreso}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
                 <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('finicio')" onmouseout ="javascript:ocultarAyuda('finicio')">a</a></b>
@@ -87,7 +87,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de caducidad:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fhasta" th:field="*{fechacaducidad}" placeholder="Seleccione la fecha de caducidad de activacion de Usuario"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" id="fhasta"  th:field="*{fechacaducidad}" placeholder="dia/mes/año" onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
                  <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ffinal')" onmouseout ="javascript:ocultarAyuda('ffinal')">a</a></b>
@@ -98,7 +98,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de baja:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fechabaja" th:field="*{fechabaja}"/>
+                    <input type="text" placeholder="dia/mes/año"class="form-control fecha_format" id="fchabaja" th:field="*{fechabaja}"/>
                 </div>
                  <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fbajo')" onmouseout ="javascript:ocultarAyuda('fbajo')">a</a></b>
@@ -152,7 +152,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         $('#fhasta').datepicker({
             dateFormat: 'dd/mm/yy'
         });
-        $('#fechabaja').datepicker({
+        $('#fchabaja').datepicker({
            dateFormat: 'dd/mm/yy'
         });
     });
@@ -160,6 +160,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 </body>
 <script th:inline="javascript">
+     Textheader('pnt_geus',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

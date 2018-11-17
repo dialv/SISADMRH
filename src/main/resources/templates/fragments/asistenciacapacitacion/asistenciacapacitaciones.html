@@ -75,6 +75,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </body>
  <script th:inline="javascript">
+     Textheader('pnt_asca',document.title)
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
@@ -127,7 +128,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../comisiones/';
+                location.href = '../../asistenciacapacitaciones/';
        }); 
 }
     if([[${msg}]]===0){

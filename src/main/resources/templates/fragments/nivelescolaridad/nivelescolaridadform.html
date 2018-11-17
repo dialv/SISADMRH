@@ -7,13 +7,13 @@
  
   </head>
 <body>
-     <div class="contenedorizq"><label  >pnt_cem4</label>
+<!--     <div class="contenedorizq"><label  >pnt_cem4</label>
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <div class="row">
         <div class="col-md-3">
          <th:block th:include="../templates/menu"></th:block>
@@ -23,7 +23,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/formacion.png" width="150" th:src="@{/image/formacion.png}"/>
                     </div>
-            <h3 align="center">Nuevo Nivel de Escolaridad</h3>
+            <!--<h3 align="center">Nuevo Nivel de Escolaridad</h3>-->
     <div>
         <form class="form-horizontal" th:object="${nivelescolaridad}" th:action="@{../nivelescolaridad}" method="post">
           
@@ -177,6 +177,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 </body>
 <script th:inline="javascript">
+     Textheader('pnt_cem4',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

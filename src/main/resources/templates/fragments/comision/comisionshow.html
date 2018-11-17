@@ -2,17 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>SISADMRH</title>
+    <title>Listado Comisiones</title>
      <th:block th:include="../templates/header"></th:block>
  
 
   
 </head>
 <body>
-<div class="container">
-    <h2>Detalle de Comisiones</h2>
+ <div class="row">
+        <div class="col-md-3">
+         <th:block th:include="../templates/menu"></th:block>
+    </div> 
+        <div class="col-md-8">
+            <div class="row text-center">
+        <br><br>
+                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+                    </div>
         <div>
-            <form class="form-horizontal">
+             <form class="form-horizontal">
                 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">codigo:</label>
@@ -42,14 +49,23 @@
                 </div>
                 
             </form>
-             <div class="col-md-12">
-                    <div class="row" align="center">
-                        <button type="button" class="btn btn-default"><a th:href="@{/comisiones/}">Regresar</a></button>
-
-                    </div>
-                </div>
+                <div class="col-md-12">
+            <div class="row" align="center">
+ <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/comisiones/}">Reg</a></button>                
+            </div>
     </div>
-</div>
+    </div> 
+        </div>
+     <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+    </div>
+    
+    
+
 
 </body>
+     <script>
+    Textheader('pnt_gecoms',document.title);
+</script>
 </html>
