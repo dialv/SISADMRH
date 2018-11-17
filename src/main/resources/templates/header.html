@@ -21,6 +21,7 @@
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+        <link rel="shortcut icon" type="../../static/image/favicon.png"   th:href="@{/image/favicon.png}"//>
 		
     </head>
 
@@ -30,22 +31,23 @@
             <div class="row fondoloco">
                 <div  class="col-md-3">
                     <div class="row text-center">
-                        <img src="../../static/image/gob.png" width="200" th:src="@{/image/gob.png}"/>
+                        <img src="../../static/image/gob.png"  th:src="@{/image/gob.png}"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="row text-center">
                         <h2 class="hmod">Ministerio de Justicia y Seguridad Publica
-                        <br>Departamento de Recursos Humanos
+                        <br>Direccion de Recursos Humanos
                         <br>SISADMRH</h2>
+                        <!--class="hmod"-->
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="row text-center">
-                        <img src="../../static/image/mjsp.png" width="200" th:src="@{/image/mjsp.png}"/>
+                        <img src="../../static/image/mjsp.jpg"  th:src="@{/image/mjsp.jpg}"/>
                     </div>
                 </div>
-                <div class="col-lg-11">
+<!--                <div class="col-lg-11">
                     <div class="col-md-9">
                     </div>
                     <div class="col-md-1">
@@ -55,9 +57,9 @@
                      USUARIO:<b th:if="${#request.userPrincipal != null}" th:utext="${#request.userPrincipal.getName()}" ></b>
                     </div>
                     
-                </div>
+                </div>-->
 
-                <div class="celdauser1 col-lg-12">
+<!--                <div class="celdauser1 col-lg-12">
                 <div class="col-md-8">
                </div>
                     <div class="col-md-2">
@@ -67,9 +69,56 @@
                   
                </div>
                    
-                </div>
+                </div>-->
+
+
 
             </div>
+            <div class="row fondoloco">
+                 <div class="form-group">
+                        <div class="col-md-2">
+                             
+                        </div> 
+                      <div class="col-md-6">
+
+
+                        </div>
+                      <div class="col-md-2">
+
+
+                        </div>
+                      <div class="col-md-2">
+
+                         <label  class="der" >Fecha:
+                              <script >
+                          var f = new Date();
+                          document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+                          </script></label>
+                        </div>
+                     </div>
+                <div class="form-group ">
+                        <div class="col-md-4">
+                               <label  id="nombrepantalla"></label> 
+                        </div> 
+                      <div class="col-md-4 conteinertitulopantalla" align="center">
+                            <!--<label class="hmod" id="titulopantalla" ></label>--> 
+                            <h2 class="hmod" id="titulopantalla" align="center"></h2>
+                            <!--<h3 id="titulopantalla" align="center"></h3>-->
+                        </div>
+<!--                      <div class="col-md-2" align="right">
+                          
+                        </div>-->
+                      <div class="col-md-4" align="right">  
+                          <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-user"></span><b th:if="${#request.userPrincipal != null}"  th:utext="${#request.userPrincipal.getName()}" ></b>
+                            </button>
+                            <!--<img src="../../static/image/close.png" class="" th:src="@{/image/close .png}"/>-->
+                            <a th:if="${#request.userPrincipal != null}" class="btn btn-danger" th:href="@{/logout}">Cerrar Session</a>                        
+                        </div>
+                     </div>
+                 
+            </div>
+            
+                
 
         </div>
     </body>

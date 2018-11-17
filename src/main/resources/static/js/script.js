@@ -149,4 +149,11 @@ function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
     
 }
 
+function Textheader(texto,titulo){
+     titulo=titulo.replace("SISADMRH-", "");
+     document.getElementById('nombrepantalla').innerHTML = texto;
+     document.getElementById('titulopantalla').innerHTML = titulo;
+
+}
+
 

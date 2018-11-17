@@ -3,19 +3,20 @@
 <head lang="en">
     <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>-->
      <th:block th:include="../templates/header"></th:block>
-    <title>Capacitaciones</title>
+    <title>SISADMRH-Listado de Capacitaciones</title>
    
      
     
 </head>
 <body>
-          <div class="contenedorizq"> 
+    <script> Textheader('pnt_ceca',document.title);</script>
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
     <div th:if="${not #lists.isEmpty(capacitaciones)}">
         
        <div class="row">
@@ -28,8 +29,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/capacitacion.png" width="150" th:src="@{/image/capacitacion.png}"/>
                          </div>
-           <h3 align="center">Listado de Capacitaciones</h3>
-      
+           <!--<h3 align="center">Listado de Capacitaciones</h3>-->
+           <form class="form-horizontal" id="formp" >    
       <table id="tablita" class="table table-striped table-bordered" >
                     <thead>
             <tr>
@@ -50,6 +51,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <th>Tipo Capacitación</th>
                 <th>Estado Capacitación</th>
                 <th>Nombre Capacitador</th>
+                <th></th>
                 <th></th><th></th><th></th>
                 
             </tr>
@@ -75,7 +77,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
                 <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
                 <td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>
-                
+                <td><a th:onclick="'javascript:CrearLista(\'' + ${capacitacion.codigocapacitacion} + '\');'" type="submit" class="btn btn-warning">Crear Lista de Asistencia</a></td>
+                    
               
                    <!--<td>  <a th:href="${'./new/capacitacion'}" class="btn btn-primary">Nuevo</a> </td>-->
                   <td>  <a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-info">Mostrar</a> </td>
@@ -86,7 +89,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                
             </tr>
         </table>
-            
+            </form>   
         </div>
             <div class="col-md-12">
                     <th:block th:include="../templates/footer"></th:block>
@@ -95,6 +98,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
    
    <script th:inline="javascript">
+       
+       
+       function CrearLista(value) {
+//        alert("codigoassitencia:" +"codigoempleado:"+value);
+        
+        $("#formp").attr('action', '../asistenciacapacitaciones/new/asistenciacapacitacion/'+value);
+//         $("#formp").attr('action', '../asistenciacapacitaciones/'+value);
+//            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/');
+        $("form#formp").submit();
+      }
+       
       $(document).ready(function () {
             $('#tablita').DataTable( {
         "language": {

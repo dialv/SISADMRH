@@ -117,7 +117,7 @@ public class Capacitacion implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
     private List<EvaluacionCapacitacion> evualuacioncapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
-    private List<AsistenciaCapacitacion> asistenciacapacitacionList;
+    private List<Asistenciacapacitacion> asistenciacapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
     private List<DiagnosticoCapacitacion> diagnosticocapacitacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigocapacitacion")
@@ -200,11 +200,11 @@ public class Capacitacion implements Serializable {
         this.evualuacioncapacitacionList = evualuacioncapacitacionList;
     }
 
-    public List<AsistenciaCapacitacion> getAsistenciacapacitacionList() {
+    public List<Asistenciacapacitacion> getAsistenciacapacitacionList() {
         return asistenciacapacitacionList;
     }
 
-    public void setAsistenciacapacitacionList(List<AsistenciaCapacitacion> asistenciacapacitacionList) {
+    public void setAsistenciacapacitacionList(List<Asistenciacapacitacion> asistenciacapacitacionList) {
         this.asistenciacapacitacionList = asistenciacapacitacionList;
     }
 

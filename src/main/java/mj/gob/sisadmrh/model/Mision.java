@@ -51,13 +51,13 @@ public class Mision implements Serializable {
     @Column(name = "documento")
     private String documento;
     @Column(name = "fechaacuerdomision")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechaacuerdomision;
     @Column(name = "fecharegresomision")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fecharegresomision;
     @Column(name = "fechasalidamision")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechasalidamision;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "gastostotales")

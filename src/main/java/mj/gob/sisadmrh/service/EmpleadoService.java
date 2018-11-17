@@ -27,7 +27,7 @@ public interface EmpleadoService {
 
     List<Object[]> renuncias(String finicial, String ffinal);
 
-     List<Object[]> ContratacionesExcel(String finicial, String ffinal);
+    List<Object[]> ContratacionesExcel(String finicial, String ffinal);
     List<Object[]> DespidosExcel(String finicial, String ffinal);
     List<Object[]> PseronalActivoExcel(String finicial, String ffinal);    
     List<Object[]> EstadisticocapacitadoExcel(String finicial, String ffinal);
@@ -35,13 +35,16 @@ public interface EmpleadoService {
     
     
 
-     List<Object[]> findBycumples(String finicial, String ffinal);
-      List<Object[]> findByNivelEscolar(String finicial, String ffinal);
-              List<Object[]> findByPlazasOcupadas(String finicial, String ffinal);
-              List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal);
-              List<Object[]> findByPensionados(String finicial, String ffinal);
-                      List<Object[]> findByPuestosCaducar(String finicial, String ffinal);
-                      List<Object[]> findByPuestosEmpleados( String codigo);//para el historial laboral
+    List<Object[]> findBycumples(String finicial, String ffinal);
+    List<Object[]> findByNivelEscolar(String finicial, String ffinal);
+    List<Object[]> findByPlazasOcupadas(String finicial, String ffinal);
+    List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal);
+    List<Object[]> findByPensionados(String finicial, String ffinal);
+    List<Object[]> findByPuestosCaducar(String finicial, String ffinal);
+    List<Object[]> findByPuestosEmpleados( String codigo);//para el historial laboral
     List<Object[]> findByIncapacidad(String finicial, String ffinal);
+    List<Object[]> findByDato(int id) ;
+    List<Object[]> findByAsistenciaCapacitacion(int id) ;
+    void DeleteEmpleadoAsistenciaCap(int id) ;
 
 }

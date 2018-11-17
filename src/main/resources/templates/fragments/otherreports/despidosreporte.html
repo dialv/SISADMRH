@@ -15,14 +15,19 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
+    <script> Textheader('pnt_reporte_desp1',document.title);</script>
 <!--<div class="container">-->
 <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-7">
-    <h3 align="center">Generar Reporte de Despidos</h3>
-    <br><br><br>
+   <h3></h3>
+<div class="row text-center">
+				<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/reportes.png}"/>
+</div> 
+			
+				<br>
     
         <form class="form-horizontal"  id="fromrepordespidos" > 
           

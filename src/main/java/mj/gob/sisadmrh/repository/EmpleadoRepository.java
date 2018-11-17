@@ -134,7 +134,25 @@ List<Object[]> findByPuestosEmpleados(@Param("CODIGO") String codigo);// ES EL M
          + " where i.fechahastaincapacidad >= :FINICIAL and i.fechahastaincapacidad <= :FFINAL ",nativeQuery = true)
 List<Object[]> findByIncapacidad(
                                              @Param("FINICIAL") String finicial, 
-                                             @Param("FFINAL") String ffinal);                                           
+                                             @Param("FFINAL") String ffinal); 
 
+
+        @Query(value = "SELECT c.nombrecapacitacion,e.nombreempleado,e.apellidoempleado,a.codigoasistenciacapacitacion,e.codigoempleado,a.codigocapacitacion FROM empleado e , capacitacion c ,asistenciacapacitacion a WHERE \n" +
+" c.codigocapacitacion = a.codigocapacitacion and \n" +
+" a.codigoempleado=e.codigoempleado and \n" +
+" a.codigocapacitacion= :id  ", nativeQuery = true)
+    List<Object[]> findByDato(@Param("id") int dato);
+    
+     @Query(value = "SELECT c.nombrecapacitacion,s.codigocapacitacion FROM  capacitacion c ,asistenciacapacitacion s WHERE \n" +
+" c.codigocapacitacion = s.codigocapacitacion and \n" +
+" s.codigoasistenciacapacitacion= :id  ", nativeQuery = true)
+    List<Object[]> findByAsistenciaCapacitacion(@Param("id") int dato);
+    
+    
+     @Query(value = "DELETE FROM  empleadoasistenciacapacitacion  WHERE \n" +
+" codigoempleado= :id  ", nativeQuery = true)
+    void DeleteEmpleadoAsistenciaCap(@Param("id") int dato);
+
+   
 
 }

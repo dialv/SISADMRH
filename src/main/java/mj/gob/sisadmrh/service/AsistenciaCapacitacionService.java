@@ -7,7 +7,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.List;
 import java.util.Optional;
-import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
+import mj.gob.sisadmrh.model.Asistenciacapacitacion;
 
 
 /**
@@ -15,14 +15,14 @@ import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
  * @author daniel
  */
 public interface AsistenciaCapacitacionService {
-    Iterable <AsistenciaCapacitacion> listAllAsistenciaCapacitacion();
+    Iterable <Asistenciacapacitacion> listAllAsistenciacapacitacion();
     
-    Optional<AsistenciaCapacitacion> getAsistenciaCapacitacionById(Integer id);
+    Optional<Asistenciacapacitacion> getAsistenciacapacitacionById(Integer id);
 
-    AsistenciaCapacitacion saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);
+    Asistenciacapacitacion saveAsistenciacapacitacion(Asistenciacapacitacion asistenciaCapacitacion);
 
-    void deleteAsistenciaCapacitacion(Integer id);
-    Iterable<AsistenciaCapacitacion> findByCapacitacion(String dato);
+    void deleteAsistenciacapacitacion(Integer id);
+    Iterable<Asistenciacapacitacion> findByCapacitacion(String dato);
    // servira para jalar el empleado,puesto y ubicacionfisica 
     List<Object[]> findnamesBycemp(String emp);
     

@@ -39,13 +39,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-        <div class="contenedorizq"><label  >pnt_cme</label>  
+<!--        <div class="contenedorizq"><label  >pnt_cme</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_cme',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -55,7 +56,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
             </div>
-    <h3 align="center">Crear Mision</h3>
+    <h3 align="center"> </h3>
         
         <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post"  enctype="multipart/form-data">
             <input type="hidden" th:field="*{codigomision}"/>
@@ -64,7 +65,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Mision(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="tipomision"  >
+                    <select class="form-control" name="tipomision">
                         <option>Externa</option>
                         <option>Interna</option>
                         <!--<option>Gobierno</option>-->
@@ -179,7 +180,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
-                    <select class="form-control" name="pais" >
+                    <select class="form-control" name="paisdestino" >
                         <option>El Salvador</option>
                         <option>Mexico</option>
                         <option>Guatemala</option>
@@ -342,7 +343,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-md-12">
                            <div class="row" align="center">
                                <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/misiones/}">.</a></button>
-<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="submit" class="btn btn-success" ><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
 <!--                               <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
@@ -427,7 +428,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
 	</script>
         <script th:inline="javascript">
-    $(document).ready(function () {
+      $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",
@@ -435,7 +436,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success"
        }).then(function() {
-                location.href = '../comisiones/';
+                location.href = '../misiones/';
        }); 
 }
     

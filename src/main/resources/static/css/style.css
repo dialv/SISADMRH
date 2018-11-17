@@ -1,6 +1,18 @@
 .fondoloco{
-  background:#186218; 
+  background:#28497d; 
   background-image: url(/sisadmrh/image/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.hedfondo{
+  background:#82a77d;; 
+  /*background-image: url(/sisadmrh/image/background.jpg);*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center; 
@@ -170,7 +182,16 @@ body {
   /* Set the fixed height of the footer here */
   height: 30px;
   line-height: 30px; /* Vertically center the text there */
-  background-color: #232323;
+  background-color: #28497d;
+}
+.footerl {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  line-height: 30px; /* Vertically center the text there */
+  background-color: #28497d;
 }
 
 .boton{
@@ -238,15 +259,31 @@ body {
 .contenedorizq{
   width: 100%;
   float: left;
-  background-color: #82a77d;
+  background-color: #ffffff;
+}
+
+.conteinertitulopantalla{
+  width: 100%;
+  float: center;
+  /*background-color: #ffffff;*/
+  font-size:30px;
 }
 
 
 .der{
+    color: white;
   float: right;
   margin: 0% 1%;
+  /*font-size:18px;*/
+  
 }
 .hmod {
+  font-size:25px;
+  text-shadow:2px 2px 5px black;
+  text-align:center;
+  position:relative;
+}
+.hmod1 {
   font-size:25px;
   text-shadow:2px 2px 5px black;
   text-align:center;

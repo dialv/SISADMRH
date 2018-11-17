@@ -127,7 +127,20 @@ return  empleadoRep.findByPuestosEmpleados(codigo);
 return empleadoRep.findByIncapacidad(finicial, ffinal);
     }
 
-  
+    @Override
+    public List<Object[]> findByDato(int id) {
+        return empleadoRep.findByDato(id);
+        
+    }
+    @Override
+    public List<Object[]> findByAsistenciaCapacitacion(int id) {
+        return empleadoRep.findByAsistenciaCapacitacion(id);
+        
+    }
+    @Override
+        public void DeleteEmpleadoAsistenciaCap(int id) {
+        empleadoRep.DeleteEmpleadoAsistenciaCap(id);
+    }
 
     
 }
