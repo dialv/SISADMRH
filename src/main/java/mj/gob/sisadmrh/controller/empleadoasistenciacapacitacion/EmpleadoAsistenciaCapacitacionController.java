@@ -49,7 +49,7 @@ public class EmpleadoAsistenciaCapacitacionController {
      @RequestMapping("new/empleadoasistenciacapacitacion")
     public String newAsistenciaEmpleadoCapacitacion(Model model) {
        EmpleadoAsistenciaCapacitacionForm form = new  EmpleadoAsistenciaCapacitacionForm();
-      form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciaCapacitacion());
+      form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciacapacitacion());
       form.setEmpleados(empleadoService.listAllEmpleado());
 //      form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
    
@@ -79,7 +79,7 @@ public class EmpleadoAsistenciaCapacitacionController {
 //         empleadoasistenciacapacitacion.setAsistenciaCapacitacion(asc);
          
          model.addAttribute("empleados", empleadoService.getEmpleadoById(idempleado));
-         model.addAttribute("asistenciacapcitaciones", asistenciaCapacitacionService.getAsistenciaCapacitacionById(idasistencia));
+         model.addAttribute("asistenciacapcitaciones", asistenciaCapacitacionService.getAsistenciacapacitacionById(idasistencia));
 //        llave.setNombreempleado(em.getNombreempleado());
 //        llave.setUbicacionasistenciacapacitacion(asc.getUbicacionasistenciacapacitacion());
         

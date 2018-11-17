@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
-import mj.gob.sisadmrh.model.Asistenciacapacitacion;
+import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.model.Empleado;
@@ -88,11 +88,11 @@ public class AsistenciaCapacitacionController extends UtilsController{
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(Asistenciacapacitacion asistencia,Model model ) {
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model ) {
         try{
          asistenciaCapacitacionService.saveAsistenciacapacitacion(asistencia);
 //         status.setComplete();
-       List<Object[]>  emcapLists = empleadoService.findByDato(asistencia.getCodigocapacitacion());
+       List<Object[]>  emcapLists= empleadoService.findByDato(asistencia.getCodigocapacitacion().getCodigocapacitacion());
          model.addAttribute("emcapLists", emcapLists);
         bitacoraService.BitacoraRegistry("se guardo una asistencia Capacitacion",getRequest().getRemoteAddr(), 
         getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA

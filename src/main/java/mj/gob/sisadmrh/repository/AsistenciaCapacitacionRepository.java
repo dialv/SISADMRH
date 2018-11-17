@@ -6,7 +6,7 @@
 package mj.gob.sisadmrh.repository;
 
 import java.util.List;
-import mj.gob.sisadmrh.model.Asistenciacapacitacion;
+import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Comite;
 import org.springframework.data.jpa.repository.Query;
@@ -17,7 +17,7 @@ import org.springframework.data.repository.query.Param;
  *
  * @author daniel
  */
-public interface AsistenciaCapacitacionRepository extends CrudRepository<Asistenciacapacitacion, Integer>{
+public interface AsistenciaCapacitacionRepository extends CrudRepository<AsistenciaCapacitacion, Integer>{
     
     @Query(value=" select p.nombrepuesto, uf.nombreubicacion,e.telefonofijoempleado,e.telefonomovilempleado,e.emailempleado from empleadopuesto ep \n" +
                     " inner join  empleadoubicacionfisica eu \n" +
@@ -35,7 +35,7 @@ public interface AsistenciaCapacitacionRepository extends CrudRepository<Asisten
          @Query(value = "SELECT ac.* FROM AsistenciaCapacitacion ac "
             + "WHERE ac.nombrecapacitacion LIKE :nom ", nativeQuery = true)
 
-    Iterable<Asistenciacapacitacion> findByCapacitacion(@Param("nom") String dato);
+    Iterable<AsistenciaCapacitacion> findByCapacitacion(@Param("nom") String dato);
 
 }
 

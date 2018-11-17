@@ -6,7 +6,7 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
-import mj.gob.sisadmrh.model.Asistenciacapacitacion;
+import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Capacitacion;
 
 import mj.gob.sisadmrh.model.EvaluacionCapacitacion;
