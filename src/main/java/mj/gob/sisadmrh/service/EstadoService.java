@@ -15,4 +15,6 @@ public interface EstadoService {
     Estado saveEstado(Estado estado);
 
     void deleteEstado(Integer id);
+    
+    Iterable<Estado> findBySuperior(Integer est); 
 }

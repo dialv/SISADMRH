@@ -80,12 +80,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Institución(*):</label>
                         <div class="col-sm-9">
-
+                            
                             <select class="form-control" required="true" name="institucioncapacitador" >
-                                <option>Publico</option>
-                                <option>Privado</option>
-                                <option>Red</option>
-
+                                <option th:each="c:${tinst}" th:value="${c.codigoestado}" th:text="${c.nombreestado}"></option>
+                            
                             </select>
                         </div>
                               <div class="popup col-sm-1"><b>

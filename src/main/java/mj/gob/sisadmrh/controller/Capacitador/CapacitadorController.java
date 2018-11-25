@@ -13,8 +13,10 @@ import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.service.CapacitadorService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +47,9 @@ public class CapacitadorController extends UtilsController{
     this.empleadoService=empleadoService;
     }
     
-    
+    @Autowired
+    private EstadoService estadoService;
+
     
     private final String PREFIX="fragments/capacitador/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -66,8 +70,10 @@ public class CapacitadorController extends UtilsController{
         
         // -----------Manda a la vista los empleados
        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+       Iterable<Estado> tinst = estadoService.findBySuperior(712);
 //         
       model.addAttribute("empleados", empleados);
+      model.addAttribute("tinst", tinst);
         return PREFIX + "capacitadorform";
        //   model.addAttribute("capacitador", new Capacitador());
       //   return PREFIX + "capacitadorform";

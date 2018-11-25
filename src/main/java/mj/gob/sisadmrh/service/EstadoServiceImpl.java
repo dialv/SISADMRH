@@ -43,4 +43,10 @@ public class EstadoServiceImpl implements EstadoService {
         estadoRep.deleteById(id);
     }
 
+    @Override
+    public Iterable<Estado> findBySuperior(Integer est) {
+    return estadoRep.findBySuperior(est); 
+    }
+    
+
 }
