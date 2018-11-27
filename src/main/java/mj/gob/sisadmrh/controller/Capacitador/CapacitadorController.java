@@ -5,8 +5,10 @@
  */
 package mj.gob.sisadmrh.controller.Capacitador;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -124,8 +126,11 @@ try{
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
+                HttpServletResponse response, HttpServletRequest request) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                /*capturando el usuario*/
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+                
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);

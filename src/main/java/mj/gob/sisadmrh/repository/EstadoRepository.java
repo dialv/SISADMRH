@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface EstadoRepository extends CrudRepository<Estado, Integer>{
-         @Query(value = "SELECT e.* FROM Estado e WHERE e.codigoestadosuperior=:est ", nativeQuery = true)
+         @Query(value = "SELECT e.* FROM estado e WHERE e.codigoestadosuperior=:est ", nativeQuery = true)
     Iterable<Estado> findBySuperior(@Param("est") Integer est); 
 }

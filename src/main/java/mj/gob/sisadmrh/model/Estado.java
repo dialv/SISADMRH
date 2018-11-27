@@ -39,6 +39,9 @@ public class Estado implements Serializable {
     @Size(max = 100)
     @Column(name = "codigoestadosuperior")
     private String codigoestadosuperior;
+    @Size(max = 100)
+    @Column(name = "valorestado")
+    private String valorestado;
 
     public Estado() {
     }
@@ -69,6 +72,14 @@ public class Estado implements Serializable {
 
     public void setCodigoestadosuperior(String codigoestadosuperior) {
         this.codigoestadosuperior = codigoestadosuperior;
+    }
+
+    public String getValorestado() {
+        return valorestado;
+    }
+
+    public void setValorestado(String valorestado) {
+        this.valorestado = valorestado;
     }
 
     @Override

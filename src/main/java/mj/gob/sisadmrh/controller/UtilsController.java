@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.Principal;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +45,8 @@ public class UtilsController {
     
     @Autowired
     public BitacoraService bitacoraService;
-    
+
+    Principal principal;    
     
     public static String EMPTY_STRING = "";
 
