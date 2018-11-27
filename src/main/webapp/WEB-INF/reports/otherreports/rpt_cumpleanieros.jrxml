@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b5b5867-a333-4221-8d51-8566c397df3b">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="219"/>
+	<property name="ireport.y" value="183"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -209,13 +209,21 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 			<line>
 				<reportElement x="13" y="11" width="773" height="1" uuid="3bb9b25c-7a8a-4261-a61b-28e32dd75dc1"/>
 			</line>
-			<staticText>
-				<reportElement x="31" y="22" width="100" height="20" uuid="5a8d890d-d3bc-4583-a336-d6b4c49a27bd"/>
-				<text><![CDATA[Total de Registros]]></text>
-			</staticText>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="20" y="19" width="555" height="13" backcolor="#FFFFFF" uuid="82ab18fe-d541-4e00-9aaa-6cc88f0e9dc2"/>
+				<textElement>
+					<font fontName="Times New Roman" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
 			<textField>
-				<reportElement x="690" y="22" width="100" height="20" uuid="205a37f2-5a28-424d-b709-1d22bf6a530a"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<reportElement x="663" y="16" width="80" height="20" uuid="6e9007bc-3c5a-4404-8dda-3c2e5b855844"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="743" y="16" width="40" height="20" uuid="24bfa3b3-411a-4939-ad1a-622613400f47"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

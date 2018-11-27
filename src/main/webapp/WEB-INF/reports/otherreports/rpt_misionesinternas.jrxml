@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e2a8e50-efd2-42d9-ab62-dda75ce1c952">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="219"/>
+	<property name="ireport.y" value="75"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -255,26 +255,21 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 			<line>
 				<reportElement x="7" y="6" width="778" height="1" uuid="cecf7928-a5fd-4afe-9539-8a4e856ec0aa"/>
 			</line>
-			<staticText>
-				<reportElement x="7" y="7" width="100" height="20" uuid="eb7667d9-ac18-4a7c-9905-bd93571e3c80"/>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="7" y="10" width="555" height="13" backcolor="#FFFFFF" uuid="5a11870d-0110-4b54-aa31-3c6dbf1d16ad"/>
 				<textElement>
-					<font fontName="SansSerif" size="12"/>
+					<font fontName="Times New Roman" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[Total de Registros]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="112" y="10" width="100" height="20" uuid="cf58b6e4-2147-446e-b9cf-1b2a29efd99f"/>
-				<textElement>
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{totalRegistros}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="680" y="10" width="100" height="20" uuid="63dbf002-91c4-4cf3-87c5-5af7668628eb"/>
-				<textElement>
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<reportElement x="669" y="12" width="80" height="23" uuid="3f584dc9-7ac3-4f33-b06a-13888ddccf86"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="749" y="12" width="40" height="23" uuid="0575c959-77ae-4701-87f0-9f3ee600c5ef"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

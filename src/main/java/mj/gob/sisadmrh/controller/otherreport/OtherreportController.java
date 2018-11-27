@@ -333,7 +333,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_capacitaciones", params, download,response);
