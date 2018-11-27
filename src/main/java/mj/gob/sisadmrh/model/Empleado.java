@@ -140,8 +140,8 @@ public class Empleado implements Serializable {
  @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<Empleadocapacitacion> empleadocapacitacionList;
  
- @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
-    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
+// @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
+//    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
     public Empleado() {
     }
 
@@ -408,13 +408,13 @@ public String getNumerocuenta() {
         this.empleadocapacitacionList = empleadocapacitacionList;
     }
 
-    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
-        return empleadoasistenciacapacitacionList;
-    }
-
-    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
-        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
-    }
+//    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
+//        return empleadoasistenciacapacitacionList;
+//    }
+//
+//    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
+//        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
+//    }
 
     @Override
     public int hashCode() {

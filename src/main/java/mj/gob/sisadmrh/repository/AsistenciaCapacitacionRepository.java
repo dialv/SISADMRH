@@ -19,14 +19,16 @@ import org.springframework.data.repository.query.Param;
  */
 public interface AsistenciaCapacitacionRepository extends CrudRepository<AsistenciaCapacitacion, Integer>{
     
-    @Query(value=" select p.nombrepuesto, uf.nombreubicacion from empleadopuesto ep "
-            + " inner join  empleadoubicacionfisica eu "
-            + " on ep.codigoempleado=eu.codigoempleado "
-            + " inner join ubicacionfisica uf "
-            + " on uf.codigoubicacion=eu.codigoubicacion "
-            + " inner join puesto p "
-            + " on p.codigopuesto=ep.codigopuesto "
-            + " where ep.codigoempleado=:p_cemp and ep.activo=1 and eu.b_activo=1", nativeQuery = true)
+    @Query(value=" select p.nombrepuesto, uf.nombreubicacion,e.telefonofijoempleado,e.telefonomovilempleado,e.emailempleado from empleadopuesto ep \n" +
+                    " inner join  empleadoubicacionfisica eu \n" +
+                    "on ep.codigoempleado=eu.codigoempleado \n" +
+                    "inner join ubicacionfisica uf \n" +
+                    "on uf.codigoubicacion=eu.codigoubicacion \n" +
+                    "inner join puesto p \n" +
+                    "on p.codigopuesto=ep.codigopuesto \n" +
+                    "inner join empleado e\n" +
+                    "on e.codigoempleado = ep.codigoempleado\n" +
+                    "where ep.codigoempleado=:p_cemp and ep.activo=1 and eu.b_activo=1", nativeQuery = true)
 	public List<Object[]> findnamesBycemp(@Param("p_cemp")String emp);
         
     /* esta query es para jalar de capacitaciones las capacitaciones************** */    

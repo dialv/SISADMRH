@@ -8,6 +8,7 @@
 
 </head>
 <body>
+    <script> Textheader('pnt_crco',document.title);</script>
 <!--    <div class="contenedorizq"><label  >pnt_crco</label>  
         <label  class="der">
             <script >
@@ -15,7 +16,6 @@
                 document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
             </script></label>
     </div><br>-->
-
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -97,7 +97,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Desde:</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="dia/mes/año" required="true" th:field="*{fechadesdecomite}"/>
+                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}"/>
                             </div>
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
@@ -108,7 +108,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Hasta:</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="dia/mes/año"required="true" th:field="*{fechahastacomite}"/>
+                                <input type="text" class="form-control fecha_format"  placeholder="YYYY-MM-DD" required="true" th:field="*{fechahastacomite}"/>
                             </div>
                                <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" onmouseout ="javascript:ocultarAyuda('fechahasta')">a</a></b>
@@ -136,8 +136,6 @@
     </div>  
 
     <script>
-     
-        Textheader('pnt_crco',document.title);
         $(document).ready(function () {
 
         $('#fechadesdecomite').datepicker({

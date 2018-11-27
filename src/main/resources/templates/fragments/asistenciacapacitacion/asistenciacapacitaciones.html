@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title> Crear Asistencias Capacitaciones</title>
+        <title>Consultar Asistencias Capacitaciones</title>
+       
     <th:block th:include="../templates/header"></th:block>
+   
 </head>
 <body>
+     <script> Textheader('pnt_asiscap1',document.title);</script>
 <!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
@@ -38,7 +41,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <th>Telefono</th>
                       <th>Correo</th>
                     
-                    <th></th><th></th><th></th>
+                    <th></th><th></th><th></th><th></th>
 
                 </tr>
                 </thead>
@@ -56,6 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 
                           <!--<td> <a th:href="${'./new/asistenciacapacitacion'}" class="btn btn-primary">Nuevo</a></td>-->
+                          <td><a th:href="${'../empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion/'+ asistenciacapacitacion.codigoasistenciacapacitacion }" class="btn btn-primary">Asignar Empleados</a></td>
                         <td><a th:href="${'./show/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-info">Mostrar</a></td>
                       <td>  <a th:href="${'./edit/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-success">Editar</a></td>
                    <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${asistenciacapacitacion.codigoasistenciacapacitacion} + '\');'" >Eliminar</a></td>

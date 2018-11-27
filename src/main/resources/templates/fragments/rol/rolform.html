@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Crear Roles</title>
+    <title>Crear Rol</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
-<body>
+<body><script> Textheader('pnt_crol',document.title);</script>
 <!--      <div class="contenedorizq"><label  >pnt_crol</label>
     <label  class="der">
     <script >
@@ -22,7 +22,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <br><br>
                         <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
                     </div>
-        <!--<h3 align="center">Rol Detalle</h3>-->
+        <h3 align="center">Rol Detalle</h3>
     <div>
         <form class="form-horizontal" th:object="${rol}" th:action="@{../rol}" method="post">
         <input type="hidden" th:field="*{codigorol}"/>
@@ -70,7 +70,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 </body>
 <script th:inline="javascript">
-    Textheader('pnt_crol',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

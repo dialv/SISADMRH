@@ -15,13 +15,13 @@ import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
  * @author daniel
  */
 public interface AsistenciaCapacitacionService {
-    Iterable <AsistenciaCapacitacion> listAllAsistenciaCapacitacion();
+    Iterable <AsistenciaCapacitacion> listAllAsistenciacapacitacion();
     
-    Optional<AsistenciaCapacitacion> getAsistenciaCapacitacionById(Integer id);
+    Optional<AsistenciaCapacitacion> getAsistenciacapacitacionById(Integer id);
 
-    AsistenciaCapacitacion saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);
+    AsistenciaCapacitacion saveAsistenciacapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);
 
-    void deleteAsistenciaCapacitacion(Integer id);
+    void deleteAsistenciacapacitacion(Integer id);
     Iterable<AsistenciaCapacitacion> findByCapacitacion(String dato);
    // servira para jalar el empleado,puesto y ubicacionfisica 
     List<Object[]> findnamesBycemp(String emp);
