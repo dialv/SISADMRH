@@ -15,6 +15,9 @@
 	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total, e.nombreempleado,c.salarioactual,c.fechainiciocontrato,c.fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,el.nombreinstitucion, CURRENT_DATE from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado inner join empleadodescuento ed on e.codigoempleado=ed.codigoempleado inner join descuento d on ed.codigodescuento=d.codigodescuento inner join empleadoexperiencialaboral ee on e.codigoempleado = ee.codigoempleado inner join experiencialaboral el on ee.codigoexperiencialaboral=el.codigoexperiencialaboral
 WHERE e.codigoempleado= $P{CODIGO} and
@@ -87,7 +90,7 @@ c.fechafincontrato <= $P{FECHAFIN}]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="76" splitType="Stretch">
+		<band height="79" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="8" width="572" height="20" uuid="ce3f3878-6d02-4709-a00e-5a40b03d9145"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -96,20 +99,20 @@ c.fechafincontrato <= $P{FECHAFIN}]]>
 				<text><![CDATA[Constancia Salarial]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="426" y="52" width="64" height="20" uuid="1c634514-dc50-40e0-bce0-51abeda387cb"/>
+				<reportElement x="426" y="35" width="64" height="20" uuid="1c634514-dc50-40e0-bce0-51abeda387cb"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="490" y="52" width="40" height="20" uuid="07d33278-4802-4c35-87d1-e03ac665e740"/>
+				<reportElement x="490" y="35" width="40" height="20" uuid="07d33278-4802-4c35-87d1-e03ac665e740"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="466" y="29" width="100" height="20" uuid="1d302d02-d934-453e-8f10-74156b845839"/>
+				<reportElement x="470" y="12" width="100" height="20" uuid="1d302d02-d934-453e-8f10-74156b845839"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="426" y="30" width="40" height="20" uuid="88e9db8a-3a8b-4174-91e8-ad4201c9bf97"/>
+				<reportElement x="432" y="12" width="35" height="20" uuid="88e9db8a-3a8b-4174-91e8-ad4201c9bf97"/>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
@@ -136,12 +139,13 @@ c.fechafincontrato <= $P{FECHAFIN}]]>
 				<text><![CDATA[rpt_csal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="430" y="9" width="100" height="20" uuid="90042c00-d8a6-4c40-b5b8-623b886817e9"/>
-				<textElement>
-					<font size="10"/>
-				</textElement>
-				<text><![CDATA[Usuario:dbadmin1]]></text>
+				<reportElement x="431" y="57" width="42" height="20" uuid="4b109aed-7271-45d4-b9b1-0227aad37ce0"/>
+				<text><![CDATA[Usuario:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="472" y="57" width="94" height="20" uuid="78ebf8b9-c5d6-49c2-84f5-a9947748e4be"/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -219,14 +223,14 @@ c.fechafincontrato <= $P{FECHAFIN}]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="27" splitType="Stretch">
+		<band height="27" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<staticText>
 				<reportElement x="178" y="3" width="199" height="20" uuid="a904b1d4-d690-45ac-8066-9b4ccd020c67"/>
 				<text><![CDATA[Derechos Reservados  UES/FIA/ESISI]]></text>
 			</staticText>
 		</band>
-	</columnFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

@@ -79,11 +79,12 @@ private EmpleadoService empleadoService;
         model.addAttribute("diagnosticocapacitacion", new DiagnosticoCapacitacion());
         
           Iterable<Ubicacionfisica> ubicacionfisicas= ubicacionFisicaService.listAllUbicacionFisica();
+            Iterable<Estado> direccion = estadoService.findBySuperior(1448);
         model.addAttribute("ubicacionfisicas", ubicacionfisicas);
         
          Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
        model.addAttribute("capacitaciones",capacitaciones);
-        
+        model.addAttribute("direccion", direccion);
         return PREFIX + "diagnosticocapacitacionform";
     }
     

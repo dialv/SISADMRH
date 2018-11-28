@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
-	<property name="ireport.zoom" value="3.1384283767210097"/>
-	<property name="ireport.x" value="982"/>
-	<property name="ireport.y" value="534"/>
+	<property name="ireport.zoom" value="0.909090909090913"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="6"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -15,6 +15,9 @@
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT  e.nombreempleado,p.nombrepuesto,ca.duracionhoracapacitacion,ca.nombrecapacitacion,
 ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e 
@@ -22,6 +25,7 @@ inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto
  inner join puesto p on ep.codigopuesto=p.codigopuesto 
  inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado
  INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion
+
 where
  ca.fechacapacitaciondesde>=$P{FECHAINICIO}
 and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
@@ -115,20 +119,20 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="637" y="36" width="80" height="20" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
+				<reportElement x="637" y="48" width="80" height="20" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="661" y="18" width="33" height="20" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
+				<reportElement x="661" y="27" width="33" height="20" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="698" y="16" width="100" height="20" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
+				<reportElement x="698" y="25" width="100" height="20" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="717" y="36" width="40" height="20" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
+				<reportElement x="717" y="48" width="40" height="20" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -147,9 +151,13 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Reporte de Capacitaciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="658" y="1" width="100" height="15" uuid="d7e190a3-739c-4bc0-9b17-9256ca0c369b"/>
-				<text><![CDATA[Usuario: dbadmin1]]></text>
+				<reportElement x="658" y="9" width="51" height="15" uuid="d7e190a3-739c-4bc0-9b17-9256ca0c369b"/>
+				<text><![CDATA[Usuario:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="726" y="6" width="100" height="20" uuid="73700692-8fd1-4a20-a32c-43069a4398b4"/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -259,7 +267,7 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="10" y="14" width="651" height="13" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
+				<reportElement mode="Opaque" x="10" y="19" width="651" height="13" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
 				<textElement>
 					<font fontName="Times New Roman" isBold="true" isUnderline="false"/>
 				</textElement>

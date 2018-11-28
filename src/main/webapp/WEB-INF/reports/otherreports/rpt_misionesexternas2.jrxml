@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="215"/>
-	<property name="ireport.y" value="42"/>
+	<property name="ireport.x" value="25"/>
+	<property name="ireport.y" value="70"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -13,6 +13,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -52,7 +55,7 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 	<title>
 		<band height="68" splitType="Stretch">
 			<staticText>
-				<reportElement x="359" y="40" width="66" height="20" uuid="76793fd4-1565-4ef8-8aac-a66107c775dc"/>
+				<reportElement x="359" y="38" width="66" height="20" uuid="76793fd4-1565-4ef8-8aac-a66107c775dc"/>
 				<textElement>
 					<font size="10" isBold="true"/>
 				</textElement>
@@ -66,7 +69,7 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="306" y="24" width="191" height="20" uuid="387a90a2-a84c-4be3-abaa-22bc4b08ca80"/>
+				<reportElement x="306" y="22" width="191" height="20" uuid="387a90a2-a84c-4be3-abaa-22bc4b08ca80"/>
 				<textElement>
 					<font size="10" isBold="true"/>
 				</textElement>
@@ -83,7 +86,7 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="46" splitType="Stretch">
+		<band height="72" splitType="Stretch">
 			<staticText>
 				<reportElement x="319" y="5" width="165" height="20" uuid="2be17fb4-1f25-4155-94ed-35e45ce86c1e"/>
 				<textElement>
@@ -92,11 +95,11 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 				<text><![CDATA[Reporte de Misiones Externas 2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="193" y="25" width="35" height="20" uuid="5ae09e3c-4d04-4aa4-8d66-5b2dd48c27b7"/>
+				<reportElement x="194" y="25" width="35" height="20" uuid="5ae09e3c-4d04-4aa4-8d66-5b2dd48c27b7"/>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="498" y="26" width="32" height="20" uuid="243a036b-da4b-445b-a446-0ed357029cac"/>
+				<reportElement x="484" y="26" width="32" height="20" uuid="243a036b-da4b-445b-a446-0ed357029cac"/>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
@@ -104,26 +107,45 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="670" y="26" width="80" height="20" uuid="5bcfcb96-94aa-486c-a68f-3c85888f642f"/>
+				<reportElement x="635" y="25" width="72" height="20" uuid="5bcfcb96-94aa-486c-a68f-3c85888f642f"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="750" y="26" width="40" height="20" uuid="cef23c1b-b229-4c5c-b729-37cf628c980c"/>
+				<reportElement x="707" y="25" width="40" height="20" uuid="cef23c1b-b229-4c5c-b729-37cf628c980c"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="26" width="100" height="20" uuid="c7240493-273a-49fd-a8d7-4ef5ad1edfaa"/>
+				<reportElement x="231" y="26" width="100" height="20" uuid="c7240493-273a-49fd-a8d7-4ef5ad1edfaa"/>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="536" y="26" width="100" height="20" uuid="b82db202-2306-4820-8467-03e8f4ebc231"/>
+				<reportElement x="517" y="26" width="100" height="20" uuid="b82db202-2306-4820-8467-03e8f4ebc231"/>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="646" y="45" width="40" height="20" uuid="aac144ea-6a87-4f08-b776-5971e673658e"/>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="686" y="45" width="94" height="20" uuid="df03cc1f-c69d-41f9-8777-24c62ec48eeb"/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="653" y="6" width="40" height="20" uuid="6a069d59-e199-4f16-ac10-6c2677207567"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="31" width="100" height="20" uuid="4f98cca5-99a1-4b73-981d-dd3890d1a137"/>
+				<text><![CDATA[rpt_mex2]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="2" width="798" height="20" uuid="e0d1f52c-0caf-4650-aa00-8b3c0f4bca9f"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="1" y="2" width="100" height="20" uuid="daf65d49-8d84-4aca-8fe1-97e5a9fb7140"/>
 				<textElement textAlignment="Center"/>
@@ -150,15 +172,33 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 				<text><![CDATA[Boleto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="524" y="2" width="100" height="20" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
+				<reportElement x="538" y="2" width="100" height="20" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Patrocinador]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="628" y="2" width="122" height="20" uuid="b28a9dfb-0916-4c30-8e13-329aba9f701a"/>
+				<reportElement x="654" y="2" width="122" height="20" uuid="b28a9dfb-0916-4c30-8e13-329aba9f701a"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Organismo que Invita]]></text>
 			</staticText>
+			<line>
+				<reportElement x="107" y="2" width="1" height="20" uuid="c8f6945f-cecf-4e46-9c7a-9487985c2f6b"/>
+			</line>
+			<line>
+				<reportElement x="212" y="3" width="1" height="20" uuid="e710308f-165e-419b-a49b-c982603438eb"/>
+			</line>
+			<line>
+				<reportElement x="316" y="2" width="1" height="20" uuid="c9e1519e-1911-4114-ac4c-56c45609ca19"/>
+			</line>
+			<line>
+				<reportElement x="421" y="2" width="1" height="20" uuid="e9c5b065-7ad8-4859-bfc6-0d71bc5d77ed"/>
+			</line>
+			<line>
+				<reportElement x="537" y="2" width="1" height="20" uuid="874e3df6-0736-4283-9d3c-9a2374f810ff"/>
+			</line>
+			<line>
+				<reportElement x="649" y="3" width="1" height="20" uuid="8c247b14-213b-4152-9c35-5d89a3e6e49d"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>

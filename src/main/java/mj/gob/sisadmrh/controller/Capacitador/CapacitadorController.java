@@ -73,9 +73,16 @@ public class CapacitadorController extends UtilsController{
         // -----------Manda a la vista los empleados
        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
        Iterable<Estado> tinst = estadoService.findBySuperior(712);
+       Iterable<Estado> dominio = estadoService.findBySuperior(1406);
+        Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);
+         Iterable<Estado> tipoAgrupacion = estadoService.findBySuperior(1432);
 //         
       model.addAttribute("empleados", empleados);
       model.addAttribute("tinst", tinst);
+       model.addAttribute("dominio", dominio);
+        model.addAttribute("tipoCapacitador", tipoCapacitador);
+         model.addAttribute("tipoAgrupacion", tipoAgrupacion);
+       
         return PREFIX + "capacitadorform";
        //   model.addAttribute("capacitador", new Capacitador());
       //   return PREFIX + "capacitadorform";
