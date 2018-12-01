@@ -12,6 +12,9 @@
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT e.nombreempleado,c.fechainiciocontrato,c.fechafincontrato,c.plazanominal,el.nombreinstitucion,c.salarioactual,c.sistemapago, CURRENT_DATE from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado inner join empleadoexperiencialaboral ee on e.codigoempleado = ee.codigoempleado inner join experiencialaboral el
  on ee.codigoexperiencialaboral=el.codigoexperiencialaboral
@@ -45,7 +48,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="85" splitType="Stretch">
 			<staticText>
 				<reportElement x="171" y="5" width="213" height="20" uuid="e0dac18e-05c1-4ee9-bd53-d4213a544e47"/>
 				<textElement>
@@ -78,7 +81,7 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="48" splitType="Stretch">
+		<band height="68" splitType="Stretch">
 			<staticText>
 				<reportElement x="188" y="7" width="178" height="20" uuid="4333c6f1-4487-4efe-ab58-6bd134eb0777"/>
 				<textElement>
@@ -87,26 +90,34 @@
 				<text><![CDATA[Constancia de Tiempo de Servicios]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="426" y="5" width="100" height="20" uuid="5a449a22-2142-476b-807a-f6013bc9c602"/>
+				<reportElement x="435" y="23" width="100" height="20" uuid="5a449a22-2142-476b-807a-f6013bc9c602"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="425" y="28" width="80" height="20" uuid="c1b75018-01ca-4993-a39d-170b10b715f9"/>
+				<reportElement x="425" y="46" width="80" height="20" uuid="c1b75018-01ca-4993-a39d-170b10b715f9"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="505" y="28" width="40" height="20" uuid="b2bf9453-1665-4f06-b652-eaee37e52a26"/>
+				<reportElement x="505" y="46" width="40" height="20" uuid="b2bf9453-1665-4f06-b652-eaee37e52a26"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="428" y="7" width="100" height="15" uuid="0e14e95e-e286-4aaa-aa3e-2f497e7327ce"/>
+				<text><![CDATA[Usuario: dbadmin1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="3" width="100" height="20" uuid="d5a84efb-4c42-4ae1-a10f-4d216dae6cf4"/>
+				<text><![CDATA[rpt_cser]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

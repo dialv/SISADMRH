@@ -43,12 +43,13 @@
            <label class="col-sm-5 control-label">Nombre Dirección:</label>
                 <div class="col-sm-5">
                      <select class="form-control" name="direccion" >
-                                    <option>Recursos Humanos</option>
+<!--                                    <option>Recursos Humanos</option>
                                     <option>Finanzzas</option>
                                     <option>Jurisprudencia</option>
                                     <option>Investigación Secreta</option>
                                       <option>Economia</option>
-                                       <option>Relaciones Diplomaticas</option>
+                                       <option>Relaciones Diplomaticas</option>-->
+<option th:each="c:${direccion}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                                 </select>
                     <!--<input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder="Tipo Mision"  th:field="*{tipomision}"/>-->
                 </div>

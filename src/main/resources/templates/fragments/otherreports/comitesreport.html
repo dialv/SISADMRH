@@ -28,16 +28,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <br>
                 <form class="form-horizontal" id="formreport" th:object="${comites}">
 
-                    <div class="form-group">
+<!--                    <div class="form-group">
                         <label class="col-sm-3 control-label" >Nombre Comite:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="codigo" name="codigo">
                             <option value="0">-- Seleccione un comite --</option>
                             <option th:each="d:${comites}" th:value="${d.codigocomite}" th:text="${d.nombrecomite}"></option>
                             </select>
-                            <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
+                            <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
-                    </div>
+                    </div>-->
 <!--                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
@@ -107,7 +107,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             dateFormat: 'dd/mm/yy'
         });
         $('#generar').click(function(){
-            $("#formreport").attr('action', '../comites/'+ $("#codigo").val().toString());
+            $("#formreport").attr('action', '../comites/1');
             $("form#formreport").submit();
             
         });

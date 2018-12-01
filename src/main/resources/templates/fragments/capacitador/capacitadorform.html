@@ -62,11 +62,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tema de Dominio(*):</label>
                         <div class="col-sm-9">
-                            <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                             <select class="form-control"  required="true" name="temadominio" >
-                                <option>Terapia Psicologia</option>
-                                <option>Desarrollo Personal</option>
-                                <option>Derechos laborales</option>
+                             <option th:each="c:${dominio}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
+
 
                             </select>
                         </div>
@@ -82,7 +80,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-9">
                             
                             <select class="form-control" required="true" name="institucioncapacitador" >
-                                <option th:each="c:${tinst}" th:value="${c.codigoestado}" th:text="${c.nombreestado}"></option>
+                                <option th:each="c:${tinst}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                             
                             </select>
                         </div>
@@ -97,9 +95,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-9">
 
                             <select class="form-control" required="true" name="tipocapacitador" >
-                                <option>Interno</option>
-                                <option>Publico</option>
-                                <option>Privado</option>
+                                <option th:each="c:${tipoCapacitador}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
                             </select>
                         </div>
@@ -114,9 +110,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-9">
 
                             <select class="form-control" required="true"name="tipoagrupacion" >
-                                <option>Interno</option>
-                                <option>Publico</option>
-                                <option>Privado</option>
+                                  <option th:each="c:${tipoAgrupacion}" th:value="${c.nombreestado}" th:text="${c.codigoestado}"></option>
 
                             </select>
                         </div>

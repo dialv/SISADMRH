@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="199"/>
-	<property name="ireport.y" value="66"/>
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="305"/>
+	<property name="ireport.y" value="296"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -15,14 +15,15 @@
 	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[select COUNT(c.codigocomite), e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite from empleado e 
- inner join empleadopuesto ep ON ep.codigoempleado=ep.codigoempleado inner join puesto p on ep.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
-WHERE c.codigocomite=$P{CODIGO}
-and c.fechadesdecomite>=$P{FECHAINICIO}
+		<![CDATA[select  e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite from empleado e 
+ inner join empleadopuesto ep ON ep.codigoempleado=e.codigoempleado inner join puesto p on ep.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
+WHERE  c.fechadesdecomite>=$P{FECHAINICIO}
 and c.fechahastacomite<=$P{FECHAFIN}]]>
 	</queryString>
-	<field name="COUNT(c.codigocomite)" class="java.lang.Long"/>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -35,10 +36,10 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 	<field name="nombrecomite" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechadesdecomite" class="java.sql.Date">
+	<field name="fechadesdecomite" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechahastacomite" class="java.sql.Date">
+	<field name="fechahastacomite" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -78,7 +79,7 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="46" splitType="Stretch">
+		<band height="75" splitType="Stretch">
 			<staticText>
 				<reportElement x="336" y="2" width="130" height="20" uuid="d2820ed1-563c-4556-97e7-7f9324cc9b90"/>
 				<textElement>
@@ -87,21 +88,21 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 				<text><![CDATA[Reporte de Comites ]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="710" y="3" width="100" height="20" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
+				<reportElement x="695" y="3" width="100" height="14" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="681" y="21" width="80" height="20" uuid="c42b5a94-d56f-415b-9967-63beca281b2d"/>
+				<reportElement x="657" y="21" width="61" height="20" uuid="c42b5a94-d56f-415b-9967-63beca281b2d"/>
 				<textElement textAlignment="Right">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="761" y="21" width="40" height="20" uuid="0079daa6-1363-4574-a3cf-8cb78dec494e"/>
+				<reportElement x="726" y="21" width="35" height="20" uuid="0079daa6-1363-4574-a3cf-8cb78dec494e"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
@@ -135,52 +136,86 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="17" y="24" width="100" height="20" uuid="389c1719-9f3d-441e-9550-b92970e4a3f4"/>
+				<text><![CDATA[rpt_cmte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="43" width="44" height="20" uuid="8f4080e8-dbe2-4b30-9f43-82f8fbabddf6"/>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="708" y="43" width="81" height="20" uuid="c2464fff-bc9f-4c3b-a4aa-56a405eea00c"/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="657" y="3" width="38" height="14" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="7" y="34" width="794" height="20" backcolor="#FFFFFF" uuid="47f87b1b-4db2-4d10-b77e-5c9c9f4a3b62"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="14" y="34" width="100" height="20" uuid="e3dcf82b-5ff6-4cd8-beed-a789d18846ba"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="141" y="34" width="100" height="20" uuid="82b4c1ff-82b5-41e6-9f4d-416a004632e9"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="271" y="34" width="100" height="20" uuid="3013f3b1-0485-44c2-8e02-c1b28b9f452f"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Acuerdo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="551" y="34" width="100" height="20" uuid="ff22621e-182f-4480-9973-78ff7fa9e390"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="694" y="34" width="100" height="20" uuid="970e7ca7-832f-4f96-a6b9-963f678a40b6"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="407" y="34" width="100" height="20" uuid="b0c4178c-b9e5-44a9-a803-d86696058694"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Comite]]></text>
 			</staticText>
+			<line>
+				<reportElement x="140" y="34" width="1" height="20" uuid="c4fcf880-abce-49ec-a547-3b2558cd2771"/>
+			</line>
+			<line>
+				<reportElement x="267" y="34" width="1" height="20" uuid="153ccd9d-3432-4044-af05-7acaf3001689"/>
+			</line>
+			<line>
+				<reportElement x="550" y="34" width="1" height="20" uuid="2ef89dec-32c8-43ba-bcc8-d530435c6442"/>
+			</line>
+			<line>
+				<reportElement x="406" y="34" width="1" height="20" uuid="b5d44edf-3426-41f0-9b37-45a17f1b4910"/>
+			</line>
+			<line>
+				<reportElement x="691" y="34" width="1" height="20" uuid="cb4a9ca7-80cc-43ff-9384-040b1a0436bc"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -193,36 +228,36 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="133" y="4" width="100" height="20" uuid="28592223-1eac-441a-87f7-4c26d7e010b3"/>
-				<textElement>
+				<reportElement x="141" y="4" width="100" height="20" uuid="28592223-1eac-441a-87f7-4c26d7e010b3"/>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="263" y="4" width="100" height="20" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
-				<textElement>
+				<reportElement x="271" y="4" width="100" height="20" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroacuerdocomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="543" y="4" width="100" height="20" uuid="779232a7-bda8-4e32-ad57-bc01d87c4833"/>
-				<textElement>
+				<reportElement x="551" y="4" width="100" height="20" uuid="779232a7-bda8-4e32-ad57-bc01d87c4833"/>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="692" y="4" width="100" height="20" uuid="a345a786-0053-44fc-8fdc-b793c3dcc4f1"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="397" y="4" width="100" height="20" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
-				<textElement>
+				<reportElement x="407" y="4" width="100" height="20" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
+				<textElement textAlignment="Center">
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecomite}]]></textFieldExpression>
@@ -234,26 +269,19 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 			<line>
 				<reportElement x="5" y="5" width="763" height="1" uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95"/>
 			</line>
-			<staticText>
-				<reportElement x="16" y="13" width="100" height="20" uuid="84ba6751-389d-4fb3-aa6d-8c5913376559"/>
-				<textElement>
-					<font fontName="SansSerif"/>
-				</textElement>
-				<text><![CDATA[Total de Registros]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="131" y="13" width="100" height="20" uuid="c8f0b7bc-8fc1-4aaa-976b-37d3a33e51ac"/>
-				<textElement>
-					<font fontName="SansSerif"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{COUNT(c.codigocomite)}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="652" y="10" width="100" height="20" uuid="59caeda8-7173-45d2-8c20-86e5f6ed160f"/>
+				<reportElement x="681" y="10" width="100" height="20" uuid="59caeda8-7173-45d2-8c20-86e5f6ed160f"/>
 				<textElement>
 					<font fontName="SansSerif"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="10" y="14" width="555" height="13" backcolor="#FFFFFF" uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc"/>
+				<textElement>
+					<font fontName="Times New Roman" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

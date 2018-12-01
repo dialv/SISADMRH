@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="0.8264462809917354"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -50,7 +53,7 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto
 	<title>
 		<band height="105" splitType="Stretch">
 			<staticText>
-				<reportElement x="297" y="40" width="260" height="20" uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42"/>
+				<reportElement x="315" y="20" width="260" height="20" uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42"/>
 				<text><![CDATA[MINISTERIO DE JUSTICA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
@@ -58,7 +61,7 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="386" y="20" width="84" height="20" uuid="4029d439-49b0-4518-9158-407c5b425ee8"/>
+				<reportElement x="413" y="40" width="84" height="20" uuid="4029d439-49b0-4518-9158-407c5b425ee8"/>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<image>
@@ -74,45 +77,60 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto
 	<pageHeader>
 		<band height="75" splitType="Stretch">
 			<textField>
-				<reportElement x="675" y="35" width="80" height="20" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
+				<reportElement x="656" y="20" width="80" height="20" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="755" y="35" width="40" height="20" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
+				<reportElement x="736" y="20" width="40" height="20" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="322" y="7" width="175" height="20" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
+				<reportElement x="332" y="0" width="175" height="20" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
 				<text><![CDATA[Reporte de Renuncias Voluntarias]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="251" y="42" width="100" height="20" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
+				<reportElement x="237" y="27" width="39" height="20" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="457" y="42" width="100" height="20" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
+				<reportElement x="457" y="27" width="40" height="20" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="357" y="42" width="100" height="20" uuid="59271047-626e-4fd6-94f2-bf1b30e293a5"/>
+				<reportElement x="276" y="27" width="100" height="20" uuid="59271047-626e-4fd6-94f2-bf1b30e293a5"/>
 				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="575" y="42" width="100" height="20" uuid="8ab75876-80ee-4d3e-8042-58f322695998"/>
+				<reportElement x="497" y="27" width="100" height="20" uuid="8ab75876-80ee-4d3e-8042-58f322695998"/>
 				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="629" y="7" width="100" height="20" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
+				<reportElement x="676" y="0" width="100" height="20" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="676" y="40" width="48" height="20" uuid="6cd19f8b-6471-471e-9ce3-87f1f704dfe2"/>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="724" y="40" width="85" height="20" uuid="a9624dc2-f977-4b75-90e4-90dc57b007bf"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="31" width="100" height="20" uuid="cef6f07e-25b1-44da-89f9-f27fc13893ef"/>
+				<text><![CDATA[rpt_renv]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="48" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="37" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
@@ -127,18 +145,21 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement x="649" y="17" width="80" height="20" uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0"/>
+				<reportElement x="649" y="4" width="80" height="20" uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="729" y="17" width="40" height="20" uuid="316ce86a-a98a-43ff-8585-bc1380d26aac"/>
+				<reportElement x="729" y="4" width="40" height="20" uuid="316ce86a-a98a-43ff-8585-bc1380d26aac"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="19" y="16" width="100" height="20" uuid="b4d2a374-0ef3-492f-99d2-ae1e1d29c79c"/>
-				<text><![CDATA[Total Registros]]></text>
-			</staticText>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="12" y="5" width="555" height="13" backcolor="#FFFFFF" uuid="25124c3f-0f47-4af3-833e-5d820665b2c1"/>
+				<textElement>
+					<font fontName="Times New Roman" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>

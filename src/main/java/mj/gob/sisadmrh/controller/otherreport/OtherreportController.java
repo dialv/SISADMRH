@@ -157,6 +157,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_abogados", params, download,response);
@@ -178,6 +179,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_motoristas", params, download,response);
@@ -243,7 +245,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_historial", params, download,response);
@@ -268,6 +271,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_notarios", params, download,response);
@@ -289,7 +293,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_renuncias", params, download,response);
@@ -311,6 +316,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_cumpleanieros", params, download,response);
@@ -328,12 +334,15 @@ private HijosdiscapacidadService hijosdiscapacidadService;
 //..................pARA GENERAR EL REPORTE PDF DE CAPACITACIONES ................................................
     @RequestMapping(value = "capacitaciones/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfcapacitaciones(@PathVariable("indice") Long indice, 
-            @RequestParam(required = false) Boolean download, 
+  @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
+                HttpServletResponse response, HttpServletRequest request) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+                /*capturando el usuario*/
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+                
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_capacitaciones", params, download,response);
@@ -356,6 +365,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
@@ -373,6 +383,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin); 
@@ -392,7 +403,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesinternas", params, download,response);
@@ -418,7 +430,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesexternas2", params, download,response);// adebio llamarse rpt_misionesexternas2
@@ -441,6 +454,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesexternas1", params, download,response);
@@ -467,6 +481,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
      
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
@@ -495,6 +510,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_nivelesescolares", params, download,response); 
@@ -522,6 +538,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_plazasocupadas", params, download,response); 
@@ -546,6 +563,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 //		params.put("CODIGO", indice.toString());
 //		params.put("FECHAINICIO", fechainicio);
 //		params.puta proba man("FECHAFIN", fechafin);
@@ -573,6 +591,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_puestos", params, download,response); 
@@ -599,6 +618,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 //		params.put("CODIGO", indice.toString());
 //		params.put("FECHAINICIO", fechainicio);
 //		params.put("FECHAFIN", fechafin);
