@@ -3,6 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT  co.`numeropersona` as 'Cantidad de Personas',c.nombrecapacitacion as 'Tema',co.`costopersona` as'Costo por Persomna', (`costocapacitador`+(`numeropersona`*`costopersona`)) as 'Costo Total'
 FROM `costocapacitacion`co,capacitacion c 
@@ -16,7 +22,7 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 		<band/>
 	</background>
 	<title>
-		<band height="76">
+		<band height="138">
 			<staticText>
 				<reportElement x="141" y="20" width="265" height="20" uuid="186b470a-bb7b-48a3-9535-ed41a87c49e5"/>
 				<textElement textAlignment="Center">
@@ -25,7 +31,7 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="493" y="50" width="70" height="20" uuid="e18cd85d-d4a0-4b0a-ba54-4b0e4647c6d2"/>
+				<reportElement x="492" y="80" width="70" height="20" uuid="e18cd85d-d4a0-4b0a-ba54-4b0e4647c6d2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -39,14 +45,14 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<text><![CDATA[REPORTE DE COSTOS DE CAPACITACION]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="462" y="30" width="74" height="20" uuid="8ba403ce-a35c-4d69-a99f-53bef029265c"/>
+				<reportElement x="461" y="60" width="74" height="20" uuid="8ba403ce-a35c-4d69-a99f-53bef029265c"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="536" y="30" width="26" height="20" uuid="ccce83d5-fb3d-41f8-b7cf-d7a6f6fdca54"/>
+				<reportElement x="535" y="60" width="26" height="20" uuid="ccce83d5-fb3d-41f8-b7cf-d7a6f6fdca54"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -59,53 +65,103 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				</textElement>
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
-			<image>
-				<reportElement x="-2" y="0" width="105" height="50" uuid="8c2fed1f-1afd-4559-8b5f-c6a1801f1f99"/>
-				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="406" y="50" width="114" height="20" uuid="cfc5a73e-6906-4dbd-bc16-465accdd2249"/>
+				<reportElement x="405" y="80" width="114" height="20" uuid="cfc5a73e-6906-4dbd-bc16-465accdd2249"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-40" y="70" width="615" height="3" uuid="f6d61a71-047b-4b27-8b81-403a3c6ec8f7"/>
-			</line>
+			<staticText>
+				<reportElement x="135" y="90" width="39" height="20" uuid="bd456708-2f4e-4a2f-b69d-8e7d3d8e155c"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="174" y="90" width="100" height="20" uuid="6b9e8986-0ad7-4cd5-8129-84bc2a08de4e"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="426" y="0" width="123" height="48" uuid="86c863d8-1b25-490a-9fac-1d11993b8ec3"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="-2" y="2" width="143" height="38" uuid="f7426a05-f716-4d95-8402-b221717bdf24"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="313" y="90" width="100" height="20" uuid="e56a3cb1-566c-4fd4-8a1f-8a91b0eacb94"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="426" y="108" width="39" height="20" uuid="cc467778-d73d-44df-8e9e-036a7189d624"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="90" width="39" height="20" uuid="d6e51252-3e7d-4615-aa6f-8b1e7074292a"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="465" y="108" width="100" height="20" uuid="fccdba09-8dbd-4208-8d26-49781480ec28"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="90" width="39" height="20" uuid="adfd7f11-a5c8-433b-b3f1-a32d7c90ee33"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[rpt_cost]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band/>
 	</pageHeader>
 	<columnHeader>
-		<band height="21">
-			<line>
-				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="f7626530-e6ce-494d-9fc9-db246350d430"/>
-			</line>
+		<band height="35">
+			<rectangle>
+				<reportElement x="0" y="7" width="552" height="28" backcolor="#FFFFFF" uuid="485b08c9-d043-48f5-9407-cea177e8f7f8"/>
+			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="103" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="6e8d1fb5-782e-4959-b128-fe72caa411fc"/>
+				<reportElement mode="Transparent" x="0" y="15" width="103" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="6e8d1fb5-782e-4959-b128-fe72caa411fc"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cantidad de Personas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="119" y="0" width="233" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="d7150423-edf8-4a88-a50a-33666c6f26d6"/>
+				<reportElement mode="Transparent" x="119" y="15" width="233" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="d7150423-edf8-4a88-a50a-33666c6f26d6"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tema]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="366" y="0" width="95" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="3a2220b7-0367-4a79-99d1-35ea6c6bcbab"/>
+				<reportElement mode="Transparent" x="366" y="15" width="95" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="3a2220b7-0367-4a79-99d1-35ea6c6bcbab"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Costo por Persona]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="461" y="0" width="91" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="b6ead696-335c-474a-85ff-2cb3431470c8"/>
+				<reportElement mode="Transparent" x="461" y="15" width="91" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="b6ead696-335c-474a-85ff-2cb3431470c8"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10" isBold="true"/>
 				</textElement>

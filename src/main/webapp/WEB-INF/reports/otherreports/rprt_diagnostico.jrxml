@@ -13,6 +13,12 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      diagnosticocapacitacion.`codigodiagnosticocapacitacion` AS diagnosticocapacitacion_codigodiagnosticocapacitacion,
@@ -38,7 +44,7 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="77" splitType="Stretch">
+		<band height="140" splitType="Stretch">
 			<staticText>
 				<reportElement x="143" y="0" width="469" height="20" uuid="2a6d1d68-ec28-4ce0-9479-3a2f587672da"/>
 				<textElement textAlignment="Center">
@@ -54,7 +60,7 @@ FROM
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="678" y="30" width="74" height="20" uuid="076ef3a0-2097-4aaa-9894-fbf0bc542261"/>
+				<reportElement x="688" y="60" width="74" height="20" uuid="076ef3a0-2097-4aaa-9894-fbf0bc542261"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -67,41 +73,94 @@ FROM
 				</textElement>
 				<text><![CDATA[REPORTE DE TEMAS DE DIAGNOSTICOS DE NECESIDADES DE CAPACITACION]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="105" height="50" uuid="849471db-1f39-42ff-b69c-ae16576c3a4a"/>
-				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
-			</image>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-21" y="70" width="840" height="3" uuid="ba226b4f-56c0-4e3a-bd72-c942969f4868"/>
-			</line>
 			<staticText>
-				<reportElement x="622" y="50" width="114" height="20" uuid="559ea0b1-4898-4e78-aa4b-db6bf7458b73"/>
+				<reportElement x="632" y="80" width="114" height="20" uuid="559ea0b1-4898-4e78-aa4b-db6bf7458b73"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="715" y="50" width="70" height="20" uuid="0ad030e7-e277-4119-882c-bd6f55542631"/>
+				<reportElement x="725" y="80" width="70" height="20" uuid="0ad030e7-e277-4119-882c-bd6f55542631"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="758" y="30" width="26" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
+				<reportElement x="768" y="60" width="26" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="199" y="82" width="39" height="20" uuid="96cda1ba-50d3-41d9-8c87-266ccc7527e4"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="82" width="39" height="20" uuid="cfc4dc53-d543-4622-bc13-b103f7f03d60"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="249" y="82" width="100" height="20" uuid="4d9056bf-eba7-4846-a97c-eac3c216246f"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="82" width="100" height="20" uuid="44f6b7f0-29e4-471f-add8-a1a4465e95a0"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="632" y="100" width="39" height="20" uuid="03d58d94-5f45-46ab-86dd-8ffd6e701afe"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="671" y="100" width="100" height="20" uuid="ef6eb4ca-5ac7-4cfc-a33d-072ffdde33b4"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="20" width="143" height="38" uuid="3f317ef7-1bfc-4fb5-b34e-3bc77589b327"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="648" y="10" width="123" height="48" uuid="7a050bb1-28d3-4e6f-af40-49269d9b7268"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="13" y="82" width="39" height="20" uuid="0a8f31e9-ef51-4c68-9055-c7bf485e9765"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[rpt_dign]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="22" splitType="Stretch">
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-8" width="802" height="28" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
+			</rectangle>
 			<staticText>
 				<reportElement style="Column header" x="0" y="0" width="113" height="18" forecolor="#000000" uuid="8c8359fa-1916-4267-b5ff-49beffadff78"/>
 				<textElement textAlignment="Center">
@@ -151,13 +210,10 @@ FROM
 				</textElement>
 				<text><![CDATA[Cargo quien Autoriza]]></text>
 			</staticText>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-21" y="18" width="840" height="3" uuid="ddffd7a0-6734-42f8-9258-e6ad9803e92c"/>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="18" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="fdf9dd30-1607-4f58-9341-a52ac0b4ea20"/>
 				<textField isStretchWithOverflow="true">
@@ -213,7 +269,7 @@ FROM
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="7" splitType="Stretch">
+		<band height="19" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="db554105-cde6-46f8-9160-54f019dcc39f"/>
 				<graphicElement>

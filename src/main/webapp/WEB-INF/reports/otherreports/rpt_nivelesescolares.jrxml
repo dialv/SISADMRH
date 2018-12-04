@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5065368b-750f-41c4-8100-4b1ac3db73b7">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="5"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString language="SQL">
 		<![CDATA[SELECT e.nombreempleado, e.apellidoempleado, 
  p.nombrepuesto as 'Nombre de Plaza' ,
@@ -37,7 +43,7 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 		<band/>
 	</background>
 	<title>
-		<band height="72">
+		<band height="133">
 			<staticText>
 				<reportElement x="143" y="20" width="494" height="20" uuid="26868bdf-6f7c-4199-a934-9f6c47778dc6"/>
 				<textElement textAlignment="Center">
@@ -46,7 +52,7 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="734" y="50" width="70" height="20" uuid="f9ebfcbb-4bfc-45e1-9578-33ada4a71257"/>
+				<reportElement x="734" y="92" width="70" height="20" uuid="f9ebfcbb-4bfc-45e1-9578-33ada4a71257"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -60,14 +66,14 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 				<text><![CDATA[REPORTE DE NIVELES DE ESCOLARIDAD]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="703" y="30" width="74" height="20" uuid="dc4d375f-cdaa-4a68-beca-68321ca3f231"/>
+				<reportElement x="703" y="72" width="74" height="20" uuid="dc4d375f-cdaa-4a68-beca-68321ca3f231"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="777" y="30" width="26" height="20" uuid="be740dfb-e360-424e-aa85-2f2c53509bb3"/>
+				<reportElement x="777" y="72" width="26" height="20" uuid="be740dfb-e360-424e-aa85-2f2c53509bb3"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -80,30 +86,80 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 				</textElement>
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="105" height="50" uuid="ad33b2d8-31ec-4142-bd01-273b5bd58886"/>
-				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="647" y="50" width="114" height="20" uuid="2beca2da-7bb2-4989-a813-4bd7e15578db"/>
+				<reportElement x="647" y="92" width="114" height="20" uuid="2beca2da-7bb2-4989-a813-4bd7e15578db"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-40" y="67" width="859" height="3" uuid="65f0cff4-1f74-47ce-ad9c-47c9ec4b8b24"/>
-			</line>
+			<textField>
+				<reportElement x="689" y="112" width="100" height="20" uuid="14c98792-a82d-4217-8f42-ae5d6ca0a399"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="83" width="39" height="20" uuid="827a82f5-ac38-496a-837f-4de29cb26fdb"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[rpt_nves]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="83" width="39" height="20" uuid="f89dec94-a673-4214-acf6-3943661bc7a0"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="440" y="83" width="100" height="20" uuid="22231878-adfb-4d8b-b749-6d98d65feb42"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="1" y="12" width="144" height="48" uuid="bb2165f1-c74c-4cd3-9181-d2e0029db54f"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="301" y="83" width="100" height="20" uuid="6690c497-8468-4007-be91-510579827c8f"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="656" y="12" width="123" height="48" uuid="69ad6d40-ea9d-447d-b4fe-fb87ccefddf0"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="650" y="112" width="39" height="20" uuid="417129af-5b08-478e-be34-347d79886762"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="83" width="39" height="20" uuid="efef5a3f-1712-43e6-9476-ed5e0a616be9"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="5"/>
+		<band height="9"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="35">
-			<line>
-				<reportElement mode="Transparent" x="-20" y="20" width="839" height="1" forecolor="#000000" uuid="f2272a56-43ee-43e5-a857-3ce348fccec0"/>
-			</line>
+		<band height="33">
+			<rectangle>
+				<reportElement x="1" y="1" width="802" height="28" backcolor="#FFFFFF" uuid="f19375e8-907c-4b42-a409-11bd8b69c9f8"/>
+			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="0" y="0" width="66" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="ab0ab516-abd6-4c31-b8b2-d505e5caf250"/>
 				<textElement textAlignment="Center">

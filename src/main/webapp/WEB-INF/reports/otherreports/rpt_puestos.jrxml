@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45e48802-dec0-4c73-a163-d1ad4215b739">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="82"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<queryString>
@@ -72,9 +72,6 @@ WHERE
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<line>
-				<reportElement x="-13" y="70" width="568" height="1" uuid="8573895e-c343-42e9-9a8d-a90562d7abe1"/>
-			</line>
 			<textField>
 				<reportElement x="464" y="30" width="74" height="20" uuid="6aaf2a70-8623-4efb-81a8-4d09ded974f4"/>
 				<textElement textAlignment="Right"/>
@@ -96,10 +93,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[REPORTE DE PUESTOS A CADUCAR]]></text>
 			</staticText>
-			<image>
-				<reportElement x="0" y="0" width="105" height="50" uuid="c995a476-8778-43a9-9a78-2d53f20376ad"/>
-				<imageExpression><![CDATA["C:\\Users\\developer\\Documents\\NetBeansProjectsE\\SISADMRH\\target\\classes\\static\\image\\mjsp.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="143" y="0" width="265" height="20" uuid="31d689a4-ca57-4a25-bd58-2c845d56d6b6"/>
 				<textElement textAlignment="Justified">
@@ -125,9 +118,6 @@ WHERE
 	</pageHeader>
 	<columnHeader>
 		<band height="41" splitType="Stretch">
-			<line>
-				<reportElement x="-13" y="21" width="568" height="1" uuid="56bdbc96-4986-4749-b88d-03034e3fbb51"/>
-			</line>
 			<staticText>
 				<reportElement x="-13" y="6" width="78" height="20" uuid="83bff103-8d68-466a-8b07-82e0b28cc320"/>
 				<textElement textAlignment="Justified"/>
@@ -214,9 +204,6 @@ WHERE
 				<reportElement x="438" y="30" width="100" height="20" uuid="629deae5-0261-45bc-8c0f-1e8da51865c7"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="0" y="15" width="568" height="1" uuid="065de079-304c-4465-9dd2-e757d4f62ead"/>
-			</line>
 		</band>
 	</columnFooter>
 	<pageFooter>

@@ -565,8 +565,9 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 Map<String, Object> params = new HashMap<>();
                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.puta proba man("FECHAFIN", fechafin);
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_pensionado", params, download,response);
     }
 
@@ -620,8 +621,9 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 Map<String, Object> params = new HashMap<>();
                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_exonerado", params, download,response);
     }
    
@@ -648,8 +650,9 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_nivelesescolares", params, download,response);
     }
     
@@ -667,8 +670,9 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("plazaoreporte", "rpt_plazasocupadas", params, download,response);
     }
     
@@ -686,8 +690,9 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_costocapacitacion", params, download,response);
     }
     
@@ -706,6 +711,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_capacitador", params, download,response);
@@ -729,6 +735,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rprt_diagnostico", params, download,response);
@@ -753,6 +760,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_contrataciones", params, download,response);
@@ -778,6 +786,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_despidos", params, download,response);
@@ -803,6 +812,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_estadisticoactivo", params, download,response);
@@ -827,6 +837,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_personalcapacitado", params, download,response);
@@ -877,6 +888,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_indemnizado", params, download,response);
