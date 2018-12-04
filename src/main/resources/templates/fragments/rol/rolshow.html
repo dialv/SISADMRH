@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>SISADMRH</title>
+    <title>Datos de Rol</title>
      <th:block th:include="../templates/header"></th:block> 
 </head>
 <body>
@@ -11,7 +11,6 @@
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
     <div class="col-md-9">
-    <h3 align="center">Datos de Rol</h3>
         <div>
             <form class="form-horizontal">
                 
@@ -36,7 +35,7 @@
             </form>
                  <div class="col-md-12">
             <div class="row" align="center">
- <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/roles/}">Reg</a></button>                
+            <a href="#" th:href="@{/roles/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>    
             </div>
     </div>
     </div>
@@ -47,6 +46,8 @@
 
 <script th:inline="javascript">
     $(document).ready(function () {
+        
+    Textheader('pnt_coro',document.title);
     if([[${lol}]]===0){
        swal("Exito!", "Registro agregado correctamente", "success");
     }

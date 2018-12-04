@@ -7,13 +7,6 @@
   
   </head>
 <body>
-<!--      <div class="contenedorizq"><label  >pnt_geus</label>
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
 <div class="row">
       <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -23,9 +16,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/agregarusuario.png" width="150" th:src="@{/image/agregarusuario.png}"/>
                     </div>
-        <h3 align="center">Agregar Usuario</h3>
+                    <br>
+          
     <div>
-        <form class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
+        <form id ="usuarioform" class="form-horizontal" th:object="${usuario}" th:action="@{../usuario}" method="post" >
             <input type="hidden" th:field="*{codigousuario}"/>
         <!--    <input type="hidden" th:field="*{nombreusuario}"/>
             <div class="form-group">
@@ -36,8 +30,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>-->
             <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre de Usuario:</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombreusuario}" />
+                <div class="col-sm-6">
+                    <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
                 </div>
                  <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
@@ -48,7 +42,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" required="true" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
+                    <input type="password" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
                 </div>
                 <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
@@ -59,7 +53,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                    <input type="password" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                 </div>
                 <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
@@ -108,9 +102,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
 <div class="col-md-12">
 <div class="row" align="center">
-  
-           <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/usuarios/}">Reg</a></button>
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                             <a href="#" th:href="@{/usuarios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
+                            <button type="button" id = "guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
         
     </div>
@@ -131,6 +124,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 
  <script>
+     
       function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
@@ -162,6 +156,34 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <script th:inline="javascript">
      Textheader('pnt_geus',document.title);
     $(document).ready(function () {
+        
+        
+     $('#guardar').click(function(){
+        var pass = $("#pass").val();
+            if(pass == $("#confpass").val()){
+                if(pass.length>=8){
+                    $("form#usuarioform").submit();
+                }
+                else{
+                    swal({
+                    title: "ERROR!",
+                    text: "la contraseña debe tener al menos 8 caracteres",
+                    type: "error",
+                    icon: "error"
+                    });
+                }
+            }
+            else {
+                swal({
+                title: "ERROR!",
+                text: "las contraseñas no coinciden",
+                type: "error",
+                icon: "error"
+       });
+            }
+            
+        });
+        
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",
