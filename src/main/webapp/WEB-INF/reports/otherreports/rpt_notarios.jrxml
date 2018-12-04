@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="57"/>
+	<property name="ireport.y" value="56"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -157,7 +157,7 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="21" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="36" y="0" width="132" height="20" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement textAlignment="Center"/>
@@ -176,28 +176,28 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="40" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="49" width="811" height="5" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
+				<reportElement x="7" y="0" width="785" height="5" uuid="cc747cd4-ac7f-4c29-a6d2-a3d691052864"/>
 			</line>
 		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="38" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement x="672" y="0" width="80" height="20" uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0"/>
+				<reportElement x="672" y="-63" width="80" height="20" uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="752" y="0" width="40" height="20" uuid="316ce86a-a98a-43ff-8585-bc1380d26aac"/>
+				<reportElement x="752" y="-63" width="40" height="20" uuid="316ce86a-a98a-43ff-8585-bc1380d26aac"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" backcolor="#FFFFFF" uuid="b856798b-9afa-4b82-bd7c-d0facbdf6ce1"/>
+				<reportElement mode="Opaque" x="2" y="-63" width="555" height="13" backcolor="#FFFFFF" uuid="b856798b-9afa-4b82-bd7c-d0facbdf6ce1"/>
 				<textElement>
 					<font fontName="Times New Roman" isUnderline="false"/>
 				</textElement>

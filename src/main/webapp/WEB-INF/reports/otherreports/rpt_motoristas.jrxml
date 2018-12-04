@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="77"/>
+	<property name="ireport.y" value="22"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -66,15 +66,6 @@
 	</title>
 	<pageHeader>
 		<band height="98" splitType="Stretch">
-			<textField>
-				<reportElement x="644" y="27" width="50" height="20" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="704" y="27" width="54" height="20" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="351" y="7" width="113" height="20" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
 				<text><![CDATA[Reporte de Motoristas]]></text>
@@ -92,7 +83,7 @@
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="695" y="7" width="100" height="20" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
+				<reportElement x="695" y="11" width="100" height="20" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -100,7 +91,7 @@
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="649" y="7" width="43" height="20" uuid="883df247-75ef-4008-b640-715c4d177483"/>
+				<reportElement x="649" y="11" width="43" height="20" uuid="883df247-75ef-4008-b640-715c4d177483"/>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
@@ -118,6 +109,15 @@
 				<reportElement x="19" y="35" width="100" height="20" uuid="c01a534d-c09e-4cc7-914d-7ce42a1e9802"/>
 				<text><![CDATA[rpt_mtrs]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="630" y="29" width="80" height="20" uuid="e2a2e4cd-d2df-4333-b025-655f9baa2303"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="710" y="29" width="40" height="20" uuid="78cd49e8-527e-4398-befe-a048a0b749c8"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -134,7 +134,7 @@
 				<text><![CDATA[Nombre de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="529" y="0" width="178" height="20" uuid="5f6e7b56-d32d-41ee-8c48-3da2659baf94"/>
+				<reportElement x="555" y="0" width="180" height="20" uuid="5f6e7b56-d32d-41ee-8c48-3da2659baf94"/>
 				<text><![CDATA[Fecha de aprobación]]></text>
 			</staticText>
 			<line>
@@ -156,7 +156,7 @@
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="529" y="0" width="100" height="20" uuid="d2cd28fb-fd1d-4fcb-8fd6-d975679cc690"/>
+				<reportElement x="566" y="0" width="100" height="20" uuid="d2cd28fb-fd1d-4fcb-8fd6-d975679cc690"/>
 				<textFieldExpression><![CDATA[$F{fechaingresoministerio}]]></textFieldExpression>
 			</textField>
 		</band>
