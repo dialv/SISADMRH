@@ -95,10 +95,11 @@ public class ComiteController extends UtilsController{
         try{
          comiteService.saveComite(comite);
          status.setComplete();
+           model.addAttribute("comites", comiteService.listAllComite());
+         model.addAttribute("msg", 0);
           bitacoraService.BitacoraRegistry("se guardo un Comite",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-         model.addAttribute("comites", comiteService.listAllComite());
-         model.addAttribute("msg", 0);
+       
         }
         catch(Exception e)
         {

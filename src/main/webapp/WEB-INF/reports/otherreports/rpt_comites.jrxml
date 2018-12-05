@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="8"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -50,21 +50,21 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 			<staticText>
 				<reportElement x="338" y="37" width="126" height="20" uuid="ff276982-a8e2-4630-862b-199b523e2b30"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="296" y="22" width="211" height="20" uuid="18a5c2ea-07e8-4059-bb1d-26a112f366be"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="354" y="54" width="66" height="20" uuid="7048bb48-5bd3-4523-954e-6d75beaee769"/>
+				<reportElement x="354" y="50" width="66" height="20" uuid="7048bb48-5bd3-4523-954e-6d75beaee769"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[SISASMRH]]></text>
 			</staticText>
@@ -81,75 +81,87 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 	<pageHeader>
 		<band height="75" splitType="Stretch">
 			<staticText>
-				<reportElement x="336" y="2" width="130" height="20" uuid="d2820ed1-563c-4556-97e7-7f9324cc9b90"/>
+				<reportElement x="336" y="2" width="83" height="20" uuid="d2820ed1-563c-4556-97e7-7f9324cc9b90"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Reporte de Comites ]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="695" y="3" width="100" height="14" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="657" y="21" width="61" height="20" uuid="c42b5a94-d56f-415b-9967-63beca281b2d"/>
+				<reportElement x="649" y="15" width="61" height="20" uuid="c42b5a94-d56f-415b-9967-63beca281b2d"/>
 				<textElement textAlignment="Right">
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="726" y="21" width="35" height="20" uuid="0079daa6-1363-4574-a3cf-8cb78dec494e"/>
+				<reportElement x="718" y="15" width="35" height="20" uuid="0079daa6-1363-4574-a3cf-8cb78dec494e"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="214" y="21" width="38" height="20" uuid="46e35f03-e614-451b-9ee7-b3d1e73cdf93"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="481" y="21" width="39" height="20" uuid="3e1a0d6d-d4bc-49c7-be68-31d48017ee8f"/>
+				<reportElement x="400" y="24" width="35" height="20" uuid="3e1a0d6d-d4bc-49c7-be68-31d48017ee8f"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="264" y="21" width="100" height="20" uuid="fe98f365-d451-4cbf-8c21-ba4984bac98e"/>
+				<reportElement x="253" y="21" width="100" height="20" uuid="fe98f365-d451-4cbf-8c21-ba4984bac98e"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="532" y="21" width="100" height="20" uuid="689ef65a-c28c-4309-a567-86b3627c4c96"/>
+				<reportElement x="438" y="24" width="100" height="20" uuid="689ef65a-c28c-4309-a567-86b3627c4c96"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="17" y="24" width="100" height="20" uuid="389c1719-9f3d-441e-9550-b92970e4a3f4"/>
-				<text><![CDATA[rpt_cmte]]></text>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[rpt_reporte_comit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="660" y="43" width="44" height="20" uuid="8f4080e8-dbe2-4b30-9f43-82f8fbabddf6"/>
+				<reportElement x="657" y="30" width="44" height="20" uuid="8f4080e8-dbe2-4b30-9f43-82f8fbabddf6"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="708" y="43" width="81" height="20" uuid="c2464fff-bc9f-4c3b-a4aa-56a405eea00c"/>
+				<reportElement x="705" y="30" width="81" height="20" uuid="c2464fff-bc9f-4c3b-a4aa-56a405eea00c"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="657" y="3" width="38" height="14" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 		</band>
@@ -157,47 +169,47 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 	<columnHeader>
 		<band height="54" splitType="Stretch">
 			<rectangle>
-				<reportElement x="7" y="34" width="674" height="20" backcolor="#FFFFFF" uuid="47f87b1b-4db2-4d10-b77e-5c9c9f4a3b62"/>
+				<reportElement x="7" y="34" width="795" height="20" backcolor="#FFFFFF" uuid="47f87b1b-4db2-4d10-b77e-5c9c9f4a3b62"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="14" y="34" width="100" height="20" uuid="e3dcf82b-5ff6-4cd8-beed-a789d18846ba"/>
+				<reportElement x="14" y="34" width="103" height="20" uuid="e3dcf82b-5ff6-4cd8-beed-a789d18846ba"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="141" y="34" width="100" height="20" uuid="82b4c1ff-82b5-41e6-9f4d-416a004632e9"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="271" y="34" width="100" height="20" uuid="3013f3b1-0485-44c2-8e02-c1b28b9f452f"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Acuerdo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="551" y="34" width="100" height="20" uuid="ff22621e-182f-4480-9973-78ff7fa9e390"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="694" y="34" width="100" height="20" uuid="970e7ca7-832f-4f96-a6b9-963f678a40b6"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="407" y="34" width="100" height="20" uuid="b0c4178c-b9e5-44a9-a803-d86696058694"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12" isBold="false"/>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Comite]]></text>
 			</staticText>
@@ -221,44 +233,44 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 	<detail>
 		<band height="25" splitType="Stretch">
 			<textField>
-				<reportElement x="7" y="4" width="100" height="20" uuid="f0df6217-7549-481b-a72f-724465680625"/>
+				<reportElement x="7" y="4" width="122" height="20" uuid="f0df6217-7549-481b-a72f-724465680625"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="4" width="100" height="20" uuid="28592223-1eac-441a-87f7-4c26d7e010b3"/>
+				<reportElement x="141" y="4" width="112" height="20" uuid="28592223-1eac-441a-87f7-4c26d7e010b3"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="271" y="4" width="100" height="20" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
+				<reportElement x="271" y="4" width="121" height="20" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroacuerdocomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="551" y="4" width="100" height="20" uuid="779232a7-bda8-4e32-ad57-bc01d87c4833"/>
+				<reportElement x="551" y="4" width="130" height="20" uuid="779232a7-bda8-4e32-ad57-bc01d87c4833"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="692" y="4" width="100" height="20" uuid="a345a786-0053-44fc-8fdc-b793c3dcc4f1"/>
+				<reportElement x="692" y="4" width="103" height="20" uuid="a345a786-0053-44fc-8fdc-b793c3dcc4f1"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="407" y="4" width="100" height="20" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
+				<reportElement x="407" y="4" width="127" height="20" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
 				<textElement textAlignment="Center">
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecomite}]]></textFieldExpression>
 			</textField>
@@ -272,14 +284,14 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 			<textField>
 				<reportElement x="681" y="10" width="100" height="20" uuid="59caeda8-7173-45d2-8c20-86e5f6ed160f"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="###0">
 				<reportElement mode="Opaque" x="10" y="14" width="555" height="13" backcolor="#FFFFFF" uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc"/>
 				<textElement>
-					<font fontName="Times New Roman" isUnderline="false"/>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
@@ -290,7 +302,7 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 			<staticText>
 				<reportElement x="324" y="16" width="183" height="20" uuid="6de3c10d-b33a-4540-8323-863022d0ddd8"/>
 				<textElement>
-					<font fontName="SansSerif"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
 			</staticText>
