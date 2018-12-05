@@ -48,7 +48,7 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="338" y="37" width="126" height="20" uuid="ff276982-a8e2-4630-862b-199b523e2b30"/>
+				<reportElement x="325" y="37" width="148" height="20" uuid="ff276982-a8e2-4630-862b-199b523e2b30"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -62,7 +62,7 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="354" y="50" width="66" height="20" uuid="7048bb48-5bd3-4523-954e-6d75beaee769"/>
+				<reportElement x="354" y="53" width="66" height="20" uuid="7048bb48-5bd3-4523-954e-6d75beaee769"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
