@@ -19,12 +19,11 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT COUNT(e.codigoempleado) as totalRegistros, m.fechasalidamision,m.fecharegresomision,m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
+		<![CDATA[SELECT  m.fechasalidamision,m.fecharegresomision,m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
 where 
  m.fechasalidamision>=$P{FECHAINICIO}
 AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 	</queryString>
-	<field name="totalRegistros" class="java.lang.Long"/>
 	<field name="fechasalidamision" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>

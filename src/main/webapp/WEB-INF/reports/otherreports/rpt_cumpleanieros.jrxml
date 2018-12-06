@@ -19,12 +19,11 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT count(e.codigoempleado),concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado
+		<![CDATA[SELECT concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado
 					from SISADMRH.empleado e
 INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
  INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado where concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado))>=$P{FECHAINICIO} and concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado))<=$P{FECHAFIN}]]>
 	</queryString>
-	<field name="count(e.codigoempleado)" class="java.lang.Long"/>
 	<field name="Fecha" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
