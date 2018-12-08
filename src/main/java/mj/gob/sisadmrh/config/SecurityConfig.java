@@ -195,17 +195,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/otherreports/capacitadores/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte Capacitador</a></li>
                         http.authorizeRequests().antMatchers("/capacitaciones/reporte/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER')");//Reporte de Capacitaciones</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte de Capacitaciones</a></li>
                         http.authorizeRequests().antMatchers("/capacitaciones/reporte/diagnostico")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Reporte de Temas de Diagnostico</a></li>
                         http.authorizeRequests().antMatchers("/capacitaciones/reporte/personalcapacitado")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Estadistico de Personal Capacitado</a></li>
                         http.authorizeRequests().antMatchers("/cuadrodirectivos/report/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Cuadro Directivo</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Reporte de Cuadro Directivo</a></li>
                         http.authorizeRequests().antMatchers("/beneficios/report/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER')");//Reporte de Beneficios</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte de Beneficios</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/reporte/costocreporte")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER')");//Reporte de costos de Capacitacion</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte de costos de Capacitacion</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/reporte/pensionadoreporte")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte de Personal Pensionado</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/reporte/exoneradoreporte")
