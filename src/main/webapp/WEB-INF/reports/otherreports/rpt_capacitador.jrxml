@@ -39,21 +39,21 @@ FROM
 	<title>
 		<band height="123">
 			<textField>
-				<reportElement x="459" y="60" width="74" height="20" uuid="381ade50-b892-440a-9f60-ac9752613405"/>
+				<reportElement x="455" y="83" width="74" height="20" uuid="381ade50-b892-440a-9f60-ac9752613405"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="506" y="83" width="70" height="20" uuid="5fb20cd9-d5af-4494-8485-fe34e1872912"/>
+				<reportElement x="496" y="63" width="70" height="20" uuid="5fb20cd9-d5af-4494-8485-fe34e1872912"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="391" y="83" width="114" height="20" uuid="df2e868f-1920-437e-a2e8-b629d7dd1694"/>
+				<reportElement x="418" y="63" width="114" height="20" uuid="df2e868f-1920-437e-a2e8-b629d7dd1694"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -67,7 +67,7 @@ FROM
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="138" y="40" width="265" height="20" uuid="576d3dc8-2b82-4530-b594-b77a6de495c0"/>
+				<reportElement x="138" y="73" width="265" height="20" uuid="576d3dc8-2b82-4530-b594-b77a6de495c0"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
@@ -81,28 +81,28 @@ FROM
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="533" y="60" width="26" height="20" uuid="0e4a0f73-d910-4993-b03e-1b1f92695f7d"/>
+				<reportElement x="529" y="83" width="26" height="20" uuid="0e4a0f73-d910-4993-b03e-1b1f92695f7d"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="85" width="100" height="20" uuid="d6e71bd6-1338-4325-8f1f-f930ffda16ba"/>
+				<reportElement x="179" y="103" width="100" height="20" uuid="d6e71bd6-1338-4325-8f1f-f930ffda16ba"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="225" y="85" width="39" height="20" uuid="009281ea-aadf-4969-bc06-5909ec18c5db"/>
+				<reportElement x="279" y="103" width="39" height="20" uuid="009281ea-aadf-4969-bc06-5909ec18c5db"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="61" y="85" width="39" height="20" uuid="b9dd5fa4-1069-4c39-b64d-2ac7f4476240"/>
+				<reportElement x="140" y="103" width="39" height="20" uuid="b9dd5fa4-1069-4c39-b64d-2ac7f4476240"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -123,7 +123,7 @@ FROM
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="277" y="85" width="100" height="20" uuid="91f40ec5-61ec-441f-9ff0-423a22f05acd"/>
+				<reportElement x="318" y="103" width="100" height="20" uuid="91f40ec5-61ec-441f-9ff0-423a22f05acd"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -134,15 +134,22 @@ FROM
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="418" y="10" width="123" height="48" uuid="5a44a052-5746-4181-bbdf-c8df2e4e26b6"/>
+				<reportElement x="432" y="10" width="123" height="48" uuid="5a44a052-5746-4181-bbdf-c8df2e4e26b6"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="4" y="83" width="39" height="20" uuid="51dcab81-c76a-4166-a63d-18beb65577c5"/>
+				<reportElement x="4" y="83" width="85" height="20" uuid="51dcab81-c76a-4166-a63d-18beb65577c5"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[rpt_cator]]></text>
+				<text><![CDATA[pnt_reporte_cado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="43" width="265" height="20" uuid="addf5344-96b5-487e-9ee6-348d429903aa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -152,43 +159,55 @@ FROM
 	<columnHeader>
 		<band height="38">
 			<rectangle>
-				<reportElement x="0" y="18" width="552" height="20" backcolor="#FFFFFF" uuid="88708dc7-3fb2-43b9-88cf-eef3dd410f4e"/>
+				<reportElement x="0" y="11" width="552" height="27" backcolor="#FFFFFF" uuid="88708dc7-3fb2-43b9-88cf-eef3dd410f4e"/>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="0" y="18" width="100" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5bad4120-5e48-417e-93e9-744284a3fe27"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Capacitador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="110" y="18" width="101" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="90329b24-197c-409f-ad29-8bb7c4f12749"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo Capacitador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="221" y="18" width="85" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="4bed08c9-10e1-4d1b-8112-5d8cdbc2fdcd"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Telefono Movil]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="306" y="18" width="112" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="e5b0ded0-c0d8-4746-a333-f306e0fe286e"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Email]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="418" y="18" width="134" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="a80af39f-1e86-4180-8969-4323788b37d3"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Temas de Docminio]]></text>
 			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="109" y="11" width="1" height="27" uuid="4535c894-e87d-4ecd-a98f-37ff0c33f3cc"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="220" y="11" width="1" height="27" uuid="e3d77288-5cc6-418d-be1a-835371ec200f"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="306" y="11" width="1" height="27" uuid="c45af939-c5e5-4f47-8c54-129eb64fa57b"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="417" y="11" width="1" height="27" uuid="0cfe2ca1-0685-462b-af20-290ca142c9a1"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -196,35 +215,35 @@ FROM
 			<textField isStretchWithOverflow="true">
 				<reportElement x="0" y="0" width="100" height="20" uuid="b3d555ca-2d9d-4428-a708-b5df7daf20b4"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_nombrecapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="110" y="0" width="101" height="20" uuid="db631a7c-a4e1-4932-b58a-2a3aa4c874e8"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_tipocapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="221" y="0" width="85" height="20" uuid="17518cf7-92f1-40ba-b458-314b9d67d4a4"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_telefonomovilcapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="306" y="0" width="112" height="20" uuid="44d3df89-ca59-4001-82bb-4ab68e8667f2"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_emailcapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="418" y="0" width="134" height="20" uuid="b2602596-d40c-4f43-af5e-9ec35ff47311"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_temadominio}]]></textFieldExpression>
 			</textField>

@@ -110,7 +110,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-9">
 
                             <select class="form-control" required="true"name="tipoagrupacion" >
-                                  <option th:each="c:${tipoAgrupacion}" th:value="${c.nombreestado}" th:text="${c.codigoestado}"></option>
+                                  <option th:each="c:${tipoAgrupacion}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
                             </select>
                         </div>
