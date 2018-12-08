@@ -191,7 +191,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/otherreports/despidos/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Reporte de Despidos</a></li>
                         http.authorizeRequests().antMatchers("/empleado/reporte/estadisticoactivos")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER', 'ROLE_ESTRATEGICO')");//Estadistico de Personal Activo</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Estadistico de Personal Activo</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/capacitadores/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte Capacitador</a></li>
                         http.authorizeRequests().antMatchers("/capacitaciones/reporte/")
