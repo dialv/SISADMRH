@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23e6b007-0068-4e8d-99ff-9f90427771ad">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="11"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="USUARIO" class="java.lang.String"/>
@@ -31,28 +31,28 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="492" y="80" width="70" height="20" uuid="e18cd85d-d4a0-4b0a-ba54-4b0e4647c6d2"/>
+				<reportElement x="491" y="68" width="70" height="20" uuid="e18cd85d-d4a0-4b0a-ba54-4b0e4647c6d2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="141" y="40" width="265" height="20" uuid="221c8061-dfdf-4ba4-9dc3-db7f4c74c27e"/>
+				<reportElement x="141" y="80" width="265" height="20" uuid="221c8061-dfdf-4ba4-9dc3-db7f4c74c27e"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE COSTOS DE CAPACITACION]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="461" y="60" width="74" height="20" uuid="8ba403ce-a35c-4d69-a99f-53bef029265c"/>
+				<reportElement x="461" y="88" width="74" height="20" uuid="8ba403ce-a35c-4d69-a99f-53bef029265c"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="535" y="60" width="26" height="20" uuid="ccce83d5-fb3d-41f8-b7cf-d7a6f6fdca54"/>
+				<reportElement x="535" y="88" width="26" height="20" uuid="ccce83d5-fb3d-41f8-b7cf-d7a6f6fdca54"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -66,21 +66,21 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="405" y="80" width="114" height="20" uuid="cfc5a73e-6906-4dbd-bc16-465accdd2249"/>
+				<reportElement x="404" y="68" width="114" height="20" uuid="cfc5a73e-6906-4dbd-bc16-465accdd2249"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="135" y="90" width="39" height="20" uuid="bd456708-2f4e-4a2f-b69d-8e7d3d8e155c"/>
+				<reportElement x="162" y="110" width="39" height="20" uuid="bd456708-2f4e-4a2f-b69d-8e7d3d8e155c"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="174" y="90" width="100" height="20" uuid="6b9e8986-0ad7-4cd5-8129-84bc2a08de4e"/>
+				<reportElement x="201" y="108" width="86" height="20" uuid="6b9e8986-0ad7-4cd5-8129-84bc2a08de4e"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -95,7 +95,7 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="313" y="90" width="100" height="20" uuid="e56a3cb1-566c-4fd4-8a1f-8a91b0eacb94"/>
+				<reportElement x="326" y="108" width="100" height="20" uuid="e56a3cb1-566c-4fd4-8a1f-8a91b0eacb94"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -109,7 +109,7 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="274" y="90" width="39" height="20" uuid="d6e51252-3e7d-4615-aa6f-8b1e7074292a"/>
+				<reportElement x="287" y="108" width="39" height="20" uuid="d6e51252-3e7d-4615-aa6f-8b1e7074292a"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -123,11 +123,18 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="90" width="39" height="20" uuid="adfd7f11-a5c8-433b-b3f1-a32d7c90ee33"/>
+				<reportElement x="10" y="90" width="93" height="20" uuid="adfd7f11-a5c8-433b-b3f1-a32d7c90ee33"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[rpt_cost]]></text>
+				<text><![CDATA[pnt_reporte_ccap]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="40" width="265" height="20" uuid="b22641e7-c39d-458f-9f2c-d86fd1ec28e1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -142,31 +149,40 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 			<staticText>
 				<reportElement mode="Transparent" x="0" y="15" width="103" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="6e8d1fb5-782e-4959-b128-fe72caa411fc"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cantidad de Personas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="119" y="15" width="233" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="d7150423-edf8-4a88-a50a-33666c6f26d6"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tema]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="366" y="15" width="95" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="3a2220b7-0367-4a79-99d1-35ea6c6bcbab"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Costo por Persona]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="461" y="15" width="91" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="b6ead696-335c-474a-85ff-2cb3431470c8"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Costo Total]]></text>
 			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="103" y="8" width="1" height="27" uuid="8cb3bb67-a42c-458e-ae3c-5de613a283b2"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="365" y="8" width="1" height="27" uuid="a94f7940-e7c0-490a-92cb-302bad26441b"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="465" y="7" width="1" height="27" uuid="a7cde06e-6841-475d-85f3-4628bb8c4b8b"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -174,28 +190,28 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 			<textField isStretchWithOverflow="true">
 				<reportElement mode="Transparent" x="0" y="0" width="80" height="20" forecolor="#000000" uuid="47f560f6-eb79-4d89-bc61-39ad78b9c149"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Cantidad de Personas}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement mode="Transparent" x="119" y="0" width="233" height="20" forecolor="#000000" uuid="4c370320-c883-447f-8ca7-cb444ec7f196"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tema}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement mode="Transparent" x="366" y="0" width="79" height="20" forecolor="#000000" uuid="f8b7f725-21d8-4bf4-ae95-d3790a672ac4"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Costo por Persomna}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement mode="Transparent" x="474" y="0" width="61" height="20" forecolor="#000000" uuid="144ced2e-0cbd-42f0-a2d2-de110da3aa9a"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="10"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Costo Total}]]></textFieldExpression>
 			</textField>
