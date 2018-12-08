@@ -67,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/cuadrodirectivos/new/cuadrodirectivo")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Cuadros Directivos</a></li>
                         http.authorizeRequests().antMatchers("/cuadrodirectivos/report/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER')");//Reporte de Cuadro Directivo</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Cuadro Directivo</a></li>
 			http.authorizeRequests().antMatchers("/capacitaciones/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Capacitaciones</a></li>
                         http.authorizeRequests().antMatchers("/capacitaciones/new/capacitacion")
@@ -130,6 +130,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Inasistencias</a></li>
                         http.authorizeRequests().antMatchers("/puestos/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Puestos de Trabaj</a></li>
+                        http.authorizeRequests().antMatchers("/otherreports/puestoreporte/")
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//reporte de puestos a caducar</a></li>
                         http.authorizeRequests().antMatchers("/puestos/new/puesto")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Puesto de Trabaj</a></li>
                         http.authorizeRequests().antMatchers("/misiones/")
@@ -182,11 +184,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte Plazas Ocupadas</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/puestoscaducar/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Reporte Puesto a Caducar</a></li>
-                        http.authorizeRequests().antMatchers("/empleado/reporte/contrataciones")
+                        http.authorizeRequests().antMatchers("/otherreports/contrataciones/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Reporte Contrataciones</a></li>
                         http.authorizeRequests().antMatchers("/empleado/reporte/despidos")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Reporte de Despidos</a></li>
-                        http.authorizeRequests().antMatchers("/empleado/reporte/estadisticoactivo")
+                        http.authorizeRequests().antMatchers("/otherreports/despidos/")
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_ESTRATEGICO')");//Reporte de Despidos</a></li>
+                        http.authorizeRequests().antMatchers("/empleado/reporte/estadisticoactivos")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER', 'ROLE_ESTRATEGICO')");//Estadistico de Personal Activo</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/capacitadores/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte Capacitador</a></li>
@@ -207,6 +211,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/otherreports/reporte/exoneradoreporte")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte de Personal Exonerado de Marcacion</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/reporte/nivelesreporte")
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Niveles Escolares</a></li>
+                        http.authorizeRequests().antMatchers("/otherreports/evaluacioncap")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Niveles Escolares</a></li>
                                 
         
