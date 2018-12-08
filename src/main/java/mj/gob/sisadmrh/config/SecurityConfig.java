@@ -49,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/usuariosroles/").access("hasAnyRole('ROLE_ADMIN')");//Consultar roles asignados</a></li>
                         http.authorizeRequests().antMatchers("/usuariosroles/new/usuariorol").access("hasAnyRole('ROLE_ADMIN')");//Asignar Roles</a></li>
                         http.authorizeRequests().antMatchers("/archivos/").access("hasAnyRole('ROLE_ADMIN')");//Carga de Archivos Fuentes<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
-			http.authorizeRequests().antMatchers("/beneficios/").access("hasRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Beneficios</a></li>
-                        http.authorizeRequests().antMatchers("/beneficios/new/beneficio").access("hasRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Beneficio</a></li>
+			http.authorizeRequests().antMatchers("/beneficios/").access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Beneficios</a></li>
+                        http.authorizeRequests().antMatchers("/beneficios/new/beneficio").access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Beneficio</a></li>
                         http.authorizeRequests().antMatchers("/beneficios/report/").access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO')");//Reporte de Beneficios</a></li>
 			http.authorizeRequests().antMatchers("/cuadrodirectivos/").access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Cuadros Directivos</a></li>
                         http.authorizeRequests().antMatchers("/cuadrodirectivos/new/cuadrodirectivo").access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Cuadros Directivos</a></li>
