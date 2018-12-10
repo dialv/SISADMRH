@@ -63,8 +63,8 @@ FROM
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="696" y="82" width="74" height="20" uuid="076ef3a0-2097-4aaa-9894-fbf0bc542261"/>
-				<textElement textAlignment="Right">
+				<reportElement x="648" y="82" width="54" height="20" uuid="076ef3a0-2097-4aaa-9894-fbf0bc542261"/>
+				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
@@ -91,7 +91,7 @@ FROM
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="776" y="82" width="26" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
+				<reportElement x="702" y="82" width="100" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -126,7 +126,7 @@ FROM
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="660" y="100" width="39" height="20" uuid="03d58d94-5f45-46ab-86dd-8ffd6e701afe"/>
+				<reportElement x="648" y="100" width="51" height="20" uuid="03d58d94-5f45-46ab-86dd-8ffd6e701afe"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>

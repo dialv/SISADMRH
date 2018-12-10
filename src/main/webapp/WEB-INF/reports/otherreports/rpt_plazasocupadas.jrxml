@@ -60,15 +60,15 @@
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="652" y="81" width="114" height="20" uuid="576379c8-0b07-4601-a754-aed983dec059"/>
+				<reportElement x="654" y="81" width="112" height="20" uuid="576379c8-0b07-4601-a754-aed983dec059"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="692" y="101" width="74" height="20" uuid="c280f540-adf5-4fff-8a53-efa283b7e71f"/>
-				<textElement textAlignment="Right">
+				<reportElement x="654" y="101" width="59" height="20" uuid="c280f540-adf5-4fff-8a53-efa283b7e71f"/>
+				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
@@ -88,7 +88,7 @@
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="766" y="101" width="26" height="20" uuid="50139365-5d13-4c7f-b2db-5effd408f473"/>
+				<reportElement x="713" y="101" width="26" height="20" uuid="50139365-5d13-4c7f-b2db-5effd408f473"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -117,7 +117,7 @@
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="677" y="121" width="100" height="20" uuid="f2014f12-e75d-4b67-8814-47b6dbe52770"/>
+				<reportElement x="692" y="121" width="100" height="20" uuid="f2014f12-e75d-4b67-8814-47b6dbe52770"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -138,7 +138,7 @@
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="638" y="121" width="39" height="20" uuid="76d6ca37-d6d0-4f4d-be8d-9fc3a64ec9d1"/>
+				<reportElement x="653" y="121" width="39" height="20" uuid="76d6ca37-d6d0-4f4d-be8d-9fc3a64ec9d1"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -345,24 +345,41 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="7" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="7180fdd9-6003-48a2-bf7a-550da056ee75"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
+		<band height="2" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="15" splitType="Stretch">
+		<band height="84" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="2" y="2" width="804" height="13" backcolor="#E6E6E6" uuid="ccb92158-2ae3-4814-87f2-76dcab3311e8"/>
+				<reportElement mode="Opaque" x="2" y="15" width="316" height="13" backcolor="#FFFFFF" uuid="ccb92158-2ae3-4814-87f2-76dcab3311e8"/>
 				<textElement>
-					<font fontName="Times New Roman" isUnderline="true"/>
+					<font fontName="Times New Roman" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="10" y="10" width="782" height="1" uuid="d859b870-12c2-4f84-8ede-42d4b51ad3a4"/>
+			</line>
+			<textField>
+				<reportElement x="692" y="11" width="74" height="20" uuid="df650d10-bb21-4436-818e-76f911f3b253"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="766" y="11" width="26" height="20" uuid="cab8ecb9-1501-428b-a37a-36c267e0e4de"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="348" y="47" width="189" height="20" uuid="d7d8da30-6bdf-41ed-876a-131914fab59b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 	<summary>
