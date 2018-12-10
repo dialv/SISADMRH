@@ -65,9 +65,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Mision(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="tipomision">
-                        <option>Externa</option>
-                        <option>Interna</option>
+                    <select class="form-control" name="tipomision" id="tipomision">
+                        <option value="0">Externa</option>
+                        <option value="1">Interna</option>
                         <!--<option>Gobierno</option>-->
 
                     </select>
@@ -81,7 +81,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-3 control-label">Nombre de Mision(*):</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombremision}"/>
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombremision}" />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
@@ -116,7 +116,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-3 control-label">Responsable del Gasto(*):</label>
                 <div class="col-sm-4">
-                    <select class="form-control" name="responsablegasto"  >
+                    <select class="form-control" name="responsablegasto"  id="n1">
                         <option>ONG</option>
                         <option>Ministerio</option>
                         <option>Gobierno</option>
@@ -133,7 +133,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-3 control-label">Viaticos(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{viaticos}"/>
+                    <input type="text" class="form-control num_decimal" id="n2" required="true" maxlength="6"  th:field="*{viaticos}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup7')" onmouseout ="javascript:ocultarAyuda('poppup7')">a</a></b>
@@ -144,7 +144,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-3 control-label">Gasto Viaje(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{gastoviaje}"/>
+                    <input type="text" class="form-control num_decimal" id="n3" required="true" maxlength="6"  th:field="*{gastoviaje}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup77')" onmouseout ="javascript:ocultarAyuda('poppup77')">a</a></b>
@@ -155,7 +155,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="form-group">
                 <label class="col-sm-3 control-label">Gasto Terminales(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{gastoterminales}"/>
+                    <input type="text" class="form-control num_decimal"  id="n4" required="true" maxlength="6"  th:field="*{gastoterminales}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup78')" onmouseout ="javascript:ocultarAyuda('poppup78')">a</a></b>
@@ -164,10 +164,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Salida(*):</label>
+                <label class="col-sm-3 control-label" id="lb1">Fecha de Salida(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision" onchange="isDat(this.value,'fechasalidamision');Fechas(this.value,$('#fecharegresomision').val().toString(),'fechasalidamision','fecharegresomision')" />
+                     <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision" onchange="isDat(this.value,'fechasalidamision');Fechas(this.value,$('#fecharegresomision').val().toString(),'fechasalidamision','fecharegresomision')" />
                 </div>
                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
@@ -180,7 +180,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
-                    <select class="form-control" name="paisdestino" >
+                    <select class="form-control" name="paisdestino" id="n6">
                         <option>El Salvador</option>
                         <option>Mexico</option>
                         <option>Guatemala</option>
@@ -218,7 +218,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <div class="form-group">
                 <label class="col-sm-3 control-label">Ciudad(*):</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{ciudad}"/>
+                    <input type="text" class="form-control" id="n7" required="true" size="50" maxlength="50" th:field="*{ciudad}"/>
                 </div>
                   <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup25')" onmouseout ="javascript:ocultarAyuda('poppup25')">a</a></b>
@@ -232,7 +232,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Fecha de Regreso(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" onchange="isDat(this.value,'fecharegresomision');Fechas($('#fechasalidamision').val().toString(),this.value,'fechasalidamision','fecharegresomision')"/>
+                     <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" onchange="isDat(this.value,'fecharegresomision');Fechas($('#fechasalidamision').val().toString(),this.value,'fechasalidamision','fecharegresomision')"/>
                 </div>
                   <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup476')" onmouseout ="javascript:ocultarAyuda('poppup476')">a</a></b>
@@ -258,7 +258,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <div class="form-group">
                     <label class="col-sm-3 control-label">Acuerdo</label>
                     <div class="col-sm-5">
-                        <input type="file" name="file" />
+                        <input type="file" name="file" id="n10"/>
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                
                     </div>
@@ -283,7 +283,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <div class="form-group">
                 <label class="col-sm-3 control-label">Boleto Aeroe(*):</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control numeros" required="true" size="20" maxlength="20" th:field="*{boleto}"/>
+                    <input type="text" class="form-control numeros" id="n11" required="true" size="20" maxlength="20" th:field="*{boleto}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup16')" onmouseout ="javascript:ocultarAyuda('poppup16')">a</a></b>
@@ -294,7 +294,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Boleto Terrestre(*):</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control numeros" required="true" size="20" maxlength="20" th:field="*{boletoterr}"/>
+                    <input type="text" class="form-control numeros" id="n12" required="true" size="20" maxlength="20" th:field="*{boletoterr}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup165')" onmouseout ="javascript:ocultarAyuda('poppup165')">a</a></b>
@@ -307,7 +307,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Cantidad de Dias(*):</label>
                 <div class="col-sm-2">
-                    <input type="number" class="form-control numeros" required="true" maxlength="3" th:field="*{cantidaddia}"/>
+                    <input type="number" class="form-control numeros" id="n13" required="true" maxlength="3" th:field="*{cantidaddia}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup169')" onmouseout ="javascript:ocultarAyuda('poppup169')">a</a></b>
@@ -321,7 +321,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Cantidad de Meses(*):</label>
                 <div class="col-sm-2">
-                    <input type="number" class="form-control numeros" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
+                    <input type="number" class="form-control numeros" id="n14" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup168')" onmouseout ="javascript:ocultarAyuda('poppup168')">a</a></b>
@@ -367,6 +367,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+            
+           
             function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
@@ -425,6 +427,41 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
 		        dateFormat: 'dd/mm/yy'
 		    });
+                    
+                     $("#tipomision").change(function() {
+                        if($("#tipomision").val() !== "1"){
+//                          $('lb1').html('some value');
+                          $('#n1').prop('disabled', false);
+                          $('#n2').prop('disabled', false);
+                          $('#n3').prop('disabled', false);
+                          $('#n4').prop('disabled', false);
+//                          $('#fechasalidamision').prop('disabled', false);
+                          $('#n6').prop('disabled', false);
+                          $('#n7').prop('disabled', false);
+                          $('#fecharegresomision').prop('disabled', false);
+                          $('#fechaacuerdo').prop('disabled', false);
+//                          $('#n10').prop('disabled', false);
+                          $('#n11').prop('disabled', false);
+                          $('#n12').prop('disabled', false);
+                          $('#n13').prop('disabled', false);
+                          $('#n14').prop('disabled', false);
+                        }else{
+                          $('#n1').prop('disabled', 'disabled');
+                          $('#n2').prop('disabled', 'disabled');
+                          $('#n3').prop('disabled', 'disabled');
+                          $('#n4').prop('disabled', 'disabled');
+//                          $('#fechasalidamision').prop('disabled', 'disabled');
+                          $('#n6').prop('disabled', 'disabled');
+                          $('#n7').prop('disabled', 'disabled');
+                          $('#fecharegresomision').prop('disabled', 'disabled');
+                          $('#fechaacuerdo').prop('disabled', 'disabled');
+//                          $('#n10').prop('disabled', 'disabled');
+                          $('#n11').prop('disabled', 'disabled');
+                          $('#n12').prop('disabled', 'disabled');
+                          $('#n13').prop('disabled', 'disabled');
+                          $('#n14').prop('disabled', 'disabled');
+                        }
+                      });
 		});
 	</script>
         <script th:inline="javascript">
