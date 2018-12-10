@@ -303,14 +303,38 @@ FROM
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="15" splitType="Stretch">
+		<band height="73" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="0" y="0" width="802" height="13" backcolor="#E6E6E6" uuid="9bf10d63-7d84-4b29-a32d-2840bc8ae7e7"/>
+				<reportElement mode="Opaque" x="0" y="13" width="361" height="13" backcolor="#FFFFFF" uuid="9bf10d63-7d84-4b29-a32d-2840bc8ae7e7"/>
 				<textElement>
-					<font fontName="Times New Roman" size="9" isUnderline="true"/>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="688" y="13" width="74" height="20" uuid="b3fe775e-f153-49ee-bf9c-b33fc380a976"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="13" width="26" height="20" uuid="23e70883-9daf-4970-8258-650508de340b"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="294" y="40" width="189" height="20" uuid="d47a6a8f-38db-4930-97e8-13a47a85c3c6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="9" width="797" height="1" uuid="a675552f-fc5a-4dce-a103-f9bfc3a67124"/>
+			</line>
 		</band>
 	</pageFooter>
 	<summary>

@@ -285,6 +285,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup67">Seleccione el tipo de finanza del Puesto de Trabajo desplegando la lista.!</span>
                     </div>
             </div>
+<div class="form-group">
+                <label class="col-sm-3 control-label">Estado de Puesto de Trabajo(*):</label>
+                <div class="col-sm-2">
+                    <select class="form-control" name="estadopuesto" th:field="*{estadopuesto}">
+                            <!--th:field="*{tipocuenta}">-->
+                        <option value="1">Activo</option>
+                        <option value="2">Plaza Ocupada</option>
+                        <option value="0">De Baja</option>
+                    </select>
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup263')" onmouseout ="javascript:ocultarAyuda('poppup263')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup263">Seleccione el estado del Empleado desplegando la lista.!</span>
+                    </div>
+             
+            </div>
                    </div>
 
  <div class="col-md-12">
