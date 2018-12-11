@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b5b5867-a333-4221-8d51-8566c397df3b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="59"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -21,8 +21,8 @@
 	<queryString>
 		<![CDATA[SELECT concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado
 					from SISADMRH.empleado e
-INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
- INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado where concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado))>=$P{FECHAINICIO} and concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado))<=$P{FECHAFIN}]]>
+INNER JOIN empleadopuesto ep on e.codigoempleado=ep.codigoempleado
+ INNER JOIN SISADMRH.puesto p ON ep.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado where concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado))>=$P{FECHAINICIO} and concat(DAY(e.fechanacimientoempleado)," / ", MONTH(e.fechanacimientoempleado))<=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="Fecha" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -99,14 +99,14 @@ INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="650" y="23" width="68" height="20" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
+				<reportElement x="640" y="23" width="68" height="20" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="720" y="23" width="40" height="20" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
+				<reportElement x="710" y="23" width="40" height="20" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
