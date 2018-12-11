@@ -38,7 +38,7 @@ public class PersonalIndemnizadoView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE PERSONAL INDEMNIZADO");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("No Empleado");
+ header.createCell(2).setCellValue("Nombre Empleado");
  header.createCell(3).setCellValue("Sexo");
  header.createCell(4).setCellValue("No de Acuerdo");
  header.createCell(5).setCellValue("Salario");
@@ -52,14 +52,14 @@ public class PersonalIndemnizadoView extends AbstractXlsView{
  Row row = sheet.createRow(rowNum++);
  
 
- row.createCell(2).setCellValue((String) List[0]);
- row.createCell(3).setCellValue((String) List[1]);
- row.createCell(4).setCellValue((String) List[2]);
- row.createCell(5).setCellValue((String) List[3]);
- row.createCell(6).setCellValue((Float) List[4]);
- row.createCell(7).setCellValue((Float) List[5]);
- row.createCell(8).setCellValue((Float) List[6]);
- row.createCell(9).setCellValue((Float) List[7]);
+ row.createCell(2).setCellValue((String) ""+List[0] +" "+List[1]);
+ row.createCell(3).setCellValue((String) ""+List[2]);
+ row.createCell(4).setCellValue((String) ""+List[3]);
+ row.createCell(5).setCellValue((String) ""+List[4]);
+ row.createCell(6).setCellValue((String) ""+List[5]);
+ row.createCell(7).setCellValue((String) ""+List[6]);
+ row.createCell(8).setCellValue((String) ""+List[7]);
+ row.createCell(9).setCellValue((String) ""+List[8]);
  
  
  }

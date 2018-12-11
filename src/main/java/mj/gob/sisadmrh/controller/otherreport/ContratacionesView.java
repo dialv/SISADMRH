@@ -40,27 +40,27 @@ public class ContratacionesView extends AbstractXlsView{
 
  header.createCell(2).setCellValue("Codigo");
  header.createCell(3).setCellValue("Nombre Empleado");
- header.createCell(4).setCellValue("Nombre Empleado");
+// header.createCell(4).setCellValue("Nombre Empleado");
 // header.createCell(5).setCellValue("apelldio");
- header.createCell(5).setCellValue("Cargo");
- header.createCell(6).setCellValue("Ubicacion");
- header.createCell(7).setCellValue("Fecha e Inicio");
-  header.createCell(8).setCellValue("Salario");
+ header.createCell(4).setCellValue("Cargo");
+ header.createCell(5).setCellValue("Ubicacion");
+ header.createCell(6).setCellValue("Fecha e Inicio");
+  header.createCell(7).setCellValue("Salario");
   
  int rowNum = 3;
  for(Object[] cpontrataciones : contratacionesList){
  Row row = sheet.createRow(rowNum++);
  
 
- row.createCell(2).setCellValue((Integer) cpontrataciones[0]);
- row.createCell(3).setCellValue((String) cpontrataciones[1]);
- row.createCell(4).setCellValue((String) cpontrataciones[2]+" "+cpontrataciones[3]);
+ row.createCell(2).setCellValue((String) ""+cpontrataciones[0]);
+// row.createCell(3).setCellValue((String) ""+cpontrataciones[1]);
+ row.createCell(3).setCellValue((String) ""+cpontrataciones[1]+" "+cpontrataciones[2]);
 // row.createCell(5).setCellValue((String) plazasOcupadas[3]);
- row.createCell(5).setCellValue((String) cpontrataciones[4]);
- row.createCell(6).setCellValue((Float) cpontrataciones[5]);
+ row.createCell(4).setCellValue((String) ""+cpontrataciones[3]);
+ row.createCell(5).setCellValue((String) ""+cpontrataciones[4]);
  //row.createCell(7).setCellValue((String) plazasOcupadas[6]);
- row.createCell(7).setCellValue((Date) cpontrataciones[7]);
-  row.createCell(8).setCellValue((Date) cpontrataciones[8]);
+ row.createCell(6).setCellValue((String) ""+cpontrataciones[5]);
+  row.createCell(7).setCellValue((String)""+cpontrataciones[6]);
  
  }
  }

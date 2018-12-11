@@ -39,25 +39,25 @@ public class DespidosView extends AbstractXlsView{
  Row header = sheet.createRow(2);
 
  header.createCell(2).setCellValue("Nombre Empleado");
- header.createCell(3).setCellValue("Apellido Empleado");
- header.createCell(4).setCellValue("Ubicacion");
- header.createCell(5).setCellValue("Plaza");
- header.createCell(6).setCellValue("Numero de Partida");
- header.createCell(7).setCellValue("Numero Subpartida");
-  header.createCell(8).setCellValue("Salario Base");
+// header.createCell(3).setCellValue("Apellido Empleado");
+ header.createCell(2).setCellValue("Ubicacion");
+ header.createCell(3).setCellValue("Plaza");
+ header.createCell(4).setCellValue("Numero de Partida");
+ header.createCell(5).setCellValue("Numero Subpartida");
+  header.createCell(6).setCellValue("Salario Base");
   
  int rowNum = 3;
  for(Object[] despidos : despidosList){
  Row row = sheet.createRow(rowNum++);
  
 
- row.createCell(2).setCellValue((Integer) despidos[0]);
- row.createCell(3).setCellValue((String) despidos[1]);
- row.createCell(4).setCellValue((String) despidos[2]);
- row.createCell(5).setCellValue((String) despidos[3]);
- row.createCell(6).setCellValue((Float) despidos[4]);
- row.createCell(7).setCellValue((Date) despidos[5]);
-  row.createCell(8).setCellValue((Date) despidos[6]);
+ row.createCell(2).setCellValue((String) ""+despidos[0] +" "+despidos[1]);
+// row.createCell(3).setCellValue((String) ""+despidos[1]);
+ row.createCell(3).setCellValue((String) ""+despidos[2]);
+ row.createCell(4).setCellValue((String) ""+despidos[3]);
+ row.createCell(5).setCellValue((String) ""+despidos[4]);
+ row.createCell(6).setCellValue((String) ""+despidos[5]);
+  row.createCell(7).setCellValue((String) ""+despidos[6]);
  
  }
  }

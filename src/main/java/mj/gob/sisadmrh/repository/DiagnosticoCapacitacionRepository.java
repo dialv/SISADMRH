@@ -22,17 +22,17 @@ public interface DiagnosticoCapacitacionRepository  extends CrudRepository<Diagn
     Iterable<DiagnosticoCapacitacion> findByUbicacion(@Param("nom") String dato);
     
     @Query(value="SELECT\n" +
-"     diagnosticocapacitacion.codigodiagnosticocapacitacion ,\n" +
-"     diagnosticocapacitacion.cargoautorizadiagnosticocapacitacion ,\n" +
-"     diagnosticocapacitacion.direccion,\n" +
-"     diagnosticocapacitacion.mescapacitacion ,\n" +
-"     diagnosticocapacitacion.necesidadcapacitacion ,\n" +
-"     diagnosticocapacitacion.nombreautorizadiagnosticocapacitacion ,\n" +
-"     diagnosticocapacitacion.resultadoobtener ,\n" +
-"     diagnosticocapacitacion.codigocapacitacion ,\n" +
-"     diagnosticocapacitacion.temacapacitacion  \n" +
+"     d.codigodiagnosticocapacitacion ,\n" +
+"     d.cargoautorizadiagnosticocapacitacion ,\n" +
+"     d.direccion,\n" +
+"     d.mescapacitacion ,\n" +
+"     d.necesidadcapacitacion ,\n" +
+"     d.nombreautorizadiagnosticocapacitacion ,\n" +
+"     d.resultadoobtener ,\n" +
+"     d.codigocapacitacion ,\n" +
+"     d.temacapacitacion  \n" +
 "FROM\n" +
-"     diagnosticocapacitacion diagnosticocapacitacion"
+"     Diagnosticocapacitacion d"
             , nativeQuery = true) 
             Iterable <DiagnosticoCapacitacion> Diagnosticoexcel(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);

@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.controller.otherreport;
 
+import java.math.BigInteger;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.poi.ss.usermodel.RichTextString;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -47,9 +49,9 @@ public class PersonalActivoView extends AbstractXlsView{
  Row row = sheet.createRow(rowNum++);
  
 
- row.createCell(2).setCellValue((Integer) List[0]);
- row.createCell(3).setCellValue((String) List[1]);
- row.createCell(4).setCellValue((Integer) List[2]);
+ row.createCell(2).setCellValue((String) "" +List[0]);
+ row.createCell(3).setCellValue((String) List[2]);
+ row.createCell(4).setCellValue((String) "" + List[1]);
  
  }
  }

@@ -58,25 +58,25 @@ public class EvaCapacitacionesView  extends AbstractXlsView{
 
   for(Object[] evacapacitaciones : evacapacitacionesList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((String) evacapacitaciones[0]);
- row.createCell(1).setCellValue((String) evacapacitaciones[1]);
- row.createCell(2).setCellValue((Integer) evacapacitaciones[2]);
- row.createCell(3).setCellValue((String) evacapacitaciones[3]);
- row.createCell(4).setCellValue((String) evacapacitaciones[4]);
- row.createCell(6).setCellValue((String) evacapacitaciones[5]);
- row.createCell(7).setCellValue((Timestamp) evacapacitaciones[6]);
- row.createCell(8).setCellValue((Timestamp) evacapacitaciones[7]);
-  row.createCell(9).setCellValue((String) evacapacitaciones[8]);
- row.createCell(10).setCellValue((String) evacapacitaciones[9]);
- row.createCell(11).setCellValue((String) evacapacitaciones[10]);
- row.createCell(12).setCellValue((Timestamp) evacapacitaciones[11]);
- row.createCell(13).setCellValue((Timestamp) evacapacitaciones[12]);
- row.createCell(14).setCellValue((Timestamp) evacapacitaciones[13]);
-  row.createCell(15).setCellValue((String) evacapacitaciones[14]);
- row.createCell(16).setCellValue((String) evacapacitaciones[15]);
- row.createCell(17).setCellValue((String) evacapacitaciones[16]);
- row.createCell(18).setCellValue((Timestamp) evacapacitaciones[17]);
- row.createCell(19).setCellValue((Timestamp) evacapacitaciones[18]);
+ row.createCell(0).setCellValue((String) ""+evacapacitaciones[0]);
+ row.createCell(1).setCellValue((String) ""+evacapacitaciones[1]);
+ row.createCell(2).setCellValue((String) ""+evacapacitaciones[2]);
+ row.createCell(3).setCellValue((String) ""+evacapacitaciones[3]);
+ row.createCell(4).setCellValue((String) ""+evacapacitaciones[4]);
+ row.createCell(6).setCellValue((String) ""+evacapacitaciones[5]);
+ row.createCell(7).setCellValue((String) ""+evacapacitaciones[6]);
+ row.createCell(8).setCellValue((String) ""+evacapacitaciones[7]);
+  row.createCell(9).setCellValue((String) ""+evacapacitaciones[8]);
+ row.createCell(10).setCellValue((String) ""+evacapacitaciones[9]);
+ row.createCell(11).setCellValue((String) ""+evacapacitaciones[10]);
+ row.createCell(12).setCellValue((String) ""+evacapacitaciones[11]);
+ row.createCell(13).setCellValue((String) ""+evacapacitaciones[12]);
+ row.createCell(14).setCellValue((String) ""+evacapacitaciones[13]);
+  row.createCell(15).setCellValue((String) ""+evacapacitaciones[14]);
+ row.createCell(16).setCellValue((String) ""+evacapacitaciones[15]);
+ row.createCell(17).setCellValue((String) ""+evacapacitaciones[16]);
+ row.createCell(18).setCellValue((String) ""+evacapacitaciones[17]);
+ row.createCell(19).setCellValue((String) ""+evacapacitaciones[18]);
  }
 
     
