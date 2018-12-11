@@ -64,11 +64,11 @@
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<image>
-				<reportElement x="697" y="0" width="105" height="60" uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402"/>
+				<reportElement x="8" y="11" width="144" height="74" uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="0" y="0" width="193" height="105" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
+				<reportElement x="644" y="11" width="193" height="74" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
