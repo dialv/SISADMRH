@@ -58,15 +58,15 @@ public class PersonalPensionadoView extends AbstractXlsView{
            
            
         
- row.createCell(2).setCellValue((String) pensionados[0]);
- row.createCell(3).setCellValue((String) pensionados[1]);
- row.createCell(4).setCellValue((String) pensionados[2]);
- row.createCell(5).setCellValue((String) pensionados[3]);
- row.createCell(6).setCellValue((Float) pensionados[4]);
- row.createCell(7).setCellValue((Date) pensionados[5]);
+ row.createCell(2).setCellValue((String) ""+pensionados[0]);
+ row.createCell(3).setCellValue((String) ""+pensionados[1]);
+ row.createCell(4).setCellValue((String) ""+pensionados[2]);
+ row.createCell(5).setCellValue((String) ""+pensionados[3]);
+ row.createCell(6).setCellValue((String)""+ pensionados[4]);
+ row.createCell(7).setCellValue((String) ""+pensionados[5]);
  //row.createCell(7).setCellValue((String) plazasOcupadas[6]);
- row.createCell(8).setCellValue((Date) pensionados[7]);
-  row.createCell(9).setCellValue((String) pensionados[8]);
+ row.createCell(8).setCellValue((String) ""+pensionados[7]);
+//  row.createCell(9).setCellValue((String)""+ pensionados[8]);
 //   row.createCell(9).setCellValue((String) plazasOcupadas[9]);
 // row.createCell(10).setCellValue((String) plazasOcupadas[10]);
  

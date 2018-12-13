@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="0.909090909090913"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="132"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -72,7 +72,7 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	<title>
 		<band height="89" splitType="Stretch">
 			<image>
-				<reportElement x="614" y="15" width="205" height="70" uuid="af190678-1ec9-436d-8e71-580e51e9ac38"/>
+				<reportElement x="664" y="15" width="191" height="70" uuid="af190678-1ec9-436d-8e71-580e51e9ac38"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -94,7 +94,7 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Direccion de Recuros Humanos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="40" width="65" height="20" uuid="8ad40864-15db-4092-911f-a58a88621a6c"/>
+				<reportElement x="359" y="35" width="65" height="20" uuid="8ad40864-15db-4092-911f-a58a88621a6c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -348,7 +348,7 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<staticText>
-				<reportElement x="370" y="19" width="176" height="20" uuid="c45531db-a3d8-4bec-b3cd-a9328f3ddf5e"/>
+				<reportElement x="317" y="17" width="168" height="20" uuid="c45531db-a3d8-4bec-b3cd-a9328f3ddf5e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

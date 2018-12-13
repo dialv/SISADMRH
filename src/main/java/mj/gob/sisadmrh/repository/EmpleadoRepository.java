@@ -94,7 +94,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
   @Query(value = "SELECT \n" +
 " e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.acuerdo ,p.sueldobase ,p.fechacontrataciondesde , p.fechacontratacionhasta ,p.nombrepuesto,p.ubicacionpuesto\n" +
 "FROM `empleado` e, puesto p \n" +
-"WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1"
+"WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=2"
           ,nativeQuery = true)
   List<Object[]> PersonalIndemnizadooExcel(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
@@ -112,7 +112,11 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
 List<Object[]> findByExoneradoMarcacion(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal); 
 // reporte exel para personal pensionado
-@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL" ,nativeQuery = true)
+//@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL" ,nativeQuery = true)
+//List<Object[]> findByPensionados(@Param("FINICIAL") String finicial, 
+//                                             @Param("FFINAL") String ffinal);
+
+@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 " ,nativeQuery = true)
 List<Object[]> findByPensionados(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 @Query(value = " select p.codigopuesto,p.nombrepuesto,p.fechacontrataciondesde,p.fechacontratacionhasta,p.ubicacionpuesto,p.numerosubpartidapuesto,p.numeropartidapuesto from puesto p where  p.fechacontratacionhasta between curdate() and curdate() + interval 60 day",nativeQuery = true)

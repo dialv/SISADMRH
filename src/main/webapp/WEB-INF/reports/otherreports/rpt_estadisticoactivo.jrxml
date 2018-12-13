@@ -143,7 +143,7 @@
 	<columnHeader>
 		<band height="36">
 			<rectangle>
-				<reportElement x="0" y="0" width="552" height="28" backcolor="#FFFFFF" uuid="d467e0d9-7f90-48ce-8cf5-3fe678caad3f"/>
+				<reportElement x="225" y="0" width="327" height="28" backcolor="#FFFFFF" uuid="d467e0d9-7f90-48ce-8cf5-3fe678caad3f"/>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="0" y="0" width="185" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="f95cdd72-8e1e-46f6-bbfb-c4693e831623"/>
