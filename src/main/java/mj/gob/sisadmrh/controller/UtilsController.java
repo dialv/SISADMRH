@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -170,4 +174,18 @@ public class UtilsController {
     public void setBitacoraService(BitacoraService bitacoraService) {
         this.bitacoraService = bitacoraService;
     }
+    
+      private static EntityManagerFactory entityManagerFactory =
+          Persistence.createEntityManagerFactory("example-unit");
+
+    public void logicaleliminate(String tabla, String campo, String key, Integer id) {
+      EntityManager em = entityManagerFactory.createEntityManager();
+      em.getTransaction().begin();
+      Query query = em.createQuery("UPDATE "+tabla+" e SET e."+campo+"= 0"
+              + "WHERE e."+key+" = :vkey");
+      query.setParameter("vkey", id);
+      int rowsUpdated = query.executeUpdate();
+      em.getTransaction().commit();
+      em.close();
+  }
 }
