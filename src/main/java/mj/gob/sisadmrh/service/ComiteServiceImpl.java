@@ -69,8 +69,8 @@ comiteRep.deleteById(id);
 return  comiteRep.findAll(pePageable);
     }
       @Override
-    public List<Object[]> findByeComitesR(String finicial, String ffinal, String codigo) {
-        return comiteRep.findByeComitesR(finicial, ffinal, codigo);// metood para generar exel de los comites
+    public List<Object[]> findByeComitesR(String finicial, String ffinal) {
+        return comiteRep.findByeComitesR(finicial, ffinal);// metood para generar exel de los comites
     }
 
    

@@ -30,22 +30,21 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
     
     
     // consulta para generar el exel
- @Query(value = "SELECT  e.nombreempleado,p.nombrepuesto,"
-         + "ca.duracionhoracapacitacion,"
-         + "c.nombrecapacitador,ca.nombrecapacitacion," 
-+ "ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e " 
-+ "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto" 
-+ " inner join puesto p on ep.codigopuesto=p.codigopuesto " 
-+ " inner join capacitador c on e.codigoempleado=c.codigoempleado" 
-+ " inner join capacitacion ca on c.codigocapacitador=c.codigocapacitador" 
-+ " where ca.codigocapacitacion = :CODIGO " 
-+ " and fechacapacitaciondesde >= :FINICIAL " 
-+ " and ca.fechacapacitacionhasta  <= :FFINAL ", 
+ @Query(value = "SELECT  e.nombreempleado,p.nombrepuesto,ca.duracionhoracapacitacion,ca.nombrecapacitacion,\n" +
+"ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e \n" +
+"inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto\n" +
+" inner join puesto p on ep.codigopuesto=p.codigopuesto \n" +
+" inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado\n" +
+" INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion\n" +
+"\n" +
+"where\n" +
+" ca.fechacapacitaciondesde>=:FINICIAL\n" +
+"and ca.fechacapacitacionhasta<=:FFINAL ", 
          nativeQuery = true)
 
     public List<Object[]> findByCapacitacionesR(@Param("FINICIAL") String finicial, 
-                                             @Param("FFINAL") String ffinal,
-                                             @Param("CODIGO") String codigo);
+                                             @Param("FFINAL") String ffinal);
+                                           
     
     
     

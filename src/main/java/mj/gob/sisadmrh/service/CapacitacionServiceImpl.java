@@ -54,8 +54,8 @@ this.capacitacionRep=capacitacionRepository;
     
 
     @Override
-    public List<Object[]> findByCapacitacionesR(String finicial, String ffinal, String codigo) {
-       return capacitacionRep.findByCapacitacionesR(finicial, ffinal, codigo); //To change body of generated methods, choose Tools | Templates.
+    public List<Object[]> findByCapacitacionesR(String finicial, String ffinal) {
+       return capacitacionRep.findByCapacitacionesR(finicial, ffinal); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override

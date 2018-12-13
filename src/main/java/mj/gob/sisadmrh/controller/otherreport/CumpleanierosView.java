@@ -36,19 +36,19 @@ public class CumpleanierosView extends AbstractXlsView{
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CUMPLEANIEROS");
  Row header = sheet.createRow(2);
 // header.createCell(0).setCellValue("Codigo empleado");
- header.createCell(1).setCellValue("Fecha");
- header.createCell(2).setCellValue("Puesto");
- header.createCell(3).setCellValue("Ubicacion");
- header.createCell(4).setCellValue("Empleado");
+ header.createCell(2).setCellValue("Fecha");
+ header.createCell(3).setCellValue("Puesto");
+ header.createCell(4).setCellValue("Ubicacion");
+ header.createCell(5).setCellValue("Empleado");
 
  
  int rowNum = 3;
  for(Object[] cumples : cumplesList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(1).setCellValue((String) cumples[0]);
- row.createCell(2).setCellValue((String) cumples[1]);
- row.createCell(3).setCellValue((String) cumples[2]);
- row.createCell(4).setCellValue((String) cumples[3]);
+ row.createCell(2).setCellValue((String) cumples[0]);
+ row.createCell(3).setCellValue((String) cumples[1]);
+ row.createCell(4).setCellValue((String) cumples[2]);
+ row.createCell(5).setCellValue((String) cumples[3]);
 
  }
  }

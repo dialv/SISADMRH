@@ -160,11 +160,7 @@ and c.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField>
-<<<<<<< HEAD
-				<reportElement x="614" y="57" width="57" height="20" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
-=======
 				<reportElement x="614" y="55" width="71" height="20" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
->>>>>>> origin/respaldobetillo
 				<textElement>
 					<font fontName="Times New Roman" isBold="false"/>
 				</textElement>
@@ -185,11 +181,7 @@ and c.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-<<<<<<< HEAD
-				<reportElement x="671" y="55" width="88" height="20" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
-=======
 				<reportElement x="685" y="55" width="88" height="20" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
->>>>>>> origin/respaldobetillo
 				<textElement>
 					<font fontName="Times New Roman" isBold="false"/>
 				</textElement>

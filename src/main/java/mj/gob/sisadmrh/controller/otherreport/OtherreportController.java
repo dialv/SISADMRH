@@ -353,7 +353,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
-              List<Object[]> capacitacionesList = capacitacionService.findByCapacitacionesR(fechainicio, fechafin, codigo);
+              List<Object[]> capacitacionesList = capacitacionService.findByCapacitacionesR(fechainicio, fechafin);
               return new ModelAndView((View) new CapacitacionesView(), "capacitacionesList", capacitacionesList);
        }
     
@@ -492,8 +492,8 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
-              List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin, codigo);
-              return new ModelAndView(new ComitesView(), "comitesList", comitesList);
+              List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin);
+              return new ModelAndView(new ComitesView(fechainicio,fechafin), "comitesList", comitesList);
        }
     /* ****************Report de niveles de Escolaridad en pdf******************************* */
                     @RequestMapping("nivel/")
@@ -918,7 +918,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_ecapacitaciones", params, download,response);

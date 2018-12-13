@@ -22,7 +22,7 @@ public interface CapacitacionService {
     void deleteCapacitacion(Integer id);
     
        Iterable<Capacitacion> findByDato(String dato);
-     public  List <Object[]> findByCapacitacionesR(String finicial, String ffinal, String codigo);//metood para generar el exel
+     public  List <Object[]> findByCapacitacionesR(String finicial, String ffinal);//metood para generar el exel
     
       List <Object[]> CostoCapacitacionExcel(String finicial, String ffinal);
       public  List <Object[]> EvaluacionCapacitacionesExcel(String finicial, String ffinal, String codigo);//metood para generar el exel

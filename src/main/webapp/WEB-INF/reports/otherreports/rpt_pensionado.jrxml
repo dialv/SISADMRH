@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
-	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.zoom" value="1.948717100000002"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
@@ -204,7 +204,7 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
 				<text><![CDATA[Institucion Pensionadora]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="68" y="3" width="1" height="27" uuid="b5b4891c-6b46-4eff-bae8-d59f8d79be32"/>
+				<reportElement x="68" y="-1" width="1" height="27" uuid="b5b4891c-6b46-4eff-bae8-d59f8d79be32"/>
 			</line>
 			<line direction="BottomUp">
 				<reportElement x="143" y="0" width="1" height="27" uuid="81fe4db5-f488-4634-b7ef-c5b8c1dd2e10"/>
@@ -292,7 +292,7 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="11" width="548" height="1" uuid="0c1acc11-edbb-4dac-bef1-3bdcb09000fc"/>
+				<reportElement x="0" y="25" width="548" height="1" uuid="0c1acc11-edbb-4dac-bef1-3bdcb09000fc"/>
 			</line>
 			<textField>
 				<reportElement x="428" y="12" width="74" height="20" uuid="aff09735-7ef7-49d3-94b8-0a9fe2c00344"/>

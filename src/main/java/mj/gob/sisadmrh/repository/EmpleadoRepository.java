@@ -44,10 +44,8 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             /*PARA GENERAR REPORTES DE CUMPLEANIEROS EXEL */
 @Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado\n" +
 "					from SISADMRH.empleado e\n" +
-"INNER JOIN empleadopuesto ep on e.codigopuesto=ep.codigopuesto\n" +
-" INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto"
-        + " INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado"
-        + " where concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))>=:FINICIAL and concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))<= :FFINAL "
+"INNER JOIN empleadopuesto ep on e.codigoempleado=ep.codigoempleado\n" +
+" INNER JOIN SISADMRH.puesto p ON ep.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado where concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))>=:FINICIAL and concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))<=:FFINAL "
 , nativeQuery = true)
  
  List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 

@@ -31,16 +31,16 @@ public class CapacitacionesView  extends AbstractXlsView{
         
   List<Object[]> capacitacionesList = (List<Object[]>) model.get("capacitacionesList");
  Sheet sheet = workbook.createSheet("Comites Data");
- sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CAPACITACIONES");
+ sheet.createRow(1).createCell(5).setCellValue("REPORTE DE CAPACITACIONES");
  Row header = sheet.createRow(2);
- header.createCell(0).setCellValue("Nombre Empleado");
- header.createCell(1).setCellValue("Puesto");
- header.createCell(2).setCellValue("Horas");
-  header.createCell(3).setCellValue("Capacitador");
- header.createCell(5).setCellValue("Capacitacion");
- header.createCell(6).setCellValue("Departamento Responsable");
-  header.createCell(7).setCellValue("Desde");
-  header.createCell(8).setCellValue("Hasta");
+ header.createCell(3).setCellValue("Nombre Empleado");
+ header.createCell(4).setCellValue("Puesto");
+ header.createCell(5).setCellValue("Horas");
+//  header.createCell(3).setCellValue("Capacitador");
+ header.createCell(6).setCellValue("Capacitacion");
+ header.createCell(7).setCellValue("Departamento Responsable");
+  header.createCell(8).setCellValue("Desde");
+  header.createCell(9).setCellValue("Hasta");
   
   
    
@@ -48,14 +48,14 @@ public class CapacitacionesView  extends AbstractXlsView{
 
   for(Object[] capacitaciones : capacitacionesList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((String) capacitaciones[0]);
- row.createCell(1).setCellValue((String) capacitaciones[1]);
- row.createCell(2).setCellValue((Integer) capacitaciones[2]);
- row.createCell(3).setCellValue((String) capacitaciones[3]);
- row.createCell(4).setCellValue((String) capacitaciones[4]);
- row.createCell(6).setCellValue((String) capacitaciones[5]);
- row.createCell(7).setCellValue((Timestamp) capacitaciones[6]);
- row.createCell(8).setCellValue((Timestamp) capacitaciones[7]);
+ row.createCell(3).setCellValue((String) capacitaciones[0]);
+ row.createCell(4).setCellValue((String) capacitaciones[1]);
+ row.createCell(5).setCellValue((Integer) capacitaciones[2]);
+// row.createCell(6).setCellValue((String) capacitaciones[3]);
+ row.createCell(6).setCellValue((String) capacitaciones[3]);
+ row.createCell(7).setCellValue((String) capacitaciones[4]);
+ row.createCell(8).setCellValue((Timestamp) capacitaciones[5]);
+ row.createCell(9).setCellValue((Timestamp) capacitaciones[6]);
  }
 
     

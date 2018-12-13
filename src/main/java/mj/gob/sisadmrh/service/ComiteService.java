@@ -28,6 +28,6 @@ public interface ComiteService {
     void deleteComite(Integer id);
     Iterable<Comite> findByDato(String dato);
     Iterable<Comite> findByComite(String dato);
-    List <Object[]> findByeComitesR(String finicial, String ffinal, String codigo);//metood para generar el exel
+    List <Object[]> findByeComitesR(String finicial, String ffinal);//metood para generar el exel
     
 }

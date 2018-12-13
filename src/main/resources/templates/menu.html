@@ -45,8 +45,8 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Beneficios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/beneficios/new/beneficio}">Crear Beneficios</a></li>
                                     <li><a href="#" th:href="@{/beneficios/}">Consultar Beneficios</a></li>
-                                    <li><a href="#" th:href="@{/beneficios/new/beneficio}">Crear Beneficios</a></li>
                                     <li><a href="#" th:href="@{/beneficios/report/}">Reporte de Beneficios</a></li>
                                 </ul>
                             </li>
@@ -55,8 +55,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Cuadros Directivos <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <!--<li><a href="#" th:href="@{/cuadrodirectivos/buscar/}">Buscar Cuadros directivos</a></li>-->
-                                    <li><a href="#" th:href="@{/cuadrodirectivos/}">Consultar Cuadros Directivos</a></li>
                                     <li><a href="#" th:href="@{/cuadrodirectivos/new/cuadrodirectivo}">Crear Cuadros Directivos</a></li>
+                                    <li><a href="#" th:href="@{/cuadrodirectivos/}">Consultar Cuadros Directivos</a></li>
                                     <li><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivos</a></li>
                                 </ul>
                             </li>
@@ -64,8 +64,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <!--<li><a href="#" th:href="@{/capacitaciones/buscar/}">Buscar Capacitaciones</a></li>-->
-                                    <li><a href="#" th:href="@{/capacitaciones/}">Consultar Capacitaciones</a></li>
                                     <li><a href="#" th:href="@{/capacitaciones/new/capacitacion}">Crear Capacitaciones</a></li>
+                                    <li><a href="#" th:href="@{/capacitaciones/}">Consultar Capacitaciones</a></li>
                                     <li><a href="#" th:href="@{/capacitaciones/report/}">Reporte de Capacitaciones</a></li>
                                 </ul>
                             </li>
@@ -73,16 +73,16 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitaciones <br> de Empleados  <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                     <li><a href="#" th:href="@{/empleadocapacitaciones/new/empleadocapacitacion}">Crear EmpleadoCapacitaciones</a></li>
                                     <li><a href="#" th:href="@{/capacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
-                                    <li><a href="#" th:href="@{/empleadocapacitaciones/new/empleadocapacitacion}">Crear EmpleadoCapacitaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Capacitadores <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <!--<li><a href="#" th:href="@{/capacitadores/buscar/}">Buscar Capacitador</a></li>-->
+                                     <li><a href="#" th:href="@{/capacitadores/new/capacitador}">Crear Capacitadores</a></li>
                                     <li><a href="#" th:href="@{/capacitadores/}">Consultar Capacitadores</a></li>
-                                    <li><a href="#" th:href="@{/capacitadores/new/capacitador}">Crear Capacitadores</a></li>
                                     <!--<li><a href="#" th:href="@{/capacitadores/report/}">Reporte Capacitador</a></li>-->
                                 </ul>
                             </li>
@@ -92,23 +92,26 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Costos <br>de capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                                 <li><a href="#" th:href="@{/costocapacitaciones/new/costocapacitacion}">Crear Costo Capacitaciones</a></li>
                                     <li><a href="#" th:href="@{/costocapacitaciones/}">Consultar Costo Capacitaciones</a></li>
-                                    <li><a href="#" th:href="@{/costocapacitaciones/new/costocapacitacion}">Crear Costo Capacitaciones</a></li>
                                     <li><a href="#" th:href="@{/costocapacitaciones/report/}">Reporte comites</a></li>-->
                                 </ul>
                             </li>
-<!--                            <li class="dropdown">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignar asistencia <br> de capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
                                     <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Crear Asistencia de Empleado <br> a Capacitaciones</a></li>
                                 </ul>
-                            </li>-->
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar asistencias Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/asistenciacapacitaciones/new/asistenciacapacitacion}">Crear Asistencias Capacitaciones</a></li>
                                     <li><a href="#" th:href="@{/asistenciacapacitaciones/}">Consultar Asistencias de Capacitaciones</a></li>
-                                    <li><a href="#" th:href="@{/asistenciacapacitaciones/new/asistenciacapacitacion}">Crear Asistencias Capacitaciones</a></li>
+                                     <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Asignar Asistencia de Empleado <br> a Capacitaciones</a></li>
+                                     <li><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
+                                 
                                     <!--                                                 <li><a href="#" th:href="@{/asistenciacapacitaciones/report/}">Asistencia Capacitaciones</a></li>-->
                                 </ul>
                             </li>
@@ -116,8 +119,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Diagnosticos <br> de Capacitaciones<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/diagnosticocapacitaciones/new/diagnosticocapacitacion}">Crear Diagnosticos</a></li>
                                     <li><a href="#" th:href="@{/diagnosticocapacitaciones/}">Consultar diagnosticos</a></li>
-                                    <li><a href="#" th:href="@{/diagnosticocapacitaciones/new/diagnosticocapacitacion}">Crear Diagnosticos</a></li>
+                                  
                                     <!--                                                 <li><a href="#" th:href="@{/asistenciacapacitaciones/report/}">Asistencia Capacitaciones</a></li>-->
                                 </ul>
                             </li>
@@ -126,16 +130,17 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Evaluaciones <br> de Capacitaciones<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/evaluacioncapacitaciones/new/evaluacioncapacitacion}">Crear Evaluación Capacitaciones</a></li>
                                     <li><a href="#" th:href="@{/evaluacioncapacitaciones/}">Consultar Evualuciones Capacitaciones</a></li>
-                                    <li><a href="#" th:href="@{/evaluacioncapacitaciones/new/evaluacioncapacitacion}">Crear Evaluación Capacitaciones</a></li>
+                                  
                                     <!--                                                 <li><a href="#" th:href="@{/asistenciacapacitaciones/report/}">Asistencia Capacitaciones</a></li>-->
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Comites <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                       <li><a href="#" th:href="@{/comites/new/comite}">Crear comites</a></li>
                                     <li><a href="#" th:href="@{/comites/}">Consultar comites</a></li>
-                                    <li><a href="#" th:href="@{/comites/new/comite}">Crear comites</a></li>
                                     <!--<li><a href="#" th:href="@{/comites/buscar/}">Buscar Comites</a></li>-->
                                     <li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>
                                 </ul>
@@ -144,8 +149,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Niveles Escolares  <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span>
                                     <span class="glyphicon glyphicon-education"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li><a href="#" th:href="@{/nivelescolaridades/}">Niveles escolares</a></li>
-                                    <li><a href="#" th:href="@{/nivelescolaridades/new/nivelescolaridad}">Crear Niveles escolares</a></li>
+                                       <li><a href="#" th:href="@{/nivelescolaridades/new/nivelescolaridad}">Crear Niveles escolares</a></li>
+                                    <li><a href="#" th:href="@{/nivelescolaridades/}">Consultar Niveles escolares</a></li>
+                                 
                                 </ul>
                             </li>
 
@@ -161,8 +167,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Comisiones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                       <li><a href="#" th:href="@{/comisiones/new/comision}">Crear Comisiones</a></li>
                                     <li><a href="#" th:href="@{/comisiones/}">Consultar Comisiones</a></li>
-                                    <li><a href="#" th:href="@{/comisiones/new/comision}">Crear Comisiones</a></li>
+                                 
                                     <li><a href="#" th:href="@{/comisiones/reporte/comision}">Reporte de Comisiones</a></li>
                                 </ul>
                             </li>
@@ -171,8 +178,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Inasistencias <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <!--<li><a href="#" th:href="@{/inasistencias/buscar/}">Buscar Capacitaciones</a></li>-->
+                                     <li><a href="#" th:href="@{/inasistencias/new/inasistencia}">Crear Inasistencias</a></li>
                                     <li><a href="#" th:href="@{/inasistencias/}">Consultar Inasistencias</a></li>
-                                    <li><a href="#" th:href="@{/inasistencias/new/inasistencia}">Crear Inasistencias</a></li>
+                                   
                                     <!--<li><a href="#" th:href="@{/comisiones/reporte/comision}">Reporte de Comisiones</a></li>-->
                                 </ul>
                             </li>
@@ -180,15 +188,17 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Puestos de Trabajo<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/puestos/new/puesto}">Crear Puesto de Trabajo</a></li>
                                     <li><a href="#" th:href="@{/puestos/}">Consultar Puestos de Trabajo</a></li>
-                                    <li><a href="#" th:href="@{/puestos/new/puesto}">Crear Puesto de Trabajo</a></li>
+                                  
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Misiones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/misiones/new/mision}">Crear Misiones</a></li>
                                     <li><a href="#" th:href="@{/misiones/}">Consultar Misiones</a></li>
-                                    <li><a href="#" th:href="@{/misiones/new/mision}">Crear Misiones</a></li>
+                                  
                                    
                                 </ul>
                             </li>
@@ -196,8 +206,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestionar Empleados <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/empleados/new/empleado}">Crear Empleados</a></li>
                                     <li><a href="#" th:href="@{/empleados/}">Consultar Empleados</a></li>
-                                    <li><a href="#" th:href="@{/empleados/new/empleado}">Crear Empleados</a></li>
+                                  
 
                                 </ul>
                             </li>
@@ -207,8 +218,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estados<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
+                                      <li><a href="#" th:href="@{/estados/new/estado}">Crear Estados</a></li>
                                     <li><a href="#" th:href="@{/estados/}">Consultar Estados</a></li>
-                                    <li><a href="#" th:href="@{/estados/new/estado}">Crear Estados</a></li>
+                                  
                                 </ul>
                             </li>
                             <li class="dropdown">
