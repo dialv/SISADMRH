@@ -16,7 +16,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.fechasalidamision,m.fecharegresomision,m.departamentomision from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
+		<![CDATA[select  e.nombreempleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.fechasalidamision,m.fecharegresomision,m.departamentomision from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join puesto p on e.codigopuesto=p.codigopuesto
 where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECHAFIN} AND tipomision LIKE 'interna']]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">

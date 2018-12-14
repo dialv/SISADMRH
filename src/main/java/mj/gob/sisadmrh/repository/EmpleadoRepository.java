@@ -42,10 +42,8 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
             List<Object[]> renuncias(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
             /*PARA GENERAR REPORTES DE CUMPLEANIEROS EXEL */
-@Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado\n" +
-"					from SISADMRH.empleado e\n" +
-"INNER JOIN empleadopuesto ep on e.codigoempleado=ep.codigoempleado\n" +
-" INNER JOIN SISADMRH.puesto p ON ep.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado where concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))>=:FINICIAL and concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))<=:FFINAL "
+@Query(value=" SELECT concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,e.nombreempleado from SISADMRH.empleado e INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado "
+        + "where concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))>=:FINICIAL and concat(DAY(e.fechanacimientoempleado),\" / \", MONTH(e.fechanacimientoempleado))<=:FFINAL "
 , nativeQuery = true)
  
  List<Object[]> findByCumples(@Param("FINICIAL") String finicial, 
@@ -92,7 +90,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
   @Query(value = "SELECT \n" +
 " e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.acuerdo ,p.sueldobase ,p.fechacontrataciondesde , p.fechacontratacionhasta ,p.nombrepuesto,p.ubicacionpuesto\n" +
 "FROM `empleado` e, puesto p \n" +
-"WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=2"
+"WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1"
           ,nativeQuery = true)
   List<Object[]> PersonalIndemnizadooExcel(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
@@ -110,11 +108,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer>{
 List<Object[]> findByExoneradoMarcacion(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal); 
 // reporte exel para personal pensionado
-//@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL" ,nativeQuery = true)
-//List<Object[]> findByPensionados(@Param("FINICIAL") String finicial, 
-//                                             @Param("FFINAL") String ffinal);
-
-@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 " ,nativeQuery = true)
+@Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL" ,nativeQuery = true)
 List<Object[]> findByPensionados(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 @Query(value = " select p.codigopuesto,p.nombrepuesto,p.fechacontrataciondesde,p.fechacontratacionhasta,p.ubicacionpuesto,p.numerosubpartidapuesto,p.numeropartidapuesto from puesto p where  p.fechacontratacionhasta between curdate() and curdate() + interval 60 day",nativeQuery = true)

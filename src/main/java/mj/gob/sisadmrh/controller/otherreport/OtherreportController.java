@@ -493,7 +493,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
               List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin);
-              return new ModelAndView(new ComitesView(fechainicio,fechafin), "comitesList", comitesList);
+              return new ModelAndView(new ComitesView(), "comitesList", comitesList);
        }
     /* ****************Report de niveles de Escolaridad en pdf******************************* */
                     @RequestMapping("nivel/")

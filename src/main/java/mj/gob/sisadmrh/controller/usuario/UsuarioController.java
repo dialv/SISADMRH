@@ -84,8 +84,7 @@ public class UsuarioController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-       // usuarioService.deleteUsuario(id);
-        logicaleliminate("usuario", "estado", "codigousuario", id);
+        usuarioService.deleteUsuario(id);
         bitacoraService.BitacoraRegistry("se elimino un Usuario",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);}

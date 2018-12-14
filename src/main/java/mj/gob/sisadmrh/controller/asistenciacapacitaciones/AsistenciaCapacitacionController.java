@@ -74,7 +74,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
 //        return PREFIX + "asistenciacapacitacionform";
 //    }
     
-    @RequestMapping("new/asistenciacapacitacion")
+    @RequestMapping("new/asistenciacapacitacion/{id}")
     public String newAsistenciaCapacitacion(Model model,@PathVariable Integer id) {
         //model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
        

@@ -30,12 +30,12 @@ public class ComitesView   extends AbstractXlsView{
 //    Puesto puesto;
 //    Comite comite;
 //    Empleado empleado;
-    public String fechainicio;
-    public String fechafin;
-    public ComitesView(String fechainicio, String fechafin){
-    this.fechainicio=fechainicio;
-    this.fechafin=fechafin;
-    }
+//    public String fechainicio;
+//    public String fechafin;
+//    public ComitesView(String fechainicio, String fechafin){
+//    this.fechainicio=fechainicio;
+//    this.fechafin=fechafin;
+//    }
  @Override
  protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
  HttpServletResponse response) throws Exception {
