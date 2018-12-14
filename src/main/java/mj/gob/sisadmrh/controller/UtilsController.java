@@ -175,8 +175,8 @@ public class UtilsController {
         this.bitacoraService = bitacoraService;
     }
     
-      private static EntityManagerFactory entityManagerFactory =
-          Persistence.createEntityManagerFactory("example-unit");
+      private static EntityManagerFactory entityManagerFactory =null;
+        //  Persistence.createEntityManagerFactory("example-unit");
 
     public void logicaleliminate(String tabla, String campo, String key, Integer id) {
       EntityManager em = entityManagerFactory.createEntityManager();
