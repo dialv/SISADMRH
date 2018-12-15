@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller;
 
 import java.io.ByteArrayInputStream;
@@ -175,9 +170,10 @@ public class UtilsController {
         this.bitacoraService = bitacoraService;
     }
     
-         private static EntityManagerFactory entityManagerFactory =
-          Persistence.createEntityManagerFactory("example-unit");
-     public void logicaleliminate(String tabla, String campo, String key, Integer id) {
+      private static EntityManagerFactory entityManagerFactory =null;
+        //  Persistence.createEntityManagerFactory("example-unit");
+
+    public void logicaleliminate(String tabla, String campo, String key, Integer id) {
       EntityManager em = entityManagerFactory.createEntityManager();
       em.getTransaction().begin();
       Query query = em.createQuery("UPDATE "+tabla+" e SET e."+campo+"= 0"
