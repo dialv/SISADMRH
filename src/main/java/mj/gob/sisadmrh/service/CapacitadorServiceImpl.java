@@ -65,5 +65,10 @@ return capacitadorRep.save(capacitador);
         return capacitadorRep.findCapacitadores(finicial, ffinal);
         
     }
+
+    @Override
+    public Iterable<Capacitador> listAllActivos() {
+       return capacitadorRep.listAllActivos();
+    }
     
 }

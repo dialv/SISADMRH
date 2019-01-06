@@ -12,6 +12,8 @@ import mj.gob.sisadmrh.model.Capacitador;
 
 public interface CapacitadorService {
      Iterable <Capacitador> listAllCapacitador();
+
+     Iterable <Capacitador> listAllActivos();
     
     Optional<Capacitador> getCapacitadorById(Integer id);
 

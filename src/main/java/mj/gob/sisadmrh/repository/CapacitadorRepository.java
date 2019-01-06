@@ -44,4 +44,8 @@ public interface CapacitadorRepository extends CrudRepository<Capacitador, Integ
             , nativeQuery = true) 
             Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+            
+            @Query("SELECT o FROM Capacitador o WHERE o.estadocapacitador != 0")
+            public Iterable<Capacitador> listAllActivos(); 
+    
 }

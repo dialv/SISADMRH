@@ -56,7 +56,7 @@ public class CapacitadorController extends UtilsController{
     private final String PREFIX="fragments/capacitador/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-    model.addAttribute("capacitadores", capacitadorService.listAllCapacitador());
+    model.addAttribute("capacitadores", capacitadorService.listAllActivos());
     return PREFIX + "capacitadores";
     }
     @RequestMapping("edit/{id}")
@@ -92,6 +92,7 @@ public class CapacitadorController extends UtilsController{
      @RequestMapping(value = "capacitador")
     public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model,SessionStatus status) {
 try{
+    capacitador.setEstadocapacitador(1);
  capacitadorService.saveCapacitador(capacitador);
  status.setComplete();//MAANEJA LA SESION PARA EDITAR LOS FORMULARIOS
   bitacoraService.BitacoraRegistry("se  creo un Capacitador",getRequest().getRemoteAddr(), 
@@ -121,7 +122,9 @@ try{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
         try{} catch(Exception e){}
-        capacitadorService.deleteCapacitador(id);
+         Capacitador capacitador =capacitadorService.getCapacitadorById(id).get();
+        capacitador.setEstadocapacitador(0);
+        capacitadorService.saveCapacitador(capacitador);
          bitacoraService.BitacoraRegistry("se elimino un Capacitador",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         return "redirect:/capacitadores/";
