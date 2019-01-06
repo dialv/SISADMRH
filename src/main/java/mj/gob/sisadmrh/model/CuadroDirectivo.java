@@ -58,8 +58,6 @@ public class CuadroDirectivo implements Serializable {
     private Date fechapresentacionhasta;
     @Column(name = "acuerdocuadrodirectivo")
     private Integer acuerdocuadrodirectivo;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "ESTADOCUADRODIRECTIVO")
     private int estadocuadrodirectivo;
 

@@ -41,9 +41,8 @@ public class Rol implements Serializable {
     @Size(max = 30)
     @Column(name = "descripcionrol")
     private String descripcionrol;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ESTADOROL")
+    
+    @Column(name = "ESTADOROL",columnDefinition = "int default 1")
     private int estadorol;
 
     public Rol() {

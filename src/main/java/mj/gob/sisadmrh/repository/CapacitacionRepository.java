@@ -45,7 +45,8 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
                                              @Param("FFINAL") String ffinal);
                                              ;
     
-    
+    @Query("SELECT o FROM Beneficio o WHERE o.estadobeneficio != 0")
+    public Iterable<Capacitacion> listAllActivos(); 
     
       @Query(value="SELECT\n" +
                     "     capacitador.codigocapacitador,\n" +

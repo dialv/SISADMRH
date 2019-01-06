@@ -50,8 +50,6 @@ public class Beneficio implements Serializable {
     @Column(name = "FECHAFINALIZARBENEFICIO")
     @Temporal(TemporalType.DATE)
     private Date fechafinalizarbeneficio;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "ESTADOBENEFICIO")
     private int estadobeneficio;
 

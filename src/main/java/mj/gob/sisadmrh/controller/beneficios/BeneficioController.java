@@ -78,8 +78,9 @@ public class BeneficioController extends UtilsController{
     @RequestMapping(value = "beneficio")
     public String saveBeneficio(Beneficio beneficio,Model model) {
         try{
-         beneficioService.saveBeneficio(beneficio);
-          bitacoraService.BitacoraRegistry("se guardo un beneficio",getRequest().getRemoteAddr(), 
+        beneficio.setEstadobeneficio(1);
+        beneficioService.saveBeneficio(beneficio);
+        bitacoraService.BitacoraRegistry("se guardo un beneficio",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
         }
