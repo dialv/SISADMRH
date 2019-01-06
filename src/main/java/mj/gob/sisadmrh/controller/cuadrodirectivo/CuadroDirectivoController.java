@@ -9,12 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
-import mj.gob.sisadmrh.model.Beneficio;
-import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.CuadroDirectivo;
 import mj.gob.sisadmrh.model.Empleado;
-import mj.gob.sisadmrh.service.BeneficioService;
-import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CuadroDirectivoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +44,7 @@ public class CuadroDirectivoController extends UtilsController{
     private final String PREFIX = "fragments/cuadrodirectivo/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("cuadrodirectivos", cuadroDirectivoService.listAllCuadroDirectivo());
+        model.addAttribute("cuadrodirectivos", cuadroDirectivoService.listAllActivos());
         return PREFIX + "cuadrodirectivos";
     }
     
@@ -99,8 +95,10 @@ public class CuadroDirectivoController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
         try{
-         cuadroDirectivoService.deleteCuadroDirectivo(id);
-         bitacoraService.BitacoraRegistry("se elimino un Cuadro Directivo",getRequest().getRemoteAddr(), 
+             CuadroDirectivo cuadroDirectivo =cuadroDirectivoService.getCuadroDirectivoById(id).get();
+        cuadroDirectivo.setEstadocuadrodirectivo(0);
+        cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);   
+        bitacoraService.BitacoraRegistry("se elimino un Cuadro Directivo",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("msg", 3);
         }

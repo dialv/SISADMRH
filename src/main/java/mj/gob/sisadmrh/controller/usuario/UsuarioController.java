@@ -38,7 +38,7 @@ public class UsuarioController extends UtilsController{
     private final String PREFIX = "fragments/usuario/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("usuarios", usuarioService.listAllUsuarios());
+        model.addAttribute("usuarios", usuarioService.listAllActivos());
         return PREFIX + "usuarios";
     }
     
@@ -84,10 +84,11 @@ public class UsuarioController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-       // usuarioService.deleteUsuario(id);
-        logicaleliminate("usuario", "estado", "codigousuario", id);
-        bitacoraService.BitacoraRegistry("se elimino un Usuario",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        Usuario usuario =usuarioService.getUsuarioById(id).get();
+        usuario.setEstadousuario(0);
+        usuarioService.saveUsuario(usuario);
+        bitacoraService.BitacoraRegistry("se elimino el Usuario con codigo "+id,getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
          model.addAttribute("msg", 3);}
         
         catch(Exception e){

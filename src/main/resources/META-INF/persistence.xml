@@ -45,6 +45,9 @@
     <class>mj.gob.sisadmrh.model.Asistenciacapacitacion</class>
     <class>mj.gob.sisadmrh.model.Estado</class>
     <class>mj.gob.sisadmrh.model.Miembroscomision</class>
+    <class>mj.gob.sisadmrh.model.Rol</class>
+    <class>mj.gob.sisadmrh.model.Beneficio</class>
+    <class>mj.gob.sisadmrh.model.Cuadrodirectivo</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>

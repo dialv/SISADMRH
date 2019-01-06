@@ -28,6 +28,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Iterable<Usuario> listAllActivos() {
+        return usuarioRep.listAllActivos();
+    }
+
+    @Override
     public Optional<Usuario> getUsuarioById(Integer id) {
         return usuarioRep.findById(id);
     }

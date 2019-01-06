@@ -12,7 +12,9 @@ public interface RolService {
     
     Optional<Rol> getRolById(Integer id);
 
-    Rol saveRol(Rol usuario);
+    Rol saveRol(Rol rol);
 
     void deleteRol(Integer id);
+
+    Iterable<Rol> listAllActivos();
 }
