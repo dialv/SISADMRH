@@ -41,4 +41,9 @@ public class RolServiceImpl implements RolService {
         rolRep.deleteById(id);
     }
 
+    @Override
+    public Iterable<Rol> listAllActivos() {
+        return rolRep.listAllActivos();
+    }
+
 }

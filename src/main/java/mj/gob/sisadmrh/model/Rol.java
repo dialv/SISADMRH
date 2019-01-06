@@ -34,6 +34,9 @@ public class Rol implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOROL")
     private Integer codigorol;
+    @Size(max = 2)
+    @Column(name = "ESTADOROL")
+    private Integer estadorol;
     @Size(max = 100)
     @Column(name = "NOMBREROL")
     private String nombrerol;
@@ -105,6 +108,14 @@ public class Rol implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Rol[ codigorol=" + codigorol + " ]";
+    }
+
+    public Integer getEstadorol() {
+        return estadorol;
+    }
+
+    public void setEstadorol(Integer estadorol) {
+        this.estadorol = estadorol;
     }
     
 }
