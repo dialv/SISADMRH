@@ -51,6 +51,7 @@ public class RolController  extends UtilsController{
     @RequestMapping(value = "rol")
     public String saveRol(Rol rol, Model model, SessionStatus status) {
         try{
+        rol.setEstadorol(1);
         rolService.saveRol(rol);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo un Rol",getRequest().getRemoteAddr(), 

@@ -69,6 +69,7 @@ public class CuadroDirectivoController extends UtilsController{
     @RequestMapping(value = "cuadrodirectivo")//El erorr que te daba era puta el jasPer dice que recibire un int y vos me man
     public String saveCuadroDirectivo(CuadroDirectivo cuadroDirectivo,Model model,SessionStatus status) {
         try{
+         cuadroDirectivo.setEstadocuadrodirectivo(1);
          cuadroDirectivoService.saveCuadroDirectivo(cuadroDirectivo);
          status.setComplete();
          model.addAttribute("msg", 0);

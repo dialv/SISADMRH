@@ -66,6 +66,11 @@ this.capacitacionRep=capacitacionRepository;
     public List<Object[]> EvaluacionCapacitacionesExcel(String finicial, String ffinal, String codigo) {
        return capacitacionRep.EvaluacionCapacitacionesExcel(finicial, ffinal, codigo); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Iterable<Capacitacion> listAllActivos() {
+        return capacitacionRep.listAllActivos();
+    }
     
     
 }

@@ -88,8 +88,6 @@ public class BeneficioController extends UtilsController{
          model.addAttribute("msg", 1);
         }
        return PREFIX+"beneficioform";
-        
-       // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }
     
     @RequestMapping("show/{id}")

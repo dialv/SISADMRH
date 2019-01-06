@@ -52,7 +52,7 @@ public class CapacitacionController extends UtilsController{
     private final String PREFIX = "fragments/capacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
+        model.addAttribute("capacitaciones", capacitacionService.listAllActivos());
         return PREFIX + "capacitaciones";
     }
     
@@ -85,7 +85,8 @@ public class CapacitacionController extends UtilsController{
     @RequestMapping(value = "capacitacion")
     public String saveCapacitacion(Capacitacion capacitacion,Model model,SessionStatus status) {
         try{
-           capacitacionService.saveCapacitacion(capacitacion);
+            capacitacion.setEstadocapacitacion(1);
+            capacitacionService.saveCapacitacion(capacitacion);
            status.setComplete();
             bitacoraService.BitacoraRegistry("se guardo una Capacitacion",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
@@ -118,7 +119,10 @@ public class CapacitacionController extends UtilsController{
     public String delete(@PathVariable Integer id,Model model) {
         try{
        
-        capacitacionService.deleteCapacitacion(id);
+        Capacitacion capacitacion =capacitacionService.getCapacitacionById(id).get();
+        capacitacion.setEstadocapacitacion(0);
+        capacitacionService.saveCapacitacion(capacitacion);
+            
         bitacoraService.BitacoraRegistry("se elimino una Capacitacion",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);
