@@ -12,6 +12,7 @@ import mj.gob.sisadmrh.model.CostoCapacitacion;
 public interface CostoCapacitacionService {
     
               Iterable<CostoCapacitacion> listAllCostoCapacitacion();
+              Iterable<CostoCapacitacion> listAllActivos();
 
     Optional<CostoCapacitacion> getCostoCapacitacionById(Integer id);
 

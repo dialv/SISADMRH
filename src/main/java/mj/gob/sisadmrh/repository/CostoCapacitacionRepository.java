@@ -18,5 +18,9 @@ import org.springframework.data.repository.query.Param;
 public interface CostoCapacitacionRepository extends CrudRepository<CostoCapacitacion, Integer>{
         @Query(value = "SELECT c.* FROM CostoCapacitacion c WHERE c.costopersona LIKE :nom ", nativeQuery = true)
     Iterable<CostoCapacitacion> findByDato(@Param("nom") String dato);
+
+            @Query("SELECT o FROM CostoCapacitacion o WHERE o.estadocostocapacitacion != 0")
+            public Iterable<CostoCapacitacion> listAllActivos(); 
+        
     
 }

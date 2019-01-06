@@ -26,6 +26,12 @@ return costoCapacitacionRep.findAll();
         
 //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    @Override
+    public Iterable<CostoCapacitacion> listAllActivos() {
+return costoCapacitacionRep.listAllActivos();
+        
+//  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public Optional<CostoCapacitacion> getCostoCapacitacionById(Integer id) {
