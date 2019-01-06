@@ -38,6 +38,8 @@ public class Empleadoasistenciacapacitacion implements Serializable {
     @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
+    
+   
 
     public Empleadoasistenciacapacitacion() {
     }

@@ -6,7 +6,6 @@
 package mj.gob.sisadmrh.controller.asistenciacapacitaciones;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -61,50 +60,48 @@ public class AsistenciaCapacitacionController extends UtilsController{
         return PREFIX + "asistenciacapacitaciones";
     }
     
-//     @RequestMapping("edit/{id}")
-//    public String edit(@PathVariable Integer id, Model model) {
-//         AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
-//         model.addAttribute("formasistenciacapacitancion", asistenciaCapacitacionService.getAsistenciacapacitacionById(id));
-//       
-//         form.setCapacitaciones(capacitacionService.listAllCapacitacion());
-//        form.setEmpleados(empleadoService.listAllEmpleado());
-//         model.addAttribute("formasistenciacapacitancion", form);
-//        
-//       // model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
-//        return PREFIX + "asistenciacapacitacionform";
-//    }
-    
-    @RequestMapping("new/asistenciacapacitacion/{id}")
-    public String newAsistenciaCapacitacion(Model model,@PathVariable Integer id) {
-        //model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
+     @RequestMapping("edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+         AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
+         model.addAttribute("formasistenciacapacitancion", asistenciaCapacitacionService.getAsistenciacapacitacionById(id));
        
+         form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+        form.setEmpleados(empleadoService.listAllEmpleado());
+         model.addAttribute("formasistenciacapacitancion", form);
+        
+       // model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
+        return PREFIX + "asistenciacapacitacionform";
+    }
+    
+    @RequestMapping("new/asistenciacapacitacion")
+    public String newAsistenciaCapacitacion(Model model) {
+        //model.addAttribute("asistenciacapacitacion", new AsistenciaCapacitacion());
+        AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
         //para jalar el nombre de capacitaciones
-        model.addAttribute("capacitaciones",capacitacionService.getCapacitacionById(id).get());
-        model.addAttribute("empleados",empleadoService.listAllEmpleado());
+        form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+        form.setEmpleados(empleadoService.listAllEmpleado());
         //para jalar los nombres de los empleados 
-//        model.addAttribute("formasistenciacapacitancion", form);
+        model.addAttribute("formasistenciacapacitancion", form);
         return PREFIX + "asistenciacapacitacionform";
         
     }
     
     @RequestMapping(value = "asistenciacapacitacion")
-    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model ) {
+    public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model,SessionStatus status) {
         try{
          asistenciaCapacitacionService.saveAsistenciacapacitacion(asistencia);
-//         status.setComplete();
-       List<Object[]>  emcapLists= empleadoService.findByDato(asistencia.getCodigocapacitacion().getCodigocapacitacion());
-         model.addAttribute("emcapLists", emcapLists);
-        bitacoraService.BitacoraRegistry("se guardo una asistencia Capacitacion",getRequest().getRemoteAddr(), 
-        getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+         status.setComplete();
+          bitacoraService.BitacoraRegistry("se guardo una asistencia Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
          model.addAttribute("asistenciacapacitaciones", asistenciaCapacitacionService.listAllAsistenciacapacitacion());
-//          return PREFIX + "asistenciacapacitaciones";
+          return PREFIX + "asistenciacapacitaciones";
         }
         catch(Exception e){
         model.addAttribute("msg", 1);
         }
       // model.addAttribute("msg", 1);
-       return PREFIX + "empleadoasistenciacapacitaciones";
+       return PREFIX + "asistenciacapacitaciones";
        
        // return "redirect:./show/" + asistencia.getCodigoasistenciacapacitacion();
     }
@@ -115,12 +112,10 @@ public class AsistenciaCapacitacionController extends UtilsController{
         model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciacapacitacionById(id).get());
         return PREFIX +"asistenciacapacitacionshow";
     }
-     @RequestMapping("delete/{id}/{idc}")
-    public String delete(@PathVariable Integer id,@PathVariable Integer idc,Model model) {
+     @RequestMapping("delete/{id}")
+    public String delete(@PathVariable Integer id,Model model) {
         try{
         asistenciaCapacitacionService.deleteAsistenciacapacitacion(id);
-        List<Object[]>  emcapLists = empleadoService.findByDato(idc);
-         model.addAttribute("emcapLists", emcapLists);
         bitacoraService.BitacoraRegistry("se elimino una asistencia capacitacion",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 3);
@@ -128,10 +123,8 @@ public class AsistenciaCapacitacionController extends UtilsController{
         catch(Exception e){
          model.addAttribute("msg", 4);
         }
-//           return "redirect:/asistenciacapacitaciones/";
+           return "redirect:/asistenciacapacitaciones/";
         //return "redirect:/asistenciacapacitaciones/";
-//         return PREFIX + "empleadoasistenciacapacitaciones";
-          return "redirect:/asistenciacapacitaciones/empleadoasistenciacapacitaciones/";
     }
     
     @RequestMapping("llenadocombo/{cemp}")

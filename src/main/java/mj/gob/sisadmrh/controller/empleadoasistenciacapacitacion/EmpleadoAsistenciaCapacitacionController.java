@@ -9,9 +9,11 @@ import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
 import mj.gob.sisadmrh.model.EmpleadoasistenciacapacitacionPK;
+import mj.gob.sisadmrh.model.Ubicacionfisica;
 import mj.gob.sisadmrh.service.AsistenciaCapacitacionService;
 import mj.gob.sisadmrh.service.EmpleadoAsistenciaCapacitacionService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.UbicacionFisicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +36,9 @@ public class EmpleadoAsistenciaCapacitacionController {
     @Autowired
     private AsistenciaCapacitacionService asistenciaCapacitacionService;
     
+    @Autowired
+    private UbicacionFisicaService ubicacionFisicaService;
+    
      
   private final String PREFIX = "fragments/empleadoasistenciacapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
@@ -51,47 +56,38 @@ public class EmpleadoAsistenciaCapacitacionController {
        EmpleadoAsistenciaCapacitacionForm form = new  EmpleadoAsistenciaCapacitacionForm();
       form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciacapacitacion());
       form.setEmpleados(empleadoService.listAllEmpleado());
-//      form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
-   
-      
-       model.addAttribute("formempleadoasistenciacapacitacion", form);
+//      form.setUbicacionesfisicas(ubicacionFisicaService.listAllUbicacionFisica());
+      form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
+      model.addAttribute("formasistenciaempleadocapacitacion", form);
+      return PREFIX + "empleadoasistenciacapacitacionform";
+
        
-        return PREFIX + "empleadoasistenciacapacitacionform";
+ 
     }
      @RequestMapping(value = "empleadoasistenciacapacitacion/{idasistencia}/{idempleado}")
 //      @RequestMapping(value = "empleadoasistenciacapacitacion", method = { RequestMethod.POST, RequestMethod.GET })
     public String saveEmpleadoAsistenciaCapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion,Model model,@PathVariable Integer idasistencia,@PathVariable Integer idempleado) {
         try{
        EmpleadoasistenciacapacitacionPK llave = new EmpleadoasistenciacapacitacionPK();
-       
-       llave.setCodigoasistenciacapacitacion(idasistencia);
-       llave.setCodigoempleado(idempleado);
-//        llave.setCodigocapacitacion(empleadocapacitacion.getCapacitacion().getCodigocapacitacion());
-//        llave.setCodigoempleado(empleadocapacitacion.getEmpleado().getCodigoempleado());
-        empleadoasistenciacapacitacion.setEmpleadoasistenciacapacitacionPK(llave);
-        empleadoAsistenciaCapacitacionService.saveEmpleadoAsistenciaCapacitacion(empleadoasistenciacapacitacion);
-        
-        
-//         Empleado em = empleadoService.getEmpleadoById(idempleado);
-//         AsistenciaCapacitacion asc = asistenciaCapacitacionService.getAsistenciaCapacitacionById(idasistencia).get();
-      
-//         empleadoasistenciacapacitacion.setEmpleado(em);
-//         empleadoasistenciacapacitacion.setAsistenciaCapacitacion(asc);
-         
-         model.addAttribute("empleados", empleadoService.getEmpleadoById(idempleado));
-         model.addAttribute("asistenciacapcitaciones", asistenciaCapacitacionService.getAsistenciacapacitacionById(idasistencia));
-//        llave.setNombreempleado(em.getNombreempleado());
-//        llave.setUbicacionasistenciacapacitacion(asc.getUbicacionasistenciacapacitacion());
-        
-//        empleadoasistenciacapacitacion.getEmpleado().getCodigoempleado();
-//        empleadoasistenciacapacitacion.getEmpleado().getCodigoempleado();
-//        model.addAttribute("empleadoasistenciacapacitaciones",empleadoasistenciacapacitacion);
+     llave.setCodigoasistenciacapacitacion(empleadoasistenciacapacitacion.getAsistenciaCapacitacion().getCodigoasistenciacapacitacion());
+     
+     llave.setCodigoempleado(empleadoasistenciacapacitacion.getEmpleado().getCodigoempleado());
+     empleadoasistenciacapacitacion.setEmpleadoasistenciacapacitacionPK(llave);
+     empleadoAsistenciaCapacitacionService.saveEmpleadoAsistenciaCapacitacion(empleadoasistenciacapacitacion);
+
+    
          
          model.addAttribute("msg", 0);
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
         }
+        EmpleadoAsistenciaCapacitacionForm form= new EmpleadoAsistenciaCapacitacionForm();
+        form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciacapacitacion());
+        form.setEmpleados(empleadoService.listAllEmpleado());
+        
+        form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
+        model.addAttribute("formasistenciaempleadocapacitacion", form);
         return PREFIX+"empleadoasistenciacapacitaciones";
        // return "redirect:./show/" + usuariorol.getCodigousuariorol();
     }
@@ -110,7 +106,7 @@ public class EmpleadoAsistenciaCapacitacionController {
         catch(Exception e){
         model.addAttribute("msg", 4);
         }
-        return PREFIX + "empleadocapacitaciones";
+        return PREFIX + "empleadoasistenciacapacitaciones";
        // return "redirect:/usuariorols/";
     }
 }
