@@ -42,8 +42,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${usuario.controlcontrasenia}">control</td>
                 <td th:text="${usuario.estadousuario}">Estado</td>
                 <td th:text="${#calendars.format(usuario.fechaingreso, 'dd/MM/yyyy')}">Fecha Desde</td>
-                <td th:text="${#calendars.format(usuario.fechacaducidad, 'dd/MM/yyyy')}">Fecha Desde</td>
-                 <td th:text="${#calendars.format(usuario.fechabaja, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <td th:text="${#calendars.format(usuario.fechacaducidad, 'dd/MM/yyyy')}">Fecha de caducidad</td>
+                <td th:text="${#calendars.format(usuario.fechabaja, 'dd/MM/yyyy')}">Fecha de baja</td>
                  
                 <td><a th:href="${'./show/' + usuario.codigousuario}" class="btn btn-info">Mostrar</a></td>
                 <td> <a th:href="${'./edit/' + usuario.codigousuario}" class="btn btn-success">Editar</a></td>

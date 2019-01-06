@@ -15,4 +15,6 @@ public interface UsuarioService {
     Usuario saveUsuario(Usuario usuario);
 
     void deleteUsuario(Integer id);
+
+    Iterable<Usuario> listAllActivos();
 }
