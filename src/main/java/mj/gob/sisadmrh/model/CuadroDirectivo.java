@@ -41,6 +41,8 @@ public class CuadroDirectivo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOCUADRODIRECTIVO")
     private Integer codigocuadrodirectivo;
+    @Column(name = "ESTADOCUADRODIRECTIVO")
+    private Integer estadocuadrodirectivo;
     @Size(max = 30)
    @Column(name = "RESPONSABLECUADRODIRECTIVO")
     
@@ -162,6 +164,14 @@ private Integer acuerdocuadrodirectivo;
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Cuadrodirectivo[ codigocuadrodirectivo=" + codigocuadrodirectivo + " ]";
+    }
+
+    public Integer getEstadocuadrodirectivo() {
+        return estadocuadrodirectivo;
+    }
+
+    public void setEstadocuadrodirectivo(Integer estadocuadrodirectivo) {
+        this.estadocuadrodirectivo = estadocuadrodirectivo;
     }
     
 }

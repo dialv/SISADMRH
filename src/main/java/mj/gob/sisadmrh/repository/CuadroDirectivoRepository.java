@@ -23,5 +23,8 @@ public interface CuadroDirectivoRepository extends CrudRepository<CuadroDirectiv
      @Query(value = "SELECT cd.* FROM cuadrodirectivo cd "
             + "WHERE cd.area LIKE :nom ", nativeQuery = true)
      Iterable<CuadroDirectivo> findByCuadro(@Param("nom") String dato);
+     
+      @Query("SELECT o FROM CuadroDirectivo o WHERE o.estadocuadrodirectivo != 0")
+    public Iterable<CuadroDirectivo> listAllActivos(); 
     
 }

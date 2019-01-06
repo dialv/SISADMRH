@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface CuadroDirectivoService {
-        Iterable <CuadroDirectivo> listAllCuadroDirectivo();
+    Iterable <CuadroDirectivo> listAllCuadroDirectivo();
+    
+    Iterable <CuadroDirectivo> listAllActivos();
     
     Optional<CuadroDirectivo> getCuadroDirectivoById(Integer id);
 
