@@ -9,5 +9,5 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
     public Usuario findbyusername(String username);
     
     @Query("SELECT o FROM Usuario o WHERE o.estadousuario != 0")
-    public Iterable<Usuario> listAllActivos(String username); 
+    public Iterable<Usuario> listAllActivos(); 
 }

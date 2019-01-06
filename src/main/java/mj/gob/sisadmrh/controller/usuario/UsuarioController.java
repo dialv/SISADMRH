@@ -38,7 +38,7 @@ public class UsuarioController extends UtilsController{
     private final String PREFIX = "fragments/usuario/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("usuarios", usuarioService.listAllUsuarios());
+        model.addAttribute("usuarios", usuarioService.listAllActivos());
         return PREFIX + "usuarios";
     }
     
