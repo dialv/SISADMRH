@@ -10,6 +10,8 @@ import mj.gob.sisadmrh.model.Beneficio;
 public interface BeneficioService {
     Iterable <Beneficio> listAllBeneficios();
     
+    Iterable <Beneficio> listAllActivos();
+    
     Optional<Beneficio> getBeneficioById(Integer id);
 
     Beneficio saveBeneficio(Beneficio beneficio);

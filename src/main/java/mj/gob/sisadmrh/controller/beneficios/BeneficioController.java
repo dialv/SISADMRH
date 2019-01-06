@@ -59,7 +59,7 @@ public class BeneficioController extends UtilsController{
     private final String PREFIX = "fragments/beneficio/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("beneficios", beneficioService.listAllBeneficios());
+        model.addAttribute("beneficios", beneficioService.listAllActivos());
         return PREFIX + "beneficios";
     }
     
@@ -99,11 +99,14 @@ public class BeneficioController extends UtilsController{
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
+        
+        try{
+        Beneficio beneficio =beneficioService.getBeneficioById(id).get();
+        beneficio.setEstadobeneficio(0);
+        beneficioService.saveBeneficio(beneficio);
         bitacoraService.BitacoraRegistry("se elimino un Beneficio",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        try{
-         beneficioService.deleteBeneficio(id);
-          model.addAttribute("msg", 3);
+        model.addAttribute("msg", 3);
         }
         catch(Exception e){
          model.addAttribute("msg", 4);

@@ -43,6 +43,8 @@ public class Beneficio implements Serializable {
     @NotNull
     @Column(name = "CODIGOBENEFICIO")
     private Integer codigobeneficio;
+    @Column(name = "ESTADOBENEFICIO")
+    private Integer estadobeneficio;
     @Size(max = 30)
     @Column(name = "NOMBREBENEFICIO")
     private String nombrebeneficio;
@@ -138,6 +140,14 @@ public class Beneficio implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Beneficio[ codigobeneficio=" + codigobeneficio + " ]";
+    }
+
+    public Integer getEstadobeneficio() {
+        return estadobeneficio;
+    }
+
+    public void setEstadobeneficio(Integer estadobeneficio) {
+        this.estadobeneficio = estadobeneficio;
     }
     
 }
