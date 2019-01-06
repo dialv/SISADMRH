@@ -10,30 +10,25 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author daniel
+ * @author root
  */
 @Entity
-@Table(name = "CUADRODIRECTIVO")
-
+@Table(name = "cuadrodirectivo")
 @NamedQueries({
-    @NamedQuery(name = "CuadroDirectivo.findAll", query = "SELECT cd FROM CuadroDirectivo cd")})
-
+    @NamedQuery(name = "CuadroDirectivo.findAll", query = "SELECT c FROM CuadroDirectivo c")})
 public class CuadroDirectivo implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -41,46 +36,41 @@ public class CuadroDirectivo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOCUADRODIRECTIVO")
     private Integer codigocuadrodirectivo;
-    @Column(name = "ESTADOCUADRODIRECTIVO")
-    private Integer estadocuadrodirectivo;
     @Size(max = 30)
-   @Column(name = "RESPONSABLECUADRODIRECTIVO")
-    
-    private String responsablecuadrodirectivo;
-     @Column(name = "ACUERDOCUADRODIRECTIVO")
-private Integer acuerdocuadrodirectivo;
-    @Size(max = 30)
-    @Column(name = "AREA")
-    
+    @Column(name = "area")
     private String area;
     @Size(max = 100)
-    @Column(name = "DESRIPCIONCUADRODIRECTIVO")
-     
+    @Column(name = "desripcioncuadrodirectivo")
     private String desripcioncuadrodirectivo;
-    @Column(name = "FECHAPRESENTACIONDESDE")
-  @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "fechapresentacion")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechapresentacion;
+    @Size(max = 30)
+    @Column(name = "responsablecuadrodirectivo")
+    private String responsablecuadrodirectivo;
+    @Column(name = "fechapresentaciondesde")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechapresentaciondesde;
-    
-     @Column(name = "FECHAPRESENTACIONHASTA")
-  @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "fechapresentacionhasta")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechapresentacionhasta;
-    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
-    @ManyToOne(optional = false)
-    private Empleado codigoempleado;
+    @Column(name = "acuerdocuadrodirectivo")
+    private Integer acuerdocuadrodirectivo;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ESTADOCUADRODIRECTIVO")
+    private int estadocuadrodirectivo;
 
     public CuadroDirectivo() {
     }
 
-    public Integer getAcuerdocuadrodirectivo() {
-        return acuerdocuadrodirectivo;
-    }
-
-    public void setAcuerdocuadrodirectivo(Integer acuerdocuadrodirectivo) {
-        this.acuerdocuadrodirectivo = acuerdocuadrodirectivo;
-    }
-
     public CuadroDirectivo(Integer codigocuadrodirectivo) {
         this.codigocuadrodirectivo = codigocuadrodirectivo;
+    }
+
+    public CuadroDirectivo(Integer codigocuadrodirectivo, int estadocuadrodirectivo) {
+        this.codigocuadrodirectivo = codigocuadrodirectivo;
+        this.estadocuadrodirectivo = estadocuadrodirectivo;
     }
 
     public Integer getCodigocuadrodirectivo() {
@@ -89,14 +79,6 @@ private Integer acuerdocuadrodirectivo;
 
     public void setCodigocuadrodirectivo(Integer codigocuadrodirectivo) {
         this.codigocuadrodirectivo = codigocuadrodirectivo;
-    }
-
-    public String getResponsablecuadrodirectivo() {
-        return responsablecuadrodirectivo;
-    }
-
-    public void setResponsablecuadrodirectivo(String responsablecuadrodirectivo) {
-        this.responsablecuadrodirectivo = responsablecuadrodirectivo;
     }
 
     public String getArea() {
@@ -115,6 +97,22 @@ private Integer acuerdocuadrodirectivo;
         this.desripcioncuadrodirectivo = desripcioncuadrodirectivo;
     }
 
+    public Date getFechapresentacion() {
+        return fechapresentacion;
+    }
+
+    public void setFechapresentacion(Date fechapresentacion) {
+        this.fechapresentacion = fechapresentacion;
+    }
+
+    public String getResponsablecuadrodirectivo() {
+        return responsablecuadrodirectivo;
+    }
+
+    public void setResponsablecuadrodirectivo(String responsablecuadrodirectivo) {
+        this.responsablecuadrodirectivo = responsablecuadrodirectivo;
+    }
+
     public Date getFechapresentaciondesde() {
         return fechapresentaciondesde;
     }
@@ -131,14 +129,20 @@ private Integer acuerdocuadrodirectivo;
         this.fechapresentacionhasta = fechapresentacionhasta;
     }
 
-
-
-    public Empleado getCodigoempleado() {
-        return codigoempleado;
+    public Integer getAcuerdocuadrodirectivo() {
+        return acuerdocuadrodirectivo;
     }
 
-    public void setCodigoempleado(Empleado codigoempleado) {
-        this.codigoempleado = codigoempleado;
+    public void setAcuerdocuadrodirectivo(Integer acuerdocuadrodirectivo) {
+        this.acuerdocuadrodirectivo = acuerdocuadrodirectivo;
+    }
+
+    public int getEstadocuadrodirectivo() {
+        return estadocuadrodirectivo;
+    }
+
+    public void setEstadocuadrodirectivo(int estadocuadrodirectivo) {
+        this.estadocuadrodirectivo = estadocuadrodirectivo;
     }
 
     @Override
@@ -163,15 +167,7 @@ private Integer acuerdocuadrodirectivo;
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.Cuadrodirectivo[ codigocuadrodirectivo=" + codigocuadrodirectivo + " ]";
-    }
-
-    public Integer getEstadocuadrodirectivo() {
-        return estadocuadrodirectivo;
-    }
-
-    public void setEstadocuadrodirectivo(Integer estadocuadrodirectivo) {
-        this.estadocuadrodirectivo = estadocuadrodirectivo;
+        return "mj.gob.sisadmrh.model.CuadroDirectivo[ codigocuadrodirectivo=" + codigocuadrodirectivo + " ]";
     }
     
 }

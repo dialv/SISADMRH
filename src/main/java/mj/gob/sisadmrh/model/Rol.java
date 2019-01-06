@@ -1,18 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -34,23 +33,27 @@ public class Rol implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CODIGOROL")
     private Integer codigorol;
-    @Size(max = 2)
-    @Column(name = "ESTADOROL")
-    private Integer estadorol;
     @Size(max = 100)
     @Column(name = "NOMBREROL")
     private String nombrerol;
     @Size(max = 30)
     @Column(name = "descripcionrol")
     private String descripcionrol;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rol", fetch = FetchType.LAZY)
-    private List<Usuariorol> usuariorolList;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ESTADOROL")
+    private int estadorol;
 
     public Rol() {
     }
 
     public Rol(Integer codigorol) {
         this.codigorol = codigorol;
+    }
+
+    public Rol(Integer codigorol, int estadorol) {
+        this.codigorol = codigorol;
+        this.estadorol = estadorol;
     }
 
     public Integer getCodigorol() {
@@ -77,12 +80,12 @@ public class Rol implements Serializable {
         this.descripcionrol = descripcionrol;
     }
 
-    public List<Usuariorol> getUsuariorolList() {
-        return usuariorolList;
+    public int getEstadorol() {
+        return estadorol;
     }
 
-    public void setUsuariorolList(List<Usuariorol> usuariorolList) {
-        this.usuariorolList = usuariorolList;
+    public void setEstadorol(int estadorol) {
+        this.estadorol = estadorol;
     }
 
     @Override
@@ -108,14 +111,6 @@ public class Rol implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Rol[ codigorol=" + codigorol + " ]";
-    }
-
-    public Integer getEstadorol() {
-        return estadorol;
-    }
-
-    public void setEstadorol(Integer estadorol) {
-        this.estadorol = estadorol;
     }
     
 }
