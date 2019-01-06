@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
+import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
+import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +34,14 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes("capacitacion")
 @RequestMapping(value = "capacitaciones")
 public class CapacitacionController extends UtilsController{
+     private EmpleadoService empleadoService;
+    @Autowired
+    public void SetEmpleadoService(EmpleadoService empleadoService){
+    this.empleadoService=empleadoService;
+    }
     
-    
+    @Autowired
+    private EstadoService estadoService;
     private CapacitacionService capacitacionService;
      
        @Autowired
@@ -69,8 +78,15 @@ public class CapacitacionController extends UtilsController{
         model.addAttribute("capacitacion", new Capacitacion());
         
           Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+          Iterable<Estado> catCap = estadoService.findBySuperior(1674);
+           Iterable<Estado> deptoResponsalbe = estadoService.findBySuperior(1684);
+           Iterable<Estado> estadoCap = estadoService.findBySuperior(1694);
          // System.out.println("numero:"+capacitadores);
         model.addAttribute("capacitadores", capacitadores);//pasa los datos a la vista
+        model.addAttribute("catCap", catCap);
+         
+         model.addAttribute("deptoResponsalbe", deptoResponsalbe);
+         model.addAttribute("estadoCap", estadoCap);
         return PREFIX + "capacitacionform";//retorna a la vista
     }
     
