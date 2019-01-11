@@ -22,10 +22,6 @@ import mj.gob.sisadmrh.repository.DiagnosticoCapacitacionRepository;
 public class DiagnosticoCapacitacionServiceImpl  implements DiagnosticoCapacitacionService{
     @Autowired
     private DiagnosticoCapacitacionRepository diagnostivoRep;
-//    @Autowired
-//    public void setDiagnosticoCapacitacionRepository(DiagnosticoCapacitacionRepository diagnosticoCapacitacionRepository) {
-//        this.diagnostivoRep = diagnosticoCapacitacionRepository;
-//    }
 
     @Override
     public Iterable<DiagnosticoCapacitacion> listAllDiagnosticoCapacitacion() {
@@ -60,6 +56,12 @@ public class DiagnosticoCapacitacionServiceImpl  implements DiagnosticoCapacitac
     public Iterable<DiagnosticoCapacitacion> Diagnosticoexcel(String finicial, String ffinal) {
         return diagnostivoRep.Diagnosticoexcel(finicial, ffinal);
         
+    }
+
+    @Override
+    public Iterable<DiagnosticoCapacitacion> listAllActivos() {
+    return diagnostivoRep.listAllActivos();
+              
     }
     
 }
