@@ -17,6 +17,8 @@ import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 public interface AsistenciaCapacitacionService {
     Iterable <AsistenciaCapacitacion> listAllAsistenciacapacitacion();
     
+    Iterable <AsistenciaCapacitacion> listAllActivos();
+    
     Optional<AsistenciaCapacitacion> getAsistenciacapacitacionById(Integer id);
 
     AsistenciaCapacitacion saveAsistenciacapacitacion(AsistenciaCapacitacion asistenciaCapacitacion);

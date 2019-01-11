@@ -37,6 +37,8 @@ public interface AsistenciaCapacitacionRepository extends CrudRepository<Asisten
 
     Iterable<AsistenciaCapacitacion> findByCapacitacion(@Param("nom") String dato);
 
+    @Query("SELECT o FROM AsistenciaCapacitacion o WHERE o.estadoasistencia != 0")
+    public Iterable<AsistenciaCapacitacion> listAllActivos(); 
 }
 
 

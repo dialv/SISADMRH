@@ -58,4 +58,9 @@ return asistenciaCapacitacionRep.findById(id);
         
     }
 
+    @Override
+    public Iterable<AsistenciaCapacitacion> listAllActivos() {
+    return asistenciaCapacitacionRep.listAllActivos();
+    }
+
 }

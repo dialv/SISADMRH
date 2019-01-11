@@ -56,7 +56,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
     private final String PREFIX = "fragments/asistenciacapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("asistenciacapacitaciones", asistenciaCapacitacionService.listAllAsistenciacapacitacion());
+        model.addAttribute("asistenciacapacitaciones", asistenciaCapacitacionService.listAllActivos());
         return PREFIX + "asistenciacapacitaciones";
     }
     
@@ -115,7 +115,9 @@ public class AsistenciaCapacitacionController extends UtilsController{
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-        asistenciaCapacitacionService.deleteAsistenciacapacitacion(id);
+        AsistenciaCapacitacion asistenciaCapacitacion = asistenciaCapacitacionService.getAsistenciacapacitacionById(id).get();    
+        asistenciaCapacitacion.setEstadoasistencia(0);
+        asistenciaCapacitacionService.saveAsistenciacapacitacion(asistenciaCapacitacion);
         bitacoraService.BitacoraRegistry("se elimino una asistencia capacitacion",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 3);
