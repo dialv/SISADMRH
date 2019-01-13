@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Contacto;
 
 public interface ContactoService {
     Iterable <Contacto> listAllContacto();
+    Iterable <Contacto> listAllActivos();
     
     Optional<Contacto> getContactoById(Integer id);
 

@@ -1,39 +1,21 @@
 package mj.gob.sisadmrh.controller.contacto;
 
-import mj.gob.sisadmrh.controller.contacto.*;
-import mj.gob.sisadmrh.controller.contacto.*;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
-import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadocontacto;
 import mj.gob.sisadmrh.model.EmpleadocontactoPK;
 import mj.gob.sisadmrh.service.ContactoService;
-import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.EmpleadoContactoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
-//import mj.gob.sisadmrh.service.EmpleadoContactoService;
-//import mj.gob.sisadmrh.service.ContactoContactoService;
-import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 /**
  *
  * @author dialv
@@ -48,16 +30,6 @@ public class ContactoController extends UtilsController{
     private EmpleadoContactoService empleadoContactoService;
     @Autowired
     private EmpleadoService empleadoService;
-//    private ContactoContactoService contactoContactoService;
-    
-//     private EmpleadoContactoService  empleadocontacto ;
-//    @Autowired
-//    public void setEmpleadoContactoService(EmpleadoContactoService empleadocontacto){
-//    this.empleadocontacto=empleadocontacto;
-//    }
-    
-
-
     
     @Autowired
     public void setContactoService(ContactoService contactoService) {
@@ -67,7 +39,7 @@ public class ContactoController extends UtilsController{
     private final String PREFIX = "fragments/contacto/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("contactos", contactoService.listAllContacto());
+        model.addAttribute("contactos", contactoService.listAllActivos());
         return PREFIX + "contactos";
     }
     
@@ -79,9 +51,6 @@ public class ContactoController extends UtilsController{
 
     @RequestMapping("new/{id}") 
     public String newContacto(Model model,@PathVariable Integer id) {
-//        EmpleadocontactoPK empCto = new EmpleadocontactoPK();
-//        empCto.setCodigoempleado(id);
-//        model.addAttribute("empleadoContacto", empCto );
         model.addAttribute("contacto", new Contacto());
         return PREFIX + "contactoform";
     }
@@ -124,7 +93,10 @@ public class ContactoController extends UtilsController{
     public String delete(@PathVariable Integer id,Model model) {
        
          try{
-         contactoService.deleteContacto(id);
+             Contacto contacto = contactoService.getContactoById(id).get();
+             contacto.setEstadocontacto("0");
+             
+         contactoService.saveContacto(contacto);
           model.addAttribute("msg", 3);
         }
         catch(Exception e){

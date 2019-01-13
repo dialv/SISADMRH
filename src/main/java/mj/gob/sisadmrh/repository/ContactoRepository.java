@@ -20,6 +20,7 @@ public interface ContactoRepository extends CrudRepository<Contacto, Integer>{
         @Query(value = "SELECT c.* FROM contacto c, empleadocontacto ec WHERE c.codigocontacto = ec.codigocontacto and ec.codigoempleado= :id ", nativeQuery = true)
     Iterable<Contacto> findByDato(@Param("id") int dato);
     
+    @Query("SELECT o FROM Contacto o WHERE o.estadocontacto != '0'")
+    public Iterable<Contacto> listAllActivos();     
 
-    
 }
