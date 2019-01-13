@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.Inasistencia;
@@ -18,4 +13,7 @@ public interface InasistenciaRepository  extends CrudRepository<Inasistencia, In
  @Query(value = "SELECT i.* FROM inasistencia i "
             + "WHERE i.motivoinasistencia LIKE :nom ", nativeQuery = true)
      Iterable<Inasistencia> findByMotivo(@Param("nom") String dato);   
+     
+         @Query("SELECT o FROM Inasistencia o WHERE o.estadoinasistencia != 0")
+    public Iterable<Inasistencia> listAllActivos();
 }
