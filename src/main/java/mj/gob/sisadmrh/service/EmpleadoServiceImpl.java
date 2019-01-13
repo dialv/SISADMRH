@@ -142,5 +142,8 @@ return empleadoRep.findByIncapacidad(finicial, ffinal);
         empleadoRep.DeleteEmpleadoAsistenciaCap(id);
     }
 
-    
+    @Override
+    public Iterable<Empleado> listAllActivos() {
+     return empleadoRep.listAllActivos();
+    }    
 }

@@ -138,7 +138,7 @@ public class EmpleadoController extends UtilsController{
     private final String PREFIX = "fragments/empleado/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("empleados", empleadoService.listAllEmpleado());
+        model.addAttribute("empleados", empleadoService.listAllActivos());
         return PREFIX + "empleados";
     }
     
@@ -219,7 +219,9 @@ return PREFIX + "empleadoform";
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-        empleadoService.deleteEmpleado(id);
+            Empleado empleado = empleadoService.getEmpleadoById(id).get();
+            empleado.setEstadoempleado(0);
+            empleadoService.saveEmpleado(empleado);
          model.addAttribute("msg", 3);
         }
         catch(Exception e){

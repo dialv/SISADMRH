@@ -16,6 +16,7 @@ import mj.gob.sisadmrh.model.Empleado;
  */
 public interface EmpleadoService {
     Iterable <Empleado> listAllEmpleado();
+    Iterable <Empleado> listAllActivos();
     
     Optional<Empleado> getEmpleadoById(Integer id);
 
