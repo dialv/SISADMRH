@@ -45,4 +45,9 @@ public class PuestoServiceImpl implements PuestoService {
     public List<Object[]> PuestosoExcel(String finicial, String ffinal) {
    return puestoRep.PuestosoExcel(finicial, ffinal);
     }
+
+    @Override
+    public Iterable<Puesto> listAllActivos() {
+     return puestoRep.listAllActivos();
+    }
 }
