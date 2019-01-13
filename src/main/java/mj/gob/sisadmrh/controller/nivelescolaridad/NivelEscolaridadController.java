@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller.nivelescolaridad;
 
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -20,35 +15,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-//beneficio=nivelescolaridad y beneficios=nivelescolaridades
+
 @Controller
 @SessionAttributes("nivelescolaridad")
 @RequestMapping(value = "nivelescolaridades")
-public class NivelEscolaridadController extends UtilsController{
-  
+public class NivelEscolaridadController extends UtilsController {
+    
     private NivelEscolaridadService nivelEscolaridadService;
     @Autowired
     private EmpleadoService empleadoService;
-     
-       @Autowired
+    
+    @Autowired
     public void setNivelEscolaridadService(NivelEscolaridadService nivelEscolaridadService) {
         this.nivelEscolaridadService = nivelEscolaridadService;
     }
     
-    
     private final String PREFIX = "fragments/nivelescolaridad/";
-    @RequestMapping(value = "/", method=RequestMethod.GET)
-    public String list(Model model){
-        model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String list(Model model) {
+        model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllActivos());
         return PREFIX + "nivelescolaridades";
     }
     
-     @RequestMapping("edit/{id}")
+    @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("nivelescolaridad", nivelEscolaridadService.getNivelEscolaridadById(id));
-         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
 //         
-      model.addAttribute("empleados", empleados);
+        model.addAttribute("empleados", empleados);
         return PREFIX + "nivelescolaridadform";
     }
     
@@ -61,46 +56,47 @@ public class NivelEscolaridadController extends UtilsController{
     }
     
     @RequestMapping(value = "nivelescolaridad")
-    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad,Model model,SessionStatus status) {
-        try{
+    public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad, Model model, SessionStatus status) {
+        try {
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
             status.setComplete();
-             bitacoraService.BitacoraRegistry("se guardo un nivel escolaridad",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());
+            bitacoraService.BitacoraRegistry("se guardo un nivel escolaridad", getRequest().getRemoteAddr(),
+                    getRequest().getUserPrincipal().getName());
             model.addAttribute("msg", 0);
-            model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllNivelEscolaridad());
-             Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+            model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllActivos());
+            Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
 //         
-      model.addAttribute("empleados", empleados);
-         //   return PREFIX + "nivelescolaridades";
+            model.addAttribute("empleados", empleados);
+            //   return PREFIX + "nivelescolaridades";
 
-        } catch(Exception e){
-             model.addAttribute("msg", 1);
+        } catch (Exception e) {
+            model.addAttribute("msg", 1);
         }
-       return PREFIX + "nivelescolaridades";//
-      // return "redirect:/nivelescolaridades/"; 
-       // return PREFIX + "nivelescolaridades";
+        return PREFIX + "nivelescolaridades";//
+        // return "redirect:/nivelescolaridades/"; 
+        // return PREFIX + "nivelescolaridades";
         //return "redirect:./show/" + nivelEscolaridad.getCodigonivelnivelescolaridad();
     }
     
-    
-     @RequestMapping("show/{id}")
+    @RequestMapping("show/{id}")
     public String showNivelEscolaridad(@PathVariable Integer id, Model model) {
         model.addAttribute("nivelescolaridad", nivelEscolaridadService.getNivelEscolaridadById(id).get());
-        return PREFIX +"nivelescolaridadshow";
+        return PREFIX + "nivelescolaridadshow";
     }
-     @RequestMapping("delete/{id}")
+
+    @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
-        try{
-         nivelEscolaridadService.deleteNivelEscolaridad(id);
-         bitacoraService.BitacoraRegistry("se elimino un un Nivel Escolar",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-          model.addAttribute("msg", 3);
+        try {
+            NivelEscolaridad nivelescolaridad = nivelEscolaridadService.getNivelEscolaridadById(id).get();
+            nivelescolaridad.setEstadonivelescolaridad(0);
+            nivelEscolaridadService.saveNivelEscolaridad(nivelescolaridad);
+            bitacoraService.BitacoraRegistry("se elimino un un Nivel Escolar", getRequest().getRemoteAddr(),
+                    getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+            model.addAttribute("msg", 3);
+        } catch (Exception e) {
+            model.addAttribute("msg", 4);
         }
-        catch(Exception e){
-         model.addAttribute("msg", 4);
-        }
-     
+        
         return "redirect:/nivelescolaridades/";
     }
 }

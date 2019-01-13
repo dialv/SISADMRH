@@ -14,23 +14,22 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NivelEscolaridadServiceImpl implements NivelEscolaridadService {
-    
-  
-    private  NivelEscolaridadRepository nivelEscolaridadRep;
-    
-     @Autowired
-    public void setNivelEscolaridadRepository (NivelEscolaridadRepository  nivelEscolaridadRepository ) {
+
+    private NivelEscolaridadRepository nivelEscolaridadRep;
+
+    @Autowired
+    public void setNivelEscolaridadRepository(NivelEscolaridadRepository nivelEscolaridadRepository) {
         this.nivelEscolaridadRep = nivelEscolaridadRepository;
     }
 
     @Override
     public Iterable<NivelEscolaridad> listAllNivelEscolaridad() {
- return nivelEscolaridadRep.findAll();
+        return nivelEscolaridadRep.findAll();
     }
 
     @Override
     public Optional<NivelEscolaridad> getNivelEscolaridadById(Integer id) {
-return nivelEscolaridadRep.findById(id);
+        return nivelEscolaridadRep.findById(id);
 
     }
 
@@ -43,5 +42,10 @@ return nivelEscolaridadRep.findById(id);
     public void deleteNivelEscolaridad(Integer id) {
         nivelEscolaridadRep.deleteById(id);
     }
-    
+
+    @Override
+    public Iterable<NivelEscolaridad> listAllActivos() {
+        return nivelEscolaridadRep.findAll();
+    }
+
 }
