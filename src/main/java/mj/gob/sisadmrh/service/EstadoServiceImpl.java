@@ -2,9 +2,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Estado;
-//import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.EstadoRepository;
-//import mj.gob.sisadmrh.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EstadoServiceImpl implements EstadoService {
 
-    
     private EstadoRepository estadoRep;
 
     @Autowired
@@ -45,8 +42,11 @@ public class EstadoServiceImpl implements EstadoService {
 
     @Override
     public Iterable<Estado> findBySuperior(Integer est) {
-    return estadoRep.findBySuperior(est); 
+        return estadoRep.findBySuperior(est);
     }
-    
 
+    @Override
+    public Iterable<Estado> listAllActivos() {
+        return estadoRep.listAllActivos();
+    }
 }
