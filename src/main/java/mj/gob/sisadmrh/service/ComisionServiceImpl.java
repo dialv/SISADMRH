@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ComisionServiceImpl implements ComisionService {
 
-    
     private ComisionRepository comisionRep;
 
     @Autowired
@@ -39,6 +38,11 @@ public class ComisionServiceImpl implements ComisionService {
     @Override
     public void deleteComision(Integer id) {
         comisionRep.deleteById(id);
+    }
+
+    @Override
+    public Iterable<Comision> listAllActivos() {
+        return comisionRep.listAllActivos();
     }
 
 }

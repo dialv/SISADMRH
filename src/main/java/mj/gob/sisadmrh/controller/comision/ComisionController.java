@@ -3,8 +3,6 @@ package mj.gob.sisadmrh.controller.comision;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Comision;
@@ -28,19 +26,14 @@ import org.springframework.web.multipart.MultipartFile;
 public class ComisionController extends UtilsController{
     
     private ComisionService comisionService;
-    
-
-
-    
     @Autowired
     public void setComisionService(ComisionService comisionService) {
         this.comisionService = comisionService;
     }
-    
     private final String PREFIX = "fragments/comision/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("comisiones", comisionService.listAllComisiones());
+        model.addAttribute("comisiones", comisionService.listAllActivos());
         return PREFIX + "comisiones";
     }
     
@@ -70,7 +63,7 @@ public class ComisionController extends UtilsController{
         comisionService.saveComision(comision);
         
         model.addAttribute("msg", 0);
-        model.addAttribute("comisiones", comisionService.listAllComisiones());
+        model.addAttribute("comisiones", comisionService.listAllActivos());
         return PREFIX+"comisiones";
         }
         catch(Exception e){
@@ -89,7 +82,9 @@ public class ComisionController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-        comisionService.deleteComision(id);
+            Comision comision = comisionService.getComisionById(id).get();
+            comision.setEstadocomision(0);
+        comisionService.saveComision(comision);
          model.addAttribute("msg", 3);
         }
         catch(Exception e){

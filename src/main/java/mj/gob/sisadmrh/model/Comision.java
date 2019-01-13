@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -47,6 +42,8 @@ public class Comision implements Serializable {
     private Date fechahastacomision;
     @Column(name = "nivelcomision")
     private Integer nivelcomision;
+    @Column(name = "estadocomision")
+    private Integer estadocomision;
     @Size(max = 50)
     @Column(name = "nombrecomision")
     private String nombrecomision;
@@ -149,6 +146,14 @@ public class Comision implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Comision[ codigocomision=" + codigocomision + " ]";
+    }
+
+    public Integer getEstadocomision() {
+        return estadocomision;
+    }
+
+    public void setEstadocomision(Integer estadocomision) {
+        this.estadocomision = estadocomision;
     }
     
 }
