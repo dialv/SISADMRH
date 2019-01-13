@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -19,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -48,7 +41,8 @@ public class Incapacidad implements Serializable {
      @Size(max = 70)
     @Column(name = "NOMBREINCAPACIDAD")
     private String nombreincapacidad;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "ESTADOINCAPACIDAD")
+    private Integer estadoincapacidad;
     @Column(name = "SUBSIDIO")
     private Float subsidio;
     @Size(max = 100)
@@ -263,6 +257,14 @@ public class Incapacidad implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Incapacidad[ codigoincapacidad=" + codigoincapacidad + " ]";
+    }
+
+    public Integer getEstadoincapacidad() {
+        return estadoincapacidad;
+    }
+
+    public void setEstadoincapacidad(Integer estadoincapacidad) {
+        this.estadoincapacidad = estadoincapacidad;
     }
     
 }

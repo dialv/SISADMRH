@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller.Incapacidad;
 
 import java.io.IOException;
@@ -43,7 +38,7 @@ public class IncapacidadController extends UtilsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("incapacidades", incapacidadService.listAllIncapacidad());
+        model.addAttribute("incapacidades", incapacidadService.listAllActivos());
         return PREFIX + "incapacidades";
     }
 
@@ -95,7 +90,9 @@ public class IncapacidadController extends UtilsController {
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
         try {
-            incapacidadService.deleteIncapacidad(id);
+            Incapacidad incapacidad = incapacidadService.getIncapacidadById(id).get();
+            incapacidad.setEstadoincapacidad(0);
+            incapacidadService.saveIIncapacidad(incapacidad);
             bitacoraService.BitacoraRegistry("se elimino una incapacidad",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 3);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.service;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Incapacidad;
@@ -13,6 +8,7 @@ import mj.gob.sisadmrh.model.Incapacidad;
  */
 public interface IncapacidadService {
         Iterable <Incapacidad> listAllIncapacidad();
+        Iterable <Incapacidad> listAllActivos();
     
     Optional<Incapacidad> getIncapacidadById(Integer id);
 

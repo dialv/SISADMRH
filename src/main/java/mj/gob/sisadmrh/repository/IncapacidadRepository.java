@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.repository;
 
 import mj.gob.sisadmrh.model.Incapacidad;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +9,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author jorge
  */
 public interface IncapacidadRepository extends CrudRepository<Incapacidad, Integer>{
-    
+
+    @Query("SELECT o FROM Incapacidad o WHERE o.estadoincapacidad != 0")
+    public Iterable<Incapacidad> listAllActivos();     
 }
