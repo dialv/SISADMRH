@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.repository;
 
 import java.util.List;
@@ -43,7 +38,6 @@ List<Object[]> findByMisionExterna2(@Param("FINICIAL") String finicial,
 List<Object[]> findByMisionInterna(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 
-    //Para generar reporte de Misiones internas
-   
-    
+@Query("SELECT o FROM Mision o WHERE o.estadomision != 0")
+    public Iterable<Mision> listAllActivos(); 
 }

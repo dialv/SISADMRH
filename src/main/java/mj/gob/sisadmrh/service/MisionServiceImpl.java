@@ -57,4 +57,9 @@ public class MisionServiceImpl implements MisionService {
         return misionRep.findByMisionInterna(finicial, ffinal);
     }
 
+    @Override
+    public Iterable<Mision> listAllActivos() {
+        return misionRep.listAllActivos();
+    }
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -17,8 +12,6 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -66,6 +59,8 @@ public class Mision implements Serializable {
     private Float gastoterminales;
     @Column(name = "gastoviaje")
     private Float gastoviaje;
+    @Column(name = "estadomision")
+    private Integer estadomision;
     @Size(max = 50)
     @Column(name = "nombremision")
     private String nombremision;
@@ -344,6 +339,14 @@ public class Mision implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Mision[ codigomision=" + codigomision + " ]";
+    }
+
+    public Integer getEstadomision() {
+        return estadomision;
+    }
+
+    public void setEstadomision(Integer estadomision) {
+        this.estadomision = estadomision;
     }
     
 }
