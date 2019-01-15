@@ -68,6 +68,7 @@ public class IncapacidadController extends UtilsController {
     @RequestMapping(value = "incapacidad")
     public String saveIncapacidad(Incapacidad incapacidad, Model model,SessionStatus status,@RequestParam("file") MultipartFile file) {
         try {
+            incapacidad.setEstadoincapacidad(1);
              incapacidad.setDocumento1(file.getBytes());// es el documento o constancia de incapacidad
           //  incapacidad.setDocumento2(file.getBytes());
             incapacidadService.saveIIncapacidad(incapacidad);

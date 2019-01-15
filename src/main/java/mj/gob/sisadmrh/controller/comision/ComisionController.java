@@ -60,6 +60,7 @@ public class ComisionController extends UtilsController{
     public String saveComision(Comision comision,Model model, @RequestParam("file") MultipartFile file) {
         try{
         comision.setDocaprovacion(file.getBytes());
+        comision.setEstadocomision(1);
         comisionService.saveComision(comision);
         
         model.addAttribute("msg", 0);

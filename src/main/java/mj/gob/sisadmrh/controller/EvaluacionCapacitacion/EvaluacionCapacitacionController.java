@@ -65,6 +65,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
     @RequestMapping(value = "evaluacioncapacitacion")
     public String saveEvaluacionCapacitacion(EvaluacionCapacitacion evaluacionCapacitacion, Model model, SessionStatus status) {
         try {
+            evaluacionCapacitacion.setEstadoevaluacion(1);
             evaluacionCapacitacionService.saveEvualuacionCapacitacion(evaluacionCapacitacion);
             status.setComplete();
             bitacoraService.BitacoraRegistry("se creo una Evaluacion Capacitacion", getRequest().getRemoteAddr(),

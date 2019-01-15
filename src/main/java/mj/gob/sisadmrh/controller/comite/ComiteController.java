@@ -59,6 +59,7 @@ public class ComiteController extends UtilsController {
     @RequestMapping(value = "comite")
     public String saveComite(Comite comite, Model model, SessionStatus status) {
         try {
+            comite.setEstadocomite(1);
             comiteService.saveComite(comite);
             status.setComplete();
             model.addAttribute("comites", comiteService.listAllActivos());

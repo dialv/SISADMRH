@@ -58,8 +58,6 @@ public class ContactoController extends UtilsController{
     @RequestMapping(value = "contacto/{id}")
     public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id) {
        try{
-          
-        
         contactoService.saveContacto(contacto);
         Empleadocontacto emcon = new  Empleadocontacto();
         emcon.setContacto(contacto);
@@ -75,11 +73,6 @@ public class ContactoController extends UtilsController{
          model.addAttribute("msg", 1);
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-//        emp.setCodigocontacto(contacto.getCodigocontacto()); 
-//        emp.setCodigoempleado(contacto.getCodigocontacto());
-//        empleadocontactoPK.saveEmpleadoContacto(emp);
-//        return "redirect:./show/" + contacto.getCodigocontacto();
-//         return PREFIX +"/show/" + contacto.getCodigocontacto();
          return PREFIX + "contactoform";
     }
     
@@ -102,15 +95,7 @@ public class ContactoController extends UtilsController{
         catch(Exception e){
          model.addAttribute("msg", 4);
         }
-//        return "redirect:/contactos/";
-         
         return PREFIX + "contactos";
     }
     
- 
-//    @RequestMapping("empleado/contacto/{id}")
-//        public String findContactoByEmpladoId(@PathVariable Integer id, Model model) {
-//        model.addAttribute("costocapacitacion", contactoService.findByDato(id));
-//        return "redirect:/contacto/";
-//    }
-}
+ }

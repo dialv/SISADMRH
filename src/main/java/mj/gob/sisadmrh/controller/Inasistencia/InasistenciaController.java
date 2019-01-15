@@ -67,6 +67,7 @@ public class InasistenciaController extends UtilsController{
     public String saveInasistencia(Inasistencia inasistencia,Model model,SessionStatus status,@RequestParam("file") MultipartFile file) {
         try{
             inasistencia.setAcuerdo(file.getBytes());
+            inasistencia.setEstadoinasistencia(1);
         inasistenciaService.saveInasistencia(inasistencia);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo una Inasistencias",getRequest().getRemoteAddr(), 

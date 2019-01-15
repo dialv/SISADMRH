@@ -77,6 +77,7 @@ public class DiagnosticoCapacitacionController extends UtilsController{
     @RequestMapping(value = "diagnosticocapacitacion")
     public String saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion,Model model,SessionStatus status) {
         try{
+            diagnosticoCapacitacion.setEstadodiagnostico(1);
           diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
           status.setComplete();
           bitacoraService.BitacoraRegistry("se creo un Diagnostico Capacitacion",getRequest().getRemoteAddr(), 

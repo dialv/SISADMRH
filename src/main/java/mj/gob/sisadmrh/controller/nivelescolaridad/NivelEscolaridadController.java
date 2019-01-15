@@ -58,6 +58,7 @@ public class NivelEscolaridadController extends UtilsController {
     @RequestMapping(value = "nivelescolaridad")
     public String saveNivelEscolaridad(NivelEscolaridad nivelEscolaridad, Model model, SessionStatus status) {
         try {
+            nivelEscolaridad.setEstadonivelescolaridad(1);
             nivelEscolaridadService.saveNivelEscolaridad(nivelEscolaridad);
             status.setComplete();
             bitacoraService.BitacoraRegistry("se guardo un nivel escolaridad", getRequest().getRemoteAddr(),

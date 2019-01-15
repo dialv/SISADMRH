@@ -89,6 +89,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
     @RequestMapping(value = "asistenciacapacitacion")
     public String saveAsistenciaCapacitacion(AsistenciaCapacitacion asistencia,Model model,SessionStatus status) {
         try{
+            asistencia.setEstadoasistencia(1);
          asistenciaCapacitacionService.saveAsistenciacapacitacion(asistencia);
          status.setComplete();
           bitacoraService.BitacoraRegistry("se guardo una asistencia Capacitacion",getRequest().getRemoteAddr(), 
