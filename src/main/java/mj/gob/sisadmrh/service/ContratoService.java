@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Contrato;
 
 public interface ContratoService {
     Iterable <Contrato> listAllContrato();
+    Iterable <Contrato> listAllActivos();
     
     Optional<Contrato> getContratoById(Integer id);
 

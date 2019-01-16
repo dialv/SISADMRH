@@ -50,7 +50,7 @@ public class ContratoController extends UtilsController{
     private final String PREFIX = "fragments/contrato/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("contratos", contratoService.listAllContrato());
+        model.addAttribute("contratos", contratoService.listAllActivos());
         return PREFIX + "contratos";
     }
     
@@ -69,6 +69,7 @@ public class ContratoController extends UtilsController{
     @RequestMapping(value = "contrato")
     public String saveContrato(Contrato contrato,Model model) {
         try{
+            contrato.setEstadocontrato(1);
             contratoService.saveContrato(contrato);
             model.addAttribute("msg", 0);
         }
@@ -89,6 +90,8 @@ public class ContratoController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
          try{
+             Contrato contrato = contratoService.getContratoById(id).get();
+             contrato.setEstadocontrato(0);
             contratoService.deleteContrato(id);
             model.addAttribute("msg", 3);
         }
