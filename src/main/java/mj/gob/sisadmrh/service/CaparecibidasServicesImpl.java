@@ -28,6 +28,10 @@ public class CaparecibidasServicesImpl implements CaparecibidasService {
     public Iterable<Caparecibidas> listAllCaparecibidas() {
         return caparecibidasRep.findAll();
     }
+    @Override
+    public Iterable<Caparecibidas> listAllActivos() {
+        return caparecibidasRep.listAllActivos();
+    }
 
     @Override
     public Optional<Caparecibidas> getCaparecibidasById(Integer id) {

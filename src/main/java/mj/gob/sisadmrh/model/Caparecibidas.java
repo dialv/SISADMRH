@@ -49,6 +49,8 @@ public class Caparecibidas implements Serializable {
     @NotNull
     @Column(name = "dhoras")
     private int dhoras;
+    @Column(name = "estadocapa")
+    private int estadocapa;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ddias")
@@ -163,6 +165,14 @@ public class Caparecibidas implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Caparecibidas[ codigocaparecibidas=" + codigocaparecibidas + " ]";
+    }
+
+    public int getEstadocapa() {
+        return estadocapa;
+    }
+
+    public void setEstadocapa(int estadocapa) {
+        this.estadocapa = estadocapa;
     }
     
 }

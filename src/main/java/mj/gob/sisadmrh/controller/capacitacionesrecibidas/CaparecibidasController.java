@@ -58,7 +58,7 @@ public class CaparecibidasController extends UtilsController{
     private final String PREFIX = "fragments/caparecibidas/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("caparecibidas", caparecibidasService.listAllCaparecibidas());
+        model.addAttribute("caparecibidas", caparecibidasService.listAllActivos());
         return PREFIX + "caparecibidas";
     }
     
@@ -77,6 +77,7 @@ public class CaparecibidasController extends UtilsController{
     @RequestMapping(value = "caparecibida/{id}")
     public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id) {
         try{
+            caparecibidas.setEstadocapa(1);
         caparecibidasService.saveCaparecibidas(caparecibidas);
             
         Empleadocaparecibidas emcon = new  Empleadocaparecibidas();
@@ -108,7 +109,9 @@ public class CaparecibidasController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
          try{
-            caparecibidasService.deleteCaparecibidas(id);
+             Caparecibidas caparecibidas = caparecibidasService.getCaparecibidasById(id).get();
+             caparecibidas.setEstadocapa(0);
+            caparecibidasService.saveCaparecibidas(caparecibidas);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
