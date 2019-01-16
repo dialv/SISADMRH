@@ -66,7 +66,7 @@ public class IdiomaController extends UtilsController{
     private final String PREFIX = "fragments/idioma/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("idiomas", idiomaService.listAllIdioma());
+        model.addAttribute("idiomas", idiomaService.listAllActivos());
         return PREFIX + "idiomas";
     }
     
@@ -88,6 +88,7 @@ public class IdiomaController extends UtilsController{
     @RequestMapping(value = "idioma/{id}")
     public String saveIdioma(Idioma idioma,Model model,@PathVariable Integer id) {
        try{
+           idioma.setEstadoidioma(1);
             idiomaService.saveIdioma(idioma);
             Empleadoidioma emcon = new  Empleadoidioma();
         emcon.setIdioma(idioma);
@@ -119,6 +120,8 @@ public class IdiomaController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
+            Idioma idioma = idiomaService.getIdiomaById(id).get();
+            idioma.setEstadoidioma(0);
           idiomaService.deleteIdioma(id);
             model.addAttribute("msg", 3);
         }

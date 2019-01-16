@@ -20,6 +20,8 @@ public interface IdiomaRepository extends CrudRepository<Idioma, Integer>{
         @Query(value = "SELECT c.* FROM idioma c, empleadoidioma ec WHERE c.codigoidioma = ec.codigoidioma and ec.codigoempleado= :id ", nativeQuery = true)
     Iterable<Idioma> findByDato(@Param("id") int dato);
     
-
+     @Query("SELECT o FROM Idioma o WHERE o.estadoidioma != 0")
+    public Iterable<Idioma> listAllActivos();    
+    
     
 }

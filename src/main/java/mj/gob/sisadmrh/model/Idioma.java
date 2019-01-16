@@ -36,6 +36,8 @@ public class Idioma implements Serializable {
 //    @Basic(optional = false)
     @Column(name = "codigoidioma")
     private Integer codigoidioma;
+    @Column(name = "estadoidioma")
+    private Integer estadoidioma;
     @Size(max = 50)
     @Column(name = "nombreidioma")
     private String nombreidioma;
@@ -130,6 +132,14 @@ public class Idioma implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Idioma[ codigoidioma=" + codigoidioma + " ]";
+    }
+
+    public Integer getEstadoidioma() {
+        return estadoidioma;
+    }
+
+    public void setEstadoidioma(Integer estadoidioma) {
+        this.estadoidioma = estadoidioma;
     }
     
 }

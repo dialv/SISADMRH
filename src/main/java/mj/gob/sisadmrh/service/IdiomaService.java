@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Idioma;
 
 public interface IdiomaService {
     Iterable <Idioma> listAllIdioma();
+    Iterable <Idioma> listAllActivos();
     
     Optional<Idioma> getIdiomaById(Integer id);
 

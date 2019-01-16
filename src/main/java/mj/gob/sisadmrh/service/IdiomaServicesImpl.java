@@ -30,6 +30,11 @@ public class IdiomaServicesImpl implements IdiomaService {
     }
 
     @Override
+    public Iterable<Idioma> listAllActivos() {
+        return idiomaRep.listAllActivos();
+    }
+
+    @Override
     public Optional<Idioma> getIdiomaById(Integer id) {
          return idiomaRep.findById(id);
     }
