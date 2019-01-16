@@ -63,6 +63,16 @@ public class CapacitadorController extends UtilsController{
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id));
          Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+         Iterable<Estado> tinst = estadoService.findBySuperior(712);
+       Iterable<Estado> dominio = estadoService.findBySuperior(1406);
+        Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);
+         Iterable<Estado> tipoAgrupacion = estadoService.findBySuperior(1432);
+//         
+      model.addAttribute("empleados", empleados);
+      model.addAttribute("tinst", tinst);
+       model.addAttribute("dominio", dominio);
+        model.addAttribute("tipoCapacitador", tipoCapacitador);
+         model.addAttribute("tipoAgrupacion", tipoAgrupacion);
       model.addAttribute("empleados", empleados);
         return PREFIX + "capacitadorform";
     }

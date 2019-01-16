@@ -57,9 +57,18 @@ public class CapacitacionController extends UtilsController{
     }
     
      @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    public String edit(@PathVariable Integer id, Model model,SessionStatus status) {
         model.addAttribute("capacitacion", capacitacionService.getCapacitacionById(id));
          Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+         Iterable<Estado> catCap = estadoService.findBySuperior(1674);
+           Iterable<Estado> deptoResponsalbe = estadoService.findBySuperior(1684);
+           Iterable<Estado> estadoCap = estadoService.findBySuperior(1694);
+           model.addAttribute("capacitadores", capacitadores);//pasa los datos a la vista
+        model.addAttribute("catCap", catCap);
+         
+         model.addAttribute("deptoResponsalbe", deptoResponsalbe);
+         model.addAttribute("estadoCap", estadoCap);
+         status.setComplete();
          // System.out.println("numero:"+capacitadores);
         model.addAttribute("capacitadores", capacitadores);
         return PREFIX + "capacitacionform";

@@ -58,6 +58,8 @@ public class DiagnosticoCapacitacionController extends UtilsController{
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("diagnosticocapacitacion", diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id));
         Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
+        Iterable<Estado> direccion = estadoService.findBySuperior(1448);
+         model.addAttribute("direccion", direccion);
         model.addAttribute("capacitaciones",capacitaciones);
         return PREFIX + "diagnosticocapacitacionform";
     }

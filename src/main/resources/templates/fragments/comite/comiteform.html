@@ -24,7 +24,7 @@
             <br><br>
             <div class="row text-center">
                 <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
-                <h3 align="center" >Crear Comite</h3>
+                <!--<h3 align="center" >Crear Comite</h3>-->
                 <div>
                     <form class="form-horizontal" onsubmit="return validateForm()" th:object="${comite}" th:action="@{../comite}" method="post">
                         <!--          <input type="hidden" th:field="*{codigocomite}"/>-->
@@ -108,7 +108,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Hasta:</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="YYYY-MM-DD" required="true" th:field="*{fechahastacomite}"/>
+                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechahastacomite}"/>
                             </div>
                                <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" onmouseout ="javascript:ocultarAyuda('fechahasta')">a</a></b>
