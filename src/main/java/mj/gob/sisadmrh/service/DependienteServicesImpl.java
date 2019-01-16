@@ -31,6 +31,11 @@ public class DependienteServicesImpl implements DependienteService {
     }
 
     @Override
+    public Iterable<Dependiente> listAllActivos() {
+        return dependienteRep.listAllActivos();
+    }
+
+    @Override
     public Optional<Dependiente> getDependienteById(Integer id) {
          return dependienteRep.findById(id);
     }

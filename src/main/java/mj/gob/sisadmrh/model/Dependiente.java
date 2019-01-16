@@ -56,6 +56,8 @@ public class Dependiente implements Serializable {
     @Size(max = 200)
     @Column(name = "parentesco")
     private String parentesco;
+    @Column(name = "estadodependiente")
+    private Integer estadodependiente;
     @Size(max = 200)
     @Column(name = "dependiente")
     private String dependiente;
@@ -165,6 +167,14 @@ public class Dependiente implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Dependiente[ codigodependiente=" + codigodependiente + " ]";
+    }
+
+    public Integer getEstadodependiente() {
+        return estadodependiente;
+    }
+
+    public void setEstadodependiente(Integer estadodependiente) {
+        this.estadodependiente = estadodependiente;
     }
     
 }

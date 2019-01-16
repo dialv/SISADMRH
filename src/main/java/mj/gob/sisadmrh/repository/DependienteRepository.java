@@ -20,6 +20,7 @@ import org.springframework.data.repository.query.Param;
         @Query(value = "SELECT d.* FROM dependiente d , empleadodependiente ed WHERE d.codigodependiente = ed.codigodependiente and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Dependiente> findByDato(@Param("id") int dato);
     
-
+     @Query("SELECT o FROM Dependiente o WHERE o.estadodependiente != 0")
+            public Iterable<Dependiente> listAllActivos(); 
     
 }
