@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Experiencialaboral;
 
 public interface ExperiencialaboralService {
     Iterable <Experiencialaboral> listAllExperiencialaboral();
+    Iterable <Experiencialaboral> listAllActivos();
     
     Optional<Experiencialaboral> getExperiencialaboralById(Integer id);
 

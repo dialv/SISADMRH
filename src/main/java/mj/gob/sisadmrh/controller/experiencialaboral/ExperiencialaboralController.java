@@ -58,7 +58,7 @@ public class ExperiencialaboralController extends UtilsController{
     private final String PREFIX = "fragments/experiencialaboral/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("experiencialaborales", experiencialaboralService.listAllExperiencialaboral());
+        model.addAttribute("experiencialaborales", experiencialaboralService.listAllActivos());
         return PREFIX + "experiencialaborales";
     }
     
@@ -77,6 +77,7 @@ public class ExperiencialaboralController extends UtilsController{
     @RequestMapping(value = "experiencialaboral/{id}")
     public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model,@PathVariable Integer id) {
          try{
+             experiencialaboral.setEstadoexp(1);
              experiencialaboralService.saveExperiencialaboral(experiencialaboral);
             Empleadoexperiencialaboral emcon = new  Empleadoexperiencialaboral();
             emcon.setExperiencialaboral(experiencialaboral);
@@ -105,7 +106,9 @@ public class ExperiencialaboralController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
          try{
-            experiencialaboralService.deleteExperiencialaboral(id);
+             Experiencialaboral experiencialaboral = experiencialaboralService.getExperiencialaboralById(id).get();
+             experiencialaboral.setEstadoexp(0);
+            experiencialaboralService.saveExperiencialaboral(experiencialaboral);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){

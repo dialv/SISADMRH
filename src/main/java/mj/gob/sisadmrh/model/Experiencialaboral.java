@@ -53,6 +53,8 @@ public class Experiencialaboral implements Serializable {
     private Float salarioinicial;
     @Column(name = "salariofinal")
     private Float salariofinal;
+    @Column(name = "estadoexp")
+    private Integer estadoexp;
     @Size(max = 200)
     @Column(name = "motivoretiro")
     private String motivoretiro;
@@ -165,6 +167,14 @@ public class Experiencialaboral implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Experiencialaboral[ codigoexperiencialaboral=" + codigoexperiencialaboral + " ]";
+    }
+
+    public Integer getEstadoexp() {
+        return estadoexp;
+    }
+
+    public void setEstadoexp(Integer estadoexp) {
+        this.estadoexp = estadoexp;
     }
     
 }
