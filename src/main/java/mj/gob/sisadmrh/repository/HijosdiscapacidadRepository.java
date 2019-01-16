@@ -24,6 +24,7 @@ public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapac
                     " inner join empleado e on e.codigoempleado=h.codigoempleado" +
                     " inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ", nativeQuery = true)
      List<Object[]> findhijoscap();
-    
+         @Query("SELECT o FROM Hijodiscapacidad o WHERE o.estadohijos != 0")
+    public Iterable<Hijodiscapacidad> listAllActivos();    
     
 }

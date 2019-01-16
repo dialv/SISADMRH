@@ -58,7 +58,7 @@ public class HijodiscapacidadController extends UtilsController{
     private final String PREFIX = "fragments/hijodiscapacidad/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("hijodiscapacidades", hijodiscapacidadService.listAllHijodiscapacidad());
+        model.addAttribute("hijodiscapacidades", hijodiscapacidadService.listAllActivos());
         return PREFIX + "hijodiscapacidades";
     }
     
@@ -77,6 +77,7 @@ public class HijodiscapacidadController extends UtilsController{
     @RequestMapping(value = "hijodiscapacidad/{id}")
     public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id) {
         try{
+            hijodiscapacidad.setEstadohijos(1);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
         emcon.setHijodiscapacidad(hijodiscapacidad);
@@ -105,6 +106,8 @@ public class HijodiscapacidadController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
+            Hijodiscapacidad hijodiscapacidad = hijodiscapacidadService.getHijodiscapacidadById(id).get();
+            hijodiscapacidad.setEstadohijos(0);
             hijodiscapacidadService.deleteHijodiscapacidad(id);
             model.addAttribute("msg", 3);
         }
