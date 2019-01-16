@@ -50,7 +50,7 @@ public class DiagnosticoCapacitacionController extends UtilsController{
     private final String PREFIX = "fragments/diagnosticocapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllDiagnosticoCapacitacion());
+        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllActivos());
         return PREFIX + "diagnosticocapacitaciones";
     }
     
@@ -115,7 +115,7 @@ public class DiagnosticoCapacitacionController extends UtilsController{
     
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllDiagnosticoCapacitacion());
+        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllActivos());
         return PREFIX + "diagnosticocapacitacionesreport";
     }
     

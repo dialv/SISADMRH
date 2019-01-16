@@ -42,7 +42,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllActivos());
         return PREFIX + "evaluacioncapacitaciones";
     }
 
@@ -108,7 +108,7 @@ public class EvaluacionCapacitacionController extends UtilsController {
 
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllEvaluacionCapacitacion());
+        model.addAttribute("evaluacioncapacitaciones", evaluacionCapacitacionService.listAllActivos());
         return PREFIX + "evaluacioncapacitacionesreport";
     }
 

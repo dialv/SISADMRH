@@ -45,7 +45,7 @@ public class NivelEscolaridadServiceImpl implements NivelEscolaridadService {
 
     @Override
     public Iterable<NivelEscolaridad> listAllActivos() {
-        return nivelEscolaridadRep.findAll();
+        return nivelEscolaridadRep.listAllActivos();
     }
 
 }
