@@ -29,6 +29,10 @@ public class FormacionacademicaServicesImpl implements FormacionacademicaService
     public Iterable<Formacionacademica> listAllFormacionacademica() {
         return formacionacademicaRep.findAll();
     }
+    @Override
+    public Iterable<Formacionacademica> listAllActivos() {
+        return formacionacademicaRep.listAllActivos();
+    }
 
     @Override
     public Optional<Formacionacademica> getFormacionacademicaById(Integer id) {

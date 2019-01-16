@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Formacionacademica;
 
 public interface FormacionacademicaService {
     Iterable <Formacionacademica> listAllFormacionacademica();
+    Iterable <Formacionacademica> listAllActivos();
     
     Optional<Formacionacademica> getFormacionacademicaById(Integer id);
 

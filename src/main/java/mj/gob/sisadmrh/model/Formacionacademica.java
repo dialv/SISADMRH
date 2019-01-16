@@ -18,7 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -52,9 +51,11 @@ public class Formacionacademica implements Serializable {
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
     @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
     @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaformacionacademica;
     @Size(max = 200)
     @Column(name = "termino")
@@ -62,6 +63,8 @@ public class Formacionacademica implements Serializable {
     @Size(max = 200)
     @Column(name = "tituloobtenido")
     private String tituloobtenido;
+    @Column(name = "estadoformacion")
+    private Integer estadoformacion;
     @Basic(optional = false)
     @NotNull
     @Lob
@@ -182,6 +185,14 @@ public class Formacionacademica implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Formacionacademica[ codigoformacionacademica=" + codigoformacionacademica + " ]";
+    }
+
+    public Integer getEstadoformacion() {
+        return estadoformacion;
+    }
+
+    public void setEstadoformacion(Integer estadoformacion) {
+        this.estadoformacion = estadoformacion;
     }
     
 }

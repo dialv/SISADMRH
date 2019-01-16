@@ -1,31 +1,17 @@
 package mj.gob.sisadmrh.controller.formacionacademica;
 
-import mj.gob.sisadmrh.controller.formacionacademica.*;
-import mj.gob.sisadmrh.controller.formacionacademica.*;
-import mj.gob.sisadmrh.controller.formacionacademica.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoformacion;
 import mj.gob.sisadmrh.model.EmpleadoformacionPK;
 import mj.gob.sisadmrh.model.Formacionacademica;
-import mj.gob.sisadmrh.model.Formacionacademica;
 import mj.gob.sisadmrh.service.EmpleadoFormacionacademicaService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.FormacionacademicaService;
-import mj.gob.sisadmrh.service.FormacionacademicaService;
-//import mj.gob.sisadmrh.service.FormacionacademicaFormacionacademicaService;
-import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,13 +31,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class FormacionacaemicaController extends UtilsController{
     
     private FormacionacademicaService formacionacademicaService;
-//    private FormacionacademicaFormacionacademicaService formacionacademicaFormacionacademicaService;
      @Autowired
     private EmpleadoFormacionacademicaService empleadoFormacionaademicaService;
     @Autowired
     private EmpleadoService empleadoService;
-
-
     
     @Autowired
     public void setFormacionacademicaService(FormacionacademicaService formacionacademicaService) {
@@ -61,7 +44,7 @@ public class FormacionacaemicaController extends UtilsController{
     private final String PREFIX = "fragments/formacionacademica/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("formacionacademicas", formacionacademicaService.listAllFormacionacademica());
+        model.addAttribute("formacionacademicas", formacionacademicaService.listAllActivos());
         return PREFIX + "formacionacademicas";
     }
     
@@ -88,6 +71,7 @@ public class FormacionacaemicaController extends UtilsController{
         
         try {
             formacionacademica.setDoctitulo(file.getBytes());
+            formacionacademica.setEstadoformacion(1);
              
         } catch (IOException ex) {
             Logger.getLogger(FormacionacaemicaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -122,7 +106,9 @@ public class FormacionacaemicaController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
          try{
-            formacionacademicaService.deleteFormacionacademica(id);;
+            Formacionacademica formacionacademica = formacionacademicaService.getFormacionacademicaById(id).get();
+            formacionacademica.setEstadoformacion(0);
+            formacionacademicaService.saveFormacionacademica(formacionacademica);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
