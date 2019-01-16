@@ -43,7 +43,7 @@ public class UbicacionFisicaController extends UtilsController{
     private final String PREFIX = "fragments/ubicacionfisica/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("ubicacionfisicas", ubicacionFisicaService.listAllUbicacionFisica());
+        model.addAttribute("ubicacionfisicas", ubicacionFisicaService.listAllActivos());
         return PREFIX + "ubicacionfisicas";
     }
     
@@ -64,6 +64,7 @@ public class UbicacionFisicaController extends UtilsController{
     @RequestMapping(value = "ubicacionfisica/{id}")
     public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model,@PathVariable Integer id) {
         try{
+            ubicacionFisica.setEstadoubicacion(1);
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
            Empleadoubicacionfisica emcon = new  Empleadoubicacionfisica();
         emcon.setUbicacionfisica(ubicacionFisica);
@@ -93,7 +94,8 @@ public class UbicacionFisicaController extends UtilsController{
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-       
+       Ubicacionfisica ubicacionfisica = ubicacionFisicaService.getUbicacionFisicaById(id).get();
+       ubicacionfisica.setEstadoubicacion(0);
         ubicacionFisicaService.deleteUbicacionFisica(id);
          model.addAttribute("msg", 3);
         }

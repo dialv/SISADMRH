@@ -39,6 +39,9 @@ public class Ubicacionfisica implements Serializable {
     @Column(name = "cargofuncional")
     private String cargofuncional;
     @Size(max = 50)
+    @Column(name = "estadoubicacion")
+    private Integer estadoubicacion;
+    @Size(max = 50)
     @Column(name = "jefeinmediato")
     private String jefeinmediato;
     @Size(max = 50)
@@ -135,6 +138,14 @@ public class Ubicacionfisica implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Ubicacionfisica[ codigoubicacion=" + codigoubicacion + " ]";
+    }
+
+    public Integer getEstadoubicacion() {
+        return estadoubicacion;
+    }
+
+    public void setEstadoubicacion(Integer estadoubicacion) {
+        this.estadoubicacion = estadoubicacion;
     }
     
 }

@@ -25,6 +25,11 @@ public class UbicacionFisicaServiceImpl implements UbicacionFisicaService{
        return ubicacionFisicaRep.findAll();
         
     }
+    @Override
+    public Iterable<Ubicacionfisica> listAllActivos() {
+       return ubicacionFisicaRep.listAllActivos();
+        
+    }
 
     @Override
     public Optional<Ubicacionfisica> getUbicacionFisicaById(Integer id) {

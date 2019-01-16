@@ -22,7 +22,10 @@ public interface UbicacionFisicaRepository  extends CrudRepository<Ubicacionfisi
     
       @Query(value = "SELECT d.* FROM ubicacionfisica d  WHERE d.codigoempleado= :id ", nativeQuery = true)
     Iterable<Ubicacionfisica> findByDato(@Param("id") int dato);
-    
+
+     @Query("SELECT o FROM Ubicacionfisica o WHERE o.estadoubicacion != 0")
+            public Iterable<Ubicacionfisica> listAllActivos(); 
+           
 }
 
 
