@@ -108,6 +108,6 @@ public class DependienteController extends UtilsController {
         catch(Exception e){
         model.addAttribute("msg", 1);
         }
-        return PREFIX+"empleados";
+        return "redirect:/empleados/";
     }
 }

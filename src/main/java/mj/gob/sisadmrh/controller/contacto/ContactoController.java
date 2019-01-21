@@ -103,6 +103,8 @@ public class ContactoController extends UtilsController{
      @RequestMapping(value = "contacto")
     public String saveRol(Contacto contacto, Model model, SessionStatus status) {
         try{
+        contacto.setSexocontacto("masculino");
+        contacto.setEstadocontacto("1");
         contactoService.saveContacto(contacto);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
@@ -112,6 +114,6 @@ public class ContactoController extends UtilsController{
         catch(Exception e){
         model.addAttribute("msg", 1);
         }
-        return PREFIX+"empleados";
+        return "redirect:/empleados/";
     }
  }
