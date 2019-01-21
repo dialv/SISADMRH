@@ -116,7 +116,7 @@ public class FormacionacaemicaController extends UtilsController{
         }
         
 //        return "redirect:/formacionacademicas/";
-         return PREFIX +"formacionacademicas";
+         return PREFIX +"formacionacademicashow";
     }
     
     

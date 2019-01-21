@@ -100,7 +100,7 @@ public class ContratoController extends UtilsController{
         }
         
 //        return "redirect:/contratos/";
-        return PREFIX +"contratos";
+        return PREFIX +"contratoshow";
     }
     
     

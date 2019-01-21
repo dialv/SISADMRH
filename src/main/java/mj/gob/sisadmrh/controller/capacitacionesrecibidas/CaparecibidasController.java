@@ -118,7 +118,7 @@ public class CaparecibidasController extends UtilsController{
             model.addAttribute("msg", 4);
         }
 //        return "redirect:/caparecibidas/";
-        return PREFIX +"caparecibidas";
+        return PREFIX +"caparecibidashow";
     }
     
     

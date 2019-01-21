@@ -235,6 +235,29 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	</script>
-        
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+    if ([[${msg}]] === 3){
+
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../../empleados/';
+    });
+    }
+
+    if ([[${msg}]] === 4){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+            });
+    }
+    });</script>         
         
 </html>

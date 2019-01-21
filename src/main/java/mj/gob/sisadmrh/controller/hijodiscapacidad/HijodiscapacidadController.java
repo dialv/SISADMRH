@@ -116,7 +116,7 @@ public class HijodiscapacidadController extends UtilsController{
         }
        
 //        return "redirect:/hijodiscapacidades/";
-        return PREFIX +"hijodiscapacidades";
+        return PREFIX +"hijodiscapacidadshow";
     }
     
     

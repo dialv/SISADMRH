@@ -130,7 +130,7 @@ public class IdiomaController extends UtilsController{
         }
         
 //        return "redirect:/idiomas/";
-        return PREFIX + "idiomas";
+        return PREFIX + "idiomashow";
     }
     
  

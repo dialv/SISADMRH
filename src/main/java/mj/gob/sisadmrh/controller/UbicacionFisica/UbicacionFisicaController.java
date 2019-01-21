@@ -105,7 +105,7 @@ public class UbicacionFisicaController extends UtilsController{
         }
    
 //        return "redirect:/ubicacionfisicas/";
-        return PREFIX +"ubicacionfisicas";
+        return PREFIX +"ubicacionfisicashow";
     }
     
 }
