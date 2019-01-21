@@ -58,6 +58,7 @@ public class ContactoController extends UtilsController{
     @RequestMapping(value = "contacto/{id}")
     public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id) {
        try{
+        contacto.setEstadocontacto("1");
         contactoService.saveContacto(contacto);
         Empleadocontacto emcon = new  Empleadocontacto();
         emcon.setContacto(contacto);

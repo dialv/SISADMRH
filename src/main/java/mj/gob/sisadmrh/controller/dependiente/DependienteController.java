@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class DependienteController extends UtilsController {
 
     private DependienteService dependienteService;
-//    private DependienteDependienteService dependienteDependienteService;
     @Autowired
     private EmpleadoDependienteService empleadoDependienteService;
     @Autowired
@@ -62,7 +61,6 @@ public class DependienteController extends UtilsController {
         try {
             dependiente.setEstadodependiente(1);
             dependienteService.saveDependiente(dependiente);
-
             Empleadodependiente emcon = new Empleadodependiente();
             emcon.setDependiente(dependiente);
             Empleado em = empleadoService.getEmpleadoById(id).get();

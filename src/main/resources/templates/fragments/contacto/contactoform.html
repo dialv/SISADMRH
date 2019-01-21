@@ -1,196 +1,197 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
+<title>SISADMRH-Crear Contacto</title>
+<th:block th:include="../templates/header"></th:block>
+</head>
+
+<!--DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <!--     <meta name="description" content="">
      <meta name="keywords" content="">
-     <meta name="author" content="">-->
+     <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-     <style type="text/css">
-     .boton{
-  width:30px;
-  height:30px;
-  background-color:#03800b;
-  margin: 5px;
-  padding:10px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  font-size:11px;
-  line-height:32px;
-  text-transform: uppercase;
-  float:left;
-}
-.boton:hover{
-  opacity: 0.50;
-  -moz-opacity: .50;
-  filter:alpha (opacity=50);
-}
-.boton a{
-  color:#fff;
-  text-decoration:none;
-  padding:5px 5px 5px 0;
-}
- </style>
-     
-    <title>SISADMRH-Crear Contacto</title>
-  <th:block th:include="../templates/header"></th:block>
-  </head>
+<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<style type="text/css">
+    .boton{
+        width:30px;
+        height:30px;
+        background-color:#03800b;
+        margin: 5px;
+        padding:10px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        font-size:11px;
+        line-height:32px;
+        text-transform: uppercase;
+        float:left;
+    }
+    .boton:hover{
+        opacity: 0.50;
+        -moz-opacity: .50;
+        filter:alpha (opacity=50);
+    }
+    .boton a{
+        color:#fff;
+        text-decoration:none;
+        padding:5px 5px 5px 0;
+    }
+</style>
+
 <body>
-    <script> Textheader('pnt_ce13',document.title);</script>
-<!--    <div class="contenedorizq"><label  >pnt_ce13</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-<!--<div class="container">-->
- <div class="row">
- <div class="col-md-3">
+    <script> Textheader('pnt_ce13', document.title);</script>
+    <!--    <div class="contenedorizq"><label  >pnt_ce13</label>  
+        <label  class="der">
+        <script >
+    var f = new Date();
+    document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+    </script></label>
+    </div><br>-->
+    <!--<div class="container">-->
+    <div class="row">
+        <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
             </div>
-    <h3 align="center"></h3>
-    
+            <h3 align="center"></h3>
+            <br>
+            <form class="form-horizontal" id="formcontacto" th:object="${contacto}" th:action="@{../contacto}" method="post">
+                <!--          <span th:object="${empleadoContacto}"> 
+                             <input type="text" th:field="*{codigoempleado}"/>
+                          </span>-->
+                <input type="hidden" th:field="*{codigocontacto}"/>
+                <!--<input type="hidden" th:field="*{nombrecontacto}"/>-->
+                <input type="hidden" id="codem"  />
+                <div class="col-md-12"  >
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Nombre(*):</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombrecontacto}"  />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
 
-    
-        <br>
-      <form class="form-horizontal" id="formcontacto" th:object="${contacto}" th:action="@{../contacto}" method="post">
-<!--          <span th:object="${empleadoContacto}"> 
-             <input type="text" th:field="*{codigoempleado}"/>
-          </span>-->
-            <input type="hidden" th:field="*{codigocontacto}"/>
-            <!--<input type="hidden" th:field="*{nombrecontacto}"/>-->
-            <input type="hidden" id="codem"  />
-            <div class="col-md-12"  >
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombrecontacto}"  />
+                            <span class="popuptext" id="poppup1">Ingrese el Nombre del Contacto del Empleado solo se admitiran 50 caracteres.!</span>
+                        </div>
                     </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup1">Ingrese el Nombre del Contacto del Empleado solo se admitiran 50 caracteres.!</span>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Apellido(*):</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control"  required="true" size="50" maxlength="50" th:field="*{apellidocontacto}"   />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+
+                            <span class="popuptext" id="poppup2">Ingrese el Apellido del Contacto del Empleado solo se admitiran 50 caracteres.!</span>
+                        </div>
                     </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"  required="true" size="50" maxlength="50" th:field="*{apellidocontacto}"   />
-                    </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup2">Ingrese el Apellido del Contacto del Empleado solo se admitiran 50 caracteres.!</span>
-                    </div>
-                </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Direccion(*):</label>
-                    <div class="col-sm-8">
-                        <!--<input type="text" class="form-control"  required="true" size="100" maxlength="100" th:field="*{direccion}"  />-->
-                           <textarea rows="4" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{direccion}">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Direccion(*):</label>
+                        <div class="col-sm-8">
+                            <!--<input type="text" class="form-control"  required="true" size="100" maxlength="100" th:field="*{direccion}"  />-->
+                            <textarea rows="4" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{direccion}">
 
                             </textarea>
-                        
-                    </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup3">Ingrese la Direcion del Contacto del Empleado solo se admitiran 100 caracteres.!</span>
-                    </div>
-                </div>
-                     <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="sexocontanto"  >
-                            <!--th:field="*{sexocontacto}" >-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
-                    </select>
-                </div>
-                <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup4">Seleccione el genero del Contacto del Empleado desplegando la lista.!</span>
-                    </div>
-            </div>
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonofijocontacto}" />
-                    </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup11')" onmouseout ="javascript:ocultarAyuda('poppup11')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup11">Ingrese el telefono fijo del Contacto del Empleado solo se admitiran 9 caracteres numericos.!</span>
-                    </div>
-                    </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonomovilcontacto}"  />
-                    </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup12')" onmouseout ="javascript:ocultarAyuda('poppup12')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup12">Ingrese el telefono movil del Contacto del Empleado solo se admitiran 9 caracteres numericos.!</span>
-                    </div>
-                </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Correo Electronico(*):</label>
-                    <div class="col-sm-5">
-                        <input type="email" class="form-control" required="true"   th:field="*{emailcontacto}"    />
-                    </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup13">Ingrese el correo electronico  del Contacto del  Empleado solo se admitiran 50 caracteres.!</span>
-                    </div>
-                </div>
-                </div>
-          <div class="col-md-12">
-            <div class="row" align="center">
-<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>-->
-<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/empleados/}">.</a></button>
-<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
-            </div>
-    </div>
-            <!--</span>-->
-      </form>
-        
-      
-  
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
 
-               </div>
-            </div>
+                            <span class="popuptext" id="poppup3">Ingrese la Direcion del Contacto del Empleado solo se admitiran 100 caracteres.!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Sexo(*):</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" name="sexocontanto"  >
+                                <!--th:field="*{sexocontacto}" >-->
+                                <option>Femenino</option>
+                                <option>Masculino</option>
+                            </select>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
 
-   <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
+                            <span class="popuptext" id="poppup4">Seleccione el genero del Contacto del Empleado desplegando la lista.!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonofijocontacto}" />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup11')" onmouseout ="javascript:ocultarAyuda('poppup11')">a</a></b>
+
+                            <span class="popuptext" id="poppup11">Ingrese el telefono fijo del Contacto del Empleado solo se admitiran 9 caracteres numericos.!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Telefono Movil(*):</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonomovilcontacto}"  />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup12')" onmouseout ="javascript:ocultarAyuda('poppup12')">a</a></b>
+
+                            <span class="popuptext" id="poppup12">Ingrese el telefono movil del Contacto del Empleado solo se admitiran 9 caracteres numericos.!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Correo Electronico(*):</label>
+                        <div class="col-sm-5">
+                            <input type="email" class="form-control" required="true"   th:field="*{emailcontacto}"    />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
+
+                            <span class="popuptext" id="poppup13">Ingrese el correo electronico  del Contacto del  Empleado solo se admitiran 50 caracteres.!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                        <!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                                        <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
+                                        <button type="reset" class="btn btn-default">Limpiar</button>-->
+                        <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/empleados/}">.</a></button>
+                        <button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                        <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
+                    </div>
+                </div>
+                <!--</span>-->
+            </form>
+
+
+
+
         </div>
+    </div>
 
-        
-       
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+
+
+
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
-	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -200,129 +201,113 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 // 				$("#datepickeruntil").datepicker();
 // 			});
 // 		});
-		
-		$(document).ready(function () {
-		    var date = new Date();
-		    var currentMonth = date.getMonth();
-		    var currentDate = date.getDate();
-		    var currentYear = date.getFullYear();
-                    
-		    $('#fechanacimiento').datepicker({
+
+                                    $(document).ready(function () {
+                                    var date = new Date();
+                                    var currentMonth = date.getMonth();
+                                    var currentDate = date.getDate();
+                                    var currentYear = date.getFullYear();
+                                    $('#fechanacimiento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'dd/mm/yy'
-		    });
-		    
-		    $('#fechasepu').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechasepu').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechasepr').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechasepr').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechamin').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechamin').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechanacde').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechanacde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechahfa').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechahfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechadfa').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechadfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechacapreevento').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('#fechacapreevento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('fechadexlaboral').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechadexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    $('fechahexlaboral').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechahexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    $('fechadubf').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechadubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    $('fechahubf').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                     $('fechaicontrato').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                     $('fechafcontrato').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                     $('fechahubf').datepicker({
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-		});
-                
-                $('#btnGuardar').click(function(){
-            $("#formcontacto").attr('action', '../contacto/'+ $("#codem").val().toString());
-            $("form#formcontacto").submit();
-            
-        });
-	</script>
-        <script th:inline="javascript">
-          
+                                    dateFormat: 'dd/mm/yy'
+                                    });
+                                    });
+                                    $('#btnGuardar').click(function(){
+                                    $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
+                                    $("form#formcontacto").submit();
+                                    });</script>
+<script th:inline="javascript">
+
     $(document).ready(function () {
-    if([[${msg}]]===0){
-         
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../../empleados/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
+    if ([[${msg}]] === 0){
+
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../../empleados/';
     });
-</script> 
-        <script>       
-            var URLactual = window.location.href;
-                if (URLactual.includes("edit")){
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+            });
+    }
+    });</script> 
+<script>
+    var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
 //                    alert("str");
-                }
-                else{
+    }
+    else{
 //                    alert("str1");
-var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
+    var str = URLactual.substring(URLactual.indexOf("new") + 4, URLactual.length);
 //alert(str);
-$(function () {
-          document.getElementById("codem").value = str;
-      });}
-	</script>
-        
+    $(function () {
+    document.getElementById("codem").value = str;
+    }); }
+</script>
+
 </html>
