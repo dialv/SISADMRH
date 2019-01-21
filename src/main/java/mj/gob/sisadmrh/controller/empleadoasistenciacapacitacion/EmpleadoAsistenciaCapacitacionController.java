@@ -5,11 +5,8 @@
  */
 package mj.gob.sisadmrh.controller.empleadoasistenciacapacitacion;
 
-import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
-import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
 import mj.gob.sisadmrh.model.EmpleadoasistenciacapacitacionPK;
-import mj.gob.sisadmrh.model.Ubicacionfisica;
 import mj.gob.sisadmrh.service.AsistenciaCapacitacionService;
 import mj.gob.sisadmrh.service.EmpleadoAsistenciaCapacitacionService;
 import mj.gob.sisadmrh.service.EmpleadoService;
@@ -20,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *

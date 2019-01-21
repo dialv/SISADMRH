@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -120,6 +121,19 @@ public class CaparecibidasController extends UtilsController{
         return PREFIX +"caprecibidashow";
     }
     
-    
+      @RequestMapping(value = "caparecibida")
+    public String saveRol(Caparecibidas caparecibida, Model model, SessionStatus status) {
+        try{
+        caparecibidasService.saveCaparecibidas(caparecibida);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una capacitacion recibida",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
+    }
     
 }

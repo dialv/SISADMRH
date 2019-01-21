@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -120,6 +121,20 @@ public class HijodiscapacidadController extends UtilsController{
         return PREFIX +"hijodiscapacidadshow";
     }
     
+     @RequestMapping(value = "hijodiscapacidad")
+    public String saveRol(Hijodiscapacidad hijodiscapacidad, Model model, SessionStatus status) {
+        try{
+        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se cambio registro de hijos con disc ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
+    }
     
     
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -117,7 +118,18 @@ public class FormacionacaemicaController extends UtilsController{
         }
         return PREFIX +"formacionacademicashow";
     }
-    
-    
-    
+  @RequestMapping(value = "formacionacademica")
+    public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status) {
+        try{
+        formacionacademicaService.saveFormacionacademica(formacionacademica);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una formacionacademica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
+    }    
 }

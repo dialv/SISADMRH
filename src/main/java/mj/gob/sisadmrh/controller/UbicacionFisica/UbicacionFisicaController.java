@@ -23,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -107,6 +108,21 @@ public class UbicacionFisicaController extends UtilsController{
    
 //        return "redirect:/ubicacionfisicas/";
         return PREFIX +"ubicacionfisicashow";
+    }
+    
+              @RequestMapping(value = "ubicacionfisica")
+    public String saveRol(Ubicacionfisica ubicacionfisica, Model model, SessionStatus status) {
+        try{
+        ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se cambio una ubicacionfisica ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
     }
     
 }

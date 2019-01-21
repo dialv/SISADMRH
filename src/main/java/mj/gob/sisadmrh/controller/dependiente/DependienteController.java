@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -95,5 +96,18 @@ public class DependienteController extends UtilsController {
         }
         return PREFIX + "dependientes";
     }
-
+     @RequestMapping(value = "dependiente")
+    public String saveRol(Dependiente dependiente, Model model, SessionStatus status) {
+        try{
+        dependienteService.saveDependiente(dependiente);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo un dependiente",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
+    }
 }

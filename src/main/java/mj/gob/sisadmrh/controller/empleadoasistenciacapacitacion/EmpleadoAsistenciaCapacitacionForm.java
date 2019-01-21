@@ -9,8 +9,6 @@ import java.io.Serializable;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
-import mj.gob.sisadmrh.model.Ubicacionfisica;
-
 /**
  *
  * @author jorge

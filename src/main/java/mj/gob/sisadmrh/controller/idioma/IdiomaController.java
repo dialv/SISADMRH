@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -133,10 +134,21 @@ public class IdiomaController extends UtilsController{
         return PREFIX + "idiomashow";
     }
     
- 
-//    @RequestMapping("empleado/idioma/{id}")
-//        public String findIdiomaByEmpladoId(@PathVariable Integer id, Model model) {
-//        model.addAttribute("costocapacitacion", idiomaService.findByDato(id));
-//        return "redirect:/idioma/";
-//    }
+    
+     @RequestMapping(value = "idioma")
+    public String saveRol(Idioma idioma, Model model, SessionStatus status) {
+        try{
+        idiomaService.saveIdioma(idioma);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se cambio registro de idioma ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
+    }
+     
+
 }

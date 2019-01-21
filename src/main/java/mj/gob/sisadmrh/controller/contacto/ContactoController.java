@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 /**
  *
  * @author dialv
@@ -99,4 +100,18 @@ public class ContactoController extends UtilsController{
         return PREFIX + "contactos";
     }
     
+     @RequestMapping(value = "contacto")
+    public String saveRol(Contacto contacto, Model model, SessionStatus status) {
+        try{
+        contactoService.saveContacto(contacto);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
+    }
  }

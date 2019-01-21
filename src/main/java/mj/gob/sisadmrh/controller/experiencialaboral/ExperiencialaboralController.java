@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 /**
  *
  * @author dialv
@@ -100,6 +101,20 @@ public class ExperiencialaboralController extends UtilsController{
        
 //        return "redirect:/experiencialaborales/";
         return PREFIX +"experienciashow";
+    }
+          @RequestMapping(value = "experiencialaboral")
+    public String saveRol(Experiencialaboral experiencialaboral, Model model, SessionStatus status) {
+        try{
+        experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una experiencia laboral ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return PREFIX+"empleados";
     }
     
     
