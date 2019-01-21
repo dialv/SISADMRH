@@ -68,12 +68,10 @@
                             </div>
                         </div>
                     </div> 
-
-
                 </form>
                 <div >
                 </div>
-             <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="col-md-12" style="background-color:#d9edf7;">
                     <div class="panel-info">
                         <div class="panel-heading">
                             Para Gestionar informacion extra del Empleado se listan las siguientes opciones :
@@ -93,35 +91,25 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Contactos
-                                                        <a th:href="@{|../../contactos/new/${empleado.codigoempleado}|}"  title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Contactos</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
                                                     </div>	
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Contactos</h3>
                                                             <table id="tablita" class="tablita table table-striped table-bordered" >
                                                                 <thead> 
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Nombre de  Contacto</th>
                                                                         <th>Direccion</th>
                                                                         <th>Telefono Fijo</th>
                                                                         <th>Telefono Movi</th>
                                                                         <th>Email</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="contacto : ${contactos}">
@@ -132,17 +120,11 @@
                                                                     <td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
                                                                     <td th:text="${contacto.emailcontacto}">emailcontacto</td>
                                                                     <td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}" class="btn btn-info">Mostrar</a></td>
-                                                                    <td><a th:href="${'../../contactos/edit/' + contacto.codigocontacto}" class="btn btn-success">Editar</a></td>
-                                                                    <td><a th:onclick="'eliminar(\'' + ${'../../contactos/delete/' + contacto.codigocontacto}+ '\');'" class="btn btn-danger">Eliminar</a></td>
-
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                        <!--</div>-->   
                                                     </div>
                                                 </div>       
-
-
                                             </div>
                                         </div> 
                                     </div>
@@ -156,23 +138,14 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Dependientes   
-                                                        <a th:href="@{|../../dependientes/new/${empleado.codigoempleado}|}"  title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Dependientes</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
-                                                    </div>														
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+                                                    </div>
                                                     <div class="row">
-
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Dependientes</h3>
                                                             <table id="tablita1" class="tablita table table-striped table-bordered" >
                                                                 <thead> 
@@ -180,9 +153,7 @@
                                                                         <th>Codigo</th>
                                                                         <th>Nombre de  Dependiente</th>
                                                                         <th>Parentesco</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="dependiente : ${dependientes}">
@@ -190,17 +161,11 @@
                                                                     <td th:text="${dependiente.nombredependiente}">nombredependiente</td>
                                                                     <td th:text="${dependiente.parentesco}">parentesco</td>   
                                                                     <td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}" class="btn btn-info">Mostrar</a></td>
-                                                                    <td><a th:href="${'../../dependientes/edit/' + dependiente.codigodependiente}" class="btn btn-success">Editar</a></td>
-                                                                    <!--<td><a th:href="${'../../dependientes/delete/' + dependiente.codigodependiente}" class="btn btn-danger">Eliminar</a></td>-->
-                                                                    <td><a th:onclick="'eliminar(\'' + ${'../../dependientes/delete/' + dependiente.codigodependiente} + '\');'" class="btn btn-danger">Eliminar</a></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                        <!--</div>-->   
                                                     </div>
                                                 </div>       
-
-
                                             </div>
                                         </div> 
                                     </div>
@@ -214,23 +179,14 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Formacion Academica   
-                                                        <a th:href="@{|../../formacionacademicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Formacion Academica</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
                                                     </div>
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
-
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Formacion Academica</h3>
                                                             <table id="tablita2" class="tablita table table-striped table-bordered" >
                                                                 <thead>
@@ -240,9 +196,8 @@
                                                                         <th>Centro Educativo</th>
                                                                         <th>Titulo Obtenido</th>
                                                                         <th>Fecha</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
+                                                                        <th>Documento</th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="formacionacademica : ${formacionacademicas}">
@@ -253,17 +208,11 @@
                                                                     <td th:text="${formacionacademica.fechadesdeformacionacademica}">fechadesdeformacionacademica</td> 
                                                                     <td><a  class="btn btn-danger" th:onclick="'../../descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
                                                                     <td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}" class="btn btn-info">Mostrar</a></td>
-                                                                    <td><a th:href="${'../../formacionacademicas/edit/' + formacionacademica.codigoformacionacademica}" class="btn btn-success">Editar</a></td>
-                                                                    <!--<td><a th:href="${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}" class="btn btn-danger">Eliminar</a></td>-->
-                                                                    <td><a th:onclick="'eliminar(\'' + ${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}+'\');'" class="btn btn-danger">Eliminar</a></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                        <!--</div>-->   
                                                     </div>
                                                 </div>       
-
-
                                             </div>
                                         </div> 
                                     </div>
@@ -277,35 +226,24 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Capacitaciones Recibidas  
-                                                        <a th:href="@{|../../caparecibidas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Capacitaciones Recibidas</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
                                                     </div>
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
-
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Capacitaciones Recibidas</h3>
                                                             <table id="tablita3" class="tablita table table-striped table-bordered" >
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Estudios Realizados</th>
                                                                         <th>Centro Educativo</th>
                                                                         <th>Titulo Obtenido</th>
                                                                         <th>Fecha</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="caparecibida : ${caparecibidas}">
@@ -315,17 +253,11 @@
                                                                     <td th:text="${caparecibida.organismo}">organismo</td>   
                                                                     <td th:text="${caparecibida.fechaevento}">fechaevento</td>   
                                                                     <td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}" class="btn btn-info">Mostrar</a></td>
-                                                                    <td><a th:href="${'../../caparecibidas/edit/' + caparecibida.codigocaparecibidas}" class="btn btn-success">Editar</a></td>
-                                                                    <!--<td><a th:href="${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas}" class="btn btn-danger">Eliminar</a></td>-->
-                                                                    <td><a th:onclick="'eliminar(\'' + ${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas} +'\');'" class="btn btn-danger">Eliminar</a></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                        <!--</div>-->   
                                                     </div>
                                                 </div>       
-
-
                                             </div>
                                         </div> 
                                     </div>
@@ -339,36 +271,25 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Experiencia Laboral 
-                                                        <a th:href="@{|../../experiencialaborales/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Experiencia Laboral</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
                                                     </div>
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
-
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Experiencia Laboral</h3>
                                                             <table id="tablita4" class="tablita table table-striped table-bordered" >
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Institucion</th>
                                                                         <th>Fecha Desde</th>
                                                                         <th>Fecha Hasta</th>
                                                                         <th>Salario</th>
                                                                         <th>Sector</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="experiencialaboral : ${experiencialaborales}">
@@ -379,17 +300,11 @@
                                                                     <td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
                                                                     <td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
                                                                     <td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-info">Mostrar</a></td>
-                                                                    <td><a th:href="${'../../experiencialaborales/edit/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-success">Editar</a></td>
-                                                                    <!--<td><a th:href="${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-danger">Eliminar</a></td>-->
-                                                                    <td><a th:onclick="'eliminar(\'' + ${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}+'\');'" class="btn btn-danger">Eliminar</a></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                        <!--</div>-->   
                                                     </div>
                                                 </div>       
-
-
                                             </div>
                                         </div> 
                                     </div>
@@ -403,23 +318,14 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Ubicacion Fisica  
-                                                        <a th:href="@{|../../ubicacionfisicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Ubicacion Fisica</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
                                                     </div>
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
-
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Ubicacion Fisica</h3>
                                                             <table id="tablita5" class="tablita table table-striped table-bordered" >
                                                                 <thead>
@@ -428,9 +334,7 @@
                                                                         <th>Cargo</th>
                                                                         <th>Jefe Inmediato</th>
                                                                         <th>Nombre Ubicacion</th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="ubicacionfisica : ${ubicacionfisicas}">
@@ -439,17 +343,11 @@
                                                                     <td th:text="${ubicacionfisica.jefeinmediato}">jefeinmediato</td>   
                                                                     <td th:text="${ubicacionfisica.nombreubicacion}">nombreubicacion</td>    
                                                                     <td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}" class="btn btn-info">Mostrar</a></td>
-                                                                    <td><a th:href="${'../../ubicacionfisicas/edit/' + ubicacionfisica.codigoubicacion}" class="btn btn-success">Editar</a></td>
-                                                                    <!--<td><a th:href="${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion}" class="btn btn-danger">Eliminar</a></td>-->
-                                                                    <td><a th:onclick="'eliminar(\'' + ${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion} +'\');'" class="btn btn-danger">Eliminar</a></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                        <!--</div>-->   
                                                     </div>
                                                 </div>       
-
-
                                             </div>
                                         </div> 
                                     </div>
@@ -463,32 +361,23 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Contrato 
-                                                        <a th:href="@{|../../contratos/new/${empleado.codigoempleado}|}"title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Contrato</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
                                                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
                                                     </div>
-                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
-
                                                         <div class="col-md-12">
-
-                                                            <!--</div>-->
                                                             <h3 align="center">Contrato</h3>
                                                             <table id="tablita6" class="tablita table table-striped table-bordered" >
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Fecha de Inicio</th>
                                                                         <th>Fecha de Fin</th>
                                                                         <th>Salario</th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="contrato : ${contratos}">
@@ -515,12 +404,7 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Hijos con Discapacidad 
-                                                        <a th:href="@{|../../hijodiscapacidades/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Hijos con Discapacidad</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
@@ -531,12 +415,12 @@
                                                             <h3 align="center">Hijos con Discapacidad</h3>
                                                             <table id="tablita7" class="tablita table table-striped table-bordered" >
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Nombre</th>
                                                                         <th>Discapacidad</th>
                                                                         <th>Tipo de Discapacidad</th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="hijodiscapacidad : ${hijodiscapacidades}">
@@ -563,12 +447,7 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"> 
-                                                        Idiomas
-                                                        <a th:href="@{|../../idiomas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
-                                                        </a>
-                                                    </h3>
+                                                    <h3 class="panel-title">Idiomas</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
@@ -579,14 +458,14 @@
                                                             <h3 align="center">Idiomas</h3>
                                                             <table id="tablita8" class="tablita table table-striped table-bordered" >
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Nombre</th>
                                                                         <th>Escribe</th>
                                                                         <th>Habla</th>
                                                                         <th>Traduce</th>
                                                                         <th>Nivel</th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="idioma : ${idiomas}">
@@ -632,13 +511,13 @@
                                                             <h3 align="center">Beneficos</h3>
                                                             <table id="tablita9" class="tablita table table-striped table-bordered" >
                                                                 <thead>
-                                                                    <tr >
+                                                                    <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Nombre</th>
                                                                         <th>Descripción</th>
                                                                         <th>Fecha Inicio</th>
                                                                         <th>Fecha Fin</th>
-                                                                        <th></th>
+                                                                        <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="beneficio : ${beneficio}">
@@ -667,7 +546,6 @@
                     <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar<a href="#" th:href="@{/empleados/}">.</a></button>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="col-md-12">
@@ -676,10 +554,10 @@
 </body>
 <script th:inline="javascript">
     $(document).ready(function () {
-    $('.tablita').DataTable({
-    "language": {
-    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-    }});
+        $('.tablita').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }});
     });
 </script> 
 </html>

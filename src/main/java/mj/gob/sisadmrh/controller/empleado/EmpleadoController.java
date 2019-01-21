@@ -139,7 +139,7 @@ public class EmpleadoController extends UtilsController {
     @RequestMapping(value = "/consulta", method = RequestMethod.GET)
     public String listconsulta(Model model) {
         model.addAttribute("empleados", empleadoService.listAllActivos());
-        return PREFIX + "empleados";
+        return PREFIX + "empleadoscons";
     }
 
     @RequestMapping("edit/{id}")
