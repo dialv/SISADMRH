@@ -110,6 +110,7 @@ public class HijodiscapacidadController extends UtilsController{
             hijodiscapacidad.setEstadohijos(0);
             hijodiscapacidadService.deleteHijodiscapacidad(id);
             model.addAttribute("msg", 3);
+            model.addAttribute("hijodiscapacidad", hijodiscapacidad);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);

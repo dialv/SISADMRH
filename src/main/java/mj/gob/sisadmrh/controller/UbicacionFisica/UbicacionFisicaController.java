@@ -98,6 +98,7 @@ public class UbicacionFisicaController extends UtilsController{
        ubicacionfisica.setEstadoubicacion(0);
         ubicacionFisicaService.deleteUbicacionFisica(id);
          model.addAttribute("msg", 3);
+          model.addAttribute("ubicacionfisica",ubicacionfisica);
         }
         catch(Exception e)
         {

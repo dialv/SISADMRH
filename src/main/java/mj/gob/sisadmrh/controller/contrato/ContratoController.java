@@ -93,6 +93,7 @@ public class ContratoController extends UtilsController{
              Contrato contrato = contratoService.getContratoById(id).get();
              contrato.setEstadocontrato(0);
             contratoService.deleteContrato(id);
+            model.addAttribute("contrato",contrato);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){

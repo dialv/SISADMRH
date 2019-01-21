@@ -110,13 +110,12 @@ public class FormacionacaemicaController extends UtilsController{
             formacionacademica.setEstadoformacion(0);
             formacionacademicaService.saveFormacionacademica(formacionacademica);
             model.addAttribute("msg", 3);
-        }
+            model.addAttribute("formacionacademica", formacionacademica);
+         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        
-//        return "redirect:/formacionacademicas/";
-         return PREFIX +"formacionacademicashow";
+        return PREFIX +"formacionacademicashow";
     }
     
     

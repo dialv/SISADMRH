@@ -92,7 +92,8 @@ public class ExperiencialaboralController extends UtilsController{
              experiencialaboral.setEstadoexp(0);
             experiencialaboralService.saveExperiencialaboral(experiencialaboral);
             model.addAttribute("msg", 3);
-        }
+        model.addAttribute("experiencialaboral", experiencialaboral);
+         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
