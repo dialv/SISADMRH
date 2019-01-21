@@ -39,7 +39,7 @@ public class DependienteController extends UtilsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("dependientes", dependienteService.listAllDependiente());
+        model.addAttribute("dependientes", dependienteService.listAllActivos());
         return PREFIX + "dependientes";
     }
 

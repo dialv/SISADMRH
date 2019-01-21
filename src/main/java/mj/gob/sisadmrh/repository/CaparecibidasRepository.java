@@ -15,7 +15,7 @@ import org.springframework.data.repository.query.Param;
  * @author IPalacios
  */
 public interface CaparecibidasRepository extends CrudRepository<Caparecibidas, Integer>{
-     @Query(value = "SELECT d.* FROM caparecibidas d , empleadocaparecibidas ed WHERE d.codigocaparecibidas = ed.codigocaparecibidas and ed.codigoempleado= :id ", nativeQuery = true)
+     @Query(value = "SELECT d.* FROM caparecibidas d , empleadocaparecibidas ed WHERE d.estadocapa!=0 and d.codigocaparecibidas = ed.codigocaparecibidas and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Caparecibidas> findByDato(@Param("id") int dato);
 
      @Query("SELECT o FROM Caparecibidas o WHERE o.estadocapa != 0")

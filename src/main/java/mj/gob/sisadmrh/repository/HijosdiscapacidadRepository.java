@@ -16,7 +16,7 @@ import org.springframework.data.repository.query.Param;
  * @author IPalacios
  */
 public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapacidad, Integer>{
-    @Query(value = "SELECT d.* FROM hijodiscapacidad d , empleadohijodiscapacidad ed WHERE d.codigohijodiscapacidad = ed.codigohijodiscapacidad and ed.codigoempleado= :id ", nativeQuery = true)
+    @Query(value = "SELECT d.* FROM hijodiscapacidad d , empleadohijodiscapacidad ed WHERE d.estadohijos != 0 and d.codigohijodiscapacidad = ed.codigohijodiscapacidad and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Hijodiscapacidad> findByDato(@Param("id") int dato);
     
     @Query(value =  " select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad," +
