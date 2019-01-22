@@ -43,10 +43,10 @@ public class Experiencialaboral implements Serializable {
     @Column(name = "nombreinstitucion")
     private String nombreinstitucion;
     @Column(name = "fechadesdeexperiencialaboral")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @DateTimeFormat(pattern = "dd/mm/yy")
     private Date fechadesdeexperiencialaboral;
     @Column(name = "fechahastaexperiencialaboral")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @DateTimeFormat(pattern = "dd/mm/yy")
     private Date fechahastaexperiencialaboral;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "salarioinicial")
