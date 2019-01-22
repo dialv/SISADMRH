@@ -99,6 +99,7 @@ public class DependienteController extends UtilsController {
      @RequestMapping(value = "dependiente")
     public String saveRol(Dependiente dependiente, Model model, SessionStatus status) {
         try{
+        dependiente.setEstadodependiente(1);
         dependienteService.saveDependiente(dependiente);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo un dependiente",getRequest().getRemoteAddr(), 

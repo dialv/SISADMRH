@@ -119,8 +119,11 @@ public class FormacionacaemicaController extends UtilsController{
         return PREFIX +"formacionacademicashow";
     }
   @RequestMapping(value = "formacionacademica")
-    public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status) {
+    public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status, @RequestParam("file") MultipartFile file) {
         try{
+            formacionacademica.setDoctitulo(file.getBytes());
+            formacionacademica.setEstadoformacion(1);
+            
         formacionacademicaService.saveFormacionacademica(formacionacademica);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo una formacionacademica",getRequest().getRemoteAddr(), 

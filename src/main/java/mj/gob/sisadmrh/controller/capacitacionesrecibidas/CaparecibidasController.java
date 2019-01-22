@@ -124,6 +124,7 @@ public class CaparecibidasController extends UtilsController{
       @RequestMapping(value = "caparecibida")
     public String saveRol(Caparecibidas caparecibida, Model model, SessionStatus status) {
         try{
+            caparecibida.setEstadocapa(0);
         caparecibidasService.saveCaparecibidas(caparecibida);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo una capacitacion recibida",getRequest().getRemoteAddr(), 
