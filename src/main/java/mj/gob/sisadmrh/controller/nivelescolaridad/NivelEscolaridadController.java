@@ -35,7 +35,7 @@ public class NivelEscolaridadController extends UtilsController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("nivelescolaridades", nivelEscolaridadService.listAllActivos());
-        return PREFIX + "nivelescolaridades";
+        return PREFIX + "nivelescolaridades" ;
     }
     
     @RequestMapping("edit/{id}")

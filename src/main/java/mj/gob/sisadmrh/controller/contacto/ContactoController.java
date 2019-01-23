@@ -26,7 +26,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @RequestMapping(value = "contactos")
 public class ContactoController extends UtilsController{
     
-    private ContactoService contactoService;
+    private ContactoService contactoService ;
     @Autowired
     private EmpleadoContactoService empleadoContactoService;
     @Autowired

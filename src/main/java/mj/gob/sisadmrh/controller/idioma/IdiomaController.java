@@ -47,7 +47,7 @@ public class IdiomaController extends UtilsController{
     @Autowired
     private EmpleadoIdiomaService empleadoIdiomaService;
     @Autowired
-    private EmpleadoService empleadoService;
+    private EmpleadoService empleadoService ;
 //    private IdiomaIdiomaService idiomaIdiomaService;
     
 //     private EmpleadoIdiomaService  empleadoidioma ;

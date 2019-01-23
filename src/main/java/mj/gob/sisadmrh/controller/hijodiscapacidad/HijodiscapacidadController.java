@@ -42,7 +42,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @RequestMapping(value = "hijodiscapacidades")
 public class HijodiscapacidadController extends UtilsController{
     
-    private HijosdiscapacidadService hijodiscapacidadService;
+    private HijosdiscapacidadService hijodiscapacidadService ;
 //    private HijodiscapacidadHijodiscapacidadService hijodiscapacidadHijodiscapacidadService;
     @Autowired
     private EmpleadoHijosdiscapacidadService empleadoHijosdiscapacidadService;

@@ -79,7 +79,7 @@ public class EmpleadoController extends UtilsController {
 
     @Autowired
     public void setDependienteService(FormacionacademicaService formacionacademicaRep) {
-        this.formacionacademicaRep = formacionacademicaRep;
+        this.formacionacademicaRep = formacionacademicaRep ;
     }
 
     private ExperiencialaboralService experiencialaboralRep;
@@ -143,7 +143,7 @@ public class EmpleadoController extends UtilsController {
     }
 
     @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    public String edit(@PathVariable Integer id, Model model){
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }
