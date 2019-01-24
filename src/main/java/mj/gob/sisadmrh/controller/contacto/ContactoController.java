@@ -75,7 +75,8 @@ public class ContactoController extends UtilsController{
          model.addAttribute("msg", 1);
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-         return PREFIX + "contactoform";
+        return "redirect:/empleados/";
+//         return PREFIX + "contactoform";
     }
     
     @RequestMapping("show/{id}")    

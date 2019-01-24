@@ -91,6 +91,27 @@
                 icon: "error"
        });
     }
+
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al Guardar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+        if([[${msg}]]===0){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Guardado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../empleados/';
+       }); 
+}
+    
     });
         
         function eliminar(id) {
