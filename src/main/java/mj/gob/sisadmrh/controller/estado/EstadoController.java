@@ -35,7 +35,9 @@ public class EstadoController extends UtilsController {
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("estado", estadoService.getEstadoById(id));
+        EstadoForm estadoform = new EstadoForm();
+        estadoform.setEstado(estadoService.getEstadoById(id).get());
+        model.addAttribute("formestado", estadoform);
         return PREFIX + "estadoform";
     }
     
