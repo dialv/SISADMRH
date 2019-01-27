@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
      <style type="text/css">
@@ -58,17 +58,30 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
             </div>
     <h3 align="center"> </h3>
-    
+     <br>
+            <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
 
     
-        <br>
+        
              <form class="form-horizontal" id="formdependiente" th:object="${dependiente}" th:action="@{../dependiente}" method="post">
            <input type="hidden" th:field="*{codigodependiente}"/>
             <!--<input type="hidden" th:field="*{nombredependiente}"/>-->
-            <input type="hidden" id="codem"  />
+            <!--<input type="hidden" id="codem"  />-->
+            <br>
             <div class="col-md-12"  >
+                <br>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <label class="col-sm-3 control-label">Nombre del Dependiente(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombredependiente}"  />
                     </div>
@@ -79,7 +92,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellidos(*):</label>
+                    <label class="col-sm-3 control-label">Apellidos del Dependiente(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="50" maxlength="50"  th:field="*{apellidodependiente}"  />
                     </div>
@@ -90,7 +103,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Nacimiento(*):</label>
+                <label class="col-sm-3 control-label">Fecha de Nacimiento del Dependiente(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" onchange="isDat(this.value,'fechanacde')"  />
                 </div>
@@ -101,9 +114,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Parentesco(*):</label>
+                <label class="col-sm-3 control-label">Parentesco del Dependiente(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="parentesco"> 
+                    <select class="form-control" name="parentesco" th:field="*{parentesco}"> 
                             <!--th:field="*{parentesco}" >-->
                         <option>Hijo</option>
                         <option>Tio</option>
@@ -117,9 +130,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>	
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
+                <label class="col-sm-3 control-label">Sexo del Dependiente(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="sexo" >
+                    <select class="form-control" name="sexo" th:field="*{sexo}" >
                         <!--th:field="*{sexo}">-->
                         <option>Femenino</option>
                         <option>Masculino</option>
@@ -137,7 +150,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
- <a href="#" th:href="@{/empleados/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+ <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>   
 <button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
@@ -267,7 +280,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success"
        }).then(function() {
-                 location.href = '../../empleados/';
+                 location.href = '../empleados/show/'+ document.getElementById("codem").value;
        }); 
 }
     

@@ -48,25 +48,38 @@ public class UbicacionFisicaController extends UtilsController{
         return PREFIX + "ubicacionfisicas";
     }
     
-     @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+     @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("ubicacionfisica", ubicacionFisicaService.getUbicacionFisicaById(id));
         return PREFIX + "ubicacionfisicaform";
     }
     
+    @RequestMapping("edit/contacto/{id}")
+    public String editcontacto(Ubicacionfisica ubicacionFisica,@PathVariable Integer id, Model model,SessionStatus status) {
+        ubicacionFisica.setEstadoubicacion(1);
+        ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico una Ubicacion Fisica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
+    
     @RequestMapping("new/{id}")
-    public String newUbicacionFisica(Model model) {
-        model.addAttribute("ubicacionfisica", new Ubicacionfisica());
+    public String newUbicacionFisica(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
+         model.addAttribute("ubicacionfisica", new Ubicacionfisica());
         
          
         return PREFIX + "ubicacionfisicaform";
     }
     
     @RequestMapping(value = "ubicacionfisica/{id}")
-    public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model,@PathVariable Integer id) {
+    public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
             ubicacionFisica.setEstadoubicacion(1);
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
+           status.setComplete();
            Empleadoubicacionfisica emcon = new  Empleadoubicacionfisica();
         emcon.setUbicacionfisica(ubicacionFisica);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -80,19 +93,20 @@ public class UbicacionFisicaController extends UtilsController{
         catch(Exception e){
            model.addAttribute("msg", 1);
         }
-       return PREFIX + "ubicacionfisicashow";
+       return "redirect:/empleados/show/"+id;
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
     
-     @RequestMapping("show/{id}")
-    public String showUbicacionFisica(@PathVariable Integer id, Model model) {
+     @RequestMapping("show/{id}/{idemp}") 
+    public String showUbicacionFisica(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         
         model.addAttribute("ubicacionfisica", ubicacionFisicaService.getUbicacionFisicaById(id).get());
         
         return PREFIX +"ubicacionfisicashow";
     }
-     @RequestMapping("delete/{id}")
+     @RequestMapping("delete/{id}")  
     public String delete(@PathVariable Integer id,Model model) {
         try{
        Ubicacionfisica ubicacionfisica = ubicacionFisicaService.getUbicacionFisicaById(id).get();

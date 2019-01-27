@@ -162,8 +162,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
 															<td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
 															<td th:text="${contacto.emailcontacto}">emailcontacto</td>
-															<td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../contactos/edit/' + contacto.codigocontacto}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../contactos/edit/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<td><a th:onclick="'eliminar(\'' + ${'../../contactos/delete/' + contacto.codigocontacto}+ '\');'" class="btn btn-danger">Eliminar</a></td>
 															
 															</tr>
@@ -220,8 +220,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${dependiente.codigodependiente}">codigodependiente</td>
 															<td th:text="${dependiente.nombredependiente}">nombredependiente</td>
 															<td th:text="${dependiente.parentesco}">parentesco</td>   
-															<td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../dependientes/edit/' + dependiente.codigodependiente}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../dependientes/edit/' + dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../dependientes/delete/' + dependiente.codigodependiente}" class="btn btn-danger">Eliminar</a></td>-->
                                                                                                                         <td><a th:onclick="'eliminar(\'' + ${'../../dependientes/delete/' + dependiente.codigodependiente} + '\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -283,8 +283,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${formacionacademica.tituloobtenido}">tituloobtenido</td>   
 															<td th:text="${formacionacademica.fechadesdeformacionacademica}">fechadesdeformacionacademica</td> 
                                                                                                                         <td><a  class="btn btn-danger" th:onclick="'../../descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
-															<td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../formacionacademicas/edit/' + formacionacademica.codigoformacionacademica}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../formacionacademicas/edit/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -345,8 +345,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${caparecibida.especialidad}">especialidad</td>   
 															<td th:text="${caparecibida.organismo}">organismo</td>   
 															<td th:text="${caparecibida.fechaevento}">fechaevento</td>   
-															<td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}" class="btn btn-info">Mostrar</a></td>
-                                                                                                                        <td><a th:href="${'../../caparecibidas/edit/' + caparecibida.codigocaparecibidas}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                                                                        <td><a th:href="${'../../caparecibidas/edit/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas} +'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -409,8 +409,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${experiencialaboral.fechahastaexperiencialaboral}">fechahastaexperiencialaboral</td>   
 															<td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
 															<td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
-															<td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../experiencialaborales/edit/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../experiencialaborales/edit/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -469,8 +469,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${ubicacionfisica.cargofuncional}">cargofuncional</td>
 															<td th:text="${ubicacionfisica.jefeinmediato}">jefeinmediato</td>   
 															<td th:text="${ubicacionfisica.nombreubicacion}">nombreubicacion</td>    
-															<td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../ubicacionfisicas/edit/' + ubicacionfisica.codigoubicacion}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../ubicacionfisicas/edit/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion} +'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -529,8 +529,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${contrato.fechainiciocontrato}">fechainiciocontrato</td>
 															<td th:text="${contrato.fechafincontrato}">fechafincontrato</td>   
 															<td th:text="${contrato.salarioactual}">salarioactual</td>    
-															<td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../contratos/edit/' + contrato.codigocontrato}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../contratos/edit/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../contratos/delete/' + contrato.codigocontrato}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../contratos/delete/' + contrato.codigocontrato}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -589,8 +589,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${hijodiscapacidad.nombrehijodiscapacidad}">nombrehijodiscapacidad</td>
 															<td th:text="${hijodiscapacidad.nombrediscapacidad}">nombrediscapacidad</td>   
 															<td th:text="${hijodiscapacidad.tipodiscapacidad}">tipodiscapacidad</td>    
-															<td><a th:href="${'../../hijodiscapacidades/show/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../hijodiscapacidades/edit/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../hijodiscapacidades/show/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../hijodiscapacidades/edit/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' +  ${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -653,8 +653,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${idioma.habla}">habla</td>   
 															<td th:text="${idioma.traduce}">traduce</td> 
 															<td th:text="${idioma.nivel}">nivel</td> 															
-															<td><a th:href="${'../../idiomas/show/' + idioma.codigoidioma}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../idiomas/edit/' + idioma.codigoidioma}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../idiomas/show/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../idiomas/edit/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../idiomas/delete/' + idioma.codigoidioma}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' +  ${'../../idiomas/delete/' + idioma.codigoidioma} +'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -715,8 +715,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${beneficio.descripcionbeneficio}">descripcionbeneficio</td>  
 															<td th:text="${beneficio.fechainiciobeneficio}">fechainiciobeneficio</td>   
 															<td th:text="${beneficio.fechafinalizarbeneficio}">fechafinalizarbeneficio</td> 															
-															<td><a th:href="${'../../beneficio/show/' + beneficio.codigobeneficio}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../beneficio/edit/' + beneficio.codigobeneficio}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../beneficio/show/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../beneficio/edit/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../beneficio/delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../beneficio/delete/' + beneficio.codigobeneficio}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -824,7 +824,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../empleados/';
+                location.href = '../../empleados/show/${empleado.codigoempleado}';
        }); 
 }
     

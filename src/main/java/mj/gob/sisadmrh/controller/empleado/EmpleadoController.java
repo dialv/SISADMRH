@@ -144,6 +144,8 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
+        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        model.addAttribute("puestos", puestos);
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }

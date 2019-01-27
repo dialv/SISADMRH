@@ -63,23 +63,36 @@ public class HijodiscapacidadController extends UtilsController{
         return PREFIX + "hijodiscapacidades";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id));
         return PREFIX + "hijodiscapacidadform";
     }
+    
+     @RequestMapping("edit/hijodiscapacidad/{id}")
+    public String editcontacto(Hijodiscapacidad hijodiscapacidad,@PathVariable Integer id, Model model,SessionStatus status) {
+        hijodiscapacidad.setEstadohijos(1);
+        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico un hijo con discapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
 
     @RequestMapping("new/{id}")
-    public String newHijodiscapacidad(Model model) {
+    public String newHijodiscapacidad(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("hijodiscapacidad", new Hijodiscapacidad());
         return PREFIX + "hijodiscapacidadform";
     }
 
     @RequestMapping(value = "hijodiscapacidad/{id}")
-    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id) {
+    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
             hijodiscapacidad.setEstadohijos(1);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+            status.setComplete();
             Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
         emcon.setHijodiscapacidad(hijodiscapacidad);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -95,11 +108,12 @@ public class HijodiscapacidadController extends UtilsController{
         }
         
 //        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
- return PREFIX + "hijodiscapacidadform";
+ return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showHijodiscapacidad(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showHijodiscapacidad(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id).get());
         return PREFIX +"hijodiscapacidadshow";
     }

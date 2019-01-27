@@ -44,23 +44,36 @@ public class ContactoController extends UtilsController{
         return PREFIX + "contactos";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("contacto", contactoService.getContactoById(id));
         return PREFIX + "contactoform";
+    }
+    
+     @RequestMapping("edit/contacto/{id}")
+    public String editcontacto(Contacto contacto,@PathVariable Integer id, Model model,SessionStatus status) {
+        contacto.setEstadocontacto("1");
+        contactoService.saveContacto(contacto);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico un contacto",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
     }
 
     @RequestMapping("new/{id}") 
     public String newContacto(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("contacto", new Contacto());
         return PREFIX + "contactoform";
     }
 
     @RequestMapping(value = "contacto/{id}")
-    public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id) {
+    public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id,SessionStatus status) {
        try{
         contacto.setEstadocontacto("1");
         contactoService.saveContacto(contacto);
+         status.setComplete();
         Empleadocontacto emcon = new  Empleadocontacto();
         emcon.setContacto(contacto);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -69,18 +82,21 @@ public class ContactoController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocontactoPK(emconpk);
         empleadoContactoService.saveEmpleadocontacto(emcon);
+        bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
          }
         catch(Exception e){
          model.addAttribute("msg", 1);
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-        return "redirect:/empleados/";
+        return "redirect:/empleados/show/"+id;
 //         return PREFIX + "contactoform";
     }
     
-    @RequestMapping("show/{id}")    
-    public String showContacto(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showContacto(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("contacto", contactoService.getContactoById(id).get());
         return PREFIX +"contactoshow";
     }

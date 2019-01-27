@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -66,14 +66,25 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
     
         <br>
-      
+        <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
  <form class="form-horizontal" id="formubicacion" th:object="${ubicacionfisica}" th:action="@{../ubicacionfisica}" method="post">
                 <input type="hidden" th:field="*{codigoubicacion}"/>
-                 <input type="hidden" id="codem" th:field="*{codigoempleado}"/>
-                  <input type="hidden" id="codem"  />
+                 <!--<input type="hidden" id="codem" th:field="*{codigoempleado}"/>-->
+                  <!--<input type="hidden" id="codem"  />-->
             <div class="col-md-12" >
                 
                  <div class="form-group">
+                     <br>
                     <label class="col-sm-3 control-label">Destacado en(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="false" size="50" maxlength="50"  />
@@ -145,7 +156,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
- <a href="#" th:href="@{/empleados/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+<a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+
 <button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
@@ -261,8 +273,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
                 
                   $('#btnGuardar').click(function(){
-            $("#formcontacto").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
-            $("form#formcontacto").submit();
+            $("#formubicacion").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
+            $("form#formubicacion").submit();
             
         });
 var URLactual = window.location.href;
@@ -283,7 +295,7 @@ $(function () {
                 type: "success",
                 icon: "success"
        }).then(function() {
-                 location.href = '../../empleados/';
+                 location.href = '../empleados/show/'+ document.getElementById("codem").value;
        }); 
 }
     
