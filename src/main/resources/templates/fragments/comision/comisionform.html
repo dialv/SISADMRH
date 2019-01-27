@@ -26,6 +26,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <!--<h3 align="center">Crear Comision</h3>-->
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{codigocomision}"/>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Nombre Comision:</label>
                     <div class="col-sm-10">
