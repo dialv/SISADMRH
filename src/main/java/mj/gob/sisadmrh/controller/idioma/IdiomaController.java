@@ -71,26 +71,41 @@ public class IdiomaController extends UtilsController{
         return PREFIX + "idiomas";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("idioma", idiomaService.getIdiomaById(id));
         return PREFIX + "idiomaform";
     }
 
+     @RequestMapping("edit/idioma/{id}")
+    public String editcontacto(Idioma idioma,@PathVariable Integer id, Model model,SessionStatus status) {
+        idioma.setEstadoidioma(1);
+        idiomaService.saveIdioma(idioma);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico un idioma",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
+    
     @RequestMapping("new/{id}") 
     public String newIdioma(Model model,@PathVariable Integer id) {
 //        EmpleadoidiomaPK empCto = new EmpleadoidiomaPK();
 //        empCto.setCodigoempleado(id);
 //        model.addAttribute("empleadoIdioma", empCto );
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("idioma", new Idioma());
         return PREFIX + "idiomaform";
     }
 
+    
+    
     @RequestMapping(value = "idioma/{id}")
-    public String saveIdioma(Idioma idioma,Model model,@PathVariable Integer id) {
+    public String saveIdioma(Idioma idioma,Model model,@PathVariable Integer id,SessionStatus status) {
        try{
            idioma.setEstadoidioma(1);
             idiomaService.saveIdioma(idioma);
+            status.setComplete();
             Empleadoidioma emcon = new  Empleadoidioma();
         emcon.setIdioma(idioma);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -109,11 +124,12 @@ public class IdiomaController extends UtilsController{
 //        emp.setCodigoempleado(idioma.getCodigoidioma());
 //        empleadoidiomaPK.saveEmpleadoIdioma(emp);
 //        return "redirect:./show/" + idioma.getCodigoidioma();
-  return PREFIX + "idiomaform";
+    return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showIdioma(@PathVariable Integer id, Model model) {
+   @RequestMapping("show/{id}/{idemp}")    
+    public String showIdioma(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("idioma", idiomaService.getIdiomaById(id).get());
         return PREFIX +"idiomashow";
     }
@@ -123,15 +139,17 @@ public class IdiomaController extends UtilsController{
         try{
             Idioma idioma = idiomaService.getIdiomaById(id).get();
             idioma.setEstadoidioma(0);
-          idiomaService.deleteIdioma(id);
-            model.addAttribute("msg", 3);
+          idiomaService.saveIdioma(idioma);
+//           model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+           model.addAttribute("msg", 3);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
         
 //        return "redirect:/idiomas/";
-        return PREFIX + "idiomashow";
+  return "redirect:/empleados/";
+//        return PREFIX + "idiomas";
     }
     
     

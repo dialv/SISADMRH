@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus ;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,24 +46,39 @@ public class DependienteController extends UtilsController {
         return PREFIX + "dependientes";
     }
 
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+     public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("dependiente", dependienteService.getDependienteById(id));
         return PREFIX + "dependienteform";
     }
 
+    
+    @RequestMapping("edit/dependiente/{id}")
+    public String editdependiente(Dependiente dependiente,@PathVariable Integer id, Model model,SessionStatus status) {
+        dependiente.setEstadodependiente(1);
+        dependienteService.saveDependiente(dependiente);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico un dependiente",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
+    
+     
     @RequestMapping("new/{id}")
-    public String newDependiente(Model model) {
+    public String newDependiente(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("dependiente", new Dependiente());
         return PREFIX + "dependienteform";
     }
 
     @RequestMapping(value = "dependiente/{id}")
-    public String saveDependiente(Dependiente dependiente, Model model, @PathVariable Integer id) {
+    public String saveDependiente(Dependiente dependiente, Model model, @PathVariable Integer id,SessionStatus status) {
 
         try {
             dependiente.setEstadodependiente(1);
             dependienteService.saveDependiente(dependiente);
+             status.setComplete();
             Empleadodependiente emcon = new Empleadodependiente();
             emcon.setDependiente(dependiente);
             Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -70,16 +87,20 @@ public class DependienteController extends UtilsController {
             emconpk.setCodigoempleado(em.getCodigoempleado());
             emcon.setEmpleadodependientePK(emconpk);
             empleadoDependienteService.saveEmpleadodependiente(emcon);
+            bitacoraService.BitacoraRegistry("se Creo un dependiente",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 0);
         } catch (Exception e) {
             model.addAttribute("msg", 1);
+            Logger.getLogger(DependienteController.class.getName()).log(Level.SEVERE, null, e);
         }
-        return PREFIX + "dependienteform";
+       return "redirect:/empleados/show/"+id;
     }
 
-    @RequestMapping("show/{id}")
-    public String showDependiente(@PathVariable Integer id, Model model) {
-        model.addAttribute("dependiente", dependienteService.getDependienteById(id).get());
+    @RequestMapping("show/{id}/{idemp}") 
+    public String showDependiente(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+         model.addAttribute("dependiente", dependienteService.getDependienteById(id).get());
         return PREFIX + "dependienteshow";
     }
 

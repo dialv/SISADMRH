@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
      <meta name="keywords" content="">
-     <meta name="author" content="">-->
+     <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+ 
       <!--<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>-->
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -60,18 +60,33 @@
         <div class="col-md-8"><br><br>
             <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
-                    </div>
+            </div>
+            
+          
+            
 <!--    <h3 align="center">Crear Empleado</h3>-->
     
     
    
 
-      <form class="form-horizontal" th:object="${empleado}" th:action="@{../empleado}" method="post">
-          <input type="hidden" th:field="*{codigoempleado}"/>
+      <form id ="fromemp" class="form-horizontal" th:object="${empleado}" th:action="@{../empleado}" method="post">
+          <input type="hidden" id="codem" th:field="*{codigoempleado}"/>
             <!--<input type="hidden" th:field="*{nombreempleado}"/>-->
             <div class="col-md-12">
                 
-            
+            <div class="form-group ">
+<!--                <div class="col-sm-8" >
+                   </div>   -->
+                  <div class="row text-center" >
+                       <!--<a href="#" th:href="@{'.././show/' +   $('#codem').val().toString())}" class="btn btn-info">Gestionar  <br> Informacion Adicional</a>-->  
+                        <a href="#" id="btngestionar" class="btn btn-info">Gestionar  <br> Informacion Adicional</a>  
+                  <div class="popup " id="divpop"><b>
+                         <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppupr')" onmouseout ="javascript:ocultarAyuda('poppupr')">a</a></b>                       
+                        <span class="popuptext" id="poppupr">Opcion para gestionar informacion adicional del empleado.!</span>
+                    </div> 
+                  </div>   
+                 
+            </div>
                 
                 <div class="form-group">
                         <label class="col-sm-3 control-label">Puestos:</label>
@@ -610,6 +625,10 @@
 		        dateFormat: 'dd/mm/yy'
 		    });
                     
+                    $('#btngestionar').click(function(){
+                                    $("#fromemp").attr('action', '../show/' + $("#codem").val().toString());
+                                    $("form#fromemp").submit();
+                                    });
                   
 		});
 	</script>
@@ -637,5 +656,24 @@
     }
     });
 </script> 
+
+<script>
+    var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
+//                    alert("str");
+//                    document.getElementById('btngestionar').style.display = 'block';
+//                    document.getElementById('divpop').style.display = 'block';
+                    
+//                    $('#btngestionar')..show();
+//                    $('#divpop')..show();
+    }
+    else{
+//                    alert("str1");
+// $('#btngestionar').hide();
+// $('#divpop').hide();
+                     document.getElementById('btngestionar').style.display = 'none';
+                     document.getElementById('divpop').style.display = 'none';
+  }
+</script>
 </html>
 
