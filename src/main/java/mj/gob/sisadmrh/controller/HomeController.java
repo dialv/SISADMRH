@@ -1,6 +1,9 @@
 package mj.gob.sisadmrh.controller;
-
 import java.security.Principal;
+import mj.gob.sisadmrh.model.Usuario;
+import mj.gob.sisadmrh.repository.UsuarioRepository;
+import mj.gob.sisadmrh.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,10 @@ public class HomeController {
 //    public String index() {
 //        return "index";
 //    }
+    
+    @Autowired 
+    UsuarioRepository usr;
+    
     
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
@@ -40,14 +47,15 @@ public class HomeController {
  
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
- 
-        return "loginPage";
+         return "loginPage";
     }
  
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String homePage(Model model, Principal principal) {
-            model.addAttribute("messageuser", "Usuario :" + principal.getName());
-        return "index";
+        Usuario loginedUser = usr.findbyusername(principal.getName());
+        model.addAttribute("usuario", loginedUser);
+        model.addAttribute("messageuser", "Usuario :" + principal.getName());
+        return (loginedUser.getControlcontrasenia()==1)?"passform":"index";
     }
  
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
@@ -55,42 +63,18 @@ public class HomeController {
         model.addAttribute("title", "Logout");
         return "loginPage";
     }
- 
-//    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
-//    public String userInfo(Model model, Principal principal) {
-// 
-//        // (1) (en)
-//        // After user login successfully.
-//        // (vi)
-//        // Sau khi user login thanh cong se co principal
-//        String userName = principal.getName();
-// 
-//        System.out.println("User Name: " + userName);
-// 
-//        User loginedUser = (User) ((Authentication) principal).getPrincipal();
-// 
-//        String userInfo = WebUtils.toString(loginedUser);
-//        model.addAttribute("userInfo", userInfo);
-// 
-//        return "userInfoPage";
-//    }
- 
+
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
  
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
- 
             String userInfo = WebUtils.toString(loginedUser);
- 
             model.addAttribute("userInfo", userInfo);
- 
             String message = "Hola " + principal.getName() //
-                    + "<br> Tu no cuentas con los permisos para acceder a esta pagina por favor consulta con tu administrador!";
+            + "<br> Tu no cuentas con los permisos para acceder a esta pagina por favor consulta con tu administrador!";
             model.addAttribute("message", message);
- 
         }
- 
         return "403Page";
     }
 }
