@@ -18,5 +18,7 @@ public interface BeneficioService {
 
     void deleteBeneficio(Integer id);
     
+//    void delete2(Integer id);
+    
     Iterable<Beneficio> findByDato(int id) ;
 }

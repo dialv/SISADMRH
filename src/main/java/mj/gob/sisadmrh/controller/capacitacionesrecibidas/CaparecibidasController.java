@@ -63,24 +63,35 @@ public class CaparecibidasController extends UtilsController{
         return PREFIX + "caparecibidas";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("caparecibida", caparecibidasService.getCaparecibidasById(id));
         return PREFIX + "caprecibidasform";
     }
 
+     @RequestMapping("edit/caparecibida/{id}")
+    public String editcontacto(Caparecibidas caparecibidas,@PathVariable Integer id, Model model,SessionStatus status) {
+        caparecibidas.setEstadocapa(1);
+        caparecibidasService.saveCaparecibidas(caparecibidas);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico una capacitacion recibida",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
     @RequestMapping("new/{id}")
-    public String newCaparecibidas(Model model) {
+    public String newCaparecibidas(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("caparecibida", new Caparecibidas());
         return PREFIX + "caprecibidasform";
     }
 
     @RequestMapping(value = "caparecibida/{id}")
-    public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id) {
+    public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
             caparecibidas.setEstadocapa(1);
         caparecibidasService.saveCaparecibidas(caparecibidas);
-            
+             status.setComplete();
         Empleadocaparecibidas emcon = new  Empleadocaparecibidas();
         emcon.setCaparecibidas(caparecibidas);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -98,11 +109,12 @@ public class CaparecibidasController extends UtilsController{
 //        return PREFIX+"caprecibidasform";
         
 //        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
-         return PREFIX + "caprecibidasform";
+        return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showCaparecibidas(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showCaparecibidas(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("caparecibida", caparecibidasService.getCaparecibidasById(id).get());
         return PREFIX +"caprecibidashow";
     }
@@ -118,7 +130,8 @@ public class CaparecibidasController extends UtilsController{
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        return PREFIX +"caprecibidashow";
+          return "redirect:/empleados/";
+//        return PREFIX  +"caparecibidas";
     }
     
       @RequestMapping(value = "caparecibida")

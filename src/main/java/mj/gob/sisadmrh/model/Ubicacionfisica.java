@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,8 +25,17 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "ubicacionfisica")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u")})
+    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u"),
+//    @NamedQuery(name = "Ubicacionfisica.findByCodigoubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.codigoubicacion = :codigoubicacion"),
+//    @NamedQuery(name = "Ubicacionfisica.findByCargofuncional", query = "SELECT u FROM Ubicacionfisica u WHERE u.cargofuncional = :cargofuncional"),
+//    @NamedQuery(name = "Ubicacionfisica.findByJefeinmediato", query = "SELECT u FROM Ubicacionfisica u WHERE u.jefeinmediato = :jefeinmediato"),
+//    @NamedQuery(name = "Ubicacionfisica.findByNombreubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.nombreubicacion = :nombreubicacion"),
+//    @NamedQuery(name = "Ubicacionfisica.findByTeareadesempenia", query = "SELECT u FROM Ubicacionfisica u WHERE u.teareadesempenia = :teareadesempenia"),
+//    @NamedQuery(name = "Ubicacionfisica.findByCodigoempleado", query = "SELECT u FROM Ubicacionfisica u WHERE u.codigoempleado = :codigoempleado"),
+//    @NamedQuery(name = "Ubicacionfisica.findByEstadoubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.estadoubicacion = :estadoubicacion")
+})
 public class Ubicacionfisica implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,9 +49,6 @@ public class Ubicacionfisica implements Serializable {
     @Column(name = "cargofuncional")
     private String cargofuncional;
     @Size(max = 50)
-    @Column(name = "estadoubicacion")
-    private Integer estadoubicacion;
-    @Size(max = 50)
     @Column(name = "jefeinmediato")
     private String jefeinmediato;
     @Size(max = 50)
@@ -54,6 +61,10 @@ public class Ubicacionfisica implements Serializable {
     @NotNull
     @Column(name = "codigoempleado")
     private int codigoempleado;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "estadoubicacion")
+    private int estadoubicacion;
 
     public Ubicacionfisica() {
     }
@@ -62,9 +73,10 @@ public class Ubicacionfisica implements Serializable {
         this.codigoubicacion = codigoubicacion;
     }
 
-    public Ubicacionfisica(Integer codigoubicacion, int codigoempleado) {
+    public Ubicacionfisica(Integer codigoubicacion, int codigoempleado, int estadoubicacion) {
         this.codigoubicacion = codigoubicacion;
         this.codigoempleado = codigoempleado;
+        this.estadoubicacion = estadoubicacion;
     }
 
     public Integer getCodigoubicacion() {
@@ -115,6 +127,14 @@ public class Ubicacionfisica implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
+    public int getEstadoubicacion() {
+        return estadoubicacion;
+    }
+
+    public void setEstadoubicacion(int estadoubicacion) {
+        this.estadoubicacion = estadoubicacion;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -138,14 +158,6 @@ public class Ubicacionfisica implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Ubicacionfisica[ codigoubicacion=" + codigoubicacion + " ]";
-    }
-
-    public Integer getEstadoubicacion() {
-        return estadoubicacion;
-    }
-
-    public void setEstadoubicacion(Integer estadoubicacion) {
-        this.estadoubicacion = estadoubicacion;
     }
     
 }

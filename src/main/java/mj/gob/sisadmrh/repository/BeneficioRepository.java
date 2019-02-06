@@ -11,4 +11,7 @@ public interface BeneficioRepository extends CrudRepository<Beneficio, Integer>{
     
     @Query("SELECT o FROM Beneficio o WHERE o.estadobeneficio != 0")
     public Iterable<Beneficio> listAllActivos(); 
+    
+      @Query(value = "delete FROM  empleadobeneficio  WHERE codigobeneficio= :id ", nativeQuery = true)
+    Iterable<Beneficio> delete2(@Param("id") int dato);
 }

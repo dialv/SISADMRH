@@ -51,5 +51,7 @@ public class BeneficioServiceImpl implements BeneficioService {
     public Iterable<Beneficio> listAllActivos() {
         return beneficioRep.listAllActivos();
     }
+    
+    
 
 }
