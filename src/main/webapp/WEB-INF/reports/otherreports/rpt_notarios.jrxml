@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="96"/>
-	<property name="ireport.y" value="42"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -165,7 +165,7 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 	<columnHeader>
 		<band height="23" splitType="Stretch">
 			<rectangle>
-				<reportElement x="75" y="0" width="797" height="23" uuid="92319add-11b7-49e9-be78-0569261939ca"/>
+				<reportElement x="2" y="0" width="797" height="23" uuid="92319add-11b7-49e9-be78-0569261939ca"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="36" y="0" width="132" height="17" uuid="45933b9f-8ac2-4df1-a559-c0d867795b56"/>
