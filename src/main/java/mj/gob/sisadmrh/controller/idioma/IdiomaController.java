@@ -139,15 +139,17 @@ public class IdiomaController extends UtilsController{
         try{
             Idioma idioma = idiomaService.getIdiomaById(id).get();
             idioma.setEstadoidioma(0);
-          idiomaService.deleteIdioma(id);
-            model.addAttribute("msg", 3);
+          idiomaService.saveIdioma(idioma);
+//           model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+           model.addAttribute("msg", 3);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
         
 //        return "redirect:/idiomas/";
-        return PREFIX + "idiomashow";
+  return "redirect:/empleados/";
+//        return PREFIX + "idiomas";
     }
     
     

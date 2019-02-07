@@ -123,16 +123,16 @@ public class HijodiscapacidadController extends UtilsController{
         try{
             Hijodiscapacidad hijodiscapacidad = hijodiscapacidadService.getHijodiscapacidadById(id).get();
             hijodiscapacidad.setEstadohijos(0);
-            hijodiscapacidadService.deleteHijodiscapacidad(id);
+            hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             model.addAttribute("msg", 3);
-            model.addAttribute("hijodiscapacidad", hijodiscapacidad);
+//            model.addAttribute("hijodiscapacidad", hijodiscapacidad);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-       
+        return "redirect:/empleados/";
 //        return "redirect:/hijodiscapacidades/";
-        return PREFIX +"hijodiscapacidadshow";
+//        return PREFIX +"hijodiscapacidades";
     }
     
      @RequestMapping(value = "hijodiscapacidad")

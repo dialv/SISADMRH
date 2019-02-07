@@ -130,7 +130,8 @@ public class CaparecibidasController extends UtilsController{
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        return PREFIX +"caprecibidashow";
+          return "redirect:/empleados/";
+//        return PREFIX  +"caparecibidas";
     }
     
       @RequestMapping(value = "caparecibida")

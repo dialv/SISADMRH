@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package mj.gob.sisadmrh.controller.UbicacionFisica;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoubicacionfisica;
@@ -55,7 +56,7 @@ public class UbicacionFisicaController extends UtilsController{
         return PREFIX + "ubicacionfisicaform";
     }
     
-    @RequestMapping("edit/contacto/{id}")
+    @RequestMapping("edit/ubicacionfisica/{id}")
     public String editcontacto(Ubicacionfisica ubicacionFisica,@PathVariable Integer id, Model model,SessionStatus status) {
         ubicacionFisica.setEstadoubicacion(1);
         ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
@@ -78,6 +79,7 @@ public class UbicacionFisicaController extends UtilsController{
     public String saveUbicacionFisica(Ubicacionfisica ubicacionFisica,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
             ubicacionFisica.setEstadoubicacion(1);
+            ubicacionFisica.setCodigoempleado(id);
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
            status.setComplete();
            Empleadoubicacionfisica emcon = new  Empleadoubicacionfisica();
@@ -88,10 +90,23 @@ public class UbicacionFisicaController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoubicacionfisicaPK(emconpk);
         empleadoUbicacionfisicaService.saveEmpleadoubicacionfisica(emcon);
+         bitacoraService.BitacoraRegistry("se Creo una Ubiscaion Fisica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
            model.addAttribute("msg", 0);
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
+            Logger.getLogger(UbicacionFisicaController.class.getName()).log(Level.SEVERE, null, e);
+             System.out.println("Error on Ubicacion fisica Instance{");
+                StackTraceElement[] elementRaster=e.getStackTrace();
+                for (int i=0;i<elementRaster.length;i++){
+                    StackTraceElement elementSTD=elementRaster[i];
+                    System.out.print("   "+ i +"- getClassName= "+elementSTD.getClassName());
+                    System.out.print("   getMethodName="+elementSTD.getMethodName());
+                    System.out.print("   getLineNumber="+elementSTD.getLineNumber());
+                    System.out.println("   errorMSG="+e.getMessage());
+                }
+                System.out.println("}");
         }
        return "redirect:/empleados/show/"+id;
        
@@ -111,17 +126,17 @@ public class UbicacionFisicaController extends UtilsController{
         try{
        Ubicacionfisica ubicacionfisica = ubicacionFisicaService.getUbicacionFisicaById(id).get();
        ubicacionfisica.setEstadoubicacion(0);
-        ubicacionFisicaService.deleteUbicacionFisica(id);
+        ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
          model.addAttribute("msg", 3);
-          model.addAttribute("ubicacionfisica",ubicacionfisica);
+//          model.addAttribute("ubicacionfisica",ubicacionfisica);
         }
         catch(Exception e)
         {
         model.addAttribute("msg", 4);
         }
-   
+    return "redirect:/empleados/";
 //        return "redirect:/ubicacionfisicas/";
-        return PREFIX +"ubicacionfisicashow";
+//        return PREFIX +"ubicacionfisicashow";
     }
     
               @RequestMapping(value = "ubicacionfisica")

@@ -109,8 +109,8 @@ public class ContratoController extends UtilsController{
          try{
              Contrato contrato = contratoService.getContratoById(id).get();
              contrato.setEstadocontrato(0);
-            contratoService.deleteContrato(id);
-            model.addAttribute("contrato",contrato);
+            contratoService.saveContrato(contrato);
+//            model.addAttribute("contrato",contrato);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
@@ -118,7 +118,8 @@ public class ContratoController extends UtilsController{
         }
         
 //        return "redirect:/contratos/";
-        return PREFIX +"contratoshow";
+ return "redirect:/empleados/";
+//        return PREFIX +"contratos";
     }
     
                   @RequestMapping(value = "contrato1")

@@ -79,23 +79,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </form>
  <form class="form-horizontal" id="formubicacion" th:object="${ubicacionfisica}" th:action="@{../ubicacionfisica}" method="post">
                 <input type="hidden" th:field="*{codigoubicacion}"/>
-                 <!--<input type="hidden" id="codem" th:field="*{codigoempleado}"/>-->
+                 <!--<input type="hidden" id="ce" th:field="*{codigoempleado}"/>-->
                   <!--<input type="hidden" id="codem"  />-->
             <div class="col-md-12" >
                 
                  <div class="form-group">
                      <br>
-                    <label class="col-sm-3 control-label">Destacado en(*):</label>
+                    <label class="col-sm-3 control-label">Nombre de Ubicacion(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   required="false" size="50" maxlength="50"  />
+                        <input type="text" class="form-control"  th:field="*{nombreubicacion}"  required="false" size="50" maxlength="50"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
                         
-                        <span class="popuptext" id="poppup2">Ingrese en que es destacado el Empleado solo se admitiran 50 caracteres.!</span>
+                        <span class="popuptext" id="poppup2">Ingrese el nombre de la ubicacion del Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
                 <div class="form-group">
+                    <br>
                     <label class="col-sm-3 control-label">Nombre de Jefe Inmediato(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{jefeinmediato}"  />
@@ -320,6 +321,7 @@ var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
 //alert(str);
 $(function () {
           document.getElementById("codem").value = str;
+//           document.getElementById("ce").value = str;
       });}
 	</script>
         

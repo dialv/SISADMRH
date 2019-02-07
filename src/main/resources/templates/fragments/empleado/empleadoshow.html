@@ -32,7 +32,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-5 control-label">codigo:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
+                                <p class="form-control-static"  th:text="${empleado.codigoempleado}">codigo de Empleado</p>
+                            <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+                            </div>
+                                
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre de Empleado</label>
@@ -715,10 +718,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${beneficio.descripcionbeneficio}">descripcionbeneficio</td>  
 															<td th:text="${beneficio.fechainiciobeneficio}">fechainiciobeneficio</td>   
 															<td th:text="${beneficio.fechafinalizarbeneficio}">fechafinalizarbeneficio</td> 															
-															<td><a th:href="${'../../beneficio/show/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../beneficio/edit/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../beneficios/show2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../beneficios/edit2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../beneficio/delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../beneficio/delete/' + beneficio.codigobeneficio}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../beneficios/delete2/' + beneficio.codigobeneficio}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
