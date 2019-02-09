@@ -40,6 +40,17 @@
                             </div>
             </div>
             <div class="form-group">
+                <label class="col-sm-2 control-label">dui de Usuario:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control numeros" required="true" size="100" maxlength="9" th:field="*{dui}" />
+                </div>
+                 <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dui')" onmouseout ="javascript:ocultarAyuda('dui')">a</a></b>
+
+                                <span class="popuptext" id="dui">Ingrese el DUI del Usuario. Solo es permitido digitos 9 caracteres. !!</span>
+                            </div>
+            </div>
+            <div class="form-group">
                 <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
                 <div class="col-sm-6">
                     <input type="password" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>

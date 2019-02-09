@@ -61,6 +61,7 @@ public class UsuarioController extends UtilsController{
         Date fecha = new Date();
         usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
+        usuario.setControlcontrasenia(1);
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();

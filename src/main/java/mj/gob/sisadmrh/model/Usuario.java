@@ -67,12 +67,22 @@ public class Usuario implements Serializable {
     private Date fechabaja;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Usuariorol> usuariorolList;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 9)
+    @Column(name = "dui")
+    private String dui;
 
     public Usuario() {
     }
 
     public Usuario(Integer codigousuario) {
         this.codigousuario = codigousuario;
+    }
+
+    public Usuario(Integer codigousuario, String dui) {
+        this.codigousuario = codigousuario;
+        this.dui = dui;
     }
 
     public Integer getCodigousuario() {
@@ -145,6 +155,14 @@ public class Usuario implements Serializable {
 
     public void setUsuariorolList(List<Usuariorol> usuariorolList) {
         this.usuariorolList = usuariorolList;
+    }
+
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
     }
 
     @Override

@@ -6,10 +6,12 @@ import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
 
 /**
@@ -17,11 +19,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author dialv
  */
 @Controller
-public class HomeController {
+public class HomeController extends UtilsController{
 //   @RequestMapping("/")
 //    public String index() {
 //        return "index";
 //    }
+    private UsuarioService usuarioService;
+    
+    @Autowired
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+    
+    @Autowired
+    BCryptPasswordEncoder paswordEnc; 
+    
     
     @Autowired 
     UsuarioRepository usr;
@@ -33,18 +45,25 @@ public class HomeController {
         model.addAttribute("message", "Bienvenido");
         return "loginPage";
     }
- 
-//    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-//    public String adminPage(Model model, Principal principal) {
-//         
-//        User loginedUser = (User) ((Authentication) principal).getPrincipal();
-// 
-//        String userInfo = WebUtils.toString(loginedUser);
-//        model.addAttribute("userInfo", userInfo);
-//         
-//        return "adminPage";
-//    }
- 
+  @RequestMapping(value = "usuarioconfirm")
+    public String usuarioconfirm(Usuario usuario,Model model, SessionStatus status) {
+        try{
+        usuario = usuarioService.getUsuarioById(usuario.getCodigousuario()).get();
+        usuario.setControlcontrasenia(0);
+        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
+        usuarioService.saveUsuario(usuario);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+         model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+        }
+        return "index";
+       // return "redirect:./show/" + usuario.getCodigousuario();
+    }
+   
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
          return "loginPage";
