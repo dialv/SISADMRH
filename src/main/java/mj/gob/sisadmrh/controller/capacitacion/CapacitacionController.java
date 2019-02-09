@@ -100,11 +100,13 @@ public class CapacitacionController extends UtilsController{
             bitacoraService.BitacoraRegistry("se guardo una Capacitacion",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
            model.addAttribute("msg", 0);
+           model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
+           return PREFIX + "capacitaciones";
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
         }
-       return PREFIX + "capacitacionform";
+       return PREFIX + "capacitaciones";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
