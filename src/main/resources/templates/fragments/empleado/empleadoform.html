@@ -12,7 +12,7 @@
  
       <!--<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>-->
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -89,7 +89,7 @@
             </div>
                 
                 <div class="form-group">
-                        <label class="col-sm-3 control-label">Puestos:</label>
+                        <label class="col-sm-3 control-label">Puesto del Empleado:</label>
                         <div class="col-sm-5" >
                             <select class="form-control"  th:field="*{codigopuesto}"  width="50">
                                 <option th:each="c:${puestos}" th:value="${c.codigopuesto}" th:text="${c.nombrepuesto}"></option>
@@ -104,7 +104,7 @@
                 
                 
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                    <label class="col-sm-3 control-label">Nombres del Empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombreempleado}"  >
                                         
@@ -117,7 +117,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
+                    <label class="col-sm-3 control-label">Apellidos del Empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{apellidoempleado}" />
                     </div>
@@ -129,7 +129,7 @@
                      
                 </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Nacimiento(*):</label>
+                <label class="col-sm-3 control-label">Fecha de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" size="10" name="fechanacimiento" id="fechanacimiento"  th:field="*{fechanacimientoempleado}" onchange="fechaNac(this.value,'fechanacimiento')" />
                     
@@ -141,7 +141,7 @@
                     </div>
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Nacionalidad(*):</label>
+                <label class="col-sm-3 control-label">Nacionalidad del Empleado(*):</label>
                 <div class="col-sm-4">
                     <select class="form-control" name="nacionalidad" >
                         <!--th:field="*{nacionalidad}">-->
@@ -157,7 +157,7 @@
                     </div>
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Departamento de Nacimiento(*):</label>
+                <label class="col-sm-3 control-label">Departamento de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
                     <select class="form-control" name="depnacimiento" >
                             <!--th:field="*{departamentonacimiento}">-->
@@ -173,7 +173,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Municipio de Nacimiento(*):</label>
+                <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
                     <select class="form-control" >
                             <!--th:field="*{municipionacimiento}">-->
@@ -190,7 +190,7 @@
                 
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Estado Familiar(*):</label>
+                <label class="col-sm-3 control-label">Estado Familiar del Empleado(*):</label>
                 <div class="col-sm-2">
                     <select class="form-control" name="estfamiliar">
                             <!--th:field="*{estadofamiliar}">-->
@@ -206,7 +206,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo(*):</label>
+                <label class="col-sm-3 control-label">Sexo del Empleado(*):</label>
                 <div class="col-sm-2">
                     <select class="form-control" name="sexoempleado" >
                             <!--th:field="*{sexoempleado}">-->
@@ -221,7 +221,7 @@
                     </div>
             </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Residencia Permanente(*):</label>
+                    <label class="col-sm-3 control-label">Residencia Permanente del Empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{recidenciapermanente}" />
                     </div>
@@ -232,7 +232,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo(*):</label>
+                    <label class="col-sm-3 control-label">Telefono Fijo del Empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text"  class="form-control num_telefono" required="true"    th:field="*{telefonofijoempleado} "/>
                     </div>
@@ -243,7 +243,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil(*):</label>
+                    <label class="col-sm-3 control-label">Telefono Movil del Empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text"  class="form-control num_telefono" required="true"   th:field="*{telefonomovilempleado}  "/>
                     </div>
@@ -254,7 +254,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Email(*):</label>
+                    <label class="col-sm-3 control-label">Correo Electronico del Empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="email" class="form-control"  required="true" th:field="*{emailempleado}  "/>
                     </div>
@@ -268,7 +268,7 @@
             <div class="col-md-6">  -->
                 
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Departamento de Residencia(*):</label>
+                <label class="col-sm-3 control-label">Departamento de Residencia del Empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="departamentorecidencia" >
                             <!--th:field="*{departamentorecidencia}">-->
@@ -284,7 +284,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Municipio de Residencia(*):</label>
+                <label class="col-sm-3 control-label">Municipio de Residencia del Empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="municipioresidencia" >
                             <!--th:field="*{municipioresidencia}" >-->
@@ -301,7 +301,7 @@
             </div>
                 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">DUI(*):</label>
+                    <label class="col-sm-3 control-label">DUI del Empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control num_dui"  required="true"   th:field="*{duiempleado}"  />
                     </div>
@@ -313,7 +313,7 @@
                 </div>
                 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">NIT(*):</label>
+                    <label class="col-sm-3 control-label">NIT del Empleado(*):</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control num_nit" required="true"  th:field="*{nitempleador}"   />
                     </div>
@@ -325,7 +325,7 @@
                 </div>
                 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">ISSS(*):</label>
+                    <label class="col-sm-3 control-label">ISSS del Empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control num_isss" required="true"  th:field="*{isssempleado}" />
                     </div>
@@ -336,7 +336,7 @@
                     </div>
                 </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Ingreso al Sector Publico(*):</label>
+                <label class="col-sm-3 control-label">Fecha de Ingreso al Sector Publico (*):</label>
                 <div class="col-sm-2">
                     
                      <input class="form-control fecha_format" type="text"   placeholder="dia/mes/año" name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}" onchange="isDat(this.value,'fechasepu')" />
@@ -371,7 +371,7 @@
             </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Grupo Sanguineo(*):</label>
+                    <label class="col-sm-3 control-label">Grupo Sanguineo del Empleado(*):</label>
                     <div class="col-sm-2">
                         <!--<input type="text" class="form-control"    th:field="*{gruposanquineo}" />-->
                           <select class="form-control" name="gruposanquineo" >
@@ -389,7 +389,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de Pension(*):</label>
+                <label class="col-sm-3 control-label">Tipo de Pension del Empleado(*):</label>
                 <div class="col-sm-2">
                     <select class="form-control" name="afiliacionpension" >
                             <!--th:field="*{afiliacionpension}" >-->
@@ -404,7 +404,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">NUP(*):</label>
+                    <label class="col-sm-3 control-label">NUP del Empleado(*):</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control num_nup" required="true"  th:field="*{numeroafiliacion}"  />
                     </div>
@@ -442,7 +442,7 @@
              
             </div>
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Numero de Cuenta(*):</label>
+                    <label class="col-sm-3 control-label">Numero de Cuenta del Empleado(*):</label>
                     <div class="col-sm-4">
                         <input type="text"  class="form-control num_cuenta"   required="true" size="30" th:field="*{numerocuenta} "/>
                     </div>
