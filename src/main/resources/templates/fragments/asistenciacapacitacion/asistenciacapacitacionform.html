@@ -61,7 +61,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <!--<select class="form-control" id="combo" th:field="*{asistenciaCapacitacion.codigoempleado.codigoempleado}" >-->
                             <select class="form-control" id="combo"  >
                             <option value="0">-- Seleccione un empleado --</option>
-                            <option th:each="d:${formasistenciacapacitancion.empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}"></option>
+                            <option th:each="d:${formasistenciacapacitancion.empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
                             </select>
                             <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
                             <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
