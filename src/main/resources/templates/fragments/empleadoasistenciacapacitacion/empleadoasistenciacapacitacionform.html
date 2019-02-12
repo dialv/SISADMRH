@@ -28,7 +28,7 @@
                         <label class="col-sm-2 control-label">Nombre empleado:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="empleado.codigoempleado" id="empleado" >
-                                <option th:each="c:${formasistenciaempleadocapacitacion.empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                                <option th:each="c:${formasistenciaempleadocapacitacion.empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                         </select>
                         </div>
                     </div>
