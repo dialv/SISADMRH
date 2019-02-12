@@ -1,49 +1,54 @@
-package mj.gob.sisadmrh.model;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
- * @author jorge
+ * @author root
  */
 @Embeddable
 public class EmpleadoasistenciacapacitacionPK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "CODIGOEMPLEADO")
-    private Integer codigoempleado;
+    @Column(name = "codigoempleado")
+    private int codigoempleado;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CODIGOASISTENCIACAPACITACION")
+    @Column(name = "codigoasistenciacapacitacion")
     private int codigoasistenciacapacitacion;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "fecha")
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
 
     public EmpleadoasistenciacapacitacionPK() {
     }
 
-    public EmpleadoasistenciacapacitacionPK(Integer codigoempleado, int codigoasistenciacapacitacion) {
+    public EmpleadoasistenciacapacitacionPK(int codigoempleado, int codigoasistenciacapacitacion, Date fecha) {
         this.codigoempleado = codigoempleado;
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
+        this.fecha = fecha;
     }
 
-    public Integer getCodigoempleado() {
+    public int getCodigoempleado() {
         return codigoempleado;
     }
 
-    public void setCodigoempleado(Integer codigoempleado) {
+    public void setCodigoempleado(int codigoempleado) {
         this.codigoempleado = codigoempleado;
     }
 
@@ -55,11 +60,20 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigoempleado != null ? codigoempleado.hashCode() : 0);
+        hash += (int) codigoempleado;
         hash += (int) codigoasistenciacapacitacion;
+        hash += (fecha != null ? fecha.hashCode() : 0);
         return hash;
     }
 
@@ -70,10 +84,13 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
             return false;
         }
         EmpleadoasistenciacapacitacionPK other = (EmpleadoasistenciacapacitacionPK) object;
-        if ((this.codigoempleado == null && other.codigoempleado != null) || (this.codigoempleado != null && !this.codigoempleado.equals(other.codigoempleado))) {
+        if (this.codigoempleado != other.codigoempleado) {
             return false;
         }
         if (this.codigoasistenciacapacitacion != other.codigoasistenciacapacitacion) {
+            return false;
+        }
+        if ((this.fecha == null && other.fecha != null) || (this.fecha != null && !this.fecha.equals(other.fecha))) {
             return false;
         }
         return true;
@@ -81,7 +98,7 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
 
     @Override
     public String toString() {
-        return "model.EmpleadoasistenciacapacitacionPK[ codigoempleado=" + codigoempleado + ", codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
+        return "mj.gob.sisadmrh.model.EmpleadoasistenciacapacitacionPK[ codigoempleado=" + codigoempleado + ", codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + ", fecha=" + fecha + " ]";
     }
     
 }
