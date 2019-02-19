@@ -46,11 +46,12 @@ public class HomeController extends UtilsController{
         return "loginPage";
     }
   @RequestMapping(value = "usuarioconfirm")
-    public String usuarioconfirm(Usuario usuario,Model model, SessionStatus status) {
+    public String usuarioconfirm(Usuario usuario1,Model model, SessionStatus status) {
         try{
-        usuario = usuarioService.getUsuarioById(usuario.getCodigousuario()).get();
+            
+        Usuario usuario = usuarioService.getUsuarioById(usuario1.getCodigousuario()).get();
         usuario.setControlcontrasenia(0);
-        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
+        usuario.setContraseniausuario(paswordEnc.encode(usuario1.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
          bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
