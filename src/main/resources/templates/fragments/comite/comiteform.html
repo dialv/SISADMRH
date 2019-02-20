@@ -46,7 +46,7 @@
                             <label class="col-sm-2 control-label">Responsable del Comite:</label>
                             <div class="col-sm-5">
                                 <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
-                                    <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                                    <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                                 </select>
                                 <!--<input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
                             </div>
