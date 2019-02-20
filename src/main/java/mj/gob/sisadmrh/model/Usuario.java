@@ -46,6 +46,9 @@ public class Usuario implements Serializable {
     @Size(max = 50)
     @Column(name = "NOMBREUSUARIO")
     private String nombreusuario;
+    @Size(max = 50)
+    @Column(name = "nombrecompleto")
+    private String nombrecompleto;
     @Size(max = 100)
     @Column(name = "CONTRASENIAUSUARIO")
     private String contraseniausuario;
@@ -188,6 +191,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Usuario[ codigousuario=" + codigousuario + " ]";
+    }
+
+    public String getNombrecompleto() {
+        return nombrecompleto;
+    }
+
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
     }
     
 }

@@ -2,139 +2,182 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
         <title>Cambio de Contraseña</title>
-    <th:block th:include="../templates/header"></th:block>
-</head>
-<body>
-    <div class="row">
-        <div class="col-md-9">
-            <br><br>
-            <div class="row text-center">
-                <img src="../../static/image/agregarusuario.png" width="150" th:src="@{/image/agregarusuario.png}"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
+        <link href="../static/css/Style1.css" th:href="@{/css/Style1.css}" rel="stylesheet" media="screen"/>
+        <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
+        <script type="text/javascript" th:src="@{/js/SweetAlert.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery.dataTables.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/dataTables.bootstrap4.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery.mask.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/validacion_controladores.js}"></script>
+        <script type="text/javascript" th:src="@{/js/validacion_controladores2.js}"></script>
+        <script type="text/javascript" th:src="@{/js/script.js}"></script>
+        <script type="text/javascript" th:src="@{/js/validacion_todores3.js}"></script>
+        <script type="text/javascript" th:src="@{/js/helpJs.js}"></script>
+        <link href="../static/css/jquery-ui.css" th:href="@{/css/jquery-ui.css}" rel="stylesheet" media="screen"/>
+        <link href="../static/css/dataTables.bootstrap4.min.css" th:href="@{/css/dataTables.bootstrap4.min.css}" rel="stylesheet" media="screen"/>
+        <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+        <link rel="shortcut icon" type="../../static/image/favicon.png"   th:href="@{/image/favicon.png}"/>
+    </head>
+    <body>
+        <div th:fragment="header">
+            <div class="row fondoloco">
+                <div  class="col-md-3">
+                    <div class="row text-center">
+                        <img src="../../static/image/gob.png"  th:src="@{/image/gob.png}"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row text-center">
+                        <h2 class="hmod">Ministerio de Justicia y Seguridad Publica
+                            <br>Direccion de Recursos Humanos
+                            <br>SISADMRH</h2>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row text-center">
+                        <img src="../../static/image/mjsp.jpg"  th:src="@{/image/mjsp.jpg}"/>
+                    </div>
+                </div>
             </div>
-            <br>
-
-            <div>
-                <form id ="usuarioform" class="form-horizontal" th:object="${usuario}" th:action="@{../sisadmrh/usuarioconfirm}" method="post" >
-                    <input type="hidden" th:field="*{codigousuario}"/>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombre de Usuario:</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
-                            <span class="popuptext" id="nomUser">Ingrese el Nombre del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
-                        </div>
+            <div class="row fondoloco">
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label>Fecha:
+                            <script >
+                                var f = new Date();
+                                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+                            </script></label>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
-
-                            <span class="popuptext" id="passw">Ingrese la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
-                        </div>
+                    <div class="col-md-2 der">
+                        <label  id="nombrepantalla"></label> 
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
-                        <div class="col-sm-6">
-                            <input type="password" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
-
-                            <span class="popuptext" id="passw">Confirme la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
-                        </div>
+                    <div class="col-md-4 conteinertitulopantalla" align="center">
+                        <h2 class="hmod" id="titulopantalla" align="center"></h2>
                     </div>
-
-                    <div class="row" align="center">
-                        <a href="#" th:href="@{/usuarios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                        <button type="button" id = "guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                        <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-
+                    <div class="col-md-3" align="right">  
+                        <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-user"></span><b th:if="${#request.userPrincipal != null}"  th:utext="${#request.userPrincipal.getName()}" ></b>
+                        </button>
+                        <a th:if="${#request.userPrincipal != null}" class="btn btn-danger" th:href="@{/logout}">Cerrar Session</a>                        
                     </div>
-           
-
-            </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="row">
+            <div class="col-md-9">
+                <div>
+                    <form id ="usuarioform" class="form-horizontal" th:object="${usuario}" th:action="@{../sisadmrh/usuarioconfirm}" method="post" >
+                        <input type="hidden" th:field="*{codigousuario}"/>
+                        <div class="form-group">
+                            <br><br>
+                            <label class="col-sm-3 control-label"></label>
+                            <label class="col-sm-2 control-label">Nombre de Usuario:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
+                                <span class="popuptext" id="nomUser">Ingrese el Nombre del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <label class="col-sm-2 control-label">Contraseña de Usuario:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
+                                <span class="popuptext" id="passw">Ingrese la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
+                            <div class="col-sm-6">
+                                <input type="password" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
+                                <span class="popuptext" id="passw">Confirme la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
+                            </div>
+                        </div>
+                        <div class="row" align="center">
+                            <label class="col-sm-3 control-label"></label>
+                            <button type="button" id = "guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
 
-</body>
+        function Fechas(val1, val2, val3, val4) {
+            var foo = ValidarFecha(val1, val2, val3, val4).split(",");
+            ;
+            if (foo[0] != foo[2]) {
+                swal(foo[1], foo[0]);
+            }
+        }
 
-<script>
-
-    function Fechas(val1, val2, val3, val4){
-    var foo = ValidarFecha(val1, val2, val3, val4).split(","); ;
-    if (foo[0] != foo[2]){
-    swal(foo[1], foo[0]);
-    }
-    }
-
-    function isDat(val, id){
-    var foo = ExisteFecha(val, id).split(","); ;
-    if (foo[0] != foo[2]){
-    swal(foo[1], foo[0]);
-    }
-    }
-    $(document).ready(function () {
-    $('#fdesde').datepicker({
-    dateFormat: 'dd/mm/yy'
-    });
-    $('#fhasta').datepicker({
-    dateFormat: 'dd/mm/yy'
-    });
-    $('#fchabaja').datepicker({
-    dateFormat: 'dd/mm/yy'
-    });
-    });</script>
-
+        function isDat(val, id) {
+            var foo = ExisteFecha(val, id).split(",");
+            ;
+            if (foo[0] != foo[2]) {
+                swal(foo[1], foo[0]);
+            }
+        }
+        $(document).ready(function () {
+            $('#fdesde').datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
+            $('#fhasta').datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
+            $('#fchabaja').datepicker({
+                dateFormat: 'dd/mm/yy'
+            });
+        });</script>
 </body>
 <script th:inline="javascript">
     Textheader('pnt_geus', document.title);
     $(document).ready(function () {
-
-
-    $('#guardar').click(function(){
-    var pass = $("#pass").val();
-    if (pass == $("#confpass").val()){
-    if (pass.length >= 8){
-    $("form#usuarioform").submit();
-    }
-    else{
-    swal({
-    title: "ERROR!",
-            text: "la contraseña debe tener al menos 8 caracteres",
-            type: "error",
-            icon: "error"
-    });
-    }
-    }
-    else {
-    swal({
-    title: "ERROR!",
-            text: "las contraseñas no coinciden",
-            type: "error",
-            icon: "error"
-    });
-    }
-
-    });
-    
-
-    if ([[${msg}]] === 1){
-    swal({
-    title: "ERROR!",
-            text: "Ocurrio un error en el proceso",
-            type: "error",
-            icon: "error"
-    });
-    }
+        $('#guardar').click(function () {
+            var pass = $("#pass").val();
+            if (pass == $("#confpass").val()) {
+                if (pass.length >= 8) {
+                    $("form#usuarioform").submit();
+                } else {
+                    swal({
+                        title: "ERROR!",
+                        text: "la contraseña debe tener al menos 8 caracteres",
+                        type: "error",
+                        icon: "error"
+                    });
+                }
+            } else {
+                swal({
+                    title: "ERROR!",
+                    text: "las contraseñas no coinciden",
+                    type: "error",
+                    icon: "error"
+                });
+            }
+        });
+        if ([[${msg}]] === 1) {
+            swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+            });
+        }
     });
 </script> 
-
-
 </html>

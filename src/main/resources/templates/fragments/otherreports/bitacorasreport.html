@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH-Reporte de Abogados</title>
+        <title>SISADMRH-Reporte Bitacora</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -68,7 +68,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                      <div class="row" align="center">    
                          <td><a class="btn btn-danger" id="generar">PDF</a></td>
-                         <td><a class="btn btn-success" id="excel">EXCEL</a></td>
+                         <!--<td><a class="btn btn-success" id="excel">EXCEL</a></td>-->
                     </div>
                 </form>
             </div>
@@ -101,7 +101,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             dateFormat: 'dd/mm/yy'
         });
         $('#generar').click(function(){
-            $("#formreport").attr('action', '../abogados/1');
+            $("#formreport").attr('action', '../bitacoras/1');
             $("form#formreport").submit();
             
         });
