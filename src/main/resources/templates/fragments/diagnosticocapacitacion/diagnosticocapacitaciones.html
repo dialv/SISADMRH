@@ -122,7 +122,7 @@
         function eliminar(id) {
             swal({
                 title: "Desea Eliminar?",
-                text: "favor confirme que desea eliminar este registro!",
+                text: "Favor confirme que desea eliminar este registro!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -131,7 +131,7 @@
                         if (willDelete) {
                             location.href = './delete/' + id;
                         } else {
-                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
                         }
                     });
         }
