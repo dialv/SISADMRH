@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b555deb-ccc6-4f42-812f-3a85bbeb223a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="8"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -16,12 +16,10 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select e.nombreempleado,p.nombrepuesto,c.salarioactual,c.fechainiciocontrato,c.partidacontrato,p.nivelpuesto,p.fechabaja 
+		<![CDATA[select concat(e.nombreempleado,' ', e.apellidoempleado) as nombres ,p.nombrepuesto,c.salarioactual,c.fechainiciocontrato,c.partidacontrato,p.nivelpuesto,p.fechabaja 
 from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join contrato c on e.codigoempleado=c.codigoempleado]]>
 	</queryString>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="nombres" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -187,7 +185,7 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<reportElement x="660" y="0" width="1" height="25" uuid="0c68bb5d-3946-42f6-a9e7-d122b47175a2"/>
 			</line>
 			<staticText>
-				<reportElement x="17" y="2" width="100" height="20" uuid="0305275c-b58e-45a4-bdd5-49297e590b3e"/>
+				<reportElement x="10" y="5" width="100" height="20" uuid="0305275c-b58e-45a4-bdd5-49297e590b3e"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
@@ -199,7 +197,7 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 			<staticText>
 				<reportElement x="237" y="2" width="100" height="20" uuid="2a6e48df-1bc1-42c8-a309-3755abe8e45c"/>
 				<textElement textAlignment="Center"/>
-				<text><![CDATA[Salario Atctual]]></text>
+				<text><![CDATA[Salario Atctual($)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="346" y="2" width="100" height="20" uuid="bc8efa27-d9f6-470b-a885-ec04abde2bb9"/>
@@ -217,20 +215,15 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<text><![CDATA[Nivel de Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="683" y="2" width="100" height="20" uuid="07ef8339-4fc2-4b2d-b2ab-645c8eb64347"/>
+				<reportElement x="710" y="2" width="75" height="20" uuid="07ef8339-4fc2-4b2d-b2ab-645c8eb64347"/>
 				<text><![CDATA[Fecha Baja]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="14" y="0" width="100" height="20" uuid="ca021043-8172-43d9-a634-6676d1ca39f8"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="126" y="0" width="100" height="20" uuid="52d265b4-fd85-4cb4-bbca-65902e887122"/>
+				<reportElement x="133" y="0" width="100" height="20" uuid="52d265b4-fd85-4cb4-bbca-65902e887122"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
@@ -255,8 +248,12 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<textFieldExpression><![CDATA[$F{nivelpuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="683" y="0" width="100" height="20" uuid="62733437-e453-4845-a7b4-7e7d70e11783"/>
+				<reportElement x="714" y="0" width="40" height="20" uuid="62733437-e453-4845-a7b4-7e7d70e11783"/>
 				<textFieldExpression><![CDATA[$F{fechabaja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="3" width="100" height="20" uuid="aa2a6dab-1209-4101-9c78-7be23f52c99d"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -19,7 +19,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.NOMBREEMPLEADO, p.nombrepuesto, c.numeroacuerdocomision, c.nombrecomision, c.fechadesdecomision, c.fechahastacomision FROM miembroscomision m inner join comision c on m.codigocomision
+		<![CDATA[SELECT e.NOMBREEMPLEADO, p.nombrepuesto, c.numeroacuerdocomision, c.nombrecomision,DATE_FORMAT(c.fechadesdecomision, '%d/%m/%Y') as Desde , DATE_FORMAT(c.fechahastacomision, '%d/%m/%Y') as Hasta FROM miembroscomision m inner join comision c on m.codigocomision
 = c.codigocomision inner join empleado e on m.CODIGOEMPLEADO=e.CODIGOEMPLEADO inner join puesto p on p.codigopuesto=e.codigopuesto where c.fechadesdecomision>=$P{FECHAINICIO} and c.fechahastacomision<=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="NOMBREEMPLEADO" class="java.lang.String">
@@ -34,12 +34,8 @@
 	<field name="nombrecomision" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechadesdecomision" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechahastacomision" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -229,14 +225,14 @@
 				<textFieldExpression><![CDATA[$F{nombrecomision}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="557" y="5" width="100" height="14" uuid="69c5818e-1468-4137-9485-49df981328d2"/>
+				<reportElement x="557" y="1" width="100" height="20" uuid="ea9e01c9-78eb-45e0-9672-4dcf60ba439d"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{fechadesdecomision}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="686" y="5" width="100" height="14" uuid="ec412bff-41bb-4250-b244-d7273d757e87"/>
+				<reportElement x="676" y="1" width="100" height="20" uuid="4d4d5026-0c35-4c1d-b444-6bafe7276d10"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{fechahastacomision}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

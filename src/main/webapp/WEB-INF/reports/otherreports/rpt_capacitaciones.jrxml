@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.3310000000000073"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="87"/>
+	<property name="ireport.x" value="225"/>
+	<property name="ireport.y" value="67"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -19,8 +19,8 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT  e.nombreempleado,p.nombrepuesto,ca.duracionhoracapacitacion,ca.nombrecapacitacion,
-ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e 
+		<![CDATA[SELECT   concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado ,p.nombrepuesto,ca.duracionhoracapacitacion,ca.nombrecapacitacion,
+ca.departamentoresponsable,DATE_FORMAT(ca.fechacapacitaciondesde, '%d/%m/%Y') as Desde, DATE_FORMAT(ca.fechacapacitacionhasta, '%d/%m/%Y') as Hasta from empleado e 
 
  inner join puesto p on e.codigopuesto=p.codigopuesto 
  inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado
@@ -30,9 +30,7 @@ where
  ca.fechacapacitaciondesde>=$P{FECHAINICIO}
 and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	</queryString>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -45,17 +43,13 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	<field name="departamentoresponsable" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechacapacitaciondesde" class="java.sql.Timestamp">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechacapacitacionhasta" class="java.sql.Timestamp">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
 	<variable name="count(ca.codigocapacitacion)_1" class="java.lang.Long" resetType="Column" calculation="Sum">
 		<variableExpression><![CDATA[]]></variableExpression>
 	</variable>
 	<group name="nombreempleado">
-		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
 		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
@@ -266,13 +260,6 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField>
-				<reportElement x="12" y="0" width="111" height="14" uuid="1748ebf9-0a45-4a7c-b32a-c7d5e14c7d0f"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="129" y="0" width="111" height="14" uuid="f4ae7cc1-6b28-4d72-a801-7f6cd0cd4606"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
@@ -301,18 +288,16 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[$F{departamentoresponsable}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="609" y="0" width="90" height="14" uuid="8f448549-2f0a-4e9a-a9d4-0ffcfd8d2488"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fechacapacitaciondesde}]]></textFieldExpression>
+				<reportElement x="22" y="0" width="100" height="14" uuid="626474d5-125d-4b31-8814-481071c09c35"/>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="714" y="-1" width="90" height="14" uuid="b7945dda-3755-41cd-88bf-c01e81148f0e"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fechacapacitacionhasta}]]></textFieldExpression>
+				<reportElement x="609" y="0" width="100" height="14" uuid="6a4487a2-327d-4fe1-a794-19fc16fb7ca2"/>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="714" y="0" width="80" height="14" uuid="1b6109fe-2d7c-4179-be27-a3ac43aa2485"/>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

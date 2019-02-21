@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="77"/>
-	<property name="ireport.y" value="76"/>
+	<property name="ireport.x" value="41"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -12,7 +12,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.codigoempleado, e.nombreempleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, d.fechacontrataciondesde, d.fechacontratacionhasta
+		<![CDATA[SELECT e.codigoempleado, concat(e.nombreempleado, ' ',e.apellidoempleado) as Empleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, DATE_FORMAT(d.fechacontrataciondesde, '%d/%m/%Y') AS Desde,DATE_FORMAT( d.fechacontratacionhasta, '%d/%m/%Y')as Hasta
 FROM empleado e INNER JOIN empleadopuesto p
 on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto
 where
@@ -21,9 +21,7 @@ e.codigoempleado=$P{CODIGO}]]>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -33,14 +31,10 @@ e.codigoempleado=$P{CODIGO}]]>
 	<field name="sueldotopepuesto" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechacontrataciondesde" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechacontratacionhasta" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
 	<group name="nombreempleado">
-		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
 		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
@@ -198,14 +192,14 @@ e.codigoempleado=$P{CODIGO}]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Sueldo Base]]></text>
+				<text><![CDATA[Sueldo Base($)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="409" y="0" width="86" height="17" uuid="6add28a2-4948-4e1c-9a2b-2f23dd7335ca"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Sueldo final]]></text>
+				<text><![CDATA[Sueldo final($)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="528" y="0" width="121" height="17" uuid="a1e8b592-2b67-45f9-ac83-75b897bb913a"/>
@@ -241,13 +235,6 @@ e.codigoempleado=$P{CODIGO}]]>
 	<detail>
 		<band height="16" splitType="Stretch">
 			<textField>
-				<reportElement x="6" y="0" width="137" height="14" uuid="ba926ae7-2f74-4690-8f31-4becf5e5b2bb"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="157" y="0" width="136" height="14" uuid="9225867d-e615-4135-b591-459d852df725"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
@@ -269,18 +256,25 @@ e.codigoempleado=$P{CODIGO}]]>
 				<textFieldExpression><![CDATA[$F{sueldotopepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="529" y="2" width="118" height="14" uuid="05a15696-7076-45cb-802d-0d55a70ab4e4"/>
+				<reportElement x="15" y="0" width="100" height="14" uuid="d2840909-1665-4e86-8537-e9a1557d482d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{fechacontrataciondesde}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="675" y="2" width="100" height="14" uuid="98797912-3e86-495f-b045-478da6e09680"/>
-				<textElement textAlignment="Right">
+				<reportElement x="540" y="0" width="100" height="14" uuid="047aa3a6-8cd2-42cc-a7aa-874288256460"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{fechacontratacionhasta}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="697" y="0" width="100" height="14" uuid="09d501bf-37c4-4183-9d82-36a64abd5202"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

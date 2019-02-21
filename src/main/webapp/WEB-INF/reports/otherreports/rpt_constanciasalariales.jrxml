@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
 	<property name="ireport.zoom" value="2.1435888100000016"/>
-	<property name="ireport.x" value="18"/>
-	<property name="ireport.y" value="75"/>
+	<property name="ireport.x" value="96"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -19,15 +19,13 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total, e.nombreempleado,c.salarioactual,c.fechainiciocontrato,c.fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,el.nombreinstitucion, CURRENT_DATE from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado inner join empleadodescuento ed on e.codigoempleado=ed.codigoempleado inner join descuento d on ed.codigodescuento=d.codigodescuento inner join empleadoexperiencialaboral ee on e.codigoempleado = ee.codigoempleado inner join experiencialaboral el on ee.codigoexperiencialaboral=el.codigoexperiencialaboral
+		<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total, concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,c.salarioactual,c.fechainiciocontrato,c.fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,el.nombreinstitucion, CURRENT_DATE from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado inner join empleadodescuento ed on e.codigoempleado=ed.codigoempleado inner join descuento d on ed.codigodescuento=d.codigodescuento inner join empleadoexperiencialaboral ee on e.codigoempleado = ee.codigoempleado inner join experiencialaboral el on ee.codigoexperiencialaboral=el.codigoexperiencialaboral
 WHERE e.codigoempleado= $P{CODIGO} and
 c.fechainiciocontrato>=$P{FECHAINICIO} and
 c.fechafincontrato <= $P{FECHAFIN}]]>
 	</queryString>
 	<field name="Total" class="java.lang.Double"/>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Empleado" class="java.lang.String"/>
 	<field name="salarioactual" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -256,7 +254,7 @@ c.fechafincontrato <= $P{FECHAFIN}]]>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Hace constar que <b>"+$F{nombreempleado}+"</b> presta servicios para esta institución desde <b>" +$F{fechainiciocontrato}+"</b> hasta <b>"+ $F{fechafincontrato}+ "</b> ambas fechas inclusive, nombrado por el sistema de pago <b>"+$F{sistemapago}+"</b> En plaza Nominal <b>"+$F{plazanominal}+"</b> devengando un salario mensual de <b>$"+$F{salarioactual}+"</b> A quien se le efectúan los siguientes descuentos:<br/><br/>"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Hace constar que <b>"+$F{Empleado}+"</b> presta servicios para esta institución desde <b>" +$F{fechainiciocontrato}+"</b> hasta <b>"+ $F{fechafincontrato}+ "</b> ambas fechas inclusive, nombrado por el sistema de pago <b>"+$F{sistemapago}+"</b> En plaza Nominal <b>"+$F{plazanominal}+"</b> devengando un salario mensual de <b>$"+$F{salarioactual}+"</b> A quien se le efectúan los siguientes descuentos:<br/><br/>"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
