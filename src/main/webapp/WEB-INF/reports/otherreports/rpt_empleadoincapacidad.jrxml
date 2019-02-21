@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="60"/>
+	<property name="ireport.x" value="144"/>
+	<property name="ireport.y" value="35"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -12,14 +12,12 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT nombreempleado, nombreincapacidad, nombrepuesto, dui, fechadesdeincapacidad, fechahastaincapacidad, isss, tipoincapacidad, formaincapacidad, subsidio, fechaemision FROM `incapacidad` inner join empleado e on incapacidad.codigoempleado= e.CODIGOEMPLEADO inner join puesto on puesto.codigopuesto=e.codigopuesto
+		<![CDATA[SELECT concat(nombreempleado,' ',apellidoempleado)as Empleado, nombreincapacidad, nombrepuesto, dui, DATE_FORMAT(fechadesdeincapacidad, '%d/%m/%Y') AS Desde, DATE_FORMAT(fechahastaincapacidad, '%d/%m/%Y') AS Hasta , isss, tipoincapacidad, formaincapacidad, subsidio, DATE_FORMAT(fechaemision, '%d/%m/%Y') AS F_Emosion  FROM `incapacidad` inner join empleado e on incapacidad.codigoempleado= e.CODIGOEMPLEADO inner join puesto on puesto.codigopuesto=e.codigopuesto
  WHERE e.codigoempleado=$P{USUARIO} and
 fechaemision>=$P{FECHAINICIO} and
  fechaemision<=$P{FECHAFIN}]]>
 	</queryString>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombreincapacidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -29,12 +27,8 @@ fechaemision>=$P{FECHAINICIO} and
 	<field name="dui" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechadesdeincapacidad" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechahastaincapacidad" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
 	<field name="isss" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -47,11 +41,9 @@ fechaemision>=$P{FECHAINICIO} and
 	<field name="subsidio" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechaemision" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="F_Emosion" class="java.lang.String"/>
 	<group name="nombreempleado">
-		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
 		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
@@ -206,10 +198,6 @@ fechaemision>=$P{FECHAINICIO} and
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="417" y="0" width="79" height="17" uuid="edd0e8a4-3289-4804-bf72-77a4c2f31341"/>
-				<text><![CDATA[Hasta]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="494" y="0" width="47" height="17" uuid="653306f0-4f76-4660-8ffd-3e09149abf6f"/>
 				<text><![CDATA[Isss]]></text>
 			</staticText>
@@ -221,24 +209,33 @@ fechaemision>=$P{FECHAINICIO} and
 				<reportElement x="623" y="0" width="94" height="17" uuid="b1a384d3-06ed-4333-8c91-c128dd86e269"/>
 				<text><![CDATA[Forma incapacidad]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="719" y="0" width="79" height="17" uuid="f6c8ba58-ff13-45db-a4e6-0e1262534ef8"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Fecha emision]]></text>
-			</staticText>
 			<line>
 				<reportElement x="715" y="3" width="1" height="17" uuid="ba51e8ed-6cc3-48fe-90f1-630c7e50ec3b"/>
 			</line>
 			<line>
 				<reportElement x="621" y="3" width="1" height="17" uuid="896b77da-e22b-4e58-85f0-96fc6b8faf5e"/>
 			</line>
+			<staticText>
+				<reportElement x="436" y="0" width="100" height="20" uuid="b71705be-0b5b-4fc9-9ae7-8be185107cb4"/>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="717" y="3" width="81" height="14" uuid="02cf9c35-5fd4-4e90-a114-f729e62a01a2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Fecha emision]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="100" height="14" uuid="aaa75609-bbad-49ca-ae59-7dcf3f0b2d9f"/>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="111" y="0" width="100" height="14" uuid="16e4e7b3-9e88-4d90-95d4-a09e4a92fe19"/>
@@ -253,14 +250,9 @@ fechaemision>=$P{FECHAINICIO} and
 				<textFieldExpression><![CDATA[$F{dui}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="349" y="0" width="66" height="14" uuid="f5f7d3ed-1cfe-45d9-8fa9-38877c4e3ef7"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{fechadesdeincapacidad}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="415" y="0" width="79" height="14" uuid="281bb2a0-bc74-48ad-98ba-06f7903aab55"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{fechahastaincapacidad}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="494" y="0" width="47" height="14" uuid="2e305a52-f6bf-437e-bef8-38f1b35f06c4"/>
@@ -276,9 +268,25 @@ fechaemision>=$P{FECHAINICIO} and
 				<textFieldExpression><![CDATA[$F{formaincapacidad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="716" y="0" width="86" height="14" uuid="ea59d8af-3e9a-4a5f-a968-d86fa4e14c5c"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{fechaemision}]]></textFieldExpression>
+				<reportElement x="352" y="3" width="70" height="20" uuid="1c15309e-dfeb-4ed6-9716-fa3d10d0de9a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="2" width="100" height="20" uuid="3a1b975e-be71-4b1f-893f-b63d62dd9812"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="717" y="3" width="100" height="20" uuid="a587ed8e-1a75-4f3b-82b8-43975dc27a83"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{F_Emosion}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

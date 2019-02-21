@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="40"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -14,19 +14,15 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  codigoempleado, nombreempleado, fechaingresoministerio from empleado where codigopuesto= 3]]>
+		<![CDATA[select  codigoempleado,concat(nombreempleado,' ',apellidoempleado)as empleado,DATE_FORMAT(fechaingresoministerio, '%d/%m/%Y') as Desde  from empleado where codigopuesto= 3]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fechaingresoministerio" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="empleado" class="java.lang.String"/>
+	<field name="Desde" class="java.lang.String"/>
 	<group name="nombreempleado">
-		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
 		<groupExpression><![CDATA[]]></groupExpression>
@@ -174,15 +170,8 @@
 				<text><![CDATA[Codigo de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="335" y="0" width="122" height="20" uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Nombre de Empleado]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="529" y="0" width="178" height="20" uuid="5f6e7b56-d32d-41ee-8c48-3da2659baf94"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha de aprobación]]></text>
@@ -193,10 +182,14 @@
 			<line>
 				<reportElement x="518" y="0" width="1" height="24" uuid="6073b3c8-5743-4b15-9374-4ba38044537b"/>
 			</line>
+			<staticText>
+				<reportElement x="372" y="2" width="100" height="20" uuid="8a01ccdf-3e10-45d7-9ecd-5076a09bf507"/>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="27" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="50" y="0" width="132" height="20" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement>
@@ -205,53 +198,36 @@
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="335" y="0" width="119" height="20" uuid="1a8282f8-9255-4a06-9e33-7690f1ed0c42"/>
+				<reportElement x="369" y="0" width="100" height="20" uuid="dd91e336-743f-4c09-b023-8f8994f50278"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="529" y="0" width="178" height="20" uuid="d2cd28fb-fd1d-4fcb-8fd6-d975679cc690"/>
+				<reportElement x="597" y="0" width="100" height="20" uuid="ffedee4e-19c8-4871-a6a2-b7e17d077a60"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{fechaingresoministerio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="47" splitType="Stretch">
-			<line>
-				<reportElement x="2" y="4" width="780" height="1" uuid="8c485f04-7b32-4568-8481-6fd9370cb776"/>
-			</line>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="13" y="17" width="555" height="13" backcolor="#FFFFFF" uuid="73496534-6f63-4f27-99dc-0bcafb6ec819"/>
+				<reportElement mode="Opaque" x="586" y="23" width="196" height="13" backcolor="#FFFFFF" uuid="73496534-6f63-4f27-99dc-0bcafb6ec819"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="633" y="15" width="80" height="20" uuid="539a21f8-4081-41eb-aad8-ac55bb3d4f97"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="713" y="15" width="40" height="20" uuid="608c8bb7-907d-481d-9a4a-a8c00b057e3e"/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<staticText>
-				<reportElement x="297" y="15" width="189" height="20" uuid="15008df6-fb10-4fad-bcc3-692c67a3fa11"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
-			</staticText>
+			<line>
+				<reportElement x="8" y="12" width="780" height="1" uuid="8c485f04-7b32-4568-8481-6fd9370cb776"/>
+			</line>
 		</band>
 	</pageFooter>
 	<summary>

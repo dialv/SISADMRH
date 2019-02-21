@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="204"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="63"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -19,17 +19,13 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT  m.fechasalidamision,m.fecharegresomision,m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado  join puesto p on e.codigopuesto=p.codigopuesto
+		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado  join puesto p on e.codigopuesto=p.codigopuesto
 where 
  m.fechasalidamision>=$P{FECHAINICIO}
 AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 	</queryString>
-	<field name="fechasalidamision" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fecharegresomision" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
 	<field name="gastoviaje" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -249,20 +245,6 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField>
-				<reportElement x="1" y="0" width="100" height="14" uuid="f3fdc4ec-192f-4984-b979-0216527a573b"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fechasalidamision}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="108" y="0" width="100" height="14" uuid="c4db7671-2489-4e4e-87fd-e9eff4894987"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{fecharegresomision}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="213" y="0" width="100" height="14" uuid="54d1a31d-dfc8-4fdd-8b6d-0f451a583e8c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9"/>
@@ -296,6 +278,20 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%externa']]>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{organismoinvita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="0" width="100" height="14" uuid="2b866d77-3fb7-4570-91d5-950ebc6ba5d4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="0" width="100" height="14" uuid="f7367943-23df-4a2e-a746-e7d7176c9c8a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

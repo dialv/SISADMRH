@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH-Reporte de Personal con Hijos con Capacidades Especiales</title>
+        <title>SISADMRH-Reporte Bitacora</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <script> Textheader('pnt_reporte_cinc1',document.title);</script>
 <!--     <div class="contenedorizq">
     <label  class="der">
     <script >
@@ -13,29 +12,26 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>-->
+<script> Textheader('pnt_reporte_abog1',document.title);</script>
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-           <h3></h3>
+            <h3></h3>
 <div class="row text-center">
                 <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/reportes.png}"/>
 </div> 
             <div>
                 <br>
-                <form class="form-horizontal" id="formreport" th:object="${empleados}">
+                <form class="form-horizontal" id="formreport">
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label" >Nombre de Empleado:</label>
+<!--                    <div class="form-group">
+                        <label class="col-sm-3 control-label" >Codigo de empleado:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="codigo" name="codigo">
-                            <option value="0">-- Seleccione El Empleado --</option>
-                            <option th:each="d:${empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
-                            </select>
-                            <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
+                            <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
-                    </div>
+                    </div>-->
 <!--                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
@@ -46,7 +42,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
                     </div>-->
- <div class="form-group">
+<div class="form-group">
                 <label class="col-sm-5 control-label">Fecha Desde(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
@@ -57,7 +53,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         
                         <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
                     </div>
-
             </div>
             <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
@@ -73,8 +68,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                      <div class="row" align="center">    
                          <td><a class="btn btn-danger" id="generar">PDF</a></td>
-                         <td><a class="btn btn-success" id="excel">EXCEL</a></td>
-
+                         <!--<td><a class="btn btn-success" id="excel">EXCEL</a></td>-->
                     </div>
                 </form>
             </div>
@@ -107,12 +101,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             dateFormat: 'dd/mm/yy'
         });
         $('#generar').click(function(){
-            $("#formreport").attr('action', '../hijoscapesp/'+ $("#codigo").val().toString());
+            $("#formreport").attr('action', '../bitacoras/1');
             $("form#formreport").submit();
             
         });
         $('#excel').click(function(){
-            $("#formreport").attr('action', '../hijoscapxls');
+            $("#formreport").attr('action', '../abogadosxls');
             $("form#formreport").submit();
             
         });

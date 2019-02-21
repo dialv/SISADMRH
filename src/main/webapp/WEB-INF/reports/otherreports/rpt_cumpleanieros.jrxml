@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b5b5867-a333-4221-8d51-8566c397df3b">
 	<property name="ireport.zoom" value="1.331000000000002"/>
-	<property name="ireport.x" value="181"/>
-	<property name="ireport.y" value="11"/>
+	<property name="ireport.x" value="237"/>
+	<property name="ireport.y" value="66"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -27,12 +27,13 @@
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="nombrepuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nombreubicacion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Empleado" class="java.lang.String"/>
 	<group name="Fecha">
 		<groupExpression><![CDATA[$F{Fecha}]]></groupExpression>
 	</group>
@@ -43,7 +44,7 @@
 		<groupExpression><![CDATA[$F{nombreubicacion}]]></groupExpression>
 	</group>
 	<group name="nombreempleado">
-		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
@@ -236,11 +237,11 @@
 				<textFieldExpression><![CDATA[$F{nombreubicacion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="a8fb9aad-5708-4d42-bc43-50fdbbc03e3c" x="632" y="0" width="165" height="14"/>
+				<reportElement x="630" y="0" width="166" height="14" uuid="5ca49d3f-9ed5-49bc-8145-4547784ef64d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

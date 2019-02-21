@@ -78,6 +78,12 @@ private HijosdiscapacidadService hijosdiscapacidadService;
     @RequestMapping("abogados/")
     public String reporteabogados() {
         return PREFIX + "abogadosreport";
+        
+     
+    }
+       @RequestMapping("bitacoras/")
+    public String reportebitacoras() {
+        return PREFIX + "bitacorasreport";
     }
     @RequestMapping("capacitadores/")
     public String reportecapacitadores() {
@@ -162,6 +168,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_abogados", params, download,response);
     }
+    
+    
  
     @RequestMapping("/abogadosxls")
        public ModelAndView abogadosxls(
@@ -170,7 +178,18 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               Iterable <Empleado> abogadosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
               return new ModelAndView(new AbogadosView(), "abogadosList", abogadosList);
        }
-    
+        @RequestMapping(value = "bitacoras/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfbitacoras(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_bitacoras", params, download,response);
+    }
     @RequestMapping(value = "motoristas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmotoristas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
