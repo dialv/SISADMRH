@@ -159,18 +159,11 @@ e.codigoempleado=c.codigoempleado]]>
 				<reportElement x="3" y="0" width="552" height="28" backcolor="#FFFFFF" uuid="f75fa501-b7ef-4915-a424-de08127891a3"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="63" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="205a559b-9657-4fce-80ce-1d882cfe015f"/>
+				<reportElement mode="Transparent" x="0" y="0" width="143" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="205a559b-9657-4fce-80ce-1d882cfe015f"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="79" y="0" width="64" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="5d45e528-f52b-472a-a5ca-06a536b9cc84"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
+				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="158" y="0" width="79" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="315aaa56-a6f9-4c04-9498-a3fe2b39c0c3"/>
@@ -207,9 +200,6 @@ e.codigoempleado=c.codigoempleado]]>
 				</textElement>
 				<text><![CDATA[Fecha Hasta]]></text>
 			</staticText>
-			<line direction="BottomUp">
-				<reportElement x="63" y="0" width="1" height="27" uuid="a37d66c3-3695-4335-a316-154dc52e2990"/>
-			</line>
 			<line direction="BottomUp">
 				<reportElement x="143" y="0" width="1" height="27" uuid="84766258-42f3-4401-b228-819bb4458fec"/>
 			</line>

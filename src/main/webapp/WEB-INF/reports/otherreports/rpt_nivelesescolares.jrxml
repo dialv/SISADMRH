@@ -168,11 +168,11 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 				<reportElement x="1" y="1" width="802" height="28" backcolor="#FFFFFF" uuid="f19375e8-907c-4b42-a409-11bd8b69c9f8"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="66" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="ab0ab516-abd6-4c31-b8b2-d505e5caf250"/>
+				<reportElement mode="Transparent" x="0" y="0" width="143" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="ab0ab516-abd6-4c31-b8b2-d505e5caf250"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
+				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="145" y="1" width="108" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="c3c07a15-4a04-45a5-a0e3-5d26089de277"/>
@@ -216,16 +216,6 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 				</textElement>
 				<text><![CDATA[Institucion Educativa]]></text>
 			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="76" y="0" width="69" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="47f84e70-8134-43c8-b3f1-af414d39b160"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
-			</staticText>
-			<line direction="BottomUp">
-				<reportElement x="75" y="0" width="1" height="27" uuid="1117632b-7e23-4b78-bfeb-b578415942cf"/>
-			</line>
 			<line direction="BottomUp">
 				<reportElement x="145" y="0" width="1" height="27" uuid="cf59d59c-5234-4460-8f53-27f5306fc139"/>
 			</line>
@@ -249,7 +239,7 @@ n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad]]>
 	<detail>
 		<band height="21">
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="10" y="0" width="66" height="20" forecolor="#000000" uuid="2581b4cf-1aa5-4ee6-b095-637819243b63"/>
+				<reportElement mode="Transparent" x="10" y="0" width="65" height="20" forecolor="#000000" uuid="2581b4cf-1aa5-4ee6-b095-637819243b63"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

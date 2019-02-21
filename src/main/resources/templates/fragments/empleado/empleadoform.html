@@ -91,7 +91,7 @@
                 <div class="form-group">
                         <label class="col-sm-3 control-label">Puesto del Empleado:</label>
                         <div class="col-sm-5" >
-                            <select class="form-control"  th:field="*{codigopuesto}"  width="50">
+                            <select class="form-control"  th:field="*{codigopuesto}"  width="50" id="select" name="select">
                                 <option th:each="c:${puestos}" th:value="${c.codigopuesto}" th:text="${c.nombrepuesto}"></option>
                             </select>
                         </div>
@@ -675,5 +675,19 @@
                      document.getElementById('divpop').style.display = 'none';
   }
 </script>
+
+<script>
+    function ordenarSelect(id_componente)
+    {
+      var selectToSort = jQuery('#' + id_componente);
+      var optionActual = selectToSort.val();
+      selectToSort.html(selectToSort.children('option').sort(function (a, b) {
+        return a.text === b.text ? 0 : a.text < b.text ? -1 : 1;
+      })).val(optionActual);
+    }
+    $(document).ready(function () {
+      ordenarSelect('select');
+    });
+  </script>
 </html>
 

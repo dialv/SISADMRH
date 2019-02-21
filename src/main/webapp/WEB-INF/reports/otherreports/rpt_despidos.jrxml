@@ -162,18 +162,11 @@
 				<reportElement x="0" y="0" width="552" height="28" backcolor="#FFFFFF" uuid="58d90ed3-57aa-4a96-8632-63228be64712"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="65" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5b41b3a5-ca68-416b-b74a-121d62730661"/>
+				<reportElement mode="Transparent" x="0" y="0" width="142" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5b41b3a5-ca68-416b-b74a-121d62730661"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="65" y="0" width="63" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="6811f3ea-f920-4c41-a968-bc45cc985a03"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
+				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="143" y="0" width="64" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="8f49158b-50fa-492d-bf23-1e92033042cb"/>
@@ -210,9 +203,6 @@
 				</textElement>
 				<text><![CDATA[Sueldo Base]]></text>
 			</staticText>
-			<line direction="BottomUp">
-				<reportElement x="65" y="1" width="1" height="27" uuid="f09ec1f7-2bbc-4946-a2af-f0b2c81dec0f"/>
-			</line>
 			<line direction="BottomUp">
 				<reportElement x="142" y="0" width="1" height="27" uuid="9827196f-a6fa-4ac3-99af-85ccdf59286e"/>
 			</line>

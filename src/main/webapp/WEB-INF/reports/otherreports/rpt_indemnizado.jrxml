@@ -163,18 +163,11 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=2]]>
 				<reportElement x="0" y="0" width="802" height="28" backcolor="#FFFFFF" uuid="24dded56-e0ac-4ff6-a3f3-9957792b6f79"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="59" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
+				<reportElement mode="Transparent" x="0" y="0" width="143" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="69" y="0" width="67" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="693a6230-0414-4c36-bbd4-51cd18f11696"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
+				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="237" y="0" width="62" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="bfb1a1e6-00ce-4cb7-8fda-1bd9b4b47c09"/>
@@ -218,9 +211,6 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=2]]>
 				</textElement>
 				<text><![CDATA[Nombre del Puesto]]></text>
 			</staticText>
-			<line direction="BottomUp">
-				<reportElement x="68" y="0" width="1" height="27" uuid="9b1591b7-d015-4995-9b1a-d229473903ef"/>
-			</line>
 			<line direction="BottomUp">
 				<reportElement x="142" y="0" width="1" height="27" uuid="3185b70e-2453-4da8-9b79-d43ebb4654f5"/>
 			</line>
