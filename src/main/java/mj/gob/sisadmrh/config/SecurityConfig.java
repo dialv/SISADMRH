@@ -121,7 +121,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/comisiones/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Comisiones</a></li>
                         http.authorizeRequests().antMatchers("/comisiones/new/comision")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Crear Comisiones</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Comisiones</a></li>
                         http.authorizeRequests().antMatchers("/comisiones/reporte/comision")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Comisiones</a></li>
 			http.authorizeRequests().antMatchers("/inasistencias/")
@@ -133,21 +133,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/otherreports/puestoreporte/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO','ROLE_ESTRATEGICO')");//reporte de puestos a caducar</a></li>
                         http.authorizeRequests().antMatchers("/puestos/new/puesto")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Crear Puesto de Trabaj</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Puesto de Trabaj</a></li>
                         http.authorizeRequests().antMatchers("/misiones/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Misiones</a></li>
                         http.authorizeRequests().antMatchers("/misiones/new/mision")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Crear Misiones</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Misiones</a></li>
                         http.authorizeRequests().antMatchers("/misiones/reporte/mision")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Misiones</a></li>
 			http.authorizeRequests().antMatchers("/empleados/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Consultar Empleados</a></li>
 			http.authorizeRequests().antMatchers("/empleados/new/empleado")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Crear Empleado</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Empleado</a></li>
 			http.authorizeRequests().antMatchers("/estados/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_CONFIG')");//Consultar Estados</a></li>
                         http.authorizeRequests().antMatchers("/estados/new/estado")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_CONFIG')");//Crear Estado</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Estado</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/abogados/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Reporte de Abogados</a></li>
 			http.authorizeRequests().antMatchers("/otherreports/empleadoincapacidad/")
