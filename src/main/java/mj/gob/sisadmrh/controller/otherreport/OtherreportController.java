@@ -264,7 +264,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
+		params.put("CODIGO", indice.toString());
 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
