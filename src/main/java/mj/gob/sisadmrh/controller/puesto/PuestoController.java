@@ -49,6 +49,7 @@ public class PuestoController extends UtilsController {
     @RequestMapping(value = "puesto")
     public String savePuesto(Puesto puesto, Model model) {
         try {
+            puesto.setEstadopuesto(1);
             puestoService.savePuesto(puesto);
             
             model.addAttribute("msg", 0);

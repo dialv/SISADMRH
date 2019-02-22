@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
-	<property name="ireport.zoom" value="1.948717100000002"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
@@ -155,18 +155,11 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
 				<reportElement x="10" y="0" width="552" height="27" backcolor="#FFFFFF" uuid="706802ad-e2c6-4b79-b367-37adce6acada"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="59" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
+				<reportElement mode="Transparent" x="0" y="0" width="143" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="69" y="0" width="67" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="693a6230-0414-4c36-bbd4-51cd18f11696"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
+				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="148" y="0" width="79" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="782b81cf-5a2f-4f7a-a3f2-0d8bb004eae1"/>
@@ -204,9 +197,6 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
 				<text><![CDATA[Institucion Pensionadora]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="68" y="-1" width="1" height="27" uuid="b5b4891c-6b46-4eff-bae8-d59f8d79be32"/>
-			</line>
-			<line direction="BottomUp">
 				<reportElement x="143" y="0" width="1" height="27" uuid="81fe4db5-f488-4634-b7ef-c5b8c1dd2e10"/>
 			</line>
 			<line direction="BottomUp">
@@ -229,7 +219,7 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="11a87019-9304-4670-93b2-1c3b1e6d2975"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="0" y="0" width="59" height="20" uuid="e7fac09e-4c31-4110-9335-4a4961e91287"/>
+				<reportElement mode="Transparent" x="0" y="0" width="68" height="20" uuid="e7fac09e-4c31-4110-9335-4a4961e91287"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

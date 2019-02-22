@@ -169,18 +169,11 @@
 				<text><![CDATA[Codigo Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="79" y="12" width="79" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="e4e66651-0c88-4063-a2c0-741ac227aa51"/>
+				<reportElement mode="Transparent" x="79" y="12" width="148" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="e4e66651-0c88-4063-a2c0-741ac227aa51"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nombre Empleado]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="158" y="12" width="79" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="476bd057-2959-4fa7-9b41-faaa022761ca"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Apellido]]></text>
+				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="237" y="12" width="79" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="b0756311-fe34-46f7-a804-a9a7437a9df2"/>
@@ -214,7 +207,7 @@
 				<reportElement x="79" y="4" width="1" height="27" uuid="b737e0fa-3a60-40c8-bb90-14263068fda4"/>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="157" y="4" width="1" height="27" uuid="81556b22-5476-455b-a573-55b1eee64f71"/>
+				<reportElement x="157" y="4" width="1" height="1" uuid="81556b22-5476-455b-a573-55b1eee64f71"/>
 			</line>
 			<line direction="BottomUp">
 				<reportElement x="237" y="4" width="1" height="27" uuid="e9f2514f-8bf2-42ed-bc54-b56ff74588ce"/>
@@ -312,13 +305,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="195" y="39" width="189" height="20" uuid="740bb6ee-36c8-4cd3-be40-22914be15a87"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 	<summary>

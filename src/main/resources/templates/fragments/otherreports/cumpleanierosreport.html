@@ -46,10 +46,25 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>-->
 
  <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <label class="col-sm-5 control-label">Selecciones mes:</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechainicial" id="fechainicial"  onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/>
+                    <select class="form-control" name="fechainicial" id="fechainicial" >
+                        <option value="1">enero</option>
+                        <option value="2">febrero</option>
+                        <option value="3">marzo</option>
+                        <option value="4">abril</option>
+                        <option value="5">mayo</option>
+                        <option value="6">junio</option>
+                        <option value="7">julio</option>
+                        <option value="8">agosto</option>
+                        <option value="9">septiembre</option>
+                        <option value="10">octubre</option>
+                        <option value="11">noviembre</option>
+                        <option value="12">diciembre</option>
+                    </select>
+                        
+                    <!--input class="form-control fecha_format" placeholder="dia/mes/año" type="text"   onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/-->
                 </div>
                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
@@ -57,18 +72,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
                     </div>
             </div>
-            <div class="form-group">
+            <!--div class="form-group">
                 <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
+                     <!--input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
                         
                         <span class="popuptext" id="poppup2">Seleccione o digite la Fecha de fin para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
                     </div>
-            </div>
+            </div-->
 <!--                     <div class="form-group">    
                          <td><a class="btn btn-default" id="pdf">pdf</a></td>
                     </div>

@@ -52,6 +52,7 @@ public class MisionController extends UtilsController {
     public String saveComision(Mision mision, Model model, @RequestParam("file") MultipartFile file) {
         try {
             mision.setDocacuerdo(file.getBytes());
+            mision.setEstadomision(1);
             misionService.saveMision(mision);
 
             model.addAttribute("msg", 0);
