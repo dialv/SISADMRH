@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="448"/>
-	<property name="ireport.y" value="168"/>
+	<property name="ireport.x" value="244"/>
+	<property name="ireport.y" value="38"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -19,13 +19,11 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
+		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
 WHERE  c.fechadesdecomite>=$P{FECHAINICIO}
 and c.fechahastacomite<=$P{FECHAFIN}]]>
 	</queryString>
-	<field name="nombreempleado" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Nombre" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -227,14 +225,7 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField>
-				<reportElement x="14" y="0" width="140" height="14" uuid="f0df6217-7549-481b-a72f-724465680625"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="160" y="0" width="139" height="14" uuid="28592223-1eac-441a-87f7-4c26d7e010b3"/>
+				<reportElement x="172" y="0" width="127" height="14" uuid="28592223-1eac-441a-87f7-4c26d7e010b3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -248,7 +239,7 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 				<textFieldExpression><![CDATA[$F{numeroacuerdocomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="374" y="0" width="169" height="14" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
+				<reportElement x="389" y="0" width="169" height="14" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -261,6 +252,13 @@ and c.fechahastacomite<=$P{FECHAFIN}]]>
 			<textField>
 				<reportElement x="734" y="0" width="100" height="14" uuid="1cb3c363-7aba-492c-af66-719474746919"/>
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="0" width="145" height="14" uuid="9455007d-e1e2-45c5-ac53-c02a8043b73d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

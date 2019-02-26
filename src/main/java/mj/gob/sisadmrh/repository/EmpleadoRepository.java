@@ -22,12 +22,9 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             @Param("tipo") Integer tipo);
 
     /*GENERAR REPORTE DE RENUNCIAS VOLUNTARIAS */
-    @Query(value = "SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,"
-            + "c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e "
-            + "inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto "
-            + "inner join puesto p on ep.codigopuesto=p.codigopuesto "
-            + "INNER JOIN comite c on e.codigoempleado=c.codigoempleado "
-            + "where c.fechadesdecomite >= :FINICIAL  and c.fechahastacomite <= :FFINAL",
+    @Query(value = "select concat(e.nombreempleado,' ', e.apellidoempleado) as nombres ,p.nombrepuesto,c.salarioactual,DATE_FORMAT(c.fechainiciocontrato, '%d/%m/%Y')as \"Fecha Inicio Contrato\",c.partidacontrato,p.nivelpuesto,DATE_FORMAT(p.fechabaja, '%d/%m/%Y')as \"Baja Contrato\" \n" +
+"from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join contrato c on e.codigoempleado=c.codigoempleado "
+            + "where c.fechainiciocontrato >= :FINICIAL  and p.fechabaja <= :FFINAL",
              nativeQuery = true)
     List<Object[]> renuncias(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
@@ -110,11 +107,11 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
     List<Object[]> findByPuestosCaducar(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
-    @Query(value = " SELECT e.codigoempleado, e.nombreempleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, "
-            + " d.fechacontrataciondesde, d.fechacontratacionhasta FROM empleado e INNER JOIN empleadopuesto p "
-            + " on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto "
-            + " where "
-            + " e.codigoempleado=:CODIGO", nativeQuery = true)
+    @Query(value = " SELECT e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, DATE_FORMAT(d.fechacontrataciondesde, '%d/%m/%Y'),DATE_FORMAT(d.fechacontratacionhasta, '%d/%m/%Y') \n" +
+"FROM empleado e INNER JOIN empleadopuesto p\n" +
+"on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto\n" +
+"where\n" +
+"e.codigoempleado= :CODIGO ", nativeQuery = true)
     List<Object[]> findByPuestosEmpleados(@Param("CODIGO") String codigo);// ES EL METODO DE HISTORIAL LABRORAL
 
     @Query(value = " select e.nombreempleado,i.nombreincapacidad, p.nombrepuesto,e.duiempleado,i.fechadesdeincapacidad,i.fechahastaincapacidad,"

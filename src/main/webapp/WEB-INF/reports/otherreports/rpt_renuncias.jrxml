@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b555deb-ccc6-4f42-812f-3a85bbeb223a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="8"/>
+	<property name="ireport.y" value="44"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -16,8 +16,10 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select concat(e.nombreempleado,' ', e.apellidoempleado) as nombres ,p.nombrepuesto,c.salarioactual,c.fechainiciocontrato,c.partidacontrato,p.nivelpuesto,p.fechabaja 
-from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join contrato c on e.codigoempleado=c.codigoempleado]]>
+		<![CDATA[select concat(e.nombreempleado,' ', e.apellidoempleado) as nombres ,p.nombrepuesto,c.salarioactual,DATE_FORMAT(c.fechainiciocontrato, '%d/%m/%Y')as "Fecha Inicio Contrato",c.partidacontrato,p.nivelpuesto,DATE_FORMAT(p.fechabaja, '%d/%m/%Y')as "Baja Contrato" 
+from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join contrato c on e.codigoempleado=c.codigoempleado
+where   c.fechainiciocontrato>=$P{FECHAINICIO}
+and p.fechabaja<=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="nombres" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -26,18 +28,14 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 	<field name="salarioactual" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechainiciocontrato" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Fecha Inicio Contrato" class="java.lang.String"/>
 	<field name="partidacontrato" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nivelpuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechabaja" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Baja Contrato" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -200,11 +198,6 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<text><![CDATA[Salario Atctual($)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="346" y="2" width="100" height="20" uuid="bc8efa27-d9f6-470b-a885-ec04abde2bb9"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Fecha Inicio Contrato]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="454" y="2" width="100" height="20" uuid="eb9d5dbc-6739-4cc7-9a14-0b78b41b1e43"/>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Partida Contrato]]></text>
@@ -215,8 +208,12 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<text><![CDATA[Nivel de Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="710" y="2" width="75" height="20" uuid="07ef8339-4fc2-4b2d-b2ab-645c8eb64347"/>
-				<text><![CDATA[Fecha Baja]]></text>
+				<reportElement x="337" y="2" width="128" height="20" uuid="19e05c95-7792-45fb-bb9b-cae3a60370fc"/>
+				<text><![CDATA[Fecha Inicio Contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="695" y="2" width="100" height="20" uuid="11bd12af-d859-450f-9516-c1deecbdb448"/>
+				<text><![CDATA[Baja Contrato]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -233,11 +230,6 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<textFieldExpression><![CDATA[$F{salarioactual}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="346" y="0" width="100" height="20" uuid="19a71a89-7108-4d27-b3b4-4d2fe867cc50"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="454" y="0" width="100" height="20" uuid="07462fd1-1350-421a-83f0-0d4542972091"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{partidacontrato}]]></textFieldExpression>
@@ -248,12 +240,16 @@ from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join 
 				<textFieldExpression><![CDATA[$F{nivelpuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="714" y="0" width="40" height="20" uuid="62733437-e453-4845-a7b4-7e7d70e11783"/>
-				<textFieldExpression><![CDATA[$F{fechabaja}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="10" y="3" width="100" height="20" uuid="aa2a6dab-1209-4101-9c78-7be23f52c99d"/>
 				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="3" width="128" height="20" uuid="7729c496-6db6-4fe1-85ab-f81b72967831"/>
+				<textFieldExpression><![CDATA[$F{Fecha Inicio Contrato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="695" y="3" width="100" height="20" uuid="6d06e5dd-6704-43b9-8523-6fcdceff3524"/>
+				<textFieldExpression><![CDATA[$F{Baja Contrato}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

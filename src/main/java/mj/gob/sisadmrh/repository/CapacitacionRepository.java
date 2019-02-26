@@ -30,8 +30,8 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
     
     
     // consulta para generar el exel
- @Query(value = "SELECT  e.nombreempleado,p.nombrepuesto,ca.duracionhoracapacitacion,ca.nombrecapacitacion,\n" +
-"ca.departamentoresponsable,ca.fechacapacitaciondesde,ca.fechacapacitacionhasta from empleado e \n" +
+ @Query(value = "SELECT  concat(e.nombreempleado,' ',e.apellidoempleado),p.nombrepuesto,ca.duracionhoracapacitacion,ca.nombrecapacitacion,\n" +
+"ca.departamentoresponsable,DATE_FORMAT(ca.fechacapacitaciondesde, '%d/%m/%Y'), DATE_FORMAT(ca.fechacapacitacionhasta, '%d/%m/%Y')  from empleado e \n" +
 "\n" +
 " inner join puesto p on e.codigopuesto=p.codigopuesto \n" +
 " inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado\n" +

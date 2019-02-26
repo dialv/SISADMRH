@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="41"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -14,7 +14,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha from empleado e
+		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e
+inner join empleadoformacion f on e.codigoempleado=f.codigoempleado
+inner join formacionacademica fa on  fa.codigoformacionacademica=f.codigoformacionacademica
 inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado
 inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like '%notario']]>
 	</queryString>
@@ -23,6 +25,12 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 	</field>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="Fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="centroeducativo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="duiempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<group name="nombreempleado">
@@ -158,57 +166,73 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 				<reportElement x="17" y="11" width="105" height="86" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
+			<line>
+				<reportElement x="385" y="8" width="1" height="23" uuid="a4a53fd7-b91f-4a21-9480-a9f59fe86551"/>
+			</line>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="23" splitType="Stretch">
 			<rectangle>
-				<reportElement x="2" y="0" width="797" height="23" uuid="92319add-11b7-49e9-be78-0569261939ca"/>
+				<reportElement x="0" y="0" width="795" height="19" uuid="92319add-11b7-49e9-be78-0569261939ca"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="36" y="0" width="132" height="17" uuid="45933b9f-8ac2-4df1-a559-c0d867795b56"/>
+				<reportElement x="2" y="5" width="132" height="17" uuid="45933b9f-8ac2-4df1-a559-c0d867795b56"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Codigo de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="301" y="0" width="244" height="17" uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6"/>
+				<reportElement x="133" y="4" width="244" height="17" uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="580" y="0" width="178" height="17" uuid="5f6e7b56-d32d-41ee-8c48-3da2659baf94"/>
+				<reportElement x="580" y="-3" width="178" height="17" uuid="5f6e7b56-d32d-41ee-8c48-3da2659baf94"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de aprobación]]></text>
 			</staticText>
 			<line>
-				<reportElement x="293" y="0" width="1" height="23" uuid="35d22153-ea6a-44ee-b442-c1dbb50b0f6e"/>
+				<reportElement x="133" y="0" width="1" height="23" uuid="35d22153-ea6a-44ee-b442-c1dbb50b0f6e"/>
 			</line>
 			<line>
-				<reportElement x="571" y="0" width="1" height="23" uuid="6e46fac2-9335-4de0-8bbd-fbbcdcfde566"/>
+				<reportElement x="472" y="0" width="1" height="23" uuid="6e46fac2-9335-4de0-8bbd-fbbcdcfde566"/>
 			</line>
+			<line>
+				<reportElement x="371" y="0" width="1" height="23" uuid="f073d423-6412-4a26-93bb-d7eebe577d4b"/>
+			</line>
+			<line>
+				<reportElement x="575" y="0" width="1" height="23" uuid="d2121345-6cf8-4e77-a853-397185d67d99"/>
+			</line>
+			<staticText>
+				<reportElement x="372" y="4" width="100" height="17" uuid="21b7cc0e-ae85-424b-aa45-51890478ec10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Universidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="4" width="100" height="17" uuid="fc443ee4-a918-4a7f-b6bc-87fbc2219518"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUI]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="15" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement x="36" y="0" width="132" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
+				<reportElement x="3" y="0" width="132" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="294" y="0" width="251" height="14" uuid="1a8282f8-9255-4a06-9e33-7690f1ed0c42"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="633" y="0" width="100" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
@@ -218,11 +242,19 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="373" y="0" width="100" height="14" uuid="9bfb853c-e605-4fcb-8ba7-8cff28ec642f"/>
+				<reportElement x="135" y="1" width="100" height="14" uuid="9bfb853c-e605-4fcb-8ba7-8cff28ec642f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="1" width="100" height="20" uuid="c8e313ba-e915-4a2c-9a55-426b8a9941f0"/>
+				<textFieldExpression><![CDATA[$F{centroeducativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="2" width="100" height="20" uuid="b4b01370-b5ad-4b90-ae3c-aa0acb906f28"/>
+				<textFieldExpression><![CDATA[$F{duiempleado}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

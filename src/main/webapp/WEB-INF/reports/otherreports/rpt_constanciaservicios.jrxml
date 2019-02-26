@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="61040501-82b0-436f-934f-a899fdfcb57e">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="166"/>
+	<property name="ireport.y" value="152"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -189,14 +189,14 @@
 	<detail>
 		<band height="257" splitType="Stretch">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="32" y="10" width="475" height="55" isPrintWhenDetailOverflows="true" uuid="cbb617e8-7a03-4a72-bf14-e2f77840e36e"/>
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="32" y="10" width="475" height="42" isPrintWhenDetailOverflows="true" uuid="cbb617e8-7a03-4a72-bf14-e2f77840e36e"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Hace constar que <b>"+$F{Empleado}+"</b> presta servicios para esta institución desde <b>" +$F{fechainiciocontrato}+"</b> hasta <b>"+ $F{fechafincontrato}+ "</b> ambas fechas inclusive, nombrado por el sistema de pago <b>"+$F{sistemapago}+"</b> En plaza Nominal <b>"+$F{plazanominal}+"</b> devengando un salario mensual de <b>$"+$F{salarioactual}+"</<br/>"]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="32" y="75" width="475" height="74" isPrintWhenDetailOverflows="true" uuid="d11134f2-c116-4ae1-afab-1d40501f190f"/>
+				<reportElement stretchType="RelativeToBandHeight" x="32" y="85" width="475" height="38" isPrintWhenDetailOverflows="true" uuid="d11134f2-c116-4ae1-afab-1d40501f190f"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
