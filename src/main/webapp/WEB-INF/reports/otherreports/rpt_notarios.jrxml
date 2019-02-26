@@ -226,7 +226,7 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<textField>
 				<reportElement x="3" y="0" width="132" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement>
