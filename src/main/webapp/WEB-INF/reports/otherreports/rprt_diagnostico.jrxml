@@ -238,58 +238,55 @@ FROM
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
-			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="fdf9dd30-1607-4f58-9341-a52ac0b4ea20"/>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="0" y="0" width="113" height="18" uuid="1f4b9ebc-2b22-421e-aa95-337f97c3c940"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_temacapacitacion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="123" y="0" width="103" height="18" uuid="2cc25706-b5ca-4696-9c6e-395fadcd7de5"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_direccion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="238" y="0" width="111" height="18" uuid="cad25d03-2c3e-490c-a259-bfd27df77f53"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_necesidadcapacitacion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="361" y="0" width="91" height="18" uuid="e4b9a7a5-f831-4343-be71-1c2650ababc5"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_mescapacitacion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="465" y="0" width="117" height="18" uuid="c70b5aa5-9a4a-4faf-bce0-52c13641b66b"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_resultadoobtener}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="592" y="0" width="96" height="18" uuid="729218ac-cc19-493a-91d7-a099866d701c"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="699" y="0" width="98" height="18" uuid="f3977fb1-6e16-4056-b40c-0243a9cb3861"/>
-					<textElement textAlignment="Center">
-						<font fontName="Times New Roman" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion}]]></textFieldExpression>
-				</textField>
-			</frame>
+			<textField>
+				<reportElement x="238" y="0" width="100" height="14" uuid="af8db28f-dbd5-4c5c-8d5f-5b0047e5f7ac"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_necesidadcapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="0" width="100" height="14" uuid="dfaaa852-3a4d-4e62-b98e-e1f76e7dffe7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_mescapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="0" width="100" height="14" uuid="8e4f25d5-7dd3-4aa9-8b34-ff1cf4b46e59"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_resultadoobtener}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="592" y="0" width="100" height="14" uuid="b4711a07-8b4c-4eb2-9865-8dc139ccea70"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="0" width="100" height="14" uuid="4a507278-5772-46b3-a87e-de551c9d0b11"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="3" width="100" height="14" uuid="56275a00-1c9a-4f48-b403-ae3101373261"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_temacapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="3" width="100" height="14" uuid="4e7cae6d-d349-402c-b418-43c8b8af013c"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_direccion}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
