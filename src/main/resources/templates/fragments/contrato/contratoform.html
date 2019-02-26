@@ -77,7 +77,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
             </div>
             </form>
-  <form class="form-horizontal"  th:object="${contrato}" th:action="@{../contrato}" method="post">
+  <form class="form-horizontal"  id="formcontrato" th:object="${contrato}" th:action="@{../contrato}" method="post">
                 <input type="hidden" th:field="*{codigocontrato}"/>
                 <!--<input type="hidden" id="codem" th:field="*{codigoempleado}"/>-->
             <div class="col-md-12"  >
@@ -310,11 +310,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		        dateFormat: 'dd/mm/yy'
 		    });
 		});
-//                 $('#btnGuardar').click(function(){
-//            $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
-//            $("form#formcontrato").submit();
+                 $('#btnGuardar').click(function(){
+            $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
+            $("form#formcontrato").submit();
 //            
-//        });
+        });
                 
                 var URLactual = window.location.href;
                 if (URLactual.includes("edit")){
