@@ -22,7 +22,7 @@ public interface ComiteRepository extends PagingAndSortingRepository<Comite, Int
     Iterable<Comite> findByComite(@Param("nom") String dato);
 
     //consulta para generar el exel
-    @Query(value = "select e.nombreempleado,"
+    @Query(value = "select concat(e.nombreempleado,' ',e.apellidoempleado),"
             + " p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,"
             + "c.fechahastacomite from empleado e "
             + " inner join puesto p on e.codigopuesto=p.codigopuesto "

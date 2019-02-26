@@ -33,7 +33,7 @@ protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, 
 
  header.createCell(2).setCellValue("Fecha de Llegada");
  header.createCell(3).setCellValue("Fecha de Regreso");
- header.createCell(4).setCellValue("Gastos");
+ header.createCell(4).setCellValue("Gastos($)");
  header.createCell(5).setCellValue("Acuerdo");
  header.createCell(6).setCellValue("Boleto");
  header.createCell(7).setCellValue("Patrocidandor");
@@ -43,10 +43,10 @@ protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, 
  int rowNum = 3;
  for(Object[] misiones : misionExt2List){
  Row row = sheet.createRow(rowNum++);
- row.createCell(2).setCellValue((Date) misiones[0]);
- row.createCell(3).setCellValue((Date) misiones[1]);
- row.createCell(4).setCellValue((Float) misiones[2]);
- row.createCell(5).setCellValue((Integer) misiones[3]);
+ row.createCell(2).setCellValue((String) ""+misiones[0]);
+ row.createCell(3).setCellValue((String) ""+misiones[1]);
+ row.createCell(4).setCellValue((String) ""+"$ "+misiones[2]);
+ row.createCell(5).setCellValue((String) ""+misiones[3]);
  row.createCell(6).setCellValue((String) misiones[4]);
  row.createCell(7).setCellValue((String) misiones[5]);
 // row.createCell(6).setCellValue((String) misiones[6]);
