@@ -36,7 +36,7 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="422" y="92" width="95" height="20" uuid="908348f9-35c7-41c1-89f4-1481f51ad07c"/>
+				<reportElement x="403" y="92" width="114" height="20" uuid="908348f9-35c7-41c1-89f4-1481f51ad07c"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -57,7 +57,7 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="480" y="112" width="26" height="20" uuid="52a58595-ce34-4b5a-8e1c-db32c0ca9f8a"/>
+				<reportElement x="533" y="112" width="26" height="20" uuid="52a58595-ce34-4b5a-8e1c-db32c0ca9f8a"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -71,14 +71,14 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="422" y="112" width="57" height="20" uuid="85c98463-00e7-493a-ae76-32172a303899"/>
-				<textElement>
+				<reportElement x="459" y="112" width="74" height="20" uuid="85c98463-00e7-493a-ae76-32172a303899"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="422" y="132" width="39" height="20" uuid="986bfa12-13bb-4752-a424-6c0dcc7fd5c5"/>
+				<reportElement x="405" y="132" width="39" height="20" uuid="986bfa12-13bb-4752-a424-6c0dcc7fd5c5"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -92,7 +92,7 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="322" y="132" width="87" height="20" uuid="8a249beb-9ed9-44f1-a79b-13ce3f1043cc"/>
+				<reportElement x="322" y="132" width="100" height="20" uuid="8a249beb-9ed9-44f1-a79b-13ce3f1043cc"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -106,7 +106,7 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 				<text><![CDATA[pnt_reporte_etpa]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="461" y="132" width="83" height="20" uuid="fa3c18a8-0ca0-47c8-8da5-ddf9aca73969"/>
+				<reportElement x="444" y="132" width="100" height="20" uuid="fa3c18a8-0ca0-47c8-8da5-ddf9aca73969"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -243,38 +243,14 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="83">
+		<band height="17">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="5" y="11" width="251" height="13" backcolor="#FFFFFF" uuid="acb219ed-4389-4d74-875a-943548038a94"/>
-				<textElement>
-					<font fontName="Times New Roman" isUnderline="false"/>
+				<reportElement mode="Opaque" x="5" y="4" width="555" height="13" backcolor="#FFFFFF" uuid="acb219ed-4389-4d74-875a-943548038a94"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="4" y="7" width="548" height="1" uuid="6c331b6d-4f4e-47b7-8722-6aa5828ed580"/>
-			</line>
-			<textField>
-				<reportElement x="432" y="8" width="74" height="20" uuid="f1c0532c-8ac4-4ead-a0e7-93aca13b6139"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="506" y="8" width="26" height="20" uuid="b44ca94d-61c7-4075-8387-7cb089248c10"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="198" y="38" width="189" height="20" uuid="91d180f1-131e-40e2-9203-7fd0c200333d"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 	<summary>
