@@ -33,7 +33,7 @@
              </thead>
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${empleado.codigoempleado}">codigoempleado</td>
-                <td th:text="${empleado.nombreempleado}">nombreempleado</td>
+                <td th:text="${empleado.nombreempleado} + ' ' + ${empleado.apellidoempleado} ">nombreempleado</td>
                 <td th:text="${empleado.fechanacimientoempleado}">fechanacimientoempleado</td>                
                 <td th:text="${empleado.duiempleado}">duiempleado</td>
                 <td th:text="${empleado.nitempleador}">nitempleador</td>

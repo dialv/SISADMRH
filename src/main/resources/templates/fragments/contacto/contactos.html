@@ -27,7 +27,7 @@
             </tr>
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${contacto.codigocontacto}">codigocontacto</td>
-                <td th:text="${contacto.nombrecontacto}">nombrecontacto</td>
+                <td th:text="${contacto.nombrecontacto} + ' ' + ${contacto.apellidocontacto}">nombrecontacto</td>
                 <td th:text="${contacto.direccion}">direccion</td>                
                 <td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
                 <td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>

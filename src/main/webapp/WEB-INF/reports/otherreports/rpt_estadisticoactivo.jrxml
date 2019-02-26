@@ -30,8 +30,8 @@
 				<text><![CDATA[ESTADISTICO DE PERSONAL ACTIVO]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="413" y="113" width="58" height="20" uuid="59da1542-7a90-4fae-83f4-0904ef379427"/>
-				<textElement>
+				<reportElement x="457" y="113" width="74" height="20" uuid="59da1542-7a90-4fae-83f4-0904ef379427"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
@@ -44,7 +44,7 @@
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="471" y="113" width="86" height="20" uuid="37f23a9d-2cdd-4b50-a936-2a49aa4f198f"/>
+				<reportElement x="531" y="113" width="26" height="20" uuid="37f23a9d-2cdd-4b50-a936-2a49aa4f198f"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -58,7 +58,7 @@
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="413" y="93" width="102" height="20" uuid="614c4f7e-48fd-4f17-affe-ea0863880960"/>
+				<reportElement x="401" y="93" width="114" height="20" uuid="614c4f7e-48fd-4f17-affe-ea0863880960"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -86,7 +86,7 @@
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="413" y="133" width="39" height="20" uuid="17dc8c6b-60be-4c6d-bce1-99d1de6b25a5"/>
+				<reportElement x="404" y="131" width="39" height="20" uuid="17dc8c6b-60be-4c6d-bce1-99d1de6b25a5"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -107,7 +107,7 @@
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="452" y="133" width="100" height="20" uuid="8d94ff66-e8b4-46e1-8b53-5e7d2eedb313"/>
+				<reportElement x="443" y="131" width="100" height="20" uuid="8d94ff66-e8b4-46e1-8b53-5e7d2eedb313"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -203,38 +203,14 @@
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="62">
+		<band height="17">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="2" y="16" width="223" height="13" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
+				<reportElement mode="Opaque" x="2" y="4" width="555" height="13" backcolor="#E6E6E6" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
 				<textElement>
-					<font fontName="Times New Roman" isUnderline="false"/>
+					<font fontName="Times New Roman" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="2" y="11" width="548" height="1" uuid="04e5efd2-bded-49c3-b288-d3a8583cabbc"/>
-			</line>
-			<textField>
-				<reportElement x="430" y="12" width="74" height="20" uuid="f4d6dbf9-0c68-4ced-84e6-b32263f56b91"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="504" y="12" width="26" height="20" uuid="69ee317a-53e3-4d2c-ae59-b45f7b8eb6f4"/>
-				<textElement>
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="196" y="42" width="189" height="20" uuid="bb0e2891-afa7-4a7d-9976-e84e034676b3"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 	<summary>

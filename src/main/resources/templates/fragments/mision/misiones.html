@@ -47,8 +47,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${mision.nombremision}">nombremision</td>
                 <td th:text="${mision.objetivomision}">objetivomision</td>
                 <td th:text="${mision.responsablegasto}">reponsablegasto</td>
-                <td th:text="${mision.fechasalidamision}">fechasalidamision</td>
-                <td th:text="${mision.fecharegresomision}">fecharegresomision</td>
+                <td th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">fechasalidamision</td>
+                <td th:text="${#calendars.format(mision.fecharegresomision, 'dd/MM/yyyy')}">fecharegresomision</td>
                 <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-info">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success">Modificar</a></td>
                 <td><a th:onclick="'eliminar(\'' + ${ mision.codigomision} +'\');'" class="btn btn-danger">Eliminar</a></td>

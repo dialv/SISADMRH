@@ -54,8 +54,8 @@ public class CapacitacionesView  extends AbstractXlsView{
 // row.createCell(6).setCellValue((String) capacitaciones[3]);
  row.createCell(6).setCellValue((String) capacitaciones[3]);
  row.createCell(7).setCellValue((String) capacitaciones[4]);
- row.createCell(8).setCellValue((Timestamp) capacitaciones[5]);
- row.createCell(9).setCellValue((Timestamp) capacitaciones[6]);
+ row.createCell(8).setCellValue((String) ""+capacitaciones[5]);
+ row.createCell(9).setCellValue((String)""+ capacitaciones[6]);
  }
 
     

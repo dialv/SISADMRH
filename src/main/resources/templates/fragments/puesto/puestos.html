@@ -54,9 +54,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                </td> 
                 
                 
-                <td th:text="${puesto.fechaaprobacion}">fecha ingreso</td>
+                <td th:text="${#calendars.format(puesto.fechaaprobacion, 'dd/MM/yyyy')}	">fecha ingreso</td>
                 <!--<td th:text="${puesto.fechanombramiento}">fecha caducidad</td>-->
-                <td th:text="${puesto.fechabaja}">fecha baja</td>
+                <td th:text="${#calendars.format(puesto.fechabaja, 'dd/MM/yyyy')}	">fecha baja</td>
                 <td><a th:href="${'./show/' + puesto.codigopuesto}" class="btn btn-info">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + puesto.codigopuesto}" class="btn btn-success">Modificar</a></td>
                 <td><a th:onclick="'eliminar(\'' +${ puesto.codigopuesto} +'\');'" class="btn btn-danger">Eliminar</a></td>

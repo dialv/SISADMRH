@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.controller.otherreport;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -59,15 +60,21 @@ public class ComitesView   extends AbstractXlsView{
   
    
  int rowNum = 3;
+ //una forma de haer darle formato ala fecha manejado como string, la otra forma es desde la consulta del repository una ves que se maneje como estrig
 
+ SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+ String dateString = "";//format.format( new java.util.Date()   );
   for(Object[] comites : comitesList){
  Row row = sheet.createRow(rowNum++);
  row.createCell(2).setCellValue((String) comites[0]);
  row.createCell(3).setCellValue((String) comites[1]);
  row.createCell(4).setCellValue((Integer) comites[2]);
  row.createCell(5).setCellValue((String) comites[3]);
- row.createCell(6).setCellValue((Timestamp) comites[4]);
- row.createCell(7).setCellValue((Timestamp) comites[5]);
+ dateString = format.format( comites[4]  );
+ row.createCell(6).setCellValue((String) dateString);
+ dateString = format.format( comites[5]  );
+ row.createCell(7).setCellValue((String ) dateString);
  }
 
 // int rowNum = 1;
