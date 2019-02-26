@@ -236,47 +236,44 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="22">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="802" height="1" uuid="11a87019-9304-4670-93b2-1c3b1e6d2975"/>
-			</line>
+		<band height="15">
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="0" y="0" width="59" height="20" uuid="e7fac09e-4c31-4110-9335-4a4961e91287"/>
+				<reportElement mode="Transparent" x="0" y="0" width="59" height="15" uuid="e7fac09e-4c31-4110-9335-4a4961e91287"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="69" y="0" width="67" height="20" uuid="3fcc47ef-cfa9-4c1d-8e95-1489ce9e4727"/>
+				<reportElement mode="Transparent" x="69" y="0" width="67" height="15" uuid="3fcc47ef-cfa9-4c1d-8e95-1489ce9e4727"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{apellidoempleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="237" y="0" width="62" height="20" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
+				<reportElement mode="Transparent" x="237" y="0" width="62" height="15" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="143" y="4" width="80" height="15" uuid="633c825f-385f-4ae8-8ee9-15fbb1ed14eb"/>
+				<reportElement x="143" y="1" width="80" height="14" uuid="633c825f-385f-4ae8-8ee9-15fbb1ed14eb"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{No Acuerdo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="299" y="0" width="89" height="20" uuid="c6c07677-4e33-4278-9eb8-41fe147d444a"/>
+				<reportElement x="299" y="0" width="89" height="15" uuid="c6c07677-4e33-4278-9eb8-41fe147d444a"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha Desde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="388" y="0" width="76" height="20" uuid="e7253bff-537b-4969-b0dc-026abcc97612"/>
+				<reportElement x="388" y="0" width="76" height="15" uuid="e7253bff-537b-4969-b0dc-026abcc97612"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -290,14 +287,14 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1]]>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="646" y="0" width="130" height="20" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
+				<reportElement x="646" y="0" width="130" height="15" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="478" y="2" width="150" height="20" uuid="a1dd8449-e192-48de-ba78-3b00cb79725a"/>
+				<reportElement x="479" y="0" width="150" height="14" uuid="a1dd8449-e192-48de-ba78-3b00cb79725a"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman"/>
 				</textElement>
@@ -311,7 +308,7 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1]]>
 	<pageFooter>
 		<band height="17">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="0" y="4" width="802" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
+				<reportElement mode="Opaque" x="26" y="0" width="776" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" isUnderline="true"/>
 				</textElement>

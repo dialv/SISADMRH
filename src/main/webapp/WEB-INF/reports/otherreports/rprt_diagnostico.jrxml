@@ -46,7 +46,7 @@ FROM
 	<title>
 		<band height="168" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="140" width="802" height="28" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
+				<reportElement mode="Transparent" x="0" y="140" width="802" height="28" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="143" y="0" width="469" height="20" uuid="2a6d1d68-ec28-4ce0-9479-3a2f587672da"/>
@@ -293,14 +293,7 @@ FROM
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="19" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="db554105-cde6-46f8-9160-54f019dcc39f"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
+		<band height="19" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="15" splitType="Stretch">

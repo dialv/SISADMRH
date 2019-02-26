@@ -17,7 +17,7 @@
 	</parameter>
 	<parameter name="USUARIO" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT e.*,c.nombrecapacitacion,c.fechacapacitacion,ca.nombrecapacitador FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`=$P{CODIGO}
+		<![CDATA[SELECT e.*, c.nombrecapacitacion,c.fechacapacitacion,ca.nombrecapacitador FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`=$P{CODIGO}
 and c.fechacapacitaciondesde>=$P{FECHAINICIO}
 and c.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	</queryString>
@@ -88,6 +88,9 @@ and c.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="codigocapacitacion" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estadoevaluacion" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nombrecapacitacion" class="java.lang.String">

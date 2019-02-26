@@ -17,9 +17,9 @@
 FROM `empleado` e, puesto p , ubicacionfisica u, comite c
 WHERE
 e.codigopuesto=p.codigopuesto and 
-e.estadoempleado=2 and 
+
 e.codigoempleado=u.codigoempleado and 
-e.codigoempleado=c.codigoempleado]]>
+e.codigoempleado=c.codigoempleado and e.estadoempleado=1]]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -73,7 +73,7 @@ e.codigoempleado=c.codigoempleado]]>
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="143" y="95" width="265" height="20" uuid="bdd5876e-177e-424a-8d2e-12ad581b6d02"/>
+				<reportElement x="143" y="95" width="293" height="20" uuid="bdd5876e-177e-424a-8d2e-12ad581b6d02"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="true"/>
 				</textElement>

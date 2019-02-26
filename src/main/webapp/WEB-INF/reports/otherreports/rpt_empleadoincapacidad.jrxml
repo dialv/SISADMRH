@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
-	<property name="ireport.x" value="144"/>
-	<property name="ireport.y" value="35"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="94"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -12,10 +12,10 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT concat(nombreempleado,' ',apellidoempleado)as Empleado, nombreincapacidad, nombrepuesto, dui, DATE_FORMAT(fechadesdeincapacidad, '%d/%m/%Y') AS Desde, DATE_FORMAT(fechahastaincapacidad, '%d/%m/%Y') AS Hasta , isss, tipoincapacidad, formaincapacidad, subsidio, DATE_FORMAT(fechaemision, '%d/%m/%Y') AS F_Emosion  FROM `incapacidad` inner join empleado e on incapacidad.codigoempleado= e.CODIGOEMPLEADO inner join puesto on puesto.codigopuesto=e.codigopuesto
- WHERE e.codigoempleado=$P{USUARIO} and
-fechaemision>=$P{FECHAINICIO} and
- fechaemision<=$P{FECHAFIN}]]>
+		<![CDATA[SELECT concat(nombreempleado,' ',apellidoempleado)as Empleado, nombreincapacidad, nombrepuesto, dui, DATE_FORMAT(fechadesdeincapacidad, '%d/%m/%Y') AS Desde, DATE_FORMAT(fechahastaincapacidad, '%d/%m/%Y') AS Hasta , isss, tipoincapacidad, formaincapacidad, subsidio, DATE_FORMAT(fechaemision, '%d/%m/%Y') AS F_Emosion  FROM `incapacidad` inner join empleado e on incapacidad.codigoempleado= e.codigoempleado inner join puesto on puesto.codigopuesto=e.codigopuesto
+ WHERE e.codigoempleado=$P{USUARIO}  and
+fechadesdeincapacidad>=$P{FECHAINICIO} and
+	fechahastaincapacidad<=$P{FECHAFIN}]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombreincapacidad" class="java.lang.String">
