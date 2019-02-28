@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Comision;
 import mj.gob.sisadmrh.repository.ComisionRepository;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ComisionServiceImpl implements ComisionService {
-
+@Autowired
     private ComisionRepository comisionRep;
 
     @Autowired
@@ -43,6 +44,10 @@ public class ComisionServiceImpl implements ComisionService {
     @Override
     public Iterable<Comision> listAllActivos() {
         return comisionRep.listAllActivos();
+    }
+      @Override
+    public List<Object[]> findByComisionExcel(String finicial, String ffinal) {
+        return comisionRep.findByComisionExcel(finicial, ffinal);// metood para generar exel de las comisiones
     }
 
 }
