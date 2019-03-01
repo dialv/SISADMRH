@@ -249,18 +249,6 @@
                             <li sec:authorize="hasRole('ROLE_OPERATIVO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Operativos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-<<<<<<< HEAD
-                                    <li><a href="#" th:href="@{/otherreports/abogados/}">Reporte de Abogados</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/bitacoras/}">Reporte de Bitacora</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de empleados con hijos <br> con capacidades especiales</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/historial/}">Reporte de Historial Laboral</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/motoristas/}">Reporte de Motoristas</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/notarios/}">Reporte de Notarios</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/comites/}">Reporte de comites</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/comisiones/}">Reporte de Comisiones</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/capacitaciones/}">Reporte de capacitaciones</a></li>
-                                    <li><a href="#" th:href="@{/otherreports/cumpleanieros/}">Reporte de cumpleañeros</a></li>
-=======
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/abogados/}">Reporte de Abogados</a></li>
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/bitacoras/}">Reporte de Bitacora</a></li>
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de empleados con hijos <br> con capacidades especiales</a></li>
@@ -270,7 +258,6 @@
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/comites/}">Reporte de comites</a></li>
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">Reporte de capacitaciones</a></li>
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/cumpleanieros/}">Reporte de cumpleañeros</a></li>
->>>>>>> 832acf31136f0a00536e9f90daff2abf876f4867
                                     <!--<li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>-->
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/temasdiagnosticos/}">Reporte de Temas de Diagnostico</a></li>
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/estadisticocapacitados/}">Estadistico de Personal Capacitado</a></li>
