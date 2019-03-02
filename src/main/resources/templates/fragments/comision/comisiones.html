@@ -5,13 +5,6 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<!--          <div class="contenedorizq"> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>-->
     <div class="row">
              <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -20,7 +13,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <!--<h3 align="center">Listado de Comisiones</h3>-->
     <div th:if="${not #lists.isEmpty(comisiones)}">
         <table id="tablita" class="table table-striped " style="width:100%" >
             <thead>
@@ -30,22 +22,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
                 <th>Acuerdo</th>
-                <th>Acciones</th>
+                <th >Acciones</th>
+                <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
             </tr>
             </thead>
-            
             <tr th:each="comision : ${comisiones}">
                 <td th:text="${comision.codigocomision}">Código</td>
                 <td th:text="${comision.nombrecomision}">Nombre</td>
-                
-                 <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
-                  <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
-                  <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
-                
+                <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
+                <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
+                <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
                 <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a></td>
-                <td> <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
-              <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
-                <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
+                <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
+                <td sec:authorize="hasRole('ROLE_OPERATIVO')">  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
             </tr>
             
         </table>

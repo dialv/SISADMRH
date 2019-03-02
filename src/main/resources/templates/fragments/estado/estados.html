@@ -5,13 +5,6 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<!--          <div class="contenedorizq"> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>-->
     <div class="row">
              <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -20,9 +13,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-    <!--<h3  align="center">Lista de Estados</h3>-->
          <div th:if="${not #lists.isEmpty(estados)}">
-        
         <table id="tablita" class="table table-striped">
             <thead>
             <tr>
@@ -42,8 +33,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                 
                 <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-info">Mostrar</a>
-                <a th:href="${'./edit/' + estado.codigoestado}" class="btn btn-success">Editar</a>
-                <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${estado.codigoestado} + '\');'" >Eliminar</a>
+                <a sec:authorize="hasRole('ROLE_OPERATIVO')" th:href="${'./edit/' + estado.codigoestado}" class="btn btn-success">Editar</a>
+                <a sec:authorize="hasRole('ROLE_OPERATIVO')" class="btn btn-danger" th:onclick="'eliminar(\'' + ${estado.codigoestado} + '\');'" >Eliminar</a>
                 <!--<a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a>-->
                 </td>
             </tr>

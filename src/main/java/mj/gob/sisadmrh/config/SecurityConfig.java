@@ -89,15 +89,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/costocapacitaciones/report/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TACTICO','ROLE_OPERATIVO')");//Reporte comites</a></li>-->
                         http.authorizeRequests().antMatchers("/empleadoasistenciacapacitaciones/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Consultar EmpleadoCapacitaciones</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO','ROLE_TACTICO')");//Consultar EmpleadoCapacitaciones</a></li>
                         http.authorizeRequests().antMatchers("/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Empleado Asistencia Capacitaciones</a></li>
 			http.authorizeRequests().antMatchers("/asistenciacapacitaciones/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Consultar Asistencia de Capacitacion</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO','ROLE_TACTICO')");//Consultar Asistencia de Capacitacion</a></li>
                         http.authorizeRequests().antMatchers("/asistenciacapacitaciones/new/asistenciacapacitacion")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Asistencia Capacitacion</a></li>
 			http.authorizeRequests().antMatchers("/diagnosticocapacitaciones/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Consultar diagnostico</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO','ROLE_TACTICO')");//Consultar diagnostico</a></li>
                         http.authorizeRequests().antMatchers("/diagnosticocapacitaciones/new/diagnosticocapacitacion")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Diagnostico</a></li>
 			http.authorizeRequests().antMatchers("/evaluacioncapacitaciones/")
@@ -105,13 +105,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/evaluacioncapacitaciones/new/evaluacioncapacitacion")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Evualucion Capacitacion</a></li>
 			http.authorizeRequests().antMatchers("/comites/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Consultar comites</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO','ROLE_TACTICO')");//Consultar comites</a></li>
                         http.authorizeRequests().antMatchers("/comites/new/comite")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear comite</a></li>
                         http.authorizeRequests().antMatchers("/comites/report/")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte comites</a></li>
                         http.authorizeRequests().antMatchers("/nivelescolaridades/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Niveles escolares</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO','ROLE_TACTICO')");//Niveles escolares</a></li>
                         http.authorizeRequests().antMatchers("/nivelescolaridades/new/nivelescolaridad")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Nivel escolar</a></li>
 			http.authorizeRequests().antMatchers("/incapacidades/new/incapacidad")
@@ -125,7 +125,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         http.authorizeRequests().antMatchers("/comisiones/reporte/comision")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Reporte de Comisiones</a></li>
 			http.authorizeRequests().antMatchers("/inasistencias/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Consultar Inasistencias</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO','ROLE_OPERATIVO')");//Consultar Inasistencias</a></li>
                         http.authorizeRequests().antMatchers("/inasistencias/new/inasistencia")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Inasistencias</a></li>
                         http.authorizeRequests().antMatchers("/puestos/")
@@ -145,7 +145,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			http.authorizeRequests().antMatchers("/empleados/new/empleado")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Empleado</a></li>
 			http.authorizeRequests().antMatchers("/estados/")
-                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_CONFIG')");//Consultar Estados</a></li>
+                            .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_CONFIG','ROLE_OPERATIVO')");//Consultar Estados</a></li>
                         http.authorizeRequests().antMatchers("/estados/new/estado")
                             .access("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_OPERATIVO')");//Crear Estado</a></li>
                         http.authorizeRequests().antMatchers("/otherreports/abogados/")

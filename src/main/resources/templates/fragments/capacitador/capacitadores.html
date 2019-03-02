@@ -44,7 +44,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <th>Celular</th>
                   <th>Email</th>
 <!--                  <th>Codigo Empleado</th>-->
-                    <th></th><th></th><th></th>
+                    <th></th>
+                    <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                    <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
             </tr>
             </thead>
             <tr th:each="capacitador : ${capacitadores}">
