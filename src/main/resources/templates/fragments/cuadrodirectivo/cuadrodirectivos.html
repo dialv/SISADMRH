@@ -5,50 +5,37 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-<!--    <div class="contenedorizq"> 
-        <label  class="der">
-            <script >
-                var f = new Date();
-                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());</script></label>
-    </div>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
-
             <div class="row text-center">
                 <img src="../../static/image/cuadros.png" width="100" th:src="@{/image/cuadros.png}"/>
             </div>
-            <!--<h3 align="center">Listado de Cuadro Directivos</h3>-->
             <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
-
                 <table id="tablita" class="table table-striped">
                     <thead> 
                         <tr>
                             <th>Código</th>
-                            <!--th>Responsable</th-->
                             <th>Area</th>
                             <th>Descripción</th>
                             <th>Fecha Presentación Desde</th>
                             <th>Fecha Presentación Hasta</th>
-
-                            <th></th><th></th><th></th>
-
+                            <th></th>
+                            <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                            <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                         </tr>
                     </thead>
                     <tr th:each="cuadrodirectivo : ${cuadrodirectivos}">
                         <td align="center" th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
-                        <!--td th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">Responsable</td-->
                         <td th:text="${cuadrodirectivo.area}">area</td>
                         <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
                         <td th:text="${#calendars.format(cuadrodirectivo.fechapresentaciondesde, 'dd/MM/yyyy')}">F. Presentacion Desde</td>
                         <td th:text="${#calendars.format(cuadrodirectivo.fechapresentacionhasta, 'dd/MM/yyyy')}">F. Presentacion Hasta</td>
-
-                        <td>  <a th:href="${'./show/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-info">Mostrar</a></td>
-                        <td> <a th:href="${'./edit/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-success">Editar</a></td>
-                        <td><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${cuadrodirectivo.codigocuadrodirectivo} + '\');'" >Eliminar</a></td>
-
+                        <td><a th:href="${'./show/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-info">Mostrar</a></td>
+                        <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + cuadrodirectivo.codigocuadrodirectivo}" class="btn btn-success">Editar</a></td>
+                        <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a class="btn btn-danger" th:onclick="'eliminar(\'' + ${cuadrodirectivo.codigocuadrodirectivo} + '\');'" >Eliminar</a></td>
                     </tr>
                 </table>
             </div>
@@ -56,14 +43,13 @@
     </div>
 </body>
 <script th:inline="javascript">
-    Textheader('pnt_crcd',document.title);
+    Textheader('pnt_crcd', document.title);
     $(document).ready(function () {
     $('#tablita').DataTable({
     "language": {
     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
     }});
-    });
-</script>
+    });</script>
 <script th:inline="javascript">
     $(document).ready(function () {
 
@@ -128,5 +114,4 @@
             });
     }
 </script>
-
 </html>

@@ -114,8 +114,8 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
 "e.codigoempleado= :CODIGO ", nativeQuery = true)
     List<Object[]> findByPuestosEmpleados(@Param("CODIGO") String codigo);// ES EL METODO DE HISTORIAL LABRORAL
 
-    @Query(value = " select e.nombreempleado,i.nombreincapacidad, p.nombrepuesto,e.duiempleado,i.fechadesdeincapacidad,i.fechahastaincapacidad,"
-            + " i.numerofichaisss,i.tipoincapacidad,i.formaincapacidad,i.subsidio,i.fechaemision from empleado e "
+    @Query(value = " select concat(e.nombreempleado,' ',e.apellidoempleado),i.nombreincapacidad, p.nombrepuesto,e.duiempleado,DATE_FORMAT(i.fechadesdeincapacidad, '%d/%m/%Y'),DATE_FORMAT(i.fechahastaincapacidad, '%d/%m/%Y') ,"
+            + " i.numerofichaisss,i.tipoincapacidad,i.formaincapacidad,i.subsidio,DATE_FORMAT(i.fechaemision, '%d/%m/%Y') from empleado e "
             + " inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto "
             + " inner join incapacidad i on e.codigoempleado=i.codigoempleado "
             + " where i.fechahastaincapacidad >= :FINICIAL and i.fechahastaincapacidad <= :FFINAL ", nativeQuery = true)
