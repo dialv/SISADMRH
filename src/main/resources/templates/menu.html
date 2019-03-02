@@ -197,6 +197,9 @@
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/empleados/}">Gestionar Empleados</a></li>
                                </ul>
                             </li>
+
+
+
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Elementos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
@@ -246,20 +249,20 @@
                             <li sec:authorize="hasRole('ROLE_OPERATIVO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Operativos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/abogados/}">Reporte de Abogados</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/bitacoras/}">Reporte de Bitacora</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de empleados con hijos <br> con capacidades especiales</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/historial/}">Reporte de Historial Laboral</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/motoristas/}">Reporte de Motoristas</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/notarios/}">Reporte de Notarios</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/comites/}">Reporte de comites</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">Reporte de capacitaciones</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/cumpleanieros/}">Reporte de cumpleañeros</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/abogados/}">Reporte de Abogados</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/bitacoras/}">Reporte de Bitacora</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de empleados con hijos <br> con capacidades especiales</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/historial/}">Reporte de Historial Laboral</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/motoristas/}">Reporte de Motoristas</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/notarios/}">Reporte de Notarios</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/comites/}">Reporte de comites</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">Reporte de capacitaciones</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/cumpleanieros/}">Reporte de cumpleañeros</a></li>
                                     <!--<li><a href="#" th:href="@{/comites/report/}">Reporte comites</a></li>-->
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/temasdiagnosticos/}">Reporte de Temas de Diagnostico</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/estadisticocapacitados/}">Estadistico de Personal Capacitado</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/nivelesreporte/}">Reporte de Niveles Escolares</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/temasdiagnosticos/}">Reporte de Temas de Diagnostico</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/estadisticocapacitados/}">Estadistico de Personal Capacitado</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/otherreports/nivelesreporte/}">Reporte de Niveles Escolares</a></li>
                                 </ul>
                             </li>
                             <li class="active"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Sessión<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>

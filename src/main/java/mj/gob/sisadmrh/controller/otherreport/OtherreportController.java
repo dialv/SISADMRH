@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Capacitador;
+import mj.gob.sisadmrh.model.Comision;
 import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
@@ -21,6 +22,7 @@ import mj.gob.sisadmrh.pojos.AbogadosPojo;
 import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
+import mj.gob.sisadmrh.service.ComisionService;
 import mj.gob.sisadmrh.service.ComiteService;
 import mj.gob.sisadmrh.service.DiagnosticoCapacitacionService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
@@ -55,8 +57,8 @@ private ComiteService comiteService;// instancia para jalar los comites
 //public void getListComitesExcel(ComiteService comiteService){
 //    this.comiteService=comiteService;
 //}
-        
-
+      @Autowired  
+private ComisionService comisionService;
 @Autowired
 private EmpleadoService empleadoService;// instancia para listar empleados como filtro de reporte
 @Autowired
@@ -134,6 +136,12 @@ private HijosdiscapacidadService hijosdiscapacidadService;
     public String reportecomites(Model model) {
         model.addAttribute("comites", comiteService.listAllComite() );
         return PREFIX + "comitesreport";
+    }
+    
+     @RequestMapping("comisiones/")
+    public String reportecomisiones(Model model) {
+     // model.addAttribute("comisiones",comisionService.listAllComisiones());
+        return PREFIX + "comisionesreport";
     }
      @RequestMapping("constanciasalariales/")
     public String reporteconstanciasalariales(Model model) {
@@ -243,6 +251,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
@@ -514,6 +523,28 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
               @RequestParam(value="codigo",required = false) String codigo){
               List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin);
               return new ModelAndView(new ComitesView(), "comitesList", comitesList);
+       }
+       //para generar reportes de comisiones
+       @RequestMapping(value = "comisiones/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfcomisiones(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+     
+            HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+//		params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_comisiones", params, download,response); 
+}
+     @RequestMapping("/comisionesxls")
+       public ModelAndView comisionesxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> comisionesList = comisionService.findByComisionExcel(fechainicio, fechafin);
+              return new ModelAndView(new ComisionesView(), "comisionesList", comisionesList);
        }
     /* ****************Report de niveles de Escolaridad en pdf******************************* */
                     @RequestMapping("nivel/")
