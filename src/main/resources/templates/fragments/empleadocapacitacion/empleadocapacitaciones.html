@@ -24,17 +24,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div th:if="${not #lists.isEmpty(empleadocapacitaciones)}">
         <div class="table-responsive">
   <table class="table">
-        <!--<table class="table table-striped">-->
             <tr>
                 <th>Nombre empleado</th>
                 <th>Nombre de Capacitacion</th>
-               
-                
             </tr>
             <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
                 <td th:text="${empleadocapacitacion.empleado.nombreempleado}">Codigo</td>
                 <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Codigo</td>
-                <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
     </div>
