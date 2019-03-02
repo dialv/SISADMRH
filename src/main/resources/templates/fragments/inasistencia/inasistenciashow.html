@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>SISADMRH</title>
+        <title>Detalle de Inasistencia</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -14,7 +14,7 @@
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-        <h3 align="center">Datos de Inasistencia</h3>
+<!--        <h3 align="center">Detalle de Inasistencia</h3>-->
         <div>
             <form class="form-horizontal">
 
@@ -71,9 +71,7 @@
             </form>
               <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="button" class="btn btn-info"><a href="#" th:href="@{/inasistencias/}">Regresar</a></button>
-
-                    </div>
+ <a href="#" th:href="@{/inasistencias/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                      </div>
                 </div>
         </div>
     </div>
@@ -82,4 +80,7 @@
         <th:block th:include="../templates/footer"></th:block>
     </div>
 </body>
+<script>
+    Textheader('pnt_gecoms',document.title);
+</script>
 </html>

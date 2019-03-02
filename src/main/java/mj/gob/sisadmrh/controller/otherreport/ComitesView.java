@@ -7,6 +7,7 @@ package mj.gob.sisadmrh.controller.otherreport;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -30,36 +31,50 @@ public class ComitesView   extends AbstractXlsView{
 //    Puesto puesto;
 //    Comite comite;
 //    Empleado empleado;
+//    public String fechainicio;
+//    public String fechafin;
+//    public ComitesView(String fechainicio, String fechafin){
+//    this.fechainicio=fechainicio;
+//    this.fechafin=fechafin;
+//    }
  @Override
  protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
  HttpServletResponse response) throws Exception {
  
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_comites.xls\"");
+ 
         
   List<Object[]> comitesList = (List<Object[]>) model.get("comitesList");
- Sheet sheet = workbook.createSheet("Comites Data");
- Row header = sheet.createRow(0);
+   Sheet sheet = workbook.createSheet("REPORTE DE COMITES");
+ sheet.createRow(1).createCell(3).setCellValue("REPORTE DE COMITES");
+ Row header = sheet.createRow(2);
  
- header.createCell(0).setCellValue("Nombre Empleado");
- header.createCell(1).setCellValue("Puesto");
-  header.createCell(2).setCellValue("Acuerdo");
- header.createCell(3).setCellValue("Comite");
-  header.createCell(4).setCellValue("Desde");
-  header.createCell(5).setCellValue("Hasta");
+ header.createCell(2).setCellValue("Nombre Empleado");
+ header.createCell(3).setCellValue("Puesto");
+  header.createCell(4).setCellValue("Acuerdo");
+ header.createCell(5).setCellValue("Comite");
+  header.createCell(6).setCellValue("Desde");
+  header.createCell(7).setCellValue("Hasta");
   
   
    
- int rowNum = 1;
+ int rowNum = 3;
+ //una forma de haer darle formato ala fecha manejado como string, la otra forma es desde la consulta del repository una ves que se maneje como estrig
 
+ SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+ String dateString = "";//format.format( new java.util.Date()   );
   for(Object[] comites : comitesList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((String) comites[0]);
- row.createCell(1).setCellValue((String) comites[1]);
- row.createCell(2).setCellValue((Integer) comites[2]);
- row.createCell(3).setCellValue((String) comites[3]);
- row.createCell(4).setCellValue((Timestamp) comites[4]);
- row.createCell(5).setCellValue((Timestamp) comites[5]);
+ row.createCell(2).setCellValue((String) comites[0]);
+ row.createCell(3).setCellValue((String) comites[1]);
+ row.createCell(4).setCellValue((Integer) comites[2]);
+ row.createCell(5).setCellValue((String) comites[3]);
+ dateString = format.format( comites[4]  );
+ row.createCell(6).setCellValue((String) dateString);
+ dateString = format.format( comites[5]  );
+ row.createCell(7).setCellValue((String ) dateString);
  }
 
 // int rowNum = 1;

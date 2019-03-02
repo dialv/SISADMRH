@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>SISADMRH-Detalle de Empleado</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+    <script> Textheader('pnt_cem14', document.title);</script>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            <div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+            </div>
+            <h3 align="center"></h3>
+            <div>
+                <form class="form-horizontal">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">codigo:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre de Empleado</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Apellido de Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.fechanacimientoempleado}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Telefono Movil de Empleado</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Telefono Movil de Empleado</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">DUI:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.duiempleado}">DUI</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">NIT:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.nitempleador}">NIT</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Email:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.emailempleado}">Email Empleado</p>
+                            </div>
+                        </div>
+                    </div> 
+                </form>
+                <div >
+                </div>
+                <div class="col-md-12" style="background-color:#d9edf7;">
+                    <div class="panel-info">
+                        <div class="panel-heading">
+                            Para Gestionar informacion extra del Empleado se listan las siguientes opciones :
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <div id="card-758749">
+                                <!-- Contacto-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header" >
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734527"> <img src="../../static/image/images.jpeg"  th:src="@{/image/agenda.png}"/> Contactos </a>
+                                    </div>
+                                    <div id="card-element-734527" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Contactos</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+                                                    </div>	
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Contactos</h3>
+                                                            <table id="tablita" class="tablita table table-striped table-bordered" >
+                                                                <thead> 
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Nombre de  Contacto</th>
+                                                                        <th>Direccion</th>
+                                                                        <th>Telefono Fijo</th>
+                                                                        <th>Telefono Movi</th>
+                                                                        <th>Email</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="contacto : ${contactos}">
+                                                                    <td th:text="${contacto.codigocontacto}">codigocontacto</td>
+                                                                    <td th:text="${contacto.nombrecontacto}">nombrecontacto</td>
+                                                                    <td th:text="${contacto.direccion}">direccion</td>                
+                                                                    <td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
+                                                                    <td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
+                                                                    <td th:text="${contacto.emailcontacto}">emailcontacto</td>
+                                                                    <td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Dependiente-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734528"> <img src="../../static/image/images.jpeg"  th:src="@{/image/familia.png}"/> Dependientes </a>
+                                    </div>
+                                    <div id="card-element-734528" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Dependientes</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Dependientes</h3>
+                                                            <table id="tablita1" class="tablita table table-striped table-bordered" >
+                                                                <thead> 
+                                                                    <tr >
+                                                                        <th>Codigo</th>
+                                                                        <th>Nombre de  Dependiente</th>
+                                                                        <th>Parentesco</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="dependiente : ${dependientes}">
+                                                                    <td th:text="${dependiente.codigodependiente}">codigodependiente</td>
+                                                                    <td th:text="${dependiente.nombredependiente}">nombredependiente</td>
+                                                                    <td th:text="${dependiente.parentesco}">parentesco</td>   
+                                                                    <td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Formacion Academica-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734529"><img src="../../static/image/images.jpeg"  th:src="@{/image/graduacion.png}"/> Formacion Academica </a>
+                                    </div>
+                                    <div id="card-element-734529" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Formacion Academica</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Formacion Academica</h3>
+                                                            <table id="tablita2" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr >
+                                                                        <th>Codigo</th>
+                                                                        <th>Estudios Realizados</th>
+                                                                        <th>Centro Educativo</th>
+                                                                        <th>Titulo Obtenido</th>
+                                                                        <th>Fecha</th>
+                                                                        <th>Documento</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="formacionacademica : ${formacionacademicas}">
+                                                                    <td th:text="${formacionacademica.codigoformacionacademica}">codigoformacionacademica</td>
+                                                                    <td th:text="${formacionacademica.estudiosrealizados}">estudiosrealizados</td>
+                                                                    <td th:text="${formacionacademica.centroeducativo}">centroeducativo</td>   
+                                                                    <td th:text="${formacionacademica.tituloobtenido}">tituloobtenido</td>   
+                                                                    <td th:text="${formacionacademica.fechadesdeformacionacademica}">fechadesdeformacionacademica</td> 
+                                                                    <td><a  class="btn btn-danger" th:onclick="'../../descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
+                                                                    <td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Capacitaciones Recibidas-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734530"><img src="../../static/image/images.jpeg"  th:src="@{/image/presentacion.png}"/> Capacitaciones Recibidas</a>
+                                    </div>
+                                    <div id="card-element-734530" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Capacitaciones Recibidas</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Capacitaciones Recibidas</h3>
+                                                            <table id="tablita3" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Estudios Realizados</th>
+                                                                        <th>Centro Educativo</th>
+                                                                        <th>Titulo Obtenido</th>
+                                                                        <th>Fecha</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="caparecibida : ${caparecibidas}">
+                                                                    <td th:text="${caparecibida.codigocaparecibidas}">codigocaparecibidas</td>
+                                                                    <td th:text="${caparecibida.tipoevento}">tipoevento</td>
+                                                                    <td th:text="${caparecibida.especialidad}">especialidad</td>   
+                                                                    <td th:text="${caparecibida.organismo}">organismo</td>   
+                                                                    <td th:text="${caparecibida.fechaevento}">fechaevento</td>   
+                                                                    <td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Experiencia Laboral-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734531"> <img src="../../static/image/images.jpeg"  th:src="@{/image/colaboracion.png}"/>Experiencia Laboral  </a>
+                                    </div>
+                                    <div id="card-element-734531" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Experiencia Laboral</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Experiencia Laboral</h3>
+                                                            <table id="tablita4" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Institucion</th>
+                                                                        <th>Fecha Desde</th>
+                                                                        <th>Fecha Hasta</th>
+                                                                        <th>Salario</th>
+                                                                        <th>Sector</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="experiencialaboral : ${experiencialaborales}">
+                                                                    <td th:text="${experiencialaboral.codigoexperiencialaboral}">codigoexperiencialaboral</td>
+                                                                    <td th:text="${experiencialaboral.nombreinstitucion}">nombreinstitucion</td>
+                                                                    <td th:text="${experiencialaboral.fechadesdeexperiencialaboral}">fechadesdeexperiencialaboral</td>   
+                                                                    <td th:text="${experiencialaboral.fechahastaexperiencialaboral}">fechahastaexperiencialaboral</td>   
+                                                                    <td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
+                                                                    <td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
+                                                                    <td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Ubicacion Fisica-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734532">  <img src="../../static/image/images.jpeg"  th:src="@{/image/anteproyecto.png}"/>Ubicacion Fisica </a>
+                                    </div>
+                                    <div id="card-element-734532" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Ubicacion Fisica</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Ubicacion Fisica</h3>
+                                                            <table id="tablita5" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr >
+                                                                        <th>Codigo</th>
+                                                                        <th>Cargo</th>
+                                                                        <th>Jefe Inmediato</th>
+                                                                        <th>Nombre Ubicacion</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="ubicacionfisica : ${ubicacionfisicas}">
+                                                                    <td th:text="${ubicacionfisica.codigoubicacion}">codigoubicacion</td>
+                                                                    <td th:text="${ubicacionfisica.cargofuncional}">cargofuncional</td>
+                                                                    <td th:text="${ubicacionfisica.jefeinmediato}">jefeinmediato</td>   
+                                                                    <td th:text="${ubicacionfisica.nombreubicacion}">nombreubicacion</td>    
+                                                                    <td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Contrato-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734533"> <img src="../../static/image/images.jpeg"  th:src="@{/image/certificado.png}"/>Contrato</a>
+                                    </div>
+                                    <div id="card-element-734533" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Contrato</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Contrato</h3>
+                                                            <table id="tablita6" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Fecha de Inicio</th>
+                                                                        <th>Fecha de Fin</th>
+                                                                        <th>Salario</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="contrato : ${contratos}">
+                                                                    <td th:text="${contrato.codigocontrato}">codigocontrato</td>
+                                                                    <td th:text="${contrato.fechainiciocontrato}">fechainiciocontrato</td>
+                                                                    <td th:text="${contrato.fechafincontrato}">fechafincontrato</td>   
+                                                                    <td th:text="${contrato.salarioactual}">salarioactual</td>    
+                                                                    <td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Hijos con Discapacidad-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734534"><img src="../../static/image/images.jpeg"  th:src="@{/image/discapacitado.png}"/> Hijos con Discapacidad</a>
+                                    </div>
+                                    <div id="card-element-734534" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Hijos con Discapacidad</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Hijos con Discapacidad</h3>
+                                                            <table id="tablita7" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Nombre</th>
+                                                                        <th>Discapacidad</th>
+                                                                        <th>Tipo de Discapacidad</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="hijodiscapacidad : ${hijodiscapacidades}">
+                                                                    <td th:text="${hijodiscapacidad.codigohijodiscapacidad}">codigohijodiscapacidad</td>
+                                                                    <td th:text="${hijodiscapacidad.nombrehijodiscapacidad}">nombrehijodiscapacidad</td>
+                                                                    <td th:text="${hijodiscapacidad.nombrediscapacidad}">nombrediscapacidad</td>   
+                                                                    <td th:text="${hijodiscapacidad.tipodiscapacidad}">tipodiscapacidad</td>    
+                                                                    <td><a th:href="${'../../hijodiscapacidades/show/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Idiomas-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734535"><img src="../../static/image/images.jpeg"  th:src="@{/image/traducir.png}"/>  Idiomas</a>
+                                    </div>
+                                    <div id="card-element-734535" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Idiomas</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Idiomas</h3>
+                                                            <table id="tablita8" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Nombre</th>
+                                                                        <th>Escribe</th>
+                                                                        <th>Habla</th>
+                                                                        <th>Traduce</th>
+                                                                        <th>Nivel</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="idioma : ${idiomas}">
+                                                                    <td th:text="${idioma.codigoidioma}">codigoidioma</td>
+                                                                    <td th:text="${idioma.nombreidioma}">nombreidioma</td>
+                                                                    <td th:text="${idioma.escribe}">escribe</td>  
+                                                                    <td th:text="${idioma.habla}">habla</td>   
+                                                                    <td th:text="${idioma.traduce}">traduce</td> 
+                                                                    <td th:text="${idioma.nivel}">nivel</td> 															
+                                                                    <td><a th:href="${'../../idiomas/show/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <!--Beneficio-->
+                                <div class="card panel panel-default">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734536"><img src="../../static/image/images.jpeg"  th:src="@{/image/diagrama.png}"/> Beneficios</a>
+                                    </div>
+                                    <div id="card-element-734536" class="collapse">
+                                        <div class="card-body"> 
+                                            <div class="panel panel-primary">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"> 
+                                                        Beneficos
+                                                        <a th:href="@{|../../beneficios/asignar/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
+                                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
+                                                        </a>
+                                                    </h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row text-center">
+                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/beneficio.png}"/>
+                                                    </div>
+                                                    <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h3 align="center">Beneficos</h3>
+                                                            <table id="tablita9" class="tablita table table-striped table-bordered" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Codigo</th>
+                                                                        <th>Nombre</th>
+                                                                        <th>Descripción</th>
+                                                                        <th>Fecha Inicio</th>
+                                                                        <th>Fecha Fin</th>
+                                                                        <th>Detalle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tr th:each="beneficio : ${beneficio}">
+                                                                    <td th:text="${beneficio.codigobeneficio}">codigobeneficio</td>
+                                                                    <td th:text="${beneficio.nombrebeneficio}">nombrebeneficio</td>
+                                                                    <td th:text="${beneficio.descripcionbeneficio}">descripcionbeneficio</td>  
+                                                                    <td th:text="${beneficio.fechainiciobeneficio}">fechainiciobeneficio</td>   
+                                                                    <td th:text="${beneficio.fechafinalizarbeneficio}">fechafinalizarbeneficio</td> 															
+                                                                    <td><a th:href="${'../../beneficio/show/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div><!--fin-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row" align="center">
+                    <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar<a href="#" th:href="@{/empleados/}">.</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+        $('.tablita').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }});
+    });
+</script> 
+</html>

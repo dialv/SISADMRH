@@ -59,7 +59,7 @@ public class BeneficioController extends UtilsController{
     private final String PREFIX = "fragments/beneficio/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("beneficios", beneficioService.listAllBeneficios());
+        model.addAttribute("beneficios", beneficioService.listAllActivos());
         return PREFIX + "beneficios";
     }
     
@@ -78,15 +78,16 @@ public class BeneficioController extends UtilsController{
     @RequestMapping(value = "beneficio")
     public String saveBeneficio(Beneficio beneficio,Model model) {
         try{
-         beneficioService.saveBeneficio(beneficio);
+        beneficio.setEstadobeneficio(1);
+        beneficioService.saveBeneficio(beneficio);
+        bitacoraService.BitacoraRegistry("se guardo un beneficio",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
         }
        return PREFIX+"beneficioform";
-        
-       // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }
     
     @RequestMapping("show/{id}")
@@ -94,12 +95,24 @@ public class BeneficioController extends UtilsController{
         model.addAttribute("beneficio", beneficioService.getBeneficioById(id).get());
         return PREFIX +"beneficioshow";
     }
+    
+    @RequestMapping("show2/{id}/{idemp}") 
+    public String showBeneficio2(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+        model.addAttribute("beneficio", beneficioService.getBeneficioById(id).get());
+        return PREFIX +"beneficioshow2";
+    }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
+        
         try{
-         beneficioService.deleteBeneficio(id);
-          model.addAttribute("msg", 3);
+        Beneficio beneficio =beneficioService.getBeneficioById(id).get();
+        beneficio.setEstadobeneficio(0);
+        beneficioService.saveBeneficio(beneficio);
+        bitacoraService.BitacoraRegistry("se elimino un Beneficio",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 3);
         }
         catch(Exception e){
          model.addAttribute("msg", 4);
@@ -108,14 +121,70 @@ public class BeneficioController extends UtilsController{
        // return "redirect:/beneficios/";
     }
     
-    @RequestMapping("asignar/{id}")
-    public String newEmpleadoBeneficio(Model model) {
-        model.addAttribute("beneficio", new Beneficio());
+    @RequestMapping("delete2/{id}")
+    public String delete2(@PathVariable Integer id,Model model) {
         
+        try{
+        Beneficio beneficio =beneficioService.getBeneficioById(id).get();
+         Empleadobeneficio emben = new  Empleadobeneficio(); 
+         emben.getEmpleado();
+         empleadoBeneficioService.deleteEmpleadobeneficio(id);
+         
+         bitacoraService.BitacoraRegistry("se elimino un Beneficio",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 3);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 4);
+        }
+//       return PREFIX + "beneficios";
+return "redirect:/empleados/show/"+id;
+       // return "redirect:/beneficios/";
+    }
+    
+    @RequestMapping("asignar/{id}")
+    public String newEmpleadoBeneficio(Model model,@PathVariable Integer id) {
+        model.addAttribute("beneficio", new Beneficio());
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         Iterable<Beneficio> beneficio = beneficioService.listAllBeneficios();
 //         
       model.addAttribute("beneficios", beneficio);
         return PREFIX + "beneficioempleadoform";
+    }
+    
+    @RequestMapping("edit2/{id}/{idemp}") 
+    public String asignar2(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+        model.addAttribute("beneficio", new Beneficio());
+        Iterable<Beneficio> beneficio = beneficioService.listAllBeneficios();
+//         
+      model.addAttribute("beneficios", beneficio);
+        return PREFIX + "beneficioempleadoform";
+    }
+    
+    
+    @RequestMapping(value = "edit2/beneficio/asignar/{id}")
+    public String save2EmpleadoBeneficio(Beneficio beneficio,Model model,@PathVariable Integer id) {
+        try{
+         Empleadobeneficio emben = new  Empleadobeneficio();  
+         emben.setBeneficio(beneficio);
+         Empleado em = empleadoService.getEmpleadoById(id).get();
+         emben.setEmpleado(empleadoService.getEmpleadoById(id).get());
+         EmpleadobeneficioPK embenpk = new EmpleadobeneficioPK();
+         embenpk.setCodigobeneficio(beneficio.getCodigobeneficio());
+         embenpk.setCodigoempleado(em.getCodigoempleado());
+         emben.setEmpleadobeneficioPK(embenpk);
+         emben.setFechabeneficio(new Date());
+         empleadoBeneficioService.saveEmpleadobeneficio(emben);
+         model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+         model.addAttribute("msg", 1);
+          Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
+        }
+       return "redirect:/empleados/show/"+id;
+        
+       // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }
     
     @RequestMapping(value = "beneficio/asignar/{id}")
@@ -137,7 +206,7 @@ public class BeneficioController extends UtilsController{
          model.addAttribute("msg", 1);
           Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
         }
-       return PREFIX+"beneficioform";
+       return "redirect:/empleados/show/"+id;
         
        // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }

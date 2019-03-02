@@ -15,7 +15,12 @@ import org.springframework.data.repository.query.Param;
  * @author IPalacios
  */
 //public interface FormacionacademicaRepository extends CrudRepository<Formacionacademica, Integer>{
-     public interface FormacionacademicaRepository extends CrudRepository<Formacionacademica, Integer>{
-        @Query(value = "SELECT d.* FROM formacionacademica d , empleadoformacion ed WHERE d.codigoformacionacademica = ed.codigoformacionacademica and ed.codigoempleado= :id ", nativeQuery = true)
+public interface FormacionacademicaRepository extends CrudRepository<Formacionacademica, Integer> {
+
+    @Query(value = "SELECT d.* FROM formacionacademica d , empleadoformacion ed WHERE d.estadoformacion and  d.codigoformacionacademica = ed.codigoformacionacademica and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Formacionacademica> findByDato(@Param("id") int dato);
+
+    @Query("SELECT o FROM Formacionacademica o WHERE o.estadoformacion != 0")
+    public Iterable<Formacionacademica> listAllActivos();
+
 }

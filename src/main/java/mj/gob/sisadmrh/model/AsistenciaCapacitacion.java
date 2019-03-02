@@ -48,6 +48,8 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
+    @Column(name = "ESTADOASISTENCIA")
+    private int estadoasistencia;
     @Basic(optional = false)
     @NotNull
     @Column(name = "codigoempleado")
@@ -167,6 +169,14 @@ public class AsistenciaCapacitacion implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getEstadoasistencia() {
+        return estadoasistencia;
+    }
+
+    public void setEstadoasistencia(int estadoasistencia) {
+        this.estadoasistencia = estadoasistencia;
     }
     
 }

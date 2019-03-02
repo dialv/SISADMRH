@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -18,9 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,14 +27,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Comite implements Serializable {
     @Basic(optional = false)
    
-    @Size(min = 1, max = 20)
-    @Column(name = "NIT")
-    private String nit;
-    @Basic(optional = false)
-   
-    @Size(min = 1, max = 13)
-    @Column(name = "DUI")
-    private String dui;
+    
     @Size(max = 50)
     @Column(name = "NOMBRECOMITE")
     private String nombrecomite;
@@ -62,6 +47,9 @@ public class Comite implements Serializable {
     private Integer numeroacuerdocomite;
     @Column(name = "MIEMBROMAXIMO")
     private Integer miembromaximo;
+    
+    @Column(name = "ESTADOCOMITE")
+    private Integer estadocomite;
     
     @Column(name = "FECHADESDECOMITE")
    // @DateTimeFormat(pattern = "YYYY-MM-dd")
@@ -159,21 +147,9 @@ public class Comite implements Serializable {
         return "mj.gob.sisadmrh.model.Comite[ codigocomite=" + codigocomite + " ]";
     }
 
-    public String getNit() {
-        return nit;
-    }
+   
 
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
-
-    public String getDui() {
-        return dui;
-    }
-
-    public void setDui(String dui) {
-        this.dui = dui;
-    }
+  
 
     public String getNombrecomite() {
         return nombrecomite;
@@ -197,6 +173,14 @@ public class Comite implements Serializable {
 
     public void setDesripcioncomite(String desripcioncomite) {
         this.desripcioncomite = desripcioncomite;
+    }
+
+    public Integer getEstadocomite() {
+        return estadocomite;
+    }
+
+    public void setEstadocomite(Integer estadocomite) {
+        this.estadocomite = estadocomite;
     }
     
 }

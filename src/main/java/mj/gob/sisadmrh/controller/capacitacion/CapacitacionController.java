@@ -1,24 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller.capacitacion;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
+import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
+import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-//import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,8 +26,14 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes("capacitacion")
 @RequestMapping(value = "capacitaciones")
 public class CapacitacionController extends UtilsController{
+     private EmpleadoService empleadoService;
+    @Autowired
+    public void SetEmpleadoService(EmpleadoService empleadoService){
+    this.empleadoService=empleadoService;
+    }
     
-    
+    @Autowired
+    private EstadoService estadoService;
     private CapacitacionService capacitacionService;
      
        @Autowired
@@ -51,14 +52,23 @@ public class CapacitacionController extends UtilsController{
     private final String PREFIX = "fragments/capacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
+        model.addAttribute("capacitaciones", capacitacionService.listAllActivos());
         return PREFIX + "capacitaciones";
     }
     
      @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    public String edit(@PathVariable Integer id, Model model,SessionStatus status) {
         model.addAttribute("capacitacion", capacitacionService.getCapacitacionById(id));
          Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+         Iterable<Estado> catCap = estadoService.findBySuperior(1674);
+           Iterable<Estado> deptoResponsalbe = estadoService.findBySuperior(1684);
+           Iterable<Estado> estadoCap = estadoService.findBySuperior(1694);
+           model.addAttribute("capacitadores", capacitadores);//pasa los datos a la vista
+        model.addAttribute("catCap", catCap);
+         
+         model.addAttribute("deptoResponsalbe", deptoResponsalbe);
+         model.addAttribute("estadoCap", estadoCap);
+         status.setComplete();
          // System.out.println("numero:"+capacitadores);
         model.addAttribute("capacitadores", capacitadores);
         return PREFIX + "capacitacionform";
@@ -69,22 +79,34 @@ public class CapacitacionController extends UtilsController{
         model.addAttribute("capacitacion", new Capacitacion());
         
           Iterable<Capacitador> capacitadores = capacitadorService.listAllCapacitador();
+          Iterable<Estado> catCap = estadoService.findBySuperior(1674);
+           Iterable<Estado> deptoResponsalbe = estadoService.findBySuperior(1684);
+           Iterable<Estado> estadoCap = estadoService.findBySuperior(1694);
          // System.out.println("numero:"+capacitadores);
         model.addAttribute("capacitadores", capacitadores);//pasa los datos a la vista
+        model.addAttribute("catCap", catCap);
+         
+         model.addAttribute("deptoResponsalbe", deptoResponsalbe);
+         model.addAttribute("estadoCap", estadoCap);
         return PREFIX + "capacitacionform";//retorna a la vista
     }
     
     @RequestMapping(value = "capacitacion")
     public String saveCapacitacion(Capacitacion capacitacion,Model model,SessionStatus status) {
         try{
-           capacitacionService.saveCapacitacion(capacitacion);
+            capacitacion.setEstadocapacitacion(1);
+            capacitacionService.saveCapacitacion(capacitacion);
            status.setComplete();
+            bitacoraService.BitacoraRegistry("se guardo una Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
            model.addAttribute("msg", 0);
+           model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
+           return PREFIX + "capacitaciones";
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
         }
-       return PREFIX + "capacitacionform";
+       return PREFIX + "capacitaciones";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
@@ -108,7 +130,12 @@ public class CapacitacionController extends UtilsController{
     public String delete(@PathVariable Integer id,Model model) {
         try{
        
-        capacitacionService.deleteCapacitacion(id);
+        Capacitacion capacitacion =capacitacionService.getCapacitacionById(id).get();
+        capacitacion.setEstadocapacitacion(0);
+        capacitacionService.saveCapacitacion(capacitacion);
+            
+        bitacoraService.BitacoraRegistry("se elimino una Capacitacion",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 3);
         }
         catch(Exception e)
@@ -120,7 +147,8 @@ public class CapacitacionController extends UtilsController{
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+         model.addAttribute("capacitaciones", capacitacionService.listAllCapacitacion());
         return PREFIX + "capacitacionesreport";
     }
     

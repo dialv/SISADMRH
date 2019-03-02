@@ -1,3 +1,26 @@
+.fondoloco{
+  background:#28497d; 
+  background-image: url(/sisadmrh/image/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.hedfondo{
+  background:#82a77d;; 
+  /*background-image: url(/sisadmrh/image/background.jpg);*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -159,7 +182,16 @@ body {
   /* Set the fixed height of the footer here */
   height: 30px;
   line-height: 30px; /* Vertically center the text there */
-  background-color: #232323;
+  background-color: #28497d;
+}
+.footerl {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  line-height: 30px; /* Vertically center the text there */
+  background-color: #28497d;
 }
 
 .boton{
@@ -187,30 +219,86 @@ body {
   padding:5px 5px 5px 0;
 }
 .celdauser{
-    color: white;
+    font-size:18px;
+    text-shadow:2px 2px 5px white;
+    color: green;
     float: left;
-    margin-left: 10%;
-    margin-top: 1%;
+    margin-left: 48px;
+}
+.celdauser1{
+    font-size:18px;
+    text-shadow:2px 2px 5px white;
+    color: black;
+    float: left;
+    margin-left: -24px;
+}
+.celdauser1 a{
+    color: black;
+    float: left;
+    margin-left: -24px;
+}
+
+.celdauser1 a:hover { 
+   color: blue;
+    float: left;
+    margin-left: -24px;
 }
 .celdauser a{
-    color: white;
+    color: black;
     float: left;
-    margin-left: 10%;
+    margin-left: 50px;
 }
 
 .celdauser a:hover { 
-   color: yellow;
+   color: blue;
+    float: left;
+    margin-left: 50px;
 }
 
 
 .contenedorizq{
   width: 100%;
   float: left;
-  background-color: #82a77d;
+  background-color: #ffffff;
+}
+
+.conteinertitulopantalla{
+  width: 100%;
+  float: center;
+  /*background-color: #ffffff;*/
+  font-size:30px;
 }
 
 
 .der{
+    color: white;
   float: right;
   margin: 0% 1%;
+  /*font-size:18px;*/
+  
+}
+.hmod {
+  font-size:25px;
+  text-shadow:2px 2px 5px black;
+  text-align:center;
+  position:relative;
+}
+.hmod1 {
+  font-size:25px;
+  text-shadow:2px 2px 5px black;
+  text-align:center;
+  position:relative;
+}
+.imauser {
+    position: absolute;
+    height: 49px;
+    margin-left: 100px;
+}
+
+img1 {
+       width: 48px;
+   height: 48px;
+
+   display: block;
+   width: 100%;
 }

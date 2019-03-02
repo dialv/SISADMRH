@@ -6,13 +6,13 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -44,13 +44,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_cem4</label>  
+    <script> Textheader('pnt_cem4',document.title);</script>
+<!--    <div class="contenedorizq"><label  >pnt_cem4</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,19 +61,36 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
             </div>
-    <h3 align="center">Crear Formacion Academica</h3>
+    <h3 align="center">  </h3>
     
 
     
         <br>
+          <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
 <form class="form-horizontal" id="formformacion" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
           <input type="hidden" th:field="*{codigoformacionacademica}"/>
-          <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+          <!--<input type="hidden" id="codem"  />-->
+            <div class="col-md-12"  >
+                   <br>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Estudios Realizados(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{estudiosrealizados}" />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1">Ingrese el estudio realizado  del Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
                  <div class="form-group">
@@ -80,57 +98,98 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="50" maxlength="50"   th:field="*{centroeducativo}"   />
                     </div>
+                      <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el Centro educativo en el que realizo los estudios el Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Años Aprobados(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-1">
                         <input type="text" class="form-control numeros" required="true" maxlength="1"  th:field="*{aniosaprobados}" />
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup12')" onmouseout ="javascript:ocultarAyuda('poppup12')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup12">Ingrese los años aprobados del Empleado solo se admitiran  caracteres numericos.!</span>
                     </div>
                 </div>
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Pais(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <select class="form-control" name="mun" >
                         <option>El Salvador</option>
                         <option>Estado Unidos</option>
                          <option>Mexico</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup14')" onmouseout ="javascript:ocultarAyuda('poppup14')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup14">Seleccione el pais en el que realizo los estudios el Empleado desplegando la lista.!</span>
+                    </div>
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Desde(*):</label>
-                <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}"/>
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechadfa');Fechas(this.value,$('#fechahfa').val().toString(),'fechadfa','fechahfa')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup19')" onmouseout ="javascript:ocultarAyuda('poppup19')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup19">Seleccione o digite la Fecha inicial de los estudios realizados por el Empleado el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
-                <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechadesdeformacionacademica}" />
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup20">Seleccione o digite la Fecha inicial de los estudios realizados por el Empleado el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Termino(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-2">
                     <select class="form-control" name="termino">
                             <!--th:field="*{termino}">-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup15')" onmouseout ="javascript:ocultarAyuda('poppup15')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup15">Seleccione una de las opciones para determinar el estado de los estudios realizados el Empleado desplegando la lista.!</span>
+                    </div>
             </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Titulo Obtenido(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="200" maxlength="200"   th:field="*{tituloobtenido}" />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup16')" onmouseout ="javascript:ocultarAyuda('poppup16')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup16">Ingrese el titulo obtenido por el Empleado solo se admitiran 9 caracteres numericos.!</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Titulo</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                
+                    </div>
+                    
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup26')" onmouseout ="javascript:ocultarAyuda('poppup26')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup26">selecione el archivo PDF del titulo obtenido por el Empleado hacer click en el boton selecionar archivo.!</span>
                     </div>
                 </div>
 
@@ -140,9 +199,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
       </div>
            <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>-->
+ <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
             </div>
     </div>
                 </form>
@@ -163,6 +226,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+            function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -181,74 +257,74 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechanacimiento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fechasepu').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechasepr').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamin').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechanacde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechahfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechadfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacapreevento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('fechadexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechadubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
 		});
                 $('#btnGuardar').click(function(){

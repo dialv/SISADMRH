@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -19,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -40,23 +33,21 @@ public class Inasistencia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGOINASISTENCIA")
-     @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoinasistencia;
     @Size(max = 200)
     @Column(name = "MOTIVOINASISTENCIA")
     private String motivoinasistencia;
+    @Column(name = "ESTADOINASISTENCIA")
+    private Integer estadoinasistencia;
     @Size(max = 200)
     @Column(name = "CONSTANCIAINASISTENCIA")
     private String constanciainasistencia;
     @Column(name = "FECHADESDEINASISTENCIA")
-    //@Temporal(TemporalType.DATE)
-    //  @DateTimeFormat(pattern = "YYYY-MM-dd")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechadesdeinasistencia;
-     // @DateTimeFormat(pattern = "YYYY-MM-dd")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "FECHAHASTAINASISTENCIA")
-    //@Temporal(TemporalType.DATE)
     private Date fechahastainasistencia;
      @Lob
     @Column(name = "ACUERDO")
@@ -164,6 +155,14 @@ public class Inasistencia implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Inasistencia[ codigoinasistencia=" + codigoinasistencia + " ]";
+    }
+
+    public Integer getEstadoinasistencia() {
+        return estadoinasistencia;
+    }
+
+    public void setEstadoinasistencia(Integer estadoinasistencia) {
+        this.estadoinasistencia = estadoinasistencia;
     }
     
 }

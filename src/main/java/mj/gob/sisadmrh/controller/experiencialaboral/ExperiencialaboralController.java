@@ -1,37 +1,20 @@
 package mj.gob.sisadmrh.controller.experiencialaboral;
 
-import mj.gob.sisadmrh.controller.experiencialaboral.*;
-import mj.gob.sisadmrh.controller.experiencialaboral.*;
-import mj.gob.sisadmrh.controller.experiencialaboral.*;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoexperiencialaboral;
 import mj.gob.sisadmrh.model.EmpleadoexperiencialaboralPK;
 import mj.gob.sisadmrh.model.Experiencialaboral;
-import mj.gob.sisadmrh.model.Experiencialaboral;
 import mj.gob.sisadmrh.service.EmpleadoExperiencialaboralService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.ExperiencialaboralService;
-import mj.gob.sisadmrh.service.ExperiencialaboralService;
-//import mj.gob.sisadmrh.service.ExperiencialaboralExperiencialaboralService;
-import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.support.SessionStatus ;
 /**
  *
  * @author dialv
@@ -58,26 +41,40 @@ public class ExperiencialaboralController extends UtilsController{
     private final String PREFIX = "fragments/experiencialaboral/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("experiencialaborales", experiencialaboralService.listAllExperiencialaboral());
+        model.addAttribute("experiencialaborales", experiencialaboralService.listAllActivos());
         return PREFIX + "experiencialaborales";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+     @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("experiencialaboral", experiencialaboralService.getExperiencialaboralById(id));
         return PREFIX + "experienciaform";
     }
+    
+    @RequestMapping("edit/experiencialaboral/{id}")
+    public String editcontacto(Experiencialaboral experiencialaboral,@PathVariable Integer id, Model model,SessionStatus status) {
+        experiencialaboral.setEstadoexp(1);
+        experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico una Experiencia laboral",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
 
     @RequestMapping("new/{id}")
-    public String newExperiencialaboral(Model model) {
+    public String newExperiencialaboral(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("experiencialaboral", new Experiencialaboral());
         return PREFIX + "experienciaform";
     }
 
     @RequestMapping(value = "experiencialaboral/{id}")
-    public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model,@PathVariable Integer id) {
+    public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model,@PathVariable Integer id,SessionStatus status) {
          try{
+             experiencialaboral.setEstadoexp(1);
              experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+             status.setComplete();
             Empleadoexperiencialaboral emcon = new  Empleadoexperiencialaboral();
             emcon.setExperiencialaboral(experiencialaboral);
             Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -93,11 +90,12 @@ public class ExperiencialaboralController extends UtilsController{
         }
        
 //        return "redirect:./show/" + experiencialaboral.getCodigoexperiencialaboral();
- return PREFIX + "experienciaform";
+  return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showExperiencialaboral(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")      
+    public String showExperiencialaboral(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("experiencialaboral", experiencialaboralService.getExperiencialaboralById(id).get());
         return PREFIX +"experienciashow";
     }
@@ -105,15 +103,32 @@ public class ExperiencialaboralController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
          try{
-            experiencialaboralService.deleteExperiencialaboral(id);
+             Experiencialaboral experiencialaboral = experiencialaboralService.getExperiencialaboralById(id).get();
+             experiencialaboral.setEstadoexp(0);
+            experiencialaboralService.saveExperiencialaboral(experiencialaboral);
             model.addAttribute("msg", 3);
-        }
+        model.addAttribute("experiencialaboral", experiencialaboral);
+         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
        
 //        return "redirect:/experiencialaborales/";
-        return PREFIX +"experiencialaborales";
+        return PREFIX +"experienciashow";
+    }
+          @RequestMapping(value = "experiencialaboral")
+    public String saveRol(Experiencialaboral experiencialaboral, Model model, SessionStatus status) {
+        try{
+        experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una experiencia laboral ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+                return "redirect:/empleados/";
     }
     
     

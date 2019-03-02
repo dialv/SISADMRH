@@ -6,13 +6,13 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -40,17 +40,18 @@
 }
  </style>
      
-    <title>SISADMRH-Ubicacion Fisica</title>
+    <title>SISADMRH-Consulta de Datos de Ubicacion Fisica </title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-      <div class="contenedorizq"><label  >pnt_cem9_2</label>  
+    <script> Textheader('pnt_cem9_2',document.title);</script>
+<!--      <div class="contenedorizq"><label  >pnt_cem9_2</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,12 +61,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
             </div>
-    <h3 align="center">Consulta de Datos de Ubicacion Fisica</h3>
+    <h3 align="center"></h3>
     
 
     
         <br>
+         <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Informacion de Ubicacion Fisica del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+            </div>
+</form>
        <form class="form-horizontal">
+            <br>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-5 control-label">codigo:</label>
@@ -117,7 +129,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
         <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+                          <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                  
+          
+
+                        
+<!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
 
                     </div>
                 </div>
@@ -226,6 +242,29 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	</script>
-        
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+    if ([[${msg}]] === 3){
+
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../empleados/show/'+ document.getElementById("codem").value;
+    });
+    }
+
+    if ([[${msg}]] === 4){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+            });
+    }
+    });</script>         
         
 </html>

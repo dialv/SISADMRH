@@ -7,7 +7,7 @@
 
     <head lang="en">
 
-        <title>Crear Diagnostico</title>
+        <title>Crear Tema de Diagnostico de Necesidades de Capacitacion</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -16,50 +16,65 @@
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <h3 align="center" >Crear Diagnostico</h3>
+            <!--<h3 align="center" >Crear Diagnostico</h3>-->
+                  <div class="col-md-9">
+          <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                         </div>
             <div>
                 <form class="form-horizontal" th:object="${diagnosticocapacitacion}" th:action="@{../diagnosticocapacitacion}" method="post">
            <input type="hidden" th:field="*{codigodiagnosticocapacitacion}"/>
                 <div class="form-group">
                 <label class="col-sm-5 control-label">Capacitación:</label>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
                          <option value="0">-- Seleccione la Capacitación --</option>
                                 <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                     <!--<input type="number" class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}"/>-->
                 </div>
+                    <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitation')" onmouseout ="javascript:ocultarAyuda('capacitation')">a</a></b>
+                        
+                        <span class="popuptext" id="capacitation">Seleccione la Capacitacion dando Clic en la lista.!</span>
+                    </div>
             </div>
                <div class="form-group">  
            <label class="col-sm-5 control-label">Nombre Dirección:</label>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                      <select class="form-control" name="direccion" >
-                                    <option>Recursos Humanos</option>
+<!--                                    <option>Recursos Humanos</option>
                                     <option>Finanzzas</option>
                                     <option>Jurisprudencia</option>
                                     <option>Investigación Secreta</option>
                                       <option>Economia</option>
-                                       <option>Relaciones Diplomaticas</option>
+                                       <option>Relaciones Diplomaticas</option>-->
+<option th:each="c:${direccion}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                                 </select>
                     <!--<input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder="Tipo Mision"  th:field="*{tipomision}"/>-->
                 </div>
+           <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('direccionn')" onmouseout ="javascript:ocultarAyuda('direccionn')">a</a></b>
+                        
+                        <span class="popuptext" id="direccionn">Seleccione la lista  de Direcciones. dando Clic en la lista.!</span>
+                    </div>
             </div>
                       <div class="form-group">
                         <label class="col-sm-5 control-label">Necesidad de Capacitación que tendra:</label>
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                             <input type="text" class="form-control" size="50" maxlength="50" required="true" placeholder=""  th:field="*{necesidadcapacitacion}"/>
                         </div>
+                        <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('necesidad')" onmouseout ="javascript:ocultarAyuda('necesidad')">a</a></b>
+                        
+                        <span class="popuptext" id="necesidad">Ingrese la necesidad de Capacitación que presenta la Dirección. Solo se permiten 50 caracteres.!</span>
                     </div>
-<!--                        <div class="form-group">
-                        <label class="col-sm-5 control-label">Anio de Ejecucion:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control numeros"  maxlength="4" required="true" placeholder=""  th:field="*{necesidadcapacitacion}"/>
-                        </div>
-                    </div>-->
+                    </div>
+
                     
                     <div class="form-group">
                         <label class="col-sm-5 control-label">Que Mes es mas oportuno hacer las Capacitaciones:</label>
-                        <div class="col-sm-7" >
+                        <div class="col-sm-4" >
                               <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
                             <ul>
                                 <li>
@@ -115,50 +130,92 @@
                                 </li>
                             </ul>  
                         </div>
+                        <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('mes')" onmouseout ="javascript:ocultarAyuda('mes')">a</a></b>
+                        
+                        <span class="popuptext" id="mes">Seleccione el Mes con mayor necesidad de Capacitación.!</span>
+                    </div>
                     </div>
           <div class="form-group">
-                        <label class="col-sm-5 control-label">Anio dejecucion:</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-5 control-label">Año de ejecución:</label>
+                        <div class="col-sm-1">
                             <input type="text" class="form-control numeros" size="4" maxlength="4" required="true" placeholder=""  th:field="*{anioejecucion}"/>
                         </div>
+                         <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('anio')" onmouseout ="javascript:ocultarAyuda('anio')">a</a></b>
+                        
+                        <span class="popuptext" id="anio">Ingrese el Año de ejecución de la capacitacion .!</span>
+                    </div>
                     </div>
                     
                     
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">Personal que recibira Capacitacion:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder=""  th:field="*{personalrecibir}"/>
+                        <label class="col-sm-5 control-label">Personal que recibira Capacitación:</label>
+                        <div class="col-sm-6">
+                            <!--<input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder=""  th:field="*{personalrecibir}"/>-->
+                            <textarea rows="3" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{personalrecibir}">
+
+                            </textarea>
                         </div>
+                            <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('personal')" onmouseout ="javascript:ocultarAyuda('personal')">a</a></b>
+                        
+                        <span class="popuptext" id="personal">Ingrese que personal recibira la capacitación. Solo se permitira 100 Caracteres .!</span>
+                    </div>
                     </div>
                     
                           <div class="form-group">
-                        <label class="col-sm-5 control-label">Resultado que desea Obtener en la Capacitacion:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" size="500" maxlength="500" required="true" placeholder=""  th:field="*{resultadoobtener}"/>
+                        <label class="col-sm-5 control-label">Resultado que desea Obtener en la Capacitación:</label>
+                        <div class="col-sm-6">
+                            <!--<input type="text" class="form-control" size="500" maxlength="500" required="true" placeholder=""  th:field="*{resultadoobtener}"/>-->
+                            <textarea rows="4" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{resultadoobtener}">
+
+                            </textarea>
                         </div>
+                            <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('resultado')" onmouseout ="javascript:ocultarAyuda('resultado')">a</a></b>
+                        
+                        <span class="popuptext" id="resultado">Ingrese el resultado que espera obtener al ralizar la capacitación. Solo se permitira 500 Caracteres .!</span>
+                    </div>
                     </div>
 
     <div class="form-group">
                         <label class="col-sm-5 control-label">Nombre de quien Autoriza:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" size="150" maxlength="150" required="true" placeholder=""  th:field="*{nombreautorizadiagnosticocapacitacion}"/>
+                        <div class="col-sm-6">
+                           <textarea rows="4" cols="50" class="form-control" size="150" maxlength="150"  required="true" th:field="*{nombreautorizadiagnosticocapacitacion}">
+
+                            </textarea>
+                            <!--<input type="text" class="form-control" size="150" maxlength="150" required="true" placeholder=""  th:field="*{nombreautorizadiagnosticocapacitacion}"/>-->
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('autorizador')" onmouseout ="javascript:ocultarAyuda('autorizador')">a</a></b>
+                        
+                        <span class="popuptext" id="autorizador">Ingrese el el nombre que autoriza la capacitación. Solo se permitiran 150 Caracteres.!</span>
+                    </div>
                     </div>
                     
                     
                         <div class="form-group">
                         <label class="col-sm-5 control-label">Cargo de quien Autoriza:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" size="150" maxlength="150" required="true" placeholder=""  th:field="*{cargoautorizadiagnosticocapacitacion}"/>
+                        <div class="col-sm-6">
+                          <textarea rows="4" cols="50" class="form-control" size="150" maxlength="150"  required="true" th:field="*{cargoautorizadiagnosticocapacitacion}">
+
+                            </textarea>
+                            <!--<input type="text" class="form-control" size="150" maxlength="150" required="true" placeholder=""  th:field="*{cargoautorizadiagnosticocapacitacion}"/>-->
                         </div>
+                             <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('cargo')" onmouseout ="javascript:ocultarAyuda('cargo')">a</a></b>
+                        
+                        <span class="popuptext" id="cargo">Ingrese el el el Cargo de quien  autoriza la capacitación. Solo se permitiran 100 Caracteres.!</span>
+                    </div>
                     </div>
 
             </div>
              <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-info"><a href="#" th:href="@{/diagnosticocapacitaciones/}">Regresar</a></button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                  <a href="#" th:href="@{/diagnosticocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a> 
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
         </div>
         </div>
@@ -181,6 +238,7 @@
 
 <script>
     $(document).ready(function () {
+        Textheader('pnt_tdnc',document.title);
     $('#fechadesdecomite').datepicker({
     dateFormat: 'yy-mm-dd'
     });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Crear Comision</title>
+    <title>Crear Comisiones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -9,13 +9,13 @@
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
         <div class="col-md-9">
-<div class="contenedorizq"> 
+<!--<div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
 <div class="row">
           
     <div class="col-md-9">
@@ -23,9 +23,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <br><br>
                         <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
     </div><br>
-        <h3 align="center">Crear Comision</h3>
+        <!--<h3 align="center">Crear Comision</h3>-->
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{codigocomision}"/>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Nombre Comision:</label>
                     <div class="col-sm-10">
@@ -46,10 +47,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                
                     </div>
                 </div>
-
-                <div class="row">
-                    <button type="submit" class="btn btn-default">Agregar</button>
+                <div class="row" align="center">
+                     <a href="#" th:href="@{/comisiones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                    <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                 </div>
+<!--                <div class="row">
+                    <button type="submit" class="btn btn-default">Agregar</button>
+                </div>-->
             </form>
         </div>
     </div>
@@ -71,6 +76,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 </body>
 <script th:inline="javascript">
+    Textheader('pnt_gecoms',document.title);
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

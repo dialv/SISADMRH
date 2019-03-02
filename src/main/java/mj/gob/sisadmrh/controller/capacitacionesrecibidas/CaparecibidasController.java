@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -58,27 +59,39 @@ public class CaparecibidasController extends UtilsController{
     private final String PREFIX = "fragments/caparecibidas/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("caparecibidas", caparecibidasService.listAllCaparecibidas());
+        model.addAttribute("caparecibidas", caparecibidasService.listAllActivos());
         return PREFIX + "caparecibidas";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("caparecibida", caparecibidasService.getCaparecibidasById(id));
         return PREFIX + "caprecibidasform";
     }
 
+     @RequestMapping("edit/caparecibida/{id}")
+    public String editcontacto(Caparecibidas caparecibidas,@PathVariable Integer id, Model model,SessionStatus status) {
+        caparecibidas.setEstadocapa(1);
+        caparecibidasService.saveCaparecibidas(caparecibidas);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico una capacitacion recibida",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
     @RequestMapping("new/{id}")
-    public String newCaparecibidas(Model model) {
+    public String newCaparecibidas(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("caparecibida", new Caparecibidas());
         return PREFIX + "caprecibidasform";
     }
 
     @RequestMapping(value = "caparecibida/{id}")
-    public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id) {
+    public String saveCaparecibidas(Caparecibidas caparecibidas,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
-            caparecibidasService.saveCaparecibidas(caparecibidas);
-            
+            caparecibidas.setEstadocapa(1);
+        caparecibidasService.saveCaparecibidas(caparecibidas);
+             status.setComplete();
         Empleadocaparecibidas emcon = new  Empleadocaparecibidas();
         emcon.setCaparecibidas(caparecibidas);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -96,11 +109,12 @@ public class CaparecibidasController extends UtilsController{
 //        return PREFIX+"caprecibidasform";
         
 //        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
- return PREFIX + "caprecibidasform";
+        return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showCaparecibidas(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showCaparecibidas(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("caparecibida", caparecibidasService.getCaparecibidasById(id).get());
         return PREFIX +"caprecibidashow";
     }
@@ -108,16 +122,32 @@ public class CaparecibidasController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
          try{
-            caparecibidasService.deleteCaparecibidas(id);
+             Caparecibidas caparecibidas = caparecibidasService.getCaparecibidasById(id).get();
+             caparecibidas.setEstadocapa(0);
+            caparecibidasService.saveCaparecibidas(caparecibidas);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-//        return "redirect:/caparecibidas/";
-        return PREFIX +"caparecibidas";
+          return "redirect:/empleados/";
+//        return PREFIX  +"caparecibidas";
     }
     
-    
+      @RequestMapping(value = "caparecibida")
+    public String saveRol(Caparecibidas caparecibida, Model model, SessionStatus status) {
+        try{
+            caparecibida.setEstadocapa(0);
+        caparecibidasService.saveCaparecibidas(caparecibida);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una capacitacion recibida",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return "redirect:/empleados/";
+    }
     
 }

@@ -23,12 +23,12 @@
             </div>
             <h3 align="center">Asignar empleados a Capacitaciones</h3>
             <div>
-                <form class="form-horizontal" id="formempasis" th:object="${formempleadoasistenciacapacitacion}" th:action="@{../empleadoasistenciacapacitacion}" method="post" >
+                <form class="form-horizontal" id="formempasis" th:object="${formasistenciaempleadocapacitacion}" th:action="@{../empleadoasistenciacapacitaciones}" method="post" >
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombre empleado:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="empleado.codigoempleado" id="empleado" >
-                                <option th:each="c:${formempleadoasistenciacapacitacion.empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
+                                <option th:each="c:${formasistenciaempleadocapacitacion.empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                         </select>
                         </div>
                     </div>
@@ -36,10 +36,18 @@
                         <label class="col-sm-2 control-label">Nombre Capacitacion:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="asistenciacapacitacion.codigoasistenciacapacitacion" id="asistencia" >
-                                <option th:each="c:${formempleadoasistenciacapacitacion.asistenciacapacitaciones}" th:value="${c.codigoasistenciacapacitacion}" th:text="${c.codigocapacitacion.nombrecapacitacion}"></option>
+                                <option th:each="c:${formasistenciaempleadocapacitacion.asistenciacapacitaciones}" th:value="${c.codigoasistenciacapacitacion}" th:text="${c.ubicacionasistenciacapacitacion}"></option>
                         </select>
                         </div>
                     </div>
+<!--                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Nombre de Ubiacio Fisica:</label>
+                        <div class="col-sm-8">
+                        <select class="form-control" name="ubicacionfisica.codigoubicacion" id="asistencia" >
+                                <option th:each="c:${formasistenciaempleadocapacitacion.ubicacionesfisicas}" th:value="${c.codigoubicacion}" th:text="${c.codigoubicacion.nombreubicacion}"></option>
+                        </select>
+                        </div>
+                    </div>-->
                      <div class="col-md-12">
                         <div class="row" align="center">
                              <button type="submit" class="btn btn-default" id="btnGuardar">Agregar</button>

@@ -17,15 +17,17 @@ import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.ContratoService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 //import mj.gob.sisadmrh.service.ContratoContratoService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PathVariable ;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -39,7 +41,8 @@ public class ContratoController extends UtilsController{
     private ContratoService contratoService;
 //    private ContratoContratoService contratoContratoService;
     
-
+ @Autowired
+    private EmpleadoService empleadoService;
 
     
     @Autowired
@@ -50,26 +53,40 @@ public class ContratoController extends UtilsController{
     private final String PREFIX = "fragments/contrato/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("contratos", contratoService.listAllContrato());
+        model.addAttribute("contratos", contratoService.listAllActivos());
         return PREFIX + "contratos";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("contrato", contratoService.getContratoById(id));
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+         model.addAttribute("contrato", contratoService.getContratoById(id));
         return PREFIX + "contratoform";
+    }
+    
+     @RequestMapping("edit/contrato/{id}")
+    public String editcontacto(Contrato contrato,@PathVariable Integer id, Model model,SessionStatus status) {
+        contrato.setEstadocontrato(1);
+        contratoService.saveContrato(contrato);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico un contrato",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
     }
 
     @RequestMapping("new/{id}")
-    public String newContrato(Model model) {
+    public String newContrato(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("contrato", new Contrato());
         return PREFIX + "contratoform";
     }
 
-    @RequestMapping(value = "contrato")
-    public String saveContrato(Contrato contrato,Model model) {
+    @RequestMapping(value = "contrato/{id}")
+    public String saveContrato(Contrato contrato,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
+            contrato.setEstadocontrato(1);
             contratoService.saveContrato(contrato);
+             status.setComplete();
             model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -77,11 +94,12 @@ public class ContratoController extends UtilsController{
         }
         
 //        return "redirect:./show/" + contrato.getCodigocontrato();
- return PREFIX + "contratoform";
+ return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showContrato(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showContrato(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("contrato", contratoService.getContratoById(id).get());
         return PREFIX +"contratoshow";
     }
@@ -89,7 +107,10 @@ public class ContratoController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
          try{
-            contratoService.deleteContrato(id);
+             Contrato contrato = contratoService.getContratoById(id).get();
+             contrato.setEstadocontrato(0);
+            contratoService.saveContrato(contrato);
+//            model.addAttribute("contrato",contrato);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
@@ -97,9 +118,23 @@ public class ContratoController extends UtilsController{
         }
         
 //        return "redirect:/contratos/";
-        return PREFIX +"contratos";
+ return "redirect:/empleados/";
+//        return PREFIX +"contratos";
     }
     
-    
+                  @RequestMapping(value = "contrato1")
+    public String saveRol(Contrato contrato, Model model, SessionStatus status) {
+        try{
+        contratoService.saveContrato(contrato);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se cambio un contrato ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+        return "redirect:/empleados/";
+    }
     
 }

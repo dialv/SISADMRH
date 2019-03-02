@@ -63,6 +63,8 @@ public class Contacto implements Serializable {
     @Size(max = 100)
     @Column(name = "sexocontacto")
     private String sexocontacto;
+    @Column(name = "estadocontacto")
+    private String estadocontacto;
     @Size(max = 11)
     @Column(name = "telefonofijocontacto")
     private String telefonofijocontacto;
@@ -166,6 +168,14 @@ public class Contacto implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Contacto[ codigocontacto=" + codigocontacto + " ]";
+    }
+
+    public String getEstadocontacto() {
+        return estadocontacto;
+    }
+
+    public void setEstadocontacto(String estadocontacto) {
+        this.estadocontacto = estadocontacto;
     }
     
 }

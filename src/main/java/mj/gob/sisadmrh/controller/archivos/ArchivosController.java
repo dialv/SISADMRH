@@ -102,6 +102,8 @@ public class ArchivosController extends UtilsController{
                 }
                 listDocumentos.forEach((emp) -> {
                     empleadoService.saveEmpleado(emp);
+                      bitacoraService.BitacoraRegistry("se guardo un archivo",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
                     });
                 model.addAttribute("msg", 2);
             } catch (Exception e) {

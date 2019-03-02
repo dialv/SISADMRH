@@ -39,8 +39,8 @@ public class HistorialView extends AbstractXlsView{
  header.createCell(2).setCellValue("Codigo de Empleado");
  header.createCell(3).setCellValue("Nombre de Empleado");
  header.createCell(4).setCellValue("Nombre de puesto");
- header.createCell(5).setCellValue("Sueldo base");
- header.createCell(6).setCellValue("Sueldo final");
+ header.createCell(5).setCellValue("Sueldo base($)");
+ header.createCell(6).setCellValue("Sueldo final($)");
  header.createCell(7).setCellValue("Fecha de contratacion");
  header.createCell(8).setCellValue("Fecha de finalizacion de contrato");
 
@@ -48,13 +48,13 @@ public class HistorialView extends AbstractXlsView{
  int rowNum = 3;
  for(Object[] historial :historialList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(2).setCellValue((double) historial[0]);
+ row.createCell(2).setCellValue((Integer) historial[0]);
  row.createCell(3).setCellValue((String) historial[1]);
  row.createCell(4).setCellValue((String) historial[2]);
- row.createCell(5).setCellValue((String) historial[3]);
- row.createCell(5).setCellValue((String) historial[4]);
- row.createCell(5).setCellValue((Date) historial[5]);
- row.createCell(5).setCellValue((Date) historial[6]);
+ row.createCell(5).setCellValue((String)""+"$ "+ historial[3]);
+ row.createCell(5).setCellValue((String)""+"$ "+ historial[4]);
+ row.createCell(5).setCellValue((String) ""+historial[5]);
+ row.createCell(5).setCellValue((String) ""+historial[6]);
  }
  }
 }

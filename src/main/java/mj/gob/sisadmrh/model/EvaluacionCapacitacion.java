@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -15,15 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
-
 /**
  *
  * @author daniel
@@ -45,8 +36,9 @@ public class EvaluacionCapacitacion implements Serializable {
     @Column(name = "LUGARCAPACITACION")
     private String lugarcapacitacion;
     @Column(name = "HORAEVUALUACIONCAPACITACION")
-  //  @Temporal(TemporalType.TIMESTAMP)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+ // @Temporal(TemporalType.TIME)
+//@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horaevualuacioncapacitacion;
     @Size(max = 4)
     @Column(name = "DOMINIOTEMA")
@@ -60,6 +52,8 @@ public class EvaluacionCapacitacion implements Serializable {
     @Size(max = 2)
     @Column(name = "CLARIDADTEMA")
     private String claridadtema;
+    @Column(name = "estadoevaluacion")
+    private Integer estadoevaluacion;
     @Size(max = 2)
     @Column(name = "ALCLARADUDAS")
     private String alclaradudas;
@@ -323,6 +317,14 @@ public class EvaluacionCapacitacion implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Evualuacioncapacitacion[ codigoevaluacioncapacitacion=" + codigoevaluacioncapacitacion + " ]";
+    }
+
+    public Integer getEstadoevaluacion() {
+        return estadoevaluacion;
+    }
+
+    public void setEstadoevaluacion(Integer estadoevaluacion) {
+        this.estadoevaluacion = estadoevaluacion;
     }
     
 }

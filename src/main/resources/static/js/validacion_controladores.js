@@ -257,7 +257,7 @@ jQuery(document).ready(function() {
             }
         }
     });
-    jQuery('.num_decimal').mask('00.00');
+    jQuery('.num_decimal').mask('000.00');
 //    jQuery('.moneda').mask('000000000000.00', {reverse: true});    
 
     jQuery("#iconalert").dialog({
@@ -286,6 +286,7 @@ jQuery(document).ready(function() {
     NumTelefono();
     FechaOcho();
     NumDUI();
+    Fechaformat();
     NumISSS();
     NumNUP();
     NumCuenta();
@@ -362,6 +363,11 @@ var NumDUI = function() {
 var NumISSS = function() {
     jQuery('.num_isss').each(function() {
         jQuery(this).mask('000000000');
+    });
+};
+var Fechaformat = function() {
+    jQuery('.fecha_format').each(function() {
+        jQuery(this).mask('00/00/0000');
     });
 };
 var NumCuenta = function() {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -14,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,8 +19,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "DIAGNOSTICOCAPACITACION")
-//@NamedQueries({
-//@NamedQuery(name = "DiagnosticoCapacitacion.findAll", query = "SELECT dc FROM DiagnostioCapacitacion dc")})
 
 public class DiagnosticoCapacitacion implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -40,13 +31,13 @@ public class DiagnosticoCapacitacion implements Serializable {
     //anioejecucion
     @Column(name = "ANIOEJECUCION")
     private Integer anioejecucion;
-    
     @Size(max = 500)
     @Column(name = "DIRECCION")
     private String direccion;
-//direccion
-     @Column(name = "PERSONALRECIBIR")
-   private String	personalrecibir;
+    @Column(name = "PERSONALRECIBIR")
+    private String	personalrecibir;
+    @Column(name = "ESTADODIAGNOSTICO")
+    private int	estadodiagnostico;
 
     public String getPersonalrecibir() {
         return personalrecibir;
@@ -64,6 +55,10 @@ public class DiagnosticoCapacitacion implements Serializable {
     @Size(max = 500)
     @Column(name = "RESULTADOOBTENER")
     private String resultadoobtener;
+    @Size(max = 200)
+    @Column(name = "TEMACAPACITACION")
+    private String temacapacitacion;
+
     @Size(max = 150)
     @Column(name = "NOMBREAUTORIZADIAGNOSTICOCAPACITACION")
     private String nombreautorizadiagnosticocapacitacion;
@@ -136,6 +131,14 @@ public class DiagnosticoCapacitacion implements Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
+    public String getTemacapacitacion() {
+        return temacapacitacion;
+    }
+
+    public void setTemacapacitacion(String temacapacitacion) {
+        this.temacapacitacion = temacapacitacion;
+    }
 
     public String getCargoautorizadiagnosticocapacitacion() {
         return cargoautorizadiagnosticocapacitacion;
@@ -176,6 +179,14 @@ public class DiagnosticoCapacitacion implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Diagnosticocapacitacion[ codigodiagnosticocapacitacion=" + codigodiagnosticocapacitacion + " ]";
+    }
+
+    public int getEstadodiagnostico() {
+        return estadodiagnostico;
+    }
+
+    public void setEstadodiagnostico(int estadodiagnostico) {
+        this.estadodiagnostico = estadodiagnostico;
     }
     
 }

@@ -26,22 +26,26 @@ public interface CapacitadorRepository extends CrudRepository<Capacitador, Integ
     
      
       @Query(value="SELECT\n" +
-                    "     capacitador.codigocapacitador AS capacitador_codigocapacitador,\n" +
-                    "     capacitador.carnetresidencia AS capacitador_carnetresidencia,\n" +
-                    "     capacitador.duicapacitador AS capacitador_duicapacitador,\n" +
-                    "     capacitador.emailcapacitador AS capacitador_emailcapacitador,\n" +
-                    "     capacitador.nitcapacitador AS capacitador_nitcapacitador,\n" +
-                    "     capacitador.nombrecapacitador AS capacitador_nombrecapacitador,\n" +
-                    "     capacitador.telefonocapacitador AS capacitador_telefonocapacitador,\n" +
-                    "     capacitador.telefonomovilcapacitador AS capacitador_telefonomovilcapacitador,\n" +
-                    "     capacitador.temadominio AS capacitador_temadominio,\n" +
-                    "     capacitador.tipocapacitador AS capacitador_tipocapacitador,\n" +
-                    "     capacitador.codigoempleado AS capacitador_codigoempleado,\n" +
-                    "     capacitador.institucioncapacitador AS capacitador_institucioncapacitador,\n" +
-                    "     capacitador.tipoagrupacion AS capacitador_tipoagrupacion\n" +
+                    "     capacitador.codigocapacitador ,\n" +
+                    "     capacitador.carnetresidencia ,\n" +
+                    "     capacitador.duicapacitador,\n" +
+                    "     capacitador.emailcapacitador ,\n" +
+                    "     capacitador.nitcapacitador ,\n" +
+                    "     capacitador.nombrecapacitador ,\n" +
+                    "     capacitador.telefonocapacitador ,\n" +
+                    "     capacitador.telefonomovilcapacitador ,\n" +
+                    "     capacitador.temadominio ,\n" +
+                    "     capacitador.tipocapacitador ,\n" +
+                    "     capacitador.codigoempleado,\n" +
+                    "     capacitador.institucioncapacitador ,\n" +
+                    "     capacitador.tipoagrupacion \n" +
                     "FROM\n" +
                     "     capacitador capacitador"
             , nativeQuery = true) 
             Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
+            
+            @Query("SELECT o FROM Capacitador o WHERE o.estadocapacitador != 0")
+            public Iterable<Capacitador> listAllActivos(); 
+    
 }

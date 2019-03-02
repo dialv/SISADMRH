@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="2" bottomMargin="20" uuid="5bf87770-2275-4d19-83ea-0a0d2f882ba6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     diagnosticocapacitacion.`codigodiagnosticocapacitacion` AS diagnosticocapacitacion_codigodiagnosticocapacitacion,
+     diagnosticocapacitacion.`cargoautorizadiagnosticocapacitacion` AS diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion,
+     diagnosticocapacitacion.`direccion` AS diagnosticocapacitacion_direccion,
+     diagnosticocapacitacion.`mescapacitacion` AS diagnosticocapacitacion_mescapacitacion,
+     diagnosticocapacitacion.`necesidadcapacitacion` AS diagnosticocapacitacion_necesidadcapacitacion,
+     diagnosticocapacitacion.`nombreautorizadiagnosticocapacitacion` AS diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion,
+     diagnosticocapacitacion.`resultadoobtener` AS diagnosticocapacitacion_resultadoobtener,
+     diagnosticocapacitacion.`codigocapacitacion` AS diagnosticocapacitacion_codigocapacitacion,
+     diagnosticocapacitacion.`temacapacitacion` AS diagnosticocapacitacion_temacapacitacion
+FROM
+     `diagnosticocapacitacion` diagnosticocapacitacion]]>
+	</queryString>
+	<field name="diagnosticocapacitacion_temacapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_direccion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_necesidadcapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_mescapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_resultadoobtener" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="168" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="140" width="802" height="28" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="143" y="0" width="469" height="20" uuid="2a6d1d68-ec28-4ce0-9479-3a2f587672da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="20" width="469" height="20" uuid="c9f35e08-fd6f-4130-bae8-b4fa8f22f48f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="696" y="82" width="74" height="20" uuid="076ef3a0-2097-4aaa-9894-fbf0bc542261"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="143" y="62" width="469" height="20" uuid="bae40fe9-8307-4c76-a506-d86633d7ca33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE TEMAS DE DIAGNOSTICOS DE NECESIDADES DE CAPACITACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="648" y="62" width="114" height="20" uuid="559ea0b1-4898-4e78-aa4b-db6bf7458b73"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fecha de Generacion:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="732" y="62" width="70" height="20" uuid="0ad030e7-e277-4119-882c-bd6f55542631"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="776" y="82" width="26" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="100" width="39" height="20" uuid="96cda1ba-50d3-41d9-8c87-266ccc7527e4"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="100" width="39" height="20" uuid="cfc4dc53-d543-4622-bc13-b103f7f03d60"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="294" y="100" width="100" height="20" uuid="4d9056bf-eba7-4846-a97c-eac3c216246f"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="100" width="100" height="20" uuid="44f6b7f0-29e4-471f-add8-a1a4465e95a0"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="660" y="100" width="39" height="20" uuid="03d58d94-5f45-46ab-86dd-8ffd6e701afe"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="702" y="100" width="100" height="20" uuid="ef6eb4ca-5ac7-4cfc-a33d-072ffdde33b4"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="20" width="143" height="38" uuid="3f317ef7-1bfc-4fb5-b34e-3bc77589b327"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="648" y="10" width="123" height="48" uuid="7a050bb1-28d3-4e6f-af40-49269d9b7268"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="13" y="82" width="100" height="20" uuid="0a8f31e9-ef51-4c68-9055-c7bf485e9765"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[pnt_reporte_tdnc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="40" width="469" height="20" uuid="4dc55cf8-46cb-4f65-9656-b211d013d1ed"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
+			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="112" y="141" width="1" height="27" uuid="4b8a4a8b-38eb-4256-821a-a4a72937430b"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="237" y="141" width="1" height="27" uuid="bd37135b-a6fb-4960-bf15-858327cfd74d"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="360" y="141" width="1" height="27" uuid="614a378c-18b3-47ed-bfe1-6c35b5919d7b"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="464" y="141" width="1" height="27" uuid="2bd392cc-cde6-4327-8597-e4aa0cf7bd77"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="582" y="141" width="1" height="27" uuid="5e3f1926-bd3f-46a5-a9b4-1d2a8003c81a"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="695" y="140" width="1" height="27" uuid="a1d6c029-0557-461b-80ee-c671676efc28"/>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="149" width="98" height="18" forecolor="#000000" uuid="8c8359fa-1916-4267-b5ff-49beffadff78"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tema]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="123" y="149" width="103" height="18" forecolor="#000000" uuid="cca56259-d6ea-4df7-9a2e-5804a0ed93bc"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="238" y="149" width="123" height="18" forecolor="#000000" uuid="2190657d-5372-48e2-a52d-7903820fbf29"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Necesidades de Capacitacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="361" y="149" width="91" height="18" forecolor="#000000" uuid="6f223216-894c-49e0-9ba6-d4b72a75374d"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes de Capacitacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="465" y="149" width="117" height="18" forecolor="#000000" uuid="9b8b9726-ff7b-4097-8c89-514478881e75"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resultados a Obtener]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="592" y="149" width="96" height="18" forecolor="#000000" uuid="abb45af3-6c11-4329-b6a0-163a0490eae6"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autorizado Por]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="699" y="149" width="98" height="18" forecolor="#000000" uuid="2d32e380-6a43-4e16-a12b-b13735be93c1"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo quien Autoriza]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="3" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="238" y="0" width="100" height="14" uuid="af8db28f-dbd5-4c5c-8d5f-5b0047e5f7ac"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_necesidadcapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="0" width="100" height="14" uuid="dfaaa852-3a4d-4e62-b98e-e1f76e7dffe7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_mescapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="0" width="100" height="14" uuid="8e4f25d5-7dd3-4aa9-8b34-ff1cf4b46e59"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_resultadoobtener}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="592" y="0" width="100" height="14" uuid="b4711a07-8b4c-4eb2-9865-8dc139ccea70"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="0" width="100" height="14" uuid="4a507278-5772-46b3-a87e-de551c9d0b11"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="3" width="100" height="14" uuid="56275a00-1c9a-4f48-b403-ae3101373261"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_temacapacitacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="3" width="100" height="14" uuid="4e7cae6d-d349-402c-b418-43c8b8af013c"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_direccion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="13" backcolor="#FFFFFF" uuid="9bf10d63-7d84-4b29-a32d-2840bc8ae7e7"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9" isBold="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

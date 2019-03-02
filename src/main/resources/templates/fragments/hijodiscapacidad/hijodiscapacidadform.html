@@ -6,13 +6,13 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -44,13 +44,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_ce13</label>  
+<!--    <div class="contenedorizq"><label  >pnt_ce13</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_ce13',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,51 +61,88 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
             </div>
-    <h3 align="center">Crear Hijo Con Discapacidad</h3>
+    <h3 align="center">   </h3>
     
 
     
         <br>
+          <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
       <form class="form-horizontal" id="formcontacto" th:object="${hijodiscapacidad}" th:action="@{../hijodiscapacidad}" method="post">
 <!--          <span th:object="${empleadoContacto}"> 
              <input type="text" th:field="*{codigoempleado}"/>
           </span>-->
             <input type="hidden" th:field="*{codigohijodiscapacidad}"/>
-            <input type="hidden" th:field="*{nombrehijodiscapacidad}"/>
-            <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+<!--            <input type="hidden" th:field="*{nombrehijodiscapacidad}"/>-->
+            <!--<input type="hidden" id="codem"  />-->
+            <div class="col-md-12"  >
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre(*):</label>
+                     <br>
+                    <label class="col-sm-3 control-label">Nombres del Hijo con discapacidad(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombrehijodiscapacidad}"  />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el Nombre del Hijo del  Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                     </div>
                       <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellido(*):</label>
+                    <label class="col-sm-3 control-label">Apellidos del Hijo con discapacidad(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{apellidohijodiscapacidad}"   />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el Apellido del Hijo del Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                 </div>
                       <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre Discapacidad(*):</label>
+                    <label class="col-sm-3 control-label">Nombre de Discapacidad(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombrediscapacidad}"  />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup6')" onmouseout ="javascript:ocultarAyuda('poppup6')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup6">Seleccione el nombre de la discpacidad del Hijo del Empleado desplegando la lista.!</span>
                     </div>
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Discapacidad(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <select class="form-control" name="tipodiscapacidad"  >
                             <!--th:field="*{sexocontacto}" >-->
                         <option>Mental</option>
                         <option>Fisica</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione la discapacidad del Hijo del Empleado desplegando la lista.!</span>
+                    </div>
             </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Fecha de Nacimiento:</label>
-                    <div class="col-sm-5">
-                          <input class="form-control" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}"/>
+                    <label class="col-sm-3 control-label">Fecha de Nacimiento del Hijo con discapacidad:</label>
+                    <div class="col-sm-2">
+                          <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value,'fechasepr')"/>
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup4">Seleccione o digite la Fecha de Nacimiento del Hijo del Empleado el formtado debe ser  dia/mes/año .!</span>
                     </div>
                     </div>
                      
@@ -112,10 +150,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
           <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+
+                <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>
+            </div>-->
     </div>
             <!--</span>-->
       </form>
@@ -138,6 +183,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+            function fechaNac(val,id){
+                        var foo=FechaNacimiento(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -156,78 +214,78 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechanacimiento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fechasepu').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechasepr').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamin').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechanacde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechahfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechadfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacapreevento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('fechadexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechadubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
 		});
 	 $('#btnGuardar').click(function(){
-            $("#formcontacto").attr('action', '../contacto/'+ $("#codem").val().toString());
+            $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
             $("form#formcontacto").submit();
             
         });

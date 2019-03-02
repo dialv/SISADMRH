@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller.Incapacidad;
 
 import java.io.IOException;
@@ -43,7 +38,7 @@ public class IncapacidadController extends UtilsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("incapacidades", incapacidadService.listAllIncapacidad());
+        model.addAttribute("incapacidades", incapacidadService.listAllActivos());
         return PREFIX + "incapacidades";
     }
 
@@ -73,10 +68,13 @@ public class IncapacidadController extends UtilsController {
     @RequestMapping(value = "incapacidad")
     public String saveIncapacidad(Incapacidad incapacidad, Model model,SessionStatus status,@RequestParam("file") MultipartFile file) {
         try {
+            incapacidad.setEstadoincapacidad(1);
              incapacidad.setDocumento1(file.getBytes());// es el documento o constancia de incapacidad
           //  incapacidad.setDocumento2(file.getBytes());
             incapacidadService.saveIIncapacidad(incapacidad);
-            status.setComplete();
+            status.setComplete();//para controlar la edicion de form
+             bitacoraService.BitacoraRegistry("se Creo  una Incapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());// para controlar el vento de la bitacora
             model.addAttribute("msg", 0);
         } catch (Exception e) {
             model.addAttribute("msg", 1);
@@ -93,7 +91,11 @@ public class IncapacidadController extends UtilsController {
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
         try {
-            incapacidadService.deleteIncapacidad(id);
+            Incapacidad incapacidad = incapacidadService.getIncapacidadById(id).get();
+            incapacidad.setEstadoincapacidad(0);
+            incapacidadService.saveIIncapacidad(incapacidad);
+            bitacoraService.BitacoraRegistry("se elimino una incapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 3);
         } catch (Exception e) {
             model.addAttribute("msg", 4);

@@ -9,13 +9,14 @@
 
 </head>
 <body>
-<div class="contenedorizq"><label  >pnt_cem14</label>  
+    <script> Textheader('pnt_cem14',document.title);</script>
+<!--<div class="contenedorizq"><label  >pnt_cem14</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -24,14 +25,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		 <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-            <h3 align="center">Consulta de Datos de Empleado</h3>
+            <h3 align="center"></h3>
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-5 control-label">codigo:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
+                                <p class="form-control-static"  th:text="${empleado.codigoempleado}">codigo de Empleado</p>
+                            <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+                            </div>
+                                
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre de Empleado</label>
@@ -81,23 +85,42 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 
                 </form>
-                <div class="col-md-12">
+<!--                <div class="col-md-12">
                     <div class="row" align="center">
                         <button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar<a href="#" th:href="@{/empleados/}">.</a></button>
 
                     </div>
-                </div>
+                </div>-->
+                <div >
+     </div>
 
-                <div class="container-fluid">
-                    <div class="row">
+                                                                            <!--<div class="row">-->
+                                                                                    <!--<div class="panel panel-default">-->
+                                                                                        <!--<div class="panel-body">-->
+                                                                                            <div class="col-md-12" style="background-color:#d9edf7;">
+                                                                                                <div class="panel-info">
+                                                                                                    <div class="panel-heading">
+                                                                                                          Para Gestionar informacion extra del Empleado se listan las siguientes opciones :
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        <!--</div>-->
+                                                                                    <!--</div>-->
+
+                                                                                <!--</div>-->
+                <div class="container-fluid ">
+                    <div class="row ">
                         <div class="col-md-12">
                             <div id="card-758749">
                                
 								<!-- Contacto-->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734527"> Contactos </a>
+                                <div class="card panel panel-default">
+                                    <div class="card-header" >
+                                         
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734527"> <img src="../../static/image/images.jpeg"  th:src="@{/image/agenda.png}"/> Contactos </a>
                                     </div>
+                                    
                                     <div id="card-element-734527" class="collapse">
                                         <div class="card-body"> 
                                            		<div class="panel panel-primary">
@@ -106,7 +129,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 																Contactos
                                                                                                                                 <!--<a th:text="${currentUser}" th:href="@{|/user/${currentUser}|}"></a>-->
 																<a th:href="@{|../../contactos/new/${empleado.codigoempleado}|}"  title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -136,14 +159,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															</tr>
 															</thead>
 															<tr th:each="contacto : ${contactos}">
-															<td th:text="${contacto.codigocontacto}">codigocontacto</td>
-															<td th:text="${contacto.nombrecontacto}">nombrecontacto</td>
+															<td th:text="${contacto.codigocontacto} ">codigocontacto</td>
+															<td th:text="${contacto.nombrecontacto}+ ' ' + ${contacto.apellidocontacto}">nombrecontacto</td>
 															<td th:text="${contacto.direccion}">direccion</td>                
 															<td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
 															<td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
 															<td th:text="${contacto.emailcontacto}">emailcontacto</td>
-															<td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../contactos/edit/' + contacto.codigocontacto}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../contactos/edit/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<td><a th:onclick="'eliminar(\'' + ${'../../contactos/delete/' + contacto.codigocontacto}+ '\');'" class="btn btn-danger">Eliminar</a></td>
 															
 															</tr>
@@ -159,9 +182,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Dependiente-->
-									<div class="card">
+			          <div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734528"> Dependientes </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734528"> <img src="../../static/image/images.jpeg"  th:src="@{/image/familia.png}"/> Dependientes </a>
                                     </div>
                                     <div id="card-element-734528" class="collapse">
                                         <div class="card-body"> 
@@ -170,7 +193,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Dependientes   
 																<a th:href="@{|../../dependientes/new/${empleado.codigoempleado}|}"  title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -198,10 +221,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															</thead>
 															<tr th:each="dependiente : ${dependientes}">
 															<td th:text="${dependiente.codigodependiente}">codigodependiente</td>
-															<td th:text="${dependiente.nombredependiente}">nombredependiente</td>
+															<td th:text="${dependiente.nombredependiente} +' ' + ${dependiente.apellidodependiente}">nombredependiente</td>
 															<td th:text="${dependiente.parentesco}">parentesco</td>   
-															<td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../dependientes/edit/' + dependiente.codigodependiente}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../dependientes/edit/' + dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../dependientes/delete/' + dependiente.codigodependiente}" class="btn btn-danger">Eliminar</a></td>-->
                                                                                                                         <td><a th:onclick="'eliminar(\'' + ${'../../dependientes/delete/' + dependiente.codigodependiente} + '\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -217,9 +240,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Formacion Academica-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734529"> Formacion Academica </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734529"><img src="../../static/image/images.jpeg"  th:src="@{/image/graduacion.png}"/> Formacion Academica </a>
                                     </div>
                                     <div id="card-element-734529" class="collapse">
                                         <div class="card-body"> 
@@ -228,7 +251,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Formacion Academica   
 																<a th:href="@{|../../formacionacademicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -261,10 +284,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${formacionacademica.estudiosrealizados}">estudiosrealizados</td>
 															<td th:text="${formacionacademica.centroeducativo}">centroeducativo</td>   
 															<td th:text="${formacionacademica.tituloobtenido}">tituloobtenido</td>   
-															<td th:text="${formacionacademica.fechadesdeformacionacademica}">fechadesdeformacionacademica</td> 
+															<td th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">fechadesdeformacionacademica</td> 
                                                                                                                         <td><a  class="btn btn-danger" th:onclick="'../../descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
-															<td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../formacionacademicas/edit/' + formacionacademica.codigoformacionacademica}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../formacionacademicas/edit/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -280,9 +303,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Capacitaciones Recibidas-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734530"> Capacitaciones Recibidas</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734530"><img src="../../static/image/images.jpeg"  th:src="@{/image/presentacion.png}"/> Capacitaciones Recibidas</a>
                                     </div>
                                     <div id="card-element-734530" class="collapse">
                                         <div class="card-body"> 
@@ -291,7 +314,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Capacitaciones Recibidas  
 																<a th:href="@{|../../caparecibidas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -324,9 +347,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${caparecibida.tipoevento}">tipoevento</td>
 															<td th:text="${caparecibida.especialidad}">especialidad</td>   
 															<td th:text="${caparecibida.organismo}">organismo</td>   
-															<td th:text="${caparecibida.fechaevento}">fechaevento</td>   
-															<td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}" class="btn btn-info">Mostrar</a></td>
-                                                                                                                        <td><a th:href="${'../../caparecibidas/edit/' + caparecibida.codigocaparecibidas}" class="btn btn-success">Editar</a></td>
+															<td th:text="${#calendars.format(caparecibida.fechaevento, 'dd/MM/yyyy')}">fechaevento</td>   
+															<td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+                                                                                                                        <td><a th:href="${'../../caparecibidas/edit/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas} +'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -342,9 +365,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Experiencia Laboral-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734531"> Experiencia Laboral  </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734531"> <img src="../../static/image/images.jpeg"  th:src="@{/image/colaboracion.png}"/>Experiencia Laboral  </a>
                                     </div>
                                     <div id="card-element-734531" class="collapse">
                                         <div class="card-body"> 
@@ -353,7 +376,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Experiencia Laboral 
 																<a th:href="@{|../../experiencialaborales/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -385,12 +408,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<tr th:each="experiencialaboral : ${experiencialaborales}">
 															<td th:text="${experiencialaboral.codigoexperiencialaboral}">codigoexperiencialaboral</td>
 															<td th:text="${experiencialaboral.nombreinstitucion}">nombreinstitucion</td>
-															<td th:text="${experiencialaboral.fechadesdeexperiencialaboral}">fechadesdeexperiencialaboral</td>   
-															<td th:text="${experiencialaboral.fechahastaexperiencialaboral}">fechahastaexperiencialaboral</td>   
+															<td th:text="${#calendars.format(experiencialaboral.fechadesdeexperiencialaboral, 'dd/MM/yyyy')}	">fechadesdeexperiencialaboral</td>   
+															<td th:text="${#calendars.format(experiencialaboral.fechahastaexperiencialaboral, 'dd/MM/yyyy')}	">fechahastaexperiencialaboral</td>   
 															<td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
 															<td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
-															<td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../experiencialaborales/edit/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../experiencialaborales/edit/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -406,9 +429,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Ubicacion Fisica-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734532"> Ubicacion Fisica </a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734532">  <img src="../../static/image/images.jpeg"  th:src="@{/image/anteproyecto.png}"/>Ubicacion Fisica </a>
                                     </div>
                                     <div id="card-element-734532" class="collapse">
                                         <div class="card-body"> 
@@ -417,7 +440,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Ubicacion Fisica  
 																<a th:href="@{|../../ubicacionfisicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -449,8 +472,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${ubicacionfisica.cargofuncional}">cargofuncional</td>
 															<td th:text="${ubicacionfisica.jefeinmediato}">jefeinmediato</td>   
 															<td th:text="${ubicacionfisica.nombreubicacion}">nombreubicacion</td>    
-															<td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../ubicacionfisicas/edit/' + ubicacionfisica.codigoubicacion}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../ubicacionfisicas/edit/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion} +'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -466,9 +489,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Contrato-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734533"> Contrato</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734533"> <img src="../../static/image/images.jpeg"  th:src="@{/image/certificado.png}"/>Contrato</a>
                                     </div>
                                     <div id="card-element-734533" class="collapse">
                                         <div class="card-body"> 
@@ -477,7 +500,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Contrato 
 																<a th:href="@{|../../contratos/new/${empleado.codigoempleado}|}"title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -506,11 +529,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															</thead>
 															<tr th:each="contrato : ${contratos}">
 															<td th:text="${contrato.codigocontrato}">codigocontrato</td>
-															<td th:text="${contrato.fechainiciocontrato}">fechainiciocontrato</td>
-															<td th:text="${contrato.fechafincontrato}">fechafincontrato</td>   
+															<td th:text="${#calendars.format(contrato.fechainiciocontrato, 'dd/MM/yyyy')}	">fechainiciocontrato</td>
+															<td th:text="${#calendars.format(contrato.fechafincontrato, 'dd/MM/yyyy')}	">fechafincontrato</td>   
 															<td th:text="${contrato.salarioactual}">salarioactual</td>    
-															<td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../contratos/edit/' + contrato.codigocontrato}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../contratos/edit/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../contratos/delete/' + contrato.codigocontrato}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' + ${'../../contratos/delete/' + contrato.codigocontrato}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -526,9 +549,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Hijos con Discapacidad-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734534"> Hijos con Discapacidad</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734534"><img src="../../static/image/images.jpeg"  th:src="@{/image/discapacitado.png}"/> Hijos con Discapacidad</a>
                                     </div>
                                     <div id="card-element-734534" class="collapse">
                                         <div class="card-body"> 
@@ -537,7 +560,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Hijos con Discapacidad 
 																<a th:href="@{|../../hijodiscapacidades/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -566,11 +589,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															</thead>
 															<tr th:each="hijodiscapacidad : ${hijodiscapacidades}">
 															<td th:text="${hijodiscapacidad.codigohijodiscapacidad}">codigohijodiscapacidad</td>
-															<td th:text="${hijodiscapacidad.nombrehijodiscapacidad}">nombrehijodiscapacidad</td>
+															<td th:text="${hijodiscapacidad.nombrehijodiscapacidad}+' '+${hijodiscapacidad.apellidohijodiscapacidad}">nombrehijodiscapacidad</td>
 															<td th:text="${hijodiscapacidad.nombrediscapacidad}">nombrediscapacidad</td>   
 															<td th:text="${hijodiscapacidad.tipodiscapacidad}">tipodiscapacidad</td>    
-															<td><a th:href="${'../../hijodiscapacidades/show/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../hijodiscapacidades/edit/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../hijodiscapacidades/show/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../hijodiscapacidades/edit/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' +  ${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -586,9 +609,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                         </div>
                                     </div>
 									<!--Idiomas-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734535"> Idiomas</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734535"><img src="../../static/image/images.jpeg"  th:src="@{/image/traducir.png}"/>  Idiomas</a>
                                     </div>
                                     <div id="card-element-734535" class="collapse">
                                         <div class="card-body"> 
@@ -597,7 +620,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Idiomas
 																<a th:href="@{|../../idiomas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -633,8 +656,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${idioma.habla}">habla</td>   
 															<td th:text="${idioma.traduce}">traduce</td> 
 															<td th:text="${idioma.nivel}">nivel</td> 															
-															<td><a th:href="${'../../idiomas/show/' + idioma.codigoidioma}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../idiomas/edit/' + idioma.codigoidioma}" class="btn btn-success">Editar</a></td>
+															<td><a th:href="${'../../idiomas/show/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../idiomas/edit/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../idiomas/delete/' + idioma.codigoidioma}" class="btn btn-danger">Eliminar</a></td>-->
 															<td><a th:onclick="'eliminar(\'' +  ${'../../idiomas/delete/' + idioma.codigoidioma} +'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
@@ -648,10 +671,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                                 </div>
                                             </div> 
                                         </div>
+                                      </div>
 										<!--Beneficio-->
-									<div class="card">
+									<div class="card panel panel-default">
                                     <div class="card-header">
-                                        <a class="collapsed card-link" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734536"> Beneficios</a>
+                                        <a class="collapsed card-link btn btn-outline-primary  btn-lg" data-toggle="collapse" data-parent="#card-758749" href="#card-element-734536"><img src="../../static/image/images.jpeg"  th:src="@{/image/diagrama.png}"/> Beneficios</a>
                                     </div>
                                     <div id="card-element-734536" class="collapse">
                                         <div class="card-body"> 
@@ -660,7 +684,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<h3 class="panel-title"> 
 																Beneficos
 																<a th:href="@{|../../beneficios/asignar/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
-																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span> 
+																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
 															</h3>
 														</div>
@@ -692,12 +716,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${beneficio.codigobeneficio}">codigobeneficio</td>
 															<td th:text="${beneficio.nombrebeneficio}">nombrebeneficio</td>
 															<td th:text="${beneficio.descripcionbeneficio}">descripcionbeneficio</td>  
-															<td th:text="${beneficio.fechainiciobeneficio}">fechainiciobeneficio</td>   
-															<td th:text="${beneficio.fechafinalizarbeneficio}">fechafinalizarbeneficio</td> 															
-															<td><a th:href="${'../../beneficio/show/' + beneficio.codigobeneficio}" class="btn btn-info">Mostrar</a></td>
-															<td><a th:href="${'../../beneficio/edit/' + beneficio.codigobeneficio}" class="btn btn-success">Editar</a></td>
+															<td th:text="${#calendars.format(beneficio.fechainiciobeneficio, 'dd/MM/yyyy')}">fechainiciobeneficio</td>   
+															<td th:text="${#calendars.format(beneficio.fechafinalizarbeneficio, 'dd/MM/yyyy')}	">fechafinalizarbeneficio</td> 															
+															<td><a th:href="${'../../beneficios/show2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
+															<td><a th:href="${'../../beneficios/edit2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../beneficio/delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../beneficio/delete/' + beneficio.codigobeneficio}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../beneficios/delete2/' + beneficio.codigobeneficio}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -715,7 +739,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>
                 </div>
+<div class="col-md-12">
+                    <div class="row" align="center">
+                        <!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
+                         <a href="#" th:href="@{/empleados/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
 
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -797,7 +827,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../../empleados/';
+                location.href = '../../empleados/show/${empleado.codigoempleado}';
        }); 
 }
     

@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -28,15 +29,26 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name = "dependiente")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Dependiente.findAll", query = "SELECT d FROM Dependiente d")})
+    @NamedQuery(name = "Dependiente.findAll", query = "SELECT d FROM Dependiente d"),
+//    @NamedQuery(name = "Dependiente.findByCodigodependiente", query = "SELECT d FROM Dependiente d WHERE d.codigodependiente = :codigodependiente"),
+//    @NamedQuery(name = "Dependiente.findByNombredependiente", query = "SELECT d FROM Dependiente d WHERE d.nombredependiente = :nombredependiente"),
+//    @NamedQuery(name = "Dependiente.findByApellidodependiente", query = "SELECT d FROM Dependiente d WHERE d.apellidodependiente = :apellidodependiente"),
+//    @NamedQuery(name = "Dependiente.findByFechanacimiento", query = "SELECT d FROM Dependiente d WHERE d.fechanacimiento = :fechanacimiento"),
+//    @NamedQuery(name = "Dependiente.findBySalarioinicial", query = "SELECT d FROM Dependiente d WHERE d.salarioinicial = :salarioinicial"),
+//    @NamedQuery(name = "Dependiente.findBySalariofinal", query = "SELECT d FROM Dependiente d WHERE d.salariofinal = :salariofinal"),
+//    @NamedQuery(name = "Dependiente.findByParentesco", query = "SELECT d FROM Dependiente d WHERE d.parentesco = :parentesco"),
+//    @NamedQuery(name = "Dependiente.findBySexo", query = "SELECT d FROM Dependiente d WHERE d.sexo = :sexo"),
+//    @NamedQuery(name = "Dependiente.findByEstadodependiente", query = "SELECT d FROM Dependiente d WHERE d.estadodependiente = :estadodependiente")
+})
 public class Dependiente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@Basic(optional = false)
+@NotNull
+@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "codigodependiente")
     private Integer codigodependiente;
     @Size(max = 50)
@@ -46,7 +58,7 @@ public class Dependiente implements Serializable {
     @Column(name = "apellidodependiente")
     private String apellidodependiente;
     @Column(name = "fechanacimiento")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechanacimiento;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "salarioinicial")
@@ -56,18 +68,22 @@ public class Dependiente implements Serializable {
     @Size(max = 200)
     @Column(name = "parentesco")
     private String parentesco;
-    @Size(max = 200)
-    @Column(name = "dependiente")
-    private String dependiente;
     @Size(max = 20)
     @Column(name = "sexo")
     private String sexo;
+    @Column(name = "estadodependiente")
+    private int estadodependiente;
 
     public Dependiente() {
     }
 
     public Dependiente(Integer codigodependiente) {
         this.codigodependiente = codigodependiente;
+    }
+
+    public Dependiente(Integer codigodependiente, int estadodependiente) {
+        this.codigodependiente = codigodependiente;
+        this.estadodependiente = estadodependiente;
     }
 
     public Integer getCodigodependiente() {
@@ -126,20 +142,20 @@ public class Dependiente implements Serializable {
         this.parentesco = parentesco;
     }
 
-    public String getDependiente() {
-        return dependiente;
-    }
-
-    public void setDependiente(String dependiente) {
-        this.dependiente = dependiente;
-    }
-
     public String getSexo() {
         return sexo;
     }
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public int getEstadodependiente() {
+        return estadodependiente;
+    }
+
+    public void setEstadodependiente(int estadodependiente) {
+        this.estadodependiente = estadodependiente;
     }
 
     @Override

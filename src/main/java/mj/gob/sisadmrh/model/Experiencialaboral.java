@@ -43,16 +43,18 @@ public class Experiencialaboral implements Serializable {
     @Column(name = "nombreinstitucion")
     private String nombreinstitucion;
     @Column(name = "fechadesdeexperiencialaboral")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "dd/mm/yy")
     private Date fechadesdeexperiencialaboral;
     @Column(name = "fechahastaexperiencialaboral")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "dd/mm/yy")
     private Date fechahastaexperiencialaboral;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "salarioinicial")
     private Float salarioinicial;
     @Column(name = "salariofinal")
     private Float salariofinal;
+    @Column(name = "estadoexp")
+    private Integer estadoexp;
     @Size(max = 200)
     @Column(name = "motivoretiro")
     private String motivoretiro;
@@ -165,6 +167,14 @@ public class Experiencialaboral implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Experiencialaboral[ codigoexperiencialaboral=" + codigoexperiencialaboral + " ]";
+    }
+
+    public Integer getEstadoexp() {
+        return estadoexp;
+    }
+
+    public void setEstadoexp(Integer estadoexp) {
+        this.estadoexp = estadoexp;
     }
     
 }

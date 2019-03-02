@@ -5,13 +5,14 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-            <div class="contenedorizq"><label  >pnt_cme</label>  
+    <script> Textheader('pnt_cme',document.title);</script>
+<!--            <div class="contenedorizq"><label  >pnt_cme</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <!--<div class="container">-->
     
     
@@ -24,8 +25,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
             </div> 
         <!--</div>-->
-        <div th:if="${not #lists.isEmpty(misiones)}" >
-        <h3 align="center">Listado de Misiones</h3>
+        <!--<div th:if="${not #lists.isEmpty(misiones)}" >-->
+        <h3 align="center"></h3>
         <table id="tablita" class="table table-striped table-bordered" >
             <thead>
             <tr>
@@ -34,6 +35,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <th>Objetivo de Mimsion</th>
                 <th>Responsable del Gasto </th>
                 <th>Fecha de Salida</th>
+                <th>Fecha de Regreso</th>
                 <th></th>
 		<th></th>
 		<th></th>
@@ -45,14 +47,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <td th:text="${mision.nombremision}">nombremision</td>
                 <td th:text="${mision.objetivomision}">objetivomision</td>
                 <td th:text="${mision.responsablegasto}">reponsablegasto</td>
-                <td th:text="${mision.fechasalidamision}">fechasalidamision</td>
-                <td th:text="${mision.fecharegresomision}">fecharegresomision</td>
+                <td th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">fechasalidamision</td>
+                <td th:text="${#calendars.format(mision.fecharegresomision, 'dd/MM/yyyy')}">fecharegresomision</td>
                 <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-info">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success">Modificar</a></td>
                 <td><a th:onclick="'eliminar(\'' + ${ mision.codigomision} +'\');'" class="btn btn-danger">Eliminar</a></td>
             </tr>
         </table>
-        </div>
+        <!--</div>-->
    
 </div>
 <div class="col-md-12">
@@ -96,7 +98,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         function eliminar(id) {
             swal({
                 title: "Desea Eliminar?",
-                text: "favor confirme que desea eliminar este registro!",
+                text: "Favor confirme que desea eliminar este registro!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -105,7 +107,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         if (willDelete) {
                             location.href = '../delete/' + id;
                         } else {
-                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
                         }
                     });
         }

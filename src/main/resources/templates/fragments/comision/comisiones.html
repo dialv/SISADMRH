@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Roles</title>
+        <title>Listado de Comisiones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
     <div class="row">
              <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -20,7 +20,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Listado de Comisiones</h3>
+        <!--<h3 align="center">Listado de Comisiones</h3>-->
     <div th:if="${not #lists.isEmpty(comisiones)}">
         <table id="tablita" class="table table-striped " style="width:100%" >
             <thead>
@@ -43,7 +43,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
                 
                 <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a></td>
-                <td></td>  <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
+                <td> <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
               <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${comision.codigocomision} + '\');'" >Eliminar</a></td>
                 <!--<td><a th:href="${'./delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Delete</a></td>-->
             </tr>
@@ -53,6 +53,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </div>
             </div>
      <script th:inline="javascript">
+           Textheader('pnt_gecoms',document.title);
         $(document).ready(function () {
             $('#tablita').DataTable({
                 "language": {
@@ -93,7 +94,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         function eliminar(id) {
             swal({
                 title: "Desea Eliminar?",
-                text: "favor confirme que desea eliminar este registro!",
+                text: "Favor confirme que desea eliminar este registro!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -102,7 +103,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         if (willDelete) {
                             location.href = './delete/' + id;
                         } else {
-                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
                         }
                     });
         }

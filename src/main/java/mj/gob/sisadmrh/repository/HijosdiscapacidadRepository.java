@@ -16,14 +16,15 @@ import org.springframework.data.repository.query.Param;
  * @author IPalacios
  */
 public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapacidad, Integer>{
-    @Query(value = "SELECT d.* FROM hijodiscapacidad d , empleadohijodiscapacidad ed WHERE d.codigohijodiscapacidad = ed.codigohijodiscapacidad and ed.codigoempleado= :id ", nativeQuery = true)
+    @Query(value = "SELECT d.* FROM hijodiscapacidad d , empleadohijodiscapacidad ed WHERE d.estadohijos != 0 and d.codigohijodiscapacidad = ed.codigohijodiscapacidad and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Hijodiscapacidad> findByDato(@Param("id") int dato);
     
-    @Query(value =  "select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad," +
-                    "p.nombrehijodiscapacidad from empleadohijodiscapacidad h" +
-                    "inner join empleado e on e.codigoempleado=h.codigoempleado" +
-                    "inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ", nativeQuery = true)
+    @Query(value =  " select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad," +
+                    " p.nombrehijodiscapacidad from empleadohijodiscapacidad h" +
+                    " inner join empleado e on e.codigoempleado=h.codigoempleado" +
+                    " inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ", nativeQuery = true)
      List<Object[]> findhijoscap();
-    
+         @Query("SELECT o FROM Hijodiscapacidad o WHERE o.estadohijos != 0")
+    public Iterable<Hijodiscapacidad> listAllActivos();    
     
 }

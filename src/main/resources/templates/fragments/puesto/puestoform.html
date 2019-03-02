@@ -35,17 +35,18 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Puesto</title>
+    <title>SISADMRH-Crear Puesto de Trabajo</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-     <div class="contenedorizq"><label  >pnt_cpto</label>
+    <script> Textheader('pnt_cpto',document.title);</script>
+<!--     <div class="contenedorizq"><label  >pnt_cpto</label>
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -55,28 +56,33 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/puestos.png}"/>
             </div> 
-    <h3 align="center">Crear Puesto de Trabajo</h3>
+    <h3 align="center">   </h3>
    
         <form class="form-horizontal" th:object="${puesto}" th:action="@{../puesto}" method="post">
             <input type="hidden" th:field="*{codigopuesto}"/>
             <!--<input type="hidden" th:field="*{nombrepuesto}"/>-->
-           <div class="col-md-6">
+           <div class="col-md-12">
 <!--            <div class="form-group">
-                <label class="col-sm-5 control-label">Codigo de Puesto(*):</label>
+                <label class="col-sm-3 control-label">Codigo de Puesto(*):</label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" th:field="*{codigopuesto}"/>
                     <div class="boton"><a href="#">hola</a></div>
                 </div>
             </div>-->
             <div class="form-group">
-                <label class="col-sm-5 control-label">Nombre de Puesto(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Nombre de Puesto(*):</label>
+                <div class="col-sm-5">
                     <input type="text" class="form-control" th:field="*{nombrepuesto}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el Nombre  del Puesto de Trabajo solo se admitiran 50 caracteres.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Categoria del Puesto(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Categoria del Puesto(*):</label>
+                <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                     <select class="form-control" name="categoriapuesto" >
                         <option>Categoria 1</option>
@@ -85,16 +91,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup6')" onmouseout ="javascript:ocultarAyuda('poppup6')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup6">Seleccione la categoria del Puesto de Trabajo desplegando la lista.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Sueldo Base(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Sueldo Base(*):</label>
+                <div class="col-sm-2">
                     <input type="number" step="0.01" class="form-control" th:field="*{sueldobase}"/>
                 </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el salario base del Puesto de Trabajo solo se admitiran dos decimales caracteres numericos.!</span>
+                    </div>
             </div>
+
             <div class="form-group">
-                <label class="col-sm-5 control-label">Ubicacion Geografica(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Ubicacion Geografica(*):</label>
+                <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
                     <select class="form-control" name="ubicacionpuesto" >
@@ -104,17 +121,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup7')" onmouseout ="javascript:ocultarAyuda('poppup7')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup7">Seleccione la ubicacion geografica del Puesto de Trabajo desplegando la lista.!</span>
+                    </div>
             </div>
             
             <div class="form-group">
-                <label class="col-sm-5 control-label">Codigo de Cargo(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{codigocargopuesto}"/>
+                <label class="col-sm-3 control-label">Codigo de Cargo(*):</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control numeros" th:field="*{codigocargopuesto}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup8')" onmouseout ="javascript:ocultarAyuda('poppup8')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup8">Ingrese el codigo de  cargo del Puesto de Trabajo solo se admitiran dos decimales caracteres numericos.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Forma de Pago(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Forma de Pago(*):</label>
+                <div class="col-sm-3">
                     <!--<input type="text" class="form-control" th:field="*{formapago}"/>-->
                     
                     <select class="form-control" name="formapago" >
@@ -123,58 +150,93 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup9')" onmouseout ="javascript:ocultarAyuda('poppup9')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup9">Seleccione la forma de pago  del Puesto de Trabajo desplegando la lista.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Aprobacion(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Aprobacion(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechaaprobacion}" name="fechaaprobacion" id="fechaaprobacion"  />
+                     <input class="form-control fecha_format" type="text"  placeholder="dia/mes/año" th:field="*{fechaaprobacion}" name="fechaaprobacion" id="fechaaprobacion" onchange="isDat(this.value,'fechaaprobacion')" />
                 </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup44')" onmouseout ="javascript:ocultarAyuda('poppup44')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup44">Seleccione o digite la Fecha de aprobacion el Puesto de Trabajo el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
              <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Contratacion Desde(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Contratacion Desde(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechacontrataciondesde}" name="fechacontrataciondesde" id="fechacontrataciondesde"  />
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacontrataciondesde}" name="fechacontrataciondesde" id="fechacontrataciondesde"  onchange="isDat(this.value,'fechacontrataciondesde');Fechas(this.value,$('#fechacontratacionhasta').val().toString(),'fechacontrataciondesde','fechacontratacionhasta')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup41')" onmouseout ="javascript:ocultarAyuda('poppup41')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup41">Seleccione o digite la Fecha de contratacion de inicio del Puesto de Trabajo el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
            
-           </div>
-              <div class="col-md-6">
+<!--           </div>
+              <div class="col-md-6">-->
                   
                  
            
            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Contratacion Hasta(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Contratacion Hasta(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechacontratacionhasta}" name="fechacontratacionhasta" id="fechacontratacionhasta" />
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacontratacionhasta}" name="fechacontratacionhasta" id="fechacontratacionhasta" onchange="isDat(this.value,'fechacontratacionhasta');Fechas($('#fechacontrataciondesde').val().toString(),this.value,'fechacontrataciondesde','fechacontratacionhasta')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup42')" onmouseout ="javascript:ocultarAyuda('poppup42')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup42">Seleccione o digite la Fecha de contratacion de finalizacion del Puesto de Trabajo el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Creacion(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Creacion(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechacreacion}" name="fechacreacion" id="fechacreacion" />
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacreacion}" name="fechacreacion" id="fechacreacion" onchange="isDat(this.value,'fechacreacion')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup43')" onmouseout ="javascript:ocultarAyuda('poppup43')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup43">Seleccione o digite la Fecha de creacion  del Puesto de Trabajo el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Baja(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Baja(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechabaja}" name="fechabaja" id="fechabaja" />
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechabaja}" name="fechabaja" id="fechabaja" onchange="isDat(this.value,'fechabaja')"/>
                 </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup44')" onmouseout ="javascript:ocultarAyuda('poppup44')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup44">Seleccione o digite la Fecha de baja  del Puesto de Trabajo el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Modificacion(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Modificacion(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechamodificacion}" name="fechamodificacion" id="fechamodificacion" />
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechamodificacion}" name="fechamodificacion" id="fechamodificacion" onchange="isDat(this.value,'fechamodificacion')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup45')" onmouseout ="javascript:ocultarAyuda('poppup45')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup45">Seleccione o digite la Fecha de modificacion  del Puesto de Trabajo el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
              <div class="form-group">
-                <label class="col-sm-5 control-label">Nivel del Puesto(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Nivel del Puesto(*):</label>
+                <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{nivelpuesto}"/>-->
                     <select class="form-control" name="nivelpuesto" >
                         <option>Gerencial</option>
@@ -183,10 +245,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione el nivel del Puesto de Trabajo desplegando la lista.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Sublinea del Puesto(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Sublinea del Puesto(*):</label>
+                <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                     <select class="form-control" name="sublinea" >
                         <option>Sublinea 1</option>
@@ -195,10 +262,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup66')" onmouseout ="javascript:ocultarAyuda('poppup66')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup66">Seleccione la sublinea del Puesto de Trabajo desplegando la lista.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Tipo de Fianza(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Tipo de Fianza(*):</label>
+                <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{tipofinanza}"/>-->
                     <select class="form-control" name="tipofinanza" >
                         <option>Fianza 1</option>
@@ -207,14 +279,42 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup67')" onmouseout ="javascript:ocultarAyuda('poppup67')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup67">Seleccione el tipo de finanza del Puesto de Trabajo desplegando la lista.!</span>
+                    </div>
+            </div>
+<div class="form-group">
+                <label class="col-sm-3 control-label">Estado de Puesto de Trabajo(*):</label>
+                <div class="col-sm-2">
+                    <select class="form-control" name="estadopuesto" th:field="*{estadopuesto}">
+                            <!--th:field="*{tipocuenta}">-->
+                        <option value="1">Activo</option>
+                        <option value="2">Plaza Ocupada</option>
+                        <option value="0">De Baja</option>
+                    </select>
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup263')" onmouseout ="javascript:ocultarAyuda('poppup263')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup263">Seleccione el estado del Empleado desplegando la lista.!</span>
+                    </div>
+             
             </div>
                    </div>
 
  <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
+                   <a href="#" th:href="@{/puestos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
+
+
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/puestos/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>-->
             </div>
     </div>
                     </form>
@@ -233,6 +333,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+           
+					 function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -251,32 +365,32 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechaaprobacion').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fechacontrataciondesde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacontratacionhasta').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacreacion').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechabaja').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamodificacion').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
 		});
 	</script>

@@ -25,6 +25,10 @@ public class ExperiencialaboralServiceImpl implements ExperiencialaboralService 
     public Iterable<Experiencialaboral> listAllExperiencialaboral() {
         return experiencialaboralRep.findAll();
     }
+    @Override
+    public Iterable<Experiencialaboral> listAllActivos() {
+        return experiencialaboralRep.listAllActivos();
+    }
 
     @Override
     public Optional<Experiencialaboral> getExperiencialaboralById(Integer id) {

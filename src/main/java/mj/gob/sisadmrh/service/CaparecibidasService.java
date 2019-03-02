@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Caparecibidas;
 
 public interface CaparecibidasService {
     Iterable <Caparecibidas> listAllCaparecibidas();
+    Iterable <Caparecibidas> listAllActivos();
     
     Optional<Caparecibidas> getCaparecibidasById(Integer id);
 

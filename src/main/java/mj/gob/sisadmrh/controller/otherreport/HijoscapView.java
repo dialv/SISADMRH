@@ -43,7 +43,7 @@ public class HijoscapView extends AbstractXlsView{
  int rowNum = 3;
  for(Object[] hijoscap :hijoscapList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(2).setCellValue((double) hijoscap[0]);
+ row.createCell(2).setCellValue((Integer) hijoscap[0]);
  row.createCell(3).setCellValue((String) hijoscap[1]);
  row.createCell(4).setCellValue((String) hijoscap[2]);
  row.createCell(5).setCellValue((String) hijoscap[3]);

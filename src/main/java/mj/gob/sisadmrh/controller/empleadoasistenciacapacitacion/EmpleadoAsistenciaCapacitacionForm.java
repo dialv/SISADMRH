@@ -9,7 +9,6 @@ import java.io.Serializable;
 import mj.gob.sisadmrh.model.AsistenciaCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
-
 /**
  *
  * @author jorge
@@ -17,6 +16,7 @@ import mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion;
 public class EmpleadoAsistenciaCapacitacionForm  implements Serializable{
       private Iterable<Empleado> empleados;
       private Iterable<AsistenciaCapacitacion> asistenciacapacitaciones;
+//       private Iterable<Ubicacionfisica> ubicacionesfisicas;
 
     public Iterable<AsistenciaCapacitacion> getAsistenciacapacitaciones() {
         return asistenciacapacitaciones;
@@ -44,6 +44,14 @@ public class EmpleadoAsistenciaCapacitacionForm  implements Serializable{
     public void setEmpleadoasistenciacapacitacion(Empleadoasistenciacapacitacion empleadoasistenciacapacitacion) {
         this.empleadoasistenciacapacitacion = empleadoasistenciacapacitacion;
     }
+
+//    public Iterable<Ubicacionfisica> getUbicacionesfisicas() {
+//        return ubicacionesfisicas;
+//    }
+//
+//    public void setUbicacionesfisicas(Iterable<Ubicacionfisica> ubicacionesfisicas) {
+//        this.ubicacionesfisicas = ubicacionesfisicas;
+//    }
       
     
 }

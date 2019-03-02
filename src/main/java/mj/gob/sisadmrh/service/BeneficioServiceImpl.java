@@ -47,4 +47,11 @@ public class BeneficioServiceImpl implements BeneficioService {
         
     }
 
+    @Override
+    public Iterable<Beneficio> listAllActivos() {
+        return beneficioRep.listAllActivos();
+    }
+    
+    
+
 }

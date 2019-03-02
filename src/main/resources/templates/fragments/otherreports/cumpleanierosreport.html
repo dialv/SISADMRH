@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH</title>
+        <title>SISADMRH-Reporte de Cumpleañeros</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-     <div class="contenedorizq">
+<!--     <div class="contenedorizq">
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_reporte_cump1',document.title);</script>
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3 align="center">GENERACION DE CUMPLEANIEROS
+            <h3 align="center">  
             </h3>
+            <div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/reportes.png}"/>
+                    
+            </div> 
             <div>
+                <br>
                 <form class="form-horizontal" id="formreport">
 
 <!--                    <div class="form-group">
@@ -28,7 +34,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
                     </div>-->
-                     <div class="form-group">    
+<!--                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechainicial" name="fechainicial"/>
@@ -37,12 +43,56 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>
+                    </div>-->
+
+ <div class="form-group">
+                <label class="col-sm-5 control-label">Selecciones mes:</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                    <select class="form-control" name="fechainicial" id="fechainicial" >
+                        <option value="1">enero</option>
+                        <option value="2">febrero</option>
+                        <option value="3">marzo</option>
+                        <option value="4">abril</option>
+                        <option value="5">mayo</option>
+                        <option value="6">junio</option>
+                        <option value="7">julio</option>
+                        <option value="8">agosto</option>
+                        <option value="9">septiembre</option>
+                        <option value="10">octubre</option>
+                        <option value="11">noviembre</option>
+                        <option value="12">diciembre</option>
+                    </select>
+                        
+                    <!--input class="form-control fecha_format" placeholder="dia/mes/año" type="text"   onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/-->
+                </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1">Seleccione o digite la Fecha de inicio para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
                     </div>
-                     <div class="form-group">    
+            </div>
+            <!--div class="form-group">
+                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <div class="col-sm-4">
+                    <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
+                     <!--input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Seleccione o digite la Fecha de fin para generar el reporte  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
+            </div-->
+<!--                     <div class="form-group">    
                          <td><a class="btn btn-default" id="pdf">pdf</a></td>
                     </div>
                      <div class="form-group">    
                          <td><a class="btn btn-default" id="excel">excel</a></td>
+                    </div>-->
+ <div class="row" align="center">    
+                         <td><a class="btn btn-danger" id="pdf">PDF</a></td>
+                         <td><a class="btn btn-success" id="excel">EXCEL</a></td>
                     </div>
                 </form>
             </div>
@@ -53,13 +103,26 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </body>
 <script>
+    function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFechaReporte(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
     $(document).ready(function () {
         $('#fechainicial').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
 
         $('#fechafinal').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
         $('#pdf').click(function(){
             $("#formreport").attr('action', '../cumpleanieros/1');

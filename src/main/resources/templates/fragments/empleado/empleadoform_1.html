@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!--     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+     <style type="text/css">
+     .boton{
+  width:30px;
+  height:30px;
+  background-color:#03800b;
+  margin: 5px;
+  padding:10px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  font-size:11px;
+  line-height:32px;
+  text-transform: uppercase;
+  float:left;
+}
+.boton:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+.boton a{
+  color:#fff;
+  text-decoration:none;
+  padding:5px 5px 5px 0;
+}
+ </style>
+     
+    <title>SISADMRH-Crear Empleado</title>
+  <th:block th:include="../templates/header"></th:block>
+  </head>
+<body>
+    <script> Textheader('pnt_cem1',document.title);</script>
+<!--    <div class="contenedorizq"><label  >pnt_cem1</label>  
+    <label  class="der">
+    <script >
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></label>
+</div>-->
+    <br>
+<!--<div class="container">-->
+ <div class="row">
+ <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8"><br><br>
+            <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+    <h3 align="center">Crear Empleado</h3>
+    
+    
+   
+
+      <form class="form-horizontal" th:object="${empleado}" th:action="@{../empleado}" method="post">
+          <input type="hidden" th:field="*{codigoempleado}"/>
+            <!--<input type="hidden" th:field="*{nombreempleado}"/>-->
+            <div class="col-md-6">
+                
+            
+                
+                <div class="form-group">
+                        <label class="col-sm-5 control-label">Puestos:</label>
+                        <div class="col-sm-7" >
+                            <select class="form-control"  th:field="*{codigopuesto}" >
+                                <option th:each="c:${puestos}" th:value="${c.codigopuesto}" th:text="${c.nombrepuesto}"></option>
+                            </select>
+                        </div>
+                    </div>
+                
+                
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Nombre(*):</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombreempleado}"  >
+                                        
+                    </div>
+                    <div class="col-sm-1 ">
+                        <b><a id="boton" class="btn btn-info" href="#" onmouseover="javascript:mostrarAyuda()" onmouseout ="javascript:ocultarAyuda()">a</a></b>
+                        <!--<div class="botonhelp"><a href="#" onmouseover="javascript:mostrarAyuda()" onmouseout ="javascript:ocultarAyuda()">!</a></div>-->
+                                         
+                    </div>
+                    <div id="ayuda" class="popup ">
+			<b>
+				Ingrese el nombre del Empleado solo se admitiran 50 caracteres.
+			</b>
+		</div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Apellido(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{apellidoempleado}" />
+                    </div>
+                </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Nacimiento(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechanacimiento" id="fechanacimiento"  th:field="*{fechanacimientoempleado}" />
+                </div>
+            </div>
+                 <div class="form-group">
+                <label class="col-sm-5 control-label">Nacionalidad(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="nacionalidad" >
+                        <!--th:field="*{nacionalidad}">-->
+                        <option>Salvadoreño</option>
+                        <option>Hondureño</option>
+
+                    </select>
+                </div>
+            </div>
+                 <div class="form-group">
+                <label class="col-sm-5 control-label">Departamento de Nacimiento(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="depnacimiento" >
+                            <!--th:field="*{departamentonacimiento}">-->
+                        <option>Santa Ana</option>
+                        <option>San Salvador</option>
+                         <option>San Miguel</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Municipio de Nacimiento(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" >
+                            <!--th:field="*{municipionacimiento}">-->
+                        <option>Santa Tecla</option>
+                        <option>antiguo Cuscatlan</option>
+                         <option>Mejicanos</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Estado Familiar(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="estfamiliar">
+                            <!--th:field="*{estadofamiliar}">-->
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                         <option>Viudo</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Sexo(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="sexoempleado" >
+                            <!--th:field="*{sexoempleado}">-->
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                    </select>
+                </div>
+            </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Residencia Permanente(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{recidenciapermanente}" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Telefono Fijo(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text"  class="form-control num_telefono" required="true"    th:field="*{telefonofijoempleado} "/>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-5 control-label">Telefono Movil(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text"  class="form-control num_telefono" required="true"   th:field="*{telefonomovilempleado}  "/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Email(*):</label>
+                    <div class="col-sm-7">
+                        <input type="email" class="form-control"  required="true" th:field="*{emailempleado}  "/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">  
+                
+                  <div class="form-group">
+                <label class="col-sm-5 control-label">Departamento de Residencia(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="departamentorecidencia" >
+                            <!--th:field="*{departamentorecidencia}">-->
+                        <option>Santa Ana</option>
+                        <option>San Salvador</option>
+                         <option>San Miguel</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Municipio de Residencia(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="municipioresidencia" >
+                            <!--th:field="*{municipioresidencia}" >-->
+                        <option>Santa Tecla</option>
+                        <option>antiguo Cuscatlan</option>
+                         <option>Mejicanos</option>
+                    </select>
+                </div>
+            </div>
+                
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">DUI(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control num_dui" required="true"   th:field="*{duiempleado}"  />
+                    </div>
+                </div>
+                
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">NIT(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control num_nit" required="true"  th:field="*{nitempleador}"   />
+                    </div>
+                </div>
+                
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">ISSS(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control num_isss" required="true"  th:field="*{isssempleado}" />
+                    </div>
+                </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Publico(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"   name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}" />
+                </div>
+            </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Ingreso al Sector Privado(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechaingresosecpriv}"/>
+                </div>
+            </div>
+                   <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de Ingreso al Ministerio(*):</label>
+                <div class="col-sm-7">
+                     <input class="form-control" type="text"  name="fechamin" id="fechamin"  th:field="*{fechaingresoministerio}"/>
+                </div>
+            </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Grupo Sanguineo(*):</label>
+                    <div class="col-sm-7">
+                        <!--<input type="text" class="form-control"    th:field="*{gruposanquineo}" />-->
+                          <select class="form-control" name="gruposanquineo" >
+                            <!--th:field="*{departamentorecidencia}">-->
+                        <option>Grupo A</option>
+                        <option>Grupo B</option>
+                         <option>Grupo AB</option>
+                         <option>Grupo 0</option>
+                    </select>
+                    </div>
+                </div>
+                 <div class="form-group">
+                <label class="col-sm-5 control-label">Tipo de Pension(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="afiliacionpension" >
+                            <!--th:field="*{afiliacionpension}" >-->
+                        <option>AFP CONFIA</option>
+                        <option>AFP CRECER</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">NUP(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control num_nup" required="true"  th:field="*{numeroafiliacion}"  />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">BANCO(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control"   required="true" size="50"   th:field="*{nombreinstiuciondepositar}"  />
+                    </div>
+                </div>
+                <div class="form-group">
+                <label class="col-sm-5 control-label">Tipo de Cuenta(*):</label>
+                <div class="col-sm-7">
+                    <select class="form-control" name="tipocuenta" >
+                            <!--th:field="*{tipocuenta}">-->
+                        <option>Ahorros</option>
+                        <option>Corriente</option>
+                    </select>
+                </div>
+             
+            </div>
+                   <div class="form-group">
+                    <label class="col-sm-5 control-label">Numero de Cuenta(*):</label>
+                    <div class="col-sm-7">
+                        <input type="text"  class="form-control num_cuenta"   required="true" size="30" th:field="*{numerocuenta} "/>
+                    </div>
+                </div>
+            </div>
+          <div class="col-md-12">
+            <div class="row" align="center">
+                   <a href="#" th:href="@{/empleados/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+            </div>
+    </div>
+      </form>
+   
+                   
+                    
+                
+<!--          </div>
+           <div class="col-md-12">
+            <div class="row" align="center">
+                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleado/}">Regresar</a></button>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>
+            </div>
+    </div>
+                </form>-->
+      </div>
+  </div><!-- tab -->
+
+               </div>
+            </div>
+
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+
+        
+       
+</body>
+<script src="../static/css/hydro/js/jquery.js"></script>
+	        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+// 		$(document).ready(function() {
+// 			$(function () {
+// 				$("#datepickersince").datepicker();
+// 			});
+
+// 			$(function () {
+// 				$("#datepickeruntil").datepicker();
+// 			});
+// 		});
+		
+		$(document).ready(function () {
+		    var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+                    
+		    $('#fechanacimiento').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		       dateFormat: 'yy-mm-dd'
+		    });
+		    
+		    $('#fechasepu').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechasepr').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechamin').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechanacde').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechahfa').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechadfa').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('#fechacapreevento').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                    $('fechadexlaboral').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    $('fechahexlaboral').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    $('fechadubf').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    $('fechahubf').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                     $('fechaicontrato').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                     $('fechafcontrato').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+                    
+                     $('fechahubf').datepicker({
+// 		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });
+		});
+	</script>
+        
+         <script th:inline="javascript">
+    $(document).ready(function () {
+    if([[${msg}]]===0){
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                 location.href = '../empleados/';
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script> 
+</html>

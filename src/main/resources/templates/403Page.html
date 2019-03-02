@@ -8,10 +8,13 @@
 <body>
     <!-- Include _menu.html -->
 <th:block th:include="/menu"></th:block>
-
-<h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>
-
-<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+<!--
+<h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>-->
+            <div class="row text-center">
+                <br><br><br><br><br><br><br><br>
+                        <img src="../../static/image/denegado.jpg" width="600" th:src="@{/image/denegado.jpg}"/>
+            <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+            </div>
 <div class="col-md-12">
     <th:block th:include="footer"></th:block>
 </div>

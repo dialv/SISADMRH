@@ -1,38 +1,25 @@
 package mj.gob.sisadmrh.controller.formacionacademica;
 
-import mj.gob.sisadmrh.controller.formacionacademica.*;
-import mj.gob.sisadmrh.controller.formacionacademica.*;
-import mj.gob.sisadmrh.controller.formacionacademica.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoformacion;
 import mj.gob.sisadmrh.model.EmpleadoformacionPK;
 import mj.gob.sisadmrh.model.Formacionacademica;
-import mj.gob.sisadmrh.model.Formacionacademica;
 import mj.gob.sisadmrh.service.EmpleadoFormacionacademicaService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.FormacionacademicaService;
-import mj.gob.sisadmrh.service.FormacionacademicaService;
-//import mj.gob.sisadmrh.service.FormacionacademicaFormacionacademicaService;
-import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestMethod ;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -45,13 +32,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class FormacionacaemicaController extends UtilsController{
     
     private FormacionacademicaService formacionacademicaService;
-//    private FormacionacademicaFormacionacademicaService formacionacademicaFormacionacademicaService;
      @Autowired
     private EmpleadoFormacionacademicaService empleadoFormacionaademicaService;
     @Autowired
     private EmpleadoService empleadoService;
-
-
     
     @Autowired
     public void setFormacionacademicaService(FormacionacademicaService formacionacademicaService) {
@@ -61,18 +45,30 @@ public class FormacionacaemicaController extends UtilsController{
     private final String PREFIX = "fragments/formacionacademica/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("formacionacademicas", formacionacademicaService.listAllFormacionacademica());
+        model.addAttribute("formacionacademicas", formacionacademicaService.listAllActivos());
         return PREFIX + "formacionacademicas";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+     @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("formacionacademica", formacionacademicaService.getFormacionacademicaById(id));
         return PREFIX + "formacionacademicaform";
     }
+    
+    @RequestMapping("edit/formacionacademica/{id}")
+    public String editformacion(Formacionacademica formacionacademica,@PathVariable Integer id, Model model,SessionStatus status) {
+        formacionacademica.setEstadoformacion(1);
+        formacionacademicaService.saveFormacionacademica(formacionacademica);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico una formacion academica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
 
     @RequestMapping("new/{id}")
-    public String newFormacionacademica(Model model) {
+    public String newFormacionacademica(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("formacionacademica", new Formacionacademica());
         return PREFIX + "formacionacademicaform";
     }
@@ -84,10 +80,11 @@ public class FormacionacaemicaController extends UtilsController{
     }
     
     @RequestMapping(value = "formacionacademica/{id}")
-    public String saveFormacionacademica(Formacionacademica formacionacademica,Model model, @RequestParam("file") MultipartFile file,@PathVariable Integer id) {
+    public String saveFormacionacademica(Formacionacademica formacionacademica,Model model, @RequestParam("file") MultipartFile file,@PathVariable Integer id,SessionStatus status) {
         
         try {
             formacionacademica.setDoctitulo(file.getBytes());
+            formacionacademica.setEstadoformacion(1);
              
         } catch (IOException ex) {
             Logger.getLogger(FormacionacaemicaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,6 +95,7 @@ public class FormacionacaemicaController extends UtilsController{
         
         Empleadoformacion emcon = new  Empleadoformacion();
         emcon.setFormacionacademica(formacionacademica);
+         status.setComplete();
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadoformacionPK emconpk = new EmpleadoformacionPK();
         emconpk.setCodigoformacionacademica(formacionacademica.getCodigoformacionacademica());
@@ -110,11 +108,12 @@ public class FormacionacaemicaController extends UtilsController{
         }
         
 //        return "redirect:./show/" + formacionacademica.getCodigoformacionacademica();
-        return PREFIX + "formacionacademicaform";
+       return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showFormacionacademica(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showFormacionacademica(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("formacionacademica", formacionacademicaService.getFormacionacademicaById(id).get());
         return PREFIX +"formacionacademicashow";
     }
@@ -122,17 +121,32 @@ public class FormacionacaemicaController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
          try{
-            formacionacademicaService.deleteFormacionacademica(id);;
+            Formacionacademica formacionacademica = formacionacademicaService.getFormacionacademicaById(id).get();
+            formacionacademica.setEstadoformacion(0);
+            formacionacademicaService.saveFormacionacademica(formacionacademica);
             model.addAttribute("msg", 3);
-        }
+            model.addAttribute("formacionacademica", formacionacademica);
+         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        
-//        return "redirect:/formacionacademicas/";
-         return PREFIX +"formacionacademicas";
+        return PREFIX +"formacionacademicashow";
     }
-    
-    
-    
+  @RequestMapping(value = "formacionacademica")
+    public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status, @RequestParam("file") MultipartFile file) {
+        try{
+            formacionacademica.setDoctitulo(file.getBytes());
+            formacionacademica.setEstadoformacion(1);
+            
+        formacionacademicaService.saveFormacionacademica(formacionacademica);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una formacionacademica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+          return "redirect:/empleados/";
+    }    
 }

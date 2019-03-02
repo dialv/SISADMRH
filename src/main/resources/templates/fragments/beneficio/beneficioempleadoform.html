@@ -2,38 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Crear beneficio</title>
+    <title>SISADMRH-Asignar Beneficio</title>
   <th:block th:include="../templates/header"></th:block>
   
   </head>
   
 <body>
    
-     
-       <div class="contenedorizq"> <label  >pnt_crbe</label> 
+    <script> Textheader('pnt_crbe',document.title);</script> 
+<!--       <div class="contenedorizq"> <label  >pnt_crbe</label> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
 <div class="row">
      <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
-     <div class="col-md-9">
+     <div class="col-md-8">
           <div class="row text-center">
                         <img src="../../static/image/beneficios.png" width="200" th:src="@{/image/beneficios.png}"/>
                     </div>
-        <h3 align="center">Formulario de Beneficios</h3>
+        <h3 align="center"></h3>
   
   
     <div>
+         <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
         <!--th:action="@{../beneficio}"-->
         <form class="form-horizontal" id="asignar" th:object="${beneficio}"   method="post">
             <!--<input type="hidden" th:field="*{codigobeneficio}" id="codben"/>-->
            <!--<span th:object="${empleado}">--> 
-             <input type="hidden" id="codem"  />
+             <!--<input type="hidden" id="codem"  />-->
           <!--</span>-->
             
 <!--            <div class="form-group">
@@ -43,12 +54,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>-->
               <div class="form-group">
-                        <label class="col-sm-5 control-label">Beneficios:</label>
+                        <label class="col-sm-3 control-label">Beneficios:</label>
                         <div class="col-sm-7" >
+                            <br>
                             <select class="form-control"  th:field="*{codigobeneficio}" >
                                 <option th:each="c:${beneficios}" th:value="${c.codigobeneficio}" th:text="${c.nombrebeneficio}"></option>
                             </select>
                         </div>
+                        <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione el beneficio a asignar al Empleado desplegando la lista.!</span>
+                    </div>
                     </div>
             
 
@@ -58,8 +75,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-md-12">
                         <div class="row" align="center">
                           
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary" id="Asignarbtn"  >Asignar</button>
+                            <!--<button type="button" class="btn btn-info"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
+                            <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                  
+                    <button type="submit" class="btn btn-success" id="Asignarbtn"><span class="glyphicon glyphicon-floppy-disk"></span>Asignar</button>
+
+                            <!--<button type="submit" class="btn btn-primary" id="Asignarbtn"  >Asignar</button>-->
                             <!--<button type="reset" class="btn btn-default">Limpiar</button>-->
                         </div>
                     </div>

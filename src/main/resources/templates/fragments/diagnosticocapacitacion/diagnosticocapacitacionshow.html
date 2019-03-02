@@ -14,7 +14,9 @@
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3 align="center">Detalle de Diagnostico de Capacitación</h3>
+             <div class="row text-center">
+                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                         </div>
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
@@ -92,8 +94,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="button" class="btn btn-default"><a href="#" th:href="@{/diagnosticocapacitaciones/}">Regresar</a></button>
-
+ <a href="#" th:href="@{/diagnosticocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a> 
                     </div>
                 </div>
             </div>
@@ -104,4 +105,9 @@
     </div>
 
 </body>
+<script>
+    $(document).ready(function () {
+        Textheader('pnt_tdnc',document.title);
+   
+    });</script>
 </html>

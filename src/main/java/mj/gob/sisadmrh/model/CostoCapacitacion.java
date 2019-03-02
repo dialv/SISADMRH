@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -39,6 +34,8 @@ public class CostoCapacitacion implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "COSTOPERSONA")
     private Float costopersona;
+    @Column(name = "estadocostocapacitacion")
+    private Integer estadocostocapacitacion;
     @Column(name = "NUMEROPERSONA")
     private Integer numeropersona;
     @Column(name = "COSTOCAPACITADOR")
@@ -117,6 +114,14 @@ public class CostoCapacitacion implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Costocapacitacion[ codigocostocapacitacion=" + codigocostocapacitacion + " ]";
+    }
+
+    public Integer getEstadocostocapacitacion() {
+        return estadocostocapacitacion;
+    }
+
+    public void setEstadocostocapacitacion(Integer estadocostocapacitacion) {
+        this.estadocostocapacitacion = estadocostocapacitacion;
     }
     
 }

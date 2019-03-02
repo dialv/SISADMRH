@@ -41,6 +41,7 @@ public class EmpleadoCapacitacionController  {
   private final String PREFIX = "fragments/empleadocapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
+      
         model.addAttribute("empleadocapacitaciones", empleadoCapacitacionSevice.listAllEmpleadoCapacitacion());
         return PREFIX + "empleadocapacitaciones";
     }
@@ -66,15 +67,25 @@ public class EmpleadoCapacitacionController  {
         EmpleadocapacitacionPK llave = new EmpleadocapacitacionPK();
         llave.setCodigocapacitacion(empleadocapacitacion.getCapacitacion().getCodigocapacitacion());
         llave.setCodigoempleado(empleadocapacitacion.getEmpleado().getCodigoempleado());
-        
          empleadocapacitacion.setEmpleadocapacitacionPK(llave);//aqui tenia el pedo
         empleadoCapacitacionSevice.saveEmpleadoCapacitacion(empleadocapacitacion);
+        
+      
          model.addAttribute("msg", 0);
+      
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
+         
         }
-        return PREFIX+"empleadocapacitaciones";
+        EmpleadoCapacitacionForm form=new EmpleadoCapacitacionForm();
+        form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+       form.setEmpleados(empleadoService.listAllEmpleado());
+    form.setEmpleadocapacitacion(new Empleadocapacitacion());
+    model.addAttribute("formempleadocapacitacion", form);
+    
+      //  return PREFIX + "usuariorolform";
+        return PREFIX+"empleadocapacitacionform";
        // return "redirect:./show/" + usuariorol.getCodigousuariorol();
     }
     

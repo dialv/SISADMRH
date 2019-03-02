@@ -8,11 +8,16 @@ import mj.gob.sisadmrh.model.Estado;
  * @author dialv
  */
 public interface EstadoService {
-    Iterable <Estado> listAllEstado();
-    
+
+    Iterable<Estado> listAllEstado();
+
+    Iterable<Estado> listAllActivos();
+
     Optional<Estado> getEstadoById(Integer id);
 
     Estado saveEstado(Estado estado);
 
     void deleteEstado(Integer id);
+
+    Iterable<Estado> findBySuperior(Integer est);
 }

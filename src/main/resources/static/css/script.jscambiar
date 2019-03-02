@@ -1,0 +1,34 @@
+function mostrarAyuda(idelement)
+{
+	document.getElementById(idelement).style.visibility = "visible";
+        var popup = document.getElementById(idelement);
+       popup.classList.toggle("show");
+}
+function ocultarAyuda(idelement)
+{
+	document.getElementById(idelement).style.visibility = "hidden";
+}
+function ValidarFecha(fechainicio,fechafin,idinicial,idfinal){
+    
+//    if(fechafin.length != 0){
+////    alert("fecha inicio="+fechainicio+" final="+fechafin);
+//    //Formato MES/DIA/AÑO
+//    var inicio = Date.parse(fechainicio); //01 de Octubre del 2013
+//    var final = Date.parse(fechafin); //03 de Octubre del 2013
+//    
+////    alert("inicio="+inicio+" final="+final);
+//    if (inicio > final) {
+//        alert("La Fecha de inicio no puede ser mayor que Fecha Final");
+//    } 
+//    
+//    document.getElementById(idinicial).value=" ";
+//     document.getElementById(idfinal).value=" ";
+// }
+}
+
+
+// When the user clicks on div, open the popup
+function myFunction(id) {
+    var popup = document.getElementById(id);
+     popup.classList.toggle("show");
+}

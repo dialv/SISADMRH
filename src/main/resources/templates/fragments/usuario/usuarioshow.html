@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-
-    <title>SISADMRH</title>
-     <th:block th:include="../templates/header"></th:block> 
+    <title>Datos de Usuario</title>
+    <th:block th:include="../templates/header"></th:block> 
 </head>
 <body>
 <div class="row">
      <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
-                    </div>
+        </div>
     <div class="col-md-9">
-<h3 align="center">Datos de Usuario</h3>
+         <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
+       
         <div>
             <form class="form-horizontal">
-                
                 <div class="form-group">
                     <label class="col-sm-2 control-label">codigo:</label>
                     <div class="col-sm-10">
@@ -32,12 +33,12 @@
                         <p class="form-control-static" th:text="${usuario.contraseniausuario}">contraseña</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">control pass:</label>
+                <!--div class="form-group">
+                    <label class="col-sm-2 control-label">control contraseña:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.controlcontrasenia}">control pass</p>
                     </div>
-                </div>
+                </div-->
                 <div class="form-group">
                     <label class="col-sm-2 control-label">estado:</label>
                     <div class="col-sm-10">
@@ -45,24 +46,29 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fechaing:</label>
+                    <label class="col-sm-2 control-label">fecha de ingreso :</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${usuario.fechaingreso}">fecha ing</p>
+                        <p class="form-control-static" th:text="${usuario.fechaingreso}">fecha ingreso</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha cad:</label>
+                    <label class="col-sm-2 control-label">fecha de caducidad:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${usuario.fechacaducidad}">fecha cad</p>
+                        <p class="form-control-static" th:text="${usuario.fechacaducidad}">fecha de caducidad</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha baj:</label>
+                    <label class="col-sm-2 control-label">fecha de baja:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${usuario.fechabaja}">fecha baj</p>
+                        <p class="form-control-static" th:text="${usuario.fechabaja}">fecha de baja</p>
                     </div>
                 </div>
             </form>
+                    <div class="col-md-12">
+            <div class="row" align="center">
+<a href="#" th:href="@{/usuarios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                
+            </div>
+    </div>
     </div>
     </div>
 </div>
@@ -70,6 +76,7 @@
 </body>
 
 <script th:inline="javascript">
+    Textheader('pnt_cous',document.title);
     $(document).ready(function () {
     if([[${lol}]]===0){
        swal("Exito!", "Registro agregado correctamente", "success");

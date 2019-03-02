@@ -1,6 +1,7 @@
 package mj.gob.sisadmrh.controller.usuario;
 
 import java.util.Date;
+import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.UsuarioRepository;
 import mj.gob.sisadmrh.service.UsuarioService;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @SessionAttributes("usuario")
 @RequestMapping(value = "usuarios")
-public class UsuarioController {
+public class UsuarioController extends UtilsController{
     
     private UsuarioService usuarioService;
     
@@ -37,7 +38,7 @@ public class UsuarioController {
     private final String PREFIX = "fragments/usuario/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("usuarios", usuarioService.listAllUsuarios());
+        model.addAttribute("usuarios", usuarioService.listAllActivos());
         return PREFIX + "usuarios";
     }
     
@@ -60,10 +61,12 @@ public class UsuarioController {
         Date fecha = new Date();
         usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
+        usuario.setControlcontrasenia(1);
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
-        
+         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
         }
         catch(Exception e){
@@ -82,7 +85,11 @@ public class UsuarioController {
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-        usuarioService.deleteUsuario(id);
+        Usuario usuario =usuarioService.getUsuarioById(id).get();
+        usuario.setEstadousuario(0);
+        usuarioService.saveUsuario(usuario);
+        bitacoraService.BitacoraRegistry("se elimino el Usuario con codigo "+id,getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
          model.addAttribute("msg", 3);}
         
         catch(Exception e){

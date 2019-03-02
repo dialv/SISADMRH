@@ -27,7 +27,7 @@
             </tr>
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${contacto.codigocontacto}">codigocontacto</td>
-                <td th:text="${contacto.nombrecontacto}">nombrecontacto</td>
+                <td th:text="${contacto.nombrecontacto} + ' ' + ${contacto.apellidocontacto}">nombrecontacto</td>
                 <td th:text="${contacto.direccion}">direccion</td>                
                 <td th:text="${contacto.telefonofijocontacto}">telefonofijocontacto</td>
                 <td th:text="${contacto.telefonomovilcontacto}">telefonomovilcontacto</td>
@@ -46,4 +46,28 @@
  </div>
    </div> 
 </body>
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+    if ([[${msg}]] === 3){
+
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../../empleados/';
+    });
+    }
+
+    if ([[${msg}]] === 4){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+            });
+    }
+    });</script> 
 </html>

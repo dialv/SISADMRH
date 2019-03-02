@@ -36,6 +36,8 @@ public class Capacitador implements Serializable {
     @Column(name = "TEMADOMINIO")
     private String temadominio;
     
+    @Column(name = "estadocapacitador")
+    private Integer estadocapacitador;
     
     @Column(name = "INSTITUCIONCAPACITADOR")
     private String institucioncapacitador;
@@ -241,6 +243,14 @@ public class Capacitador implements Serializable {
 
     public void setNombrecapacitador(String nombrecapacitador) {
         this.nombrecapacitador = nombrecapacitador;
+    }
+
+    public Integer getEstadocapacitador() {
+        return estadocapacitador;
+    }
+
+    public void setEstadocapacitador(Integer estadocapacitador) {
+        this.estadocapacitador = estadocapacitador;
     }
     
 }

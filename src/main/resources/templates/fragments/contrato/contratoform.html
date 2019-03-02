@@ -6,13 +6,13 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+      <!--<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>-->
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -44,13 +44,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_ce11</label>  
+<!--    <div class="contenedorizq"><label  >pnt_ce11</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_ce11',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,43 +61,80 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
             </div>
-    <h3 align="center">Crear Contrato</h3>
+    <h3 align="center"> </h3>
     
 
     
         <br>
-  <form class="form-horizontal"  th:object="${contrato}" th:action="@{../contrato}" method="post">
+        <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
+  <form class="form-horizontal"  id="formcontrato" th:object="${contrato}" th:action="@{../contrato}" method="post">
                 <input type="hidden" th:field="*{codigocontrato}"/>
-                <input type="hidden" id="codem" th:field="*{codigoempleado}"/>
-            <div class="col-md-12"  align="center">
+                <!--<input type="hidden" id="codem" th:field="*{codigoempleado}"/>-->
+            <div class="col-md-12"  >
                  <div class="form-group">
+                     <br>
                     <label class="col-sm-3 control-label">Salario Actual(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <input type="text"  class="form-control num_decimal"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el salario actual del Empleado solo se admitiran dos decimales caracteres numericos.!</span>
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Unidad Pres.(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{unidadprecide}"   />
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup7')" onmouseout ="javascript:ocultarAyuda('poppup7')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup7">Ingrese el la unidad presupuestaria solo se admitiran dos decimales caracteres numericos.!</span>
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Linea de Trabajo(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <input type="text" class="form-control"   required="true" size="100" maxlength="100" th:field="*{lineatrabajo}"   />
                     </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Partida(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"  required="true" size="9" maxlength="9"  th:field="*{partidacontrato}"   />
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup25')" onmouseout ="javascript:ocultarAyuda('poppup25')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup25">Ingrese la linea de trabajo del Empleado solo se admitiran 50 caracteres .!</span>
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Subpartida(*):</label>
-                    <div class="col-sm-5">
+                    <label class="col-sm-3 control-label">Numero de Partida(*):</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control"  required="true" size="9" maxlength="9"  th:field="*{partidacontrato}"   />
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el numero de partida del Empleado solo se admitiran 9 caracteres.!</span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Numero de Subpartida(*):</label>
+                    <div class="col-sm-2">
                         <input type="text" class="form-control"    required="true" size="100" maxlength="100" th:field="*{subpartidacontrato}"  />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup22')" onmouseout ="javascript:ocultarAyuda('poppup22')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup22">Ingrese el numero de subpartida del Empleado solo se admitiran 9 caracteres.!</span>
                     </div>
                 </div>
                  <div class="form-group">
@@ -104,18 +142,33 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-5">
                         <input type="text" class="form-control"       />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup31')" onmouseout ="javascript:ocultarAyuda('poppup31')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup31">Ingrese el acuerdo o nombramiento del Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                 </div>
                     <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Inicio(*):</label>
-                <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechaicontrato" id="fechaicontrato" th:field="*{fechainiciocontrato}" />
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año"type="text"  name="fechaicontrato" id="fechaicontrato" th:field="*{fechainiciocontrato}" onchange="isDat(this.value,'fechaicontrato');Fechas(this.value,$('#fechafcontrato').val().toString(),'fechaicontrato','fechafcontrato')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup21')" onmouseout ="javascript:ocultarAyuda('poppup21')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup21">Seleccione o digite la Fecha de inicio del contrato del Empleado el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Finalizacion(*):</label>
-                <div class="col-sm-5">
-                     <input class="form-control" type="text"  name="fechafcontrato" id="fechafcontrato" th:field="*{fechafincontrato}" />
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafcontrato" id="fechafcontrato" th:field="*{fechafincontrato}" onchange="isDat(this.value,'fechafcontrato');Fechas($('#fechaicontrato').val().toString(),this.value,'fechaicontrato','fechafcontrato')"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup20">Seleccione o digite la Fecha de finalizacion del contrato del Empleado el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
 <!--                <div class="form-group">
                     <label class="col-sm-3 control-label">Cambio de Plaza(*):</label>
@@ -126,9 +179,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           </div>
            <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" >Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>-->
+  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+ 
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
             </div>
     </div>
                 </form>
@@ -147,10 +205,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        
 </body>
 
-<script src="../static/css/hydro/js/jquery.js"></script>
+<!--<script src="../static/css/hydro/js/jquery.js"></script>-->
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+             function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -169,81 +240,81 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechasepr').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamin').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechanacde').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechahfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechadfa').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacapreevento').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('fechadexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahexlaboral').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechadubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechaicontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechafcontrato').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                      $('fechahubf').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
 		});
-//                 $('#btnGuardar').click(function(){
-//            $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
-//            $("form#formcontrato").submit();
+                 $('#btnGuardar').click(function(){
+            $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
+            $("form#formcontrato").submit();
 //            
-//        });
+        });
                 
                 var URLactual = window.location.href;
                 if (URLactual.includes("edit")){

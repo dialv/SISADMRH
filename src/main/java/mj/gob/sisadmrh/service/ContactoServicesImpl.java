@@ -28,6 +28,10 @@ public class ContactoServicesImpl implements ContactoService {
     public Iterable<Contacto> listAllContacto() {
         return contactoRep.findAll();
     }
+    @Override
+    public Iterable<Contacto> listAllActivos() {
+        return contactoRep.listAllActivos();
+    }
 
     @Override
     public Optional<Contacto> getContactoById(Integer id) {

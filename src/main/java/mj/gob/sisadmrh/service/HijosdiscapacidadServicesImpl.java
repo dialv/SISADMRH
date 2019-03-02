@@ -29,6 +29,10 @@ public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
     public Iterable<Hijodiscapacidad> listAllHijodiscapacidad() {
         return hijosdiscapacidadRep.findAll();
     }
+    @Override
+    public Iterable<Hijodiscapacidad> listAllActivos() {
+        return hijosdiscapacidadRep.listAllActivos();
+    }
 
     @Override
     public Optional<Hijodiscapacidad> getHijodiscapacidadById(Integer id) {

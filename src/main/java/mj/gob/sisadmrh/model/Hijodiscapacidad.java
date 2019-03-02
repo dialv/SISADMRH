@@ -39,6 +39,8 @@ public class Hijodiscapacidad implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "codigohijodiscapacidad")
     private Integer codigohijodiscapacidad;
+    @Column(name = "estadohijos")
+    private Integer estadohijos;
     @Size(max = 50)
     @Column(name = "nombrehijodiscapacidad")
     private String nombrehijodiscapacidad;
@@ -52,7 +54,7 @@ public class Hijodiscapacidad implements Serializable {
     @Column(name = "tipodiscapacidad")
     private String tipodiscapacidad;
     @Column(name = "fechanamimientohijosdiscapacidad")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY/MM/dd")
     private Date fechanamimientohijosdiscapacidad;
 
     public Hijodiscapacidad() {
@@ -133,6 +135,14 @@ public class Hijodiscapacidad implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Hijodiscapacidad[ codigohijodiscapacidad=" + codigohijodiscapacidad + " ]";
+    }
+
+    public Integer getEstadohijos() {
+        return estadohijos;
+    }
+
+    public void setEstadohijos(Integer estadohijos) {
+        this.estadohijos = estadohijos;
     }
     
 }

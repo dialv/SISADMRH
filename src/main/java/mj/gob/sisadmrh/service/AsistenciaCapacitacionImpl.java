@@ -18,30 +18,30 @@ import org.springframework.stereotype.Service;
 public class AsistenciaCapacitacionImpl implements AsistenciaCapacitacionService{
 private AsistenciaCapacitacionRepository asistenciaCapacitacionRep;
 @Autowired
-public void SetAsistenciaCapacitacionRepository(AsistenciaCapacitacionRepository asistenciaCapacitacionRepository){
+public void SetAsistenciacapacitacionRepository(AsistenciaCapacitacionRepository asistenciaCapacitacionRepository){
 this.asistenciaCapacitacionRep=asistenciaCapacitacionRepository;
 }
     @Override
-    public Iterable<AsistenciaCapacitacion> listAllAsistenciaCapacitacion() {
+    public Iterable<AsistenciaCapacitacion> listAllAsistenciacapacitacion() {
       return asistenciaCapacitacionRep.findAll();
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Optional<AsistenciaCapacitacion> getAsistenciaCapacitacionById(Integer id) {
+    public Optional<AsistenciaCapacitacion> getAsistenciacapacitacionById(Integer id) {
     
 return asistenciaCapacitacionRep.findById(id);
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public AsistenciaCapacitacion saveAsistenciaCapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
+    public AsistenciaCapacitacion saveAsistenciacapacitacion(AsistenciaCapacitacion asistenciaCapacitacion) {
       return asistenciaCapacitacionRep.save(asistenciaCapacitacion);
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteAsistenciaCapacitacion(Integer id) {
+    public void deleteAsistenciacapacitacion(Integer id) {
      asistenciaCapacitacionRep.deleteById(id);
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -56,6 +56,11 @@ return asistenciaCapacitacionRep.findById(id);
     public Iterable<AsistenciaCapacitacion> findByCapacitacion(String dato) {
         return asistenciaCapacitacionRep.findByCapacitacion("%"+dato+"%");
         
+    }
+
+    @Override
+    public Iterable<AsistenciaCapacitacion> listAllActivos() {
+    return asistenciaCapacitacionRep.listAllActivos();
     }
 
 }

@@ -15,16 +15,19 @@ import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Comite;
+import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.pojos.AbogadosPojo;
 import mj.gob.sisadmrh.service.BeneficioService;
 import mj.gob.sisadmrh.service.CapacitacionService;
 import mj.gob.sisadmrh.service.CapacitadorService;
 import mj.gob.sisadmrh.service.ComiteService;
+import mj.gob.sisadmrh.service.DiagnosticoCapacitacionService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
 import mj.gob.sisadmrh.service.EmpleadoBeneficioService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.MisionService;
+import mj.gob.sisadmrh.service.PuestoService;
 
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +64,10 @@ private CapacitacionService capacitacionService;// instancia para jalar las capa
 @Autowired
 private CapacitadorService capacitadorService;
 @Autowired
+private DiagnosticoCapacitacionService diagnosticoService;
+@Autowired
+private PuestoService puestoService;
+@Autowired
 private MisionService misionService;
 @Autowired
 private HijosdiscapacidadService hijosdiscapacidadService;
@@ -71,6 +78,12 @@ private HijosdiscapacidadService hijosdiscapacidadService;
     @RequestMapping("abogados/")
     public String reporteabogados() {
         return PREFIX + "abogadosreport";
+        
+     
+    }
+       @RequestMapping("bitacoras/")
+    public String reportebitacoras() {
+        return PREFIX + "bitacorasreport";
     }
     @RequestMapping("capacitadores/")
     public String reportecapacitadores() {
@@ -134,21 +147,14 @@ private HijosdiscapacidadService hijosdiscapacidadService;
         return PREFIX + "constanciaserviciosreport";
     }
     
-               @RequestMapping("misionesinternas/")
-    public String reportemisionesinternas() {
-        return PREFIX + "misionesinternasreport";
-    }
+             
     
      @RequestMapping("1misionesexternas/")
     public String reporte1misionesexternas() {
         return PREFIX + "1misionesexternasreport";
     }
     
-      @RequestMapping("2misionesexternas/")
-    public String reporte2misionesexternas() {
-        return PREFIX + "2misionesexternasreport";
-    }
-    
+  
     
     @RequestMapping(value = "abogados/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfabogados(@PathVariable("indice") Long indice, 
@@ -157,10 +163,13 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_abogados", params, download,response);
     }
+    
+    
  
     @RequestMapping("/abogadosxls")
        public ModelAndView abogadosxls(
@@ -169,7 +178,18 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               Iterable <Empleado> abogadosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
               return new ModelAndView(new AbogadosView(), "abogadosList", abogadosList);
        }
-    
+        @RequestMapping(value = "bitacoras/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfbitacoras(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_bitacoras", params, download,response);
+    }
     @RequestMapping(value = "motoristas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmotoristas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -178,6 +198,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_motoristas", params, download,response);
@@ -200,11 +221,20 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                  params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_empleadoincapacidad", params, download,response);
     }
+   /* reporte de exel para incapacidades ***********************/
+    @RequestMapping("/empleadoincapacidadxls")
+       public ModelAndView empleadoincapacidadxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]>  empleadoincapacidadList = empleadoService.findByIncapacidad(fechainicio, fechafin);
+              return new ModelAndView(new IncapacidadView(), "empleadoincapacidadList", empleadoincapacidadList);
+       }
 
     @RequestMapping(value = "hijoscapesp/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfhijoscapesp(@PathVariable("indice") Long indice, 
@@ -236,6 +266,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_historial", params, download,response);
@@ -246,8 +277,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="codigo",required = false) String codigo, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              List<Object[]>  historialList = empleadoService.findByPuestosEmpleados(codigo);
-              return new ModelAndView(new HijoscapView(), "historialList", historialList);
+              List<Object[]>  historialList = empleadoService.findByPuestosEmpleados(codigo);//PARA GERNARAR EL HISTORIAL LABORAL
+              return new ModelAndView(new HistorialView(), "historialList", historialList);
        }
 
 
@@ -260,6 +291,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_notarios", params, download,response);
@@ -281,7 +313,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_renuncias", params, download,response);
@@ -303,6 +336,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_cumpleanieros", params, download,response);
@@ -320,12 +354,15 @@ private HijosdiscapacidadService hijosdiscapacidadService;
 //..................pARA GENERAR EL REPORTE PDF DE CAPACITACIONES ................................................
     @RequestMapping(value = "capacitaciones/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfcapacitaciones(@PathVariable("indice") Long indice, 
-            @RequestParam(required = false) Boolean download, 
+  @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
+                HttpServletResponse response, HttpServletRequest request) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+                /*capturando el usuario*/
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+                
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_capacitaciones", params, download,response);
@@ -336,7 +373,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
-              List<Object[]> capacitacionesList = capacitacionService.findByCapacitacionesR(fechainicio, fechafin, codigo);
+              List<Object[]> capacitacionesList = capacitacionService.findByCapacitacionesR(fechainicio, fechafin);
               return new ModelAndView((View) new CapacitacionesView(), "capacitacionesList", capacitacionesList);
        }
     
@@ -348,6 +385,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
@@ -365,6 +403,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin); 
@@ -373,7 +412,10 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 else generateWord("otherreports", "rpt_constanciaservicios", params, download,response);
                     
     }
-    
+      @RequestMapping("misionesinternas/")
+    public String reportemisionesinternas() {
+        return PREFIX + "misionesinternasreport";
+    }
     @RequestMapping(value = "misionesinternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmisionesinternas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -381,19 +423,26 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+//		params.put("CODIGO", indice.toString());
+params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesinternas", params, download,response);
     }
     /* ***************************Para Generar Reporte de Misiones Internas********************* */
+    @RequestMapping("/misionInternaxls")
       public ModelAndView misionInternaxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin
               ){
-              List<Object[]> misionInternaList = misionService.findByMisionExterna1(fechainicio, fechafin);
+              List<Object[]> misionInternaList = misionService.findByMisionInterna(fechainicio, fechafin);
               return new ModelAndView(new MisionesInternasView(), "misionInternaList", misionInternaList);
        }
+          @RequestMapping("2misionesexternas/")
+    public String reporte2misionesexternas() {
+        return PREFIX + "2misionesexternasreport";
+    }
+    
      @RequestMapping(value = "2misionesexternas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdf2misionesexternas(@PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -401,7 +450,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-		params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+//		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesexternas2", params, download,response);// adebio llamarse rpt_misionesexternas2
@@ -412,7 +462,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin
               ){
-              List<Object[]> misionExt2List = misionService.findByMisionExterna1(fechainicio, fechafin);
+              List<Object[]> misionExt2List = misionService.findByMisionExterna2(fechainicio, fechafin);
               return new ModelAndView(new MisionesExternas2View(), "misionExt2List", misionExt2List);
        }
     
@@ -424,6 +474,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_misionesexternas1", params, download,response);
@@ -450,6 +501,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
      
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
@@ -460,7 +512,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin,
               @RequestParam(value="codigo",required = false) String codigo){
-              List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin, codigo);
+              List<Object[]> comitesList = comiteService.findByeComitesR(fechainicio, fechafin);
               return new ModelAndView(new ComitesView(), "comitesList", comitesList);
        }
     /* ****************Report de niveles de Escolaridad en pdf******************************* */
@@ -478,6 +530,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_nivelesescolares", params, download,response); 
@@ -505,6 +558,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_plazasocupadas", params, download,response); 
@@ -521,7 +575,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
         return PREFIX + "pensionadoreporte";
     }
     
-    @RequestMapping(value = "pdfpensionadoreporte/", method = { RequestMethod.POST, RequestMethod.GET })
+    @RequestMapping(value = "pensionadospdf/", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfestadisticoactivo(
 //            @PathVariable("indice") Long indice, 
             @RequestParam(required = false) Boolean download, 
@@ -529,12 +583,14 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-        	generatePdf("pensionadoreporte", "rpt_pensionado", params, download,response);
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_pensionado", params, download,response);
     }
-   
+
     @RequestMapping("/pensionadosxls")
        public ModelAndView pensionadosxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
@@ -556,6 +612,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 		//params.put("CODIGO", indice.toString());
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_puestos", params, download,response); 
@@ -569,7 +626,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               return new ModelAndView(new PuestosCaducarView(), "puestosCaducarList", puestosCaducarList);
        }
         
-     @RequestMapping("reporte/exoneradoreporte")
+     @RequestMapping("exoneradoreporte")
     public String reporteexoneradoreporte() {
         return PREFIX + "exoneradoreporte";
     }
@@ -582,12 +639,14 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 //		params.put("CODIGO", indice.toString());
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
-        	generatePdf("exoneradoreporte", "rpt_exonerado", params, download,response);
+        	generatePdf("otherreports", "rpt_exonerado", params, download,response);
     }
-    
+   
     /* exonerado de marcacion exel */
       @RequestMapping("/exoneradomarcacionxls")
        public ModelAndView exoneradomarcacionxls(
@@ -596,8 +655,8 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               List<Object[]> exoneradoMarcacionLis = empleadoService.findByExoneradoMarcacion(fechainicio, fechafin);
               return new ModelAndView(new ExoneradoMarcacionView(), "exoneradoMarcacionLis", exoneradoMarcacionLis);
        }
-    
-    @RequestMapping("reporte/nivelesreporte")
+     @RequestMapping("nivelesreporte")
+//    @RequestMapping("reporte/nivelesreporte")
     public String reportenivelesreporte() {
         return PREFIX + "nivelesreporte";
     }
@@ -611,9 +670,10 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-        	generatePdf("nivelesreporte", "rpt_nivelesescolares", params, download,response);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_nivelesescolares", params, download,response);
     }
     
     @RequestMapping("reporte/plazaoreporte")
@@ -630,12 +690,13 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
         	generatePdf("plazaoreporte", "rpt_plazasocupadas", params, download,response);
     }
     
-     @RequestMapping("reporte/costocreporte")
+     @RequestMapping("costocreporte")
     public String reportecostocreporte() {
         return PREFIX + "costocreporte";
     }
@@ -649,10 +710,19 @@ private HijosdiscapacidadService hijosdiscapacidadService;
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
 //		params.put("CODIGO", indice.toString());
-//		params.put("FECHAINICIO", fechainicio);
-//		params.put("FECHAFIN", fechafin);
-        	generatePdf("costocreporte", "rpt_costocapacitacion", params, download,response);
+ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_costocapacitacion", params, download,response);
     }
+    
+     @RequestMapping("/costosxls")
+       public ModelAndView costosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> costoList = capacitacionService.CostoCapacitacionExcel(fechainicio, fechafin);
+              return new ModelAndView(new CostoCapView(), "costoList", costoList);
+       }
     
       @RequestMapping(value = "capacitadores/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfacapacitadores(@PathVariable("indice") Long indice, 
@@ -661,6 +731,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_capacitador", params, download,response);
@@ -673,5 +744,215 @@ private HijosdiscapacidadService hijosdiscapacidadService;
               Iterable <Capacitador> capacitadorsList = capacitadorService.findCapacitadores(fechainicio, fechafin); 
               return new ModelAndView(new CapacitadorView(), "capacitadorList", capacitadorsList);
        }
+       @RequestMapping("temasdiagnosticos/")
+    public String reportediagnostico() {
+        return PREFIX + "diagnosticoreporte";
+    }
+        @RequestMapping(value = "temasdiagnostico/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfdiagnostico(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rprt_diagnostico", params, download,response);
+    }
+       
+       @RequestMapping("/diagnosticosxls")
+       public ModelAndView diagnosticoxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              Iterable <DiagnosticoCapacitacion> capacitadorsList = diagnosticoService.Diagnosticoexcel(fechainicio, fechafin); 
+              return new ModelAndView(new DiagnosticoView(), "diagnosticoList", capacitadorsList);
+       }
+       
+       @RequestMapping("contrataciones/")
+    public String reportecontrataciones() {
+        return PREFIX + "contratacionesreporte";
+    }
+        @RequestMapping(value = "contratacion/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfcontrataciones(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_contrataciones", params, download,response);
+    }
+
+        @RequestMapping("/contratacionessxls")
+       public ModelAndView contratacionesxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> contratacionesList = empleadoService.ContratacionesExcel(fechainicio, fechafin);
+              return new ModelAndView(new ContratacionesView(), "contratacionesList", contratacionesList);
+       }
     
+       
+        @RequestMapping("despidos/")
+    public String reportedespidos() {
+        return PREFIX + "despidosreporte";
+    }
+        @RequestMapping(value = "despidospdf/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfdespidos(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_despidos", params, download,response);
+    }
+
+        @RequestMapping("/despidosxls")
+       public ModelAndView despidosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> despidosList = empleadoService.DespidosExcel(fechainicio, fechafin);
+              return new ModelAndView(new DespidosView(), "despidosList", despidosList);
+       }
+       
+       
+        @RequestMapping("estadisticoactivos/")
+    public String reporteestadisticoactivos() {
+        return PREFIX + "estadisticoactivoreporte";
+    }
+        @RequestMapping(value = "personalactivopdf/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfdestadisticoactivos(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_estadisticoactivo", params, download,response);
+    }
+
+        @RequestMapping("/personalactivoxls")
+       public ModelAndView personalactivoxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> personalactivoList = empleadoService.PseronalActivoExcel(fechainicio, fechafin);
+              return new ModelAndView(new PersonalActivoView(), "personalactivoList", personalactivoList);
+       }
+       
+        @RequestMapping("estadisticocapacitados/")
+    public String estadisticocapacitado() {
+        return PREFIX + "personalcapacitadoreporte";
+    }
+        @RequestMapping(value = "capacitadopdf/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfdestadisticocapacitados(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_personalcapacitado", params, download,response);
+    }
+
+        @RequestMapping("/capacitadosxls")
+       public ModelAndView estadisticocapacitadoxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> estadisticocapacitadoList = empleadoService.EstadisticocapacitadoExcel(fechainicio, fechafin);
+              return new ModelAndView(new PersonalCapacitadoView(), "estadisticocapacitadoList", estadisticocapacitadoList);
+       }
+       
+  
+       
+          @RequestMapping("puestoreporte/")
+    public String ReportePuesto() {
+        return PREFIX + "puestoreporte";
+    }
+        @RequestMapping(value = "puestospdf/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfPuestosacaducar(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                  params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_puestos", params, download,response);
+    }
+    
+    @RequestMapping("/puestosxls")
+       public ModelAndView puestosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> puestoList = puestoService.PuestosoExcel(fechainicio, fechafin);
+              return new ModelAndView(new PuestosView(), "puestoList", puestoList);
+       }
+       
+       @RequestMapping("indemnizados/")
+    public String Reporteindemnizados() {
+        return PREFIX + "indemnizadosreporte";
+    }
+        @RequestMapping(value = "indemnizadospdf/", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfindemnizados(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_indemnizado", params, download,response);
+    }
+    
+    @RequestMapping("/indemnizadosxls")
+       public ModelAndView indemnizadosxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin){
+              List<Object[]> IndemnizadoList = empleadoService.PersonalIndemnizadooExcel(fechainicio, fechafin);
+              return new ModelAndView(new PersonalIndemnizadoView(), "IndemnizadoList", IndemnizadoList);
+       }
+       
+  
+    
+     @RequestMapping("evaluacioncap/")
+    public String Reporteevaluacioncap(Model model) {
+        model.addAttribute("evcapacitaciones", capacitacionService.listAllCapacitacion());
+        return PREFIX + "evaluacioncapreporte";
+    }
+
+     @RequestMapping(value = "evacapacitaciones/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
+    public void pdfevacapacitaciones(@PathVariable("indice") Long indice, 
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+//		params.put("CODIGO", indice.toString());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_ecapacitaciones", params, download,response);
+    } 
+    // ................... Para generar el reporte en excel de capacitaciones............
+      @RequestMapping("/evacapacitacionesxls")
+       public ModelAndView evacapacitacionesxls(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin,
+              @RequestParam(value="codigo",required = false) String codigo){
+              List<Object[]> evacapacitacionesList = capacitacionService.EvaluacionCapacitacionesExcel(fechainicio, fechafin, codigo);
+              return new ModelAndView((View) new EvaCapacitacionesView(), "evacapacitacionesList", evacapacitacionesList);
+       }
+    
+       
 }

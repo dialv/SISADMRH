@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 
 /**
  *
@@ -41,7 +42,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "hijodiscapacidades")
 public class HijodiscapacidadController extends UtilsController{
     
-    private HijosdiscapacidadService hijodiscapacidadService;
+    private HijosdiscapacidadService hijodiscapacidadService ;
 //    private HijodiscapacidadHijodiscapacidadService hijodiscapacidadHijodiscapacidadService;
     @Autowired
     private EmpleadoHijosdiscapacidadService empleadoHijosdiscapacidadService;
@@ -58,26 +59,40 @@ public class HijodiscapacidadController extends UtilsController{
     private final String PREFIX = "fragments/hijodiscapacidad/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("hijodiscapacidades", hijodiscapacidadService.listAllHijodiscapacidad());
+        model.addAttribute("hijodiscapacidades", hijodiscapacidadService.listAllActivos());
         return PREFIX + "hijodiscapacidades";
     }
     
-    @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
+    @RequestMapping("edit/{id}/{idemp}")
+    public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id));
         return PREFIX + "hijodiscapacidadform";
     }
+    
+     @RequestMapping("edit/hijodiscapacidad/{id}")
+    public String editcontacto(Hijodiscapacidad hijodiscapacidad,@PathVariable Integer id, Model model,SessionStatus status) {
+        hijodiscapacidad.setEstadohijos(1);
+        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+         status.setComplete();
+         bitacoraService.BitacoraRegistry("se Modifico un hijo con discapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        return "redirect:/empleados/show/"+id;
+    }
 
     @RequestMapping("new/{id}")
-    public String newHijodiscapacidad(Model model) {
+    public String newHijodiscapacidad(Model model,@PathVariable Integer id) {
+        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("hijodiscapacidad", new Hijodiscapacidad());
         return PREFIX + "hijodiscapacidadform";
     }
 
     @RequestMapping(value = "hijodiscapacidad/{id}")
-    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id) {
+    public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
+            hijodiscapacidad.setEstadohijos(1);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+            status.setComplete();
             Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
         emcon.setHijodiscapacidad(hijodiscapacidad);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -93,11 +108,12 @@ public class HijodiscapacidadController extends UtilsController{
         }
         
 //        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
- return PREFIX + "hijodiscapacidadform";
+ return "redirect:/empleados/show/"+id;
     }
     
-    @RequestMapping("show/{id}")    
-    public String showHijodiscapacidad(@PathVariable Integer id, Model model) {
+    @RequestMapping("show/{id}/{idemp}")    
+    public String showHijodiscapacidad(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
+         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
         model.addAttribute("hijodiscapacidad", hijodiscapacidadService.getHijodiscapacidadById(id).get());
         return PREFIX +"hijodiscapacidadshow";
     }
@@ -105,17 +121,34 @@ public class HijodiscapacidadController extends UtilsController{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-            hijodiscapacidadService.deleteHijodiscapacidad(id);
+            Hijodiscapacidad hijodiscapacidad = hijodiscapacidadService.getHijodiscapacidadById(id).get();
+            hijodiscapacidad.setEstadohijos(0);
+            hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             model.addAttribute("msg", 3);
+//            model.addAttribute("hijodiscapacidad", hijodiscapacidad);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-       
+        return "redirect:/empleados/";
 //        return "redirect:/hijodiscapacidades/";
-        return PREFIX +"hijodiscapacidades";
+//        return PREFIX +"hijodiscapacidades";
     }
     
+     @RequestMapping(value = "hijodiscapacidad")
+    public String saveRol(Hijodiscapacidad hijodiscapacidad, Model model, SessionStatus status) {
+        try{
+        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se cambio registro de hijos con disc ",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 0);
+        }
+        catch(Exception e){
+        model.addAttribute("msg", 1);
+        }
+            return "redirect:/empleados/";
+    }
     
     
 }

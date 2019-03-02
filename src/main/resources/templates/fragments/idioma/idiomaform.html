@@ -6,13 +6,13 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -44,13 +44,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_cem10</label>  
+<!--    <div class="contenedorizq"><label  >pnt_cem10</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_cem10',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,60 +61,92 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
             </div>
-    <h3 align="center">Crear Idioma</h3>
+    <h3 align="center"> </h3>
     
 
     
         <br>
+          <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
       <form class="form-horizontal" id="formidioma" th:object="${idioma}" th:action="@{../idioma}" method="post">
 <!--          <span th:object="${empleadoContacto}"> 
              <input type="text" th:field="*{codigoempleado}"/>
           </span>-->
             <input type="hidden" th:field="*{codigoidioma}"/>
-            <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+            <!--<input type="hidden" id="codem"  />-->
+            <div class="col-md-12"  >
                  <div class="form-group">
+                     <br>
                     <label class="col-sm-3 control-label">Nombre de Idioma(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombreidioma}"  />
                     </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el Nombre del idioma del Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                     </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Habla(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                         <select class="form-control" name="habla"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione el estado de habla para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Escribe(*):</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-2">
                          <select class="form-control" name="escribe"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup51')" onmouseout ="javascript:ocultarAyuda('poppup51')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup51">Seleccione el estado de escritura para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Traduce(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-2">
                     <select class="form-control" name="traduce"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Si</option>
                         <option>No</option>
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup41')" onmouseout ="javascript:ocultarAyuda('poppup41')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup41">Seleccione el estado de traduccion para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
             </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Nivel(*):</label>
 <!--                    <div class="col-sm-5">
                         <input type="text" class="form-control"    th:field="*{nivel}" />
                     </div>-->
-<div class="col-sm-5">
+<div class="col-sm-2">
                     <select class="form-control" name="nivel"  >
                             <!--th:field="*{sexoidioma}" >-->
                         <option>Basico</option>
@@ -121,15 +154,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <option>Avanzado</option>
                     </select>
                 </div>
+ <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup71')" onmouseout ="javascript:ocultarAyuda('poppup71')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup71">Seleccione el nivel para el idioma del Empleado desplegando la lista.!</span>
+                    </div>
                     </div>
                       
                       
                 </div>
           <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+
+ <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                  
+                              
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
             </div>
     </div>
             <!--</span>-->

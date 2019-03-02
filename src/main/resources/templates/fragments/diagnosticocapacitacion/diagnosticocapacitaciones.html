@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Comites</title>
+    <title>Listado Diagnostico Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -17,7 +17,7 @@
           <div class="row text-center">
                         <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
                          </div>
-                    <h3 align="center">Listado de Diagnosticos</h3>
+                    <!--<h3 align="center">Listado de Diagnosticos</h3>-->
                      <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
                          <thead>
                          <tr>
@@ -32,7 +32,7 @@
                             <th>Resultado que desea Obtener</th>
                             <th>Nombre de quien Autoriza</th>
                             <th>Cargo de quien Autoriza</th>-->
-                            <th>Acciones</th>
+                            <th></th><th></th><th></th>
                         </tr>
                         </thead>
                         <tr th:each="diagnosticocapacitacion : ${diagnosticocapacitaciones}">
@@ -63,12 +63,17 @@
     </div>
 <!--</div>-->
 <script th:inline="javascript">
-    
-       $(document).ready(function () {
+      $(document).ready(function () {
             $('#tablita').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         }} );
+    });
+	</script>
+<script th:inline="javascript">
+    Textheader('pnt_tdnc',document.title);
+       $(document).ready(function () {
+            
     if ([[${msg}]] === 0){
     swal({
     title: "Exito!",
@@ -117,7 +122,7 @@
         function eliminar(id) {
             swal({
                 title: "Desea Eliminar?",
-                text: "favor confirme que desea eliminar este registro!",
+                text: "Favor confirme que desea eliminar este registro!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -126,7 +131,7 @@
                         if (willDelete) {
                             location.href = './delete/' + id;
                         } else {
-                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
                         }
                     });
         }

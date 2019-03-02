@@ -29,26 +29,27 @@ public class MisionesInternasView extends AbstractXlsView{
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_Internas.xls\"");
         
  List<Object[]> misionInternaList = (List<Object[]>) model.get("misionInternaList");
- Sheet sheet = workbook.createSheet("Reporte de Misiones Internas");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Nombre de empleado");
- header.createCell(1).setCellValue("Nombre de puesto");
- header.createCell(2).setCellValue("Nombre Mision");
- header.createCell(3).setCellValue("Objetivo de Mision");
- header.createCell(4).setCellValue("Instirucion o departamento");
- header.createCell(5).setCellValue("Fecha");
+ Sheet sheet = workbook.createSheet("Mision interna");
+ sheet.createRow(1).createCell(4).setCellValue("REPORTE DE MISIONES INTERAS");
+ Row header = sheet.createRow(2);
+ header.createCell(3).setCellValue("Nombre de empleado");
+ header.createCell(4).setCellValue("Nombre de puesto");
+ header.createCell(5).setCellValue("Nombre Mision");
+ header.createCell(6).setCellValue("Objetivo de Mision");
+ header.createCell(7).setCellValue("Instirucion o departamento");
+ header.createCell(8).setCellValue("Fecha");
 
 ;
   
- int rowNum = 1;
+ int rowNum = 3;
  for(Object[] misiones : misionInternaList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((String) misiones[0]);
- row.createCell(1).setCellValue((String) misiones[1]);
- row.createCell(2).setCellValue((Integer) misiones[2]);
- row.createCell(3).setCellValue((String) misiones[3]);
- row.createCell(4).setCellValue((Date) misiones[4]);
- row.createCell(5).setCellValue((Date) misiones[5]);
+ row.createCell(3).setCellValue((String) misiones[0]);
+ row.createCell(4).setCellValue((String) misiones[1]);
+ row.createCell(5).setCellValue((String) misiones[2]);
+ row.createCell(6).setCellValue((String) misiones[3]);
+ row.createCell(7).setCellValue((String)""+misiones[4]);
+ row.createCell(8).setCellValue((String)""+misiones[5]);
  
 
  }

@@ -5,16 +5,20 @@
  */
 package mj.gob.sisadmrh.controller.Capacitador;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.service.CapacitadorService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,18 +49,30 @@ public class CapacitadorController extends UtilsController{
     this.empleadoService=empleadoService;
     }
     
-    
+    @Autowired
+    private EstadoService estadoService;
+
     
     private final String PREFIX="fragments/capacitador/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-    model.addAttribute("capacitadores", capacitadorService.listAllCapacitador());
+    model.addAttribute("capacitadores", capacitadorService.listAllActivos());
     return PREFIX + "capacitadores";
     }
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id));
          Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+         Iterable<Estado> tinst = estadoService.findBySuperior(712);
+       Iterable<Estado> dominio = estadoService.findBySuperior(1406);
+        Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);
+         Iterable<Estado> tipoAgrupacion = estadoService.findBySuperior(1432);
+//         
+      model.addAttribute("empleados", empleados);
+      model.addAttribute("tinst", tinst);
+       model.addAttribute("dominio", dominio);
+        model.addAttribute("tipoCapacitador", tipoCapacitador);
+         model.addAttribute("tipoAgrupacion", tipoAgrupacion);
       model.addAttribute("empleados", empleados);
         return PREFIX + "capacitadorform";
     }
@@ -66,8 +82,17 @@ public class CapacitadorController extends UtilsController{
         
         // -----------Manda a la vista los empleados
        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+       Iterable<Estado> tinst = estadoService.findBySuperior(712);
+       Iterable<Estado> dominio = estadoService.findBySuperior(1406);
+        Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);
+         Iterable<Estado> tipoAgrupacion = estadoService.findBySuperior(1432);
 //         
       model.addAttribute("empleados", empleados);
+      model.addAttribute("tinst", tinst);
+       model.addAttribute("dominio", dominio);
+        model.addAttribute("tipoCapacitador", tipoCapacitador);
+         model.addAttribute("tipoAgrupacion", tipoAgrupacion);
+       
         return PREFIX + "capacitadorform";
        //   model.addAttribute("capacitador", new Capacitador());
       //   return PREFIX + "capacitadorform";
@@ -77,8 +102,11 @@ public class CapacitadorController extends UtilsController{
      @RequestMapping(value = "capacitador")
     public String saveCapacitador(@Valid Capacitador capacitador, BindingResult result, Model model,SessionStatus status) {
 try{
+    capacitador.setEstadocapacitador(1);
  capacitadorService.saveCapacitador(capacitador);
- status.setComplete();
+ status.setComplete();//MAANEJA LA SESION PARA EDITAR LOS FORMULARIOS
+  bitacoraService.BitacoraRegistry("se  creo un Capacitador",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
   model.addAttribute("msg", 0);
 } catch(Exception e){
   model.addAttribute("msg", 1);
@@ -104,7 +132,11 @@ try{
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
         try{} catch(Exception e){}
-        capacitadorService.deleteCapacitador(id);
+         Capacitador capacitador =capacitadorService.getCapacitadorById(id).get();
+        capacitador.setEstadocapacitador(0);
+        capacitadorService.saveCapacitador(capacitador);
+         bitacoraService.BitacoraRegistry("se elimino un Capacitador",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         return "redirect:/capacitadores/";
     }
     
@@ -114,8 +146,11 @@ try{
             @RequestParam(required = false) Boolean download, 
             @RequestParam(value="fechainicial",required = false) String fechainicio, 
             @RequestParam(value="fechafinal", required = false) String fechafin, 
-                HttpServletResponse response) throws Exception {
+                HttpServletResponse response, HttpServletRequest request) throws Exception {
                 Map<String, Object> params = new HashMap<>();
+                /*capturando el usuario*/
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+                
 		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);

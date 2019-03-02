@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -16,15 +11,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -47,7 +37,7 @@ public class Empleado implements Serializable {
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechanacimientoempleado;
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
@@ -92,13 +82,13 @@ public class Empleado implements Serializable {
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaingresosecpub;
     @Column(name = "FECHAINGRESOSECPRIV")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaingresosecpriv;
     @Column(name = "FECHAINGRESOMINISTERIO")
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaingresoministerio;
     @Size(max = 12)
     @Column(name = "AFILIACIONPENSION")
@@ -140,8 +130,8 @@ public class Empleado implements Serializable {
  @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<Empleadocapacitacion> empleadocapacitacionList;
  
- @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
-    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
+// @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
+//    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
     public Empleado() {
     }
 
@@ -408,13 +398,13 @@ public String getNumerocuenta() {
         this.empleadocapacitacionList = empleadocapacitacionList;
     }
 
-    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
-        return empleadoasistenciacapacitacionList;
-    }
-
-    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
-        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
-    }
+//    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
+//        return empleadoasistenciacapacitacionList;
+//    }
+//
+//    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
+//        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
+//    }
 
     @Override
     public int hashCode() {

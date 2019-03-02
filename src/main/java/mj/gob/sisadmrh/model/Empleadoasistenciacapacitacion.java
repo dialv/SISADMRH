@@ -1,13 +1,12 @@
-package mj.gob.sisadmrh.model;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,14 +18,12 @@ import javax.persistence.Table;
 
 /**
  *
- * @author jorge
+ * @author root
  */
 @Entity
 @Table(name = "empleadoasistenciacapacitacion")
 @NamedQueries({
-    @NamedQuery(name = "Empleadoasistenciacapacitacion.findAll", query = "SELECT e FROM Empleadoasistenciacapacitacion e")
-    , @NamedQuery(name = "Empleadoasistenciacapacitacion.findByCodigoempleado", query = "SELECT e FROM Empleadoasistenciacapacitacion e WHERE e.empleadoasistenciacapacitacionPK.codigoempleado = :codigoempleado")
-    , @NamedQuery(name = "Empleadoasistenciacapacitacion.findByCodigoasistenciacapacitacion", query = "SELECT e FROM Empleadoasistenciacapacitacion e WHERE e.empleadoasistenciacapacitacionPK.codigoasistenciacapacitacion = :codigoasistenciacapacitacion")})
+    @NamedQuery(name = "Empleadoasistenciacapacitacion.findAll", query = "SELECT e FROM Empleadoasistenciacapacitacion e")})
 public class Empleadoasistenciacapacitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,6 +35,8 @@ public class Empleadoasistenciacapacitacion implements Serializable {
     @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
+    
+   
 
     public Empleadoasistenciacapacitacion() {
     }
@@ -62,8 +61,8 @@ public class Empleadoasistenciacapacitacion implements Serializable {
         this.empleadoasistenciacapacitacionPK = empleadoasistenciacapacitacionPK;
     }
 
-    public Empleadoasistenciacapacitacion(Integer codigoempleado, int codigoasistenciacapacitacion) {
-        this.empleadoasistenciacapacitacionPK = new EmpleadoasistenciacapacitacionPK(codigoempleado, codigoasistenciacapacitacion);
+    public Empleadoasistenciacapacitacion(int codigoempleado, int codigoasistenciacapacitacion, Date fecha) {
+        this.empleadoasistenciacapacitacionPK = new EmpleadoasistenciacapacitacionPK(codigoempleado, codigoasistenciacapacitacion, fecha);
     }
 
     public EmpleadoasistenciacapacitacionPK getEmpleadoasistenciacapacitacionPK() {
@@ -96,7 +95,7 @@ public class Empleadoasistenciacapacitacion implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Empleadoasistenciacapacitacion[ empleadoasistenciacapacitacionPK=" + empleadoasistenciacapacitacionPK + " ]";
+        return "mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion[ empleadoasistenciacapacitacionPK=" + empleadoasistenciacapacitacionPK + " ]";
     }
     
 }

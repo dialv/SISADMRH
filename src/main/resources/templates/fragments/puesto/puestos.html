@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>SISADMRH-Listado de Puestos</title>
+    <title>SISADMRH-Listado de Puestos de Trabajo</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
+<!--          <div class="contenedorizq"> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div>
+</div>-->
+<script> Textheader('pnt_cpto1',document.title);</script>
 <!--<div class="container">-->
     
     <div th:if="${not #lists.isEmpty(puestos)}" >
@@ -24,7 +25,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/puestos.png}"/>
             </div> 
         <!--</div>-->
-        <h3 align="center">Listado de Puestos de Trabajo</h3>
+        <h3 align="center"></h3>
         <table id="tablita" class="table table-striped table-bordered" >
             <thead>
             <tr >
@@ -53,9 +54,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                </td> 
                 
                 
-                <td th:text="${puesto.fechaaprobacion}">fecha ingreso</td>
+                <td th:text="${#calendars.format(puesto.fechaaprobacion, 'dd/MM/yyyy')}	">fecha ingreso</td>
                 <!--<td th:text="${puesto.fechanombramiento}">fecha caducidad</td>-->
-                <td th:text="${puesto.fechabaja}">fecha baja</td>
+                <td th:text="${#calendars.format(puesto.fechabaja, 'dd/MM/yyyy')}	">fecha baja</td>
                 <td><a th:href="${'./show/' + puesto.codigopuesto}" class="btn btn-info">Mostrar</a></td>
                 <td><a th:href="${'./edit/' + puesto.codigopuesto}" class="btn btn-success">Modificar</a></td>
                 <td><a th:onclick="'eliminar(\'' +${ puesto.codigopuesto} +'\');'" class="btn btn-danger">Eliminar</a></td>
@@ -105,7 +106,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         function eliminar(id) {
             swal({
                 title: "Desea Eliminar?",
-                text: "favor confirme que desea eliminar este registro!",
+                text: "Favor confirme que desea eliminar este registro!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -114,7 +115,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         if (willDelete) {
                             location.href = './delete/' + id;
                         } else {
-                            swal("Accion cancelada", "se ha cancelado la operaacion de eliminado", "error");
+                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
                         }
                     });
         }

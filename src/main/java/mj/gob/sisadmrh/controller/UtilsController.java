@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller;
 
 import java.io.ByteArrayInputStream;
@@ -10,15 +5,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.Principal;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import mj.gob.sisadmrh.service.BitacoraService;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -40,6 +41,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class UtilsController {
     @Autowired
     DataSource dataSource;
+    
+    @Autowired
+    public BitacoraService bitacoraService;
+
+    Principal principal;    
     
     public static String EMPTY_STRING = "";
 
@@ -155,4 +161,26 @@ public class UtilsController {
         }
 
     }
+
+    public BitacoraService getBitacoraService() {
+        return bitacoraService;
+    }
+
+    public void setBitacoraService(BitacoraService bitacoraService) {
+        this.bitacoraService = bitacoraService;
+    }
+    
+      private static EntityManagerFactory entityManagerFactory =null;
+        //  Persistence.createEntityManagerFactory("example-unit");
+
+    public void logicaleliminate(String tabla, String campo, String key, Integer id) {
+      EntityManager em = entityManagerFactory.createEntityManager();
+      em.getTransaction().begin();
+      Query query = em.createQuery("UPDATE "+tabla+" e SET e."+campo+"= 0"
+              + "WHERE e."+key+" = :vkey");
+      query.setParameter("vkey", id);
+      int rowsUpdated = query.executeUpdate();
+      em.getTransaction().commit();
+      em.close();
+  }
 }

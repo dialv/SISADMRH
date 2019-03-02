@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,12 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,10 +20,6 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name = "NIVELESCOLARIDAD")
-
-//@NamedQueries({
-//@NamedQuery(name = "Nivelescolaridad.findAll", query = "SELECT n FROM Nivelescolaridad n")})
-
 public class NivelEscolaridad implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,6 +33,8 @@ public class NivelEscolaridad implements Serializable {
     private String centroeducativo;
     @Column(name = "ANIOSAPROBADOS")
     private Integer aniosaprobados;
+    @Column(name = "ESTADONIVELESCOLARIDAD")
+    private Integer estadonivelescolaridad;
     @Size(max = 300)
     @Column(name = "ESTUDIOREALIZADO")
     private String estudiorealizado;
@@ -61,11 +48,11 @@ public class NivelEscolaridad implements Serializable {
     @Column(name = "PAISNIVELESCOLARIDAD")
     private String paisnivelescolaridad;
     @Column(name = "FECHADESDENIVELESCOLARIDAD")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechadesdenivelescolaridad;
     @Column(name = "FECHAHASTANIVELESCOLARIDAD")
     //@Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+      @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechahastanivelescolaridad;
     @Lob
     @Column(name = "TITULO")
@@ -192,6 +179,14 @@ public class NivelEscolaridad implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Nivelescolaridad[ codigonivelnivelescolaridad=" + codigonivelnivelescolaridad + " ]";
+    }
+
+    public Integer getEstadonivelescolaridad() {
+        return estadonivelescolaridad;
+    }
+
+    public void setEstadonivelescolaridad(Integer estadonivelescolaridad) {
+        this.estadonivelescolaridad = estadonivelescolaridad;
     }
     
 }

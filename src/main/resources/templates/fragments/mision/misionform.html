@@ -7,7 +7,7 @@
      <meta name="author" content="">-->
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -39,13 +39,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-        <div class="contenedorizq"><label  >pnt_cme</label>  
+<!--        <div class="contenedorizq"><label  >pnt_cme</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_cme',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -55,37 +56,55 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
              <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
             </div>
-    <h3 align="center">Crear Mision</h3>
+    <h3 align="center"> </h3>
         
         <form class="form-horizontal" th:object="${mision}" th:action="@{../mision}" method="post"  enctype="multipart/form-data">
             <input type="hidden" th:field="*{codigomision}"/>
             <!--<input type="hidden" th:field="*{nombremision}"/>-->
-           <div class="col-md-6">
+           <div class="col-md-12">
            <div class="form-group">
-                <label class="col-sm-5 control-label">Tipo de Mision(*):</label>
-                <div class="col-sm-7">
-                    <select class="form-control" name="tipomision"  >
-                        <option>Externa</option>
-                        <option>Interna</option>
+                <label class="col-sm-3 control-label">Tipo de Mision(*):</label>
+                <div class="col-sm-2">
+                    <select class="form-control" name="tipomision" id="tipomision">
+                        <option value="0">Externa</option>
+                        <option value="1">Interna</option>
                         <!--<option>Gobierno</option>-->
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup5">Seleccione el tipo de Mision a registrar desplegando la lista.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Nombre de Mision(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombremision}"/>
+                <label class="col-sm-3 control-label">Nombre de Mision(*):</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombremision}" />
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el Nombre de la Mision solo se admitiran 50 caracteres.!</span>
+                    </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-5 control-label">Objetivo de Mision(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" step="0.01" class="form-control" required="true" size="100" maxlength="100" th:field="*{objetivomision}"/>
+                <label class="col-sm-3 control-label">Objetivo de Mision(*):</label>
+                <div class="col-sm-5">
+                    <!--<input type="text" step="0.01" class="form-control" required="true" size="100" maxlength="100" th:field="*{objetivomision}"/>-->
+                    <textarea rows="4" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{objetivomision}">
+
+                            </textarea>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el Objetivo de la Mision solo se admitiran 100 caracteres.!</span>
+                    </div>
             </div>
 <!--             <div class="form-group">
-                        <label class="col-sm-5 control-label">Empleado :</label>
+                        <label class="col-sm-3 control-label">Empleado :</label>
                         <div class="col-sm-7" >
                             <select class="form-control"  th:field="*{codigoempleado}" >
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}"></option>
@@ -95,58 +114,88 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>-->
            
             <div class="form-group">
-                <label class="col-sm-5 control-label">Responsable del Gasto(*):</label>
-                <div class="col-sm-7">
-                    <select class="form-control" name="responsablegasto"  >
+                <label class="col-sm-3 control-label">Responsable del Gasto(*):</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="responsablegasto"  id="n1">
                         <option>ONG</option>
                         <option>Ministerio</option>
                         <option>Gobierno</option>
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup6')" onmouseout ="javascript:ocultarAyuda('poppup6')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup6">Seleccione el Responsable  de la Mision desplegando la lista.!</span>
+                    </div>
             </div>
             
             <div class="form-group">
-                <label class="col-sm-5 control-label">Viaticos(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{viaticos}"/>
+                <label class="col-sm-3 control-label">Viaticos(*):</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control num_decimal" id="n2" required="true" maxlength="6"  th:field="*{viaticos}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup7')" onmouseout ="javascript:ocultarAyuda('poppup7')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup7">Ingrese los Viaticos de la Mision solo se admitiran dos decimales caracteres numericos.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Gasto Viaje(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{gastoviaje}"/>
+                <label class="col-sm-3 control-label">Gasto Viaje(*):</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control num_decimal" id="n3" required="true" maxlength="6"  th:field="*{gastoviaje}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup77')" onmouseout ="javascript:ocultarAyuda('poppup77')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup77">Ingrese los Gastos de Viaje de la Mision solo se admitiran dos decimales caracteres numericos.!</span>
+                    </div>
             </div>
 <div class="form-group">
-                <label class="col-sm-5 control-label">Gasto Terminales(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control num_decimal"  required="true" maxlength="6"  th:field="*{gastoterminales}"/>
+                <label class="col-sm-3 control-label">Gasto Terminales(*):</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control num_decimal"  id="n4" required="true" maxlength="6"  th:field="*{gastoterminales}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup78')" onmouseout ="javascript:ocultarAyuda('poppup78')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup78">Ingrese los Gastos de terminales de la Mision solo se admitiran dos decimales caracteres numericos.!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Salida(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label" id="lb1">Fecha de Salida(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision"  />
+                     <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision" onchange="isDat(this.value,'fechasalidamision');Fechas(this.value,$('#fecharegresomision').val().toString(),'fechasalidamision','fecharegresomision')" />
                 </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup4">Seleccione o digite la Fecha de Salida de la Mision el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Pais(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Pais(*):</label>
+                <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
-                    <select class="form-control" name="pais" >
+                    <select class="form-control" name="paisdestino" id="n6">
                         <option>El Salvador</option>
                         <option>Mexico</option>
                         <option>Guatemala</option>
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup14')" onmouseout ="javascript:ocultarAyuda('poppup14')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup14">Seleccione el pais en le que se realizara la Mision desplegando la lista.!</span>
+                    </div>
             </div>
     <div class="form-group">
-                <label class="col-sm-5 control-label">Organismo Patrocinador(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Organismo Patrocinador(*):</label>
+                <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
                     <select class="form-control" name="organismopatrocinador" >
@@ -156,46 +205,71 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     </select>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup15')" onmouseout ="javascript:ocultarAyuda('poppup15')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup15">Seleccione el Organismo Patrocinador de la Mision desplegando la lista.!</span>
+                    </div>
             </div>
 
            
-           </div>
-         <div class="col-md-6">
+<!--           </div>
+         <div class="col-md-6">-->
              <div class="form-group">
-                <label class="col-sm-5 control-label">Ciudad(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{ciudad}"/>
+                <label class="col-sm-3 control-label">Ciudad(*):</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="n7" required="true" size="50" maxlength="50" th:field="*{ciudad}"/>
                 </div>
+                  <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup25')" onmouseout ="javascript:ocultarAyuda('poppup25')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup25">Ingrese la ciudad de odnde se realizara la Mision solo se admitiran 50 caracteres .!</span>
+                    </div>
             </div>
                  
            
            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Regreso(*):</label>
-                <div class="col-sm-7">
+                <label class="col-sm-3 control-label">Fecha de Regreso(*):</label>
+                <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" />
+                     <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" onchange="isDat(this.value,'fecharegresomision');Fechas($('#fechasalidamision').val().toString(),this.value,'fechasalidamision','fecharegresomision')"/>
                 </div>
+                  <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup476')" onmouseout ="javascript:ocultarAyuda('poppup476')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup476">Seleccione o digite la Fecha de Regreso de la Mision el formtado debe ser  dia/mes/año .!</span>
+                    </div>
             </div>
               
                   
                   
            <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha de Acuerdo(*):</label>
-                <div class="col-sm-7">
-                     <input class="form-control" type="text" th:field="*{fechaacuerdomision}" name="fechaacuerdomision" id="fechaacuerdo" />
+                <label class="col-sm-3 control-label">Fecha de Acuerdo(*):</label>
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" th:field="*{fechaacuerdomision}" name="fechaacuerdomision" id="fechaacuerdo" onchange="isDat(this.value,'fechaacuerdo')" />
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup477')" onmouseout ="javascript:ocultarAyuda('poppup477')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup477">Seleccione o digite la Fecha de Acuerdo de la Mision el formtado debe ser  dia/mes/año .!</span>
+                    </div>
            </div>
              
              <div class="form-group">
-                    <label class="col-sm-5 control-label">Acuerdo</label>
-                    <div class="col-sm-7">
-                        <input type="file" name="file" />
+                    <label class="col-sm-3 control-label">Acuerdo</label>
+                    <div class="col-sm-5">
+                        <input type="file" name="file" id="n10"/>
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup487')" onmouseout ="javascript:ocultarAyuda('poppup487')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup487">Selecione el archivo PDF del Acuerdo obtenido para la Mision hacer click en el boton selecionar archivo .!</span>
+                    </div>
                 </div>
 <!--                    <div class="form-group">
-                    <label class="col-sm-5 control-label">Acuerdo:</label>
+                    <label class="col-sm-3 control-label">Acuerdo:</label>
                     <div class="col-sm-7">
                         <input type="file" name="file" />
                                class="" required="true" th:field="*{docaprovacion}"
@@ -207,34 +281,58 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <button type="submit" class="btn btn-default">Agregar</button>
                 </div>-->
            <div class="form-group">
-                <label class="col-sm-5 control-label">Boleto Aeroe(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" required="true" size="20" maxlength="20" th:field="*{boleto}"/>
+                <label class="col-sm-3 control-label">Boleto Aeroe(*):</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control numeros" id="n11" required="true" size="20" maxlength="20" th:field="*{boleto}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup16')" onmouseout ="javascript:ocultarAyuda('poppup16')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup16">Ingrese el Numero de Boleto Aereo de la Mision solo se admitiran 20 caracteres numericos.!</span>
+                    </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-5 control-label">Boleto Terrestre(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" required="true" size="20" maxlength="20" th:field="*{boletoterr}"/>
+                <label class="col-sm-3 control-label">Boleto Terrestre(*):</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control numeros" id="n12" required="true" size="20" maxlength="20" th:field="*{boletoterr}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup165')" onmouseout ="javascript:ocultarAyuda('poppup165')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup165">Ingrese el Numero de Boleto Terrestre de la Mision solo se admitiran 20 caracteres numericos.!</span>
+                    </div>
+                
             </div>
                   
                    <div class="form-group">
-                <label class="col-sm-5 control-label">Cantidad de Dias(*):</label>
-                <div class="col-sm-7">
-                    <input type="number" class="form-control numeros" required="true" maxlength="3" th:field="*{cantidaddia}"/>
+                <label class="col-sm-3 control-label">Cantidad de Dias(*):</label>
+                <div class="col-sm-2">
+                    <input type="number" class="form-control numeros" id="n13" required="true" maxlength="3" th:field="*{cantidaddia}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup169')" onmouseout ="javascript:ocultarAyuda('poppup169')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup169">Ingrese el Numero de dias que durara la Mision solo se admitiran 20 caracteres numericos.!</span>
+                    </div>
+                
+                
             </div>
                   
                   <div class="form-group">
-                <label class="col-sm-5 control-label">Cantidad de Meses(*):</label>
-                <div class="col-sm-7">
-                    <input type="number" class="form-control numeros" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
+                <label class="col-sm-3 control-label">Cantidad de Meses(*):</label>
+                <div class="col-sm-2">
+                    <input type="number" class="form-control numeros" id="n14" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
                 </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup168')" onmouseout ="javascript:ocultarAyuda('poppup168')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup168">Ingrese el Numero de meses que durara la Mision solo se admitiran 20 caracteres numericos.!</span>
+                    </div>
+                
             </div>
                   
 <!--                  <div class="form-group">
-                <label class="col-sm-5 control-label">Organismo que invita(*):</label>
+                <label class="col-sm-3 control-label">Organismo que invita(*):</label>
                 <div class="col-sm-7">
                     <input type="text" class="form-control" th:field="*{organismoinvita}"/>
                 </div>
@@ -244,9 +342,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                 <div class="col-md-12">
                            <div class="row" align="center">
-                               <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
+                               <a href="#" th:href="@{/misiones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+<button type="submit" class="btn btn-success" ><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
+<!--                               <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
                                <button type="submit" class="btn btn-default">Guardar</button>
-                               <button type="reset" class="btn btn-default">Limpiar</button>
+                               <button type="reset" class="btn btn-default">Limpiar</button>-->
                            </div>
                    </div>
         </form>
@@ -265,6 +367,21 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+            
+           
+            function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -283,37 +400,72 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
 		    $('#fechasalidamision').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
+		       dateFormat: 'dd/mm/yy'
 		    });
 		    
 		    $('#fecharegresomision').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechaacuerdo').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechacreacion').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechabaja').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
                     
                     $('#fechamodificacion').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
+		        dateFormat: 'dd/mm/yy'
 		    });
+                    
+                     $("#tipomision").change(function() {
+                        if($("#tipomision").val() !== "1"){
+//                          $('lb1').html('some value');
+                          $('#n1').prop('disabled', false);
+                          $('#n2').prop('disabled', false);
+                          $('#n3').prop('disabled', false);
+                          $('#n4').prop('disabled', false);
+//                          $('#fechasalidamision').prop('disabled', false);
+                          $('#n6').prop('disabled', false);
+                          $('#n7').prop('disabled', false);
+                          $('#fecharegresomision').prop('disabled', false);
+                          $('#fechaacuerdo').prop('disabled', false);
+//                          $('#n10').prop('disabled', false);
+                          $('#n11').prop('disabled', false);
+                          $('#n12').prop('disabled', false);
+                          $('#n13').prop('disabled', false);
+                          $('#n14').prop('disabled', false);
+                        }else{
+                          $('#n1').prop('disabled', 'disabled');
+                          $('#n2').prop('disabled', 'disabled');
+                          $('#n3').prop('disabled', 'disabled');
+                          $('#n4').prop('disabled', 'disabled');
+//                          $('#fechasalidamision').prop('disabled', 'disabled');
+                          $('#n6').prop('disabled', 'disabled');
+                          $('#n7').prop('disabled', 'disabled');
+                          $('#fecharegresomision').prop('disabled', 'disabled');
+                          $('#fechaacuerdo').prop('disabled', 'disabled');
+//                          $('#n10').prop('disabled', 'disabled');
+                          $('#n11').prop('disabled', 'disabled');
+                          $('#n12').prop('disabled', 'disabled');
+                          $('#n13').prop('disabled', 'disabled');
+                          $('#n14').prop('disabled', 'disabled');
+                        }
+                      });
 		});
 	</script>
         <script th:inline="javascript">
-    $(document).ready(function () {
+      $(document).ready(function () {
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",
@@ -321,7 +473,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success",
                 icon: "success"
        }).then(function() {
-                location.href = '../comisiones/';
+                location.href = '../misiones/';
        }); 
 }
     

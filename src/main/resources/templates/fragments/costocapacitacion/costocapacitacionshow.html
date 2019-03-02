@@ -13,8 +13,11 @@
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
+         <div class="row text-center">
+                        <img src="../../static/image/costo.png" width="200" th:src="@{/image/costo.png}"/>
         <div class="col-md-8">
-            <h3 align="center">Consulta de Costos de Capacitaciones</h3>
+            
+            <!--<h3 align="center">Consulta de Costos de Capacitaciones</h3>-->
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
@@ -56,8 +59,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="submit" class="btn btn-info"><a href="#" th:href="@{/costocapacitaciones/}">Regresar</a></button>
-
+                         <a href="#" th:href="@{/costocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
             </div>
@@ -68,4 +70,10 @@
     </div>
 
 </body>
+<script>
+    $(document).ready(function () {
+         Textheader('pnt_cosc',document.title);
+       
+    });
+    </script>
 </html>

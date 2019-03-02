@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="94"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.nombreempleado,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,c.fechadesdecomite,c.fechahastacomite FROM empleado e INNER JOIN puesto p on e.codigoempleado=p.codigoempleado INNER JOIN comite c on e.codigoempleado=c.codigoempleado where c.fechadesdecomite >= $P{FECHAINICIO} and c.fechahastacomite <=$P{FECHAFIN}]]>
+		<![CDATA[SELECT concat(nombreempleado,' ',apellidoempleado)as Empleado, nombreincapacidad, nombrepuesto, dui, DATE_FORMAT(fechadesdeincapacidad, '%d/%m/%Y') AS Desde, DATE_FORMAT(fechahastaincapacidad, '%d/%m/%Y') AS Hasta , isss, tipoincapacidad, formaincapacidad, subsidio, DATE_FORMAT(fechaemision, '%d/%m/%Y') AS F_Emosion  FROM `incapacidad` inner join empleado e on incapacidad.codigoempleado= e.codigoempleado inner join puesto on puesto.codigopuesto=e.codigopuesto
+ WHERE e.codigoempleado=$P{USUARIO}  and
+fechadesdeincapacidad>=$P{FECHAINICIO} and
+	fechahastaincapacidad<=$P{FECHAFIN}]]>
 	</queryString>
-	<field name="nombreempleado" class="java.lang.String">
+	<field name="Empleado" class="java.lang.String"/>
+	<field name="nombreincapacidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numeroacuerdocomite" class="java.lang.Integer">
+	<field name="dui" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombrecomite" class="java.lang.String">
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
+	<field name="isss" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechadesdecomite" class="java.sql.Date">
+	<field name="tipoincapacidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechahastacomite" class="java.sql.Date">
+	<field name="formaincapacidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="subsidio" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="F_Emosion" class="java.lang.String"/>
 	<group name="nombreempleado">
-		<groupExpression><![CDATA[$F{nombreempleado}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
 		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
@@ -45,109 +58,256 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="105" splitType="Stretch">
-			<staticText>
-				<reportElement uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42" x="351" y="59" width="260" height="20"/>
-				<textElement/>
-				<text><![CDATA[MINISTERIO DE JUSTICA Y SEGURIDAD PUBLICA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="db6f5eb3-86ed-4034-ba10-eab3fd2e2b42" x="335" y="30" width="222" height="20"/>
-				<textElement/>
-				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="4029d439-49b0-4518-9158-407c5b425ee8" x="389" y="50" width="84" height="20"/>
-				<textElement/>
-				<text><![CDATA[SISADMRH]]></text>
-			</staticText>
-			<image>
-				<reportElement uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402" x="697" y="0" width="105" height="60"/>
-				<imageExpression><![CDATA["../../resources/static/image/GOES.jpg"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c" x="0" y="0" width="193" height="105"/>
-				<imageExpression><![CDATA["../../resources/static/image/LOGOMJ.jpg"]]></imageExpression>
-			</image>
-		</band>
+		<band height="105" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="75" splitType="Stretch">
+		<band height="151" splitType="Stretch">
 			<textField>
-				<reportElement uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49" x="675" y="35" width="80" height="20"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="615" y="110" width="80" height="17" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="d63d0eb3-1543-473d-a0be-53844c71f01f" x="755" y="35" width="40" height="20"/>
-				<textElement/>
+				<reportElement x="695" y="110" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce" x="322" y="7" width="175" height="20"/>
-				<textElement/>
+				<reportElement x="327" y="97" width="175" height="17" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<text><![CDATA[Reporte de Empleados con Incapacidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73" x="251" y="42" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="282" y="117" width="40" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="490e45c9-0353-42d5-8b19-b6879e26d467" x="457" y="42" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="461" y="117" width="45" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
-			<textField>
-				<reportElement uuid="59271047-626e-4fd6-94f2-bf1b30e293a5" x="357" y="42" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{fechadesdecomite}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="8ab75876-80ee-4d3e-8042-58f322695998" x="575" y="42" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{fechahastacomite}]]></textFieldExpression>
-			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="defd1f57-b9e1-4411-9a1b-4f605b930187" x="629" y="7" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="695" y="96" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="657" y="95" width="38" height="17" uuid="38fd9199-55c9-4cb9-967a-8376415213eb"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="657" y="130" width="45" height="17" uuid="bf249083-0b20-4727-8e71-be2a8c850073"/>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="706" y="130" width="85" height="17" uuid="b29425ac-ac59-49f0-8c3d-32d12d8893f5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="117" width="100" height="17" uuid="683dcb5d-38f5-430c-9f07-ddaae3f65bde"/>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="506" y="117" width="100" height="17" uuid="9bd8c2a2-33a6-4ea8-94b3-b34ad844a5c5"/>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="681" y="8" width="121" height="87" uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402"/>
+				<imageExpression><![CDATA["../../resources/static/image/GOES.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="19" y="8" width="121" height="87" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
+				<imageExpression><![CDATA["../../resources/static/image/LOGOMJ.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="315" y="29" width="234" height="17" uuid="a0dbe5a9-0228-4d87-aec6-d782086fdf42"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JUSTICA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="12" width="191" height="17" uuid="db6f5eb3-86ed-4034-ba10-eab3fd2e2b42"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="46" width="84" height="17" uuid="4029d439-49b0-4518-9158-407c5b425ee8"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-11" y="3" width="802" height="17" uuid="1bf35e03-62c5-4d0d-9646-0d4e84121a76"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="415" y="3" width="69" height="17" uuid="c9136820-269c-4475-80af-79406e8df522"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="291" y="3" width="44" height="17" uuid="c668a259-9d70-4b63-9e4b-df70ba4b6d28"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="541" y="3" width="80" height="17" uuid="67b98705-7be2-4039-8f68-a99824a3343d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="107" y="3" width="121" height="17" uuid="d2eb5270-cbda-4b0f-ad30-7fd8bd178b27"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="-11" y="0" width="111" height="17" uuid="04bbe5b6-7cb5-44b7-84e3-88e6fdecd74d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="123" height="17" uuid="8ca1c0d5-7e3c-46c0-828c-8ec19e6ee939"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Incapacidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="0" width="74" height="17" uuid="9f922c22-fe0b-44c2-b162-a16234dc45e1"/>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="0" width="39" height="17" uuid="7fbb8b70-17f9-4d13-aea8-1b55f7b43d05"/>
+				<text><![CDATA[Dui]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="0" width="66" height="17" uuid="dc485ad0-00bf-4c0c-8397-350733ee720b"/>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="47" height="17" uuid="653306f0-4f76-4660-8ffd-3e09149abf6f"/>
+				<text><![CDATA[Isss]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="541" y="0" width="81" height="17" uuid="a8edce13-29a2-4871-9a00-12c3f72c8fcb"/>
+				<text><![CDATA[Tipo incapacidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="623" y="0" width="94" height="17" uuid="b1a384d3-06ed-4333-8c91-c128dd86e269"/>
+				<text><![CDATA[Forma incapacidad]]></text>
+			</staticText>
+			<line>
+				<reportElement x="715" y="3" width="1" height="17" uuid="ba51e8ed-6cc3-48fe-90f1-630c7e50ec3b"/>
+			</line>
+			<line>
+				<reportElement x="621" y="3" width="1" height="17" uuid="896b77da-e22b-4e58-85f0-96fc6b8faf5e"/>
+			</line>
+			<staticText>
+				<reportElement x="436" y="0" width="100" height="20" uuid="b71705be-0b5b-4fc9-9ae7-8be185107cb4"/>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="717" y="3" width="81" height="14" uuid="02cf9c35-5fd4-4e90-a114-f729e62a01a2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Fecha emision]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="14" uuid="aaa75609-bbad-49ca-ae59-7dcf3f0b2d9f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="100" height="14" uuid="16e4e7b3-9e88-4d90-95d4-a09e4a92fe19"/>
+				<textFieldExpression><![CDATA[$F{nombreincapacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="0" width="75" height="14" uuid="ff07bb11-d33f-4e89-ae8b-3dc342cb4fa6"/>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="39" height="14" uuid="4dcc865f-71dc-4cc4-aafd-9aff4ee946fb"/>
+				<textFieldExpression><![CDATA[$F{dui}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="0" width="79" height="14" uuid="281bb2a0-bc74-48ad-98ba-06f7903aab55"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="0" width="47" height="14" uuid="2e305a52-f6bf-437e-bef8-38f1b35f06c4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{isss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="541" y="0" width="81" height="14" uuid="e4172a8b-2c49-406f-a394-7cbe70113ece"/>
+				<textFieldExpression><![CDATA[$F{tipoincapacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="621" y="0" width="95" height="14" uuid="102880c5-d011-4a48-b0b8-3f8fa7490acd"/>
+				<textFieldExpression><![CDATA[$F{formaincapacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="3" width="70" height="20" uuid="1c15309e-dfeb-4ed6-9716-fa3d10d0de9a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="2" width="100" height="20" uuid="3a1b975e-be71-4b1f-893f-b63d62dd9812"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="717" y="3" width="100" height="20" uuid="a587ed8e-1a75-4f3b-82b8-43975dc27a83"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{F_Emosion}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="61" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="42" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="677" y="18" width="121" height="13" backcolor="#FFFFFF" uuid="598e3cb2-14c0-4ab9-a8a5-1999eee1050f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
 			<line>
-				<reportElement uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f" x="0" y="49" width="811" height="5"/>
+				<reportElement x="0" y="15" width="802" height="1" uuid="a360c6a4-5699-4355-96d0-48431c16d8dd"/>
 			</line>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch">
-			<textField>
-				<reportElement uuid="414c12b5-bf5e-47e4-846d-607e2c1626a0" x="649" y="17" width="80" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement uuid="316ce86a-a98a-43ff-8585-bc1380d26aac" x="729" y="17" width="40" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement uuid="b4d2a374-0ef3-492f-99d2-ae1e1d29c79c" x="19" y="16" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[Total Registros]]></text>
-			</staticText>
-		</band>
+		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

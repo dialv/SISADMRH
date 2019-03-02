@@ -15,6 +15,7 @@ import mj.gob.sisadmrh.model.Dependiente;
 
 public interface DependienteService {
     Iterable <Dependiente> listAllDependiente();
+    Iterable <Dependiente> listAllActivos();
     
     Optional<Dependiente> getDependienteById(Integer id);
 

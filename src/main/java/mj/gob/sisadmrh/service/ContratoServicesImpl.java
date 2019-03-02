@@ -29,6 +29,10 @@ public class ContratoServicesImpl implements ContratoService {
     public Iterable<Contrato> listAllContrato() {
         return contratoRep.findAll();
     }
+    @Override
+    public Iterable<Contrato> listAllActivos() {
+        return contratoRep.listAllActivos();
+    }
 
     @Override
     public Optional<Contrato> getContratoById(Integer id) {

@@ -2,31 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Crear Comision</title>
+        <title>Cargar Archivos</title>
     <th:block th:include="../templates/header"></th:block>
     
 </head>
 <body> 
  
-      <div class="contenedorizq"><label  >pnt_gecoms</label> 
+<!--      <div class="contenedorizq"><label  >pnt_gecoms</label> 
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>
-    
+    -->
 <div class="row">
             <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
     <div class="row text-center">
         <br><br>
                         <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
     </div><br>
         <h3 align="center">Subir archivos </h3>
+        
         <div>
+              
 <!--            <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post">
                 <input type="hidden" th:field="*{codigocomision}"/>
                 <input type="hidden" th:field="*{nombrecomision}"/>
@@ -52,7 +54,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                                                                                         </div>
                                                                                                         <div class="col-md-2">
                                                                                                             <button type="submit" name="save" value="Subir" id="save" class="btn btn-primary btn-form-add btn-sm">Cargar Datos</button>
-                                                                                                        </div>                                                                                                    </div>
+                                                                                                        </div>    
+                                                                                                    <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('carga')" onmouseout ="javascript:ocultarAyuda('carga')">a</a></b>
+                        
+                        <span class="popuptext" id="carga">Dar clic en el boton Seleccionar archibo y busquelo en algun ubicacion de su ordenador, posteriormente de clic en cargar. Solo se permite Archivos con 215 MB. .!</span>
+                    </div></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -74,6 +81,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
     </div>
     <script th:inline="javascript">
+         Textheader('pnt_gecoms',document.title);
         $(document).ready(function () {
         if([[${msg}]]===2){
        swal({

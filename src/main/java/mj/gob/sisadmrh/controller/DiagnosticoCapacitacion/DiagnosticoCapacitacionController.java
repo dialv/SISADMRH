@@ -10,9 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Capacitacion;
-import mj.gob.sisadmrh.model.Comite;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
-import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.model.Ubicacionfisica;
 import mj.gob.sisadmrh.service.CapacitacionService;
@@ -42,91 +40,84 @@ import org.springframework.web.bind.support.SessionStatus;
 public class DiagnosticoCapacitacionController extends UtilsController{
    @Autowired 
  private DiagnosticoCapacitacionService diagnosticoCapacitacionService; 
-   @Autowired
-   private PuestoService puestoService;
- @Autowired
-private EmpleadoService empleadoService; 
  @Autowired
  private UbicacionFisicaService ubicacionFisicaService;
  @Autowired
  private EstadoService estadoService;
  @Autowired
  private CapacitacionService capacitacionService;
-
-// @Autowired
-//    public void setDiagnosticoCapacitacionService(DiagnosticoCapacitacionService diagnosticoCapacitacionService) {
-//        this.diagnosticoCapacitacionService = diagnosticoCapacitacionService;
-//    } 
     
     private final String PREFIX = "fragments/diagnosticocapacitacion/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllDiagnosticoCapacitacion());
+        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllActivos());
         return PREFIX + "diagnosticocapacitaciones";
     }
     
-     @RequestMapping("edit/{id}")
+    @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("diagnosticocapacitacion", diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id));
-         Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
-       model.addAttribute("capacitaciones",capacitaciones);
-        
+        Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
+        Iterable<Estado> direccion = estadoService.findBySuperior(1448);
+         model.addAttribute("direccion", direccion);
+        model.addAttribute("capacitaciones",capacitaciones);
         return PREFIX + "diagnosticocapacitacionform";
     }
     
     @RequestMapping("new/diagnosticocapacitacion")
     public String newDiagnosticoCapacitacion(Model model) {
         model.addAttribute("diagnosticocapacitacion", new DiagnosticoCapacitacion());
-        
-          Iterable<Ubicacionfisica> ubicacionfisicas= ubicacionFisicaService.listAllUbicacionFisica();
+        Iterable<Ubicacionfisica> ubicacionfisicas= ubicacionFisicaService.listAllUbicacionFisica();
+        Iterable<Estado> direccion = estadoService.findBySuperior(1448);
         model.addAttribute("ubicacionfisicas", ubicacionfisicas);
-        
-         Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
-       model.addAttribute("capacitaciones",capacitaciones);
-        
+        Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
+        model.addAttribute("capacitaciones",capacitaciones);
+        model.addAttribute("direccion", direccion);
         return PREFIX + "diagnosticocapacitacionform";
     }
     
     @RequestMapping(value = "diagnosticocapacitacion")
     public String saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion,Model model,SessionStatus status) {
         try{
+            diagnosticoCapacitacion.setEstadodiagnostico(1);
           diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
           status.setComplete();
-           model.addAttribute("msg", 0);
+          bitacoraService.BitacoraRegistry("se creo un Diagnostico Capacitacion",getRequest().getRemoteAddr(), 
+          getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+          model.addAttribute("msg", 0);
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
         }
        return PREFIX + "diagnosticocapacitaciones";
-       
-        //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
-    }
+     }
     
-
      @RequestMapping("show/{id}")
     public String showDiagnosticoCapacitacion(@PathVariable Integer id, Model model) {
-        
         model.addAttribute("diagnosticocapacitacion", diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id).get());
-        
         return PREFIX +"diagnosticocapacitacionshow";
     }
+    
      @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id,Model model) {
         try{
-       diagnosticoCapacitacionService.deleteDiagnosticoCapacitacion(id);
-         model.addAttribute("msg", 3);
+        DiagnosticoCapacitacion diagnosticoCapacitacion = diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id).get();
+        diagnosticoCapacitacion.setEstadodiagnostico(0);
+        diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
+        bitacoraService.BitacoraRegistry("Se eliminado un un Diagnostico Capacitacion",getRequest().getRemoteAddr(), 
+        getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 3);
         }
         catch(Exception e)
         {
         model.addAttribute("msg", 4);
         }
-   
         return "redirect:/diagnosticocapacitaciones/";
     }
     
     @RequestMapping("report/")
     public String reporte(Model model) {
-        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllDiagnosticoCapacitacion());
+        model.addAttribute("diagnosticocapacitaciones", diagnosticoCapacitacionService.listAllActivos());
         return PREFIX + "diagnosticocapacitacionesreport";
     }
     

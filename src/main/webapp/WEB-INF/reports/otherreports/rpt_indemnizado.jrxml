@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FECHAFIN" class="java.lang.String"/>
+	<parameter name="FECHAINICIO" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+ e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.acuerdo as
+ "No Acuerdo",p.sueldobase as 'Salario',
+ DATE_FORMAT(p.fechacontrataciondesde, "%d/ %m /%Y") as "Fecha Desde", 
+ DATE_FORMAT(p.fechacontratacionhasta, "%d/ %m /%Y") as "Fecha Hasta",
+ p.nombrepuesto,p.ubicacionpuesto
+FROM `empleado` e, puesto p 
+WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1]]>
+	</queryString>
+	<field name="nombreempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidoempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sexoempleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No Acuerdo" class="java.lang.Integer"/>
+	<field name="Salario" class="java.lang.Float"/>
+	<field name="Fecha Desde" class="java.lang.String"/>
+	<field name="Fecha Hasta" class="java.lang.String"/>
+	<field name="nombrepuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ubicacionpuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="141">
+			<textField>
+				<reportElement x="702" y="99" width="74" height="20" uuid="9b4c84c3-5c3c-43be-819c-a5f1e3e55e6e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="276" y="20" width="265" height="20" uuid="79666fe6-93f0-42b6-adc6-bff72b9fdb61"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="649" y="79" width="114" height="20" uuid="6d432196-300e-4646-9cbb-b80875b4eefe"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fecha de Generacion:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="736" y="79" width="70" height="20" uuid="63655c39-f73f-4fee-a684-d8166c4e20f4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="276" y="0" width="265" height="20" uuid="d4395b8e-47cf-4b8a-afe2-c6b5bf42761b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="40" width="265" height="20" uuid="dfbc6c0e-af37-4d58-aaf2-4c95cc526dc2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISADMRH]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="776" y="99" width="26" height="20" uuid="4d9820b0-a2b1-4c67-85af-30c2220d992c"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="119" width="39" height="20" uuid="42505c10-f786-4a25-b532-b443116b5587"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="302" y="119" width="100" height="20" uuid="13c79a80-9774-48ca-9657-532654babed1"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="688" y="119" width="100" height="20" uuid="136f2cbf-7e82-4d81-9809-dbfb0f1a1d51"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="79" width="92" height="20" uuid="5aae6816-2926-4cd4-a67a-1ce357657672"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[pnt_reporte_pind]]></text>
+			</staticText>
+			<image>
+				<reportElement x="665" y="12" width="123" height="48" uuid="7ec0bde2-48ee-4feb-8a40-7b5c5663ef50"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="263" y="119" width="39" height="20" uuid="1bae3f37-ce3f-4beb-883a-cad4449a8025"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="649" y="119" width="39" height="20" uuid="be362617-5182-417d-b9df-0ce51382d7b6"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="441" y="119" width="100" height="20" uuid="6a2aee93-1e60-4613-b8a2-ed59852df387"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="12" width="144" height="48" uuid="5335f588-f72a-4ac4-807c-e398e39971ec"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="263" y="99" width="265" height="20" uuid="228f6840-8065-48dd-965c-4921f25a3198"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PERSONAL INDEMNIZADO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="28" backcolor="#FFFFFF" uuid="24dded56-e0ac-4ff6-a3f3-9957792b6f79"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="143" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="237" y="0" width="62" height="20" forecolor="#000000" backcolor="#E6E6E6" uuid="bfb1a1e6-00ce-4cb7-8fda-1bd9b4b47c09"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="1" width="100" height="20" uuid="0d30f8e2-2818-4bdc-9970-b3c12b06e28c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No Acuerdo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="1" width="89" height="20" uuid="c5818b64-8bcd-4a26-b9f2-cedc8ab55902"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="1" width="76" height="20" uuid="f0fe30c8-e930-4553-b8fa-b31cdb02989e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Hasta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="646" y="1" width="130" height="20" uuid="5a6d96d2-49d9-4941-afd5-08b5fadf02cb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="1" width="150" height="20" uuid="5ee4a13b-06cf-46f9-9b4d-e96719fdaa81"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Puesto]]></text>
+			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="142" y="0" width="1" height="27" uuid="3185b70e-2453-4da8-9b79-d43ebb4654f5"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="237" y="1" width="1" height="27" uuid="0b301e39-1bb6-4672-8ef0-7771b5e7460b"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="302" y="1" width="1" height="27" uuid="f808638e-aaf4-4a85-946c-ce0019571be9"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="387" y="1" width="1" height="27" uuid="333017c5-1710-4930-86ba-3a831c5a357f"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="464" y="0" width="1" height="27" uuid="624d4083-a13b-4265-ab2d-9264295dc924"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement x="628" y="0" width="1" height="27" uuid="c24ac293-f47a-46c9-94cf-9e1d59542a86"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15">
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="0" y="0" width="59" height="15" uuid="e7fac09e-4c31-4110-9335-4a4961e91287"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="69" y="0" width="67" height="15" uuid="3fcc47ef-cfa9-4c1d-8e95-1489ce9e4727"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidoempleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Transparent" x="237" y="0" width="62" height="15" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="1" width="80" height="14" uuid="633c825f-385f-4ae8-8ee9-15fbb1ed14eb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{No Acuerdo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="0" width="89" height="15" uuid="c6c07677-4e33-4278-9eb8-41fe147d444a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="0" width="76" height="15" uuid="e7253bff-537b-4969-b0dc-026abcc97612"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="0" width="164" height="4" uuid="6d0224e7-4490-4ed4-90d7-c805f06513ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="646" y="0" width="130" height="15" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="0" width="150" height="14" uuid="a1dd8449-e192-48de-ba78-3b00cb79725a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="26" y="0" width="776" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

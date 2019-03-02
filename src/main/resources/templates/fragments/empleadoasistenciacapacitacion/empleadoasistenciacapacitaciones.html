@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>asignacion de asistencias a capacitaciones</title>
+    <title>ASingar asistencias a empleados</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -20,31 +20,66 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Asignacion de asistencias de capacitaciones</h3>
-    <!--<div th:if="${not #lists.isEmpty(empleadoasistenciacapacitaciones)}">-->
+        <h3 align="center">Asistencia capacitacion de empleados</h3>
+    <div th:if="${not #lists.isEmpty(empleadoasistenciacapacitaciones)}">
         <div class="table-responsive">
   <table class="table">
         <!--<table class="table table-striped">-->
             <tr>
-                <th>Nombre empleado</th>
-                <th>Ubicacion Fisica</th>
+                <th>Nombre de empleado</th>
+                <th>Capacitacion</th>
                
                 
             </tr>
-            <tr th:each="empleado : ${empleados}">
-                <td th:text="${empleado.codigoempleado}">Nombre empleado</td>
-                <!--<td th:text="${empleadoasistenciacapacitacion.asistenciacapacitacion.codigoasistenciacapacitacion}">Codigo</td>-->
-                <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
-            </tr>
-            <tr th:each="asistenciacapcitacion : ${asistenciacapcitaciones}">
-                <!--<td th:text="${empleado.codigoempleado}">Nombre empleado</td>-->
-                <td th:text="${asistenciacapcitaciones.codigoasistenciacapacitacion}">Codigo</td>
+            <tr th:each="empleadoasistenciacapacitacion : ${empleadoasistenciacapacitaciones}">
+                <td th:text="${empleadoasistenciacapacitacion.empleado.nombreempleado}">Codigo</td>
+                <td th:text="${empleadoasistenciacapacitacion.asistenciacapacitacion.ubicacionasistenciacapacitacion}">Codigo</td>
                 <!--<td><a th:href="${'./delete/' + usuario.codigousuario}" class="btn btn-danger">Delete</a></td>-->
             </tr>
         </table>
     </div>
-<!--</div>-->
+</div>
     </div>
 </body
+</script>
+    <script th:inline="javascript">
+           $(document).ready(function () {
+        if ([[${msg}]] === 3){
+        swal({
 
+        title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+        }).then(function() {
+        location.href = '../../empleadoasistenciacapacitacion/';
+        });
+        }
+
+        if ([[${msg}]] === 4){
+        swal({
+        title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+        });
+        }
+        });
+        function eliminar(id) {
+        swal({
+        title: "Desea Eliminar?",
+                text: "Favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+        })
+                .then((willDelete) => {
+                if (willDelete) {
+                location.href = './delete/' + id;
+                } else {
+                swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
+                }
+                });
+        }
+    </script>
 </html>

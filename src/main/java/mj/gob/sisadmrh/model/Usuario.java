@@ -46,6 +46,9 @@ public class Usuario implements Serializable {
     @Size(max = 50)
     @Column(name = "NOMBREUSUARIO")
     private String nombreusuario;
+    @Size(max = 50)
+    @Column(name = "nombrecompleto")
+    private String nombrecompleto;
     @Size(max = 100)
     @Column(name = "CONTRASENIAUSUARIO")
     private String contraseniausuario;
@@ -54,25 +57,35 @@ public class Usuario implements Serializable {
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
    @Column(name = "FECHAINGRESO")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
    // @Temporal(TemporalType.DATE)
     private Date fechaingreso;
     @Column(name = "FECHACADUCIDAD")
     //@Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechacaducidad;
     @Column(name = "FECHABAJA")
   //  @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date fechabaja;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Usuariorol> usuariorolList;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 9)
+    @Column(name = "dui")
+    private String dui;
 
     public Usuario() {
     }
 
     public Usuario(Integer codigousuario) {
         this.codigousuario = codigousuario;
+    }
+
+    public Usuario(Integer codigousuario, String dui) {
+        this.codigousuario = codigousuario;
+        this.dui = dui;
     }
 
     public Integer getCodigousuario() {
@@ -147,6 +160,14 @@ public class Usuario implements Serializable {
         this.usuariorolList = usuariorolList;
     }
 
+    public String getDui() {
+        return dui;
+    }
+
+    public void setDui(String dui) {
+        this.dui = dui;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -170,6 +191,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Usuario[ codigousuario=" + codigousuario + " ]";
+    }
+
+    public String getNombrecompleto() {
+        return nombrecompleto;
+    }
+
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
     }
     
 }

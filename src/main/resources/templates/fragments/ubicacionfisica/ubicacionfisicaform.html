@@ -6,13 +6,13 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -44,13 +44,14 @@
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_cem9</label>  
+<!--    <div class="contenedorizq"><label  >pnt_cem9</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
-</div><br>
+</div><br>-->
+<script> Textheader('pnt_cem9',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,28 +61,50 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row text-center">
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
             </div>
-    <h3 align="center">Crear Ubicacion Fisica</h3>
+    <h3 align="center">  </h3>
     
 
     
         <br>
-      
+        <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            
+            <div class="col-md-12" style="background-color:#d9edf7;">
+                <div class="panel-info">
+                    <div class="panel-heading row text-center">
+                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                    </div>
+                </div>
+                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
+            </div>
+            </form>
  <form class="form-horizontal" id="formubicacion" th:object="${ubicacionfisica}" th:action="@{../ubicacionfisica}" method="post">
                 <input type="hidden" th:field="*{codigoubicacion}"/>
-                 <input type="hidden" id="codem" th:field="*{codigoempleado}"/>
-                  <input type="hidden" id="codem"  />
-            <div class="col-md-12"  align="center">
+                 <!--<input type="hidden" id="ce" th:field="*{codigoempleado}"/>-->
+                  <!--<input type="hidden" id="codem"  />-->
+            <div class="col-md-12" >
                 
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Destacado en(*):</label>
+                     <br>
+                    <label class="col-sm-3 control-label">Nombre de Ubicacion(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   required="false" size="50" maxlength="50"  />
+                        <input type="text" class="form-control"  th:field="*{nombreubicacion}"  required="false" size="50" maxlength="50"  />
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2">Ingrese el nombre de la ubicacion del Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
                 <div class="form-group">
+                    <br>
                     <label class="col-sm-3 control-label">Nombre de Jefe Inmediato(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{jefeinmediato}"  />
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup3">Ingrese el nombre del Jefe inmediato del Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
 <!--                <div class="form-group">
@@ -95,11 +118,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{cargofuncional}" />
                     </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup13">Ingrese el cargo funcional del Empleado solo se admitiran 50 caracteres.!</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Principales Tareas que desempeña(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" required="true" size="500" maxlength="500"   th:field="*{teareadesempenia}" />
+                    <div class="col-sm-8">
+                        <!--<input type="text" class="form-control" required="true" size="500" maxlength="500"   th:field="*{teareadesempenia}" />-->
+                    <textarea rows="4" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{teareadesempenia}">
+
+                            </textarea>
+                    </div>
+                    <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup17')" onmouseout ="javascript:ocultarAyuda('poppup17')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup17">Ingrese las tareas que desempaña el Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
                 
@@ -118,9 +154,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
           </div>
            <div class="col-md-12">
             <div class="row" align="center">
-                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
+<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
+                <button type="reset" class="btn btn-default">Limpiar</button>-->
+<a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+
+<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
             </div>
     </div>
                 </form>
@@ -233,8 +274,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
                 
                   $('#btnGuardar').click(function(){
-            $("#formcontacto").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
-            $("form#formcontacto").submit();
+            $("#formubicacion").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
+            $("form#formubicacion").submit();
             
         });
 var URLactual = window.location.href;
@@ -255,7 +296,7 @@ $(function () {
                 type: "success",
                 icon: "success"
        }).then(function() {
-                 location.href = '../../empleados/';
+                 location.href = '../empleados/show/'+ document.getElementById("codem").value;
        }); 
 }
     
@@ -280,6 +321,7 @@ var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
 //alert(str);
 $(function () {
           document.getElementById("codem").value = str;
+//           document.getElementById("ce").value = str;
       });}
 	</script>
         

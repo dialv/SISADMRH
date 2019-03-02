@@ -20,22 +20,19 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author daniel
+ * @author root
  */
 @Entity
-@Table(name = "CUADRODIRECTIVO")
-
+@Table(name = "cuadrodirectivo")
 @NamedQueries({
-    @NamedQuery(name = "CuadroDirectivo.findAll", query = "SELECT cd FROM CuadroDirectivo cd")})
-
+    @NamedQuery(name = "CuadroDirectivo.findAll", query = "SELECT c FROM CuadroDirectivo c")})
 public class CuadroDirectivo implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -44,31 +41,49 @@ public class CuadroDirectivo implements Serializable {
     @Column(name = "CODIGOCUADRODIRECTIVO")
     private Integer codigocuadrodirectivo;
     @Size(max = 30)
-   @Column(name = "RESPONSABLECUADRODIRECTIVO")
-    
-    private String responsablecuadrodirectivo;
-
-    @Size(max = 30)
-    @Column(name = "AREA")
-    
+    @Column(name = "area")
     private String area;
     @Size(max = 100)
-    @Column(name = "DESRIPCIONCUADRODIRECTIVO")
-     
+    @Column(name = "desripcioncuadrodirectivo")
     private String desripcioncuadrodirectivo;
-    @Column(name = "FECHAPRESENTACION")
-   @DateTimeFormat(pattern = "YYYY-MM-dd")
-     
+    @Column(name = "fechapresentacion")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechapresentacion;
-    @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
+    @Size(max = 30)
+    @Column(name = "responsablecuadrodirectivo")
+    private String responsablecuadrodirectivo;
+    @Column(name = "fechapresentaciondesde")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechapresentaciondesde;
+    @Column(name = "fechapresentacionhasta")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechapresentacionhasta;
+    @Column(name = "acuerdocuadrodirectivo")
+    private Integer acuerdocuadrodirectivo;
+    @Column(name = "ESTADOCUADRODIRECTIVO")
+    private int estadocuadrodirectivo;
+     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
 
     public CuadroDirectivo() {
     }
 
+    public Empleado getCodigoempleado() {
+        return codigoempleado;
+    }
+
+    public void setCodigoempleado(Empleado codigoempleado) {
+        this.codigoempleado = codigoempleado;
+    }
+
     public CuadroDirectivo(Integer codigocuadrodirectivo) {
         this.codigocuadrodirectivo = codigocuadrodirectivo;
+    }
+
+    public CuadroDirectivo(Integer codigocuadrodirectivo, int estadocuadrodirectivo) {
+        this.codigocuadrodirectivo = codigocuadrodirectivo;
+        this.estadocuadrodirectivo = estadocuadrodirectivo;
     }
 
     public Integer getCodigocuadrodirectivo() {
@@ -77,14 +92,6 @@ public class CuadroDirectivo implements Serializable {
 
     public void setCodigocuadrodirectivo(Integer codigocuadrodirectivo) {
         this.codigocuadrodirectivo = codigocuadrodirectivo;
-    }
-
-    public String getResponsablecuadrodirectivo() {
-        return responsablecuadrodirectivo;
-    }
-
-    public void setResponsablecuadrodirectivo(String responsablecuadrodirectivo) {
-        this.responsablecuadrodirectivo = responsablecuadrodirectivo;
     }
 
     public String getArea() {
@@ -111,12 +118,44 @@ public class CuadroDirectivo implements Serializable {
         this.fechapresentacion = fechapresentacion;
     }
 
-    public Empleado getCodigoempleado() {
-        return codigoempleado;
+    public String getResponsablecuadrodirectivo() {
+        return responsablecuadrodirectivo;
     }
 
-    public void setCodigoempleado(Empleado codigoempleado) {
-        this.codigoempleado = codigoempleado;
+    public void setResponsablecuadrodirectivo(String responsablecuadrodirectivo) {
+        this.responsablecuadrodirectivo = responsablecuadrodirectivo;
+    }
+
+    public Date getFechapresentaciondesde() {
+        return fechapresentaciondesde;
+    }
+
+    public void setFechapresentaciondesde(Date fechapresentaciondesde) {
+        this.fechapresentaciondesde = fechapresentaciondesde;
+    }
+
+    public Date getFechapresentacionhasta() {
+        return fechapresentacionhasta;
+    }
+
+    public void setFechapresentacionhasta(Date fechapresentacionhasta) {
+        this.fechapresentacionhasta = fechapresentacionhasta;
+    }
+
+    public Integer getAcuerdocuadrodirectivo() {
+        return acuerdocuadrodirectivo;
+    }
+
+    public void setAcuerdocuadrodirectivo(Integer acuerdocuadrodirectivo) {
+        this.acuerdocuadrodirectivo = acuerdocuadrodirectivo;
+    }
+
+    public int getEstadocuadrodirectivo() {
+        return estadocuadrodirectivo;
+    }
+
+    public void setEstadocuadrodirectivo(int estadocuadrodirectivo) {
+        this.estadocuadrodirectivo = estadocuadrodirectivo;
     }
 
     @Override
@@ -141,7 +180,7 @@ public class CuadroDirectivo implements Serializable {
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.Cuadrodirectivo[ codigocuadrodirectivo=" + codigocuadrodirectivo + " ]";
+        return "mj.gob.sisadmrh.model.CuadroDirectivo[ codigocuadrodirectivo=" + codigocuadrodirectivo + " ]";
     }
     
 }

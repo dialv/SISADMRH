@@ -49,12 +49,14 @@ public class Caparecibidas implements Serializable {
     @NotNull
     @Column(name = "dhoras")
     private int dhoras;
+    @Column(name = "estadocapa")
+    private int estadocapa;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ddias")
     private int ddias;
     @Column(name = "fechaevento")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "dd/mm/yy")
     private Date fechaevento;
     @Size(max = 200)
     @Column(name = "organismo")
@@ -163,6 +165,14 @@ public class Caparecibidas implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Caparecibidas[ codigocaparecibidas=" + codigocaparecibidas + " ]";
+    }
+
+    public int getEstadocapa() {
+        return estadocapa;
+    }
+
+    public void setEstadocapa(int estadocapa) {
+        this.estadocapa = estadocapa;
     }
     
 }

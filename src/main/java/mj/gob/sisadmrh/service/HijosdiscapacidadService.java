@@ -16,6 +16,7 @@ import mj.gob.sisadmrh.model.Hijodiscapacidad;
 
 public interface HijosdiscapacidadService {
     Iterable <Hijodiscapacidad> listAllHijodiscapacidad();
+    Iterable <Hijodiscapacidad> listAllActivos();
     
     Optional<Hijodiscapacidad> getHijodiscapacidadById(Integer id);
 

@@ -76,6 +76,32 @@ return empleadoRep.findByNivelEscolar(finicial,ffinal);
    return empleadoRep.findByPlazasOcupadas(finicial, ffinal);
     }
 
+
+  @Override
+    public List<Object[]> ContratacionesExcel(String finicial, String ffinal) {
+   return empleadoRep.ContratacionesExcel(finicial, ffinal);
+    }
+     
+    @Override
+    public List<Object[]> DespidosExcel(String finicial, String ffinal) {
+   return empleadoRep.DespidosExcel(finicial, ffinal);
+    }
+    
+    @Override
+    public List<Object[]> PseronalActivoExcel(String finicial, String ffinal) {
+   return empleadoRep.PseronalActivoExcel(finicial, ffinal);
+   
+    }
+    
+    @Override
+    public List<Object[]> EstadisticocapacitadoExcel(String finicial, String ffinal) {
+   return empleadoRep.EstadisticocapacitadoExcel(finicial, ffinal);
+    }
+    @Override
+    public List<Object[]> PersonalIndemnizadooExcel(String finicial, String ffinal) {
+   return empleadoRep.PersonalIndemnizadooExcel(finicial, ffinal);
+    }
+
     @Override
     public List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal) {
 return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
@@ -96,6 +122,28 @@ return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
 return  empleadoRep.findByPuestosEmpleados(codigo);
     }
 
-  
-    
+    @Override
+    public List<Object[]> findByIncapacidad(String finicial, String ffinal) {
+return empleadoRep.findByIncapacidad(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByDato(int id) {
+        return empleadoRep.findByDato(id);
+        
+    }
+    @Override
+    public List<Object[]> findByAsistenciaCapacitacion(int id) {
+        return empleadoRep.findByAsistenciaCapacitacion(id);
+        
+    }
+    @Override
+        public void DeleteEmpleadoAsistenciaCap(int id) {
+        empleadoRep.DeleteEmpleadoAsistenciaCap(id);
+    }
+
+    @Override
+    public Iterable<Empleado> listAllActivos() {
+     return empleadoRep.listAllActivos();
+    }    
 }

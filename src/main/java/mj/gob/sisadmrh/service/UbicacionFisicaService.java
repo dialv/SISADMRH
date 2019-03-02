@@ -14,6 +14,7 @@ import mj.gob.sisadmrh.model.Ubicacionfisica;
  */
 public interface UbicacionFisicaService {
     Iterable <Ubicacionfisica> listAllUbicacionFisica();
+    Iterable <Ubicacionfisica> listAllActivos();
     
     Optional<Ubicacionfisica> getUbicacionFisicaById(Integer id);
 
