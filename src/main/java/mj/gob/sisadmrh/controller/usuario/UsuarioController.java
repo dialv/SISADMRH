@@ -64,7 +64,7 @@ public class UsuarioController extends UtilsController{
         usuario.setControlcontrasenia(1);
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
         usuario.setNombrecompleto(usuario.getNombrecompleto()+","+usuario.getNombreusuario());
-        usuario.setNombreusuario(generaUser(usuario.getNombrecompleto(),usuario.getNombreusuario()));
+        usuario.setNombreusuario(generaUser(usuario.getNombrecompleto(),usuario.getNombreusuario(), "0"));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
@@ -101,13 +101,12 @@ public class UsuarioController extends UtilsController{
         return PREFIX + "usuarios";
        // return "redirect:/usuarios/";
     }
-    private String generaUser(String nombre, String apellido){
-        
-        String username = nombre.charAt(0)+apellido.split(" ")[0];
-        return (usuarioService.findbyUser(username)!=null) 
-                ? (Character.isDigit(username.charAt(username.length()-1)))
-                    ? username+(username.charAt(username.length()-1)+1)
-                    :username+'1'
-                :username;
-        }
+    private String generaUser(String nombre, String apellido, String vez){
+            String username = (vez.equals("0"))?nombre.charAt(0)+apellido.split(" ")[0]:vez;
+            return   (usuarioService.findbyUser(username)==null)?username:generaUser(nombre, apellido,
+          (Character.isDigit(username.charAt(username.length()-1)))
+                    ? username+( Character.getNumericValue(username.charAt(username.length()-1))+1)
+                    :username+'1'); 
+
+    }
 }
