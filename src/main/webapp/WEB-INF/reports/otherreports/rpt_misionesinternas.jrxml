@@ -285,23 +285,24 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="656" y="53" width="90" height="1" uuid="cecf7928-a5fd-4afe-9539-8a4e856ec0aa"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="667" y="4" width="100" height="13" backcolor="#FFFFFF" uuid="5a11870d-0110-4b54-aa31-3c6dbf1d16ad"/>
+				<reportElement mode="Opaque" x="660" y="0" width="100" height="13" backcolor="#FFFFFF" uuid="5a11870d-0110-4b54-aa31-3c6dbf1d16ad"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="663" y="3" width="90" height="1" uuid="cecf7928-a5fd-4afe-9539-8a4e856ec0aa"/>
-			</line>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

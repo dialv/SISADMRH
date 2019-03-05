@@ -99,12 +99,12 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             @Param("FFINAL") String ffinal);
 // reporte exel para personal pensionado
 
-    @Query(value = "SELECT e.nombreempleado, e.apellidoempleado, p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), month(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL", nativeQuery = true)
+    @Query(value = "SELECT concat(e.nombreempleado,' ', e.apellidoempleado), p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), MONTHNAME(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL ", nativeQuery = true)
     List<Object[]> findByPensionados(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
-    @Query(value = " select p.codigopuesto,p.nombrepuesto,p.fechacontrataciondesde,p.fechacontratacionhasta,p.ubicacionpuesto,p.numerosubpartidapuesto,p.numeropartidapuesto from puesto p where  p.fechacontratacionhasta between curdate() and curdate() + interval 60 day", nativeQuery = true)
-    List<Object[]> findByPuestosCaducar(@Param("FINICIAL") String finicial,
+    @Query(value = " select p.codigopuesto,p.nombrepuesto,DATE_FORMAT(p.fechacontrataciondesde, '%d/%m/%Y'),DATE_FORMAT(p.fechacontratacionhasta, '%d/%m/%Y'),p.ubicacionpuesto,p.numerosubpartidapuesto,p.numeropartidapuesto from puesto p where  p.fechacontratacionhasta between curdate() and curdate() + interval 60 day", nativeQuery = true)
+    List<Object[]> findByPuestosCaducarExcel(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
     @Query(value = " SELECT e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, DATE_FORMAT(d.fechacontrataciondesde, '%d/%m/%Y'),DATE_FORMAT(d.fechacontratacionhasta, '%d/%m/%Y') \n" +

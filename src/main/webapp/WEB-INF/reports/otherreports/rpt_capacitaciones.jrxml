@@ -311,23 +311,24 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="17" splitType="Stretch">
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
 			<line>
-				<reportElement x="632" y="0" width="100" height="1" uuid="afe1f8be-3e3b-48a0-a8e2-4c82777bff8a"/>
+				<reportElement x="624" y="29" width="100" height="1" uuid="afe1f8be-3e3b-48a0-a8e2-4c82777bff8a"/>
 			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="634" y="3" width="102" height="14" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
+				<reportElement mode="Opaque" x="626" y="0" width="102" height="14" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="32" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

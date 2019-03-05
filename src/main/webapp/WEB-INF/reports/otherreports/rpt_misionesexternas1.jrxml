@@ -287,23 +287,23 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="35" splitType="Stretch">
+		<band height="35" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<line>
-				<reportElement x="646" y="-2" width="95" height="1" uuid="3e85c97c-2b6f-43d7-b18b-75dbd6837542"/>
+				<reportElement x="636" y="3" width="95" height="1" uuid="3e85c97c-2b6f-43d7-b18b-75dbd6837542"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="645" y="0" width="106" height="13" backcolor="#FFFFFF" uuid="f66ee0f5-ff18-4b2e-836e-cc84a7a9861e"/>
+				<reportElement mode="Opaque" x="635" y="5" width="106" height="13" backcolor="#FFFFFF" uuid="f66ee0f5-ff18-4b2e-836e-cc84a7a9861e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>
