@@ -24,7 +24,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("usuario")
 @RequestMapping(value = "usuarios")
 public class UsuarioController extends UtilsController{
-    
+
     private UsuarioService usuarioService;
     
     @Autowired
@@ -63,11 +63,14 @@ public class UsuarioController extends UtilsController{
         usuario.setEstadousuario(1);
         usuario.setControlcontrasenia(1);
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
+        usuario.setNombrecompleto(usuario.getNombrecompleto()+","+usuario.getNombreusuario());
+        usuario.setNombreusuario(generaUser(usuario.getNombrecompleto(),usuario.getNombreusuario(), "0"));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
-         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
+        bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
+         model.addAttribute("usuarioname", usuario.getNombreusuario());
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
@@ -97,5 +100,13 @@ public class UsuarioController extends UtilsController{
         }
         return PREFIX + "usuarios";
        // return "redirect:/usuarios/";
+    }
+    private String generaUser(String nombre, String apellido, String vez){
+            String username = (vez.equals("0"))?nombre.charAt(0)+apellido.split(" ")[0]:vez;
+            return   (usuarioService.findbyUser(username)==null)?username:generaUser(nombre, apellido,
+          (Character.isDigit(username.charAt(username.length()-1)))
+                    ? username+( Character.getNumericValue(username.charAt(username.length()-1))+1)
+                    :username+'1'); 
+
     }
 }
