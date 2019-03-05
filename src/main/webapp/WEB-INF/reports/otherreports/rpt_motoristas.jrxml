@@ -212,23 +212,23 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="41" splitType="Stretch">
+		<band height="41" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="484" y="10" width="129" height="13" backcolor="#FFFFFF" uuid="c211ce2a-7249-42b6-8606-b43ce21bd549"/>
+				<reportElement mode="Opaque" x="484" y="16" width="129" height="13" backcolor="#FFFFFF" uuid="c211ce2a-7249-42b6-8606-b43ce21bd549"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="484" y="4" width="100" height="1" uuid="5771fdb5-4983-4d06-bfec-4bf433dd04fb"/>
+				<reportElement x="484" y="10" width="100" height="1" uuid="5771fdb5-4983-4d06-bfec-4bf433dd04fb"/>
 			</line>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="35" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

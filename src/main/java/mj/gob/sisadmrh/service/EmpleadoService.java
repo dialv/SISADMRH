@@ -41,7 +41,7 @@ public interface EmpleadoService {
     List<Object[]> findByPlazasOcupadas(String finicial, String ffinal);
     List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal);
     List<Object[]> findByPensionados(String finicial, String ffinal);
-    List<Object[]> findByPuestosCaducar(String finicial, String ffinal);
+    List<Object[]> findByPuestosCaducarExcel(String finicial, String ffinal);
     List<Object[]> findByPuestosEmpleados( String codigo);//para el historial laboral
     List<Object[]> findByIncapacidad(String finicial, String ffinal);
     List<Object[]> findByDato(int id) ;

@@ -262,23 +262,23 @@ inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like 
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="40" splitType="Stretch">
+		<band height="40" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="38" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<line>
-				<reportElement x="628" y="5" width="90" height="2" uuid="cc747cd4-ac7f-4c29-a6d2-a3d691052864"/>
+				<reportElement x="616" y="6" width="90" height="2" uuid="cc747cd4-ac7f-4c29-a6d2-a3d691052864"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="636" y="7" width="132" height="13" backcolor="#FFFFFF" uuid="b856798b-9afa-4b82-bd7c-d0facbdf6ce1"/>
+				<reportElement mode="Opaque" x="624" y="8" width="132" height="13" backcolor="#FFFFFF" uuid="b856798b-9afa-4b82-bd7c-d0facbdf6ce1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="38" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

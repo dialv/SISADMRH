@@ -113,8 +113,8 @@ return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
     }
 
     @Override
-    public List<Object[]> findByPuestosCaducar(String finicial, String ffinal) {
-return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
+    public List<Object[]> findByPuestosCaducarExcel(String finicial, String ffinal) {
+return  empleadoRep.findByPuestosCaducarExcel(finicial, ffinal);
     }
 
     @Override

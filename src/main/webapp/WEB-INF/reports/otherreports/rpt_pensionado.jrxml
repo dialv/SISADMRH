@@ -13,7 +13,7 @@
 		<![CDATA[SELECT
  concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado, p.nombrepuesto as 'Nombre de Puesto',p.sueldobase as 'Salario',year(e.fechaingresoministerio) as Año, month(e.fechaingresoministerio) as Mes, e.afiliacionpension as 'Institucion Pensionadora'
 FROM `empleado` e, puesto p
-WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
+WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="Nombre de Puesto" class="java.lang.String"/>
@@ -280,7 +280,7 @@ WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total $" +NumberFormat.getInstance().format($V{Salario_1}) ]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total $" +NumberFormat.getInstance().format($V{Salario_1})]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

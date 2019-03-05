@@ -35,14 +35,14 @@ public class PersonalPensionadoView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE PENSIONADOS");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Nombre");
- header.createCell(3).setCellValue("Apellido");
- header.createCell(4).setCellValue("Puesto");
+ header.createCell(2).setCellValue("Empleado");
+// header.createCell(3).setCellValue("Apellido");
+ header.createCell(3).setCellValue("Puesto");
 // header.createCell(5).setCellValue("apelldio");
- header.createCell(5).setCellValue("Sueldo Base");
- header.createCell(6).setCellValue("Anio");
- header.createCell(7).setCellValue("Mes");
-  header.createCell(8).setCellValue("Afiliacion");
+ header.createCell(4).setCellValue("Sueldo Base");
+ header.createCell(5).setCellValue("Anio");
+ header.createCell(6).setCellValue("Mes");
+  header.createCell(7).setCellValue("Afiliacion");
 //   header.createCell(9).setCellValue("Ubicacion");
 // header.createCell(10).setCellValue("Sub lineade Trabajo");
   
@@ -65,7 +65,7 @@ public class PersonalPensionadoView extends AbstractXlsView{
  row.createCell(6).setCellValue((String)""+ pensionados[4]);
  row.createCell(7).setCellValue((String) ""+pensionados[5]);
  //row.createCell(7).setCellValue((String) plazasOcupadas[6]);
- row.createCell(8).setCellValue((String) ""+pensionados[7]);
+// row.createCell(8).setCellValue((String) ""+pensionados[6]);
 //  row.createCell(9).setCellValue((String)""+ pensionados[8]);
 //   row.createCell(9).setCellValue((String) plazasOcupadas[9]);
 // row.createCell(10).setCellValue((String) plazasOcupadas[10]);
