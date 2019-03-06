@@ -137,11 +137,11 @@ inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '
 				<text><![CDATA[rpt_reporte_abog]]></text>
 			</staticText>
 			<image>
-				<reportElement x="48" y="4" width="144" height="74" uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402"/>
+				<reportElement x="48" y="4" width="90" height="80" uuid="0a53ebdf-f527-4f3d-a4d9-5ebcd1482402"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="610" y="4" width="144" height="74" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
+				<reportElement x="610" y="4" width="70" height="70" uuid="00dcc53f-b5c6-4f41-bd93-d625f80b347c"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>

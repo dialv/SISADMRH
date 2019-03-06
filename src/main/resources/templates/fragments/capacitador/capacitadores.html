@@ -70,7 +70,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                       <!--<a th:href="${'./new/capacitador'}" class="btn btn-primary">Nuevo</a>-->
                    <td> <a th:href="${'./show/' + capacitador.codigocapacitador}" class="btn btn-info">Mostrar</a> </td>
                <td> <a th:href="${'./edit/' + capacitador.codigocapacitador}" class="btn btn-success">Editar</a> </td>
-              <td>   <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitador.codigocapacitador} + '\');'" >Delete</a></td>
+              <td>   <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitador.codigocapacitador} + '\');'" >Eliminar</a></td>
                 <!--<a th:href="${'./delete/' + capacitador.codigocapacitador}" class="btn btn-danger">Delete</a>-->
                
             </tr>
