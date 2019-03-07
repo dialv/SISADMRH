@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b5b5867-a333-4221-8d51-8566c397df3b">
 	<property name="ireport.zoom" value="1.331000000000002"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="265"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -47,10 +47,10 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="6" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="107" splitType="Stretch">
+		<band height="101" splitType="Stretch">
 			<staticText>
 				<reportElement x="342" y="68" width="118" height="17" uuid="1c242fc5-d4af-4367-858c-26bfa7d0de2c"/>
 				<textElement>
@@ -59,28 +59,28 @@
 				<text><![CDATA[Reporte deCumpleañeros]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="97" y="86" width="100" height="17" uuid="f2ad1bcb-c3c2-4277-a5e9-22b43e400815"/>
+				<reportElement x="97" y="80" width="100" height="17" uuid="f2ad1bcb-c3c2-4277-a5e9-22b43e400815"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="624" y="89" width="68" height="17" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
+				<reportElement x="624" y="83" width="68" height="17" uuid="6f6aebf2-4c7e-4217-8dc3-90c3d50130ff"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="694" y="89" width="40" height="17" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
+				<reportElement x="694" y="83" width="40" height="17" uuid="486ff6df-1cbf-462d-be15-3c2767941e91"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="311" y="85" width="30" height="17" uuid="c7e12a67-cbab-476f-bda6-3d9087ae23f5"/>
+				<reportElement x="311" y="84" width="30" height="17" uuid="c7e12a67-cbab-476f-bda6-3d9087ae23f5"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -101,28 +101,28 @@
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="341" y="85" width="50" height="17" uuid="18b37d30-9f19-482a-9f5a-30066aac44b8"/>
+				<reportElement x="341" y="84" width="50" height="17" uuid="18b37d30-9f19-482a-9f5a-30066aac44b8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="65" y="86" width="30" height="17" uuid="5851c38a-80b5-43fa-979c-ed6dec0baf29"/>
+				<reportElement x="65" y="80" width="30" height="17" uuid="5851c38a-80b5-43fa-979c-ed6dec0baf29"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="622" y="72" width="30" height="17" uuid="39b29c6b-d689-4b11-a2e1-9e4042e888ff"/>
+				<reportElement x="622" y="66" width="30" height="17" uuid="39b29c6b-d689-4b11-a2e1-9e4042e888ff"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="656" y="72" width="78" height="17" uuid="3b6581da-9108-4902-8fab-3ed5e6f1a862"/>
+				<reportElement x="656" y="66" width="78" height="17" uuid="3b6581da-9108-4902-8fab-3ed5e6f1a862"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -136,7 +136,7 @@
 				<text><![CDATA[pnt_reporte_cump]]></text>
 			</staticText>
 			<image>
-				<reportElement x="63" y="0" width="175" height="70" uuid="4480b97a-a6d9-4922-94b3-9c34571a3f54"/>
+				<reportElement x="63" y="-6" width="80" height="70" uuid="4480b97a-a6d9-4922-94b3-9c34571a3f54"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -161,7 +161,7 @@
 				<text><![CDATA[Ministrio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<image>
-				<reportElement x="624" y="0" width="150" height="70" uuid="a1d1dd88-a053-4585-aa7f-9f0eceb800c9"/>
+				<reportElement x="624" y="0" width="70" height="70" uuid="a1d1dd88-a053-4585-aa7f-9f0eceb800c9"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
@@ -220,14 +220,14 @@
 				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="211" y="0" width="100" height="14" uuid="e718007a-5432-4573-8f77-b51528fd63e0"/>
+				<reportElement x="211" y="0" width="129" height="14" uuid="e718007a-5432-4573-8f77-b51528fd63e0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="349" y="0" width="161" height="14" uuid="2090b7eb-6dcf-41d0-8778-03a521abd540"/>
+				<reportElement x="349" y="0" width="199" height="14" uuid="2090b7eb-6dcf-41d0-8778-03a521abd540"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

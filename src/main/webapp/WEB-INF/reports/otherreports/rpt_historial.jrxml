@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="42"/>
+	<property name="ireport.y" value="13"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -36,6 +36,9 @@ e.codigoempleado=$P{CODIGO}]]>
 	</field>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
+	<variable name="sueldobase_1" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{sueldobase}]]></variableExpression>
+	</variable>
 	<group name="nombreempleado">
 		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
@@ -52,19 +55,19 @@ e.codigoempleado=$P{CODIGO}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="4" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="111" splitType="Stretch">
+		<band height="105" splitType="Stretch">
 			<textField>
-				<reportElement x="598" y="92" width="80" height="17" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
+				<reportElement x="601" y="87" width="80" height="17" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="678" y="92" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
+				<reportElement x="681" y="87" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -78,74 +81,74 @@ e.codigoempleado=$P{CODIGO}]]>
 				<text><![CDATA[Reporte de Historial Laboral de Empleados ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="301" y="84" width="43" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
+				<reportElement x="301" y="79" width="43" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="400" y="84" width="38" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
+				<reportElement x="400" y="79" width="38" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="110" y="91" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
+				<reportElement x="110" y="86" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="331" y="84" width="61" height="17" uuid="2ebcc166-3c13-4511-8e87-0f8d96307534"/>
+				<reportElement x="331" y="79" width="61" height="17" uuid="2ebcc166-3c13-4511-8e87-0f8d96307534"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="428" y="84" width="59" height="17" uuid="53bc6c9c-518e-442a-b11d-63842970632b"/>
+				<reportElement x="428" y="79" width="59" height="17" uuid="53bc6c9c-518e-442a-b11d-63842970632b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="598" y="75" width="42" height="17" uuid="0469fd21-afc9-4942-91ac-42de367c1291"/>
+				<reportElement x="630" y="70" width="42" height="17" uuid="0469fd21-afc9-4942-91ac-42de367c1291"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="634" y="75" width="85" height="17" uuid="4867b952-ff3f-448d-87ee-ad61bd11e47e"/>
+				<reportElement x="666" y="70" width="85" height="17" uuid="4867b952-ff3f-448d-87ee-ad61bd11e47e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="75" y="91" width="38" height="17" uuid="2f6f1add-635e-48f9-acaf-78d89a56a2fe"/>
+				<reportElement x="75" y="86" width="38" height="17" uuid="2f6f1add-635e-48f9-acaf-78d89a56a2fe"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="75" y="74" width="100" height="17" uuid="ddad01b0-d666-404f-bb79-6149f97a612a"/>
+				<reportElement x="75" y="69" width="100" height="17" uuid="ddad01b0-d666-404f-bb79-6149f97a612a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[rpt_reporte_hlem]]></text>
 			</staticText>
 			<image>
-				<reportElement x="598" y="0" width="105" height="74" uuid="2e6469f8-63c6-4047-a732-8318b13ccf9f"/>
+				<reportElement x="630" y="0" width="70" height="70" uuid="2e6469f8-63c6-4047-a732-8318b13ccf9f"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="73" y="0" width="105" height="74" uuid="63395dac-30f9-4fa7-8988-9d589797cf45"/>
+				<reportElement x="55" y="0" width="80" height="70" uuid="63395dac-30f9-4fa7-8988-9d589797cf45"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -249,11 +252,11 @@ e.codigoempleado=$P{CODIGO}]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{sueldobase}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new BigDecimal($F{sueldobase}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="0" width="61" height="14" uuid="a5509c64-7e35-433c-aae5-6438ce227ec0"/>
-				<textElement>
+				<reportElement x="445" y="0" width="47" height="14" uuid="a5509c64-7e35-433c-aae5-6438ce227ec0"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sueldotopepuesto}]]></textFieldExpression>
@@ -285,21 +288,20 @@ e.codigoempleado=$P{CODIGO}]]>
 		<band height="43" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="53" splitType="Stretch">
-			<line>
-				<reportElement x="612" y="52" width="100" height="1" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
-			</line>
-		</band>
+		<band height="53" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="613" y="0" width="133" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
+				<reportElement mode="Opaque" x="344" y="11" width="241" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total Sueldos:$" + new BigDecimal($V{sueldobase_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="344" y="10" width="100" height="1" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
+			</line>
 		</band>
 	</summary>
 </jasperReport>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="104"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CODIGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAINICIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHAFIN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="USUARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT concat(e.NOMBREEMPLEADO,' ',e.apellidoempleado)as Empleado, p.nombrepuesto, c.numeroacuerdocomision, c.nombrecomision,DATE_FORMAT(c.fechadesdecomision, '%d/%m/%Y') as Desde , DATE_FORMAT(c.fechahastacomision, '%d/%m/%Y') as Hasta FROM miembroscomision m inner join comision c on m.codigocomision
+= c.codigocomision inner join empleado e on m.CODIGOEMPLEADO=e.CODIGOEMPLEADO inner join puesto p on p.codigopuesto=e.codigopuesto where c.fechadesdecomision>=$P{FECHAINICIO} and c.fechahastacomision<=$P{FECHAFIN}]]>
+	</queryString>
+	<field name="Empleado" class="java.lang.String"/>
+	<field name="nombrepuesto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroacuerdocomision" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombrecomision" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Desde" class="java.lang.String"/>
+	<field name="Hasta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="106" splitType="Stretch">
+			<staticText>
+				<reportElement x="333" y="56" width="102" height="17" uuid="d2820ed1-563c-4556-97e7-7f9324cc9b90"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Reporte de Comisiones]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="133" y="92" width="100" height="14" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="605" y="69" width="61" height="17" uuid="c42b5a94-d56f-415b-9967-63beca281b2d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="674" y="69" width="35" height="17" uuid="0079daa6-1363-4574-a3cf-8cb78dec494e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="75" width="38" height="17" uuid="46e35f03-e614-451b-9ee7-b3d1e73cdf93"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="75" width="35" height="17" uuid="3e1a0d6d-d4bc-49c7-be68-31d48017ee8f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="314" y="75" width="66" height="17" uuid="fe98f365-d451-4cbf-8c21-ba4984bac98e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="75" width="57" height="17" uuid="689ef65a-c28c-4309-a567-86b3627c4c96"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="78" width="100" height="17" uuid="389c1719-9f3d-441e-9550-b92970e4a3f4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[rpt_reporte_comis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="617" y="84" width="44" height="17" uuid="8f4080e8-dbe2-4b30-9f43-82f8fbabddf6"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="652" y="84" width="81" height="17" uuid="c2464fff-bc9f-4c3b-a4aa-56a405eea00c"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="92" width="38" height="14" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="617" y="0" width="70" height="70" uuid="757880b3-ddc9-4fcd-9ec0-2b4cae2e48bb"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="95" y="4" width="80" height="70" uuid="d5244a04-208d-4ef9-bc04-8c758f3c1f28"/>
+				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="322" y="19" width="148" height="17" uuid="ff276982-a8e2-4630-862b-199b523e2b30"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="4" width="211" height="17" uuid="18a5c2ea-07e8-4059-bb1d-26a112f366be"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="35" width="66" height="17" uuid="7048bb48-5bd3-4523-954e-6d75beaee769"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[SISASMRH]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<rectangle>
+				<reportElement x="93" y="0" width="597" height="14" backcolor="#FFFFFF" uuid="47f87b1b-4db2-4d10-b77e-5c9c9f4a3b62"/>
+			</rectangle>
+			<line>
+				<reportElement x="225" y="0" width="1" height="14" uuid="c4fcf880-abce-49ec-a547-3b2558cd2771"/>
+			</line>
+			<line>
+				<reportElement x="350" y="0" width="1" height="14" uuid="153ccd9d-3432-4044-af05-7acaf3001689"/>
+			</line>
+			<line>
+				<reportElement x="574" y="0" width="1" height="14" uuid="2ef89dec-32c8-43ba-bcc8-d530435c6442"/>
+			</line>
+			<line>
+				<reportElement x="430" y="0" width="1" height="14" uuid="b5d44edf-3426-41f0-9b37-45a17f1b4910"/>
+			</line>
+			<line>
+				<reportElement x="640" y="0" width="1" height="14" uuid="cb4a9ca7-80cc-43ff-9384-040b1a0436bc"/>
+			</line>
+			<staticText>
+				<reportElement x="93" y="0" width="130" height="14" uuid="6ab1151a-ae84-412a-b61e-72678569fd12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="0" width="114" height="14" uuid="5cca373e-9f60-4349-a446-c23989898cf3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="0" width="63" height="14" uuid="150a34f2-940f-4d60-9db3-372e87ffbdeb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Acuerdo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="0" width="130" height="14" uuid="9d8f772b-de5d-400d-9d80-f9c30e782a3a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Mision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="575" y="0" width="28" height="14" uuid="74c7a8b2-df0d-44b1-9da7-6ea69c97576a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="643" y="0" width="47" height="14" uuid="3f6adb7e-4a80-402e-9e61-502b038d8bb1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="228" y="0" width="117" height="14" uuid="cbaf9226-9647-4fef-ace5-c0de6da336e7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="0" width="63" height="14" uuid="e7c90728-7e99-444f-809a-ae0cb3efed34"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroacuerdocomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="0" width="131" height="14" uuid="7a135b71-4e64-425d-bcf4-324504231935"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrecomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="577" y="0" width="54" height="14" uuid="ea9e01c9-78eb-45e0-9672-4dcf60ba439d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="648" y="0" width="42" height="14" uuid="4d4d5026-0c35-4c1d-b444-6bafe7276d10"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="0" width="124" height="14" uuid="fb488fb7-00f0-4a34-8a78-3cc2d53667b4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="44" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="587" y="0" width="128" height="13" backcolor="#FFFFFF" uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="587" y="0" width="100" height="1" uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

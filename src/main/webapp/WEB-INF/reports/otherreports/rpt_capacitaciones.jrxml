@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="71"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -64,10 +64,10 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="4" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="105" splitType="Stretch">
+		<band height="101" splitType="Stretch">
 			<staticText>
 				<reportElement x="286" y="80" width="30" height="15" uuid="c0c00fd5-156a-4c50-aef7-365a799f6b30"/>
 				<textElement>
@@ -83,28 +83,28 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="594" y="89" width="80" height="15" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
+				<reportElement x="619" y="84" width="80" height="15" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="38" y="90" width="33" height="15" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
+				<reportElement x="38" y="85" width="33" height="15" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="71" y="90" width="104" height="15" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
+				<reportElement x="71" y="85" width="104" height="15" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="674" y="89" width="40" height="15" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
+				<reportElement x="699" y="84" width="40" height="15" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -132,32 +132,32 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Reporte de Capacitaciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="626" y="76" width="43" height="17" uuid="d7e190a3-739c-4bc0-9b17-9256ca0c369b"/>
+				<reportElement x="651" y="71" width="43" height="17" uuid="d7e190a3-739c-4bc0-9b17-9256ca0c369b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="75" width="100" height="15" uuid="c93b6750-7c50-4ff9-8bc9-288dc961f125"/>
+				<reportElement x="41" y="70" width="100" height="15" uuid="c93b6750-7c50-4ff9-8bc9-288dc961f125"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[rpt_reporte_caps]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="660" y="76" width="86" height="17" uuid="73700692-8fd1-4a20-a32c-43069a4398b4"/>
+				<reportElement x="685" y="71" width="86" height="17" uuid="73700692-8fd1-4a20-a32c-43069a4398b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="35" y="3" width="140" height="70" uuid="02da8dc3-2b49-4502-ade6-888bd1b52f0b"/>
+				<reportElement x="29" y="3" width="80" height="70" uuid="02da8dc3-2b49-4502-ade6-888bd1b52f0b"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="622" y="4" width="191" height="70" uuid="af190678-1ec9-436d-8e71-580e51e9ac38"/>
+				<reportElement x="647" y="4" width="70" height="70" uuid="af190678-1ec9-436d-8e71-580e51e9ac38"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -186,7 +186,7 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<rectangle>
-				<reportElement x="31" y="2" width="710" height="17" uuid="2e141a51-ff3c-4e16-b5e4-9d4b9b8dd33c"/>
+				<reportElement x="31" y="2" width="702" height="17" uuid="2e141a51-ff3c-4e16-b5e4-9d4b9b8dd33c"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="33" y="0" width="79" height="17" uuid="db4def3b-df76-478d-9fab-55f1effade07"/>
@@ -224,7 +224,7 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 				<text><![CDATA[Fecha Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="682" y="0" width="57" height="17" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
+				<reportElement x="682" y="0" width="51" height="17" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -311,24 +311,23 @@ and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="17" splitType="Stretch"/>
+		<band height="25" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="32" splitType="Stretch">
-			<line>
-				<reportElement x="624" y="29" width="100" height="1" uuid="afe1f8be-3e3b-48a0-a8e2-4c82777bff8a"/>
-			</line>
-		</band>
+		<band height="32" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="626" y="0" width="102" height="14" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
+				<reportElement mode="Opaque" x="631" y="10" width="102" height="14" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="629" y="7" width="100" height="1" uuid="afe1f8be-3e3b-48a0-a8e2-4c82777bff8a"/>
+			</line>
 		</band>
 	</summary>
 </jasperReport>
