@@ -9,10 +9,12 @@
 	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT count(a.codigoempleado) as Noempleados, a.ubicacionasistenciacapacitacion as Ubicacion, count(c.nombrecapacitacion) as NoCapacitaciones,c.nombrecapacitacion, c.fechacapacitaciondesde as FechaCapacitacion,c.fechacapacitacionhasta
 FROM `asistenciacapacitacion`a ,`capacitacion` c
-WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.fechacapacitaciondesde]]>
+WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.fechacapacitaciondesde and
+c.fechacapacitaciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Noempleados" class="java.lang.Long"/>
 	<field name="Ubicacion" class="java.lang.String"/>
@@ -21,6 +23,9 @@ WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="FechaCapacitacion" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechacapacitacionhasta" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>

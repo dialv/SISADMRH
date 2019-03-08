@@ -99,7 +99,7 @@
  inner join descuento d on e.codigoempleado=d.codigodescuento
  inner join experiencialaboral el on el.codigoexperiencialaboral=e.codigoempleado
 WHERE e.codigoempleado= $P{CODIGO} and
-c.fechainiciocontrato>=$P{FECHAINICIO}]]>
+c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafincontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Total" class="java.lang.Double"/>
 	<field name="Empleado" class="java.lang.String"/>
@@ -256,126 +256,14 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 	</columnHeader>
 	<detail>
 		<band height="449" splitType="Stretch">
-			<componentElement>
-				<reportElement key="table 1" style="table 1" x="74" y="11" width="360" height="110" uuid="57e89606-d118-4f8e-9f28-e00fd566ab35"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="salarial" uuid="b73b8fbb-70d2-49b8-b5ae-50ad92c1efdb">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:column width="90" uuid="24cd3171-5c8f-45a1-a867-4e37c057673c">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="c4d28917-34cc-4068-be8e-9ebf90e016ed"/>
-								<text><![CDATA[Empleado]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="f0e51447-b6d1-49ec-9c7c-96068f483b0f"/>
-								<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="d86fab4b-a623-42ee-9452-1d2923a2ad5e">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="475e7084-9ee4-428f-b622-c95a3c763b16"/>
-								<text><![CDATA[fechainiciocontrato]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="a4e3ab97-4b76-42fe-8ef2-4954d2095c0b"/>
-								<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="0e1f66a6-3b4c-4414-9ad1-d7e2ed16fb65">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="111fb805-82b4-499b-8f81-ecc184f4d7d2"/>
-								<text><![CDATA[fechafincontrato]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="e7bb8aa8-7da6-46d9-8ad1-5f16607782d1"/>
-								<textFieldExpression><![CDATA[$F{fechafincontrato}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="5e902a54-4066-4a11-9d12-869211087c56">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="5bb033f2-c019-47ef-8138-77f58cb8fb93"/>
-								<text><![CDATA[plazanominal]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="d51e80c6-7146-455f-94c8-c5f4e2ab36a7"/>
-								<textFieldExpression><![CDATA[$F{plazanominal}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="3521325d-d1d1-40c8-8f65-9adf93d8a06d">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="34e7a3cd-620f-4819-91a1-47c74e4f820f"/>
-								<text><![CDATA[nombreinstitucion]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="2c777ca4-d62d-4db0-a65d-b290fe10a65c"/>
-								<textFieldExpression><![CDATA[$F{nombreinstitucion}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="864aab16-adae-4529-888f-9f55972ed527">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="29889813-25f4-4742-b6ce-8c0812b85724"/>
-								<text><![CDATA[salarioactual]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="9748c25d-2227-4269-aa00-bd4b8a71b0c1"/>
-								<textFieldExpression><![CDATA[$F{salarioactual}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="0e400732-0c84-4519-bae5-0f1511a5a57e">
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="fed4e7bd-3ab0-4d5c-bfe2-c0a034ea6c78"/>
-								<text><![CDATA[sistemapago]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="0e673680-42a2-4177-af43-949b8c2904a1"/>
-								<textFieldExpression><![CDATA[$F{sistemapago}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-				</jr:table>
-			</componentElement>
+			<staticText>
+				<reportElement x="79" y="334" width="100" height="20" uuid="366fcdf5-d048-4244-8a1e-674d4d2daed7"/>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="334" width="100" height="20" uuid="676c7066-838e-4293-9563-2a9d87e43de2"/>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

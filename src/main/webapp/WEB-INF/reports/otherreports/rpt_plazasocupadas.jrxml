@@ -24,9 +24,11 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT p.codigopuesto as 'codigo Puesto',p.nombrepuesto as 'Nombre Puesto',concat(e.nombreempleado,' ',e.apellidoempleado) as 'Nombre de Empleado',e.sexoempleado as 'Sexo',p.sueldobase as 'sueldo Basico',
-DATE_FORMAT(p.fechanombramiento, "%d/ %m /%Y") as 'Fecha de Nombramiento', DATE_FORMAT(p.fechacontratacionhasta, "%d/ %m /%Y") as 'Fecha de Desvinculacion',
+DATE_FORMAT(p.fechacontrataciondesde, "%d/ %m /%Y") as 'Fecha de Nombramiento', DATE_FORMAT(p.fechacontratacionhasta, "%d/ %m /%Y") as 'Fecha de Desvinculacion',
 p.ubicacionpuesto as 'Ubicacion',p.sublinea as 'Linea de Trabajo'
- FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and  p.estadopuesto=1]]>
+ FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and  p.estadopuesto=1
+and p.fechacontrataciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigo Puesto" class="java.lang.Integer"/>
 	<field name="Nombre Puesto" class="java.lang.String"/>

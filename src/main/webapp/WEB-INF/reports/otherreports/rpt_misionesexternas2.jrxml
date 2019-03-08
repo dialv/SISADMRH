@@ -20,7 +20,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
-where m.fechasalidamision>=$P{FECHAINICIO} and tipomision like '%Externa']]>
+where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fecharegresomision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision like '%Externa']]>
 	</queryString>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
@@ -292,8 +292,7 @@ where m.fechasalidamision>=$P{FECHAINICIO} and tipomision like '%Externa']]>
 			</textField>
 			<textField>
 				<reportElement x="236" y="0" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
-				<textFieldExpression><![CDATA[
-new BigDecimal($F{gastoviaje}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new BigDecimal($F{gastoviaje}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
