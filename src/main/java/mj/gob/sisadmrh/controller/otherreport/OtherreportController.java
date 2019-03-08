@@ -796,7 +796,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
        public ModelAndView diagnosticoxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <DiagnosticoCapacitacion> capacitadorsList = diagnosticoService.Diagnosticoexcel(fechainicio, fechafin); 
+              List<Object[]> capacitadorsList = diagnosticoService.Diagnosticoexcel(fechainicio, fechafin); 
               return new ModelAndView(new DiagnosticoView(), "diagnosticoList", capacitadorsList);
        }
        
