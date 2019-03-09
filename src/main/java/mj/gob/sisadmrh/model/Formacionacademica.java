@@ -50,11 +50,9 @@ public class Formacionacademica implements Serializable {
     @Column(name = "aniosaprobados")
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaformacionacademica;
     @Size(max = 200)
