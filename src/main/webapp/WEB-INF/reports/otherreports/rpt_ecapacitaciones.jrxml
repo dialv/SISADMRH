@@ -642,17 +642,6 @@ and c.fechacapacitacionhasta<=$P{FECHAFIN}]]>
 			</textField>
 		</band>
 	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<staticText>
-				<reportElement x="299" y="15" width="189" height="20" uuid="0e4f1e32-2ef2-469c-a677-bd08799e17cf"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Derechos Reservados UES/FIA/EISI]]></text>
-			</staticText>
-		</band>
-	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
