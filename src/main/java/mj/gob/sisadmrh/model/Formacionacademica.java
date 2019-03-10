@@ -46,13 +46,14 @@ public class Formacionacademica implements Serializable {
     @Column(name = "centroeducativo")
     private String centroeducativo;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "aniosaprobados")
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaformacionacademica;
     @Size(max = 200)
@@ -61,10 +62,10 @@ public class Formacionacademica implements Serializable {
     @Size(max = 200)
     @Column(name = "tituloobtenido")
     private String tituloobtenido;
+	@NotNull
     @Column(name = "estadoformacion")
     private Integer estadoformacion;
     @Basic(optional = false)
-    @NotNull
     @Lob
     @Column(name = "doctitulo")
     private byte[] doctitulo;
