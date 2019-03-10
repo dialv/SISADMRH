@@ -18,13 +18,14 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author developer
+ * @author root
  */
 @Entity
 @Table(name = "formacionacademica")
@@ -34,9 +35,8 @@ public class Formacionacademica implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Basic(optional = false)
     @Column(name = "codigoformacionacademica")
     private Integer codigoformacionacademica;
     @Size(max = 50)
@@ -49,12 +49,12 @@ public class Formacionacademica implements Serializable {
     @Column(name = "aniosaprobados")
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/YYYY")
-    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
     @DateTimeFormat(pattern = "dd/MM/YYYY")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date fechahastaformacionacademica;
     @Size(max = 200)
     @Column(name = "termino")
@@ -62,20 +62,14 @@ public class Formacionacademica implements Serializable {
     @Size(max = 200)
     @Column(name = "tituloobtenido")
     private String tituloobtenido;
-	@NotNull
-    @Column(name = "estadoformacion")
-    private Integer estadoformacion;
     @Basic(optional = false)
     @Lob
     @Column(name = "doctitulo")
     private byte[] doctitulo;
-
- 
-
-    public Formacionacademica(Integer codigoformacionacademica, byte[] doctitulo) {
-        this.codigoformacionacademica = codigoformacionacademica;
-        this.doctitulo = doctitulo;
-    }
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "estadoformacion")
+    private int estadoformacion;
 
     public Formacionacademica() {
     }
@@ -84,9 +78,11 @@ public class Formacionacademica implements Serializable {
         this.codigoformacionacademica = codigoformacionacademica;
     }
 
-    public Formacionacademica(Integer codigoformacionacademica, int aniosaprobados) {
+    public Formacionacademica(Integer codigoformacionacademica, int aniosaprobados, byte[] doctitulo, int estadoformacion) {
         this.codigoformacionacademica = codigoformacionacademica;
         this.aniosaprobados = aniosaprobados;
+        this.doctitulo = doctitulo;
+        this.estadoformacion = estadoformacion;
     }
 
     public Integer getCodigoformacionacademica() {
@@ -152,13 +148,21 @@ public class Formacionacademica implements Serializable {
     public void setTituloobtenido(String tituloobtenido) {
         this.tituloobtenido = tituloobtenido;
     }
-    
-     public byte[] getDoctitulo() {
+
+    public byte[] getDoctitulo() {
         return doctitulo;
     }
 
     public void setDoctitulo(byte[] doctitulo) {
         this.doctitulo = doctitulo;
+    }
+
+    public int getEstadoformacion() {
+        return estadoformacion;
+    }
+
+    public void setEstadoformacion(int estadoformacion) {
+        this.estadoformacion = estadoformacion;
     }
 
     @Override
@@ -184,14 +188,6 @@ public class Formacionacademica implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Formacionacademica[ codigoformacionacademica=" + codigoformacionacademica + " ]";
-    }
-
-    public Integer getEstadoformacion() {
-        return estadoformacion;
-    }
-
-    public void setEstadoformacion(Integer estadoformacion) {
-        this.estadoformacion = estadoformacion;
     }
     
 }
