@@ -179,51 +179,52 @@
                             <li sec:authorize="hasRole('ROLE_ESTRATEGICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Estrat&eacute;gicos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/estadisticoactivos/}">Estadistico de Personal Activo</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/historial/}">Reporte de Historial Laboral</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/renuncias/}">Reporte de Renuncias</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/evaluacioncap/}">Reporte de Evaluacion <br>de Capacitaciones</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/despidos/}">Reporte de Despidos</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/misionesinternas/}">Reporte de Misiones Internas</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/1misionesexternas/}">Reporte de Misiones Externa 1</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/2misionesexternas/}">Reporte de Misiones Externa 2</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/puestocaducarreport/}">Reporte Puestos a Caducar</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/contrataciones/}">Reporte Contrataciones</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/constanciaservicios/}">Constancia de Servicios</a></li>
-                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/constanciasalariales/}">Constancias Salariales</a></li>
+                                                          <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/bitacoras/}">1. Reporte de Bitacora</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/estadisticoactivos/}">2. Reporte de Estadistico <br> de Personal Activo</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/historial/}">3. Reporte de Historial Laboral</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/renuncias/}">4. Reporte de Renuncias</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/evaluacioncap/}">5. Reporte de Evaluacion <br>de Capacitaciones</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/despidos/}">6. Reporte de Despidos</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/misionesinternas/}">7. Reporte de Misiones Internas</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/1misionesexternas/}">8. Reporte de Misiones Externa 1</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/2misionesexternas/}">9. Reporte de Misiones Externa 2</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/puestocaducarreport/}">10. Reporte Puestos a Caducar</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/contrataciones/}">11. Reporte Contrataciones</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/constanciaservicios/}">12. Constancia de Servicios</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ESTRATEGICO')"><a href="#" th:href="@{/otherreports/constanciasalariales/}">13. Constancias Salariales</a></li>
                                 </ul>
                             </li>
                             <li sec:authorize="hasRole('ROLE_TACTICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes T&aacute;cticos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/reporte/pensionadoreporte}">Reporte de Personal Pensionado</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/exoneradoreporte/}">Reporte de Personal Exonerado <br>de Marcaci&oacute;n</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/beneficios/report/}">Reporte de Beneficios</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/plazasocupadas/}">Reporte Plazas Ocupadas</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/indemnizados/}">Reporte de Personal Indemnizado</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/empleadoincapacidad/}">Reporte de Empleados   <br> con Incapacidad</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitadores/}">Reporte Capacitador</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">Reporte de Capacitaciones</a></li>
-                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/costocreporte/}">Reporte de costos de Capacitacion</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/reporte/pensionadoreporte}">1. Reporte de Personal Pensionado</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/exoneradoreporte/}">2. Reporte de Personal Exonerado <br>de Marcaci&oacute;n</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/beneficios/report/}">3. Reporte de Beneficios</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/plazasocupadas/}">4. Reporte Plazas Ocupadas</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/indemnizados/}">5. Reporte de Personal Indemnizado</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/empleadoincapacidad/}">6. Reporte de Empleados   <br> con Incapacidad</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitadores/}">7. Reporte Capacitador</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">8. Reporte de Capacitaciones</a></li>
+                                    <li sec:authorize="hasRole('ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/costocreporte/}">9. Reporte de costos de Capacitacion</a></li>
                                 </ul>
                             </li>
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Operativos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/abogados/}">Reporte de Abogados</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/bitacoras/}">Reporte de Bit&aacute;cora</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/hijoscapesp/}">Reporte de Empleados con Hijos <br> con Capacidades Especiales</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/historial/}">Reporte de Historial Laboral</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/motoristas/}">Reporte de Motoristas</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/notarios/}">Reporte de Notarios</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/comites/}">Reporte de comit&eacute;s</a></li>
-                                      <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/comisiones/}">Reporte de comisiones</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">Reporte de Capacitaciones</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/cumpleanieros/}">Reporte de Cumpleañeros</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/temasdiagnosticos/}">Reporte de Temas de Diagnostico</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/estadisticocapacitados/}">Estadistico de Personal Capacitado</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/cuadrodirectivos/report/}">Reporte de Cuadro Directivo</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/nivelesreporte/}">Reporte de Niveles Escolares</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/abogados/}">1. Reporte de Abogados</a></li>
+<!--                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/bitacoras/}">2. Reporte de Bit&aacute;cora</a></li>-->
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/hijoscapesp/}">2. Reporte de Empleados con Hijos <br> con Capacidades Especiales</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/historial/}">3. Reporte de Historial Laboral</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/motoristas/}">4. Reporte de Motoristas</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/notarios/}">5. Reporte de Notarios</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/comites/}">6. Reporte de comit&eacute;s</a></li>
+                                      <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/comisiones/}">7. Reporte de comisiones</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/capacitaciones/}">8. Reporte de Capacitaciones</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/cumpleanieros/}">9. Reporte de Cumpleañeros</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/temasdiagnosticos/}">10. Reporte de Temas de Diagnostico</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/estadisticocapacitados/}">11. Reporte de Estadistico de <br>  Personal Capacitado</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/cuadrodirectivos/report/}">12. Reporte de Cuadro Directivo</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/nivelesreporte/}">13. Reporte de Niveles Escolares</a></li>
                                 </ul>
                             </li>
                             <li class="active"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Sesión<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>

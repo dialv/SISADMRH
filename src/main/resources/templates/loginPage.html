@@ -53,7 +53,7 @@
         <div class="row text-center" align="center">
             <img src="../../static/image/login.jpg"  th:src="@{/image/login.png}" />
         </div>
-        <h2 class="h2mod">Introduzca nombre de usuario y contraseña:</h2>
+        <h2 class="h2mod">Ingrese Usuario y Contraseña:</h2>
         <div class="inset">
             
             <div th:if="${#request.getParameter('error') == 'true'}"
@@ -70,7 +70,7 @@
                    <label for="username" class="col-sm-2 control-label">USUARIO</label>
               
                <div class="col-sm-9">
-                    <input type="text"  name="username" id ="username">
+                   <input type="text"  name="username" size="16" maxlength="16"id ="username">
                 </div>
             <!--<label for="username">USUARIO</label>-->
             
@@ -94,7 +94,7 @@
              </div>
             </div>
         <p class="p-container">
-           <input name="submit" type="submit" value="Login" />
+           <input name="submit" type="submit" value="Iniciar Sesion" />
         </p>
       </form>
    <div class="col-md-12">

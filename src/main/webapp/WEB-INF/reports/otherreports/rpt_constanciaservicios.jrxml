@@ -22,8 +22,8 @@
 		<![CDATA[SELECT concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado ,c.fechainiciocontrato,c.fechafincontrato,c.plazanominal,el.nombreinstitucion,c.salarioactual,c.sistemapago, CURRENT_DATE from empleado e inner join contrato c on e.codigoempleado=c.codigoempleado inner join experiencialaboral el
  on e.codigoempleado=el.codigoexperiencialaboral
  WHERE e.codigoempleado=$P{CODIGO} and
- c.fechainiciocontrato>=$P{FECHAINICIO} and
- c.fechafincontrato<=$P{FECHAFIN}]]>
+ 
+c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafincontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="fechainiciocontrato" class="java.sql.Date">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="108"/>
+	<property name="ireport.y" value="124"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -19,13 +19,12 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, TRUNCATE(m.gastoviaje,4) AS gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
-where m.fechasalidamision>=$P{FECHAINICIO}
-AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
+		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
+where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fecharegresomision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision like '%Externa']]>
 	</queryString>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
-	<field name="gastoviaje" class="java.lang.Double">
+	<field name="gastoviaje" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="numeroacuerdo" class="java.lang.Integer">
@@ -46,11 +45,15 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 	<variable name="viaticos_1" class="java.lang.Float" resetType="Column" calculation="Sum">
 		<variableExpression><![CDATA[$F{viaticos}]]></variableExpression>
 	</variable>
+	<variable name="costo_total" class="java.lang.String"/>
+	<variable name="gastoviaje_1" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{gastoviaje}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="3" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="94" splitType="Stretch">
@@ -76,7 +79,7 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="94" y="79" width="100" height="14" uuid="f95dbd3b-8178-4474-a582-79b75e0bdbc9"/>
+				<reportElement x="104" y="79" width="100" height="14" uuid="f95dbd3b-8178-4474-a582-79b75e0bdbc9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -125,14 +128,14 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="64" y="79" width="30" height="14" uuid="6a069d59-e199-4f16-ac10-6c2677207567"/>
+				<reportElement x="74" y="79" width="30" height="14" uuid="6a069d59-e199-4f16-ac10-6c2677207567"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="64" y="64" width="100" height="14" uuid="4f98cca5-99a1-4b73-981d-dd3890d1a137"/>
+				<reportElement x="74" y="64" width="100" height="14" uuid="4f98cca5-99a1-4b73-981d-dd3890d1a137"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -160,11 +163,11 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
 			<image>
-				<reportElement x="69" y="3" width="160" height="60" uuid="62ab98e5-16d8-45bf-bae8-6eb98ff1fb48"/>
+				<reportElement x="61" y="3" width="80" height="70" uuid="62ab98e5-16d8-45bf-bae8-6eb98ff1fb48"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="646" y="3" width="144" height="60" uuid="72ee3888-0064-48f9-8803-deda823af38b"/>
+				<reportElement x="646" y="3" width="70" height="70" uuid="72ee3888-0064-48f9-8803-deda823af38b"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
@@ -289,7 +292,7 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 			</textField>
 			<textField>
 				<reportElement x="236" y="0" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
-				<textFieldExpression><![CDATA[$F{gastoviaje}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new BigDecimal($F{gastoviaje}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -300,26 +303,17 @@ AND m.fecharegresomision<=$P{FECHAFIN} and tipomision like '%Externa']]>
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch">
-			<line>
-				<reportElement x="620" y="7" width="90" height="1" uuid="4eac21f9-6c50-40d6-aa5e-dbd9194fdbe2"/>
-			</line>
-			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="623" y="11" width="106" height="13" backcolor="#FFFFFF" uuid="b9f332fb-847c-412c-b60f-13b0eb194b9a"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9" isUnderline="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
-			</textField>
+		<band height="70" splitType="Stretch">
 			<line>
 				<reportElement x="203" y="6" width="102" height="1" uuid="7f6b219c-d6c8-4d1a-baa5-521dd4b482db"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="200" y="11" width="101" height="13" backcolor="#FFFFFF" uuid="9533bff5-40c5-4cd3-832d-ded03ec55d73"/>
-				<textElement>
+				<reportElement mode="Opaque" x="194" y="11" width="107" height="13" backcolor="#FFFFFF" uuid="f510e194-2ca5-4577-8f74-b422bc3704ff"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total Gastos:    " + $V{viaticos_1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Gasatos Totales:$" + 
+new BigDecimal($V{gastoviaje_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>

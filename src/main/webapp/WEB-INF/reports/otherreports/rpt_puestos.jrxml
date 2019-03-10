@@ -35,10 +35,11 @@
      puesto.`FECHACREACION` AS puesto_FECHACREACION,
      puesto.`ESTADOPUESTO` AS puesto_ESTADOPUESTO
 FROM
-     `puesto` puesto
+     `puesto` puesto]]>
+	<!--
 WHERE
      FECHACONTRATACIONHASTA <= $P{FECHAINICIO}
- AND FECHACONTRATACIONHASTA >= $P{FECHAFIN}]]>
+ AND FECHACONTRATACIONHASTA >= $P{FECHAFIN}-->
 	</queryString>
 	<field name="puesto_CODIGOPUESTO" class="java.lang.Integer"/>
 	<field name="puesto_CATEGORIAPUESTO" class="java.lang.String"/>
@@ -73,42 +74,44 @@ WHERE
 	<title>
 		<band height="79" splitType="Stretch">
 			<textField>
-				<reportElement x="464" y="30" width="74" height="20" uuid="6aaf2a70-8623-4efb-81a8-4d09ded974f4"/>
+				<reportElement uuid="6aaf2a70-8623-4efb-81a8-4d09ded974f4" x="464" y="30" width="74" height="20"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="538" y="30" width="26" height="20" uuid="d37d7200-bcd9-40d9-8801-8cf978751fec"/>
+				<reportElement uuid="d37d7200-bcd9-40d9-8801-8cf978751fec" x="538" y="30" width="26" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="495" y="50" width="70" height="20" uuid="b8b36ba1-871e-4651-875a-d8da76e4f677"/>
+				<reportElement uuid="b8b36ba1-871e-4651-875a-d8da76e4f677" x="495" y="50" width="70" height="20"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="170" y="50" width="182" height="20" uuid="6693b54d-1c8b-42e9-acbe-211507d3a81b"/>
+				<reportElement uuid="6693b54d-1c8b-42e9-acbe-211507d3a81b" x="170" y="50" width="182" height="20"/>
 				<textElement textAlignment="Justified">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[REPORTE DE PUESTOS A CADUCAR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="143" y="0" width="265" height="20" uuid="31d689a4-ca57-4a25-bd58-2c845d56d6b6"/>
+				<reportElement uuid="31d689a4-ca57-4a25-bd58-2c845d56d6b6" x="143" y="0" width="265" height="20"/>
 				<textElement textAlignment="Justified">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[MINISTERIO DE JSUTICIA Y SEGURIDAD PUBLICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="170" y="20" width="211" height="20" uuid="660b0ca1-88a4-4271-a940-c8baf80a7c2c"/>
+				<reportElement uuid="660b0ca1-88a4-4271-a940-c8baf80a7c2c" x="170" y="20" width="211" height="20"/>
 				<textElement textAlignment="Justified">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DIRECCION DE RECURSOS HUMANOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="408" y="50" width="114" height="20" uuid="788b00d6-16f2-4348-b3d3-4e42268c96ec"/>
+				<reportElement uuid="788b00d6-16f2-4348-b3d3-4e42268c96ec" x="408" y="50" width="114" height="20"/>
+				<textElement/>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 		</band>
@@ -119,42 +122,42 @@ WHERE
 	<columnHeader>
 		<band height="41" splitType="Stretch">
 			<staticText>
-				<reportElement x="-13" y="6" width="78" height="20" uuid="83bff103-8d68-466a-8b07-82e0b28cc320"/>
+				<reportElement uuid="83bff103-8d68-466a-8b07-82e0b28cc320" x="-13" y="6" width="78" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Codigo Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="65" y="6" width="78" height="20" uuid="deecbfa4-4054-4e18-a9de-2ce6b4cf3a44"/>
+				<reportElement uuid="deecbfa4-4054-4e18-a9de-2ce6b4cf3a44" x="65" y="6" width="78" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Nombre Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="143" y="6" width="71" height="20" uuid="f7565169-b918-48c0-846f-59b3cf97e954"/>
+				<reportElement uuid="f7565169-b918-48c0-846f-59b3cf97e954" x="143" y="6" width="71" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Fecha Desde ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="224" y="6" width="71" height="20" uuid="af025e36-6608-4b1b-89c4-4447144dc8f6"/>
+				<reportElement uuid="af025e36-6608-4b1b-89c4-4447144dc8f6" x="224" y="6" width="71" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Fecha Hasta ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="295" y="6" width="71" height="20" uuid="bef44f85-92c5-4eb4-b1dd-293b1c10b91a"/>
+				<reportElement uuid="bef44f85-92c5-4eb4-b1dd-293b1c10b91a" x="295" y="6" width="71" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Ubicacion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="366" y="6" width="71" height="20" uuid="1d51b996-af76-4230-88bc-b375feeddddb"/>
+				<reportElement uuid="1d51b996-af76-4230-88bc-b375feeddddb" x="366" y="6" width="71" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[Sublinea]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="437" y="6" width="71" height="20" uuid="b09eee6d-f224-4cc8-80ec-afaca29afe4a"/>
+				<reportElement uuid="b09eee6d-f224-4cc8-80ec-afaca29afe4a" x="437" y="6" width="71" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[No. Partida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="508" y="6" width="71" height="20" uuid="2cc1aced-3ff2-4427-9106-7998591be07e"/>
+				<reportElement uuid="2cc1aced-3ff2-4427-9106-7998591be07e" x="508" y="6" width="71" height="20"/>
 				<textElement textAlignment="Justified"/>
 				<text><![CDATA[No. Subpartida]]></text>
 			</staticText>
@@ -163,37 +166,43 @@ WHERE
 	<detail>
 		<band height="25" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="41" height="20" uuid="6f5d15df-a0ba-4c70-8e0c-64ac33febd05"/>
+				<reportElement uuid="6f5d15df-a0ba-4c70-8e0c-64ac33febd05" x="0" y="0" width="41" height="20"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{puesto_CODIGOPUESTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="65" y="0" width="78" height="20" uuid="cbb73e51-89af-417e-97d4-25293749b3fe"/>
+				<reportElement uuid="cbb73e51-89af-417e-97d4-25293749b3fe" x="65" y="0" width="78" height="20"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{puesto_NOMBREPUESTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="143" y="0" width="71" height="20" uuid="1ec60a8c-0c84-4d12-b8a8-8833a3491eb1"/>
+				<reportElement uuid="1ec60a8c-0c84-4d12-b8a8-8833a3491eb1" x="143" y="0" width="71" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$F{puesto_FECHACONTRATACIONDESDE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="224" y="0" width="71" height="20" uuid="d66ad430-88d3-4177-ba2d-7abc952f22a4"/>
+				<reportElement uuid="d66ad430-88d3-4177-ba2d-7abc952f22a4" x="224" y="0" width="71" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$F{puesto_FECHACONTRATACIONHASTA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="295" y="0" width="71" height="20" uuid="b294a92f-5d9e-4a17-8b92-0556ca76cb76"/>
+				<reportElement uuid="b294a92f-5d9e-4a17-8b92-0556ca76cb76" x="295" y="0" width="71" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$F{puesto_UBICACIONPUESTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="366" y="0" width="71" height="20" uuid="ac50ab3d-9206-428e-b5c8-0a4d2612ddde"/>
+				<reportElement uuid="ac50ab3d-9206-428e-b5c8-0a4d2612ddde" x="366" y="0" width="71" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$F{puesto_SUBLINEA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="437" y="0" width="71" height="20" uuid="1f5e3f77-0ac6-4e4e-b12e-e006546f26a3"/>
+				<reportElement uuid="1f5e3f77-0ac6-4e4e-b12e-e006546f26a3" x="437" y="0" width="71" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$F{puesto_NUMEROPARTIDAPUESTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="508" y="0" width="71" height="20" uuid="dd0460b3-408a-4980-a70d-6f8f1826e1c1"/>
+				<reportElement uuid="dd0460b3-408a-4980-a70d-6f8f1826e1c1" x="508" y="0" width="71" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$F{puesto_NUMEROSUBPARTIDAPUESTO}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -201,7 +210,8 @@ WHERE
 	<columnFooter>
 		<band height="60" splitType="Stretch">
 			<textField evaluationTime="Report">
-				<reportElement x="438" y="30" width="100" height="20" uuid="629deae5-0261-45bc-8c0f-1e8da51865c7"/>
+				<reportElement uuid="629deae5-0261-45bc-8c0f-1e8da51865c7" x="438" y="30" width="100" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>

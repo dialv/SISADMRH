@@ -22,8 +22,9 @@ inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto
  inner join puesto p on ep.codigopuesto=p.codigopuesto 
  inner join capacitador c on e.codigoempleado=c.codigoempleado INNER JOIN capacitacion ca on c.codigocapacitador=c.codigocapacitador
 where ca.codigocapacitacion=$P{CODIGO}
-and fechacapacitaciondesde>=$P{FECHAINICIO}
-and ca.fechacapacitacionhasta<=$P{FECHAFIN}]]>
+and fechacapacitaciondesde>=$P{FECHAINICIO}]]>
+	<!--
+and ca.fechacapacitacionhasta<=$P{FECHAFIN}-->
 	</queryString>
 	<field name="count(ca.codigocapacitacion)" class="java.lang.Long"/>
 	<field name="nombreempleado" class="java.lang.String">

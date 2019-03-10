@@ -230,7 +230,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
                   params.put("USUARIO",  getRequest().getUserPrincipal().getName());
-//		params.put("CODIGO", indice.toString());
+		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_empleadoincapacidad", params, download,response);
@@ -432,7 +432,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
             @RequestParam(value="fechafinal", required = false) String fechafin, 
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
-//		params.put("CODIGO", indice.toString());
+		params.put("CODIGO", indice.toString());
 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
@@ -796,7 +796,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
        public ModelAndView diagnosticoxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <DiagnosticoCapacitacion> capacitadorsList = diagnosticoService.Diagnosticoexcel(fechainicio, fechafin); 
+              List<Object[]> capacitadorsList = diagnosticoService.Diagnosticoexcel(fechainicio, fechafin); 
               return new ModelAndView(new DiagnosticoView(), "diagnosticoList", capacitadorsList);
        }
        
@@ -970,7 +970,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
                 HttpServletResponse response) throws Exception {
                 Map<String, Object> params = new HashMap<>();
                 params.put("USUARIO",  getRequest().getUserPrincipal().getName());
-//		params.put("CODIGO", indice.toString());
+		params.put("CODIGO", indice.toString());
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_ecapacitaciones", params, download,response);

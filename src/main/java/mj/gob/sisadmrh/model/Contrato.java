@@ -66,10 +66,10 @@ public class Contrato implements Serializable {
     @Column(name = "SALARIOACTUAL")
     private Float salarioactual;
     @Column(name = "FECHAINICIOCONTRATO")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechainiciocontrato;
     @Column(name = "FECHAFINCONTRATO")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechafincontrato;
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="64"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="610"/>
+	<property name="ireport.y" value="201"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -19,14 +19,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,i.nombreincapacidad, p.nombrepuesto,e.duiempleado,DATE_FORMAT(i.fechadesdeincapacidad, '%d/%m/%Y') as Desde,DATE_FORMAT(i.fechahastaincapacidad, '%d/%m/%Y') as Hasta ,
-             i.numerofichaisss,i.tipoincapacidad,i.formaincapacidad,i.subsidio,DATE_FORMAT(i.fechaemision, '%d/%m/%Y')as "Fecha Emision" from empleado e 
-             inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto 
-             inner join incapacidad i on e.codigoempleado=i.codigoempleado 
- WHERE e.codigoempleado=$P{USUARIO}  
-and
-i.fechadesdeincapacidad>=$P{FECHAINICIO} and
-	i.fechahastaincapacidad<=$P{FECHAFIN}]]>
+		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,i.nombreincapacidad, p.nombrepuesto,e.duiempleado,DATE_FORMAT(i.fechadesdeincapacidad, '%d/%m/%Y') as Desde,DATE_FORMAT(i.fechahastaincapacidad, '%d/%m/%Y') as Hasta ,             i.numerofichaisss,i.tipoincapacidad,i.formaincapacidad,i.subsidio,DATE_FORMAT(i.fechaemision, '%d/%m/%Y')as "Fecha Emision" from empleado e inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto
+inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE e.codigoempleado=$P{USUARIO}
+and i.fechadesdeincapacidad>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and i.fechahastaincapacidad<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombreincapacidad" class="java.lang.String">
@@ -57,7 +52,7 @@ i.fechadesdeincapacidad>=$P{FECHAINICIO} and
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="7" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="89" splitType="Stretch">
@@ -69,7 +64,7 @@ i.fechadesdeincapacidad>=$P{FECHAINICIO} and
 				<text><![CDATA[Reporte de Empleados Con incapaciad]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="71" y="69" width="100" height="14" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
+				<reportElement x="76" y="69" width="100" height="14" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -118,18 +113,18 @@ i.fechadesdeincapacidad>=$P{FECHAINICIO} and
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="43" y="69" width="30" height="14" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
+				<reportElement x="48" y="69" width="30" height="14" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<image>
-				<reportElement x="47" y="0" width="212" height="48" uuid="d5244a04-208d-4ef9-bc04-8c758f3c1f28"/>
+				<reportElement x="47" y="0" width="80" height="70" uuid="d5244a04-208d-4ef9-bc04-8c758f3c1f28"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="652" y="5" width="167" height="52" uuid="757880b3-ddc9-4fcd-9ec0-2b4cae2e48bb"/>
+				<reportElement x="652" y="5" width="70" height="70" uuid="757880b3-ddc9-4fcd-9ec0-2b4cae2e48bb"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -261,7 +256,7 @@ i.fechadesdeincapacidad>=$P{FECHAINICIO} and
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="739" y="0" width="50" height="14" uuid="e6d1a9ad-0945-449c-8284-4ab6a43d2af5"/>
+				<reportElement x="739" y="0" width="62" height="14" uuid="e6d1a9ad-0945-449c-8284-4ab6a43d2af5"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

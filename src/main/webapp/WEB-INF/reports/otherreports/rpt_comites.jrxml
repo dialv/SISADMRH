@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-<<<<<<< HEAD
-	<property name="ireport.x" value="47"/>
-=======
-	<property name="ireport.x" value="316"/>
->>>>>>> 97803a3b4d5952f5ac198796cb4afbea2632a85e
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="132"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -23,8 +19,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%YYY') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%YYY') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
-WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
+		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
+WHERE  c.fechadesdecomite>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and c.fechahastacomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -42,7 +39,7 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="7" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="87" splitType="Stretch">
@@ -61,14 +58,14 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c42b5a94-d56f-415b-9967-63beca281b2d" x="643" y="58" width="61" height="15"/>
+				<reportElement uuid="c42b5a94-d56f-415b-9967-63beca281b2d" x="650" y="58" width="61" height="15"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="0079daa6-1363-4574-a3cf-8cb78dec494e" x="712" y="58" width="35" height="15"/>
+				<reportElement uuid="0079daa6-1363-4574-a3cf-8cb78dec494e" x="719" y="58" width="35" height="15"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -96,7 +93,7 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c2464fff-bc9f-4c3b-a4aa-56a405eea00c" x="687" y="72" width="81" height="15"/>
+				<reportElement uuid="c2464fff-bc9f-4c3b-a4aa-56a405eea00c" x="694" y="72" width="81" height="15"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -110,11 +107,11 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="d5244a04-208d-4ef9-bc04-8c758f3c1f28" x="47" y="0" width="212" height="48"/>
+				<reportElement uuid="d5244a04-208d-4ef9-bc04-8c758f3c1f28" x="47" y="0" width="80" height="70"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement uuid="757880b3-ddc9-4fcd-9ec0-2b4cae2e48bb" x="652" y="5" width="167" height="52"/>
+				<reportElement uuid="757880b3-ddc9-4fcd-9ec0-2b4cae2e48bb" x="659" y="0" width="70" height="70"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -153,7 +150,7 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 				<text><![CDATA[rpt_reporte_comit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8f4080e8-dbe2-4b30-9f43-82f8fbabddf6" x="655" y="72" width="30" height="15"/>
+				<reportElement uuid="8f4080e8-dbe2-4b30-9f43-82f8fbabddf6" x="662" y="72" width="30" height="15"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -249,27 +246,13 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 				<textFieldExpression><![CDATA[$F{nombrecomite}]]></textFieldExpression>
 			</textField>
 			<textField>
-<<<<<<< HEAD
-				<reportElement x="600" y="0" width="50" height="14" uuid="a64a7b8f-e3f0-4d52-9680-26df165d6162"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="681" y="0" width="50" height="14" uuid="1cb3c363-7aba-492c-af66-719474746919"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-=======
-				<reportElement uuid="a64a7b8f-e3f0-4d52-9680-26df165d6162" x="592" y="0" width="68" height="14"/>
+				<reportElement uuid="a64a7b8f-e3f0-4d52-9680-26df165d6162" x="600" y="0" width="50" height="14"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1cb3c363-7aba-492c-af66-719474746919" x="669" y="0" width="66" height="14"/>
+				<reportElement uuid="1cb3c363-7aba-492c-af66-719474746919" x="681" y="0" width="50" height="14"/>
 				<textElement textAlignment="Right"/>
->>>>>>> 97803a3b4d5952f5ac198796cb4afbea2632a85e
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -289,23 +272,16 @@ WHERE  c.fechadesdecomite>=$P{FECHAINICIO}]]>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
-			<line>
-<<<<<<< HEAD
-				<reportElement x="635" y="2" width="100" height="1" uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95"/>
-			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="638" y="3" width="98" height="13" backcolor="#FFFFFF" uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc"/>
-=======
-				<reportElement uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95" x="631" y="0" width="100" height="1"/>
-			</line>
-			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc" mode="Opaque" x="634" y="1" width="98" height="13" backcolor="#FFFFFF"/>
->>>>>>> 97803a3b4d5952f5ac198796cb4afbea2632a85e
+				<reportElement uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc" mode="Opaque" x="634" y="6" width="120" height="13" backcolor="#FFFFFF"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95" x="631" y="5" width="100" height="1"/>
+			</line>
 		</band>
 	</summary>
 </jasperReport>
