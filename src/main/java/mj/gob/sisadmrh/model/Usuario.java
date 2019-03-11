@@ -56,17 +56,17 @@ public class Usuario implements Serializable {
     private Integer controlcontrasenia;
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
-   @Column(name = "FECHAINGRESO")
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
-   // @Temporal(TemporalType.DATE)
+    @Column(name = "FECHAINGRESO")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaingreso;
     @Column(name = "FECHACADUCIDAD")
-    //@Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacaducidad;
     @Column(name = "FECHABAJA")
-  //  @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechabaja;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Usuariorol> usuariorolList;

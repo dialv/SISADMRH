@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -22,7 +17,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
-
 /**
  *
  * @author root
@@ -53,8 +47,8 @@ public class Formacionacademica implements Serializable {
     @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechahastaformacionacademica;
     @Size(max = 200)
     @Column(name = "termino")

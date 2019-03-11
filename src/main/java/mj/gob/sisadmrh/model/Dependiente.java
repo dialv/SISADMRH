@@ -60,8 +60,8 @@ public class Dependiente implements Serializable {
     @Column(name = "fechanacimiento")
     
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechanacimiento;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "salarioinicial")
     private Float salarioinicial;
     @Column(name = "salariofinal")

@@ -55,6 +55,7 @@ public class Hijodiscapacidad implements Serializable {
     private String tipodiscapacidad;
     @Column(name = "fechanamimientohijosdiscapacidad")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechanamimientohijosdiscapacidad;
 
     public Hijodiscapacidad() {
