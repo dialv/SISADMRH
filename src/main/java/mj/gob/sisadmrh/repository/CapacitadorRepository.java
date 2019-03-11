@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import java.util.List;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
 import org.springframework.data.jpa.repository.Query;
@@ -42,7 +43,7 @@ public interface CapacitadorRepository extends CrudRepository<Capacitador, Integ
                     "FROM\n" +
                     "     capacitador capacitador"
             , nativeQuery = true) 
-            Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
+            List<Object[]>  findCapacitadores(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
             
             @Query("SELECT o FROM Capacitador o WHERE o.estadocapacitador != 0")

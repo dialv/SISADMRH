@@ -68,7 +68,7 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
             Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
             
-              @Query(value = "SELECT  co.`numeropersona` as 'Cantidad de Personas',c.nombrecapacitacion as 'Tema',co.`costopersona` as'Costo por Persomna', (`costocapacitador`+(`numeropersona`*`costopersona`)) as 'Costo Total'\n" +
+              @Query(value = "SELECT  co.`numeropersona` as 'Cantidad de Personas',c.nombrecapacitacion as 'Tema',co.`costopersona` as'Costo por Persona', (co.`costocapacitador`+(co.`numeropersona`*co.`costopersona`)) as 'Costo Total'\n" +
 "FROM `costocapacitacion`co,capacitacion c \n" +
 "WHERE co.`codigocapacitacion`=c.`codigocapacitacion`"
           ,nativeQuery = true)
