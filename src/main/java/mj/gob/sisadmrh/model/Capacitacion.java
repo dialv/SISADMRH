@@ -83,13 +83,13 @@ public class Capacitacion implements Serializable {
     //private List<AsistenciaCapacitacion> asistenciacapacitacionList;
     
     @Column(name = "FECHACAPACITACIONDESDE")
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    // @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacapacitaciondesde;
     
     @Column(name = "FECHACAPACITACIONHASTA")
-//   @DateTimeFormat(pattern = "YYYY-MM-dd")
-   @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacapacitacionhasta;
     
     
@@ -105,12 +105,11 @@ public class Capacitacion implements Serializable {
     @Column(name = "DURACIONDIACAPACITACION")
     private Integer duraciondiacapacitacion;
     @Column(name = "FECHACAPACITACION")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacapacitacion;
     @Column(name = "ESTADOCAPACITACION")
     private Integer estadocapacitacion;
-//    @ManyToMany(mappedBy = "capacitacionList")
-//    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITADOR", referencedColumnName = "CODIGOCAPACITADOR")
     @ManyToOne(optional = false)
     private Capacitador codigocapacitador;

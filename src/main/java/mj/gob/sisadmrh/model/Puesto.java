@@ -116,32 +116,40 @@ public class Puesto implements Serializable {
     private Integer estadopuesto;
     @Column(name = "fechaaprobacion")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaaprobacion;
     @Column(name = "fechaautorizacionpuesto")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaautorizacionpuesto;
     @Column(name = "fechabaja")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechabaja;
     @Column(name = "fechacontrataciondesde")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechacontrataciondesde;
     @Column(name = "fechacontratacionhasta")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechacontratacionhasta;
     @Column(name = "fechacreacion")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechacreacion;
     @Column(name = "fechamodificacion")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechamodificacion;
     @Column(name = "fechanombramiento")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechanombramiento;
     @Column(name = "fechavacante")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechavacante;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "sueldobase")
     private Float sueldobase;
     @Column(name = "sueldotopepuesto")

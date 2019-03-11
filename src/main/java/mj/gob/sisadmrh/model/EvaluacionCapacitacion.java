@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 /**
  *
  * @author daniel
@@ -36,8 +37,7 @@ public class EvaluacionCapacitacion implements Serializable {
     @Column(name = "LUGARCAPACITACION")
     private String lugarcapacitacion;
     @Column(name = "HORAEVUALUACIONCAPACITACION")
- // @Temporal(TemporalType.TIME)
-//@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(TemporalType.TIMESTAMP)
     private Date horaevualuacioncapacitacion;
     @Size(max = 4)

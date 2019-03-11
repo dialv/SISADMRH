@@ -46,14 +46,16 @@ public class Mision implements Serializable {
     private String documento;
     @Column(name = "fechaacuerdomision")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechaacuerdomision;
     @Column(name = "fecharegresomision")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fecharegresomision;
     @Column(name = "fechasalidamision")
     @Temporal(javax.persistence.TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechasalidamision;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "gastostotales")
     private Float gastostotales;
     @Column(name = "gastoterminales")
