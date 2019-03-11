@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -73,16 +74,16 @@ public class Incapacidad implements Serializable {
     @Column(name = "DOCUMENTO2")
     private byte[] documento2;
     @Column(name = "FECHADESDEINCAPACIDAD")
-  //  @Temporal(TemporalType.DATE)
-      @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeincapacidad;
     @Column(name = "FECHAHASTAINCAPACIDAD")
-   // @Temporal(TemporalType.DATE)
-      @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaincapacidad;
     @Column(name = "FECHAEMISION")
-  //  @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @DateTimeFormat(pattern = "YYYY-MM-dd")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaemision;
     @Size(max = 30)
     @Column(name = "TIPOINCAPACIDAD")

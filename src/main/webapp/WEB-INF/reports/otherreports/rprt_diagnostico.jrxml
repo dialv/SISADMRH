@@ -31,7 +31,8 @@
      diagnosticocapacitacion.`codigocapacitacion` AS diagnosticocapacitacion_codigocapacitacion,
      diagnosticocapacitacion.`temacapacitacion` AS diagnosticocapacitacion_temacapacitacion
 FROM
-     `diagnosticocapacitacion` diagnosticocapacitacion]]>
+     `diagnosticocapacitacion` diagnosticocapacitacion
+]]>
 	</queryString>
 	<field name="diagnosticocapacitacion_temacapacitacion" class="java.lang.String"/>
 	<field name="diagnosticocapacitacion_direccion" class="java.lang.String"/>

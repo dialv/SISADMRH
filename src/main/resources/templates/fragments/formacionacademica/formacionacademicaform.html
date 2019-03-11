@@ -2,18 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-     <style type="text/css">
+<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+<style type="text/css">
      .boton{
   width:30px;
   height:30px;
@@ -45,14 +36,6 @@
   </head>
 <body>
     <script> Textheader('pnt_cem4',document.title);</script>
-<!--    <div class="contenedorizq"><label  >pnt_cem4</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-<!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -62,9 +45,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
             </div>
     <h3 align="center">  </h3>
-    
-
-    
         <br>
           <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
             
@@ -77,7 +57,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
             </div>
             </form>
-<form class="form-horizontal" id="formformacion" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" id="formformacion" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
           <input type="hidden" th:field="*{codigoformacionacademica}"/>
           <!--<input type="hidden" id="codem"  />-->
             <div class="col-md-12"  >
@@ -144,7 +124,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechahastaformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
@@ -238,17 +218,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         if(foo[0]!=foo[2]){
                             swal(foo[1], foo[0]);
                         }
-                    }
-// 		$(document).ready(function() {
-// 			$(function () {
-// 				$("#datepickersince").datepicker();
-// 			});
-
-// 			$(function () {
-// 				$("#datepickeruntil").datepicker();
-// 			});
-// 		});
-		
+                    }		
 		$(document).ready(function () {
 		    var date = new Date();
 		    var currentMonth = date.getMonth();

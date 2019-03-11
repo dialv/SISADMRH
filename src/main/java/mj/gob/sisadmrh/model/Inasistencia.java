@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -44,10 +45,12 @@ public class Inasistencia implements Serializable {
     @Column(name = "CONSTANCIAINASISTENCIA")
     private String constanciainasistencia;
     @Column(name = "FECHADESDEINASISTENCIA")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeinasistencia;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "FECHAHASTAINASISTENCIA")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastainasistencia;
      @Lob
     @Column(name = "ACUERDO")

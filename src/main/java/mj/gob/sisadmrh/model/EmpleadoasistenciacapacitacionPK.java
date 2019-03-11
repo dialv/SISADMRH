@@ -13,6 +13,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -33,6 +34,7 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
     @NotNull
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fecha;
 
     public EmpleadoasistenciacapacitacionPK() {
