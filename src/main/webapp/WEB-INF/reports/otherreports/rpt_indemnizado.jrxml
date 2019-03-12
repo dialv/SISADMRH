@@ -304,7 +304,7 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="601" y="3" width="90" height="1" uuid="ee03be76-9c47-4e98-acd0-52534cf65fbb"/>
+				<reportElement x="594" y="3" width="110" height="1" uuid="ee03be76-9c47-4e98-acd0-52534cf65fbb"/>
 			</line>
 		</band>
 	</summary>
