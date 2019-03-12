@@ -86,20 +86,35 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             @Param("FFINAL") String ffinal);
 
     // PARA GENERAR REPORTE DE EXEL EXONERADO DE MARCACION----------------------------------------------
-    @Query(value = " SELECT  e.nombreempleado, e.apellidoempleado, p.nombrepuesto ,u.nombreubicacion ,cd.acuerdocuadrodirectivo  , cd.fechapresentaciondesde , cd.fechapresentacionhasta \n"
-            + " FROM `empleado` e, puesto p ,empleadopuesto ep, ubicacionfisica u, cuadrodirectivo cd "
-            + " WHERE\n"
-            + " e.codigopuesto=ep.codigopuesto AND "
-            + " ep.codigopuesto=p.codigopuesto and "
-            + " e.codigopuesto=p.codigopuesto and "
-            + " e.estadoempleado=2 and "
-            + " e.codigoempleado=u.codigoempleado and "
-            + " e.codigoempleado=cd.codigoempleado and cd.fechapresentaciondesde>= :FINICIAL and cd.fechapresentacionhasta <= :FFINAL  ", nativeQuery = true)
+   
+    
+    
+    @Query(value = " SELECT "
+            + " concat(e.nombreempleado,' ',e.apellidoempleado) as 'Nombre', "
+            + " p.nombrepuesto as 'Nombre de Puesto', "
+            + " u.nombreubicacion as 'Ubicacion', "
+            + " c.acuerdocuadrodirectivo as'No. Acuerdo' , "
+            + " DATE_FORMAT(c.fechapresentaciondesde, \"%d/ %m /%Y\") as 'Fecha Desde', "
+            + " DATE_FORMAT(c.fechapresentacionhasta, \"%d/ %m /%Y\") as 'Fecha Hasta' "
+            + " FROM `empleado` e, puesto p , ubicacionfisica u, cuadrodirectivo c "
+            + " WHERE e.codigopuesto=p.codigopuesto and e.codigoempleado=u.codigoempleado "
+            + " and e.codigoempleado=c.codigoempleado and e.estadoempleado=2 " +
+                " and c.fechapresentaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') " +
+                " and c.fechapresentacionhasta <= STR_TO_DATE(:FFINAL, '%d/%m/%Y')", nativeQuery = true)
     List<Object[]> findByExoneradoMarcacion(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 // reporte exel para personal pensionado
 
-    @Query(value = "SELECT concat(e.nombreempleado,' ', e.apellidoempleado), p.nombrepuesto,p.sueldobase,year(e.fechaingresoministerio), MONTHNAME(e.fechaingresoministerio), e.afiliacionpension FROM `empleado` e,empleadopuesto ep, puesto p WHERE e.codigopuesto=ep.codigopuesto and ep.codigopuesto=p.codigopuesto and e.estadoempleado=3 and e.fechaingresoministerio>= :FINICIAL and e.fechaingresoministerio<= :FFINAL ", nativeQuery = true)
+ @Query(value = "SELECT " +
+           " concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado, "
+         + " p.nombrepuesto as 'Nombre de Puesto', "
+         + " p.sueldobase as 'Salario',"
+         + " year(e.fechaingresoministerio) as Año, "
+         + " month(e.fechaingresoministerio) as Mes, "
+         + " e.afiliacionpension as 'Institucion Pensionadora' " +
+            " FROM `empleado` e, puesto p WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3 and " +
+            " e.fechaingresoministerio >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') " +
+            "and e.fechaingresoministerio <= STR_TO_DATE(:FFINAL, '%d/%m/%Y')", nativeQuery = true)
     List<Object[]> findByPensionados(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 

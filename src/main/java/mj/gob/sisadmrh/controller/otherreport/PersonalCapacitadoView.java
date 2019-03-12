@@ -49,11 +49,11 @@ public class PersonalCapacitadoView extends AbstractXlsView{
  Row row = sheet.createRow(rowNum++);
  
 
- row.createCell(2).setCellValue((String) List[0]);
- row.createCell(3).setCellValue((String) List[1]);
- row.createCell(4).setCellValue((String) List[2]);
- row.createCell(5).setCellValue((String) List[3]);
- row.createCell(6).setCellValue((Float) List[4]);
+ row.createCell(2).setCellValue((String) ""+List[0]);
+ row.createCell(3).setCellValue((String) ""+List[1]);
+ row.createCell(4).setCellValue((String) ""+List[2]);
+ row.createCell(5).setCellValue((String) ""+List[3]);
+ row.createCell(6).setCellValue((String) ""+List[4]);
  
  }
  }

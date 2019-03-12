@@ -772,7 +772,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
        public ModelAndView capacitadoresxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <Capacitador> capacitadorsList = capacitadorService.findCapacitadores(fechainicio, fechafin); 
+               List<Object[]>  capacitadorsList = capacitadorService.findCapacitadores(fechainicio, fechafin); 
               return new ModelAndView(new CapacitadorView(), "capacitadorList", capacitadorsList);
        }
        @RequestMapping("temasdiagnosticos/")

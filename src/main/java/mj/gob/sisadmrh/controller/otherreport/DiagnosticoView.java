@@ -34,7 +34,11 @@ public class DiagnosticoView extends AbstractXlsView{
         
  List<Object[]> capacitadorList = (List<Object[]>) model.get("diagnosticoList");
  Sheet sheet = workbook.createSheet("Diagnostico Data");
+ sheet.createRow(0).createCell(3).setCellValue("");
+ sheet.createRow(1).createCell(4).setCellValue("REPORTE DE DIAGNOSTICO DE NECESIDADES DE CAPACITACION");
+ 
  Row header = sheet.createRow(0);
+  
  header.createCell(0).setCellValue("Temas");
  header.createCell(1).setCellValue("Direccion");
  header.createCell(2).setCellValue("Necesidades");
