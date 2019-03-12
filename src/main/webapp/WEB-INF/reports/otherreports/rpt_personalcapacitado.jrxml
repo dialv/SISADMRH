@@ -123,7 +123,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Estadìstico de Personal Activo]]></text>
+				<text><![CDATA[Estadìsticas de Personal Capacitado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="160" y="50" width="265" height="20" uuid="35d9f136-dbf8-43c9-9af3-b16805b77683"/>
@@ -233,7 +233,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrecapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="446" y="0" width="57" height="14" uuid="2866d9e5-b794-4e36-a253-3404ef6b07a7"/>
+				<reportElement x="445" y="0" width="57" height="14" uuid="2866d9e5-b794-4e36-a253-3404ef6b07a7"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
