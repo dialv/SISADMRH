@@ -26,16 +26,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <br>
                 <form class="form-horizontal" id="formreport" th:object="${empleados}">
 
-                    <div class="form-group">
+                    <!--div class="form-group">
                         <label class="col-sm-3 control-label" >Nombre de Empleado:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="codigo" name="codigo">
                             <option value="0">-- Seleccione El Empleado --</option>
                             <option th:each="d:${empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
                             </select>
-                            <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
+                            <!--<input type="text" class="form-control" id="codigo" name="codigo"/>>
                         </div>
-                    </div>
+                    </div-->
 <!--                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
@@ -107,7 +107,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             dateFormat: 'dd/mm/yy'
         });
         $('#generar').click(function(){
-            $("#formreport").attr('action', '../hijoscapesp/'+ $("#codigo").val().toString());
+            $("#formreport").attr('action', '../hijoscapesp/1);'//+ $("#codigo").val().toString());
             $("form#formreport").submit();
             
         });
