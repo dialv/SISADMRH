@@ -16,7 +16,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select nombreeventobitacora,DATE_FORMAT(fechabitacora,'%d/%m/%Y') AS "Fecha Evento",ip,codigousuariobitacora from bitacora where fechabitacora >=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and fechabitacora <=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') ]]>
+		<![CDATA[select nombreeventobitacora,DATE_FORMAT(fechabitacora,'%d/%m/%Y') AS "Fecha Evento",ip,codigousuariobitacora from bitacora where fechabitacora >=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and fechabitacora <=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="nombreeventobitacora" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
