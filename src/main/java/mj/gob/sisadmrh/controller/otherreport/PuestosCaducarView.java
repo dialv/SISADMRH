@@ -68,7 +68,7 @@ public class PuestosCaducarView  extends AbstractXlsView{
  row.createCell(7).setCellValue((String) puestosCaducar[5]);
  
  row.createCell(8).setCellValue((String)""+ puestosCaducar[6]);
-//  row.createCell(9).setCellValue((String)""+ puestosCaducar[8]);
+  row.createCell(9).setCellValue((String)""+ puestosCaducar[7]);
 //   row.createCell(10).setCellValue((String) puestosCaducar[9]);
 // row.createCell(11).setCellValue((String) puestosCaducar[10]);
  

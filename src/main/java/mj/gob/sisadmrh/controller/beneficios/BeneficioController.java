@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
+import mj.gob.sisadmrh.controller.otherreport.BeneficioView;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadobeneficio;
@@ -31,6 +33,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -212,7 +215,9 @@ return "redirect:/empleados/show/"+id;
     }
     
     @RequestMapping("report/")
-    public String reporte() {
+    public String reporte(Model model) {
+//          Iterable<Empleado> empleados = empleadoService.listAllEmpleado();        
+        model.addAttribute("empleados", empleadoService.listAllEmpleado());
         return PREFIX + "beneficiosreport";
     }
     
@@ -230,6 +235,15 @@ return "redirect:/empleados/show/"+id;
 		params.put("FECHAFIN", fechafin);
         	generatePdf("beneficios", "rpt_beneficios", params, download,response);
     }
+    
+     @RequestMapping("/beneficiosexel")
+       public ModelAndView beneficiosexel(
+              @RequestParam(value="fechainicial",required = false) String fechainicio, 
+              @RequestParam(value="fechafinal", required = false) String fechafin,
+               @RequestParam(value="codigo",required = false) String codigo){
+              List<Object[]> beneList = beneficioService.beneficiosExcel(fechainicio,fechafin,codigo);
+              return new ModelAndView(new BeneficioView(), "beneList", beneList);
+       }
 
     
 }
