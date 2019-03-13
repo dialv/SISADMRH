@@ -36,21 +36,21 @@ public class CapacitadorView extends AbstractXlsView{
  Sheet sheet = workbook.createSheet("Capacitador Data");
   sheet.createRow(0).createCell(3).setCellValue("");
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE CAPACITADORES");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Nombre de Capacitador");
- header.createCell(1).setCellValue("Tipo Capacitador");
- header.createCell(2).setCellValue("Telefono movil");
-  header.createCell(3).setCellValue("Email");
-   header.createCell(4).setCellValue("Temas de Dominio");
+ Row header = sheet.createRow(2);
+ header.createCell(2).setCellValue("Nombre de Capacitador");
+ header.createCell(3).setCellValue("Tipo Capacitador");
+ header.createCell(4).setCellValue("Telefono movil");
+  header.createCell(5).setCellValue("Email");
+   header.createCell(6).setCellValue("Temas de Dominio");
   
- int rowNum = 1;
+ int rowNum = 3;
  for(Object[] capacitadorPojo:capacitadorList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((String) ""+capacitadorPojo[5]);
- row.createCell(1).setCellValue((String) ""+capacitadorPojo[9]);
- row.createCell(2).setCellValue((String) ""+capacitadorPojo[7]);
-  row.createCell(3).setCellValue((String) ""+capacitadorPojo[3]);
-   row.createCell(4).setCellValue((String) ""+capacitadorPojo[8]);
+ row.createCell(2).setCellValue((String) ""+capacitadorPojo[5]);
+ row.createCell(3).setCellValue((String) ""+capacitadorPojo[9]);
+ row.createCell(4).setCellValue((String) ""+capacitadorPojo[7]);
+  row.createCell(5).setCellValue((String) ""+capacitadorPojo[3]);
+   row.createCell(6).setCellValue((String) ""+capacitadorPojo[8]);
    
 // row.createCell(0).setCellValue(capacitadorPojo.getNombrecapacitador());
 // row.createCell(1).setCellValue(capacitadorPojo.getTipocapacitador());

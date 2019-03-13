@@ -56,11 +56,11 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
     List<Object[]> findByPlazasOcupadas(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
-    @Query(value = "SELECT e.codigoempleado,e.nombreempleado,e.apellidoempleado,p.nombrepuesto,p.ubicacionpuesto,c.fechainiciocontrato,c.salarioactual FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto", nativeQuery = true)
+    @Query(value = "SELECT e.codigoempleado,e.nombreempleado,e.apellidoempleado,p.nombrepuesto,p.ubicacionpuesto,DATE_FORMAT(c.fechainiciocontrato, \"%d/ %m /%Y\") as fechainiciocontrato ,c.salarioactual FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and c.fechainiciocontrato>= :FINICIAL and c.fechafincontrato<= :FFINAL", nativeQuery = true)
     List<Object[]> ContratacionesExcel(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
-    @Query(value = "SELECT e.nombreempleado, e.apellidoempleado,p.ubicacionpuesto,p.nombrepuesto,p.numeropartidapuesto, p.numerosubpartidapuesto,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto",
+    @Query(value = "SELECT e.nombreempleado, e.apellidoempleado,p.ubicacionpuesto,p.nombrepuesto,p.numeropartidapuesto, p.numerosubpartidapuesto,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=4",
              nativeQuery = true)
     List<Object[]> DespidosExcel(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
@@ -70,7 +70,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
     List<Object[]> PseronalActivoExcel(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
-    @Query(value = "SELECT count(a.codigoempleado) as Noempleados, a.ubicacionasistenciacapacitacion as Ubicacion, count(c.nombrecapacitacion) as NoCapacitaciones,c.nombrecapacitacion, c.fechacapacitaciondesde as FechaCapacitacion,c.fechacapacitacionhasta \n"
+    @Query(value = "SELECT count(a.codigoempleado) as Noempleados, a.ubicacionasistenciacapacitacion as Ubicacion, count(c.nombrecapacitacion) as NoCapacitaciones,c.nombrecapacitacion, DATE_FORMAT(c.fechacapacitaciondesde, \\\"%d/ %m /%Y\\\")  as FechaCapacitacion,c.fechacapacitacionhasta \n"
             + "FROM `asistenciacapacitacion`a ,`capacitacion` c\n"
             + "WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.fechacapacitaciondesde",
              nativeQuery = true)
@@ -110,7 +110,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
          + " p.nombrepuesto as 'Nombre de Puesto', "
          + " p.sueldobase as 'Salario',"
          + " year(e.fechaingresoministerio) as Año, "
-         + " month(e.fechaingresoministerio) as Mes, "
+         + " monthname(e.fechaingresoministerio) as Mes, "
          + " e.afiliacionpension as 'Institucion Pensionadora' " +
             " FROM `empleado` e, puesto p WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3 and " +
             " e.fechaingresoministerio >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') " +

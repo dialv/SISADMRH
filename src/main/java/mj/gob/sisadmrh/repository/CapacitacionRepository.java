@@ -75,7 +75,10 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
   List<Object[]> CostoCapacitacionExcel(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
   
-  @Query(value = "SELECT e.*,c.nombrecapacitacion,c.fechacapacitacion,ca.nombrecapacitador FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`= :CODIGO \n" +
+  @Query(value = "SELECT c.nombrecapacitacion,ca.nombrecapacitador,e.lugarcapacitacion, DATE_FORMAT(c.fechacapacitacion, \\\"%d/ %m /%Y\\\") as fechacapacitacion,e.horaevualuacioncapacitacion,e.dominiotema,e.habilidadcomunicacion,e.espectativa,e.contenidoaplicadotrabajo,"
+          + "e.claridadtema, e.materialutilizado,e.alclaradudas,e.interestema,e.satifacciondetema,e.interestemae.comprenciondetema,e.contenidoclaro,e.satifacciondetema,e.contenidoaplicadotrabajo,e.satisfechocontenido "
+          + "e."
+          + " FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`= :CODIGO \n" +
 "and c.fechacapacitaciondesde >= :FINICIAL\n" +
 "and c.fechacapacitacionhasta <= :FFINAL", 
          nativeQuery = true)

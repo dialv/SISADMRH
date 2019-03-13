@@ -37,27 +37,27 @@ public class DiagnosticoView extends AbstractXlsView{
  sheet.createRow(0).createCell(3).setCellValue("");
  sheet.createRow(1).createCell(4).setCellValue("REPORTE DE DIAGNOSTICO DE NECESIDADES DE CAPACITACION");
  
- Row header = sheet.createRow(0);
+ Row header = sheet.createRow(2);
   
- header.createCell(0).setCellValue("Temas");
- header.createCell(1).setCellValue("Direccion");
- header.createCell(2).setCellValue("Necesidades");
- header.createCell(3).setCellValue("Mes");
- header.createCell(4).setCellValue("Resultados a Obtener");
- header.createCell(5).setCellValue("Quien autoriza");
- header.createCell(6).setCellValue("Cargo quien autoriza");
+ header.createCell(2).setCellValue("Temas");
+ header.createCell(3).setCellValue("Direccion");
+ header.createCell(4).setCellValue("Necesidades");
+ header.createCell(5).setCellValue("Mes");
+ header.createCell(6).setCellValue("Resultados a Obtener");
+ header.createCell(7).setCellValue("Quien autoriza");
+ header.createCell(8).setCellValue("Cargo quien autoriza");
   
- int rowNum = 1;
+ int rowNum = 3;
  for(Object[] DiagnosticoPojo:capacitadorList){
  Row row = sheet.createRow(rowNum++);
  
-  row.createCell(0).setCellValue((String) ""+DiagnosticoPojo[8]);
- row.createCell(1).setCellValue((String) ""+DiagnosticoPojo[2]);
- row.createCell(2).setCellValue((String) ""+DiagnosticoPojo[4]);
-  row.createCell(3).setCellValue((String) ""+DiagnosticoPojo[3]);
-   row.createCell(4).setCellValue((String) ""+DiagnosticoPojo[6]);
-   row.createCell(5).setCellValue((String) ""+DiagnosticoPojo[5]);
-   row.createCell(6).setCellValue((String) ""+DiagnosticoPojo[1]);
+  row.createCell(2).setCellValue((String) ""+DiagnosticoPojo[8]);
+  row.createCell(3).setCellValue((String) ""+DiagnosticoPojo[2]);
+  row.createCell(4).setCellValue((String) ""+DiagnosticoPojo[4]);
+  row.createCell(5).setCellValue((String) ""+DiagnosticoPojo[3]);
+  row.createCell(6).setCellValue((String) ""+DiagnosticoPojo[6]);
+  row.createCell(7).setCellValue((String) ""+DiagnosticoPojo[5]);
+  row.createCell(8).setCellValue((String) ""+DiagnosticoPojo[1]);
  }
 // row.createCell(0).setCellValue(DiagnosticoPojo.getTemacapacitacion());
 // row.createCell(1).setCellValue(DiagnosticoPojo.getDireccion());
