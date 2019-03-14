@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Beneficio;
 
@@ -17,6 +18,8 @@ public interface BeneficioService {
     Beneficio saveBeneficio(Beneficio beneficio);
 
     void deleteBeneficio(Integer id);
+    
+     List<Object[]> beneficiosExcel(String finicial, String ffinal,String codigo);
     
 //    void delete2(Integer id);
     
