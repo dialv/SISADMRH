@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b555deb-ccc6-4f42-812f-3a85bbeb223a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="84"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -52,7 +52,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<pageHeader>
 		<band height="111" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="72" y="92" width="100" height="17" uuid="1d0c8cec-58a3-42e1-a0d1-8b320e15c1e7"/>
+				<reportElement x="144" y="92" width="100" height="17" uuid="1d0c8cec-58a3-42e1-a0d1-8b320e15c1e7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -84,18 +84,18 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="440" y="92" width="43" height="17" uuid="3ad66f20-1585-457f-bab4-49e70a8d94b8"/>
+				<reportElement x="440" y="92" width="46" height="17" uuid="3ad66f20-1585-457f-bab4-49e70a8d94b8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="45" y="92" width="33" height="17" uuid="84645e6a-71eb-49fb-b391-7f4325867b3a"/>
+				<reportElement x="45" y="92" width="98" height="17" uuid="84645e6a-71eb-49fb-b391-7f4325867b3a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha:]]></text>
+				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="315" y="92" width="33" height="17" uuid="f34c1d54-ac60-49f2-af80-a36ceb94e468"/>
@@ -254,11 +254,11 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{salarioactual}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new BigDecimal($F{salarioactual}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="454" y="0" width="100" height="28" uuid="07462fd1-1350-421a-83f0-0d4542972091"/>
-				<textElement textAlignment="Center">
+				<reportElement x="454" y="0" width="70" height="28" uuid="07462fd1-1350-421a-83f0-0d4542972091"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{partidacontrato}]]></textFieldExpression>
@@ -294,22 +294,22 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="16" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="8" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="238" y="4" width="241" height="13" backcolor="#FFFFFF" uuid="a9be8174-d364-49af-8e5c-d76cd545bf20"/>
+				<reportElement mode="Opaque" x="209" y="4" width="241" height="13" backcolor="#FFFFFF" uuid="a9be8174-d364-49af-8e5c-d76cd545bf20"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total Sueldos:$" + new BigDecimal($V{salarioactual_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total Salarios  Actual:$" + new BigDecimal($V{salarioactual_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="238" y="3" width="100" height="1" uuid="e628c8b5-1067-4109-83d1-ead897cb0718"/>
+				<reportElement x="33" y="4" width="714" height="1" uuid="e628c8b5-1067-4109-83d1-ead897cb0718"/>
 			</line>
 		</band>
 	</summary>
