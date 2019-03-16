@@ -102,11 +102,21 @@ public class UsuarioController extends UtilsController{
        // return "redirect:/usuarios/";
     }
     private String generaUser(String nombre, String apellido, String vez){
-            String username = (vez.equals("0"))?nombre.charAt(0)+apellido.split(" ")[0]:vez;
-            return   (usuarioService.findbyUser(username)==null)?username:generaUser(nombre, apellido,
-          (Character.isDigit(username.charAt(username.length()-1)))
-                    ? username+( Character.getNumericValue(username.charAt(username.length()-1))+1)
-                    :username+'1'); 
+            String username = (vez.equals("0"))
+                            ?
+                    ((nombre.charAt(0)+apellido.split(" ")[0]).length()>15)?
+                    (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,15):
+                    (nombre.charAt(0)+apellido.split(" ")[0])
+                            :  
+                    vez.length()>12     ?
+                    (vez.substring(0,12)+((int) (Math.random() * 999) + 1)):
+                    (vez+((int) (Math.random() * 999) + 1));
+            return (usuarioService.findbyUser(username)!=null)?generaUser(nombre, apellido, username): username;            
+//            String username = (vez.equals("0"))?(nombre.charAt(0)+apellido.split(" ")[0]).substring(0, 15):vez;
+//            return   (usuarioService.findbyUser(username)==null)?username.substring(0, 15):generaUser(nombre, apellido,
+//          (Character.isDigit(username.charAt(0)))
+//                    ? (Character.getNumericValue(username.charAt(0))+1)+username
+//                    :'1'+username).substring(0, 15); 
 
     }
 }
