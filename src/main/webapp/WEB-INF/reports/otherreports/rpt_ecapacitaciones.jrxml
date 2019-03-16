@@ -123,7 +123,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<pageHeader>
 		<band height="78" splitType="Stretch">
 			<staticText>
-				<reportElement x="452" y="53" width="39" height="20" uuid="2099c35a-3732-46ab-af8c-f8f352398d7c"/>
+				<reportElement x="431" y="57" width="39" height="20" uuid="2099c35a-3732-46ab-af8c-f8f352398d7c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -158,7 +158,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="305" y="14" width="265" height="20" uuid="caf94bec-5f08-4951-bb40-8e96cdcc5fe0"/>
+				<reportElement x="284" y="18" width="265" height="20" uuid="caf94bec-5f08-4951-bb40-8e96cdcc5fe0"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -169,14 +169,14 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="304" y="0" width="265" height="20" uuid="d4179ad2-eb92-499f-9b87-5f0c0b21182b"/>
+				<reportElement x="283" y="4" width="265" height="20" uuid="d4179ad2-eb92-499f-9b87-5f0c0b21182b"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Ministerio de Justicia y Seguridad Publica]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="305" y="29" width="265" height="20" uuid="8ad40864-15db-4092-911f-a58a88621a6c"/>
+				<reportElement x="284" y="33" width="265" height="20" uuid="8ad40864-15db-4092-911f-a58a88621a6c"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -187,28 +187,28 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("GOES.jpg")]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="393" y="53" width="82" height="20" uuid="b5211f58-5943-483b-a28b-6237897a9fdd"/>
+				<reportElement x="372" y="57" width="82" height="20" uuid="b5211f58-5943-483b-a28b-6237897a9fdd"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="53" width="65" height="20" uuid="1f3e9bec-e3fb-4144-9085-e4c6e59841e3"/>
+				<reportElement x="459" y="57" width="65" height="20" uuid="1f3e9bec-e3fb-4144-9085-e4c6e59841e3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="306" y="43" width="266" height="20" uuid="3a9ad8ac-75a4-409e-bc01-ce39cbfcabb1"/>
+				<reportElement x="285" y="47" width="266" height="20" uuid="3a9ad8ac-75a4-409e-bc01-ce39cbfcabb1"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Reporte de Evaluacion de Capacitaciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="362" y="53" width="39" height="20" uuid="7a989b77-32e4-47f7-92ca-bde4b7046256"/>
+				<reportElement x="341" y="57" width="39" height="20" uuid="7a989b77-32e4-47f7-92ca-bde4b7046256"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>

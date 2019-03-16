@@ -30,7 +30,7 @@ public class DespidosView extends AbstractXlsView{
  HttpServletResponse response) throws Exception {
  
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
- response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_Contrataciones.xls\"");
+ response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_Despedidos.xls\"");
         
  List<Object[]> despidosList = (List<Object[]>) model.get("despidosList");
  Sheet sheet = workbook.createSheet("Data Despidos");
@@ -40,11 +40,11 @@ public class DespidosView extends AbstractXlsView{
 
  header.createCell(2).setCellValue("Nombre Empleado");
 // header.createCell(3).setCellValue("Apellido Empleado");
- header.createCell(2).setCellValue("Ubicacion");
- header.createCell(3).setCellValue("Plaza");
- header.createCell(4).setCellValue("Numero de Partida");
- header.createCell(5).setCellValue("Numero Subpartida");
-  header.createCell(6).setCellValue("Salario Base");
+ header.createCell(3).setCellValue("Ubicacion");
+ header.createCell(4).setCellValue("Plaza");
+ header.createCell(5).setCellValue("Numero de Partida");
+ header.createCell(6).setCellValue("Numero Subpartida");
+  header.createCell(7).setCellValue("Salario Base");
   
  int rowNum = 3;
  for(Object[] despidos : despidosList){

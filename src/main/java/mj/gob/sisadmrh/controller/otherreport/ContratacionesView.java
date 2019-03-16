@@ -45,7 +45,7 @@ public class ContratacionesView extends AbstractXlsView{
  header.createCell(4).setCellValue("Cargo");
  header.createCell(5).setCellValue("Ubicacion");
  header.createCell(6).setCellValue("Fecha e Inicio");
-  header.createCell(7).setCellValue("Salario");
+  header.createCell(7).setCellValue("Salario ($)");
   
  int rowNum = 3;
  for(Object[] cpontrataciones : contratacionesList){

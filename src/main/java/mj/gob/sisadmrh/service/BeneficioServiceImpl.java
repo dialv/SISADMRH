@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Beneficio;
 import mj.gob.sisadmrh.repository.BeneficioRepository;
@@ -52,6 +53,9 @@ public class BeneficioServiceImpl implements BeneficioService {
         return beneficioRep.listAllActivos();
     }
     
-    
+     @Override
+    public List<Object[]> beneficiosExcel(String finicial, String ffinal,String codigo) {
+        return beneficioRep.beneficiosExcel(finicial,ffinal,codigo);      
+    }
 
 }

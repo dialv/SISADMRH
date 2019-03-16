@@ -265,7 +265,7 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement style="Row" mode="Transparent" x="0" y="0" width="732" height="14" uuid="f9b2c44b-8f9e-4e9b-94b0-aca72f246e7a"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" positionType="Float" x="37" y="0" width="35" height="14" uuid="3c5758da-3c0c-4b36-b023-ae0839130913"/>
-					<textElement>
+					<textElement textAlignment="Right">
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{codigo Puesto}]]></textFieldExpression>

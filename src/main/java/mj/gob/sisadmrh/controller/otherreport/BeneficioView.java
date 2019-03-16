@@ -24,24 +24,25 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
  * @author jorge
  */
 
-public class CostoCapView extends AbstractXlsView{
+public class BeneficioView extends AbstractXlsView{
 @Override
  protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
  HttpServletResponse response) throws Exception {
  
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
- response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_CostoCap.xls\"");
+ response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_beneficios.xls\"");
         
- List<Object[]> costoList = (List<Object[]>) model.get("costoList");
+ List<Object[]> costoList = (List<Object[]>) model.get("beneList");
  Sheet sheet = workbook.createSheet("Data Personal Activo");
  sheet.createRow(0).createCell(3).setCellValue("");
-  sheet.createRow(1).createCell(4).setCellValue("REPORTE DE COSTO DE CAPACITACIONES");
+  sheet.createRow(1).createCell(4).setCellValue("REPORTE DE BENEFICIOS DE EMPLEADO");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Cantidad de Personas");
- header.createCell(3).setCellValue("Tema");
- header.createCell(4).setCellValue("Costo por Persona ($)");
-  header.createCell(5).setCellValue("Costo Total ($)");
+ header.createCell(2).setCellValue("Codigo de Beneficio");
+ header.createCell(3).setCellValue("Nombre de Beneficio");
+  header.createCell(4).setCellValue("Nombre de Empleado");
+ header.createCell(5).setCellValue("Sexo del Empleado");
+  header.createCell(6).setCellValue("Descripcion del Beneficio");
   
  int rowNum = 3;
  for(Object[] List : costoList){
@@ -52,6 +53,7 @@ public class CostoCapView extends AbstractXlsView{
  row.createCell(3).setCellValue((String) ""+List[1]);
  row.createCell(4).setCellValue((String) ""+List[2]);
   row.createCell(5).setCellValue((String) ""+List[3]);
+  row.createCell(6).setCellValue((String) ""+List[4]);
  
  }
  }

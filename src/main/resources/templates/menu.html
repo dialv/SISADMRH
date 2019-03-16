@@ -223,8 +223,8 @@
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/cumpleanieros/}">9. Reporte de Cumpleañeros</a></li>
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/temasdiagnosticos/}">10. Reporte de Temas de Diagnostico</a></li>
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/estadisticocapacitados/}">11. Reporte de Estadistico de <br>  Personal Capacitado</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/cuadrodirectivos/report/}">12. Reporte de Cuadro Directivo</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/nivelesreporte/}">13. Reporte de Niveles Escolares</a></li>
+                                    <!--<li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/cuadrodirectivos/report/}">12. Reporte de Cuadro Directivo</a></li>-->
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/nivelesreporte/}">12. Reporte de Niveles Escolares</a></li>
                                 </ul>
                             </li>
                             <li class="active"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Sesión<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a></li>
