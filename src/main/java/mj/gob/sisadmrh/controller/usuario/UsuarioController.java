@@ -105,13 +105,13 @@ public class UsuarioController extends UtilsController{
             String username = (vez.equals("0"))
                             ?
                     ((nombre.charAt(0)+apellido.split(" ")[0]).length()>15)?
-                    (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,15):
-                    (nombre.charAt(0)+apellido.split(" ")[0])
+                    (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,15).toLowerCase():
+                    (nombre.charAt(0)+apellido.split(" ")[0]).toLowerCase()
                             :  
                     vez.length()>12     ?
-                    (vez.substring(0,12)+((int) (Math.random() * 999) + 1)):
-                    (vez+((int) (Math.random() * 999) + 1));
-            return (usuarioService.findbyUser(username)!=null)?generaUser(nombre, apellido, username): username;            
+                    (vez.substring(0,12)+((int) (Math.random() * 999) + 1)).toLowerCase():
+                    (vez+((int) (Math.random() * 999) + 1)).toLowerCase();
+            return (usuarioService.findbyUser(username)!=null)?generaUser(nombre, apellido, username): username.toLowerCase();            
 //            String username = (vez.equals("0"))?(nombre.charAt(0)+apellido.split(" ")[0]).substring(0, 15):vez;
 //            return   (usuarioService.findbyUser(username)==null)?username.substring(0, 15):generaUser(nombre, apellido,
 //          (Character.isDigit(username.charAt(0)))
