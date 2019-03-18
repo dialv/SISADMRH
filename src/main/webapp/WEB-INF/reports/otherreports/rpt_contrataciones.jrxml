@@ -36,7 +36,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 	<background>
 		<band/>
 	</background>
-	<title>
+	<pageHeader>
 		<band height="118">
 			<textField>
 				<reportElement x="245" y="93" width="67" height="20" uuid="664f04b5-48d9-405f-b80d-da039a387770"/>
@@ -152,79 +152,76 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 		</band>
-	</title>
-	<pageHeader>
-		<band/>
 	</pageHeader>
 	<columnHeader>
-		<band height="14">
+		<band height="24">
 			<rectangle>
-				<reportElement x="50" y="1" width="457" height="12" backcolor="#FFFFFF" uuid="a32c0e7e-4766-4f7c-922c-9b972b3bbccd"/>
+				<reportElement x="50" y="0" width="457" height="24" backcolor="#FFFFFF" uuid="a32c0e7e-4766-4f7c-922c-9b972b3bbccd"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="50" y="0" width="42" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="695f1588-5de8-455b-aed9-ed6c73eeb60a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Còdigo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="84" y="0" width="129" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="e4e66651-0c88-4063-a2c0-741ac227aa51"/>
+				<reportElement mode="Transparent" x="104" y="0" width="110" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="e4e66651-0c88-4063-a2c0-741ac227aa51"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="213" y="0" width="90" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="b0756311-fe34-46f7-a804-a9a7437a9df2"/>
+				<reportElement mode="Transparent" x="213" y="0" width="90" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="b0756311-fe34-46f7-a804-a9a7437a9df2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cargo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="301" y="0" width="79" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="f41035a0-5ba4-4fb1-8489-c2679cd44b21"/>
+				<reportElement mode="Transparent" x="301" y="0" width="79" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="f41035a0-5ba4-4fb1-8489-c2679cd44b21"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="383" y="0" width="79" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="903c871b-fffd-439e-a5d2-46927fe1b1a5"/>
+				<reportElement mode="Transparent" x="383" y="0" width="79" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="903c871b-fffd-439e-a5d2-46927fe1b1a5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Contratación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="462" y="0" width="46" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="dfb2173e-502c-43cf-bf60-fb49c1260741"/>
+				<reportElement mode="Transparent" x="462" y="0" width="46" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="dfb2173e-502c-43cf-bf60-fb49c1260741"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Salario($)]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="92" y="0" width="1" height="14" uuid="b737e0fa-3a60-40c8-bb90-14263068fda4"/>
+				<reportElement x="105" y="0" width="1" height="24" uuid="b737e0fa-3a60-40c8-bb90-14263068fda4"/>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="214" y="0" width="1" height="14" uuid="e9f2514f-8bf2-42ed-bc54-b56ff74588ce"/>
+				<reportElement x="214" y="0" width="1" height="24" uuid="e9f2514f-8bf2-42ed-bc54-b56ff74588ce"/>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="303" y="0" width="1" height="14" uuid="8540acee-8866-4189-bda7-d708889424e3"/>
+				<reportElement x="303" y="0" width="1" height="24" uuid="8540acee-8866-4189-bda7-d708889424e3"/>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="380" y="0" width="1" height="14" uuid="894948cc-6f2b-4b03-b2db-071d5a1f4678"/>
+				<reportElement x="380" y="0" width="1" height="24" uuid="894948cc-6f2b-4b03-b2db-071d5a1f4678"/>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="463" y="0" width="1" height="14" uuid="8fcd407e-204b-45c5-a917-4c4dd84b10ca"/>
+				<reportElement x="463" y="0" width="1" height="24" uuid="8fcd407e-204b-45c5-a917-4c4dd84b10ca"/>
 			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="51" y="0" width="54" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="695f1588-5de8-455b-aed9-ed6c73eeb60a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Còdigo Contrataciòn]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement x="57" y="0" width="35" height="14" uuid="1e6acfee-6c20-4362-bd70-58ef802e549b"/>
-				<textElement>
+				<reportElement x="49" y="0" width="52" height="14" uuid="1e6acfee-6c20-4362-bd70-58ef802e549b"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
@@ -258,7 +255,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{salarioactual})]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="98" y="0" width="115" height="14" uuid="a33b808a-e65b-4bd5-bd9b-a930ac3ced8a"/>
+				<reportElement x="110" y="0" width="102" height="14" uuid="a33b808a-e65b-4bd5-bd9b-a930ac3ced8a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -279,7 +276,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<textFieldExpression><![CDATA["Total $" +new DecimalFormat("###,###,##0.00").format($V{salarioactual_1})]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="415" y="2" width="90" height="1" uuid="d7481b4b-1ad5-4fb9-b756-b4666d8e0f92"/>
+				<reportElement x="50" y="1" width="457" height="1" uuid="b3a93269-f255-49e2-afa7-c08cb6e0775b"/>
 			</line>
 		</band>
 	</summary>

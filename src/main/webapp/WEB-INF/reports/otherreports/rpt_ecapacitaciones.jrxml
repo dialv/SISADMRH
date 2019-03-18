@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="185"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -247,7 +247,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<bottomPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tema de Capacitacion]]></text>
 			</staticText>
@@ -258,7 +258,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<bottomPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Facilitador]]></text>
 			</staticText>
@@ -269,7 +269,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<bottomPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Lugar Capacitacion]]></text>
 			</staticText>
@@ -280,7 +280,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<bottomPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="10" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha capacitaciòn]]></text>
 			</staticText>
@@ -355,126 +355,126 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			<textField>
 				<reportElement x="605" y="49" width="116" height="20" uuid="42913e67-3878-4ec6-a787-b900321caf0f"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dominiotema}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="49" width="532" height="20" uuid="1b819606-bd48-4dd8-a807-8028b6327732"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Dominio del Tema]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="598" y="29" width="124" height="20" uuid="beff421e-4443-4744-ae66-81d4e3760abd"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Resultado]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="69" width="116" height="20" uuid="3b373880-7151-4085-b279-889492c59ada"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{habilidadcomunicacion}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="89" width="532" height="20" uuid="77d2068c-4753-4894-a622-a38879f4751f"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[El conferencista lleno sus espectativas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="70" y="69" width="532" height="20" uuid="33041969-3352-4138-a3a6-17029c498c99"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Habilidades para comunicarse]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="89" width="116" height="20" uuid="efaabd14-9a69-4555-a915-2025ec604244"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{espectativa}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="109" width="535" height="20" uuid="835d6d09-de13-4061-b211-6ff735e2eb9a"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Los contenidos se desarrollaron con claridad ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="109" width="116" height="20" uuid="460817ec-a5fd-48b3-a9b5-6d26831c9416"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{contenidoclaro}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="605" y="129" width="116" height="20" uuid="f9a0b14f-39ed-4a72-ab6a-45d7bb9cf2c9"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{materialutilizado}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="129" width="532" height="20" uuid="75e1bb73-78c9-44fd-9c64-8d0ff476d3bf"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Se cubrio el material de manera efectiva]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="70" y="149" width="532" height="20" uuid="3e1e0a16-4093-4440-9ed4-5b19672d4be5"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[alacro sus dudas con presiciòn ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="149" width="116" height="20" uuid="18e68e7f-8c2d-4485-9779-aa462edd4d62"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{comprenciondetema}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="605" y="169" width="116" height="20" uuid="1938416b-b176-429c-95fb-f06d8ca4d6d8"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{satifacciondetema}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="605" y="189" width="116" height="20" uuid="613b1b82-7702-4f94-98ba-cf5b3c13cb76"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{satisfechocontenido}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="169" width="532" height="20" uuid="510a9b38-9d76-4f67-a1b0-571f2da7be15"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desperto y mantuvo su interes durante el desarrollo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="70" y="189" width="532" height="20" uuid="e900faaf-4fa0-4332-b64f-140736a43afa"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Satisfaccion general con respecto al ponente]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="65" y="9" width="657" height="20" uuid="9ba59a7e-e99e-44ef-884d-b3f2736a26ee"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Conferencista]]></text>
 			</staticText>
@@ -499,105 +499,105 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			<staticText>
 				<reportElement x="70" y="40" width="532" height="20" uuid="44229c48-dbeb-4712-b6a4-ddb0b5b552c2"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[El Tema Responido a sus intereses y espectativas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="66" y="20" width="529" height="20" uuid="d761e69d-6000-4c78-a12d-3f3de8cf0ad4"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Contenido]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="60" width="115" height="20" uuid="da725d78-e998-4544-acfd-65e26aa14b5b"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{comprenciondetema}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="60" width="532" height="20" uuid="9b35936f-f004-4686-add8-c0757f1b4d5f"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[El tema se desarrollo de lo sencillo a lo complejo lo cual permitio la comprension del tema]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="594" y="20" width="125" height="20" uuid="770777aa-8fab-4ce7-b686-79917359ac61"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Resultado]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="78" width="115" height="20" uuid="5e2a8077-1fd0-42b6-a2a2-e5683e2deeba"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{claridadtema}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="78" width="532" height="20" uuid="c4120136-852c-4512-978e-8ddee0ea872e"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[El tema se Expuso con lcaridad]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="98" width="115" height="20" uuid="2c9f955d-d2cb-4232-a84a-e6c877fe05f8"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{planeaciontiempo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="98" width="532" height="20" uuid="c9a6a9d5-7615-4956-ac07-fd46fd8cbe75"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[La planeacion y distribucion del tiempo permitio  el logro de objetivos  propuestos]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="118" width="115" height="20" uuid="971ddc32-3d58-4b19-85fc-3f2718f4cccb"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{contenidoaplicadotrabajo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="118" width="532" height="20" uuid="425ac829-a54e-4683-b11f-096feef17631"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Los contenidos tratados en la capacitacion son aplicables en mi area de trabajo, permitiendome mejorar]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="138" width="115" height="20" uuid="8148fe5f-2c4f-42bd-a513-6f517aaf4471"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{satifacciondetema}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="70" y="138" width="532" height="20" uuid="f663f762-c5c9-49cf-8200-6ca363a86119"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[En general estoy satisfecho con el contenido desarrollado]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="605" y="40" width="115" height="20" uuid="ce373805-c58e-4d26-9258-0d1eb530689e"/>
 				<textElement>
-					<font fontName="Times New Roman"/>
+					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{interestema}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="64" y="0" width="655" height="20" uuid="9956fca0-60ee-4640-af78-92790ccee745"/>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" isBold="true"/>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Conferencista]]></text>
 			</staticText>
@@ -618,14 +618,14 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="20" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="594" y="3" width="208" height="13" backcolor="#FFFFFF" uuid="62433729-cde5-4f08-b43b-8044b0a5a99f"/>
+				<reportElement mode="Opaque" x="628" y="3" width="208" height="13" backcolor="#FFFFFF" uuid="62433729-cde5-4f08-b43b-8044b0a5a99f"/>
 				<textElement>
-					<font fontName="Times New Roman" isUnderline="false"/>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="594" y="2" width="117" height="1" uuid="3c6f8123-5918-46e0-9db6-516ac3575649"/>
+				<reportElement x="64" y="2" width="655" height="1" uuid="3c6f8123-5918-46e0-9db6-516ac3575649"/>
 			</line>
 		</band>
 	</summary>

@@ -39,7 +39,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<background>
 		<band/>
 	</background>
-	<title>
+	<pageHeader>
 		<band height="78">
 			<staticText>
 				<reportElement x="277" y="14" width="265" height="20" uuid="26868bdf-6f7c-4199-a934-9f6c47778dc6"/>
@@ -155,7 +155,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Reporte de Niveles de Escolaridad]]></text>
 			</staticText>
 		</band>
-	</title>
+	</pageHeader>
 	<columnHeader>
 		<band height="14">
 			<rectangle>
@@ -289,14 +289,14 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="18">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="521" y="5" width="206" height="13" backcolor="#FFFFFF" uuid="25ee026d-9e81-4680-b8c2-8b42797f2b79"/>
+				<reportElement mode="Opaque" x="521" y="4" width="206" height="13" backcolor="#FFFFFF" uuid="25ee026d-9e81-4680-b8c2-8b42797f2b79"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="635" y="3" width="90" height="1" uuid="ad49fb29-8a01-4b91-9142-5295b8ccab54"/>
+				<reportElement x="35" y="1" width="693" height="1" uuid="96066429-07d8-4716-8210-82c714855768"/>
 			</line>
 		</band>
 	</summary>
