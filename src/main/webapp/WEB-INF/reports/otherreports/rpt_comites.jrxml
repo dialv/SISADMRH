@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="612"/>
-	<property name="ireport.y" value="91"/>
+	<property name="ireport.x" value="545"/>
+	<property name="ireport.y" value="83"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -51,7 +51,7 @@ and c.fechahastacomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Reporte de Comites ]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="71" y="69" width="100" height="15" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
+				<reportElement x="135" y="69" width="100" height="15" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -100,11 +100,11 @@ and c.fechahastacomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="43" y="69" width="30" height="15" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
+				<reportElement x="43" y="69" width="90" height="15" uuid="56b210b9-a783-49f8-9ce4-5ab259f720b2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha:]]></text>
+				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<image>
 				<reportElement x="47" y="0" width="80" height="70" uuid="d5244a04-208d-4ef9-bc04-8c758f3c1f28"/>
@@ -232,8 +232,8 @@ and c.fechahastacomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="371" y="0" width="45" height="14" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
-				<textElement>
+				<reportElement x="358" y="0" width="45" height="14" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroacuerdocomite}]]></textFieldExpression>
@@ -273,10 +273,10 @@ and c.fechahastacomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="23" splitType="Stretch">
 			<line>
-				<reportElement x="603" y="1" width="119" height="1" uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95"/>
+				<reportElement x="48" y="1" width="687" height="1" uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="615" y="5" width="120" height="13" backcolor="#FFFFFF" uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc"/>
+				<reportElement mode="Opaque" x="624" y="5" width="120" height="13" backcolor="#FFFFFF" uuid="d6e8039f-e0be-4d17-98f6-ed8f444238dc"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>

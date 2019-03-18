@@ -81,7 +81,7 @@
                             <span class="popuptext" id="finicio">Ingrese la Fecha inicial de la Contraseña.  . !!</span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--div class="form-group">
                         <label class="col-sm-2 control-label">Fecha de caducidad:</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control fecha_format" id="fhasta"  th:field="*{fechacaducidad}" placeholder="dia/mes/año" onchange="isDat(this.value, 'fhasta'); Fechas($('#fdesde').val().toString(), this.value, 'fdesde', 'fhasta')"/>
@@ -92,7 +92,7 @@
                             <span class="popuptext" id="ffinal">Ingrese la Fecha de Caducidad.  . !!</span>
                         </div>
                     </div>
-                    <!--div class="form-group">
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha de baja:</label>
                         <div class="col-sm-2">
                             <input type="text" placeholder="dia/mes/año"class="form-control fecha_format" id="fchabaja" th:field="*{fechabaja}"/>
@@ -177,8 +177,8 @@
     });
     if ([[${msg}]] === 0){
     swal({
-    title: "Exito! Usuario Generado:"+[[${usuarioname}]],
-            text: "Registro agregado correctamente",
+    title: "Usuario Generado con exito ",
+            text: [[${usuarioname}]],
             type: "success",
             icon: "success"
     }).then(function() {
@@ -196,6 +196,4 @@
     }
     });
 </script> 
-
-
 </html>

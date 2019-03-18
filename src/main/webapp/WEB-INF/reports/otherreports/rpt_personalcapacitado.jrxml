@@ -31,7 +31,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<background>
 		<band/>
 	</background>
-	<title>
+	<pageHeader>
 		<band height="118">
 			<staticText>
 				<reportElement x="50" y="93" width="114" height="20" uuid="908348f9-35c7-41c1-89f4-1481f51ad07c"/>
@@ -147,7 +147,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 		</band>
-	</title>
+	</pageHeader>
 	<columnHeader>
 		<band height="22">
 			<rectangle>
@@ -206,7 +206,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
 				<reportElement x="54" y="0" width="40" height="14" uuid="4a7557b2-98ec-47de-8ffc-82afd7e294fa"/>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Noempleados}]]></textFieldExpression>
@@ -219,8 +219,8 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Ubicacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="228" y="0" width="57" height="14" uuid="155ce77b-4472-4774-8608-3c42469f4b0a"/>
-				<textElement>
+				<reportElement x="224" y="0" width="57" height="14" uuid="155ce77b-4472-4774-8608-3c42469f4b0a"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NoCapacitaciones}]]></textFieldExpression>
@@ -233,7 +233,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrecapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="445" y="0" width="57" height="14" uuid="2866d9e5-b794-4e36-a253-3404ef6b07a7"/>
+				<reportElement x="450" y="0" width="52" height="14" uuid="2866d9e5-b794-4e36-a253-3404ef6b07a7"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -254,7 +254,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="417" y="4" width="87" height="1" uuid="8a9e3698-b32f-42f4-82ef-08b45f4d2b21"/>
+				<reportElement x="52" y="0" width="454" height="1" uuid="5ff2852b-4b5a-41fb-8188-25e66a483466"/>
 			</line>
 		</band>
 	</summary>

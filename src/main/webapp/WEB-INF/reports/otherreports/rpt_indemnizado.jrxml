@@ -163,14 +163,14 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="84" y="0" width="630" height="14" backcolor="#FFFFFF" uuid="24dded56-e0ac-4ff6-a3f3-9957792b6f79"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="85" y="0" width="154" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
+				<reportElement mode="Transparent" x="85" y="0" width="160" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="240" y="0" width="53" height="14" uuid="0d30f8e2-2818-4bdc-9970-b3c12b06e28c"/>
+				<reportElement x="243" y="0" width="50" height="14" uuid="0d30f8e2-2818-4bdc-9970-b3c12b06e28c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -205,7 +205,7 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Nombre del Puesto]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="240" y="0" width="1" height="14" uuid="3185b70e-2453-4da8-9b79-d43ebb4654f5"/>
+				<reportElement x="243" y="0" width="1" height="14" uuid="3185b70e-2453-4da8-9b79-d43ebb4654f5"/>
 			</line>
 			<line direction="BottomUp">
 				<reportElement x="293" y="0" width="1" height="14" uuid="0b301e39-1bb6-4672-8ef0-7771b5e7460b"/>
@@ -232,30 +232,30 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="14">
+		<band height="24">
 			<textField isStretchWithOverflow="true" pattern="#,##0.00">
-				<reportElement mode="Transparent" x="292" y="0" width="51" height="14" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
+				<reportElement mode="Transparent" x="292" y="0" width="51" height="24" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="245" y="0" width="53" height="14" uuid="633c825f-385f-4ae8-8ee9-15fbb1ed14eb"/>
-				<textElement>
+				<reportElement x="242" y="0" width="50" height="24" uuid="633c825f-385f-4ae8-8ee9-15fbb1ed14eb"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{No Acuerdo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="345" y="0" width="70" height="14" uuid="c6c07677-4e33-4278-9eb8-41fe147d444a"/>
+				<reportElement x="346" y="0" width="70" height="24" uuid="c6c07677-4e33-4278-9eb8-41fe147d444a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha Desde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="419" y="0" width="73" height="14" uuid="e7253bff-537b-4969-b0dc-026abcc97612"/>
+				<reportElement x="420" y="0" width="73" height="24" uuid="e7253bff-537b-4969-b0dc-026abcc97612"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -269,21 +269,21 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="597" y="0" width="117" height="14" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
+				<reportElement x="595" y="0" width="117" height="24" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="507" y="0" width="83" height="14" uuid="a1dd8449-e192-48de-ba78-3b00cb79725a"/>
+				<reportElement x="504" y="0" width="83" height="24" uuid="a1dd8449-e192-48de-ba78-3b00cb79725a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="86" y="0" width="148" height="14" uuid="29eb0b63-6442-47a5-a450-6e6f7e804f04"/>
+				<reportElement x="86" y="0" width="158" height="24" uuid="29eb0b63-6442-47a5-a450-6e6f7e804f04"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -297,14 +297,14 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="17">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="449" y="4" width="239" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
+				<reportElement mode="Opaque" x="474" y="4" width="239" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" isUnderline="false"/>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="594" y="3" width="110" height="1" uuid="ee03be76-9c47-4e98-acd0-52534cf65fbb"/>
+				<reportElement x="84" y="1" width="630" height="1" uuid="b07759ae-9146-45e4-a0a3-b15b6480612f"/>
 			</line>
 		</band>
 	</summary>

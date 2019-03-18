@@ -43,8 +43,8 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<title>
-		<band height="89" splitType="Stretch">
+	<pageHeader>
+		<band height="89">
 			<staticText>
 				<reportElement x="225" y="51" width="161" height="20" uuid="191dad33-aeab-4a34-8a51-89e2d9426ef0"/>
 				<textElement>
@@ -159,7 +159,7 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 		</band>
-	</title>
+	</pageHeader>
 	<columnHeader>
 		<band height="14" splitType="Stretch">
 			<rectangle>
@@ -173,7 +173,7 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="122" y="0" width="100" height="14" uuid="7e076150-d156-4236-aee8-35b1156f7138"/>
+				<reportElement x="118" y="0" width="104" height="14" uuid="7e076150-d156-4236-aee8-35b1156f7138"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
@@ -194,14 +194,14 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Sexo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="50" y="0" width="70" height="14" uuid="6f34145f-662c-4029-a33d-eae35bf8451a"/>
+				<reportElement x="50" y="0" width="68" height="14" uuid="6f34145f-662c-4029-a33d-eae35bf8451a"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[Còdigo  Beneficio]]></text>
+				<text><![CDATA[Còdigo Beneficio]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="120" y="0" width="1" height="14" uuid="4161321a-e9ff-49d4-9945-250605d3a177"/>
+				<reportElement x="118" y="0" width="1" height="14" uuid="4161321a-e9ff-49d4-9945-250605d3a177"/>
 			</line>
 			<line direction="BottomUp">
 				<reportElement x="221" y="0" width="1" height="14" uuid="d79ec67e-62fb-4a1f-b57d-b8e567f46495"/>
@@ -215,38 +215,38 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="14" splitType="Stretch">
+		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="59" y="0" width="50" height="14" uuid="d835b2d5-0ff2-4b8f-be96-386b18cfb355"/>
-				<textElement>
+				<reportElement x="65" y="0" width="50" height="24" uuid="d835b2d5-0ff2-4b8f-be96-386b18cfb355"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigobeneficio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="379" y="0" width="128" height="14" uuid="c399df5e-5b6b-4a1a-8fb6-7c625916357c"/>
+				<reportElement x="379" y="0" width="128" height="24" uuid="c399df5e-5b6b-4a1a-8fb6-7c625916357c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descripcionbeneficio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="326" y="0" width="49" height="14" uuid="4fc037ce-8748-45e2-9397-f2e3a42584d5"/>
-				<textElement>
+				<reportElement x="326" y="0" width="49" height="24" uuid="4fc037ce-8748-45e2-9397-f2e3a42584d5"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sexoempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="223" y="0" width="100" height="14" uuid="31dfb5a9-9011-436c-87d8-9eb9905e6454"/>
-				<textElement>
+				<reportElement x="223" y="0" width="100" height="24" uuid="31dfb5a9-9011-436c-87d8-9eb9905e6454"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="122" y="0" width="100" height="14" uuid="78d8d1da-8c77-4163-97f3-3674bb6bd0e0"/>
-				<textElement>
+				<reportElement x="121" y="0" width="100" height="24" uuid="78d8d1da-8c77-4163-97f3-3674bb6bd0e0"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrebeneficio}]]></textFieldExpression>
@@ -256,14 +256,14 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="18" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="67" y="4" width="425" height="13" backcolor="#FFFFFF" uuid="b077d45e-9da6-4fdf-a01a-fae7ad4e3c25"/>
+				<reportElement mode="Opaque" x="81" y="4" width="425" height="13" backcolor="#FFFFFF" uuid="b077d45e-9da6-4fdf-a01a-fae7ad4e3c25"/>
 				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" isUnderline="false"/>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="385" y="2" width="120" height="1" uuid="f3e31295-3f27-402c-97a9-e242a5e104a8"/>
+				<reportElement x="50" y="1" width="457" height="1" uuid="d97b1eb2-3a5e-47c0-83f9-1801ee93d371"/>
 			</line>
 		</band>
 	</summary>

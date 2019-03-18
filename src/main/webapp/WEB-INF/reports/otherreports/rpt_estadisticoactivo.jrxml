@@ -26,7 +26,7 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 	<background>
 		<band/>
 	</background>
-	<title>
+	<pageHeader>
 		<band height="117">
 			<staticText>
 				<reportElement x="164" y="79" width="265" height="20" uuid="49216d5f-96b7-42bb-9fe2-370b73d230bd"/>
@@ -142,7 +142,7 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 		</band>
-	</title>
+	</pageHeader>
 	<columnHeader>
 		<band height="14">
 			<rectangle>
@@ -181,7 +181,7 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
 				<reportElement x="69" y="0" width="61" height="14" uuid="be321a19-81ec-4997-9809-55d45c2960c2"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nempleados}]]></textFieldExpression>
@@ -215,7 +215,7 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 				<textFieldExpression><![CDATA["Total $" +new DecimalFormat("###,###,##0.00").format($V{sumsueldo_1})]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="400" y="4" width="76" height="1" uuid="3417a05d-218d-44e2-9415-4a062e35d9d2"/>
+				<reportElement x="69" y="1" width="405" height="1" uuid="0009ac92-6d81-44dc-8d97-5998e1e5ceff"/>
 			</line>
 		</band>
 	</summary>
