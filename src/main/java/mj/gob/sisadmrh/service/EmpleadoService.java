@@ -33,7 +33,7 @@ public interface EmpleadoService {
     List<Object[]> PseronalActivoExcel(String finicial, String ffinal);    
     List<Object[]> EstadisticocapacitadoExcel(String finicial, String ffinal);
     List<Object[]> PersonalIndemnizadooExcel(String finicial, String ffinal);
-    
+   
     
 
     List<Object[]> findBycumples(String finicial, String ffinal);
@@ -46,6 +46,7 @@ public interface EmpleadoService {
     List<Object[]> findByIncapacidad(String finicial, String ffinal);
     List<Object[]> findByDato(int id) ;
     List<Object[]> findByAsistenciaCapacitacion(int id) ;
+   
     void DeleteEmpleadoAsistenciaCap(int id) ;
 
 }

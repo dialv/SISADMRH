@@ -33,26 +33,24 @@ public class EscolaridadView  extends AbstractXlsView{
 sheet.createRow(1).createCell(5).setCellValue("REPORTE DE NIVELES ESCOLARES");
  Row header = sheet.createRow(2);
  header.createCell(2).setCellValue("Nombre de empleado");
- header.createCell(3).setCellValue("Apellido");
- header.createCell(4).setCellValue("Nombre Puesto");
- header.createCell(5).setCellValue("Nivel Escolar");
- header.createCell(6).setCellValue("Estudios Realizados");
- header.createCell(7).setCellValue("Fecha Desde");
- header.createCell(8).setCellValue("Fecha Hasta");
- header.createCell(9).setCellValue("Institucion Educativa");
+ header.createCell(3).setCellValue("Nombre Puesto");
+ header.createCell(4).setCellValue("Nivel Escolar");
+ header.createCell(5).setCellValue("Estudios Realizados");
+ header.createCell(6).setCellValue("Fecha Desde");
+ header.createCell(7).setCellValue("Fecha Hasta");
+ header.createCell(8).setCellValue("Institucion Educativa");
 ;
   
  int rowNum = 3;
  for(Object[] escolares : nivelesEscolaresList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(2).setCellValue((String) escolares[0]);
- row.createCell(3).setCellValue((String) escolares[1]);
- row.createCell(4).setCellValue((String) escolares[2]);
-  row.createCell(5).setCellValue((String) escolares[3]);
-   row.createCell(6).setCellValue((String) escolares[4]);
- row.createCell(7).setCellValue((Date) escolares[5]);
- row.createCell(8).setCellValue((Date) escolares[6]);
- row.createCell(9).setCellValue((String) escolares[7]);
+ row.createCell(2).setCellValue((String) ""+escolares[0]);
+ row.createCell(3).setCellValue((String) ""+escolares[1]);
+ row.createCell(4).setCellValue((String) ""+escolares[2]);
+  row.createCell(5).setCellValue((String) ""+escolares[3]);
+   row.createCell(6).setCellValue((String) ""+escolares[4]);
+ row.createCell(7).setCellValue((String) ""+escolares[5]);
+ row.createCell(8).setCellValue((String) ""+escolares[6]);
 
  }
  }
