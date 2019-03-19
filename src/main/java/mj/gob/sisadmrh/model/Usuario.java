@@ -53,7 +53,7 @@ public class Usuario implements Serializable {
     @Column(name = "CONTRASENIAUSUARIO")
     private String contraseniausuario;
     @Column(name = "CONTROLCONTRASENIA")
-    private Integer controlcontrasenia;
+    private String controlcontrasenia;
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
     @Column(name = "FECHAINGRESO")
@@ -112,11 +112,11 @@ public class Usuario implements Serializable {
         this.contraseniausuario = contraseniausuario;
     }
 
-    public Integer getControlcontrasenia() {
+    public String getControlcontrasenia() {
         return controlcontrasenia;
     }
 
-    public void setControlcontrasenia(Integer controlcontrasenia) {
+    public void setControlcontrasenia(String controlcontrasenia) {
         this.controlcontrasenia = controlcontrasenia;
     }
 
