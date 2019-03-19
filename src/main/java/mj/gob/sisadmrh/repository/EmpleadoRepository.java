@@ -54,7 +54,8 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             @Param("FFINAL") String ffinal);
 
     /* PARA GNERAR REPORTE PLAZAS OCUPADAS EXEL***************************/
-    @Query(value = " SELECT p.codigopuesto,p.nombrepuesto,e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.sueldobase,p.fechanombramiento,p.fechacontrataciondesde, p.fechacontratacionhasta,p.ubicacionpuesto,p.sublinea FROM puesto p "
+    @Query(value = " SELECT p.codigopuesto,p.nombrepuesto,e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.sueldobase,p.fechanombramiento,DATE_FORMAT(p.fechacontrataciondesde,  '%d/%m/%Y') as fechacontrataciondesde, "
+            + "DATE_FORMAT(p.fechacontratacionhasta,  '%d/%m/%Y') as  fechacontratacionhasta,p.ubicacionpuesto,p.sublinea FROM puesto p "
             + "  inner join empleadopuesto ep on p.codigopuesto=ep.codigopuesto "
             + " inner join empleado e on ep.codigoempleado=e.codigoempleado "
             + " where p.fechacontrataciondesde >= :FINICIAL and p.fechacontratacionhasta <= :FFINAL ", nativeQuery = true)
@@ -85,7 +86,8 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             @Param("FFINAL") String ffinal);
 
     @Query(value = "SELECT \n"
-            + " e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.acuerdo ,p.sueldobase ,p.fechacontrataciondesde , p.fechacontratacionhasta ,p.nombrepuesto,p.ubicacionpuesto\n"
+            + " e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.acuerdo ,p.sueldobase ,"
+            + "DATE_FORMAT(p.fechacontrataciondesde, \\\"%d/ %m /%Y\\\")  as fechacontrataciondesde , DATE_FORMAT(p.fechacontratacionhasta, \\\"%d/ %m /%Y\\\")  as fechacontratacionhasta ,p.nombrepuesto,p.ubicacionpuesto\n"
             + "FROM `empleado` e, puesto p \n"
             + "WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1",
              nativeQuery = true)

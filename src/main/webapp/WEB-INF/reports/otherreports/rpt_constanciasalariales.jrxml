@@ -1,8 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
 	<property name="ireport.zoom" value="2.1435888100000016"/>
-	<property name="ireport.x" value="430"/>
-	<property name="ireport.y" value="860"/>
+	<property name="ireport.x" value="310"/>
+	<property name="ireport.y" value="312"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="salarial" uuid="58da3d14-adbe-48d1-9128-9f292a833f77">
+		<queryString language="SQL">
+			<![CDATA[SELECT c.salarioactual,DATE_FORMAT(c.fechainiciocontrato, '%d/%m/%Y') as fechainiciocontrato,DATE_FORMAT(c.fechafincontrato, '%d/%m/%Y') as fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,(c.salarioactual-d.montodescuento)as Total from empleado e
+ inner join contrato c on e.codigoempleado=c.codigoempleado
+ inner join descuento d on e.codigoempleado=d.codigodescuento
+ inner join experiencialaboral el on el.codigoexperiencialaboral=e.codigoempleado]]>
+		</queryString>
+		<field name="fechainiciocontrato" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fechafincontrato" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="sistemapago" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="plazanominal" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="salarioactual" class="java.lang.Float">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="montopago" class="java.lang.Float">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="montodescuento" class="java.lang.Float">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Total" class="java.lang.Double"/>
+	</subDataset>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -19,7 +109,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total, concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,c.salarioactual,DATE_FORMAT(c.fechainiciocontrato, '%d/%m/%Y') as fechainiciocontrato,DATE_FORMAT(c.fechafincontrato, '%d/%m/%Y') as fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,el.nombreinstitucion, CURRENT_DATE from empleado e
+		<![CDATA[SELECT(c.salarioactual-d.montodescuento) as Total, concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,c.salarioactual,DATE_FORMAT(c.fechainiciocontrato, '%d/%m/%Y') as fechainiciocontrato,DATE_FORMAT(c.fechafincontrato, '%d/%m/%Y') as fechafincontrato,c.sistemapago,c.plazanominal,d.montopago,d.montodescuento,(c.salarioactual-d.montodescuento)as Total,el.nombreinstitucion, DATE_FORMAT(CURRENT_DATE, '%d/%m/%Y') from empleado e
  inner join contrato c on e.codigoempleado=c.codigoempleado
  inner join descuento d on e.codigoempleado=d.codigodescuento
  inner join experiencialaboral el on el.codigoexperiencialaboral=e.codigoempleado
@@ -52,7 +142,7 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 	<field name="nombreinstitucion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="CURRENT_DATE" class="java.sql.Date"/>
+	<field name="DATE_FORMAT(CURRENT_DATE, &apos;%d/%m/%Y&apos;)" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -69,14 +159,14 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 				<text><![CDATA[Constancia Salarial]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="397" y="81" width="64" height="17" uuid="1c634514-dc50-40e0-bce0-51abeda387cb"/>
+				<reportElement x="422" y="81" width="64" height="17" uuid="1c634514-dc50-40e0-bce0-51abeda387cb"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="461" y="80" width="40" height="17" uuid="07d33278-4802-4c35-87d1-e03ac665e740"/>
+				<reportElement x="486" y="80" width="40" height="17" uuid="07d33278-4802-4c35-87d1-e03ac665e740"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -132,14 +222,14 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 				<text><![CDATA[rpt_reporte_csal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="412" y="66" width="42" height="17" uuid="4b109aed-7271-45d4-b9b1-0227aad37ce0"/>
+				<reportElement x="437" y="66" width="42" height="17" uuid="4b109aed-7271-45d4-b9b1-0227aad37ce0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="464" y="66" width="84" height="17" uuid="78ebf8b9-c5d6-49c2-84f5-a9947748e4be"/>
+				<reportElement x="481" y="66" width="84" height="17" uuid="78ebf8b9-c5d6-49c2-84f5-a9947748e4be"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -150,7 +240,7 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="416" y="0" width="70" height="70" uuid="a1d1dd88-a053-4585-aa7f-9f0eceb800c9"/>
+				<reportElement x="441" y="0" width="70" height="70" uuid="a1d1dd88-a053-4585-aa7f-9f0eceb800c9"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
@@ -177,88 +267,243 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="6" splitType="Stretch"/>
+		<band height="338" splitType="Stretch">
+			<elementGroup>
+				<elementGroup>
+					<elementGroup/>
+				</elementGroup>
+			</elementGroup>
+			<staticText>
+				<reportElement x="37" y="0" width="84" height="14" uuid="5ff761c3-7c3f-44ed-b6f0-4a73705b2491"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Hace Constar que]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="0" width="110" height="14" uuid="c7e5bbe2-85ca-46f5-9649-5a19a902981f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="239" y="0" width="307" height="14" uuid="ca4fd28b-c092-4f2d-91b0-25e664168f34"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[presta servicios en la institución Obteniendo los salarios y descuentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="14" width="214" height="14" uuid="c0666485-3a8a-4423-82be-9abb61502266"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[detallados en la siguiente tabla.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="187" width="103" height="14" uuid="a1b178b9-fd40-4e69-b70b-05b49085665b"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Y para ser presentado  a]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="142" y="187" width="110" height="14" uuid="bf61a9b3-89d4-439a-8708-fbc7f803fd87"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreinstitucion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="187" width="241" height="14" uuid="65df9e53-851b-4971-bdb2-fde1fcab6d42"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[, se extiende la presente,la cual tendra validez y en original]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="201" width="339" height="14" uuid="86203a82-75f6-41f2-a486-9a62b50af9ba"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[sin tachaduras por un periodo de treinta dias, dada en la ciudad de San Salvador,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="377" y="201" width="100" height="14" uuid="7b9ebcb2-2c9b-4eb3-97d9-38cb11dacda8"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATE_FORMAT(CURRENT_DATE, '%d/%m/%Y')}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="38" y="216" width="339" height="14" uuid="18b13fbb-a149-4e7b-bd43-28a100b87494"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA["DIOS UNION LIBERTAD"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="282" width="115" height="14" uuid="8ab7326c-0713-4603-a974-9d8322a504f3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Coordinador de Personal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="294" width="151" height="14" uuid="639ed697-57da-44ea-ab6e-a018ef4c96e4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Rigoberto Argueta Hernandez]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="307" width="184" height="14" uuid="20c80653-07df-45f6-9bf1-4aebc2d9dd66"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="319" width="169" height="14" uuid="492e5c1c-9ae3-413d-84e3-8cbf80564cbb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
+			</staticText>
+			<line>
+				<reportElement x="178" y="276" width="185" height="1" uuid="f48773bd-ec7a-47a8-b188-80d547bf4a98"/>
+			</line>
+			<elementGroup>
+				<elementGroup>
+					<elementGroup>
+						<elementGroup>
+							<componentElement>
+								<reportElement key="table 2" style="table 2" x="34" y="28" width="180" height="140" uuid="03c88cd9-536d-48a3-b3fd-e4bdcae1b5b2"/>
+								<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+									<datasetRun subDataset="salarial" uuid="afde6998-01fc-492b-ae83-37e58a5e89e0">
+										<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+									</datasetRun>
+									<jr:column width="53" uuid="cbbd6e60-563c-465e-8d9c-353f07964e3d">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="50" height="30" uuid="aac0e900-1efb-438f-8083-f688823749b3"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Desde]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="0" y="0" width="50" height="20" uuid="ae74afa0-dfd4-4bd7-a58e-ea910b13c4d7"/>
+												<textElement textAlignment="Right"/>
+												<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="60" uuid="369aaf1b-74da-4465-bd47-b6d136cfac8b">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="50" height="30" uuid="cb4a4867-5102-4a04-950d-82cf2b02e1ee"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Hasta]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="0" y="0" width="50" height="20" uuid="7e84f84d-2380-4fae-ab72-033427321983"/>
+												<textElement textAlignment="Right"/>
+												<textFieldExpression><![CDATA[$F{fechafincontrato}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="55" uuid="f21988c1-f0bc-403a-a452-9973ab3ea040">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="50" height="30" uuid="2f61bc29-5bd0-4f24-9c96-8750e056ed23"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Sistema Pago]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="2" y="0" width="50" height="20" uuid="c923ce11-d599-4fe4-b837-fc3138721a86"/>
+												<textFieldExpression><![CDATA[$F{sistemapago}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="124" uuid="17079a36-f04f-4644-8c4a-5db1a0dfffd8">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="90" height="30" uuid="67f84a29-d0b8-4344-9f1e-069d40fa4ffa"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Plaza Nominal]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="6" y="0" width="113" height="20" uuid="445479b2-755b-40c3-8226-ecc8ddcb0e41"/>
+												<textFieldExpression><![CDATA[$F{plazanominal}]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="53" uuid="45e32a8c-1fed-4c4d-9279-83d865e382b7">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="50" height="30" uuid="200b4cac-e9aa-4652-8392-c13fd733762c"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Salario Actual($)]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="0" y="0" width="50" height="20" uuid="43c912ee-2b7e-4c5c-8e6a-520d82fdda8d"/>
+												<textElement textAlignment="Right"/>
+												<textFieldExpression><![CDATA[new BigDecimal($F{salarioactual}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="53" uuid="13c1639e-88d3-471e-b694-2afd214cf724">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="50" height="30" uuid="18d87f75-252e-449c-86eb-dee0f552801e"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Descuento($)]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="0" y="0" width="50" height="20" uuid="8f59e800-536b-4a73-bc62-ecbf32269811"/>
+												<textElement textAlignment="Right"/>
+												<textFieldExpression><![CDATA[new BigDecimal($F{montodescuento}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+									<jr:column width="75" uuid="490398a5-fd82-4ce1-9c66-d5868cfcd8c9">
+										<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
+											<staticText>
+												<reportElement x="0" y="0" width="50" height="30" uuid="ce21fbcc-fd4e-487b-9963-bc79ed9aec99"/>
+												<textElement textAlignment="Center"/>
+												<text><![CDATA[Salario Total($)]]></text>
+											</staticText>
+										</jr:columnHeader>
+										<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+											<textField>
+												<reportElement x="0" y="0" width="50" height="20" uuid="7b09d51a-ff7d-4573-96c7-2ce2fbb13e93"/>
+												<textElement textAlignment="Right"/>
+												<textFieldExpression><![CDATA[new BigDecimal($F{Total}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+											</textField>
+										</jr:detailCell>
+									</jr:column>
+								</jr:table>
+							</componentElement>
+						</elementGroup>
+					</elementGroup>
+				</elementGroup>
+			</elementGroup>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="342" splitType="Stretch">
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" x="50" y="250" width="475" height="74" isPrintWhenDetailOverflows="true" uuid="d21a7162-7986-4e38-9d01-f7681747e4e3"/>
-				<textElement textAlignment="Justified" markup="html">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Y para ser presentado a <b>"+$F{nombreinstitucion}+"</b> se extiende la presente, La cual tendrá validez en original, sin tachaduras por un periodo de treinta días dada en la ciudad de San Salvador,"+ new SimpleDateFormat("MM/dd/yyyy").format(new java.util.Date())+" DIOS UNION LIBERTAD"]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="282" y="116" width="100" height="20" uuid="e004377a-c5ea-46bf-940f-bfcd9e7685dc"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Descuento]]></text>
-			</staticText>
-			<line>
-				<reportElement x="50" y="138" width="475" height="1" uuid="04562502-32aa-4385-b932-146f133b65ba"/>
-			</line>
-			<staticText>
-				<reportElement x="180" y="169" width="100" height="20" uuid="0cdb6712-c165-463e-8e83-6a22ecbc0c84"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Monto Descuento]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="180" y="141" width="100" height="20" uuid="a3439be5-e605-4b53-b034-45d1b167f008"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Salario Actual]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="282" y="169" width="100" height="20" uuid="18c6fd7e-5247-43e3-b496-770ef22384f9"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{montodescuento}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="180" y="116" width="100" height="20" uuid="fdb1d39f-bb97-46d1-a24f-a8c673951780"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Detalle]]></text>
-			</staticText>
-			<line>
-				<reportElement x="50" y="198" width="475" height="1" uuid="2f4d20a4-14b8-4b75-a87f-22901b8b53ba"/>
-			</line>
-			<textField>
-				<reportElement x="282" y="202" width="100" height="20" uuid="e6b0a571-a1c9-42ec-88d8-24f0c0dbe765"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement mode="Transparent" x="180" y="202" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="7a743dfd-8c94-4e26-b6c2-241b088a543f"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="Times New Roman" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Total]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="282" y="141" width="100" height="20" uuid="cc041996-fd55-47b2-817e-9ec97e909145"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{salarioactual}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="34" y="0" width="491" height="98" isPrintWhenDetailOverflows="true" uuid="df0bfe9e-d471-405e-a95b-a0d45a2f9db2"/>
-				<textElement textAlignment="Justified" markup="html">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Hace constar que <b>"+$F{Empleado}+"</b> presta servicios para esta institución desde <b>" +$F{fechainiciocontrato}+"</b> hasta <b>"+ $F{fechafincontrato}+ "</b> ambas fechas inclusive, nombrado por el sistema de pago <b>"+$F{sistemapago}+"</b> En plaza Nominal <b>"+$F{plazanominal}+"</b> devengando un salario mensual de <b>$"+$F{salarioactual}+"</b> A quien se le efectúan los siguientes descuentos:<br/><br/>"]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="34" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="27" splitType="Stretch"/>

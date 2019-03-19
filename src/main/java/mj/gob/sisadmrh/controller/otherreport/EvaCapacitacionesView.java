@@ -33,25 +33,24 @@ public class EvaCapacitacionesView  extends AbstractXlsView{
  Sheet sheet = workbook.createSheet("Comites Data");
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE EVALUACION DE CAPACITACIONES");
  Row header = sheet.createRow(2);
- header.createCell(2).setCellValue("Tema de Capacitacion");
- header.createCell(3).setCellValue("Facilitador");
- header.createCell(4).setCellValue("Lugar de Capacitacion");
-  header.createCell(5).setCellValue("Fecha");
- header.createCell(6).setCellValue("Hora");
- header.createCell(7).setCellValue("Dominio del Tema");
-  header.createCell(8).setCellValue("Habilidad de comunicarse");
-  header.createCell(9).setCellValue("El conferencista lleno sus espectativas");
-  header.createCell(10).setCellValue("Contenido desarrollado con claridad");
-  header.createCell(11).setCellValue("se cubrio el material de manera efectiva");
-  header.createCell(12).setCellValue("Aclaro sus dudas");
-   header.createCell(13).setCellValue("AMantuvo su interes durante el desarrollo del tema");
-   header.createCell(14).setCellValue("Satisfecho con el exponeente");
-   header.createCell(15).setCellValue("El tema rspondio sus intereses");
-   header.createCell(16).setCellValue("Comrension del tema");
-   header.createCell(17).setCellValue("Contenido se expuso clramente");
-   header.createCell(18).setCellValue("Se logro el objetivo");
-   header.createCell(19).setCellValue("Es aplicable a su area de trabajo");
-   header.createCell(20).setCellValue("Satisfecho con el contenido");
+header.createCell(2).setCellValue("Tema de Capacitacion");
+header.createCell(3).setCellValue("Facilitador");
+header.createCell(4).setCellValue("Lugar de Capacitacion");
+ header.createCell(5).setCellValue("Fecha");
+header.createCell(6).setCellValue("Hora");
+header.createCell(7).setCellValue("Dominio del Tema");
+ header.createCell(8).setCellValue("Habilidad de comunicarse");
+ header.createCell(9).setCellValue("El conferencista lleno sus espectativas");
+ header.createCell(10).setCellValue("Contenido desarrollado con claridad");
+ header.createCell(11).setCellValue("se cubrio el material de manera efectiva");
+ header.createCell(12).setCellValue("Aclaro sus dudas");
+header.createCell(13).setCellValue("Mantuvo su interes durante el desarrollo del tema");
+header.createCell(14).setCellValue("Satisfecho con el exponeente");
+//header.createCell(14).setCellValue("El tema respondio sus intereses");
+header.createCell(15).setCellValue("Comprension del tema");
+header.createCell(16).setCellValue("Contenido se expuso clramente");
+header.createCell(17).setCellValue("Es aplicable a su area de trabajo");
+header.createCell(18).setCellValue("Satisfecho con el contenido");
   
    
  int rowNum = 3;
@@ -75,8 +74,7 @@ public class EvaCapacitacionesView  extends AbstractXlsView{
   row.createCell(16).setCellValue((String) ""+evacapacitaciones[14]);
  row.createCell(17).setCellValue((String) ""+evacapacitaciones[15]);
  row.createCell(18).setCellValue((String) ""+evacapacitaciones[16]);
- row.createCell(19).setCellValue((String) ""+evacapacitaciones[17]);
- row.createCell(20).setCellValue((String) ""+evacapacitaciones[18]);
+// row.createCell(19).setCellValue((String) ""+evacapacitaciones[17]);
  }
 
     
