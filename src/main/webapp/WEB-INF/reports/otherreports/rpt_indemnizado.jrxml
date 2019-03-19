@@ -297,11 +297,11 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="17">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="474" y="4" width="239" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
+				<reportElement mode="Opaque" x="473" y="4" width="239" height="13" backcolor="#FFFFFF" uuid="8278bb72-e371-4833-9b28-f319cc275709"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="84" y="1" width="630" height="1" uuid="b07759ae-9146-45e4-a0a3-b15b6480612f"/>

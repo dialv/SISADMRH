@@ -254,7 +254,7 @@ FROM
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="46" y="1" width="461" height="1" uuid="08bb3b1d-52ca-44ea-835e-73c017709572"/>

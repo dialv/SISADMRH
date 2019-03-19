@@ -251,7 +251,7 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total de Registros:" + $V{COLUMN_COUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="52" y="0" width="454" height="1" uuid="5ff2852b-4b5a-41fb-8188-25e66a483466"/>
