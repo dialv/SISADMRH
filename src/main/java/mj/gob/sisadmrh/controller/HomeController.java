@@ -50,7 +50,7 @@ public class HomeController extends UtilsController{
         try{
             
         Usuario usuario = usuarioService.getUsuarioById(usuario1.getCodigousuario()).get();
-        usuario.setControlcontrasenia(0);
+        usuario.setControlcontrasenia("0");
         usuario.setContraseniausuario(paswordEnc.encode(usuario1.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
@@ -75,7 +75,7 @@ public class HomeController extends UtilsController{
         Usuario loginedUser = usr.findbyusername(principal.getName());
         model.addAttribute("usuario", loginedUser);
         model.addAttribute("messageuser", "Usuario :" + principal.getName());
-        return (loginedUser.getControlcontrasenia()==1)?"passform":"index";
+        return ("1".equals(loginedUser.getControlcontrasenia()))?"passform":"index";
     }
  
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)

@@ -61,7 +61,7 @@ public class UsuarioController extends UtilsController{
         Date fecha = new Date();
         usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
-        usuario.setControlcontrasenia(1);
+        usuario.setControlcontrasenia("1");
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
         usuario.setNombrecompleto(usuario.getNombrecompleto()+","+usuario.getNombreusuario());
         usuario.setNombreusuario(generaUser(usuario.getNombrecompleto(),usuario.getNombreusuario(), "0"));
@@ -104,12 +104,12 @@ public class UsuarioController extends UtilsController{
     private String generaUser(String nombre, String apellido, String vez){
             String username = (vez.equals("0"))
                             ?
-                    ((nombre.charAt(0)+apellido.split(" ")[0]).length()>15)?
-                    (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,15).toLowerCase():
+                    ((nombre.charAt(0)+apellido.split(" ")[0]).length()>16)?
+                    (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,16).toLowerCase():
                     (nombre.charAt(0)+apellido.split(" ")[0]).toLowerCase()
                             :  
-                    vez.length()>12     ?
-                    (vez.substring(0,12)+((int) (Math.random() * 999) + 1)).toLowerCase():
+                    vez.length()>13     ?
+                    (vez.substring(0,13)+((int) (Math.random() * 999) + 1)).toLowerCase():
                     (vez+((int) (Math.random() * 999) + 1)).toLowerCase();
             return (usuarioService.findbyUser(username)!=null)?generaUser(nombre, apellido, username): username.toLowerCase();            
 //            String username = (vez.equals("0"))?(nombre.charAt(0)+apellido.split(" ")[0]).substring(0, 15):vez;
