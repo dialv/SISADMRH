@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4a411b8-6d7d-4bf2-a2a7-bd7ad308ab8d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="e4a411b8-6d7d-4bf2-a2a7-bd7ad308ab8d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="86"/>
-	<property name="ireport.y" value="35"/>
+	<property name="ireport.x" value="93"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -33,16 +33,16 @@
 		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="118" splitType="Stretch">
+		<band height="102" splitType="Stretch">
 			<textField>
-				<reportElement x="580" y="93" width="68" height="17" uuid="7280a694-6ac9-46a5-9411-b27673cbea98"/>
+				<reportElement x="580" y="85" width="68" height="17" uuid="7280a694-6ac9-46a5-9411-b27673cbea98"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="634" y="76" width="78" height="17" uuid="c5e00672-6c8a-43d6-ae37-78d650ed4697"/>
+				<reportElement x="634" y="68" width="78" height="17" uuid="c5e00672-6c8a-43d6-ae37-78d650ed4697"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -56,21 +56,21 @@
 				<text><![CDATA[Ministrio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="369" y="56" width="68" height="17" uuid="b1df288a-0590-4929-85d7-53ce0de09dcb"/>
+				<reportElement x="369" y="55" width="68" height="17" uuid="b1df288a-0590-4929-85d7-53ce0de09dcb"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="220" y="94" width="100" height="17" uuid="bc5735d5-1c55-4656-98b8-f2ea757114b2"/>
+				<reportElement x="220" y="83" width="100" height="17" uuid="bc5735d5-1c55-4656-98b8-f2ea757114b2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="350" y="78" width="118" height="17" uuid="ae275427-ae19-469f-92f5-1395bed729ed"/>
+				<reportElement x="350" y="70" width="118" height="17" uuid="ae275427-ae19-469f-92f5-1395bed729ed"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -81,21 +81,21 @@
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<textField evaluationTime="Report">
-				<reportElement x="650" y="93" width="40" height="17" uuid="19f5bf0d-1c33-4d71-89af-c7a34a45cf25"/>
+				<reportElement x="650" y="85" width="40" height="17" uuid="19f5bf0d-1c33-4d71-89af-c7a34a45cf25"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="108" y="94" width="96" height="17" uuid="64d1e790-a23b-448c-8078-2f7c10a8702e"/>
+				<reportElement x="108" y="83" width="96" height="17" uuid="64d1e790-a23b-448c-8078-2f7c10a8702e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="104" y="81" width="100" height="17" uuid="c59fd9e0-e1bf-4c7b-8ec3-84a40f5280ff"/>
+				<reportElement x="111" y="70" width="100" height="17" uuid="c59fd9e0-e1bf-4c7b-8ec3-84a40f5280ff"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -109,7 +109,7 @@
 				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="600" y="76" width="34" height="17" uuid="809b19fc-cd75-4df6-8b42-1fef861a6e3c"/>
+				<reportElement x="600" y="68" width="34" height="17" uuid="809b19fc-cd75-4df6-8b42-1fef861a6e3c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -195,10 +195,10 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="26" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="26" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="55" splitType="Stretch">

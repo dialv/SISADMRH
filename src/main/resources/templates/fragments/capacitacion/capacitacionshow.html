@@ -17,9 +17,12 @@
             <!--<h3 align="center">Consulta de Datos de Capacitaciones</h3>-->
             <div>
                 <form class="form-horizontal">
-                  
+                    <br><br>
+          <div class="row text-center">
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+            </div><br>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">código:</label>
+                            <label class="col-sm-5 control-label">Código:</label>
                             <div class="col-sm-7">
                                 <p class="" th:text="${capacitacion.codigocapacitacion}">codigo de capacitación</p>
                             </div>
@@ -140,4 +143,10 @@
             <th:block th:include="../templates/footer"></th:block>
         </div>
 </body>
+<script>
+    $(document).ready(function () {
+         Textheader('pnt_cap',document.title);
+       
+    });
+    </script>
 </html>

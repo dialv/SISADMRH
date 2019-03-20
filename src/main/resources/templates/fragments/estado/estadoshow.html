@@ -18,6 +18,9 @@
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
+                          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                    </div>
                         
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre Estado:</label>
@@ -26,9 +29,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Valor Estado:</label>
+                            <label class="col-sm-5 control-label"> Estado Superior:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${estado.valorestado}">Cantidad de Personas</p>
+                                <p class="form-control-static" th:text="${estado.codigoestadosuperior}">Cantidad de Personas</p>
                             </div>
                         </div>
                     
@@ -40,7 +43,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
- <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/estados/}">Reg</a></button>
+                                        <a href="#" th:href="@{/estados/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
             </div>

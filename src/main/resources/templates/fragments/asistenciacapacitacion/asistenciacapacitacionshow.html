@@ -14,24 +14,29 @@
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
-            <h3 align="center">Detalle de Asistencia Capacitación</h3>
             <div>
                 <form class="form-horizontal">
+                     <div class="row text-center">
+                         <img src="../../static/image/asistencia.png" width="150" th:src="@{/image/asistencia.png}"/></div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">código:</label>
+                            <label class="col-sm-5 control-label">Código:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p></div>
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p>
+                            </div>
                         </div>
+                        
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">códigoempleado:</label>
+                            <label class="col-sm-5 control-label">Códigoempleado:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoempleado}">codigo de comite</p></div>
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoempleado}">codigo de comite</p>
+                            </div>
                         </div>
                          <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre de empleado:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p></div>
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Horas Recibidas:</label>
@@ -50,23 +55,26 @@
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo de Capacitacion</p>
                             </div>
+                            </div>
                              <div class="form-group">
                             <label class="col-sm-5 control-label">Ubicación fisíca:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion Fisica de Capacitacion</p>
                             </div>
                         </div>
-                        </div>
+                    
                           <div class="form-group">
                             <label class="col-sm-5 control-label">Telefono:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.telefono}">Codigo de Capacitacion</p>
-                                  <div class="form-group">
+                                  </div>
+                            </div>
+                          
+ <div class="form-group">
                             <label class="col-sm-5 control-label">Correo:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.email}">Codigo de Capacitacion</p>
-                            </div>
-                        </div>
+                                  </div>
                             </div>
                         </div>
                         
@@ -80,7 +88,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
-                                       <button type="button" class="btn btn-default"><a href="#" th:href="@{/asistenciacapacitaciones/}">Regresar</a></button>
+                                       <a href="#" th:href="@{/asistenciacapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
             </div>
@@ -91,4 +99,10 @@
     </div>
 
 </body>
+<script>
+    $(document).ready(function () {
+         Textheader('pnt_cudi',document.title);
+       
+    });
+    </script>
 </html>
