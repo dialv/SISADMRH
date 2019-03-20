@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="42"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
@@ -59,86 +59,86 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="105" splitType="Stretch">
+		<band height="88" splitType="Stretch">
 			<textField>
-				<reportElement x="601" y="87" width="80" height="17" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
+				<reportElement x="600" y="70" width="80" height="17" uuid="50d7697d-bd9e-42e2-829d-5dfaaf1c7d49"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="681" y="87" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
+				<reportElement x="680" y="70" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="310" y="69" width="175" height="17" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
+				<reportElement x="306" y="52" width="175" height="17" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Reporte de Historial Laboral de Empleados ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="301" y="83" width="43" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
+				<reportElement x="297" y="66" width="43" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Desde]]></text>
+				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="400" y="83" width="38" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
+				<reportElement x="396" y="66" width="38" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Hasta]]></text>
+				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="166" y="86" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
+				<reportElement x="162" y="69" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="331" y="83" width="61" height="17" uuid="2ebcc166-3c13-4511-8e87-0f8d96307534"/>
+				<reportElement x="327" y="66" width="61" height="17" uuid="2ebcc166-3c13-4511-8e87-0f8d96307534"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="428" y="83" width="59" height="17" uuid="53bc6c9c-518e-442a-b11d-63842970632b"/>
+				<reportElement x="424" y="66" width="59" height="17" uuid="53bc6c9c-518e-442a-b11d-63842970632b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="630" y="70" width="42" height="17" uuid="0469fd21-afc9-4942-91ac-42de367c1291"/>
+				<reportElement x="629" y="53" width="42" height="17" uuid="0469fd21-afc9-4942-91ac-42de367c1291"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="666" y="70" width="85" height="17" uuid="4867b952-ff3f-448d-87ee-ad61bd11e47e"/>
+				<reportElement x="665" y="53" width="85" height="17" uuid="4867b952-ff3f-448d-87ee-ad61bd11e47e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="75" y="86" width="87" height="17" uuid="2f6f1add-635e-48f9-acaf-78d89a56a2fe"/>
+				<reportElement x="71" y="69" width="100" height="17" uuid="2f6f1add-635e-48f9-acaf-78d89a56a2fe"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion]]></text>
+				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="75" y="69" width="100" height="17" uuid="ddad01b0-d666-404f-bb79-6149f97a612a"/>
+				<reportElement x="71" y="52" width="100" height="17" uuid="ddad01b0-d666-404f-bb79-6149f97a612a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -294,14 +294,14 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="29" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="344" y="9" width="241" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
+				<reportElement mode="Opaque" x="344" y="6" width="241" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total Sueldos:$" + new BigDecimal($V{sueldobase_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="65" y="5" width="653" height="1" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
+				<reportElement x="65" y="2" width="653" height="1" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>
 			</line>
 		</band>
 	</summary>

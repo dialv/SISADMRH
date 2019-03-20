@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="0.9090909090909095"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -41,7 +41,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="99" splitType="Stretch">
+		<band height="83" splitType="Stretch">
 			<staticText>
 				<reportElement x="200" y="4" width="186" height="17" uuid="f7139472-c3b7-425e-84dd-d21059920189"/>
 				<textElement>
@@ -50,7 +50,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="369" y="82" width="80" height="17" uuid="441e0d6e-f961-406a-ab64-9201762feae8"/>
+				<reportElement x="369" y="64" width="80" height="17" uuid="441e0d6e-f961-406a-ab64-9201762feae8"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -65,7 +65,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="75" y="68" width="100" height="17" uuid="2c7d377a-e2f7-4716-b594-3d7fa8bc55d0"/>
+				<reportElement x="75" y="50" width="100" height="17" uuid="2c7d377a-e2f7-4716-b594-3d7fa8bc55d0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -79,56 +79,56 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[SISASMRH]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="449" y="82" width="40" height="17" uuid="5d54a8be-14f2-4e4e-915a-17bbdc6e6382"/>
+				<reportElement x="449" y="64" width="40" height="17" uuid="5d54a8be-14f2-4e4e-915a-17bbdc6e6382"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="282" y="80" width="33" height="17" uuid="085ce855-0cff-418c-812b-35cccb2eb624"/>
+				<reportElement x="282" y="62" width="33" height="17" uuid="085ce855-0cff-418c-812b-35cccb2eb624"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="74" y="80" width="101" height="17" uuid="519dbbf8-a4c0-451e-8708-ac913aca6512"/>
+				<reportElement x="74" y="62" width="101" height="17" uuid="519dbbf8-a4c0-451e-8708-ac913aca6512"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion]]></text>
+				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="221" y="63" width="128" height="17" uuid="c4cf59a3-958a-4f22-8b79-2cb05d725534"/>
+				<reportElement x="221" y="45" width="128" height="17" uuid="c4cf59a3-958a-4f22-8b79-2cb05d725534"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Reporte de Motoristas Activos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="401" y="70" width="48" height="17" uuid="e92aee2d-d971-4e36-b1c1-932b5a050c7b"/>
+				<reportElement x="401" y="52" width="48" height="17" uuid="e92aee2d-d971-4e36-b1c1-932b5a050c7b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="436" y="70" width="85" height="17" uuid="b0a72f58-aee6-4cbc-84ea-8efaadf360ac"/>
+				<reportElement x="436" y="52" width="85" height="17" uuid="b0a72f58-aee6-4cbc-84ea-8efaadf360ac"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="315" y="80" width="59" height="17" uuid="7b64f2a7-dd6e-494e-a303-cd76f9c90210"/>
+				<reportElement x="315" y="62" width="59" height="17" uuid="7b64f2a7-dd6e-494e-a303-cd76f9c90210"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="161" y="80" width="40" height="17" uuid="70b69794-a023-4f73-9b19-9ce14a84dfec"/>
+				<reportElement x="163" y="62" width="40" height="17" uuid="70b69794-a023-4f73-9b19-9ce14a84dfec"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -142,14 +142,14 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="201" y="80" width="32" height="17" uuid="618f3778-4f49-4a0e-9d5c-5b2351c841e1"/>
+				<reportElement x="202" y="62" width="32" height="17" uuid="618f3778-4f49-4a0e-9d5c-5b2351c841e1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="229" y="80" width="49" height="17" uuid="02368846-16be-495f-9671-6fc02ac56150"/>
+				<reportElement x="229" y="62" width="49" height="17" uuid="02368846-16be-495f-9671-6fc02ac56150"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -192,7 +192,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="16" splitType="Stretch">
+		<band height="14" splitType="Stretch">
 			<textField>
 				<reportElement x="203" y="0" width="137" height="14" uuid="4dc8a9e4-aae4-4aa4-b776-02013673e81a"/>
 				<textElement>
@@ -201,7 +201,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="373" y="2" width="76" height="14" uuid="cc5573e8-2d96-4330-a786-587afec13997"/>
+				<reportElement x="373" y="0" width="76" height="14" uuid="cc5573e8-2d96-4330-a786-587afec13997"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{Fin contrato}]]></textFieldExpression>
 			</textField>
@@ -215,22 +215,22 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="41" splitType="Stretch"/>
+		<band height="14" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="35" splitType="Stretch"/>
+		<band height="9" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="378" y="16" width="129" height="13" backcolor="#FFFFFF" uuid="c211ce2a-7249-42b6-8606-b43ce21bd549"/>
+				<reportElement mode="Opaque" x="370" y="10" width="129" height="13" backcolor="#FFFFFF" uuid="c211ce2a-7249-42b6-8606-b43ce21bd549"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="75" y="11" width="413" height="1" uuid="5771fdb5-4983-4d06-bfec-4bf433dd04fb"/>
+				<reportElement x="75" y="5" width="413" height="1" uuid="5771fdb5-4983-4d06-bfec-4bf433dd04fb"/>
 			</line>
 		</band>
 	</summary>

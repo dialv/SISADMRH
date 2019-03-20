@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="189"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -65,86 +65,86 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="101" splitType="Stretch">
+		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="286" y="84" width="30" height="15" uuid="c0c00fd5-156a-4c50-aef7-365a799f6b30"/>
+				<reportElement x="286" y="69" width="30" height="15" uuid="c0c00fd5-156a-4c50-aef7-365a799f6b30"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="374" y="84" width="30" height="15" uuid="2099c35a-3732-46ab-af8c-f8f352398d7c"/>
+				<reportElement x="374" y="69" width="30" height="15" uuid="2099c35a-3732-46ab-af8c-f8f352398d7c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="619" y="84" width="80" height="15" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
+				<reportElement x="619" y="69" width="80" height="15" uuid="f9ab1773-cdd0-4b9a-836d-789683b76c78"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="38" y="85" width="92" height="15" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
+				<reportElement x="38" y="70" width="92" height="15" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha de Generacion:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="140" y="85" width="104" height="15" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
+				<reportElement x="135" y="70" width="104" height="15" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="699" y="84" width="40" height="15" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
+				<reportElement x="699" y="69" width="40" height="15" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="316" y="84" width="47" height="15" uuid="b5211f58-5943-483b-a28b-6237897a9fdd"/>
+				<reportElement x="316" y="69" width="47" height="15" uuid="b5211f58-5943-483b-a28b-6237897a9fdd"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="405" y="84" width="56" height="15" uuid="1f3e9bec-e3fb-4144-9085-e4c6e59841e3"/>
+				<reportElement x="405" y="69" width="56" height="15" uuid="1f3e9bec-e3fb-4144-9085-e4c6e59841e3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="315" y="69" width="117" height="20" uuid="3a9ad8ac-75a4-409e-bc01-ce39cbfcabb1"/>
+				<reportElement x="315" y="54" width="117" height="20" uuid="3a9ad8ac-75a4-409e-bc01-ce39cbfcabb1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Capacitaciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="651" y="71" width="43" height="17" uuid="d7e190a3-739c-4bc0-9b17-9256ca0c369b"/>
+				<reportElement x="651" y="56" width="43" height="17" uuid="d7e190a3-739c-4bc0-9b17-9256ca0c369b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="70" width="100" height="15" uuid="c93b6750-7c50-4ff9-8bc9-288dc961f125"/>
+				<reportElement x="41" y="55" width="100" height="15" uuid="c93b6750-7c50-4ff9-8bc9-288dc961f125"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[rpt_reporte_caps]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="685" y="71" width="86" height="17" uuid="73700692-8fd1-4a20-a32c-43069a4398b4"/>
+				<reportElement x="685" y="56" width="96" height="17" uuid="73700692-8fd1-4a20-a32c-43069a4398b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -184,7 +184,7 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<rectangle>
-				<reportElement x="31" y="2" width="702" height="17" uuid="2e141a51-ff3c-4e16-b5e4-9d4b9b8dd33c"/>
+				<reportElement x="31" y="2" width="704" height="17" uuid="2e141a51-ff3c-4e16-b5e4-9d4b9b8dd33c"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="33" y="0" width="79" height="17" uuid="db4def3b-df76-478d-9fab-55f1effade07"/>
@@ -222,7 +222,7 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Fecha Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="682" y="0" width="51" height="17" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
+				<reportElement x="682" y="0" width="57" height="17" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -293,14 +293,14 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="628" y="1" width="48" height="14" uuid="6a4487a2-327d-4fe1-a794-19fc16fb7ca2"/>
+				<reportElement x="623" y="1" width="53" height="14" uuid="6a4487a2-327d-4fe1-a794-19fc16fb7ca2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="684" y="0" width="44" height="14" uuid="1b6109fe-2d7c-4179-be27-a3ac43aa2485"/>
+				<reportElement x="684" y="0" width="49" height="14" uuid="1b6109fe-2d7c-4179-be27-a3ac43aa2485"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -309,10 +309,10 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="25" splitType="Stretch"/>
+		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="32" splitType="Stretch"/>
+		<band height="11" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">

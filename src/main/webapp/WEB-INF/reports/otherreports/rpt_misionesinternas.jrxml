@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e2a8e50-efd2-42d9-ab62-dda75ce1c952">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="100"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="495"/>
+	<property name="ireport.y" value="134"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -41,7 +41,7 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 		<band height="20" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="94" splitType="Stretch">
+		<band height="88" splitType="Stretch">
 			<staticText>
 				<reportElement x="311" y="51" width="142" height="17" uuid="d7053db9-171b-457a-a4e9-0f8ae937173a"/>
 				<textElement>
@@ -50,77 +50,77 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 				<text><![CDATA[Reporte de Misiones Internas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="289" y="71" width="31" height="17" uuid="fba48178-f73d-4d13-81b1-90bc0e80d668"/>
+				<reportElement x="289" y="69" width="31" height="17" uuid="fba48178-f73d-4d13-81b1-90bc0e80d668"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="375" y="71" width="30" height="17" uuid="99f1e0a5-532a-4117-9a08-9aa582116b6b"/>
+				<reportElement x="375" y="69" width="30" height="17" uuid="99f1e0a5-532a-4117-9a08-9aa582116b6b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="58" y="75" width="31" height="17" uuid="26170632-5ffd-4de4-9345-a1135898aeae"/>
+				<reportElement x="58" y="71" width="105" height="17" uuid="26170632-5ffd-4de4-9345-a1135898aeae"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="90" y="75" width="100" height="17" uuid="9868b668-743d-4c56-b332-6b8010010281"/>
+				<reportElement x="157" y="71" width="100" height="17" uuid="9868b668-743d-4c56-b332-6b8010010281"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="641" y="63" width="54" height="17" uuid="9298a98d-7fbf-4ceb-9de8-3536aee1c13b"/>
+				<reportElement x="647" y="68" width="54" height="17" uuid="9298a98d-7fbf-4ceb-9de8-3536aee1c13b"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="702" y="63" width="30" height="17" uuid="19e65be8-4c9b-4417-8c85-f6561c3763e9"/>
+				<reportElement x="706" y="68" width="30" height="17" uuid="19e65be8-4c9b-4417-8c85-f6561c3763e9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="316" y="71" width="58" height="17" uuid="9c862b30-3b82-4997-86fd-9fb9f2258c14"/>
+				<reportElement x="316" y="69" width="58" height="17" uuid="9c862b30-3b82-4997-86fd-9fb9f2258c14"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="403" y="71" width="50" height="17" uuid="8980f0e0-9de2-4aa1-a56f-f0c3caafdb16"/>
+				<reportElement x="403" y="69" width="50" height="17" uuid="8980f0e0-9de2-4aa1-a56f-f0c3caafdb16"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="685" y="77" width="85" height="17" uuid="54bc34a6-0d34-4f2f-9811-58a01e3bc8f8"/>
+				<reportElement x="690" y="52" width="85" height="17" uuid="54bc34a6-0d34-4f2f-9811-58a01e3bc8f8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="648" y="77" width="32" height="17" uuid="251071ba-a5dc-4e37-afc7-16ccfef379ce"/>
+				<reportElement x="654" y="52" width="36" height="17" uuid="251071ba-a5dc-4e37-afc7-16ccfef379ce"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="58" y="58" width="100" height="17" uuid="b80afd25-babd-4fe2-8316-34ce2e5d865c"/>
+				<reportElement x="58" y="54" width="100" height="17" uuid="b80afd25-babd-4fe2-8316-34ce2e5d865c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -152,7 +152,7 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="644" y="5" width="70" height="70" uuid="38e8ef67-aff0-4fb6-8785-1877e476876d"/>
+				<reportElement x="656" y="3" width="70" height="70" uuid="38e8ef67-aff0-4fb6-8785-1877e476876d"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 		</band>
@@ -293,14 +293,14 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="660" y="5" width="100" height="13" backcolor="#FFFFFF" uuid="5a11870d-0110-4b54-aa31-3c6dbf1d16ad"/>
+				<reportElement mode="Opaque" x="643" y="5" width="100" height="13" backcolor="#FFFFFF" uuid="5a11870d-0110-4b54-aa31-3c6dbf1d16ad"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="656" y="4" width="90" height="1" uuid="cecf7928-a5fd-4afe-9539-8a4e856ec0aa"/>
+				<reportElement x="639" y="4" width="94" height="1" uuid="cecf7928-a5fd-4afe-9539-8a4e856ec0aa"/>
 			</line>
 		</band>
 	</summary>
