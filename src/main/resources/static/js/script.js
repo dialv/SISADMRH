@@ -126,13 +126,14 @@ function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
             messages=msj+","+msj1+","+msj2;
            return  messages;
      }
-      else if(fechafin.length != 0){
+      else 
+          if(fechafin.length != 0){
         //    alert("fecha inicio="+fechainicio+" final="+fechafin);
             //Formato MES/DIA/AÑO
-            var inicio = Date.parse(fechainicio); //01 de Octubre del 2013
-            var final = Date.parse(fechafin); //03 de Octubre del 2013
+            var inicio = Date.parse(convertDateFormat(fechainicio)); //01 de Octubre del 2013
+            var final = Date.parse(convertDateFormat(fechafin)); //03 de Octubre del 2013
 
-        //    alert("inicio="+inicio+" final="+final);
+//            alert("inicio="+inicio+" final="+final);
                 if (inicio > final) {
             //        alert("La Fecha de inicio no puede ser mayor que Fecha Final");
                     msj="La Fecha de inicio no debe ser mayor a la Fecha Final";
@@ -148,6 +149,11 @@ function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
          }
     
 }
+
+ function convertDateFormat(string) {
+        var info = string.split('/').reverse().join('/');
+        return info;
+   }
 
 function Textheader(texto,titulo){
      titulo=titulo.replace("SISADMRH-", "");
