@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>SISADMRH-Listado de Empleados</title>
+    <title>Listado de Empleados</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -18,11 +18,11 @@
         <h3 align="center">Listado de contactos</h3>
         <table class="table table-striped">
             <tr >
-                <th>Codigo de Contacto</th>
+                <th>Código de Contacto</th>
                 <th>Nombre de  Contacto</th>
-                <th>Direccion</th>
+                <th>Dirección</th>
                 <th>Telefono Fijo</th>
-                <th>Telefono Movi</th>
+                <th>Telefono Móvil</th>
                 <th>Email</th>
             </tr>
             <tr th:each="empleado : ${empleados}">

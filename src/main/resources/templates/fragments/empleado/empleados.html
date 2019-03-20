@@ -19,7 +19,7 @@
         <table id="tablita" class="table table-striped table-bordered" >
             <thead> 
                 <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Nombre</th>
                 <th>Fecha de Nacimiento</th>
                 <th>DUI</th>
@@ -31,12 +31,12 @@
             </tr>
              </thead>
             <tr th:each="empleado : ${empleados}">
-                <td th:text="${empleado.codigoempleado}">codigoempleado</td>
+                <td th:text="${empleado.codigoempleado}">Código empleado</td>
                 <td th:text="${empleado.nombreempleado} + ' ' + ${empleado.apellidoempleado} ">nombreempleado</td>
-                <td th:text="${empleado.fechanacimientoempleado}">fechanacimientoempleado</td>                
-                <td th:text="${empleado.duiempleado}">duiempleado</td>
-                <td th:text="${empleado.nitempleador}">nitempleador</td>
-                <td th:text="${empleado.emailempleado}">emailempleado</td>
+                <td th:text="${empleado.fechanacimientoempleado}">Fecha nacimiento empleado</td>                
+                <td th:text="${empleado.duiempleado}">Dui empleado</td>
+                <td th:text="${empleado.nitempleador}">Nit empleador</td>
+                <td th:text="${empleado.emailempleado}">Email empleado</td>
                 <td><a th:href="${'./showcons/' + empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                 <!--<td><a th:href="${'./show/' + empleado.codigoempleado}" class="btn btn-info">Gestion <br> complementaria</a></td>-->
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
