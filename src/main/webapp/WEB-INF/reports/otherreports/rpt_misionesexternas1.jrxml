@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="792" pageHeight="610" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="2dcbe6cb-3379-4a1c-aaae-d0184a031b8a">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="18"/>
+	<property name="ireport.x" value="171"/>
+	<property name="ireport.y" value="21"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -47,11 +47,11 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 	<pageHeader>
 		<band height="81" splitType="Stretch">
 			<staticText>
-				<reportElement x="332" y="44" width="114" height="17" uuid="f98b7b1e-294d-401d-8ef0-6ac3d1933508"/>
+				<reportElement x="332" y="44" width="117" height="17" uuid="f98b7b1e-294d-401d-8ef0-6ac3d1933508"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Reporte Misiones Exteras 1]]></text>
+				<text><![CDATA[Reporte Misiones Externas 1]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="138" y="65" width="100" height="15" uuid="522ea680-0a38-4d57-85e4-bb346b7b2e98"/>
@@ -65,7 +65,7 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="718" y="64" width="27" height="15" uuid="6bd63a2f-b93c-411f-8351-63b1032fc485"/>
@@ -121,7 +121,7 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="38" y="53" width="100" height="15" uuid="eccb287d-8967-4821-979d-8b2e40fd97a9"/>
@@ -139,7 +139,7 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="355" y="29" width="66" height="17" uuid="53c61a65-662c-4ca2-9136-495a026f2ca8"/>
@@ -167,35 +167,35 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 				<reportElement x="30" y="2" width="712" height="15" uuid="df68af47-5344-4bf5-84fb-224a74807bc6"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="30" y="0" width="100" height="14" uuid="3bb2c122-ff13-4d68-bec1-f29932908012"/>
+				<reportElement x="30" y="0" width="80" height="14" uuid="3bb2c122-ff13-4d68-bec1-f29932908012"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="136" y="0" width="100" height="14" uuid="c4694226-c427-4e66-afa9-72d194fcb439"/>
+				<reportElement x="136" y="0" width="80" height="14" uuid="c4694226-c427-4e66-afa9-72d194fcb439"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="248" y="0" width="100" height="14" uuid="b5e00516-df2f-4df5-b687-3221cf2f5319"/>
+				<reportElement x="248" y="0" width="80" height="14" uuid="b5e00516-df2f-4df5-b687-3221cf2f5319"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Mision]]></text>
+				<text><![CDATA[Misión]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="357" y="0" width="100" height="14" uuid="d09ab1bc-7338-49fe-a110-1bb7ce53dd38"/>
+				<reportElement x="357" y="0" width="80" height="14" uuid="d09ab1bc-7338-49fe-a110-1bb7ce53dd38"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Objetivo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="471" y="0" width="81" height="14" uuid="4aeb56b1-60af-4685-838e-947966acda20"/>
+				<reportElement x="471" y="0" width="80" height="14" uuid="4aeb56b1-60af-4685-838e-947966acda20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -206,10 +206,10 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Pais Destino]]></text>
+				<text><![CDATA[País Destino]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="642" y="0" width="100" height="14" uuid="0f16029b-06e6-4038-a832-80d8095c4959"/>
+				<reportElement x="642" y="0" width="80" height="14" uuid="0f16029b-06e6-4038-a832-80d8095c4959"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -266,7 +266,7 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 				<textFieldExpression><![CDATA[$F{departamentomision}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="566" y="0" width="65" height="28" uuid="eee29f56-792c-4f6a-bce2-2ea73a714e51"/>
+				<reportElement x="567" y="0" width="65" height="28" uuid="eee29f56-792c-4f6a-bce2-2ea73a714e51"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
