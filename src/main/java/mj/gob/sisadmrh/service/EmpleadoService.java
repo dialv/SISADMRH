@@ -46,6 +46,7 @@ public interface EmpleadoService {
     List<Object[]> findByIncapacidad(String finicial, String ffinal);
     List<Object[]> findByDato(int id) ;
     List<Object[]> findByAsistenciaCapacitacion(int id) ;
+    List<Object[]> findByMisionesEmpleados(int id) ;
    
     void DeleteEmpleadoAsistenciaCap(int id) ;
 

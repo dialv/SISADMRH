@@ -154,6 +154,7 @@
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/misiones/new/mision}">Crear Misiones</a></li>
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/misiones/}">Gestionar Misiones</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/misiones/asignar/mision}">Asignar Empleados a Misiones</a></li>
                                 </ul>
                             </li>
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">

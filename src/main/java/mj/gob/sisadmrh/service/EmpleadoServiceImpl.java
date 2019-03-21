@@ -148,7 +148,11 @@ return empleadoRep.findByIncapacidad(finicial, ffinal);
     public Iterable<Empleado> listAllActivos() {
      return empleadoRep.listAllActivos();
     }    
-    
+     @Override
+    public List<Object[]> findByMisionesEmpleados(int id) {
+        return empleadoRep.findByMisionesEmpleados(id);
+        
+    }
     
     
 }
