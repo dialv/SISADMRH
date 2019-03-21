@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Comite</title>
+        <title>Crear Comité </title>
     <th:block th:include="../templates/header"></th:block>
 
 </head>
@@ -32,18 +32,18 @@
                       
                        
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nombre de Comite:</label>
+                            <label class="col-sm-3 control-label">Nombre de Comité(*) :</label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control" size="30" maxlength="30" required="true" placeholder="Escriba El nombre del Comite"  th:field="*{nombrecomite}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
 
-                                <span class="popuptext" id="nombre">Ingrese el nombre del Comite. Solo se permiten 30 caracteres!</span>
+                                <span class="popuptext" id="nombre">Ingrese el nombre del Comité . Solo se permiten 30 caracteres!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Responsable del Comite:</label>
+                            <label class="col-sm-3 control-label">Responsable del Comité(*) :</label>
                             <div class="col-sm-5">
                                 <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
                                     <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
@@ -53,24 +53,24 @@
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('encargadocmite')" onmouseout ="javascript:ocultarAyuda('encargadocmite')">a</a></b>
 
-                                <span class="popuptext" id="encargadocmite">Seleccione el encargado del Comite.!</span>
+                                <span class="popuptext" id="encargadocmite">Seleccione el encargado del Comité .!</span>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label ">Descripción:</label>
-                            <div class="col-sm-9">
+                            <label class="col-sm-3 control-label ">Descripción(*):</label>
+                            <div class="col-sm-8">
                                 <input type="text" class="form-control"required="true" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" th:field="*{desripcioncomite}"/>
                             </div>
                              <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcionn')" onmouseout ="javascript:ocultarAyuda('descripcionn')">a</a></b>
 
-                                <span class="popuptext" id="descripcionn">Seleccione el encargado del Comite.!</span>
+                                <span class="popuptext" id="descripcionn">Ingrese una descripción del Comité .!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Numero de Acuerdo:</label>
+                            <label class="col-sm-3 control-label">Número de Acuerdo(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{numeroacuerdocomite}"/>
                             </div>
@@ -83,7 +83,7 @@
 
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Miembros maximos:</label>
+                            <label class="col-sm-3 control-label">Miembros Máximo(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{miembromaximo}"/>
                             </div>
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Desde:</label>
+                            <label class="col-sm-3 control-label">Fecha Desde(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}"/>
                             </div>
@@ -106,7 +106,7 @@
                     </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Hasta:</label>
+                            <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechahastacomite}"/>
                             </div>

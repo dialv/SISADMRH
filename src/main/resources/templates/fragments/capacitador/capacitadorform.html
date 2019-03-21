@@ -37,7 +37,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 </div>-->
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Empleado Responsable del Capacitador:</label>
+                        <label class="col-sm-2 control-label">Empleado Responsable del Capacitador(*):</label>
                         <div class="col-sm-5" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
@@ -51,7 +51,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombre Capacitador:</label>
+                        <label class="col-sm-2 control-label">Nombre Capacitador(*):</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control"required="true" size="100" maxlength="100" th:field="*{nombrecapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nombrecapacitador')}" th:errors="*{nombrecapacitador}"></small>
@@ -124,7 +124,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Dui:</label>
+                        <label class="col-sm-2 control-label">DUI(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_dui" required="true" th:field="*{duicapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>
@@ -136,7 +136,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nit:</label>
+                        <label class="col-sm-2 control-label">NIT(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_nit" required="true"th:field="*{nitcapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nitcapacitador')}" th:errors="*{nitcapacitador}"></small>
@@ -148,7 +148,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Carnet:</label>
+                        <label class="col-sm-2 control-label">Carnet(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="5" onkeypress="return valida(event)" th:field="*{carnetresidencia}"/>
                               <small class="form-text text-danger" th:if="${#fields.hasErrors('carnetresidencia')}" th:errors="*{carnetresidencia}"></small>
@@ -160,7 +160,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Telefono:</label>
+                        <label class="col-sm-2 control-label">Teléfono(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonocapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonocapacitador')}" th:errors="*{telefonocapacitador}"></small>
@@ -172,7 +172,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Movil:</label>
+                        <label class="col-sm-2 control-label">Móvil(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonomovilcapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonomovilcapacitador')}" th:errors="*{telefonomovilcapacitador}"></small>
@@ -184,7 +184,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Email:</label>
+                        <label class="col-sm-2 control-label">Email(*):</label>
                         <div class="col-sm-5">
                             <input type="email" class="form-control" size="50" maxlength="50" required="true" th:field="*{emailcapacitador}"/>
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('emailcapacitador')}" th:errors="*{emailcapacitador}"></small>-->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="82"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
@@ -47,14 +47,14 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="85" y="53" width="114" height="20" uuid="6d432196-300e-4646-9cbb-b80875b4eefe"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="153" y="53" width="70" height="20" uuid="63655c39-f73f-4fee-a684-d8166c4e20f4"/>
@@ -139,7 +139,7 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Ministerio de Justicia y Seguridad Publica]]></text>
+				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="288" y="14" width="265" height="20" uuid="56bb2eb5-7646-402a-ad39-a14567011bc1"/>

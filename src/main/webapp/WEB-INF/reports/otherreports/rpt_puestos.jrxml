@@ -107,7 +107,7 @@ FROM
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="171" y="14" width="265" height="20" uuid="5436ac16-0e37-4fba-8672-a12e0d0a17a9"/>
@@ -117,7 +117,7 @@ FROM
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="110" y="73" width="70" height="20" uuid="b8b36ba1-871e-4651-875a-d8da76e4f677"/>
+				<reportElement x="112" y="73" width="70" height="20" uuid="b8b36ba1-871e-4651-875a-d8da76e4f677"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -163,7 +163,7 @@ FROM
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="322" y="73" width="42" height="20" uuid="6bc245aa-23e6-45f7-9109-97ff115a6571"/>
@@ -219,7 +219,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Ubicaciòn]]></text>
+				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="363" y="0" width="50" height="22" uuid="1d51b996-af76-4230-88bc-b375feeddddb"/>
@@ -268,7 +268,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Còdigo Puesto]]></text>
+				<text><![CDATA[Código Puesto]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

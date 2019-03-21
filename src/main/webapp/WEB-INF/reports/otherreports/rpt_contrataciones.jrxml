@@ -57,7 +57,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="156" y="77" width="265" height="20" uuid="d1ce97b8-d1d2-4b89-b49b-169ec8cb24c9"/>
@@ -213,7 +213,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Còdigo Contrataciòn]]></text>
+				<text><![CDATA[Código Contratación]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

@@ -374,154 +374,156 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 							<elementGroup>
 								<elementGroup>
 									<elementGroup>
-										<componentElement>
-											<reportElement key="table 2" style="table 2" x="39" y="55" width="180" height="140" uuid="03c88cd9-536d-48a3-b3fd-e4bdcae1b5b2"/>
-											<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-												<datasetRun subDataset="salarial" uuid="afde6998-01fc-492b-ae83-37e58a5e89e0">
-													<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-												</datasetRun>
-												<jr:column width="73" uuid="cbbd6e60-563c-465e-8d9c-353f07964e3d">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="10" y="0" width="50" height="30" uuid="aac0e900-1efb-438f-8083-f688823749b3"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Desde]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="0" y="0" width="70" height="20" uuid="ae74afa0-dfd4-4bd7-a58e-ea910b13c4d7"/>
-															<textElement textAlignment="Right">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-												<jr:column width="82" uuid="369aaf1b-74da-4465-bd47-b6d136cfac8b">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="14" y="0" width="50" height="30" uuid="cb4a4867-5102-4a04-950d-82cf2b02e1ee"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Hasta]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="0" y="0" width="70" height="20" uuid="7e84f84d-2380-4fae-ab72-033427321983"/>
-															<textElement textAlignment="Right">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[$F{fechafincontrato}]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-												<jr:column width="55" uuid="f21988c1-f0bc-403a-a452-9973ab3ea040">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="0" y="0" width="50" height="30" uuid="2f61bc29-5bd0-4f24-9c96-8750e056ed23"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Sistema Pago]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="2" y="0" width="50" height="20" uuid="c923ce11-d599-4fe4-b837-fc3138721a86"/>
-															<textElement>
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[$F{sistemapago}]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-												<jr:column width="124" uuid="17079a36-f04f-4644-8c4a-5db1a0dfffd8">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="0" y="0" width="90" height="30" uuid="67f84a29-d0b8-4344-9f1e-069d40fa4ffa"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Plaza Nominal]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="6" y="0" width="113" height="20" uuid="445479b2-755b-40c3-8226-ecc8ddcb0e41"/>
-															<textElement>
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[$F{plazanominal}]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-												<jr:column width="53" uuid="45e32a8c-1fed-4c4d-9279-83d865e382b7">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="0" y="0" width="50" height="30" uuid="200b4cac-e9aa-4652-8392-c13fd733762c"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Salario Actual($)]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="0" y="0" width="50" height="20" uuid="43c912ee-2b7e-4c5c-8e6a-520d82fdda8d"/>
-															<textElement textAlignment="Right">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[new BigDecimal($F{salarioactual}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-												<jr:column width="53" uuid="13c1639e-88d3-471e-b694-2afd214cf724">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="0" y="0" width="50" height="30" uuid="18d87f75-252e-449c-86eb-dee0f552801e"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Descuento($)]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="0" y="0" width="50" height="20" uuid="8f59e800-536b-4a73-bc62-ecbf32269811"/>
-															<textElement textAlignment="Right">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[new BigDecimal($F{montodescuento}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-												<jr:column width="58" uuid="490398a5-fd82-4ce1-9c66-d5868cfcd8c9">
-													<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
-														<staticText>
-															<reportElement x="0" y="0" width="50" height="30" uuid="ce21fbcc-fd4e-487b-9963-bc79ed9aec99"/>
-															<textElement textAlignment="Center">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<text><![CDATA[Salario Total($)]]></text>
-														</staticText>
-													</jr:columnHeader>
-													<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
-														<textField>
-															<reportElement x="0" y="0" width="50" height="20" uuid="7b09d51a-ff7d-4573-96c7-2ce2fbb13e93"/>
-															<textElement textAlignment="Right">
-																<font fontName="Times New Roman" size="9"/>
-															</textElement>
-															<textFieldExpression><![CDATA[new BigDecimal($F{Total}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
-														</textField>
-													</jr:detailCell>
-												</jr:column>
-											</jr:table>
-										</componentElement>
+										<elementGroup>
+											<componentElement>
+												<reportElement key="table 2" style="table 2" x="39" y="55" width="180" height="140" uuid="03c88cd9-536d-48a3-b3fd-e4bdcae1b5b2"/>
+												<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+													<datasetRun subDataset="salarial" uuid="afde6998-01fc-492b-ae83-37e58a5e89e0">
+														<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+													</datasetRun>
+													<jr:column width="73" uuid="cbbd6e60-563c-465e-8d9c-353f07964e3d">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="10" y="0" width="50" height="30" uuid="aac0e900-1efb-438f-8083-f688823749b3"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Desde]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="70" height="20" uuid="ae74afa0-dfd4-4bd7-a58e-ea910b13c4d7"/>
+																<textElement textAlignment="Right">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="82" uuid="369aaf1b-74da-4465-bd47-b6d136cfac8b">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="14" y="0" width="50" height="30" uuid="cb4a4867-5102-4a04-950d-82cf2b02e1ee"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Hasta]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="70" height="20" uuid="7e84f84d-2380-4fae-ab72-033427321983"/>
+																<textElement textAlignment="Right">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{fechafincontrato}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="55" uuid="f21988c1-f0bc-403a-a452-9973ab3ea040">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="50" height="30" uuid="2f61bc29-5bd0-4f24-9c96-8750e056ed23"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Sistema Pago]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="2" y="0" width="50" height="20" uuid="c923ce11-d599-4fe4-b837-fc3138721a86"/>
+																<textElement>
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{sistemapago}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="124" uuid="17079a36-f04f-4644-8c4a-5db1a0dfffd8">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="90" height="30" uuid="67f84a29-d0b8-4344-9f1e-069d40fa4ffa"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Plaza Nominal]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="6" y="0" width="113" height="20" uuid="445479b2-755b-40c3-8226-ecc8ddcb0e41"/>
+																<textElement>
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[$F{plazanominal}]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="53" uuid="45e32a8c-1fed-4c4d-9279-83d865e382b7">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="50" height="30" uuid="200b4cac-e9aa-4652-8392-c13fd733762c"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Salario Actual($)]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="50" height="20" uuid="43c912ee-2b7e-4c5c-8e6a-520d82fdda8d"/>
+																<textElement textAlignment="Right">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{salarioactual})]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="53" uuid="13c1639e-88d3-471e-b694-2afd214cf724">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="50" height="30" uuid="18d87f75-252e-449c-86eb-dee0f552801e"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Descuento($)]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="50" height="20" uuid="8f59e800-536b-4a73-bc62-ecbf32269811"/>
+																<textElement textAlignment="Right">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{montodescuento})]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+													<jr:column width="58" uuid="490398a5-fd82-4ce1-9c66-d5868cfcd8c9">
+														<jr:columnHeader style="table 2_CH" height="31" rowSpan="1">
+															<staticText>
+																<reportElement x="0" y="0" width="50" height="30" uuid="ce21fbcc-fd4e-487b-9963-bc79ed9aec99"/>
+																<textElement textAlignment="Center">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<text><![CDATA[Salario Total($)]]></text>
+															</staticText>
+														</jr:columnHeader>
+														<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+															<textField>
+																<reportElement x="0" y="0" width="50" height="20" uuid="7b09d51a-ff7d-4573-96c7-2ce2fbb13e93"/>
+																<textElement textAlignment="Right">
+																	<font fontName="Times New Roman" size="9"/>
+																</textElement>
+																<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{Total})]]></textFieldExpression>
+															</textField>
+														</jr:detailCell>
+													</jr:column>
+												</jr:table>
+											</componentElement>
+										</elementGroup>
 									</elementGroup>
 								</elementGroup>
 							</elementGroup>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="37"/>
+	<property name="ireport.x" value="44"/>
+	<property name="ireport.y" value="118"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -293,7 +293,7 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechar
 			<textField>
 				<reportElement x="220" y="0" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[new BigDecimal($F{gastoviaje}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{gastoviaje})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
