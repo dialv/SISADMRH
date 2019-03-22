@@ -23,7 +23,7 @@
                 <th>Responsable del Gasto </th>
                 <th>Fecha de Salida</th>
                 <th>Fecha de Regreso</th>
-                <th></th>
+                <th></th><th></th>
 		<th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
 		<th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
             </tr>
@@ -36,12 +36,14 @@
                 <td th:text="${mision.responsablegasto}">reponsablegasto</td>
                 <td th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">fechasalidamision</td>
                 <td th:text="${#calendars.format(mision.fecharegresomision, 'dd/MM/yyyy')}">fecharegresomision</td>
+                <!--<td><a th:href="${'./showmisionesemp/' + mision.codigomision}" class="btn btn-primary">GestionarMiembros</a></td>-->
                 <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-info">Mostrar</a></td>
-                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success">Modificar</a></td>
+                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success ">Modificar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:onclick="'eliminar(\'' + ${ mision.codigomision} +'\');'" class="btn btn-danger">Eliminar</a></td>
             </tr>
         </table>
         <!--</div>-->
+        
    
 </div>
 <div class="col-md-12">
