@@ -60,7 +60,7 @@ FROM
 				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="FixRelativeToBottom" x="160" y="51" width="265" height="20" uuid="83a9722d-5e32-4bca-901a-b1dc7b25149a"/>
+				<reportElement positionType="FixRelativeToBottom" x="147" y="51" width="265" height="20" uuid="83a9722d-5e32-4bca-901a-b1dc7b25149a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -75,21 +75,21 @@ FROM
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="245" y="70" width="100" height="20" uuid="d6e71bd6-1338-4325-8f1f-f930ffda16ba"/>
+				<reportElement x="242" y="70" width="100" height="20" uuid="d6e71bd6-1338-4325-8f1f-f930ffda16ba"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="305" y="70" width="39" height="20" uuid="009281ea-aadf-4969-bc06-5909ec18c5db"/>
+				<reportElement x="303" y="70" width="39" height="20" uuid="009281ea-aadf-4969-bc06-5909ec18c5db"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="215" y="70" width="39" height="20" uuid="b9dd5fa4-1069-4c39-b64d-2ac7f4476240"/>
+				<reportElement x="212" y="70" width="39" height="20" uuid="b9dd5fa4-1069-4c39-b64d-2ac7f4476240"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -110,7 +110,7 @@ FROM
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="332" y="70" width="100" height="20" uuid="91f40ec5-61ec-441f-9ff0-423a22f05acd"/>
+				<reportElement x="329" y="70" width="100" height="20" uuid="91f40ec5-61ec-441f-9ff0-423a22f05acd"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -132,21 +132,21 @@ FROM
 				<text><![CDATA[pnt_reporte_cado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="158" y="8" width="265" height="20" uuid="2c2a55fb-fecd-4350-96a4-0f817b2bb4d9"/>
+				<reportElement x="189" y="8" width="200" height="20" uuid="2c2a55fb-fecd-4350-96a4-0f817b2bb4d9"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="149" y="23" width="265" height="20" uuid="27d32f01-d373-4d81-a466-e3559a7c7c8e"/>
+				<reportElement x="185" y="23" width="200" height="20" uuid="27d32f01-d373-4d81-a466-e3559a7c7c8e"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="158" y="39" width="265" height="20" uuid="0c2e2a83-13a7-4cde-935e-90d88beab7a6"/>
+				<reportElement x="227" y="37" width="100" height="20" uuid="0c2e2a83-13a7-4cde-935e-90d88beab7a6"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -250,7 +250,7 @@ FROM
 	<summary>
 		<band height="19">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="275" y="5" width="227" height="13" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" backcolor="#FFFFFF" uuid="49530a96-c282-4137-9bcf-092e6b63a991"/>
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="273" y="4" width="227" height="13" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" backcolor="#FFFFFF" uuid="49530a96-c282-4137-9bcf-092e6b63a991"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>

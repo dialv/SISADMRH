@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1b555deb-ccc6-4f42-812f-3a85bbeb223a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="143"/>
+	<property name="ireport.x" value="40"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -52,7 +52,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<pageHeader>
 		<band height="80" splitType="Stretch">
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="132" y="64" width="100" height="14" uuid="1d0c8cec-58a3-42e1-a0d1-8b320e15c1e7"/>
+				<reportElement x="129" y="64" width="100" height="14" uuid="1d0c8cec-58a3-42e1-a0d1-8b320e15c1e7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -63,7 +63,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="37" y="47" width="100" height="14" uuid="c720b480-a202-43ec-b5c0-6406f029e2f6"/>
@@ -95,14 +95,14 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="303" y="64" width="33" height="14" uuid="f34c1d54-ac60-49f2-af80-a36ceb94e468"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Desde]]></text>
+				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="310" y="0" width="186" height="17" uuid="f67f4e58-4c4a-470d-b665-411af257ed8c"/>
@@ -130,7 +130,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Hasta]]></text>
+				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="658" y="47" width="39" height="14" uuid="1b94533d-8600-4d4e-962f-6526404ebdb2"/>
@@ -158,7 +158,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<image>
 				<reportElement x="660" y="0" width="70" height="70" uuid="a288a950-2134-4b57-8e88-2ef50ed71fe7"/>
@@ -191,49 +191,49 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</line>
 			<staticText>
 				<reportElement x="33" y="0" width="86" height="14" uuid="0305275c-b58e-45a4-bdd5-49297e590b3e"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="126" y="0" width="100" height="14" uuid="83983a63-4976-4ae5-88fe-fd91b02e80b0"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="231" y="0" width="100" height="14" uuid="2a6e48df-1bc1-42c8-a309-3755abe8e45c"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Salario Actual($)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="454" y="0" width="100" height="14" uuid="eb9d5dbc-6739-4cc7-9a14-0b78b41b1e43"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Partida Contrato]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="547" y="0" width="100" height="14" uuid="230ef5c1-9702-4957-beed-b68c47d75ccb"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Nivel de Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="337" y="0" width="128" height="14" uuid="19e05c95-7792-45fb-bb9b-cae3a60370fc"/>
-				<textElement>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha Inicio Contrato]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="647" y="0" width="100" height="14" uuid="11bd12af-d859-450f-9516-c1deecbdb448"/>
-				<textElement>
+				<reportElement x="648" y="0" width="100" height="14" uuid="11bd12af-d859-450f-9516-c1deecbdb448"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha Baja Contrato]]></text>
@@ -244,7 +244,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="28" splitType="Stretch">
 			<textField>
 				<reportElement x="143" y="0" width="78" height="28" uuid="52d265b4-fd85-4cb4-bbca-65902e887122"/>
-				<textElement textAlignment="Center">
+				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
@@ -265,7 +265,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</textField>
 			<textField>
 				<reportElement x="553" y="0" width="94" height="28" uuid="4ba14125-a270-483f-af2b-6153f12bafd1"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nivelpuesto}]]></textFieldExpression>
@@ -302,7 +302,7 @@ p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="31" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="209" y="4" width="241" height="13" backcolor="#FFFFFF" uuid="a9be8174-d364-49af-8e5c-d76cd545bf20"/>
+				<reportElement mode="Opaque" x="181" y="4" width="241" height="13" backcolor="#FFFFFF" uuid="a9be8174-d364-49af-8e5c-d76cd545bf20"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>

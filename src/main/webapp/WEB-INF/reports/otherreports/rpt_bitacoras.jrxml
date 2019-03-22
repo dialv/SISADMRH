@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="59bc4ce1-3b42-49cf-9224-91ada3447f2e">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="111"/>
+	<property name="ireport.x" value="99"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -60,10 +60,10 @@
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="229" y="66" width="100" height="14" uuid="683af6a7-7e30-463b-a76f-b4b2fcfcb8da"/>
+				<reportElement x="229" y="65" width="100" height="14" uuid="683af6a7-7e30-463b-a76f-b4b2fcfcb8da"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -84,32 +84,32 @@
 				<text><![CDATA[rpt_reporte_bitc]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="329" y="64" width="69" height="17" uuid="12821ffd-debc-425c-811f-9d740d4a7c42"/>
+				<reportElement x="336" y="64" width="69" height="17" uuid="12821ffd-debc-425c-811f-9d740d4a7c42"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="118" y="0" width="80" height="70" uuid="0810417f-3062-4c32-9189-3420387e971e"/>
+				<reportElement x="128" y="0" width="80" height="70" uuid="0810417f-3062-4c32-9189-3420387e971e"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="418" y="63" width="58" height="17" uuid="4c68edd0-7d3a-43ef-be20-8b80426ab5a3"/>
+				<reportElement x="425" y="63" width="58" height="17" uuid="4c68edd0-7d3a-43ef-be20-8b80426ab5a3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="350" y="35" width="66" height="17" uuid="42277e22-9e1a-4ea5-8a31-343dfbede377"/>
+				<reportElement x="356" y="35" width="66" height="17" uuid="42277e22-9e1a-4ea5-8a31-343dfbede377"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[SISASMRH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="49" width="92" height="17" uuid="6bd6698d-2de7-4b51-b8d7-ae8610102c94"/>
+				<reportElement x="345" y="49" width="92" height="17" uuid="6bd6698d-2de7-4b51-b8d7-ae8610102c94"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -123,29 +123,29 @@
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="300" y="64" width="33" height="17" uuid="29d48d35-80ed-4827-96d3-50405108fc47"/>
+				<reportElement x="306" y="64" width="33" height="17" uuid="29d48d35-80ed-4827-96d3-50405108fc47"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Desde]]></text>
+				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="133" y="66" width="100" height="14" uuid="2dd51f07-73b7-449f-9e6f-1c7950d5165e"/>
+				<reportElement x="133" y="65" width="100" height="14" uuid="2dd51f07-73b7-449f-9e6f-1c7950d5165e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<image>
 				<reportElement x="579" y="0" width="70" height="70" uuid="be79d293-0c64-4ae6-9d16-c118dc8acd6b"/>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/LOGOMJ.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="389" y="64" width="33" height="17" uuid="c1bc2058-1519-4cc2-b475-2b1f9a8d4346"/>
+				<reportElement x="395" y="64" width="33" height="17" uuid="c1bc2058-1519-4cc2-b475-2b1f9a8d4346"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Hasta]]></text>
+				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
 				<reportElement x="631" y="63" width="43" height="17" uuid="774dc551-845b-49ba-8b5b-3ba6235657ff"/>
@@ -159,7 +159,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -170,21 +170,21 @@
 			</rectangle>
 			<staticText>
 				<reportElement x="167" y="0" width="99" height="14" uuid="eaa00365-c1e7-4670-b312-dcdf1f623e84"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Evento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="456" y="0" width="101" height="14" uuid="a1603e0d-1ec8-41e4-b2d1-4035439ead8a"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ip]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="573" y="0" width="80" height="14" uuid="00e8157b-f688-499d-9c58-ae09bb4b3c64"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Usuario]]></text>
@@ -200,7 +200,7 @@
 			</line>
 			<staticText>
 				<reportElement x="369" y="0" width="68" height="14" uuid="d151d411-ef4f-4c8e-a6ea-35b65e1513c1"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha Evento]]></text>
@@ -215,6 +215,7 @@
 			</textField>
 			<textField>
 				<reportElement x="456" y="0" width="101" height="14" uuid="4cff886c-5493-4d6e-bff5-992bada5c6b9"/>
+				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{ip}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -223,7 +224,7 @@
 			</textField>
 			<textField>
 				<reportElement x="365" y="0" width="72" height="14" uuid="12c6d81b-3f26-4c3e-b406-8939466afb7a"/>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha Evento}]]></textFieldExpression>
@@ -231,18 +232,18 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="16" splitType="Stretch"/>
+		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="10" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="26" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<line>
-				<reportElement x="543" y="3" width="107" height="1" uuid="ff460cd9-1bff-4a9b-8e4f-d06fee233b2a"/>
+				<reportElement x="133" y="4" width="514" height="1" uuid="ff460cd9-1bff-4a9b-8e4f-d06fee233b2a"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="548" y="4" width="102" height="14" backcolor="#FFFFFF" uuid="0624c5b7-46ff-4a97-88cc-f2790304259d"/>
+				<reportElement mode="Opaque" x="520" y="6" width="102" height="14" backcolor="#FFFFFF" uuid="0624c5b7-46ff-4a97-88cc-f2790304259d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="false"/>
 				</textElement>
