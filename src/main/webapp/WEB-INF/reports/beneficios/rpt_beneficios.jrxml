@@ -107,7 +107,7 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="218" y="65" width="39" height="20" uuid="222e97f2-fdaf-47da-b0f2-a4c3d03b26f2"/>
@@ -128,7 +128,7 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="472" y="51" width="76" height="16" uuid="4178a0c6-e7e1-40f3-8629-91b6b2d91725"/>
@@ -198,7 +198,7 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[Còdigo Beneficio]]></text>
+				<text><![CDATA[Código Beneficio]]></text>
 			</staticText>
 			<line direction="BottomUp">
 				<reportElement x="118" y="0" width="1" height="14" uuid="4161321a-e9ff-49d4-9945-250605d3a177"/>

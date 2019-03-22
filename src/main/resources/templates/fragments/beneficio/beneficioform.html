@@ -33,7 +33,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <input type="hidden" th:field="*{codigobeneficio}"/>
   
           <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de Beneficio:</label>
+                <label class="col-sm-2 control-label">Nombre de Beneficio(*):</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{nombrebeneficio}"/>
                 </div>
@@ -45,7 +45,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  </div>
               
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripción Beneficio:</label>
+                <label class="col-sm-2 control-label">Descripción Beneficio(*):</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" size="100" maxlength="100" required="true" th:field="*{descripcionbeneficio}"/>
                 
@@ -58,7 +58,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  </div>
                   
 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de inicio:</label>
+                <label class="col-sm-2 control-label">Fecha de inicio(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control fecha_format" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
@@ -70,7 +70,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  </div>
  
 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de Finalización:</label>
+                <label class="col-sm-2 control-label">Fecha de Finalización(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
