@@ -13,22 +13,27 @@
          <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-       
         <div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">codigo:</label>
+                    <label class="col-sm-2 control-label">Codigo:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.codigousuario}">Usuario Id</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre:</label>
+                    <label class="col-sm-2 control-label">Usuario:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.nombreusuario}">Nombre</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">contraseña:</label>
+                    <label class="col-sm-2 control-label">Nombre Completo:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.nombrecompleto}">Nombre</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Contraseña:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.contraseniausuario}">contraseña</p>
                     </div>
@@ -39,26 +44,32 @@
                         <p class="form-control-static" th:text="${usuario.controlcontrasenia}">control pass</p>
                     </div>
                 </div-->
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">estado:</label>
+                <div th:if="${usuario.estadousuario==1}" class="form-group">
+                    <label class="col-sm-2 control-label">Estado:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${usuario.estadousuario}">estado</p>
+                        <p class="form-control-static" >activo</p>
+                    </div>
+                </div>
+                <div th:if="${usuario.estadousuario==0}" class="form-group">
+                    <label class="col-sm-2 control-label">Estado:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${usuario.estadousuario}">inactivo</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha de ingreso :</label>
+                    <label class="col-sm-2 control-label">Fecha de Ingreso :</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.fechaingreso}">fecha ingreso</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha de caducidad:</label>
+                    <label class="col-sm-2 control-label">Fecha de Caducidad:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.fechacaducidad}">fecha de caducidad</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">fecha de baja:</label>
+                    <label class="col-sm-2 control-label">Fecha de Baja:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${usuario.fechabaja}">fecha de baja</p>
                     </div>
@@ -72,9 +83,7 @@
     </div>
     </div>
 </div>
-
 </body>
-
 <script th:inline="javascript">
     Textheader('pnt_cous',document.title);
     $(document).ready(function () {
