@@ -3,7 +3,7 @@ package mj.gob.sisadmrh.controller.usuario;
 import java.util.Date;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Usuario;
-import mj.gob.sisadmrh.repository.UsuarioRepository;
+import mj.gob.sisadmrh.service.UsuarioRolService;
 import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -33,12 +33,15 @@ public class UsuarioController extends UtilsController{
     }
     
     @Autowired
+    private UsuarioRolService usuarioRolService;
+    
+    @Autowired
     BCryptPasswordEncoder paswordEnc; 
     
     private final String PREFIX = "fragments/usuario/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("usuarios", usuarioService.listAllActivos());
+        model.addAttribute("usuarios", usuarioService.listAllUsuarios());
         return PREFIX + "usuarios";
     }
     
@@ -81,7 +84,10 @@ public class UsuarioController extends UtilsController{
     
     @RequestMapping("show/{id}")
     public String showUsuario(@PathVariable Integer id, Model model) {
+        
         model.addAttribute("usuario", usuarioService.getUsuarioById(id).get());
+        model.addAttribute("roleslist", (usuarioRolService.getListroles(id).isEmpty())
+                ?"el usuario no tiene roles asignados":usuarioRolService.getListroles(id));
         return PREFIX +"usuarioshow";
     }
 
@@ -112,11 +118,5 @@ public class UsuarioController extends UtilsController{
                     (vez.substring(0,13)+((int) (Math.random() * 999) + 1)).toLowerCase():
                     (vez+((int) (Math.random() * 999) + 1)).toLowerCase();
             return (usuarioService.findbyUser(username)!=null)?generaUser(nombre, apellido, username): username.toLowerCase();            
-//            String username = (vez.equals("0"))?(nombre.charAt(0)+apellido.split(" ")[0]).substring(0, 15):vez;
-//            return   (usuarioService.findbyUser(username)==null)?username.substring(0, 15):generaUser(nombre, apellido,
-//          (Character.isDigit(username.charAt(0)))
-//                    ? (Character.getNumericValue(username.charAt(0))+1)+username
-//                    :'1'+username).substring(0, 15); 
-
     }
 }

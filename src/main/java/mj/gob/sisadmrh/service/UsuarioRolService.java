@@ -1,4 +1,5 @@
 package mj.gob.sisadmrh.service;
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Usuariorol;
 
@@ -14,4 +15,7 @@ public interface UsuarioRolService {
     Usuariorol saveUsuariorol(Usuariorol usuariorol);
 
     void deleteUsuariorol(Integer id);
+
+    public List<String> getListroles(Integer usuario);
+    
 }
