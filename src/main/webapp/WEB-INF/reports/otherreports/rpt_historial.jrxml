@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="18"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
@@ -65,7 +65,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="680" y="70" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
@@ -75,42 +75,42 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="306" y="52" width="175" height="17" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
+				<reportElement x="304" y="52" width="175" height="17" uuid="deab7866-efc6-4654-b9e0-af062f2ca3ce"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Reporte de Historial Laboral de Empleados ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="66" width="43" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
+				<reportElement x="302" y="68" width="43" height="17" uuid="1ba3c303-1161-4e5d-8141-8f4747ee1c73"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="396" y="66" width="38" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
+				<reportElement x="401" y="68" width="38" height="17" uuid="490e45c9-0353-42d5-8b19-b6879e26d467"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="162" y="69" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
-				<textElement>
+				<reportElement x="134" y="69" width="100" height="17" uuid="defd1f57-b9e1-4411-9a1b-4f605b930187"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="327" y="66" width="61" height="17" uuid="2ebcc166-3c13-4511-8e87-0f8d96307534"/>
+				<reportElement x="332" y="68" width="61" height="17" uuid="2ebcc166-3c13-4511-8e87-0f8d96307534"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="424" y="66" width="59" height="17" uuid="53bc6c9c-518e-442a-b11d-63842970632b"/>
+				<reportElement x="429" y="68" width="59" height="17" uuid="53bc6c9c-518e-442a-b11d-63842970632b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -135,7 +135,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="71" y="52" width="100" height="17" uuid="ddad01b0-d666-404f-bb79-6149f97a612a"/>
@@ -160,18 +160,18 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="37" width="66" height="17" uuid="db38dfdc-fb2d-466b-b2fc-f7f3e965fc58"/>
+				<reportElement x="357" y="36" width="66" height="17" uuid="db38dfdc-fb2d-466b-b2fc-f7f3e965fc58"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[SISASMRH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="328" y="24" width="132" height="17" uuid="15b3d772-00ea-4184-b465-b7a9927ab196"/>
+				<reportElement x="326" y="23" width="132" height="17" uuid="15b3d772-00ea-4184-b465-b7a9927ab196"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -213,14 +213,14 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de contratacion]]></text>
+				<text><![CDATA[Fecha de Contratación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="619" y="0" width="86" height="17" uuid="f7065383-1312-4dd5-8597-396b669d1b07"/>
+				<reportElement x="619" y="0" width="90" height="17" uuid="f7065383-1312-4dd5-8597-396b669d1b07"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de finalizacion]]></text>
+				<text><![CDATA[Fecha de Finalización]]></text>
 			</staticText>
 			<line>
 				<reportElement x="213" y="0" width="1" height="17" uuid="550cbdcf-db01-409a-ad6d-6920dcb1194d"/>
@@ -270,14 +270,14 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="525" y="2" width="50" height="14" uuid="4c1aa081-c9f8-4f96-bbcc-1a8f112d3843"/>
+				<reportElement x="525" y="2" width="75" height="14" uuid="4c1aa081-c9f8-4f96-bbcc-1a8f112d3843"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="613" y="2" width="49" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
+				<reportElement x="613" y="2" width="87" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

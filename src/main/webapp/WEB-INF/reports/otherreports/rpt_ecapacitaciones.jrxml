@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="32"/>
-	<property name="ireport.y" value="185"/>
+	<property name="ireport.x" value="3"/>
+	<property name="ireport.y" value="237"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -134,14 +134,14 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="64" y="53" width="114" height="20" uuid="024f8444-2a05-4618-8734-3bedca39387b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="152" y="53" width="70" height="20" uuid="54c9939e-c77b-4fd3-80fc-b777f8854106"/>
@@ -205,7 +205,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Reporte de Evaluacion de Capacitaciones]]></text>
+				<text><![CDATA[Reporte de Evaluación de Capacitaciones]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="341" y="57" width="39" height="20" uuid="7a989b77-32e4-47f7-92ca-bde4b7046256"/>
@@ -249,7 +249,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Tema de Capacitacion]]></text>
+				<text><![CDATA[Tema de Capacitación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="288" y="0" width="164" height="14" uuid="6ac16bc1-207f-4027-80f4-b18ce3e8a5a0"/>
@@ -271,7 +271,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Lugar Capacitacion]]></text>
+				<text><![CDATA[Lugar Capacitación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="569" y="0" width="83" height="14" uuid="1d378e86-0cec-4092-99eb-e62abb01deec"/>
@@ -282,7 +282,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha capacitaciòn]]></text>
+				<text><![CDATA[Fecha capacitación]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement mode="Transparent" x="64" y="0" width="658" height="14" uuid="66e7cf19-2f43-494c-bc10-8888aad285f8"/>
@@ -522,7 +522,7 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[El tema se desarrollo de lo sencillo a lo complejo lo cual permitio la comprension del tema]]></text>
+				<text><![CDATA[El tema se desarrollo de lo sencillo a lo complejo lo cual permitio la comprensión del tema]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="594" y="20" width="125" height="20" uuid="770777aa-8fab-4ce7-b686-79917359ac61"/>

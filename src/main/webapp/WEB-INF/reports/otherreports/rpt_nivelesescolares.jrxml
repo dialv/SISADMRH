@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5065368b-750f-41c4-8100-4b1ac3db73b7">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="129"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
@@ -40,7 +40,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band/>
 	</background>
 	<pageHeader>
-		<band height="78">
+		<band height="74">
 			<staticText>
 				<reportElement x="277" y="14" width="265" height="20" uuid="26868bdf-6f7c-4199-a934-9f6c47778dc6"/>
 				<textElement textAlignment="Center">
@@ -67,7 +67,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="708" y="53" width="61" height="20" uuid="be740dfb-e360-424e-aa85-2f2c53509bb3"/>
@@ -88,7 +88,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="693" y="43" width="107" height="20" uuid="14c98792-a82d-4217-8f42-ae5d6ca0a399"/>
@@ -105,14 +105,14 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[pnt_reporte_nes]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="333" y="53" width="39" height="20" uuid="f89dec94-a673-4214-acf6-3943661bc7a0"/>
+				<reportElement x="335" y="54" width="39" height="14" uuid="f89dec94-a673-4214-acf6-3943661bc7a0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="451" y="53" width="65" height="20" uuid="22231878-adfb-4d8b-b749-6d98d65feb42"/>
+				<reportElement x="453" y="54" width="65" height="14" uuid="22231878-adfb-4d8b-b749-6d98d65feb42"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -123,7 +123,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="364" y="53" width="82" height="20" uuid="6690c497-8468-4007-be91-510579827c8f"/>
+				<reportElement x="366" y="54" width="82" height="14" uuid="6690c497-8468-4007-be91-510579827c8f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -141,14 +141,14 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="423" y="53" width="39" height="20" uuid="efef5a3f-1712-43e6-9476-ed5e0a616be9"/>
+				<reportElement x="425" y="54" width="39" height="14" uuid="efef5a3f-1712-43e6-9476-ed5e0a616be9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="277" y="43" width="266" height="20" uuid="9b9f7c59-6778-4239-955a-e85f70b273fb"/>
+				<reportElement x="277" y="41" width="266" height="20" uuid="9b9f7c59-6778-4239-955a-e85f70b273fb"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -226,7 +226,7 @@ and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Institucion Educativa]]></text>
+				<text><![CDATA[Institución Educativa]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

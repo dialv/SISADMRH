@@ -54,7 +54,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="154" y="80" width="265" height="20" uuid="f1353065-9401-447a-908f-e7e6c2021c35"/>

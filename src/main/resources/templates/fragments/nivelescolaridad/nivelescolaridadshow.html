@@ -65,14 +65,15 @@
                 </div>
                  <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Desde:</label>
-                    <div class="col-sm-10">                      <p class="form-control-static" th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd-MMM-yyyy')}">Fecha desde</p>
+                    
+                    <div class="col-sm-10">                      <p class="form-control-static" th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MM/yyyy')}">Fecha desde</p>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Hasta:</label>
                     <div class="col-sm-10">
-                       <p class="form-control-static" th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd-MMM-yyyy')}">fecha hasta</p>
+                       <p class="form-control-static" th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd/MM/yyyy')}">fecha hasta</p>
                     </div>
                 </div>    
                 

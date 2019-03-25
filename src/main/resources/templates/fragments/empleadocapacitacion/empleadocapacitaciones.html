@@ -20,17 +20,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Capacitaciones asignadas</h3>
+        <h3 align="center">Capacitaciones Asignadas</h3>
     <div th:if="${not #lists.isEmpty(empleadocapacitaciones)}">
         <div class="table-responsive">
   <table class="table">
             <tr>
                 <th>Nombre empleado</th>
-                <th>Nombre de Capacitacion</th>
+                <th>Nombre de Capacitación</th>
             </tr>
             <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
-                <td th:text="${empleadocapacitacion.empleado.nombreempleado}">Codigo</td>
-                <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Codigo</td>
+                <td th:text="${empleadocapacitacion.empleado.nombreempleado}+', '+${empleadocapacitacion.empleado.apellidoempleado}">Codigo</td>
+                <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Código</td>
             </tr>
         </table>
     </div>

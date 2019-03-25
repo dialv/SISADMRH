@@ -87,6 +87,10 @@ private HijosdiscapacidadService hijosdiscapacidadService;
     public String reportebitacoras() {
         return PREFIX + "bitacorasreport";
     }
+    @RequestMapping("usuariorep/")
+    public String usuariorep() {
+        return PREFIX + "usuarioreport";
+    }
     @RequestMapping("capacitadores/")
     public String reportecapacitadores() {
         return PREFIX + "capacitadoresreporte";
@@ -197,6 +201,18 @@ private HijosdiscapacidadService hijosdiscapacidadService;
 		params.put("FECHAINICIO", fechainicio);
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_bitacoras", params, download,response);
+    }
+        @RequestMapping(value = "usuarioreport", method = { RequestMethod.POST, RequestMethod.GET })
+    public void usuarioreport(
+            @RequestParam(required = false) Boolean download, 
+            @RequestParam(value="fechainicial",required = false) String fechainicio, 
+            @RequestParam(value="fechafinal", required = false) String fechafin, 
+                HttpServletResponse response) throws Exception {
+                Map<String, Object> params = new HashMap<>();
+                params.put("USUARIO",  getRequest().getUserPrincipal().getName());
+		params.put("FECHAINICIO", fechainicio);
+		params.put("FECHAFIN", fechafin);
+        	generatePdf("otherreports", "rpt_usuarios", params, download,response);
     }
     @RequestMapping(value = "motoristas/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
     public void pdfmotoristas(@PathVariable("indice") Long indice, 

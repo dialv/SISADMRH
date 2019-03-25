@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Usuariorol;
 import mj.gob.sisadmrh.repository.UsuarioRolRepository;
@@ -34,6 +35,11 @@ public class UsuarioRolServiceImpl implements UsuarioRolService {
     @Override
     public Usuariorol saveUsuariorol(Usuariorol usuariorol) {
         return usuarioRep.save(usuariorol);
+    }
+
+    @Override
+    public List<String> getListroles(Integer usuario) {
+        return usuarioRep.getListroles(usuario);
     }
 
     @Override

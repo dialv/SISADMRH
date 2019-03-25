@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -21,11 +16,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
-
 /**
  *
  * @author root
@@ -35,7 +28,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)

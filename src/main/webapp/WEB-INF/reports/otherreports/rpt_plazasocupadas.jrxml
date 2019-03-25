@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b26e61c-8f32-4c26-ad7d-40da0b6d3e65">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="114"/>
+	<property name="ireport.x" value="96"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -91,14 +91,14 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Fecha de Generacion:]]></text>
+				<text><![CDATA[Fecha de Generación:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="646" y="53" width="62" height="20" uuid="c280f540-adf5-4fff-8a53-efa283b7e71f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="708" y="53" width="61" height="20" uuid="50139365-5d13-4c7f-b2db-5effd408f473"/>
@@ -248,7 +248,7 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha de Desvinculacion]]></text>
+				<text><![CDATA[Fecha de Desvinculación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="556" y="0" width="125" height="22" forecolor="#000000" uuid="bcbd7a45-e6be-4092-b0d7-befb19b93c8a"/>
@@ -332,18 +332,18 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="18">
 			<textField evaluationTime="Report" pattern="#,##0.00">
-				<reportElement x="390" y="2" width="122" height="15" uuid="f46000f7-9d15-4e64-86e3-c64d5f6c3cdc"/>
+				<reportElement x="383" y="2" width="122" height="15" uuid="f46000f7-9d15-4e64-86e3-c64d5f6c3cdc"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{sueldo Basico_2}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="358" y="2" width="100" height="15" uuid="067680c2-f14e-4fb7-ab6f-19f23151a05c"/>
+				<reportElement x="314" y="2" width="137" height="15" uuid="067680c2-f14e-4fb7-ab6f-19f23151a05c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Total $]]></text>
+				<text><![CDATA[Total  Sueldos$]]></text>
 			</staticText>
 			<line>
 				<reportElement x="35" y="1" width="697" height="1" uuid="b9867f68-6c74-4c3e-8043-ca5ff4830ad3"/>
