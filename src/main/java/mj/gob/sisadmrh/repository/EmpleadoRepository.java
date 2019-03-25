@@ -153,4 +153,28 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
 
     @Query("SELECT o FROM Empleado o WHERE o.estadoempleado != 0")
     public Iterable<Empleado> listAllActivos();
+    
+    
+    @Query(value = "select \n" +
+                        "em.idme,m.codigomision,m.nombremision, \n" +
+                        "e.codigoempleado,e.nombreempleado,e.apellidoempleado\n" +
+                        "from mision m, empleado e, empleadomision em \n" +
+                        "where\n" +
+                        "m.codigomision=em.codigomision and \n" +
+                        "e.codigoempleado=em.codigoempleado and \n" +
+                        "m.codigomision= :id  ", nativeQuery = true)
+    List<Object[]> findByMisionesEmpleados(@Param("id") int dato);
+    
+    
+    @Query(value = "select  \n" +
+"                        em.idme,m.codigomision,m.nombremision,m.tipomision,m.fechasalidamision\n" +
+"                        from mision m, empleado e, empleadomision em \n" +
+"                        where\n" +
+"                        m.codigomision=em.codigomision and \n" +
+"                        e.codigoempleado=em.codigoempleado group by m.codigomision ", nativeQuery = true)
+    List<Object[]> findByMisionesAsignadas();
+    
+     @Query(value = "DELETE FROM  empleadomision  WHERE \n"
+            + " codigomision= :id  ", nativeQuery = true)
+    void DeleteListadoMision(@Param("id") int dato);
 }
