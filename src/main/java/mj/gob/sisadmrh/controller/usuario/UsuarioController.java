@@ -59,10 +59,16 @@ public class UsuarioController extends UtilsController{
 
     @RequestMapping(value = "usuario")
     public String saveUsuario(Usuario usuario,Model model, SessionStatus status) {
+        Usuario aux=new Usuario();
+        aux.setNombrecompleto(usuario.getNombrecompleto());
+        aux.setNombreusuario(usuario.getNombreusuario());
+        aux.setContraseniausuario(usuario.getContraseniausuario());
+        aux.setControlcontrasenia(usuario.getControlcontrasenia());
+        aux.setDui(usuario.getDui());
+        aux.setFechaingreso(usuario.getFechaingreso());
         try{
-            
-        Date fecha = new Date();
-        usuario.setFechaingreso(fecha);
+//        Date fecha = new Date();
+//        usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
         usuario.setControlcontrasenia("1");
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
@@ -76,6 +82,7 @@ public class UsuarioController extends UtilsController{
          model.addAttribute("usuarioname", usuario.getNombreusuario());
         }
         catch(Exception e){
+         model.addAttribute("usuario", aux);   
          model.addAttribute("msg", 1);
         }
         return PREFIX+"usuarioform";

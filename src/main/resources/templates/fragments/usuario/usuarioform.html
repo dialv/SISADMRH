@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">DUI:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control numeros" required="true" size="100" maxlength="9" th:field="*{dui}" />
+                            <input type="text" class="form-control numeros" required="true" size="100" maxlength="9" th:field="${usuario.dui}" />
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dui')" onmouseout ="javascript:ocultarAyuda('dui')">a</a></b>
@@ -53,7 +53,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
+                            <input type="text" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
@@ -63,17 +63,17 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="password" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                            <input type="text" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
-                            <span class="popuptext" id="passw">Confirme la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passwconf')" onmouseout ="javascript:ocultarAyuda('passwconf')">a</a></b>
+                            <span class="popuptext" id="passwconf">Confirme la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha Ingreso:</label>
                         <div class="col-sm-2">
-                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fdesde" th:field="*{fechaingreso}"onchange="isDat(this.value, 'fdesde'); Fechas(this.value, $('#fhasta').val().toString(), 'fdesde', 'fhasta')"/>
+                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fdesde" th:field="*{fechaingreso}"onchange="isDat(this.value, 'fdesde');"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('finicio')" onmouseout ="javascript:ocultarAyuda('finicio')">a</a></b>
@@ -114,72 +114,45 @@
             </div>
         </div>
     </div>
-
-</body>
-
-<script>
-
-    function Fechas(val1, val2, val3, val4){
-    var foo = ValidarFecha(val1, val2, val3, val4).split(","); ;
-    if (foo[0] != foo[2]){
-    swal(foo[1], foo[0]);
-    }
-    }
-
-    function isDat(val, id){
-    var foo = ExisteFecha(val, id).split(","); ;
-    if (foo[0] != foo[2]){
-    swal(foo[1], foo[0]);
-    }
-    }
-    $(document).ready(function () {
-    $('#fdesde').datepicker({
-    dateFormat: 'dd/mm/yy'
-    });
-    $('#fhasta').datepicker({
-    dateFormat: 'dd/mm/yy'
-    });
-    $('#fchabaja').datepicker({
-    dateFormat: 'dd/mm/yy'
-    });
-    });</script>
-
 </body>
 <script th:inline="javascript">
     Textheader('pnt_geus', document.title);
+    
     $(document).ready(function () {
+    
+        $('#pass').attr('type', 'password');
+        $('#confpass').attr('type', 'password');
+        $('#fdesde').datepicker({
+                    dateFormat: 'dd/mm/yy'
+        });
 
-
-    $('#guardar').click(function(){
-    var pass = $("#pass").val();
-    if (pass == $("#confpass").val()){
-    if (pass.length >= 8){
-    $("form#usuarioform").submit();
-    }
-    else{
-    swal({
-    title: "ERROR!",
-            text: "la contraseña debe tener al menos 8 caracteres",
-            type: "error",
-            icon: "error"
-    });
-    }
-    }
-    else {
-    swal({
-    title: "ERROR!",
+        $('#guardar').click(function(){
+    
+        var pass = $("#pass").val();
+        if (pass == $("#confpass").val()){
+            if (pass.length >= 8){
+                $("form#usuarioform").submit();
+            }
+            else{
+            swal({
+                title: "ERROR!",
+                text: "la contraseña debe tener al menos 8 caracteres",
+                icon: "error"
+            });
+            }
+        }
+        else {
+            swal({
+            title: "ERROR!",
             text: "las contraseñas no coinciden",
-            type: "error",
             icon: "error"
-    });
-    }
-
+            });
+        }
     });
     if ([[${msg}]] === 0){
     swal({
     title: "Usuario Generado con exito ",
             text: [[${usuarioname}]],
-            type: "success",
             icon: "success"
     }).then(function() {
     location.href = '../usuarios/';
@@ -190,10 +163,15 @@
     swal({
     title: "ERROR!",
             text: "El numero de nit ya existe",
-            type: "error",
             icon: "error"
     });
     }
     });
+    function isDat(val, id){
+    var foo = ExisteFecha(val, id).split(","); ;
+    if (foo[0] != foo[2]){
+    swal(foo[1], foo[0]);
+    }
+    }
 </script> 
 </html>
