@@ -90,6 +90,7 @@
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
                                 </ul>
                             </li>
+                            
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diagnosticos <br> de Capacitaciones<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
@@ -176,6 +177,13 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bitacora<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/bitacoras/}">Consultar Bit&aacute;cora</a></li>
+                                </ul>
+                            </li>
+                             <li sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Administrativos<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                                <ul class="dropdown-menu forAnimate" role="menu">
+                                    <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="#" th:href="@{/otherreports/bitacoras/}"> Reporte de Bitacora</a></li>
+                                    <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="#" th:href="@{/otherreports/usuariorep/}">Reporte de usuarios</a></li>
                                 </ul>
                             </li>
                             <li sec:authorize="hasRole('ROLE_ESTRATEGICO')" class="dropdown">
