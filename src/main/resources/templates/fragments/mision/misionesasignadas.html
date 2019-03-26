@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>SISADMRH-Listado de Misiones con Miembros Asignados</title>
+    <title>SISADMRH-Listado de Misiones con Empleados Asignados</title>
      <th:block th:include="../templates/header"></th:block>
  
 
@@ -50,10 +50,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <thead>
                             <tr>
                                 <th hidden>id</th>
-                                <th>codigo</th>
-                                <th>Tipo de Mision</th>
-                                <th>Nombre de Mision</th>
-                                <th>Fecha de Mision</th>
+                                <th>Codigo</th>
+                                <th>Tipo de Misi&oacute;n</th>
+                                <th>Nombre de Misi&oacute;n</th>
+                                <th>Fecha de Misi&oacute;n</th>
                                 <th> </th><th> </th>
                                 <th> </th>
                                 
@@ -66,9 +66,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <td th:text= "${emcapList[__${3}__]}">tipo</td>
                             <td th:text= "${emcapList[__${2}__]}">nombremision</td>
                             <td th:text= "${#calendars.format(emcapList[__${4}__], 'dd/MM/yyyy')}">fechasalida</td>
-                            <td><a th:href="${'../showmisionesemp1/' + emcapList[__${1}__]}" class="btn btn-info">Mostrar Miembros</a></td>
-                            <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'../editlist/' + emcapList[__${1}__]}" class="btn btn-success ">Agregar Miembros</a></td>
-                            <td><a th:href="${'../showmisionesemp/' + emcapList[__${1}__]}" class="btn btn-danger">Eliminar Miembros</a></td>
+                            <td><a th:href="${'../showmisionesemp1/' + emcapList[__${1}__]}" class="btn btn-info">Mostrar Empleados <br>Asignados</a></td>
+                            <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'../editlist/' + emcapList[__${1}__]}" class="btn btn-success ">Agregar Empleados<br>a Misi&oacute;n</a></td>
+                            <td><a th:href="${'../showmisionesemp/' + emcapList[__${1}__]}" class="btn btn-danger">Eliminar Empleados<br>de Misi&oacute;n</a></td>
                             <!--<td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:onclick="'eliminar(\'' + ${ emcapList[__${1}__]} +'\');'" class="btn btn-danger">Eliminar Listado</a></td>-->
 
                 

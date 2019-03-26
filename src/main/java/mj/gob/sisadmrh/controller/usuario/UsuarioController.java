@@ -48,7 +48,7 @@ public class UsuarioController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("usuario", usuarioService.getUsuarioById(id));
-        return PREFIX + "usuarioform";
+        return PREFIX + "usuarioformedit";
     }
 
     @RequestMapping("new/usuario")
@@ -59,10 +59,16 @@ public class UsuarioController extends UtilsController{
 
     @RequestMapping(value = "usuario")
     public String saveUsuario(Usuario usuario,Model model, SessionStatus status) {
+        Usuario aux=new Usuario();
+        aux.setNombrecompleto(usuario.getNombrecompleto());
+        aux.setNombreusuario(usuario.getNombreusuario());
+        aux.setContraseniausuario(usuario.getContraseniausuario());
+        aux.setControlcontrasenia(usuario.getControlcontrasenia());
+        aux.setDui(usuario.getDui());
+        aux.setFechaingreso(usuario.getFechaingreso());
         try{
-            
-        Date fecha = new Date();
-        usuario.setFechaingreso(fecha);
+//        Date fecha = new Date();
+//        usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
         usuario.setControlcontrasenia("1");
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
@@ -71,6 +77,26 @@ public class UsuarioController extends UtilsController{
         usuarioService.saveUsuario(usuario);
         status.setComplete();
         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+         model.addAttribute("msg", 0);
+         model.addAttribute("usuarioname", usuario.getNombreusuario());
+        }
+        catch(Exception e){
+         model.addAttribute("usuario", aux);   
+         model.addAttribute("msg", 1);
+        }
+        return PREFIX+"usuarioform";
+       // return "redirect:./show/" + usuario.getCodigousuario();
+    }
+    @RequestMapping(value = "usuarioedit")
+    public String editUsuario(Usuario usuario,Model model, SessionStatus status) {
+        try{
+        usuario.setEstadousuario(1);
+        usuario.setControlcontrasenia("1");
+        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
+        usuarioService.saveUsuario(usuario);
+        status.setComplete();
+        bitacoraService.BitacoraRegistry("se modifico Usuario",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
          model.addAttribute("msg", 0);
          model.addAttribute("usuarioname", usuario.getNombreusuario());

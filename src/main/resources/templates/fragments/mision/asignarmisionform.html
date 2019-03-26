@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>SISADMRH-Asignar Mision a Empleado</title>
+    <title>SISADMRH-Asignar Misi&oacute;n a Empleado</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <h3 align="center"></h3>
         <form class="form-horizontal" id="formmision" th:object="${mision}"   method="post">
         <div class="form-group">
-                        <label class="col-sm-3 control-label">Mision:</label>
+                        <label class="col-sm-3 control-label">Nombre de Misi&oacute;n:</label>
                         <div class="col-sm-7" >
                             <select class="form-control"  id="cmbmision"  name="cmbmision" th:field="*{codigomision}" >
                                 <option value="0">-- Seleccione una Mision --</option>
@@ -35,7 +35,7 @@
           <form class="form-horizontal" id="formempleado" th:object="${empleado}">
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" >Empleado:</label>
+                        <label class="col-sm-3 control-label" >Nombre del Empleado:</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
                               <select class="form-control" id="codigo" name="codigo"  >
@@ -57,6 +57,7 @@
                           
                             <!--<button type="button" class="btn btn-info"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
                             <!--<a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>-->                  
+                    <a href="#" th:href="@{/misiones/list/mision}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     <button type="submit" class="btn btn-success" id="Asignarbtn"><span class="glyphicon glyphicon-floppy-disk"></span>Asignar</button>
 
                             <!--<button type="submit" class="btn btn-primary" id="Asignarbtn"  >Asignar</button>-->
@@ -103,7 +104,7 @@
     if([[${msg}]]===0){
        swal({
                 title: "Exito!",
-                text: "el empleado a sido Asignado a Mision",
+                text: "Registro agregado correctamente",
                 type: "success",
                 icon: "success"
        }).then(function() {

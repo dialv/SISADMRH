@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>SISADMRH-Consulta de Datos de Miembros de Mision</title>
+    <title>SISADMRH-Listado de Empleados Asignados a Misi&oacute;n</title>
      <th:block th:include="../templates/header"></th:block>
  
 
@@ -49,9 +49,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <table id="tablita" class="table table-striped table-bordered" >
                         <thead>
                             <tr>
-                                <th>codigo</th>
-                                <th>Nombre de Mision</th>
-                                <th>Nombre empleado</th>
+                                <th>C&oacute;digo</th>
+                                <th>Nombre de Misi&oacute;n</th>
+                                <th>Nombre de Empleado</th>
                                 
                                 <!--<th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>-->
                             </tr>
@@ -68,8 +68,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>-->
                 	
 <!--<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> <a href="#" th:href="@{/misiones/}">Regresar</a></button>-->
-<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span> <a href="#" th:href="@{/misiones/list/mision}">Regresar</a></button>
-            </div>
+<a href="#" th:href="@{/misiones/list/mision}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                     </div>
                  </form>
             <div class="col-md-12">
             
