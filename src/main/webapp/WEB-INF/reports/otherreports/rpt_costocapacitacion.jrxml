@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23e6b007-0068-4e8d-99ff-9f90427771ad">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="23e6b007-0068-4e8d-99ff-9f90427771ad">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -166,7 +166,7 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				<text><![CDATA[Nº  Personas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="126" y="0" width="167" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="d7150423-edf8-4a88-a50a-33666c6f26d6"/>
+				<reportElement mode="Transparent" x="126" y="0" width="179" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="d7150423-edf8-4a88-a50a-33666c6f26d6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>

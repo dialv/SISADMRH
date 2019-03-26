@@ -238,14 +238,14 @@
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{sueldobase})]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="149" y="0" width="63" height="24" uuid="3989f955-de11-4b0d-927f-07a5b5998594"/>
+				<reportElement x="148" y="0" width="66" height="24" uuid="3989f955-de11-4b0d-927f-07a5b5998594"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="224" y="0" width="57" height="24" uuid="76e886ce-11c5-4077-b852-9ebdf9a65c42"/>
+				<reportElement x="221" y="0" width="57" height="24" uuid="76e886ce-11c5-4077-b852-9ebdf9a65c42"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

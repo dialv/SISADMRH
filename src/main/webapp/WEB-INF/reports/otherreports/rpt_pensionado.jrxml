@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_pensionado" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_pensionado" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="93"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
@@ -32,7 +32,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<pageHeader>
 		<band height="118">
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="118" y="95" width="70" height="20" uuid="63655c39-f73f-4fee-a684-d8166c4e20f4"/>
+				<reportElement x="116" y="95" width="70" height="20" uuid="63655c39-f73f-4fee-a684-d8166c4e20f4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -142,7 +142,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página"+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
@@ -152,7 +152,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="50" y="0" width="439" height="12" backcolor="#FFFFFF" uuid="706802ad-e2c6-4b79-b367-37adce6acada"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="164" y="1" width="116" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="782b81cf-5a2f-4f7a-a3f2-0d8bb004eae1"/>
+				<reportElement mode="Transparent" x="164" y="1" width="119" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="782b81cf-5a2f-4f7a-a3f2-0d8bb004eae1"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
@@ -160,7 +160,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Nombre de Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="291" y="0" width="47" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="bfb1a1e6-00ce-4cb7-8fda-1bd9b4b47c09"/>
+				<reportElement mode="Transparent" x="285" y="0" width="53" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="bfb1a1e6-00ce-4cb7-8fda-1bd9b4b47c09"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
@@ -168,7 +168,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Salario($)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="331" y="1" width="48" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="8e04b80d-49e3-4e7c-ba8f-082d74e20660"/>
+				<reportElement mode="Transparent" x="342" y="1" width="37" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="8e04b80d-49e3-4e7c-ba8f-082d74e20660"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
@@ -266,7 +266,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band/>
 	</columnFooter>
 	<summary>
-		<band height="18">
+		<band height="16">
 			<staticText>
 				<reportElement x="265" y="2" width="41" height="13" uuid="4fb4bac3-620d-4ebd-88a4-460901697b63"/>
 				<textElement textAlignment="Center">

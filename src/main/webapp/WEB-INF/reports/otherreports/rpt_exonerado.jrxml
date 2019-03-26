@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="90cbc80e-6c67-477f-a70f-ddea72fb458f">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="90cbc80e-6c67-477f-a70f-ddea72fb458f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -30,7 +30,7 @@ and c.fechapresentacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pàgina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="158" y="29" width="265" height="20" uuid="38761961-bd1a-4643-958b-8a26ea58b90f"/>
@@ -188,7 +188,7 @@ and c.fechapresentacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Nombre de Puesto]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="172" y="1" width="1" height="11" uuid="84766258-42f3-4401-b228-819bb4458fec"/>
+				<reportElement x="172" y="0" width="1" height="14" uuid="84766258-42f3-4401-b228-819bb4458fec"/>
 			</line>
 			<line direction="BottomUp">
 				<reportElement x="328" y="0" width="1" height="14" uuid="62888927-47ff-46b8-b45e-2476cb5185e4"/>
@@ -254,9 +254,9 @@ and c.fechapresentacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band/>
 	</columnFooter>
 	<summary>
-		<band height="18">
+		<band height="16">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="79" y="5" width="425" height="13" backcolor="#FFFFFF" uuid="c18fea93-7a56-4c35-a3e9-5fd477700c4c"/>
+				<reportElement mode="Opaque" x="79" y="3" width="425" height="13" backcolor="#FFFFFF" uuid="c18fea93-7a56-4c35-a3e9-5fd477700c4c"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" isUnderline="false"/>
 				</textElement>

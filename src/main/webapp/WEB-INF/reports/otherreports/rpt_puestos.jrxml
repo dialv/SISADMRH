@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45e48802-dec0-4c73-a163-d1ad4215b739">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="45e48802-dec0-4c73-a163-d1ad4215b739">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -333,9 +333,9 @@ FROM
 		</band>
 	</detail>
 	<summary>
-		<band height="18" splitType="Stretch">
+		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="69" y="5" width="425" height="13" backcolor="#FFFFFF" uuid="a33c05a9-0a1e-4a94-8da9-a3d4af3d4d8b"/>
+				<reportElement mode="Opaque" x="69" y="3" width="425" height="13" backcolor="#FFFFFF" uuid="a33c05a9-0a1e-4a94-8da9-a3d4af3d4d8b"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" isUnderline="false"/>
 				</textElement>

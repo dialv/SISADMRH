@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a51ad015-2d87-4562-afd7-b7f7d7719761">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="a51ad015-2d87-4562-afd7-b7f7d7719761">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -206,9 +206,9 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 		<band/>
 	</columnFooter>
 	<summary>
-		<band height="24">
+		<band height="16">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="400" y="8" width="108" height="15" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
+				<reportElement mode="Opaque" x="400" y="1" width="108" height="15" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
