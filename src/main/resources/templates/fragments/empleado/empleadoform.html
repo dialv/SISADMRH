@@ -159,7 +159,7 @@
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Departamento de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
-                    <select class="form-control" name="depnacimiento" >
+                    <select class="form-control" name="departamentonacimiento" >
                             <!--th:field="*{departamentonacimiento}">-->
                         <option>Santa Ana</option>
                         <option>San Salvador</option>
@@ -175,7 +175,7 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
-                    <select class="form-control" >
+                    <select class="form-control" name="municipionacimiento">
                             <!--th:field="*{municipionacimiento}">-->
                         <option>Santa Tecla</option>
                         <option>antiguo Cuscatlan</option>
@@ -192,7 +192,7 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Estado Familiar del Empleado(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="estfamiliar">
+                    <select class="form-control" name="estadofamiliar">
                             <!--th:field="*{estadofamiliar}">-->
                         <option>Soltero</option>
                         <option>Casado</option>
@@ -415,7 +415,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">BANCO(*):</label>
+                    <label class="col-sm-3 control-label">Banco en el que se le deposita al Empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50"   th:field="*{nombreinstiuciondepositar}"  />
                     </div>
@@ -426,7 +426,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de Cuenta(*):</label>
+                <label class="col-sm-3 control-label">Tipo de Cuenta Bancaria del Empleado(*):</label>
                 <div class="col-sm-2">
                     <select class="form-control" name="tipocuenta" >
                             <!--th:field="*{tipocuenta}">-->
@@ -442,7 +442,7 @@
              
             </div>
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Numero de Cuenta del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Numero de Cuenta Bancaria del Empleado(*):</label>
                     <div class="col-sm-4">
                         <input type="text"  class="form-control num_cuenta"   required="true" size="30" th:field="*{numerocuenta} "/>
                     </div>

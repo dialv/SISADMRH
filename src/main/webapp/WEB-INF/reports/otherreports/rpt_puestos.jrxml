@@ -273,58 +273,58 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="23" splitType="Stretch">
-			<textField isBlankWhenNull="true">
-				<reportElement x="43" y="0" width="29" height="21" uuid="6f5d15df-a0ba-4c70-8e0c-64ac33febd05"/>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="43" y="0" width="29" height="14" uuid="6f5d15df-a0ba-4c70-8e0c-64ac33febd05"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_CODIGOPUESTO}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="78" y="0" width="74" height="23" uuid="cbb73e51-89af-417e-97d4-25293749b3fe"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="78" y="0" width="74" height="14" uuid="cbb73e51-89af-417e-97d4-25293749b3fe"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_NOMBREPUESTO}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="157" y="0" width="55" height="23" uuid="1ec60a8c-0c84-4d12-b8a8-8833a3491eb1"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="157" y="0" width="55" height="14" uuid="1ec60a8c-0c84-4d12-b8a8-8833a3491eb1"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_FECHACONTRATACIONDESDE}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="219" y="0" width="55" height="21" uuid="d66ad430-88d3-4177-ba2d-7abc952f22a4"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="219" y="0" width="55" height="14" uuid="d66ad430-88d3-4177-ba2d-7abc952f22a4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_FECHACONTRATACIONHASTA}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="280" y="0" width="85" height="23" uuid="b294a92f-5d9e-4a17-8b92-0556ca76cb76"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="280" y="0" width="85" height="14" uuid="b294a92f-5d9e-4a17-8b92-0556ca76cb76"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_UBICACIONPUESTO}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="367" y="0" width="43" height="21" uuid="ac50ab3d-9206-428e-b5c8-0a4d2612ddde"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="367" y="0" width="43" height="14" uuid="ac50ab3d-9206-428e-b5c8-0a4d2612ddde"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_SUBLINEA}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="415" y="0" width="35" height="21" uuid="1f5e3f77-0ac6-4e4e-b12e-e006546f26a3"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="415" y="0" width="35" height="14" uuid="1f5e3f77-0ac6-4e4e-b12e-e006546f26a3"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{puesto_NUMEROPARTIDAPUESTO}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="457" y="0" width="40" height="21" uuid="dd0460b3-408a-4980-a70d-6f8f1826e1c1"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="457" y="0" width="40" height="14" uuid="dd0460b3-408a-4980-a70d-6f8f1826e1c1"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="170"/>
-	<property name="ireport.y" value="70"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -285,79 +285,79 @@ inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE i.fechadesde
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="28" splitType="Stretch">
-			<textField>
-				<reportElement x="47" y="0" width="71" height="28" uuid="86a0fde7-8042-497b-84c3-dbbb4781f28d"/>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="47" y="0" width="71" height="14" uuid="86a0fde7-8042-497b-84c3-dbbb4781f28d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="125" y="0" width="80" height="28" uuid="b5d283ea-4282-438d-92b9-2337220a13ed"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="125" y="0" width="80" height="14" uuid="b5d283ea-4282-438d-92b9-2337220a13ed"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreincapacidad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="212" y="0" width="77" height="28" uuid="27473eb0-f9a7-408d-bba4-15b7952f70dc"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="212" y="0" width="77" height="14" uuid="27473eb0-f9a7-408d-bba4-15b7952f70dc"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="411" y="0" width="50" height="28" uuid="995bdc6f-35c7-4a01-9102-d2fcdb51686f"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="411" y="0" width="50" height="14" uuid="995bdc6f-35c7-4a01-9102-d2fcdb51686f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="478" y="0" width="46" height="28" uuid="70cbff8e-5b9f-4571-985c-211a23025c4e"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="478" y="0" width="46" height="14" uuid="70cbff8e-5b9f-4571-985c-211a23025c4e"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numerofichaisss}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="527" y="0" width="40" height="28" uuid="409aa449-8af1-4215-8d73-6bbcd949245e"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="527" y="0" width="40" height="14" uuid="409aa449-8af1-4215-8d73-6bbcd949245e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipoincapacidad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="577" y="0" width="70" height="28" uuid="a02c40a3-1695-44ce-857c-8f1f0b67008b"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="577" y="0" width="70" height="14" uuid="a02c40a3-1695-44ce-857c-8f1f0b67008b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{formaincapacidad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="655" y="0" width="35" height="28" uuid="01dc6839-7fcf-479c-9957-77dab68b8ab5"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="655" y="0" width="35" height="14" uuid="01dc6839-7fcf-479c-9957-77dab68b8ab5"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{subsidio}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="358" y="0" width="48" height="28" uuid="a390e6c2-f3b6-461b-bdd8-9eb4f8a4be91"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="358" y="0" width="48" height="14" uuid="a390e6c2-f3b6-461b-bdd8-9eb4f8a4be91"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="702" y="0" width="50" height="28" uuid="a690e69e-916a-4efb-ba48-dd383c89425c"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="702" y="0" width="50" height="14" uuid="a690e69e-916a-4efb-ba48-dd383c89425c"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha Emision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="288" y="0" width="64" height="28" uuid="cd4afe84-7cf5-492d-9e71-5987946288c0"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="288" y="0" width="64" height="14" uuid="cd4afe84-7cf5-492d-9e71-5987946288c0"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -366,13 +366,13 @@ inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE i.fechadesde
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="16" splitType="Stretch"/>
+		<band height="2" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="11" splitType="Stretch"/>
+		<band height="2" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<line>
 				<reportElement x="37" y="5" width="717" height="1" uuid="93ec930f-20ed-4bf3-bdb8-4b4c946d7e95"/>
 			</line>

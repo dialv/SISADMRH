@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="18"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
@@ -241,43 +241,43 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</columnHeader>
 	<detail>
 		<band height="16" splitType="Stretch">
-			<textField>
-				<reportElement x="218" y="0" width="136" height="14" uuid="9225867d-e615-4135-b591-459d852df725"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="218" y="0" width="136" height="14" uuid="9225867d-e615-4135-b591-459d852df725"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="366" y="0" width="65" height="14" uuid="f33734f0-d5ac-4731-b5c5-548952b0c747"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="366" y="0" width="65" height="14" uuid="f33734f0-d5ac-4731-b5c5-548952b0c747"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new BigDecimal($F{sueldobase}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="445" y="0" width="47" height="14" uuid="a5509c64-7e35-433c-aae5-6438ce227ec0"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="445" y="0" width="47" height="14" uuid="a5509c64-7e35-433c-aae5-6438ce227ec0"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sueldotopepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="65" y="0" width="145" height="14" uuid="9e4e586d-f374-4b95-a60c-30d9ad8649a6"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="65" y="0" width="145" height="14" uuid="9e4e586d-f374-4b95-a60c-30d9ad8649a6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="525" y="2" width="75" height="14" uuid="4c1aa081-c9f8-4f96-bbcc-1a8f112d3843"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="525" y="2" width="75" height="14" uuid="4c1aa081-c9f8-4f96-bbcc-1a8f112d3843"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="613" y="2" width="87" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="613" y="2" width="87" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

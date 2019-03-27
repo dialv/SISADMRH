@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="128"/>
+	<property name="ireport.y" value="223"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -150,8 +150,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="705" y="53" width="61" height="20" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
+			<textField isStretchWithOverflow="true" evaluationTime="Report">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="705" y="53" width="61" height="20" uuid="112f8b5f-f2d6-4fe4-939a-4d11c0ca50ab"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
@@ -315,36 +315,36 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</columnHeader>
 	<detail>
 		<band height="24" splitType="Stretch">
-			<textField>
-				<reportElement x="293" y="0" width="160" height="14" uuid="92bbe8bf-2f24-4ed9-96d1-aefe4afb5a06"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="293" y="0" width="160" height="14" uuid="92bbe8bf-2f24-4ed9-96d1-aefe4afb5a06"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecapacitador}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="458" y="0" width="111" height="14" uuid="68a8ec53-891a-4a09-8480-1a08aaf44ab7"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="458" y="0" width="111" height="14" uuid="68a8ec53-891a-4a09-8480-1a08aaf44ab7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{lugarcapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField pattern="HH.mm">
-				<reportElement x="655" y="0" width="66" height="14" uuid="303dde63-5795-4929-80e0-5a4373f5a29b"/>
+			<textField isStretchWithOverflow="true" pattern="HH.mm">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="655" y="0" width="66" height="14" uuid="303dde63-5795-4929-80e0-5a4373f5a29b"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{horaevualuacioncapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="569" y="0" width="81" height="14" uuid="37d222d0-bdae-488e-a38f-f238a7188138"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="569" y="0" width="81" height="14" uuid="37d222d0-bdae-488e-a38f-f238a7188138"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechacapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="67" y="0" width="220" height="14" uuid="f97f7a35-8c64-426e-9e94-4465879647a8"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="67" y="0" width="220" height="14" uuid="f97f7a35-8c64-426e-9e94-4465879647a8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
@@ -352,8 +352,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</textField>
 		</band>
 		<band height="216">
-			<textField>
-				<reportElement x="605" y="49" width="116" height="20" uuid="42913e67-3878-4ec6-a787-b900321caf0f"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="49" width="116" height="20" uuid="42913e67-3878-4ec6-a787-b900321caf0f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -373,8 +373,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[Resultado]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="69" width="116" height="20" uuid="3b373880-7151-4085-b279-889492c59ada"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="69" width="116" height="20" uuid="3b373880-7151-4085-b279-889492c59ada"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -394,8 +394,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[Habilidades para comunicarse]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="89" width="116" height="20" uuid="efaabd14-9a69-4555-a915-2025ec604244"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="89" width="116" height="20" uuid="efaabd14-9a69-4555-a915-2025ec604244"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -408,15 +408,15 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[Los contenidos se desarrollaron con claridad ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="109" width="116" height="20" uuid="460817ec-a5fd-48b3-a9b5-6d26831c9416"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="109" width="116" height="20" uuid="460817ec-a5fd-48b3-a9b5-6d26831c9416"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{contenidoclaro}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="605" y="129" width="116" height="20" uuid="f9a0b14f-39ed-4a72-ab6a-45d7bb9cf2c9"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="129" width="116" height="20" uuid="f9a0b14f-39ed-4a72-ab6a-45d7bb9cf2c9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -436,22 +436,22 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[alacro sus dudas con presiciòn ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="149" width="116" height="20" uuid="18e68e7f-8c2d-4485-9779-aa462edd4d62"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="149" width="116" height="20" uuid="18e68e7f-8c2d-4485-9779-aa462edd4d62"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{comprenciondetema}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="605" y="169" width="116" height="20" uuid="1938416b-b176-429c-95fb-f06d8ca4d6d8"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="169" width="116" height="20" uuid="1938416b-b176-429c-95fb-f06d8ca4d6d8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{satifacciondetema}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="605" y="189" width="116" height="20" uuid="613b1b82-7702-4f94-98ba-cf5b3c13cb76"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="189" width="116" height="20" uuid="613b1b82-7702-4f94-98ba-cf5b3c13cb76"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -510,8 +510,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[Contenido]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="60" width="115" height="20" uuid="da725d78-e998-4544-acfd-65e26aa14b5b"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="60" width="115" height="20" uuid="da725d78-e998-4544-acfd-65e26aa14b5b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -525,14 +525,14 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[El tema se desarrollo de lo sencillo a lo complejo lo cual permitio la comprensión del tema]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="594" y="20" width="125" height="20" uuid="770777aa-8fab-4ce7-b686-79917359ac61"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="594" y="20" width="125" height="20" uuid="770777aa-8fab-4ce7-b686-79917359ac61"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Resultado]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="78" width="115" height="20" uuid="5e2a8077-1fd0-42b6-a2a2-e5683e2deeba"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="78" width="115" height="20" uuid="5e2a8077-1fd0-42b6-a2a2-e5683e2deeba"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -545,8 +545,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[El tema se Expuso con lcaridad]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="98" width="115" height="20" uuid="2c9f955d-d2cb-4232-a84a-e6c877fe05f8"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="98" width="115" height="20" uuid="2c9f955d-d2cb-4232-a84a-e6c877fe05f8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -559,8 +559,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[La planeacion y distribucion del tiempo permitio  el logro de objetivos  propuestos]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="118" width="115" height="20" uuid="971ddc32-3d58-4b19-85fc-3f2718f4cccb"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="118" width="115" height="20" uuid="971ddc32-3d58-4b19-85fc-3f2718f4cccb"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -573,8 +573,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[Los contenidos tratados en la capacitacion son aplicables en mi area de trabajo, permitiendome mejorar]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="138" width="115" height="20" uuid="8148fe5f-2c4f-42bd-a513-6f517aaf4471"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="138" width="115" height="20" uuid="8148fe5f-2c4f-42bd-a513-6f517aaf4471"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -587,8 +587,8 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[En general estoy satisfecho con el contenido desarrollado]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="605" y="40" width="115" height="20" uuid="ce373805-c58e-4d26-9258-0d1eb530689e"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="40" width="115" height="20" uuid="ce373805-c58e-4d26-9258-0d1eb530689e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -602,10 +602,10 @@ and c.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Conferencista]]></text>
 			</staticText>
 			<line>
-				<reportElement x="64" y="19" width="655" height="1" uuid="8e53616e-d151-4dc9-a24b-cbf68c9a9a2f"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="64" y="19" width="655" height="1" uuid="8e53616e-d151-4dc9-a24b-cbf68c9a9a2f"/>
 			</line>
 			<line>
-				<reportElement x="65" y="1" width="655" height="1" uuid="1cb73a8b-54a5-4334-b324-d2adec08f3d4"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="65" y="1" width="655" height="1" uuid="1cb73a8b-54a5-4334-b324-d2adec08f3d4"/>
 			</line>
 			<rectangle>
 				<reportElement mode="Transparent" x="64" y="1" width="655" height="39" uuid="87d315a0-e94b-42e1-930d-883c8cdc57fa"/>

@@ -193,20 +193,20 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</columnHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
-			<textField>
-				<reportElement x="203" y="0" width="137" height="14" uuid="4dc8a9e4-aae4-4aa4-b776-02013673e81a"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="203" y="0" width="137" height="14" uuid="4dc8a9e4-aae4-4aa4-b776-02013673e81a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="377" y="0" width="89" height="14" uuid="cc5573e8-2d96-4330-a786-587afec13997"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="377" y="0" width="89" height="14" uuid="cc5573e8-2d96-4330-a786-587afec13997"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{Fin contrato}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="88" y="0" width="69" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="88" y="0" width="69" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

@@ -32,10 +32,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Código:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static"  th:text="${empleado.codigoempleado}">codigo de Empleado</p>
-                            <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
-                            </div>
-                                
+                                <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre de Empleado</label>
@@ -52,38 +49,158 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${empleado.fechanacimientoempleado}">Fecha de Nacimiento</p>
+                                <p class="form-control-static" th:text="${#calendars.format(empleado.fechanacimientoempleado, 'dd/MM/yyyy')}">Fecha de Nacimiento</p>
                             </div>
                         </div>
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Nacionalidad del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.nacionalidad}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Departamento de Nacimiento del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.departamentonacimiento}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Municipio de Nacimiento del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.municipionacimiento}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Estado Familiar del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.estadofamiliar}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Sexo del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.sexoempleado}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                           <div class="form-group">
+                            <label class="col-sm-5 control-label">Residencia Permanente del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.recidenciapermanente}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Telefono Fijo del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.telefonofijoempleado}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Telefono Movil del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label class="col-sm-5 control-label">Correo Eletronico del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.emailempleado}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-5 control-label">Departamento de Residencia del Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${empleado.departamentorecidencia}">Fecha de Nacimiento</p>
+                            </div>
+                        </div>
+                         
                     </div> 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Telefono Movil de Empleado</label>
+                            <label class="col-sm-7 control-label">Municipio de Residencia del Empleado:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Telefono Movil de Empleado</p>
+                                <p class="form-control-static" th:text="${empleado.municipioresidencia}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">DUI:</label>
+                            <label class="col-sm-7 control-label">DUI del Empleado:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${empleado.duiempleado}">DUI</p>
+                                <p class="form-control-static" th:text="${empleado.duiempleado}">Telefono Movil de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">NIT:</label>
+                            <label class="col-sm-7 control-label">NIT del Empleado:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${empleado.nitempleador}">NIT</p>
+                                <p class="form-control-static" th:text="${empleado.nitempleador}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Email:</label>
+                            <label class="col-sm-7 control-label">ISSS del Empleado:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${empleado.emailempleado}">Email Empleado</p>
+                                <p class="form-control-static" th:text="${empleado.isssempleado}">NIT</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Fecha de Ingreso al Sector Publico:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresosecpub, 'dd/MM/yyyy')}">Email Empleado</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-7 control-label">Fecha de Ingreso al Sector Privado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresosecpriv, 'dd/MM/yyyy')}">Email Empleado</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-7 control-label">Fecha de Ingreso al Ministerio:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresoministerio, 'dd/MM/yyyy')}">Email Empleado</p>
+                            </div>
+                        </div>
+                           <div class="form-group">
+                            <label class="col-sm-7 control-label">Grupo Sanguineo del Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.gruposanquineo}">NIT</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-7 control-label">Tipo de Pension del Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.afiliacionpension}">NIT</p>
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label class="col-sm-7 control-label">NUP del Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.numeroafiliacion}">NIT</p>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-7 control-label">Banco en el que se le deposita al Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.nombreinstiuciondepositar}">NIT</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Tipo de Cuenta Bancaria del Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.tipocuenta}">NIT</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Numero de Cuenta Bancaria del Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${empleado.numerocuenta}">NIT</p>
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label class="col-sm-7 control-label">Estado del Empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static">  <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span> <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span> <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"></span> <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span> <span th:if="${empleado.estadoempleado} == 0"  th:text="De Baja"></span> </p>
                             </div>
                         </div>
                     </div> 
-
-
                 </form>
 <!--                <div class="col-md-12">
                     <div class="row" align="center">

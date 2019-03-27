@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="83"/>
+	<property name="ireport.x" value="212"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -223,43 +223,43 @@
 	</columnHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
-			<textField>
-				<reportElement x="228" y="0" width="117" height="14" uuid="cbaf9226-9647-4fef-ace5-c0de6da336e7"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="228" y="0" width="117" height="14" uuid="cbaf9226-9647-4fef-ace5-c0de6da336e7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="366" y="0" width="48" height="14" uuid="e7c90728-7e99-444f-809a-ae0cb3efed34"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="366" y="0" width="48" height="14" uuid="e7c90728-7e99-444f-809a-ae0cb3efed34"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroacuerdocomision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="431" y="0" width="131" height="14" uuid="7a135b71-4e64-425d-bcf4-324504231935"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="431" y="0" width="131" height="14" uuid="7a135b71-4e64-425d-bcf4-324504231935"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecomision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="583" y="0" width="53" height="14" uuid="ea9e01c9-78eb-45e0-9672-4dcf60ba439d"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="583" y="0" width="53" height="14" uuid="ea9e01c9-78eb-45e0-9672-4dcf60ba439d"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="643" y="0" width="47" height="14" uuid="4d4d5026-0c35-4c1d-b444-6bafe7276d10"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="643" y="0" width="47" height="14" uuid="4d4d5026-0c35-4c1d-b444-6bafe7276d10"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="99" y="0" width="124" height="14" uuid="fb488fb7-00f0-4a34-8a78-3cc2d53667b4"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="99" y="0" width="124" height="14" uuid="fb488fb7-00f0-4a34-8a78-3cc2d53667b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

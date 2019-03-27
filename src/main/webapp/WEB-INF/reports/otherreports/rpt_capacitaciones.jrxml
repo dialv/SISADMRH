@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="69"/>
+	<property name="ireport.x" value="206"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -256,51 +256,51 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="28" splitType="Stretch">
-			<textField>
-				<reportElement x="169" y="0" width="130" height="28" uuid="f4ae7cc1-6b28-4d72-a801-7f6cd0cd4606"/>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="169" y="0" width="130" height="14" uuid="f4ae7cc1-6b28-4d72-a801-7f6cd0cd4606"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="303" y="0" width="25" height="28" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="303" y="0" width="25" height="14" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{duracionhoracapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="343" y="0" width="156" height="28" uuid="415de10f-638b-4733-a1ed-4b4f04cf8454"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="343" y="0" width="156" height="14" uuid="415de10f-638b-4733-a1ed-4b4f04cf8454"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="518" y="0" width="100" height="28" uuid="e37c0619-51bd-42f9-8b35-0d9f4900630f"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="518" y="0" width="100" height="14" uuid="e37c0619-51bd-42f9-8b35-0d9f4900630f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{departamentoresponsable}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="33" y="0" width="134" height="28" uuid="626474d5-125d-4b31-8814-481071c09c35"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="33" y="0" width="134" height="14" uuid="626474d5-125d-4b31-8814-481071c09c35"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="623" y="0" width="53" height="28" uuid="6a4487a2-327d-4fe1-a794-19fc16fb7ca2"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="623" y="0" width="53" height="14" uuid="6a4487a2-327d-4fe1-a794-19fc16fb7ca2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="684" y="0" width="49" height="28" uuid="1b6109fe-2d7c-4179-be27-a3ac43aa2485"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="684" y="0" width="49" height="14" uuid="1b6109fe-2d7c-4179-be27-a3ac43aa2485"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -312,10 +312,10 @@ and ca.fechacapacitacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="5" splitType="Stretch"/>
+		<band height="11" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="26" splitType="Stretch">
+		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
 				<reportElement mode="Opaque" x="631" y="6" width="102" height="14" backcolor="#FFFFFF" uuid="8a740730-2662-4df9-afd0-711983618f27"/>
 				<textElement>

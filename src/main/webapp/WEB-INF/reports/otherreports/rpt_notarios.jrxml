@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="101"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -225,36 +225,36 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</columnHeader>
 	<detail>
 		<band height="15" splitType="Stretch">
-			<textField>
-				<reportElement x="86" y="0" width="66" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="86" y="0" width="66" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="638" y="0" width="44" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="638" y="0" width="44" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="184" y="0" width="161" height="14" uuid="9bfb853c-e605-4fcb-8ba7-8cff28ec642f"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="184" y="0" width="161" height="14" uuid="9bfb853c-e605-4fcb-8ba7-8cff28ec642f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="351" y="0" width="201" height="14" uuid="c8e313ba-e915-4a2c-9a55-426b8a9941f0"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="351" y="0" width="201" height="14" uuid="c8e313ba-e915-4a2c-9a55-426b8a9941f0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{centroeducativo}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="563" y="0" width="54" height="14" uuid="b4b01370-b5ad-4b90-ae3c-aa0acb906f28"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="563" y="0" width="54" height="14" uuid="b4b01370-b5ad-4b90-ae3c-aa0acb906f28"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

@@ -211,35 +211,35 @@ FROM
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement x="48" y="0" width="106" height="14" uuid="b3d555ca-2d9d-4428-a708-b5df7daf20b4"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="48" y="0" width="106" height="14" uuid="b3d555ca-2d9d-4428-a708-b5df7daf20b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_nombrecapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="159" y="0" width="51" height="14" uuid="db631a7c-a4e1-4932-b58a-2a3aa4c874e8"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="159" y="0" width="51" height="14" uuid="db631a7c-a4e1-4932-b58a-2a3aa4c874e8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_tipocapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="275" y="0" width="146" height="14" uuid="44d3df89-ca59-4001-82bb-4ab68e8667f2"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="275" y="0" width="146" height="14" uuid="44d3df89-ca59-4001-82bb-4ab68e8667f2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_emailcapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="420" y="0" width="87" height="14" uuid="b2602596-d40c-4f43-af5e-9ec35ff47311"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="420" y="0" width="87" height="14" uuid="b2602596-d40c-4f43-af5e-9ec35ff47311"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_temadominio}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="207" y="0" width="63" height="14" uuid="17518cf7-92f1-40ba-b458-314b9d67d4a4"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="207" y="0" width="63" height="14" uuid="17518cf7-92f1-40ba-b458-314b9d67d4a4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="44"/>
-	<property name="ireport.y" value="118"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="114"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -248,50 +248,50 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechar
 	</columnHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
-			<textField>
-				<reportElement x="307" y="0" width="39" height="14" uuid="df87ecc2-2131-46fa-87a6-4ddd11dd4653"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="307" y="0" width="39" height="14" uuid="df87ecc2-2131-46fa-87a6-4ddd11dd4653"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroacuerdo}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="402" y="0" width="45" height="14" uuid="7f821bb7-e11a-4f25-a7ee-0f6f523812fb"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="402" y="0" width="45" height="14" uuid="7f821bb7-e11a-4f25-a7ee-0f6f523812fb"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{boleto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="471" y="0" width="130" height="14" uuid="d2b49720-ba6a-4ad4-859e-29923b13ffa0"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="471" y="0" width="130" height="14" uuid="d2b49720-ba6a-4ad4-859e-29923b13ffa0"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{organismopatrocinador}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="605" y="0" width="128" height="14" uuid="331ffb0f-7fdd-45f9-820a-f3e4a7f354a2"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="0" width="128" height="14" uuid="331ffb0f-7fdd-45f9-820a-f3e4a7f354a2"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{organismoinvita}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="61" y="0" width="60" height="14" uuid="2b866d77-3fb7-4570-91d5-950ebc6ba5d4"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="61" y="0" width="60" height="14" uuid="2b866d77-3fb7-4570-91d5-950ebc6ba5d4"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="139" y="0" width="61" height="14" uuid="f7367943-23df-4a2e-a746-e7d7176c9c8a"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="139" y="0" width="61" height="14" uuid="f7367943-23df-4a2e-a746-e7d7176c9c8a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="220" y="0" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="220" y="0" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{gastoviaje})]]></textFieldExpression>
 			</textField>
