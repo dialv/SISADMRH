@@ -81,7 +81,7 @@
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[rpt_reporte_bitc]]></text>
+				<text><![CDATA[rpt_reporte_usrs]]></text>
 			</staticText>
 			<textField>
 				<reportElement uuid="12821ffd-debc-425c-811f-9d740d4a7c42" x="336" y="64" width="69" height="17"/>
