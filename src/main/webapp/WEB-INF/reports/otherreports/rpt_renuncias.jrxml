@@ -19,7 +19,7 @@
 		<![CDATA[select concat(e.nombreempleado,' ', e.apellidoempleado) as nombres ,p.nombrepuesto,c.salarioactual,DATE_FORMAT(c.fechainiciocontrato, '%d/%m/%Y')as "Fecha Inicio Contrato",c.partidacontrato,p.nivelpuesto,DATE_FORMAT(p.fechabaja, '%d/%m/%Y')as "Baja Contrato" 
 from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join contrato c on e.codigoempleado=c.codigoempleado
 where   c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and
-p.fechabaja<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="nombres" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">

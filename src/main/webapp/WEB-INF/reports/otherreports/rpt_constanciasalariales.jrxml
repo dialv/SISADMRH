@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
 	<property name="ireport.zoom" value="2.1435888100000016"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="156"/>
+	<property name="ireport.x" value="36"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -114,7 +114,8 @@
  inner join descuento d on e.codigoempleado=d.codigodescuento
  inner join experiencialaboral el on el.codigoexperiencialaboral=e.codigoempleado
 WHERE e.codigoempleado= $P{CODIGO} and
-c.fechainiciocontrato>=$P{FECHAINICIO}]]>
+c.fechainiciocontrato>=$P{FECHAINICIO} and
+c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') ]]>
 	</queryString>
 	<field name="Total" class="java.lang.Double"/>
 	<field name="Empleado" class="java.lang.String"/>
@@ -292,14 +293,14 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[presta servicios en la institución Obteniendo los salarios y descuentos]]></text>
+				<text><![CDATA[presta servicios en la institución obteniendo los salarios y descuentos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="43" y="41" width="214" height="14" uuid="c0666485-3a8a-4423-82be-9abb61502266"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[detallados en la siguiente tabla.]]></text>
+				<text><![CDATA[detallados en el siguiente cuadro.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="42" y="214" width="103" height="14" uuid="a1b178b9-fd40-4e69-b70b-05b49085665b"/>
@@ -547,7 +548,7 @@ c.fechainiciocontrato>=$P{FECHAINICIO}]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[LA INFRAESCRITA DIRECTORA DE RECURSOS HUMANOS DEL MINISTERIO DE JUSTICIA]]></text>
+				<text><![CDATA[LA INFRAESCRITO(A) DIRECTOR(A) DE RECURSOS HUMANOS DEL MINISTERIO DE JUSTICIA]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

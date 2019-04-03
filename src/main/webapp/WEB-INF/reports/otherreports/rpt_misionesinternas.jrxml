@@ -17,7 +17,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  concat(e.nombreempleado, ' ', e.apellidoempleado) as Empleado,p.nombrepuesto,m.nombremision,m.objetivomision,DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta,m.departamentomision from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join puesto p on e.codigopuesto=p.codigopuesto
-where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECHAFIN} AND tipomision LIKE 'interna']]>
+where m.fechasalidamision >= $P{FECHAINICIO} and m.fechasalidamision <= $P{FECHAFIN} AND tipomision LIKE 'interna']]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">

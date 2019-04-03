@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="222"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -20,7 +20,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,i.nombreincapacidad, p.nombrepuesto,e.duiempleado,DATE_FORMAT(i.fechadesdeincapacidad, '%d/%m/%Y') as Desde,DATE_FORMAT(i.fechahastaincapacidad, '%d/%m/%Y') as Hasta ,             i.numerofichaisss,i.tipoincapacidad,i.formaincapacidad,i.subsidio,DATE_FORMAT(i.fechaemision, '%d/%m/%Y')as "Fecha Emision" from empleado e inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto
-inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE i.fechadesdeincapacidad>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and i.fechahastaincapacidad<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE i.fechadesdeincapacidad>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and i.fechadesdeincapacidad<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombreincapacidad" class="java.lang.String">
@@ -171,116 +171,116 @@ inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE i.fechadesde
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="16" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<rectangle>
-				<reportElement x="43" y="0" width="720" height="14" backcolor="#FFFFFF" uuid="47f87b1b-4db2-4d10-b77e-5c9c9f4a3b62"/>
+				<reportElement x="43" y="0" width="720" height="28" backcolor="#FFFFFF" uuid="47f87b1b-4db2-4d10-b77e-5c9c9f4a3b62"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="47" y="0" width="71" height="14" uuid="e3dcf82b-5ff6-4cd8-beed-a789d18846ba"/>
+				<reportElement x="47" y="0" width="71" height="28" uuid="e3dcf82b-5ff6-4cd8-beed-a789d18846ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<line>
-				<reportElement x="523" y="0" width="1" height="14" uuid="2ef89dec-32c8-43ba-bcc8-d530435c6442"/>
+				<reportElement x="523" y="0" width="1" height="28" uuid="2ef89dec-32c8-43ba-bcc8-d530435c6442"/>
 			</line>
 			<line>
-				<reportElement x="355" y="0" width="1" height="14" uuid="b5d44edf-3426-41f0-9b37-45a17f1b4910"/>
+				<reportElement x="355" y="0" width="1" height="28" uuid="b5d44edf-3426-41f0-9b37-45a17f1b4910"/>
 			</line>
 			<line>
-				<reportElement x="568" y="0" width="1" height="14" uuid="cb4a9ca7-80cc-43ff-9384-040b1a0436bc"/>
+				<reportElement x="568" y="0" width="1" height="28" uuid="cb4a9ca7-80cc-43ff-9384-040b1a0436bc"/>
 			</line>
 			<staticText>
-				<reportElement x="126" y="0" width="71" height="14" uuid="82b4c1ff-82b5-41e6-9f4d-416a004632e9"/>
+				<reportElement x="126" y="0" width="71" height="28" uuid="82b4c1ff-82b5-41e6-9f4d-416a004632e9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Incapacidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="302" y="0" width="35" height="14" uuid="9d96dc8a-c06d-411c-bb3a-a1e4467caa4c"/>
+				<reportElement x="302" y="0" width="35" height="28" uuid="9d96dc8a-c06d-411c-bb3a-a1e4467caa4c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[DUI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="359" y="0" width="45" height="14" uuid="42c43dd0-1a54-41f2-975b-7f860b69ce88"/>
+				<reportElement x="356" y="0" width="54" height="28" uuid="42c43dd0-1a54-41f2-975b-7f860b69ce88"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Desde]]></text>
+				<text><![CDATA[Icapacidad Inicio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="419" y="0" width="34" height="14" uuid="71d15c92-ff7a-4324-a543-da4a1c2a0dd6"/>
+				<reportElement x="410" y="0" width="52" height="28" uuid="71d15c92-ff7a-4324-a543-da4a1c2a0dd6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Hasta]]></text>
+				<text><![CDATA[Incapacidad Fin]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="527" y="0" width="40" height="14" uuid="694ba7b8-be21-4b77-add5-7ee34c5c34f8"/>
+				<reportElement x="527" y="0" width="40" height="28" uuid="694ba7b8-be21-4b77-add5-7ee34c5c34f8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Tipo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="470" y="0" width="39" height="14" uuid="a4a06052-7efe-4ad2-8e94-96507826b9aa"/>
+				<reportElement x="470" y="0" width="39" height="28" uuid="a4a06052-7efe-4ad2-8e94-96507826b9aa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[ISSS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="570" y="0" width="80" height="14" uuid="be7e5970-6ebd-4786-8308-9a86eeef148c"/>
+				<reportElement x="570" y="0" width="80" height="28" uuid="be7e5970-6ebd-4786-8308-9a86eeef148c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Forma Incapacidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="656" y="0" width="38" height="14" uuid="89473ce8-fc51-49d5-8bb8-9e6039c10e4a"/>
+				<reportElement x="656" y="0" width="38" height="28" uuid="89473ce8-fc51-49d5-8bb8-9e6039c10e4a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[SubSidio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="212" y="0" width="54" height="14" uuid="f85ecaa9-4240-4aa9-b830-6b8a114a9cf0"/>
+				<reportElement x="212" y="0" width="54" height="28" uuid="f85ecaa9-4240-4aa9-b830-6b8a114a9cf0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="702" y="0" width="76" height="14" uuid="e6d1a9ad-0945-449c-8284-4ab6a43d2af5"/>
+				<reportElement x="702" y="0" width="76" height="28" uuid="e6d1a9ad-0945-449c-8284-4ab6a43d2af5"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha Emisión]]></text>
 			</staticText>
 			<line>
-				<reportElement x="118" y="0" width="1" height="14" uuid="52f28059-598c-4499-8cfa-fe8382f639a2"/>
+				<reportElement x="118" y="0" width="1" height="28" uuid="52f28059-598c-4499-8cfa-fe8382f639a2"/>
 			</line>
 			<line>
-				<reportElement x="206" y="0" width="1" height="14" uuid="7cbb21d4-48b1-4474-92b3-4e4476bd37da"/>
+				<reportElement x="206" y="0" width="1" height="28" uuid="7cbb21d4-48b1-4474-92b3-4e4476bd37da"/>
 			</line>
 			<line>
-				<reportElement x="288" y="0" width="1" height="14" uuid="72723f8c-4423-4848-be84-9f3779961f07"/>
+				<reportElement x="288" y="0" width="1" height="28" uuid="72723f8c-4423-4848-be84-9f3779961f07"/>
 			</line>
 			<line>
-				<reportElement x="410" y="0" width="1" height="14" uuid="ed8197dc-ddc5-49b2-8ef6-2dd11c882975"/>
+				<reportElement x="410" y="0" width="1" height="28" uuid="ed8197dc-ddc5-49b2-8ef6-2dd11c882975"/>
 			</line>
 			<line>
-				<reportElement x="461" y="0" width="1" height="14" uuid="153ccd9d-3432-4044-af05-7acaf3001689"/>
+				<reportElement x="461" y="0" width="1" height="28" uuid="153ccd9d-3432-4044-af05-7acaf3001689"/>
 			</line>
 			<line>
-				<reportElement x="654" y="0" width="1" height="14" uuid="c4fcf880-abce-49ec-a547-3b2558cd2771"/>
+				<reportElement x="654" y="0" width="1" height="28" uuid="c4fcf880-abce-49ec-a547-3b2558cd2771"/>
 			</line>
 			<line>
-				<reportElement x="695" y="0" width="1" height="14" uuid="ae85246c-fe37-4f4a-94b0-6dbd981df34d"/>
+				<reportElement x="695" y="0" width="1" height="28" uuid="ae85246c-fe37-4f4a-94b0-6dbd981df34d"/>
 			</line>
 		</band>
 	</columnHeader>
@@ -315,7 +315,7 @@ inner join incapacidad i on e.codigoempleado=i.codigoempleado WHERE i.fechadesde
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="478" y="0" width="46" height="14" uuid="70cbff8e-5b9f-4571-985c-211a23025c4e"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="468" y="0" width="46" height="14" uuid="70cbff8e-5b9f-4571-985c-211a23025c4e"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
