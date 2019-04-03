@@ -1,41 +1,106 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
+
     <title>Asignar capacitaciones a empleados</title>
-    <th:block th:include="../templates/header"></th:block>
+     <th:block th:include="../templates/header"></th:block>
+ 
+
+  
 </head>
 <body>
-          <div class="contenedorizq"> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>
-<div class="row">
+
+<script> Textheader('pnt_empc',document.title);</script>
+ <div class="row">
  <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-    <div class="col-md-9">
-         <div class="row text-center">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <br>
+            <div class="row text-center">
                         <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Capacitaciones Asignadas</h3>
-    <div th:if="${not #lists.isEmpty(empleadocapacitaciones)}">
-        <div class="table-responsive">
-  <table class="table">
-            <tr>
-                <th>Nombre empleado</th>
-                <th>Nombre de Capacitación</th>
+    <h3 align="center"></h3>
+        <div>
+            <form class="form-horizontal">
+
+           
+            
+             <div class="table-responsive">
+                    <table id="tablita" class="table table-striped table-bordered" >
+                        <thead>
+                            <tr>
+                                <th>Nombre de Empleado</th>
+                                <th>Nombre Capacitacion</th>
+                            </tr>
+                        </thead>
+                        
+                 <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
+                <td th:text="${empleadocapacitacion.empleado.nombreempleado}+', '+${empleadocapacitacion.empleado.apellidoempleado}">Nombre de Empleado</td>
+                <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Nombre Capacitacion</td>
             </tr>
-            <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
-                <td th:text="${empleadocapacitacion.empleado.nombreempleado}+', '+${empleadocapacitacion.empleado.apellidoempleado}">Codigo</td>
-                <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Código</td>
-            </tr>
-        </table>
+                        
+                    </table>
+                </div>
+                
+                 </form>
+         
     </div>
 </div>
-    </div>
-</body
+      <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+     </div>
 
+</body>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    $('#tablita').DataTable({
+    "language": {
+    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+    }});
+    
+    });
+</script>
+   <script th:inline="javascript">
+        $(document).ready(function () {
+    if([[${msg}]]===3){
+       swal({
+           
+                title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+       }).then(function() {
+                location.href = '../../../misiones/';
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+        
+        function eliminar(id) {
+            swal({
+                title: "Desea Eliminar?",
+                text: "Favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = '../deletemisionesemp/' + id;
+                        } else {
+                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
+                        }
+                    });
+        }
+    </script>
 </html>
