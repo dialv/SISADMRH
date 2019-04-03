@@ -27,22 +27,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <thead>
             <tr>
                 <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Control contra</th>
+                <th>Usuario</th>
                 <th>Estado</th>
-                <th>Fecha Ingreso </th>
-                <th>Fecha Caducidad</th>
-                <th>Fecha Baja</th>
+                <th>Estado de Contraseña</th>
+                <th>Fecha de Ingreso </th>
+                <th>Fecha de Baja</th>
                    <th></th><th></th><th></th>
             </tr>
             </thead>
             <tr th:each="usuario : ${usuarios}">
                 <td th:text="${usuario.codigousuario}">Codigo</td>
-                <td th:text="${usuario.nombreusuario}">Nombre</td>
-                <td th:text="${usuario.controlcontrasenia}">control</td>
+                <td th:text="${usuario.nombreusuario}">Usuario</td>
                 <td th:text="${usuario.estadousuario}?'ACTIVO':'INACTIVO'">Estado</td>
+                <td th:text="${usuario.controlcontrasenia=='1'}?'TEMPORAL':'VERIFICADA'">control</td>
                 <td th:text="${#calendars.format(usuario.fechaingreso, 'dd/MM/yyyy')}">Fecha Desde</td>
-                <td th:text="${#calendars.format(usuario.fechacaducidad, 'dd/MM/yyyy')}">Fecha de caducidad</td>
                 <td th:text="${#calendars.format(usuario.fechabaja, 'dd/MM/yyyy')}">Fecha de baja</td>
                  
                 <td><a th:href="${'./show/' + usuario.codigousuario}" class="btn btn-info">Mostrar</a></td>
