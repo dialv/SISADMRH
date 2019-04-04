@@ -15,7 +15,7 @@ import org.springframework.data.repository.query.Param;
 public interface MisionRepository extends CrudRepository<Mision, Integer>{
     //Para generar reportes de Misiones Externas1
     @Query(value="select  concat(e.nombreempleado,' ',e.apellidoempleado),p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado  inner join puesto p on e.codigopuesto=p.codigopuesto "
-            + " where m.fechasalidamision >= :FINICIAL and m.fecharegresomision <= :FFINAL and tipomision LIKE 'externa'  "
+            + " where m.fechasalidamision >= :FINICIAL and m.fechasalidamision <= :FFINAL and tipomision=0  "
 , nativeQuery = true)
 
     List<Object[]> findByMisionExterna1(@Param("FINICIAL") String finicial, 
@@ -28,13 +28,13 @@ public interface MisionRepository extends CrudRepository<Mision, Integer>{
       
         + " inner join puesto p on e.codigopuesto=p.codigopuesto  "+
 " where m.fechasalidamision>=:FINICIAL" +
-" AND m.fecharegresomision<=:FFINAL and tipomision LIKE 'externa' ",nativeQuery = true)
+" AND m.fechasalidamision<=:FFINAL and tipomision=0 ",nativeQuery = true)
 List<Object[]> findByMisionExterna2(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 //Para generar reporte de Misiones internas
 @Query(value = "select  concat(e.nombreempleado,' ',e.apellidoempleado),p.nombrepuesto,m.nombremision,m.objetivomision,DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') , DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') ,m.departamentomision from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join puesto p on e.codigopuesto=p.codigopuesto"
      + " where m.fechasalidamision>=:FINICIAL" 
-+ " AND m.fecharegresomision<=:FFINAL and tipomision LIKE 'interna' ",nativeQuery = true)
++ " AND m.fechasalidamision<=:FFINAL and tipomision=1 ",nativeQuery = true)
 List<Object[]> findByMisionInterna(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
 
