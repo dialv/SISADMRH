@@ -107,13 +107,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecha Desde:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${experiencialaboral.fechadesdeexperiencialaboral}">Telefono Movil de Empleado</p>
+                                <p class="form-control-static" th:text="${#calendars.format(experiencialaboral.fechadesdeexperiencialaboral, 'dd/MM/yyyy')}">Telefono Movil de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecha Hasta:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${experiencialaboral.fechahastaexperiencialaboral}">DUI</p>
+                                <p class="form-control-static" th:text="${#calendars.format(experiencialaboral.fechahastaexperiencialaboral, 'dd/MM/yyyy')}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -129,7 +129,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Motivo de Retiro:</label>
+                            <label class="col-sm-7 control-label">Causa del Retiro:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${experiencialaboral.motivoretiro}">Email Empleado</p>
                             </div>

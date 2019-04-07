@@ -58,7 +58,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             + "DATE_FORMAT(p.fechacontratacionhasta,  '%d/%m/%Y') as  fechacontratacionhasta,p.ubicacionpuesto,p.sublinea FROM puesto p "
             + "  inner join empleadopuesto ep on p.codigopuesto=ep.codigopuesto "
             + " inner join empleado e on ep.codigoempleado=e.codigoempleado "
-            + " where p.fechacontrataciondesde >= :FINICIAL and p.fechacontratacionhasta <= :FFINAL ", nativeQuery = true)
+            + " where p.fechacontrataciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') and p.fechacontrataciondesde <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') ", nativeQuery = true)
     List<Object[]> findByPlazasOcupadas(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 

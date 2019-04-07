@@ -19,18 +19,18 @@ function ValidarFecha(fechainicio,fechafin,idinicial,idfinal){
            return  messages;
      }
       else if(fechafin.length != 0){
-        //    alert("fecha inicio="+fechainicio+" final="+fechafin);
+//            alert("fecha inicio="+fechainicio+" final="+fechafin);
             //Formato MES/DIA/AÑO
-            var inicio = Date.parse(fechainicio); //01 de Octubre del 2013
-            var final = Date.parse(fechafin); //03 de Octubre del 2013
+            var inicio = Date.parse(convertDateFormat(fechainicio)); //01 de Octubre del 2013
+            var final = Date.parse(convertDateFormat(fechafin)); //03 de Octubre del 2013
 
-        //    alert("inicio="+inicio+" final="+final);
+//            alert("inicio="+inicio+" final="+final);
                 if (inicio > final) {
             //        alert("La Fecha de inicio no puede ser mayor que Fecha Final");
                     msj="La Fecha de inicio no debe ser mayor a la Fecha Final";
                     messages=msj+","+msj1+","+msj2;
             //         document.getElementById(idinicial).value=" ";
-                     document.getElementById(idfinal).value=" ";
+//                     document.getElementById(idfinal).value=" ";
                     return messages; 
                 } if (inicio === final ) {
 //                    alert("entro2");
@@ -38,7 +38,7 @@ function ValidarFecha(fechainicio,fechafin,idinicial,idfinal){
                     msj="La Fecha de inicio no debe ser igual a la Fecha Final";
                     messages=msj+","+msj1+","+msj2;
             //         document.getElementById(idinicial).value=" ";
-                     document.getElementById(idfinal).value=" ";
+//                     document.getElementById(idfinal).value=" ";
                     return messages; 
                 }else{
                     msj="FormatoValido";
@@ -71,14 +71,10 @@ function ExisteFecha(fecha,id){
         var dd=fecha_aux[0];
         var yy=fecha_aux[2];
         var currentYear = date.getFullYear();
-//        alert(dd+"-"+mm+"-"+currentYear);
  	var Fecha1 = new Date(fecha_aux[2],fecha_aux[1]-1,fecha_aux[0]);
- 
- 	//Comprobamos si existe la fecha
-        
 	if (dd>31 || dd<0 || mm>12 || mm<0 || yy>(currentYear+5) || yy<(currentYear-100)){
 		msj="Fecha introducida es incorrecta";
-                 document.getElementById(id).value=" ";
+//                 document.getElementById(id).value=" ";
 		return messages=msj+","+msj1+","+msj2;;
 	}
 	else{
@@ -87,6 +83,31 @@ function ExisteFecha(fecha,id){
                     return  messages;
 	}
 }
+
+
+function FechaActual(fecha,id){
+     var date = new Date();
+}
+
+function FechaActualMenor(fecha){
+    
+    var msj="";
+    var msj1="Mensaje de Validacion de Fecha!";
+    var msj2="FormatoValido";
+    var messages="";
+    var date = new Date();
+    var inicio = Date.parse(convertDateFormat(fecha));
+     var d = new Date(inicio);
+//     alert(d+" # "+date)
+     if (d<date)
+     {
+          msj="La Fecha  ingresada no debe ser menor a la Fecha Actual";
+           messages=msj+","+msj1+","+msj2;
+           return  messages;
+     }
+     
+}
+
 
 function FechaNacimiento(fecha,id){
      var msj="";
@@ -106,7 +127,7 @@ function FechaNacimiento(fecha,id){
         
 	if (dd>31 || dd<0 || mm>12 || mm<0 || yy>(currentYear-16) || yy<(currentYear-100)){
 		msj="Fecha introducida es incorrecta";
-                 document.getElementById(id).value=" ";
+//                 document.getElementById(id).value=" ";
 		return messages=msj+","+msj1+","+msj2;;
 	}
 	else{
@@ -139,7 +160,7 @@ function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
                     msj="La Fecha de inicio no debe ser mayor a la Fecha Final";
                     messages=msj+","+msj1+","+msj2;
             //         document.getElementById(idinicial).value=" ";
-                     document.getElementById(idfinal).value=" ";
+//                     document.getElementById(idfinal).value=" ";
                     return messages; 
                 }else{
                     msj="FormatoValido";

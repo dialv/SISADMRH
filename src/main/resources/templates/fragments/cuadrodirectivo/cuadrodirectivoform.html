@@ -95,7 +95,7 @@ isDat(this.value,'desde')/>
 <div class="col-md-12">
             <div class="row" align="center">
                 <a href="#" th:href="@{/cuadrodirectivos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button id="guardar" type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
     </div>
@@ -109,6 +109,12 @@ isDat(this.value,'desde')/>
 <!--</div>-->
 
 </body>
+<!--<script>
+    $("#guardar").on("click",function(event){
+    event.preventDefault();
+    // resto de tu codigo
+ });
+    </script>-->
 <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
@@ -118,7 +124,7 @@ isDat(this.value,'desde')/>
                 type: "success",
                 icon: "success"
        }).then(function() {
-                location.href = '../cuadrodirectivos/';
+//                location.href = '../cuadrodirectivos/';
        }); 
 }
     

@@ -307,7 +307,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Cantidad de D&#237;as(*):</label>
                 <div class="col-sm-2">
-                    <input type="number" class="form-control numeros" id="n13" required="true" maxlength="3" th:field="*{cantidaddia}"/>
+                    <input type="text" class="form-control numeros" id="n13" required="true" maxlength="3" th:field="*{cantidaddia}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup169')" onmouseout ="javascript:ocultarAyuda('poppup169')">a</a></b>
@@ -321,7 +321,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Cantidad de Meses(*):</label>
                 <div class="col-sm-2">
-                    <input type="number" class="form-control numeros" id="n14" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
+                    <input type="text" class="form-control numeros" id="n14" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup168')" onmouseout ="javascript:ocultarAyuda('poppup168')">a</a></b>
@@ -368,7 +368,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
             
-           
+
+
             function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
@@ -378,6 +379,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
                     function isDat(val,id){
                         var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                     function isDatmenor(val,id){
+                        var foo=FechaActualMenor(val).split(",");;
                         if(foo[0]!=foo[2]){
                             swal(foo[1], foo[0]);
                         }
