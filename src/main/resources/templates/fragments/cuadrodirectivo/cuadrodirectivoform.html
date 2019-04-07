@@ -23,7 +23,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <br><br>
           <div class="row text-center">
                         <img src="../../static/image/cuadro.png" width="100" th:src="@{/image/cuadro.png}"/>
-            <h3 align="center">Crear Cuadro Directivos</h3>
+            <!--<h3 align="center">Crear Cuadro Directivos</h3>-->
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
  <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
@@ -68,7 +68,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha  desde:(*)</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"
+                    <input type="text" required="true" class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"
 isDat(this.value,'desde')/>
                 </div>
                               <div class="popup col-sm-1"><b>
@@ -80,7 +80,7 @@ isDat(this.value,'desde')/>
    <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Hasta:(*)</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fhasta" th:field="*{fechapresentacionhasta}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    <input type="text" required="true" class="form-control fecha_format" id="fhasta" th:field="*{fechapresentacionhasta}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
                               <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechapresentacionhasta')" onmouseout ="javascript:ocultarAyuda('fechapresentacionhasta')">a</a></b>

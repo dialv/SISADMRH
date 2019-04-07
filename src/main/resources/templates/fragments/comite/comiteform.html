@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Comité </title>
+        <title>Crear Comite</title>
     <th:block th:include="../templates/header"></th:block>
 
 </head>
@@ -32,18 +32,18 @@
                       
                        
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Nombre de Comité(*) :</label>
+                            <label class="col-sm-2 control-label">Nombre de Comite:</label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control" size="30" maxlength="30" required="true" placeholder="Escriba El nombre del Comite"  th:field="*{nombrecomite}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
 
-                                <span class="popuptext" id="nombre">Ingrese el nombre del Comité . Solo se permiten 30 caracteres!</span>
+                                <span class="popuptext" id="nombre">Ingrese el nombre del Comite. Solo se permiten 30 caracteres!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Responsable del Comité(*) :</label>
+                            <label class="col-sm-2 control-label">Responsable del Comite:</label>
                             <div class="col-sm-5">
                                 <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
                                     <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
@@ -53,24 +53,24 @@
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('encargadocmite')" onmouseout ="javascript:ocultarAyuda('encargadocmite')">a</a></b>
 
-                                <span class="popuptext" id="encargadocmite">Seleccione el encargado del Comité .!</span>
+                                <span class="popuptext" id="encargadocmite">Seleccione el encargado del Comite.!</span>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label ">Descripción(*):</label>
-                            <div class="col-sm-8">
+                            <label class="col-sm-2 control-label ">Descripción:</label>
+                            <div class="col-sm-9">
                                 <input type="text" class="form-control"required="true" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" th:field="*{desripcioncomite}"/>
                             </div>
                              <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcionn')" onmouseout ="javascript:ocultarAyuda('descripcionn')">a</a></b>
 
-                                <span class="popuptext" id="descripcionn">Ingrese una descripción del Comité .!</span>
+                                <span class="popuptext" id="descripcionn">Seleccione el encargado del Comite.!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Número de Acuerdo(*):</label>
+                            <label class="col-sm-2 control-label">Numero de Acuerdo:</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{numeroacuerdocomite}"/>
                             </div>
@@ -83,7 +83,7 @@
 
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Miembros Máximo(*):</label>
+                            <label class="col-sm-2 control-label">Miembros maximos:</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{miembromaximo}"/>
                             </div>
@@ -95,9 +95,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                            <label class="col-sm-2 control-label">Desde:</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}"/>
+                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}" id="fechadesdecomite" onchange="isDat(this.value,'fechadesdecomite');Fechas(this.value,$('#fechahastacomite').val().toString(),'fechadesdecomite','fechahastacomite')"/>
                             </div>
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
@@ -106,9 +106,9 @@
                     </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                            <label class="col-sm-2 control-label">Hasta:</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechahastacomite}"/>
+                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechahastacomite}" id="fechahastacomite" onchange="isDat(this.value,'fechahastacomite');Fechas($('#fechadesdecomite').val().toString(),this.value,'fechadesdecomite','fechahastacomite')"/>
                             </div>
                                <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" onmouseout ="javascript:ocultarAyuda('fechahasta')">a</a></b>
@@ -135,66 +135,7 @@
         <th:block th:include="../templates/footer"></th:block>
     </div>  
 
-    <script>
-        $(document).ready(function () {
-
-        $('#fechadesdecomite').datepicker({
-        dateFormat: 'dd/mm/yy'
-        });
-        $('#fechahastacomite').datepicker({
-        dateFormat: 'dd/mm/yy'
-        });
-        });
-        function validateForm() {
-        var desde = $('#fechadesdecomite').val();
-        var hasta = $('#fechahastacomite').val();
-        var fullDate = new Date(); console.log(fullDate);
-        var twoDigitMonth = fullDate.getMonth() + ""; if (twoDigitMonth.length == 1)	twoDigitMonth = "0" + twoDigitMonth;
-        var twoDigitDate = fullDate.getDate() + ""; if (twoDigitDate.length == 1)	twoDigitDate = "0" + twoDigitDate;
-        var currentDate = twoDigitDate + "/" + twoDigitMonth + "/" + fullDate.getFullYear(); console.log(currentDate);
-        if (desde < currentDate){
-        swal({
-        type: 'error',
-                title: 'Oops...',
-                text: 'LA FECHA DESDE DEBE SER MAYOR A LA FECHA HACTUAL',
-                footer: '<a href>Why do I have this issue?</a>'
-        })
-                return false;
-        }
-        if (hasta < currentDate){
-        swal({
-        type: 'error',
-                title: 'Oops...',
-                text: 'error LA FECHA DESDE NO PUEDE SER MENOR ALA FECHA ACTUAL',
-                footer: '<a href>Why do I have this issue?</a>'
-        })
-                return false;
-        }
-
-        if (desde > hasta){
-        swal({
-        type: 'error',
-                title: 'Oops...',
-                text: 'Error la fecha hasta debe ser Mayor!',
-                footer: '<a href>Why do I have this issue?</a>'
-        })
-                return false;
-        }
-
-        else{
-        swal({
-        type: 'exito',
-                title: 'Fecha Correcta',
-                text: 'Fecha correcta!',
-                footer: '<a href>Why do I have this issue?</a>'
-        })
-                return true;
-        }
-        }
-
-
-
-    </script>
+   
 
     <script th:inline="javascript">
         $(document).ready(function () {
@@ -218,8 +159,44 @@
         });
         }
         });
-    </script> 
+        
+        $(document).ready(function () {
+        $('#fechadesdecomite').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
 
+        $('#fechahastacomite').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+       
+    });
+    </script> 
+<script>
+    Textheader('pnt_inac',document.title);
+                function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+    $(document).ready(function () {
+        $('#fechadesdecomite').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $('#fechahastacomite').datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
+       
+    });
+</script>
 
 
 </body>	

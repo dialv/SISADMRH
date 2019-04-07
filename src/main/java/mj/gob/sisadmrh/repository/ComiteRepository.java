@@ -28,8 +28,8 @@ public interface ComiteRepository extends PagingAndSortingRepository<Comite, Int
             + " inner join puesto p on e.codigopuesto=p.codigopuesto "
             + " inner join comite c on e.codigoempleado=c.codigoempleado "
             + " WHERE"
-            + "  c.fechadesdecomite>=:FINICIAL "
-            + " and c.fechahastacomite<=:FFINAL ",
+            + "  c.fechadesdecomite>=STR_TO_DATE(:FINICIAL, '%d/%m/%Y')"
+            + " and c.fechadesdecomite<=STR_TO_DATE(:FFINAL, '%d/%m/%Y') ",
              nativeQuery = true)
     List<Object[]> findByeComitesR(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
