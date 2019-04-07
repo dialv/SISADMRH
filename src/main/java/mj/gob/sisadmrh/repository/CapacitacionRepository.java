@@ -37,7 +37,7 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
 " inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado\n" +
 " INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion" 
 + " where " 
-+ " fechacapacitaciondesde >= :FINICIAL " 
++ " ca.fechacapacitaciondesde >= :FINICIAL " 
 + " and ca.fechacapacitacionhasta  <= :FFINAL ", 
          nativeQuery = true)
 

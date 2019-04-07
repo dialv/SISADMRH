@@ -101,8 +101,8 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAFIN}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="472" y="79" width="76" height="16" uuid="3f676349-db7f-408e-88f1-b1850570b533"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="472" y="79" width="76" height="16" uuid="3f676349-db7f-408e-88f1-b1850570b533"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -220,42 +220,42 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement x="49" y="0" width="52" height="14" uuid="1e6acfee-6c20-4362-bd70-58ef802e549b"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="49" y="0" width="52" height="14" uuid="1e6acfee-6c20-4362-bd70-58ef802e549b"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="217" y="0" width="85" height="14" uuid="bb36aa86-dc59-4cf8-81a7-a0e32465aaee"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="217" y="0" width="85" height="14" uuid="bb36aa86-dc59-4cf8-81a7-a0e32465aaee"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="307" y="0" width="73" height="14" uuid="17c5d097-5227-4346-8009-afafcd1fdc53"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="307" y="0" width="73" height="14" uuid="17c5d097-5227-4346-8009-afafcd1fdc53"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="380" y="0" width="79" height="14" uuid="12001817-6454-4eed-b1ba-974bde67a060"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="380" y="0" width="79" height="14" uuid="12001817-6454-4eed-b1ba-974bde67a060"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="460" y="0" width="44" height="14" uuid="84e26bc9-bfd6-4c12-8b0d-9216e598845f"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="460" y="0" width="44" height="14" uuid="84e26bc9-bfd6-4c12-8b0d-9216e598845f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{salarioactual})]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="0" width="102" height="14" uuid="a33b808a-e65b-4bd5-bd9b-a930ac3ced8a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="110" y="0" width="102" height="14" uuid="a33b808a-e65b-4bd5-bd9b-a930ac3ced8a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

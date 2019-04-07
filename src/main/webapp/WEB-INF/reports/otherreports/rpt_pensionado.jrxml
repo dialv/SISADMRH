@@ -219,42 +219,42 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="15">
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement mode="Transparent" x="177" y="0" width="106" height="14" uuid="49110043-0eb6-4a2a-9fc5-81288c3d9cde"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="177" y="0" width="106" height="14" uuid="49110043-0eb6-4a2a-9fc5-81288c3d9cde"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre de Puesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0.00">
-				<reportElement mode="Transparent" x="284" y="0" width="54" height="14" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="284" y="0" width="54" height="14" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement mode="Transparent" x="342" y="0" width="36" height="14" uuid="e4f2d945-a4b3-4cf0-bf94-26dd86c21e64"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="342" y="0" width="36" height="14" uuid="e4f2d945-a4b3-4cf0-bf94-26dd86c21e64"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Año}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
-				<reportElement mode="Transparent" x="383" y="0" width="39" height="14" uuid="a5dde008-fdbd-4ff1-9c05-7c2728ccd0f6"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="383" y="0" width="39" height="14" uuid="a5dde008-fdbd-4ff1-9c05-7c2728ccd0f6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.text.DateFormatSymbols().getShortMonths()[(Integer.parseInt(String.valueOf($F{Mes})))- 1].toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="431" y="0" width="59" height="14" uuid="12010363-1647-41bd-888e-946e1273c1a6"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="431" y="0" width="59" height="14" uuid="12010363-1647-41bd-888e-946e1273c1a6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Institucion Pensionadora}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="50" y="0" width="113" height="14" uuid="d09befce-c549-4da6-99e9-5b49ea660cbb"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="50" y="0" width="113" height="14" uuid="d09befce-c549-4da6-99e9-5b49ea660cbb"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

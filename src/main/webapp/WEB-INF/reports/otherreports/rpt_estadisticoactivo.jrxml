@@ -180,21 +180,21 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement x="69" y="0" width="61" height="14" uuid="be321a19-81ec-4997-9809-55d45c2960c2"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="69" y="0" width="61" height="14" uuid="be321a19-81ec-4997-9809-55d45c2960c2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nempleados}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="157" y="0" width="218" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="157" y="0" width="218" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="395" y="0" width="70" height="14" uuid="d91f28d6-c225-436c-9436-9ee54a1acda0"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="395" y="0" width="70" height="14" uuid="d91f28d6-c225-436c-9436-9ee54a1acda0"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

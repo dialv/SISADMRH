@@ -116,7 +116,7 @@
 				<text><![CDATA[Reporte de Bitacora]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="612" y="48" width="94" height="17" uuid="fd32f117-a700-4df2-aabc-8ca171e9d449"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="612" y="48" width="94" height="17" uuid="fd32f117-a700-4df2-aabc-8ca171e9d449"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -148,7 +148,7 @@
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="631" y="63" width="43" height="17" uuid="774dc551-845b-49ba-8b5b-3ba6235657ff"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="631" y="63" width="43" height="17" uuid="774dc551-845b-49ba-8b5b-3ba6235657ff"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -209,21 +209,21 @@
 	</columnHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
-			<textField>
-				<reportElement x="139" y="0" width="197" height="14" uuid="1e3deb07-08f9-408e-98b9-73157f26da5e"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="139" y="0" width="197" height="14" uuid="1e3deb07-08f9-408e-98b9-73157f26da5e"/>
 				<textFieldExpression><![CDATA[$F{nombreeventobitacora}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="456" y="0" width="101" height="14" uuid="4cff886c-5493-4d6e-bff5-992bada5c6b9"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="456" y="0" width="101" height="14" uuid="4cff886c-5493-4d6e-bff5-992bada5c6b9"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{ip}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="574" y="0" width="79" height="14" uuid="bb7e0aa1-ee4d-43ad-8385-c719c6fb4af4"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="574" y="0" width="79" height="14" uuid="bb7e0aa1-ee4d-43ad-8385-c719c6fb4af4"/>
 				<textFieldExpression><![CDATA[$F{codigousuariobitacora}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="365" y="0" width="72" height="14" uuid="12c6d81b-3f26-4c3e-b406-8939466afb7a"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="365" y="0" width="72" height="14" uuid="12c6d81b-3f26-4c3e-b406-8939466afb7a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

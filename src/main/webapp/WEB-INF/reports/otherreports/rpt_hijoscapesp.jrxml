@@ -211,29 +211,29 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</columnHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
-			<textField>
-				<reportElement x="402" y="0" width="83" height="14" uuid="7577289a-031a-46f3-a27d-7efce72a54a0"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="402" y="0" width="83" height="14" uuid="7577289a-031a-46f3-a27d-7efce72a54a0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipodiscapacidad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="500" y="0" width="171" height="14" uuid="de99b313-a212-412c-8fd1-d9d805e7358f"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="500" y="0" width="171" height="14" uuid="de99b313-a212-412c-8fd1-d9d805e7358f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrehijodiscapacidad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="219" y="0" width="142" height="14" uuid="b9aaead2-389c-406a-b702-222cc29542b4"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="219" y="0" width="142" height="14" uuid="b9aaead2-389c-406a-b702-222cc29542b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="122" y="0" width="64" height="14" uuid="8591ebf6-9f70-425b-836d-b0a7c8e29eb7"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="122" y="0" width="64" height="14" uuid="8591ebf6-9f70-425b-836d-b0a7c8e29eb7"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

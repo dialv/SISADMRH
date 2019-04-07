@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e2a8e50-efd2-42d9-ab62-dda75ce1c952">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="495"/>
-	<property name="ireport.y" value="134"/>
+	<property name="ireport.x" value="343"/>
+	<property name="ireport.y" value="1"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -17,7 +17,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  concat(e.nombreempleado, ' ', e.apellidoempleado) as Empleado,p.nombrepuesto,m.nombremision,m.objetivomision,DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta,m.departamentomision from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join puesto p on e.codigopuesto=p.codigopuesto
-where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECHAFIN} AND tipomision LIKE 'interna']]>
+where m.fechasalidamision >= $P{FECHAINICIO} and m.fechasalidamision <= $P{FECHAFIN} AND tipomision=1]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -82,7 +82,7 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement x="706" y="68" width="30" height="17" uuid="19e65be8-4c9b-4417-8c85-f6561c3763e9"/>
@@ -138,7 +138,7 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="344" y="36" width="59" height="17" uuid="ae7366e4-f6cc-4e0c-bcc1-b72ef6d86f38"/>
@@ -181,7 +181,7 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Mision]]></text>
+				<text><![CDATA[Misión]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="398" y="0" width="55" height="17" uuid="b9958f6d-f205-489c-8bcf-14307b18299c"/>
@@ -202,14 +202,14 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Desde]]></text>
+				<text><![CDATA[Misión Inicio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="687" y="2" width="46" height="17" uuid="6f7f69f8-0340-4226-9155-2923b07ba1fa"/>
+				<reportElement x="682" y="2" width="54" height="17" uuid="6f7f69f8-0340-4226-9155-2923b07ba1fa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Hasta]]></text>
+				<text><![CDATA[Misión Fin]]></text>
 			</staticText>
 			<line>
 				<reportElement x="162" y="2" width="1" height="17" uuid="52abf13c-5314-4916-93bf-23c6ded12e2c"/>
@@ -232,51 +232,51 @@ where m.fechasalidamision >= $P{FECHAINICIO} and m.fecharegresomision <= $P{FECH
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="43" splitType="Stretch">
-			<textField>
-				<reportElement x="176" y="0" width="100" height="42" uuid="99d95030-5d1c-4eea-81e2-69aa4bb04f10"/>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="176" y="0" width="100" height="14" uuid="99d95030-5d1c-4eea-81e2-69aa4bb04f10"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="301" y="0" width="100" height="42" uuid="cc1a166a-f1a5-4ff6-a98f-499daf1c5959"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="301" y="0" width="100" height="14" uuid="cc1a166a-f1a5-4ff6-a98f-499daf1c5959"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombremision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="413" y="0" width="100" height="42" uuid="623007a8-c4fd-4a36-a5b2-8dda3fb4a47f"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="413" y="0" width="100" height="14" uuid="623007a8-c4fd-4a36-a5b2-8dda3fb4a47f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{objetivomision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="526" y="0" width="91" height="42" uuid="aa722cd9-54ef-47d5-8052-7daf433e83ea"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="526" y="0" width="91" height="14" uuid="aa722cd9-54ef-47d5-8052-7daf433e83ea"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{departamentomision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="54" y="0" width="100" height="42" uuid="91e881fc-d4a9-4924-89a8-a13f90bb11d3"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="54" y="0" width="100" height="14" uuid="91e881fc-d4a9-4924-89a8-a13f90bb11d3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="623" y="1" width="54" height="42" uuid="b44f2b74-7e29-4d87-a044-c8580fef1cee"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="623" y="0" width="54" height="14" uuid="b44f2b74-7e29-4d87-a044-c8580fef1cee"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="687" y="0" width="54" height="42" uuid="6122e09a-c564-4539-bc55-64714eb6fae2"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="687" y="0" width="54" height="14" uuid="6122e09a-c564-4539-bc55-64714eb6fae2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

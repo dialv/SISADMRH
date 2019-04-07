@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="2" bottomMargin="10" uuid="5bf87770-2275-4d19-83ea-0a0d2f882ba6">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="222"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -74,7 +74,7 @@ FROM
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="726" y="95" width="61" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="726" y="95" width="61" height="20" uuid="48b6b3f8-e37b-4431-9121-91d9969e3d70"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -116,7 +116,7 @@ FROM
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="711" y="84" width="107" height="20" uuid="ef6eb4ca-5ac7-4cfc-a33d-072ffdde33b4"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="711" y="84" width="107" height="20" uuid="ef6eb4ca-5ac7-4cfc-a33d-072ffdde33b4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -236,50 +236,50 @@ FROM
 	</columnHeader>
 	<detail>
 		<band height="24" splitType="Stretch">
-			<textField>
-				<reportElement x="213" y="0" width="100" height="24" uuid="af8db28f-dbd5-4c5c-8d5f-5b0047e5f7ac"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="213" y="0" width="100" height="24" uuid="af8db28f-dbd5-4c5c-8d5f-5b0047e5f7ac"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_necesidadcapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="317" y="0" width="56" height="24" uuid="dfaaa852-3a4d-4e62-b98e-e1f76e7dffe7"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="317" y="0" width="56" height="24" uuid="dfaaa852-3a4d-4e62-b98e-e1f76e7dffe7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_mescapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="382" y="0" width="175" height="24" uuid="8e4f25d5-7dd3-4aa9-8b34-ff1cf4b46e59"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="382" y="0" width="175" height="24" uuid="8e4f25d5-7dd3-4aa9-8b34-ff1cf4b46e59"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_resultadoobtener}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="562" y="0" width="90" height="24" uuid="b4711a07-8b4c-4eb2-9865-8dc139ccea70"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="562" y="0" width="90" height="24" uuid="b4711a07-8b4c-4eb2-9865-8dc139ccea70"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="665" y="0" width="77" height="24" uuid="4a507278-5772-46b3-a87e-de551c9d0b11"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="665" y="0" width="77" height="24" uuid="4a507278-5772-46b3-a87e-de551c9d0b11"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="25" y="0" width="100" height="24" uuid="56275a00-1c9a-4f48-b403-ae3101373261"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="25" y="0" width="100" height="24" uuid="56275a00-1c9a-4f48-b403-ae3101373261"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosticocapacitacion_temacapacitacion}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="126" y="0" width="80" height="24" uuid="4e7cae6d-d349-402c-b418-43c8b8af013c"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="126" y="0" width="80" height="24" uuid="4e7cae6d-d349-402c-b418-43c8b8af013c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>

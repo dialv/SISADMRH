@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="792" pageHeight="610" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="2dcbe6cb-3379-4a1c-aaae-d0184a031b8a">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
-	<property name="ireport.x" value="171"/>
-	<property name="ireport.y" value="21"/>
+	<property name="ireport.x" value="15"/>
+	<property name="ireport.y" value="2"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -17,7 +17,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
-where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fecharegresomision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision like '%Externa']]>
+where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision=0]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -236,51 +236,51 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechare
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="28" splitType="Stretch">
-			<textField>
-				<reportElement x="136" y="0" width="108" height="28" uuid="9509bd78-67f5-4e62-aeb6-c20a7061be34"/>
+		<band height="14" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="136" y="0" width="108" height="14" uuid="9509bd78-67f5-4e62-aeb6-c20a7061be34"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="248" y="0" width="108" height="28" uuid="8af08b45-b4ec-49ca-b161-bb3a2cbe6c65"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="248" y="0" width="108" height="14" uuid="8af08b45-b4ec-49ca-b161-bb3a2cbe6c65"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombremision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="358" y="0" width="108" height="28" uuid="b068c4f7-a9f4-4fa8-a2b5-af4f82eb22c2"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="352" y="0" width="119" height="14" uuid="b068c4f7-a9f4-4fa8-a2b5-af4f82eb22c2"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{objetivomision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="480" y="0" width="72" height="28" uuid="2df1c5cc-37d6-495b-bd85-f02086117c6a"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="480" y="0" width="72" height="14" uuid="2df1c5cc-37d6-495b-bd85-f02086117c6a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{departamentomision}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="567" y="0" width="65" height="28" uuid="eee29f56-792c-4f6a-bce2-2ea73a714e51"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="567" y="0" width="65" height="14" uuid="eee29f56-792c-4f6a-bce2-2ea73a714e51"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{paisdestino}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="641" y="0" width="100" height="28" uuid="8da0660e-f862-47b0-a8d8-dc08e1355fe8"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="641" y="0" width="100" height="14" uuid="8da0660e-f862-47b0-a8d8-dc08e1355fe8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="31" y="0" width="100" height="28" uuid="f07bddfa-1d77-4b83-b33a-cb9621a5f714"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="31" y="0" width="100" height="14" uuid="f07bddfa-1d77-4b83-b33a-cb9621a5f714"/>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 		</band>

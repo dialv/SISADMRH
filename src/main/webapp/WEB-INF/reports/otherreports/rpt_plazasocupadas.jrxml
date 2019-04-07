@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b26e61c-8f32-4c26-ad7d-40da0b6d3e65">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="20"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -264,63 +264,63 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			<frame>
 				<reportElement style="Row" mode="Transparent" x="0" y="0" width="732" height="14" uuid="f9b2c44b-8f9e-4e9b-94b0-aca72f246e7a"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="35" y="0" width="28" height="14" uuid="3c5758da-3c0c-4b36-b023-ae0839130913"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="35" y="0" width="28" height="14" uuid="3c5758da-3c0c-4b36-b023-ae0839130913"/>
 					<textElement textAlignment="Right">
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{codigo Puesto}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="68" y="0" width="100" height="14" uuid="49e9ed25-1488-4f99-a77d-bc19c7eabc44"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="68" y="0" width="100" height="14" uuid="49e9ed25-1488-4f99-a77d-bc19c7eabc44"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Nombre Puesto}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="325" y="0" width="48" height="14" uuid="7d4ad7b1-028e-4b59-a612-9bb8c46434ac"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="325" y="0" width="48" height="14" uuid="7d4ad7b1-028e-4b59-a612-9bb8c46434ac"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Sexo}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" pattern="#,##0.00">
-					<reportElement style="Detail" positionType="Float" x="375" y="0" width="47" height="14" uuid="420b4dd9-e69f-4891-a9b9-a5704ef9933d"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="375" y="0" width="47" height="14" uuid="420b4dd9-e69f-4891-a9b9-a5704ef9933d"/>
 					<textElement textAlignment="Right">
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{sueldo Basico}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="422" y="0" width="66" height="14" uuid="b150b28f-7b6e-4d24-adfd-132a756eb7f0"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="422" y="0" width="66" height="14" uuid="b150b28f-7b6e-4d24-adfd-132a756eb7f0"/>
 					<textElement textAlignment="Right">
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Fecha de Nombramiento}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="490" y="0" width="62" height="14" uuid="baed8f64-5a56-4b30-9faa-82e21ecb2d78"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="490" y="0" width="62" height="14" uuid="baed8f64-5a56-4b30-9faa-82e21ecb2d78"/>
 					<textElement textAlignment="Right">
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Fecha de Desvinculacion}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="560" y="0" width="120" height="14" uuid="21834cc1-010c-41cd-a765-56861c9513e3"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="560" y="0" width="120" height="14" uuid="21834cc1-010c-41cd-a765-56861c9513e3"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Ubicacion}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="683" y="0" width="49" height="14" uuid="6d28aa45-3cce-488f-97e5-11eb16a37ce9"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="683" y="0" width="49" height="14" uuid="6d28aa45-3cce-488f-97e5-11eb16a37ce9"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Linea de Trabajo}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="174" y="0" width="145" height="14" uuid="5523e741-5360-426d-b33e-dced0ac3be68"/>
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="174" y="0" width="145" height="14" uuid="5523e741-5360-426d-b33e-dced0ac3be68"/>
 					<textElement>
 						<font fontName="Times New Roman" size="9"/>
 					</textElement>

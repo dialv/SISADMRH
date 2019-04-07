@@ -116,8 +116,8 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="429" y="55" width="100" height="14" uuid="fccdba09-8dbd-4208-8d26-49781480ec28"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="429" y="55" width="100" height="14" uuid="fccdba09-8dbd-4208-8d26-49781480ec28"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -200,28 +200,28 @@ WHERE co.`codigocapacitacion`=c.`codigocapacitacion`]]>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="71" y="0" width="53" height="14" forecolor="#000000" uuid="47f560f6-eb79-4d89-bc61-39ad78b9c149"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="71" y="0" width="53" height="14" forecolor="#000000" uuid="47f560f6-eb79-4d89-bc61-39ad78b9c149"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Cantidad de Personas}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="143" y="0" width="162" height="14" forecolor="#000000" uuid="4c370320-c883-447f-8ca7-cb444ec7f196"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="143" y="0" width="162" height="14" forecolor="#000000" uuid="4c370320-c883-447f-8ca7-cb444ec7f196"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tema}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0.00">
-				<reportElement mode="Transparent" x="305" y="0" width="73" height="14" forecolor="#000000" uuid="f8b7f725-21d8-4bf4-ae95-d3790a672ac4"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="305" y="0" width="73" height="14" forecolor="#000000" uuid="f8b7f725-21d8-4bf4-ae95-d3790a672ac4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Costo por Persomna}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0.00">
-				<reportElement mode="Transparent" x="386" y="0" width="76" height="14" forecolor="#000000" uuid="144ced2e-0cbd-42f0-a2d2-de110da3aa9a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="386" y="0" width="76" height="14" forecolor="#000000" uuid="144ced2e-0cbd-42f0-a2d2-de110da3aa9a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

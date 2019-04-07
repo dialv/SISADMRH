@@ -205,35 +205,35 @@ and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement x="54" y="0" width="40" height="14" uuid="4a7557b2-98ec-47de-8ffc-82afd7e294fa"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="54" y="0" width="40" height="14" uuid="4a7557b2-98ec-47de-8ffc-82afd7e294fa"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Noempleados}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="101" y="0" width="120" height="14" uuid="849185a6-9f84-4bdb-b5e1-bd9cfc01ce62"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="101" y="0" width="120" height="14" uuid="849185a6-9f84-4bdb-b5e1-bd9cfc01ce62"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Ubicacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="224" y="0" width="57" height="14" uuid="155ce77b-4472-4774-8608-3c42469f4b0a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="224" y="0" width="57" height="14" uuid="155ce77b-4472-4774-8608-3c42469f4b0a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NoCapacitaciones}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="293" y="0" width="148" height="14" uuid="d678290c-85d3-4bdc-b2a3-f88dc22e1e65"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="293" y="0" width="148" height="14" uuid="d678290c-85d3-4bdc-b2a3-f88dc22e1e65"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="450" y="0" width="52" height="14" uuid="2866d9e5-b794-4e36-a253-3404ef6b07a7"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="450" y="0" width="52" height="14" uuid="2866d9e5-b794-4e36-a253-3404ef6b07a7"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

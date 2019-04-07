@@ -205,44 +205,44 @@ and c.fechapresentacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="28">
+		<band height="14">
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="384" y="0" width="58" height="28" backcolor="#000000" uuid="c8ecd769-aece-4afb-adf4-98586dc4d1ee"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="384" y="0" width="58" height="14" backcolor="#000000" uuid="c8ecd769-aece-4afb-adf4-98586dc4d1ee"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha Desde}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="49" y="0" width="125" height="28" uuid="7241f0c7-1125-4205-a7fb-0775b54c15a0"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="49" y="0" width="125" height="14" uuid="7241f0c7-1125-4205-a7fb-0775b54c15a0"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="177" y="0" width="78" height="28" backcolor="#000000" uuid="4873b93d-d796-4176-bdbd-d608d94d425f"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="177" y="0" width="78" height="14" backcolor="#000000" uuid="4873b93d-d796-4176-bdbd-d608d94d425f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre de Puesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="444" y="0" width="61" height="28" backcolor="#000000" uuid="1911da80-1249-4647-8084-a026da6abb31"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="444" y="0" width="61" height="14" backcolor="#000000" uuid="1911da80-1249-4647-8084-a026da6abb31"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha Hasta}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="262" y="0" width="66" height="28" backcolor="#000000" uuid="1ba60301-8f22-463c-9ed5-6bc1d47f7162"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="262" y="0" width="66" height="14" backcolor="#000000" uuid="1ba60301-8f22-463c-9ed5-6bc1d47f7162"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Ubicacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement mode="Transparent" x="331" y="0" width="50" height="28" backcolor="#000000" uuid="035cfb79-bf77-4fcb-8ad9-e577be779cac"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="331" y="0" width="50" height="14" backcolor="#000000" uuid="035cfb79-bf77-4fcb-8ad9-e577be779cac"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
