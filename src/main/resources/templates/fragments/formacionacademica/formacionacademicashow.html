@@ -112,13 +112,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecha Desde:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${formacionacademica.fechadesdeformacionacademica}">DUI</p>
+                                <p class="form-control-static" th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecna Hasta:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${formacionacademica.fechadesdeformacionacademica}">Email Empleado</p>
+                                <p class="form-control-static" th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">

@@ -113,7 +113,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecha del Evento:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${caparecibida.fechaevento}">DUI</p>
+                                <p class="form-control-static" th:text="${#calendars.format(caparecibida.fechaevento, 'dd/MM/yyyy')}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
