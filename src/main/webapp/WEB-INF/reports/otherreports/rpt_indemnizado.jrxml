@@ -262,25 +262,11 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Fecha Hasta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="513" y="0" width="164" height="14" uuid="6d0224e7-4490-4ed4-90d7-c805f06513ea"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="595" y="0" width="117" height="14" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="601" y="0" width="117" height="14" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="504" y="0" width="83" height="14" uuid="a1dd8449-e192-48de-ba78-3b00cb79725a"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="86" y="0" width="158" height="14" uuid="29eb0b63-6442-47a5-a450-6e6f7e804f04"/>
@@ -288,6 +274,13 @@ and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="501" y="0" width="99" height="14" uuid="5187dc3f-9202-43a1-9196-1869ae28ae30"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
