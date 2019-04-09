@@ -83,12 +83,12 @@ public class Capacitacion implements Serializable {
     //private List<AsistenciaCapacitacion> asistenciacapacitacionList;
     
     @Column(name = "FECHACAPACITACIONDESDE")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacapacitaciondesde;
     
     @Column(name = "FECHACAPACITACIONHASTA")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacapacitacionhasta;
     

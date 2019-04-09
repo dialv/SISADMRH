@@ -56,7 +56,7 @@ public class Caparecibidas implements Serializable {
     @Column(name = "ddias")
     private int ddias;
     @Column(name = "fechaevento")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaevento;
     @Size(max = 200)

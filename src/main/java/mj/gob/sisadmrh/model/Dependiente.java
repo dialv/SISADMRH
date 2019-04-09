@@ -60,7 +60,7 @@ public class Dependiente implements Serializable {
     @Column(name = "fechanacimiento")
     
     @Temporal(javax.persistence.TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechanacimiento;
     @Column(name = "salarioinicial")
     private Float salarioinicial;

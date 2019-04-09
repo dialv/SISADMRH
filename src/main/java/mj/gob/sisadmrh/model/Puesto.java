@@ -115,15 +115,15 @@ public class Puesto implements Serializable {
     @Column(name = "estadopuesto")
     private Integer estadopuesto;
     @Column(name = "fechaaprobacion")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+    // @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)  
     private Date fechaaprobacion;
     @Column(name = "fechaautorizacionpuesto")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+     //@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaautorizacionpuesto;
     @Column(name = "fechabaja")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+     //@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechabaja;
     @Column(name = "fechacontrataciondesde")

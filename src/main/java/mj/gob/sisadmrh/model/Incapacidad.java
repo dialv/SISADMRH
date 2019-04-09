@@ -74,15 +74,15 @@ public class Incapacidad implements Serializable {
     @Column(name = "DOCUMENTO2")
     private byte[] documento2;
     @Column(name = "FECHADESDEINCAPACIDAD")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeincapacidad;
     @Column(name = "FECHAHASTAINCAPACIDAD")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    ///@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaincapacidad;
     @Column(name = "FECHAEMISION")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+   // @DateTimeFormat(pattern = "YYYY-MM-dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaemision;
     @Size(max = 30)

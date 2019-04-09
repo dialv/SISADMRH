@@ -53,12 +53,12 @@ public class Comite implements Serializable {
     private Integer estadocomite;
     
     @Column(name = "FECHADESDECOMITE")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdecomite;
     
     @Column(name = "FECHAHASTACOMITE")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastacomite;
     

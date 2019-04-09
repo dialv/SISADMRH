@@ -38,7 +38,7 @@ public class Empleado implements Serializable {
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
     @Column(name = "FECHANACIMIENTOEMPLEADO")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechanacimientoempleado;
     @Size(max = 50)
@@ -84,11 +84,11 @@ public class Empleado implements Serializable {
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
     @Column(name = "FECHAINGRESOSECPUB")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaingresosecpub;
     @Column(name = "FECHAINGRESOSECPRIV")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaingresosecpriv;
     @Column(name = "FECHAINGRESOMINISTERIO")

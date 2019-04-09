@@ -44,11 +44,11 @@ public class Formacionacademica implements Serializable {
     private int aniosaprobados;
     @Column(name = "fechadesdeformacionacademica")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechadesdeformacionacademica;
     @Column(name = "fechahastaformacionacademica")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechahastaformacionacademica;
     @Size(max = 200)
     @Column(name = "termino")

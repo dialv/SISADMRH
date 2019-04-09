@@ -46,7 +46,7 @@ public class Bitacora implements Serializable {
     private String nombreeventobitacora;
     @Column(name = "FECHABITACORA")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechabitacora;
     @Size(max = 18)
     @Column(name = "IP")

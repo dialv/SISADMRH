@@ -37,11 +37,11 @@ public class Comision implements Serializable {
     private Integer codigocomision;
     @Column(name = "fechadesdecomision")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   // @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechadesdecomision;
     @Column(name = "fechahastacomision")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    //@DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechahastacomision;
     @Column(name = "nivelcomision")
     private Integer nivelcomision;
