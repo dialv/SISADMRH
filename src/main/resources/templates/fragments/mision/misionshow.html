@@ -34,6 +34,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.codigomision}">codigo de Mision</p></div>
                 </div>
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">Tipo de Misi&oacute;n:</label>
+                    <div class="col-sm-7">
+                                <p class="form-control-static">  <span th:if="${mision.tipomision} == 0"  th:text="Externa"  ></span> <span th:if="${mision.tipomision} == 1"  th:text="Interna"></span>  </p>
+                            </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Nombre de Misi&oacute;n:</label>
                     <div class="col-sm-7">
@@ -52,27 +58,97 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <p class="form-control-static" th:text="${mision.responsablegasto}">Responsable Gasto</p>
                     </div>
                 </div>
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">Viaticos de Mision:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${mision.viaticos}">Responsable Gasto</p>
+                    </div>
+                </div>
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">Gasto Viaje:</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${mision.gastoviaje}">Responsable Gasto</p>
+                    </div>
+                </div>
+                       <div class="form-group">
+                    <label class="col-sm-7 control-label">Gastos Terminales</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.gastoterminales}">Gasto Viaje</p>
+                    </div>
+                </div>
+                       <div class="form-group">
+                    <label class="col-sm-7 control-label">Gastos Terminales</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.gastoterminales}">Gasto Viaje</p>
+                    </div>
+                </div>
+                     
                   </div> 
                       <div class="col-md-6">
-                        
-                <div class="form-group">
-                    <label class="col-sm-7 control-label">Gasto Viaje:</label>
-                    <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${mision.gastoviaje}">Gasto Viaje</p>
-                    </div>
-                </div>
-                <div class="form-group">
+                         <div class="form-group">
                     <label class="col-sm-7 control-label">Fecha de Salida:</label>
                     <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${mision.fechasalidamision}">Fecha de Salida</p>
+                        <p class="form-control-static" th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">Fecha de Salida</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-7 control-label">Gastos Terminales:</label>
+                      <div class="form-group">
+                    <label class="col-sm-7 control-label">Pasi:</label>
                     <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${mision.gastoterminales}">Gastos Terminales</p>
+                        <p class="form-control-static" th:text="${mision.paisdestino}">Gasto Viaje</p>
                     </div>
                 </div>
+                      <div class="form-group">
+                    <label class="col-sm-7 control-label">Organismo Patrocinador:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.organismopatrocinador}">Gasto Viaje</p>
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label class="col-sm-7 control-label">Ciudad:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.ciudad}">Gasto Viaje</p>
+                    </div>
+                </div>
+                             <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha de Regreso</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">Gasto Viaje</p>
+                    </div>
+                </div>
+                          
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Fecha de Acuerdo</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${#calendars.format(mision.fechaacuerdomision, 'dd/MM/yyyy')}">Gasto Viaje</p>
+                    </div>
+                </div>
+                          
+                           <div class="form-group">
+                    <label class="col-sm-7 control-label">Boleto Aereo</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.boleto}">Gasto Viaje</p>
+                    </div>
+                </div>
+                          
+                           <div class="form-group">
+                    <label class="col-sm-7 control-label">Boleto Terrestre:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.boletoterr}">Gasto Viaje</p>
+                    </div>
+                </div>
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Cantidad de Dias</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.cantidaddia}">Gasto Viaje</p>
+                    </div>
+                </div> 
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Cantidad de Meses:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.cantidadmeses}">Gasto Viaje</p>
+                    </div>
+                </div>
+               
                   </div> 
                 
                 

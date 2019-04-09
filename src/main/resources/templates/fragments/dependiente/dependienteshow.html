@@ -97,9 +97,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha de Nacimiento</label>
+                            <label class="col-sm-5 control-label">Fecha de Nacimiento del Dependiente</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${dependiente.fechanacimiento}">Fecha de Nacimiento</p>
+                                <p class="form-control-static" th:text="${#calendars.format(dependiente.fechanacimiento, 'dd/MM/yyyy')}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                     </div> 
@@ -115,7 +115,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            
            <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Sexo</label>
+                            <label class="col-sm-7 control-label">Sexo del Dependiente</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${dependiente.sexo}">Telefono Movil de Empleado</p>
                             </div>

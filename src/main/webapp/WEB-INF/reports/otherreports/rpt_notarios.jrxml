@@ -233,7 +233,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="638" y="0" width="44" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="638" y="0" width="67" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

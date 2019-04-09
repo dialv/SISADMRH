@@ -49,19 +49,21 @@ public class CuadroDirectivo implements Serializable {
     private String desripcioncuadrodirectivo;
     @Column(name = "fechapresentacion")
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
     private Date fechapresentacion;
     @Size(max = 30)
     @Column(name = "responsablecuadrodirectivo")
     private String responsablecuadrodirectivo;
+    
     @Column(name = "fechapresentaciondesde")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechapresentaciondesde;
+    
     @Column(name = "fechapresentacionhasta")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+   @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechapresentacionhasta;
+    
     @Column(name = "acuerdocuadrodirectivo")
     private Integer acuerdocuadrodirectivo;
     @Column(name = "ESTADOCUADRODIRECTIVO")

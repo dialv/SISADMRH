@@ -37,8 +37,8 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
 " inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado\n" +
 " INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion" 
 + " where " 
-+ " fechacapacitaciondesde >= :FINICIAL " 
-+ " and ca.fechacapacitacionhasta  <= :FFINAL ", 
++ " ca.fechacapacitaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') " 
++ " and ca.fechacapacitaciondesde  <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') ", 
          nativeQuery = true)
 
     public List<Object[]> findByCapacitacionesR(@Param("FINICIAL") String finicial, 

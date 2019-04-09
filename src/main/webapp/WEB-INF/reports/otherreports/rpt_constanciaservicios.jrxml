@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="61040501-82b0-436f-934f-a899fdfcb57e">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="183"/>
+	<property name="ireport.y" value="27"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -104,7 +104,7 @@
  on e.codigoempleado=el.codigoexperiencialaboral
  WHERE e.codigoempleado=$P{CODIGO} and
  
-c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafincontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainiciocontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') ]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="desde" class="java.lang.String"/>
@@ -252,7 +252,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[LA INFRAESCRITA DIRECTORA DE RECURSOS HUMANOS DEL MINISTERIO DE JUSTICIA]]></text>
+				<text><![CDATA[LA INFRAESCRITO(A) DIRECTOR(A) DE RECURSOS HUMANOS DEL MINISTERIO DE JUSTICIA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="62" y="25" width="388" height="20" uuid="7a700244-b857-47cf-abc1-21a910d0b2e4"/>
@@ -398,7 +398,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafinco
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[detallados en la siguiente tabla.]]></text>
+				<text><![CDATA[detallados en el siguiente cuadro.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="62" y="50" width="84" height="14" uuid="df1b8902-594d-4e85-b156-f0580a3d2127"/>

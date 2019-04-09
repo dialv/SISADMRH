@@ -71,11 +71,7 @@ function ExisteFecha(fecha,id){
         var dd=fecha_aux[0];
         var yy=fecha_aux[2];
         var currentYear = date.getFullYear();
-//        alert(dd+"-"+mm+"-"+currentYear);
  	var Fecha1 = new Date(fecha_aux[2],fecha_aux[1]-1,fecha_aux[0]);
- 
- 	//Comprobamos si existe la fecha
-        
 	if (dd>31 || dd<0 || mm>12 || mm<0 || yy>(currentYear+5) || yy<(currentYear-100)){
 		msj="Fecha introducida es incorrecta";
 //                 document.getElementById(id).value=" ";
@@ -91,6 +87,25 @@ function ExisteFecha(fecha,id){
 
 function FechaActual(fecha,id){
      var date = new Date();
+}
+
+function FechaActualMenor(fecha){
+    
+    var msj="";
+    var msj1="Mensaje de Validacion de Fecha!";
+    var msj2="FormatoValido";
+    var messages="";
+    var date = new Date();
+    var inicio = Date.parse(convertDateFormat(fecha));
+     var d = new Date(inicio);
+//     alert(d+" # "+date)
+     if (d<date)
+     {
+          msj="La Fecha  ingresada no debe ser menor a la Fecha Actual";
+           messages=msj+","+msj1+","+msj2;
+           return  messages;
+     }
+     
 }
 
 
