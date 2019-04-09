@@ -130,6 +130,7 @@
         var pass = $("#pass").val();
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
+                $("#fingreso").val(nufecha($("#fingreso").val()))
                 $("form#usuarioform").submit();
             }
             else{
@@ -166,6 +167,11 @@
     });
     }
     });
+    function nufecha(val){
+        arreglo = val.split("/")
+        val = arreglo[1]+"/"+arreglo[0]+"/"+arreglo[2]
+        return val;
+    }
     function isDat(val, id){
     var foo = ExisteFecha(val, id).split(","); ;
     if (foo[0] != foo[2]){

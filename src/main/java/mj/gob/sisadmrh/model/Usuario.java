@@ -49,7 +49,6 @@ public class Usuario implements Serializable {
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
     @Column(name = "FECHAINGRESO")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaingreso;
     @Column(name = "FECHACADUCIDAD")

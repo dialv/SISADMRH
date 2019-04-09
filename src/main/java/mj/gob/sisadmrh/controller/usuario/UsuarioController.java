@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,7 +59,7 @@ public class UsuarioController extends UtilsController{
     }
 
     @RequestMapping(value = "usuario")
-    public String saveUsuario(Usuario usuario,Model model, SessionStatus status) {
+    public String saveUsuario(@ModelAttribute("fingreso") String fingreso, Usuario usuario,Model model, SessionStatus status) {
         Usuario aux=new Usuario();
         aux.setNombrecompleto(usuario.getNombrecompleto());
         aux.setNombreusuario(usuario.getNombreusuario());

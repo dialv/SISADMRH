@@ -20,16 +20,16 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("nivelescolaridad")
 @RequestMapping(value = "nivelescolaridades")
 public class NivelEscolaridadController extends UtilsController {
-    
+    @Autowired
     private NivelEscolaridadService nivelEscolaridadService;
     @Autowired
     private EmpleadoService empleadoService;
     
-    @Autowired
-    public void setNivelEscolaridadService(NivelEscolaridadService nivelEscolaridadService) {
-        this.nivelEscolaridadService = nivelEscolaridadService;
-    }
     
+//    public void setNivelEscolaridadService(NivelEscolaridadService nivelEscolaridadService) {
+//        this.nivelEscolaridadService = nivelEscolaridadService;
+//    }
+//    
     private final String PREFIX = "fragments/nivelescolaridad/";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
