@@ -95,7 +95,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="row" align="center">
                 <a href="#" th:href="@{/cuadrodirectivos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
                 <button id="guardar" type="submit"  onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                 <!--<button id="guardar2" type="button" onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>probar</button>-->
+                 <!--<button id="guardar2" type="button" onclick="edit_fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>probar</button>-->
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
     </div>
@@ -103,7 +103,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
             
         </div>
+          
     </div>
+                <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 <!--<div class="container">-->
     
 <!--</div>-->
@@ -137,6 +141,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     });
 </script> 
 <script>
+//    edit_fecha_format(); 
+//    format_fechaedit("20/19/0404");
     function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
@@ -151,6 +157,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         }
                     }
     $(document).ready(function () {
+          
         $('#fdesde').datepicker({
            dateFormat: 'dd/mm/yy'
         });
