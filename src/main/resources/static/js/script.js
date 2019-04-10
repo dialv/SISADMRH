@@ -183,4 +183,28 @@ function Textheader(texto,titulo){
 
 }
 
+function fecha_format() {
+    var msg = '';
+    var formularios = document.forms;
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+                        var value = formularios[i].elements[j].id;
+                        if(value.includes("fecha") || value.includes("fdesde") || value.includes("fhasta") ){
+//                            alert("id:"+value)
+                                   var val= formularios[i].elements[j].value
+                                   val=nufecha(val)
+                                   formularios[i].elements[j].value=val
+                                    }
+                    }
+    }
+
+}
+
+ function nufecha(val){
+        arreglo = val.split("/")
+        val = arreglo[1]+"/"+arreglo[0]+"/"+arreglo[2];
+        return val;
+    }
+
+
 

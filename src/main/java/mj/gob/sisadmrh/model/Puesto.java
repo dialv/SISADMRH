@@ -115,39 +115,39 @@ public class Puesto implements Serializable {
     @Column(name = "estadopuesto")
     private Integer estadopuesto;
     @Column(name = "fechaaprobacion")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)  
     private Date fechaaprobacion;
     @Column(name = "fechaautorizacionpuesto")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaautorizacionpuesto;
     @Column(name = "fechabaja")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechabaja;
     @Column(name = "fechacontrataciondesde")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacontrataciondesde;
     @Column(name = "fechacontratacionhasta")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacontratacionhasta;
     @Column(name = "fechacreacion")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacreacion;
     @Column(name = "fechamodificacion")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechamodificacion;
     @Column(name = "fechanombramiento")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechanombramiento;
     @Column(name = "fechavacante")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechavacante;
     @Column(name = "sueldobase")

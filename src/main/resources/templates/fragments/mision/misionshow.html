@@ -112,7 +112,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                              <div class="form-group">
                     <label class="col-sm-7 control-label">Fecha de Regreso</label>
                     <div class="col-sm-5">
-                        <p class="form-control-static" th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">Gasto Viaje</p>
+                        <p class="form-control-static" th:text="${#calendars.format(mision.fecharegresomision, 'dd/MM/yyyy')}">Gasto Viaje</p>
                     </div>
                 </div>
                           

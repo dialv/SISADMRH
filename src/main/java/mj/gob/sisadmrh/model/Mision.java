@@ -45,15 +45,15 @@ public class Mision implements Serializable {
     @Column(name = "documento")
     private String documento;
     @Column(name = "fechaacuerdomision")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+//    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaacuerdomision;
     @Column(name = "fecharegresomision")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+//    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecharegresomision;
     @Column(name = "fechasalidamision")
-     @DateTimeFormat(pattern = "dd/MM/YYYY")
+//     
     @Temporal(javax.persistence.TemporalType.DATE)
      private Date fechasalidamision;
     @Column(name = "gastostotales")

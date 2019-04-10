@@ -68,8 +68,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha  desde:(*)</label>
                 <div class="col-sm-2">
-                    <input type="text" required="true" class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"
-isDat(this.value,'desde')/>
+                    <input type="text" required="true"  class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
                               <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaprsentaciondesde')" onmouseout ="javascript:ocultarAyuda('fechaprsentaciondesde')">a</a></b>
@@ -95,7 +94,8 @@ isDat(this.value,'desde')/>
 <div class="col-md-12">
             <div class="row" align="center">
                 <a href="#" th:href="@{/cuadrodirectivos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button id="guardar" type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                <button id="guardar" type="submit"  onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                 <!--<button id="guardar2" type="button" onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>probar</button>-->
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
     </div>
@@ -110,12 +110,10 @@ isDat(this.value,'desde')/>
 
 </body>
 <!--<script>
-    $("#guardar").on("click",function(event){
-    event.preventDefault();
-    // resto de tu codigo
- });
+    fecha_format();
     </script>-->
 <script th:inline="javascript">
+   
     $(document).ready(function () {
     if([[${msg}]]===0){
        swal({

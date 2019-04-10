@@ -60,7 +60,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de inicio(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fechadesde" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
                <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
@@ -72,7 +72,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de Finalización(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fechahasta" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
               <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
@@ -85,7 +85,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="col-md-12">
                         <div class="row" align="center">
                             <a href="#" th:href="@{/beneficios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                             
                            
