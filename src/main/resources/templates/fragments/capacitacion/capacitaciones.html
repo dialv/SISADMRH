@@ -37,7 +37,7 @@
                 <th>Tipo Capacitación</th>
                 <th>Estado Capacitación</th>
                 <th>Nombre Capacitador</th>
-                <th></th><th></th>
+                <th></th>
                 <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                 <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
             </tr>
@@ -60,7 +60,7 @@
                 <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
                 <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
                 <td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>
-                <td><a th:onclick="'javascript:CrearLista(\'' + ${capacitacion.codigocapacitacion} + '\');'" type="submit" class="btn btn-warning">Crear Lista de Asistencia</a></td>
+                <!--<td><a th:onclick="'javascript:CrearLista(\'' + ${capacitacion.codigocapacitacion} + '\');'" type="submit" class="btn btn-warning">Crear Lista de Asistencia</a></td>-->
                 <td><a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-info">Mostrar</a> </td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + capacitacion.codigocapacitacion}" class="btn btn-success">Editar</a> </td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${capacitacion.codigocapacitacion} + '\');'" >Eliminar</a> </td>

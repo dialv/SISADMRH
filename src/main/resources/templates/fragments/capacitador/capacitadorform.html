@@ -65,7 +65,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tema de Dominio(*):</label>
                         <div class="col-sm-9">
-                            <select class="form-control"  required="true" name="temadominio" >
+                            <select class="form-control"  required="true" th:field="*{temadominio}" >
                              <option th:each="c:${dominio}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
 
@@ -82,7 +82,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <label class="col-sm-2 control-label">Institución(*):</label>
                         <div class="col-sm-9">
                             
-                            <select class="form-control" required="true" name="institucioncapacitador" >
+                            <select class="form-control" required="true" th:field="*{institucioncapacitador}" >
                                 <option th:each="c:${tinst}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                             
                             </select>
@@ -97,7 +97,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <label class="col-sm-2 control-label">Tipo Capacitador(*):</label>
                         <div class="col-sm-9">
 
-                            <select class="form-control" required="true" name="tipocapacitador" >
+                            <select class="form-control" required="true" th:field="*{tipocapacitador}" >
                                 <option th:each="c:${tipoCapacitador}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
                             </select>
@@ -112,7 +112,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <label class="col-sm-2 control-label">Tipo Agrupación(*):</label>
                         <div class="col-sm-9">
 
-                            <select class="form-control" required="true"name="tipoagrupacion" >
+                            <select class="form-control" required="true"th:field="*{tipoagrupacion}" >
                                   <option th:each="c:${tipoAgrupacion}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
                             </select>

@@ -37,8 +37,8 @@
                 <td th:text="${nivelescolaridad.finalizado}">finalizado</td>
                 <td th:text="${nivelescolaridad.tituloobtenido}">Titulo Obtenido</td>
                 <td th:text="${nivelescolaridad. paisnivelescolaridad}">Pais nivel escolaridad</td>
-                <td th:text="${#calendars.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MMM/yyyy')}">Fecha Desde</td>
-                <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd/MMM/yyyy')}">Fecha Hasta</td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MM/yyyy')}">Fecha Desde</td>
+                <td th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd/MM/yyyy')}">Fecha Hasta</td>
                 <td>  <a th:href="${'./show/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-info">Mostrar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a th:href="${'./edit/' + nivelescolaridad.codigonivelnivelescolaridad}" class="btn btn-success">Editar</a> </td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a  class="btn btn-danger" th:onclick="'eliminar(\''+ ${nivelescolaridad.codigonivelnivelescolaridad} + '\');'" >Eliminar</a> </td>
