@@ -27,7 +27,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     
           <!--<h3 align="center"> Crear Costos de Capacitación</h3>-->
     <div>
-        <form class="form-horizontal" th:object="${costocapacitacion}" th:action="@{../costocapacitacion}" method="post">
+        <form id ="costocapform" class="form-horizontal" th:object="${costocapacitacion}" th:action="@{../costocapacitacion}" method="post">
           <input type="hidden" th:field="*{codigocostocapacitacion}"/>
              <div class="form-group">
                 <label class="col-sm-2 control-label">Capacitación:</label>
@@ -47,7 +47,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Costo Por Persona $:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal2" required="true" maxlength="10" th:field="*{costopersona}"/>
+                    <input id="costopp" type="text" class="form-control num_decimal3 numeros" required="true" maxlength="10" th:field="*{costopersona}"/>
                 </div>
                  <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numeropersonas')" onmouseout ="javascript:ocultarAyuda('numeropersonas')">a</a></b>
@@ -70,7 +70,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-2 control-label">Costo Capacitador $:</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal2"  required="true" maxlength="10" th:field="*{costocapacitador}"/>
+                    <input id="costocap" type="text" class="form-control num_decimal3 numeros"  required="true" maxlength="10" th:field="*{costocapacitador}"/>
                 </div>
                           <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('costopers')" onmouseout ="javascript:ocultarAyuda('costopers')">a</a></b>
@@ -87,7 +87,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12">
             <div class="row" align="center">
                  <a href="#" th:href="@{/costocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
     </div>
@@ -124,7 +124,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 location.href = '../costocapacitaciones/';
        }); 
 }
-    
+   
     if([[${msg}]]===1){
         swal({
                 title: "ERROR!",
@@ -134,6 +134,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        });
     }
     });
+
 </script>
 
 
