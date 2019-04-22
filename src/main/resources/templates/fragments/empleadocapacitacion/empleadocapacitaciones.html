@@ -33,6 +33,10 @@
                                 <th>Nombre de Empleado</th>
                                 <th>Nombre Capacitacion</th>
                             </tr>
+                            <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                  <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                        <th></th>
                         </thead>
                         
                  <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">

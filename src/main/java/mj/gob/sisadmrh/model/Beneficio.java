@@ -47,11 +47,11 @@ public class Beneficio implements Serializable {
     private String descripcionbeneficio;
     @Column(name = "FECHAINICIOBENEFICIO")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+//    
     private Date fechainiciobeneficio;
     @Column(name = "FECHAFINALIZARBENEFICIO")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    
     private Date fechafinalizarbeneficio;
     @Column(name = "ESTADOBENEFICIO")
     private int estadobeneficio;

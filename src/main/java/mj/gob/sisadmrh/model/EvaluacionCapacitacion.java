@@ -37,7 +37,7 @@ public class EvaluacionCapacitacion implements Serializable {
     @Column(name = "LUGARCAPACITACION")
     private String lugarcapacitacion;
     @Column(name = "HORAEVUALUACIONCAPACITACION")
-    @DateTimeFormat(pattern = "dd/MM/YYYY")
+//    
     @Temporal(TemporalType.TIMESTAMP)
     private Date horaevualuacioncapacitacion;
     @Size(max = 4)

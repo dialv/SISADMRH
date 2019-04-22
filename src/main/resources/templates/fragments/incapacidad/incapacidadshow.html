@@ -52,15 +52,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha Desde:</label>
+                            <label class="col-sm-5 control-label">Inicio Incapacidad:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${incapacidad.fechadesdeincapacidad}">Fecha Desde</p>
+                                   <p class="" th:text="${#calendars.format(incapacidad.fechadesdeincapacidad, 'dd/MM/yyyy')}">Fecha Hasta</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha Hasta:</label>
+                            <label class="col-sm-5 control-label">Fin Incapacidad:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${incapacidad.fechahastaincapacidad}">Fecha Hasta</p>
+                                 <p class="" th:text="${#calendars.format(incapacidad.fechahastaincapacidad, 'dd/MM/yyyy')}">Fecha Hasta</p>
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
- <a href="#" th:href="@{/incapacidadaes/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+ <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
             </div>
