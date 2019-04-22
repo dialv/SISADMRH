@@ -30,9 +30,9 @@
                     </thead>
                     <tr th:each="costocapacitacion : ${costocapacitaciones}">
                         <td align="center" th:text="${costocapacitacion.codigocostocapacitacion}">Codigo Capacitacion</td>
-                        <td align="center" th:text="${costocapacitacion.costopersona}">Costo Persona</td>
+                        <td align="right" th:text="${#numbers.formatDecimal(costocapacitacion.costopersona, 0, 'COMMA', 2, 'POINT')}">Costo Persona</td>
                         <td align="center" th:text="${costocapacitacion.numeropersona}">Numero de Personas</td>
-                        <td align="center" th:text="${costocapacitacion.costocapacitador}">Costo de Capactador</td>
+                        <td align="right" th:text="${#numbers.formatDecimal(costocapacitacion.costocapacitador, 0, 'COMMA', 2, 'POINT')}">Costo de Capactador</td>
                         <td th:text="${costocapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo Capacitacion</td>
                         <td><a th:href="${'./show/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-info">Mostrar</a></td>
                         <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + costocapacitacion.codigocostocapacitacion}" class="btn btn-success">Editar</a></td>

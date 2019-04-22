@@ -20,7 +20,7 @@
                     <h3>Introduzca los datos del Usuario</h3>
                     <input type="hidden" th:field="*{codigousuario}"/>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombres:</label>
+                        <label class="col-sm-2 control-label">Codigo:</label>
                         <div class="col-sm-6">
                             <input type="text" readonly class="form-control letras" required="true" size="100" maxlength="50" th:field="*{codigousuario}" />
                         </div>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombres:</label>
+                        <label class="col-sm-2 control-label">Nombre y apellido:</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombrecompleto}" />
                         </div>
@@ -73,14 +73,14 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Confirmacion de Contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="text" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                            <input type="text" id="confpass" class="form-control " required="true" size="100" maxlength="50" th:field="*{controlcontrasenia}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passwconf')" onmouseout ="javascript:ocultarAyuda('passwconf')">a</a></b>
                             <span class="popuptext" id="passwconf">Confirme la Contraseña. Como minimo debe ingresar 8 caracteres . !!</span>
                         </div>
                     </div>
-                    <div class="form-group">
+<!--                    <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha Ingreso:</label>
                         <div class="col-sm-2">
                             <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" th:field="*{fechaingreso}"/>
@@ -90,7 +90,7 @@
 
                             <span class="popuptext" id="finicio">Ingrese la Fecha inicial de la Contraseña.  . !!</span>
                         </div>
-                    </div>
+                    </div>-->
                     <!--div class="form-group">
                         <label class="col-sm-2 control-label">Fecha de caducidad:</label>
                         <div class="col-sm-2">
@@ -141,6 +141,7 @@
         var pass = $("#pass").val();
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
+                $("#fingreso").val(nufecha($("#fingreso").val()))
                 $("form#usuarioform").submit();
             }
             else{
@@ -177,6 +178,11 @@
     });
     }
     });
+    function nufecha(val){
+        arreglo = val.split("/")
+        val = arreglo[1]+"/"+arreglo[0]+"/"+arreglo[2]
+        return val;
+    }
     function isDat(val, id){
     var foo = ExisteFecha(val, id).split(","); ;
     if (foo[0] != foo[2]){
