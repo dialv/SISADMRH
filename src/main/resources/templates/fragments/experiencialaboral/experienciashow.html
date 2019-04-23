@@ -262,7 +262,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../empleados/show/'+ document.getElementById("codem").value;
+                 location.href = '../../../empleados/show/'+[[${empleado}]];
+//    location.href = '../empleados/show/'+ document.getElementById("codem").value;
     });
     }
 

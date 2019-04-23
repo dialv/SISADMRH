@@ -121,12 +121,14 @@ public class UbicacionFisicaController extends UtilsController{
         
         return PREFIX +"ubicacionfisicashow";
     }
-     @RequestMapping("delete/{id}")  
-    public String delete(@PathVariable Integer id,Model model) {
+     @RequestMapping("delete/{id}/{idemp}")  
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
         try{
        Ubicacionfisica ubicacionfisica = ubicacionFisicaService.getUbicacionFisicaById(id).get();
        ubicacionfisica.setEstadoubicacion(0);
         ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
+          Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
          model.addAttribute("msg", 3);
 //          model.addAttribute("ubicacionfisica",ubicacionfisica);
         }
@@ -134,9 +136,9 @@ public class UbicacionFisicaController extends UtilsController{
         {
         model.addAttribute("msg", 4);
         }
-    return "redirect:/empleados/";
+//    return "redirect:/empleados/";
 //        return "redirect:/ubicacionfisicas/";
-//        return PREFIX +"ubicacionfisicashow";
+        return PREFIX +"ubicacionfisicas";
     }
     
               @RequestMapping(value = "ubicacionfisica")

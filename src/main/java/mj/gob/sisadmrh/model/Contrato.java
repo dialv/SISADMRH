@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -41,6 +42,11 @@ public class Contrato implements Serializable {
     @Size(max = 100)
     @Column(name = "LINEATRABAJO")
     private String lineatrabajo;
+     @Lob
+    @Column(name = "acuerdonombramiento")
+    private byte[] acuerdonombramiento;
+
+    @Basic(optional = false)
     @Size(max = 9)
     @Column(name = "PARTIDACONTRATO")
     private String partidacontrato;
@@ -49,7 +55,8 @@ public class Contrato implements Serializable {
     private String subpartidacontrato;
     @Column(name = "estadocontrato")
     private Integer estadocontrato;
-
+     @Column(name = "cambioplaza")
+    private Integer cambioplaza;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -95,6 +102,21 @@ public class Contrato implements Serializable {
         this.salarioactual = salarioactual;
     }
 
+    public byte[] getAcuerdonombramiento() {
+        return acuerdonombramiento;
+    }
+
+    public void setAcuerdonombramiento(byte[] acuerdonombramiento) {
+        this.acuerdonombramiento = acuerdonombramiento;
+    }
+
+    public Integer getCambioplaza() {
+        return cambioplaza;
+    }
+
+    public void setCambioplaza(Integer cambioplaza) {
+        this.cambioplaza = cambioplaza;
+    }
 
     public Date getFechainiciocontrato() {
         return fechainiciocontrato;

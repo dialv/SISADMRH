@@ -118,7 +118,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecna Hasta:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">Email Empleado</p>
+                                <p class="form-control-static" th:text="${#calendars.format(formacionacademica.fechahastaformacionacademica, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -259,7 +259,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../../empleados/';
+    location.href = '../../../empleados/show/'+[[${empleado}]];
     });
     }
 

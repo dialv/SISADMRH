@@ -40,7 +40,7 @@
                 <td th:text="${#calendars.format(puesto.fechaaprobacion, 'dd/MM/yyyy')}	">fecha ingreso</td>
                 <td th:text="${#calendars.format(puesto.fechabaja, 'dd/MM/yyyy')}	">fecha baja</td>
                 <td><a th:href="${'./show/' + puesto.codigopuesto}" class="btn btn-info">Mostrar</a></td>
-                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + puesto.codigopuesto}" class="btn btn-success">Modificar</a></td>
+                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + puesto.codigopuesto}" class="btn btn-success">Editar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:onclick="'eliminar(\'' +${ puesto.codigopuesto} +'\');'" class="btn btn-danger">Eliminar</a></td>
             </tr>
         </table>
@@ -71,7 +71,7 @@
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../puestos/';
+                location.href = '../../puestos/';
        }); 
 }
     

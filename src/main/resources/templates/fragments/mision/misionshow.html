@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                      <div class="form-group">
-                    <label class="col-sm-5 control-label">Viaticos de Mision:</label>
+                    <label class="col-sm-5 control-label">Viaticos de Misi&oacute;n:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.viaticos}">Responsable Gasto</p>
                     </div>
@@ -71,20 +71,31 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                        <div class="form-group">
-                    <label class="col-sm-7 control-label">Gastos Terminales</label>
-                    <div class="col-sm-5">
+                    <label class="col-sm-5 control-label">Gastos Terminales</label>
+                    <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.gastoterminales}">Gasto Viaje</p>
                     </div>
                 </div>
                        <div class="form-group">
-                    <label class="col-sm-7 control-label">Gastos Terminales</label>
-                    <div class="col-sm-5">
+                    <label class="col-sm-5 control-label">Gastos Terminales</label>
+                    <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.gastoterminales}">Gasto Viaje</p>
                     </div>
                 </div>
-                     
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">Organismo que Invita</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${mision.organismoinvita}">Gasto Viaje</p>
+                    </div>
+                </div>
                   </div> 
                       <div class="col-md-6">
+                          <div class="form-group">
+                    <label class="col-sm-7 control-label">Direcci&oacute;n de Misi&oacute;n:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.direccion}">Gasto Viaje</p>
+                    </div>
+                </div>
                          <div class="form-group">
                     <label class="col-sm-7 control-label">Fecha de Salida:</label>
                     <div class="col-sm-5">
@@ -92,7 +103,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                       <div class="form-group">
-                    <label class="col-sm-7 control-label">Pasi:</label>
+                    <label class="col-sm-7 control-label">Pais:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.paisdestino}">Gasto Viaje</p>
                     </div>
@@ -156,8 +167,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12">
             <div class="row" align="center">
                 <!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>-->
-                	
-<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/misiones/}">.</a></button>
+                	<a href="#" th:href="@{/misiones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+<!--<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-arrow-left"></span>Regresar <a href="#" th:href="@{/misiones/}">.</a></button>-->
             </div>
     </div>
     </div>

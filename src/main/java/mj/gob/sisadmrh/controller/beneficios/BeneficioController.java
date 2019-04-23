@@ -124,24 +124,35 @@ public class BeneficioController extends UtilsController{
        // return "redirect:/beneficios/";
     }
     
-    @RequestMapping("delete2/{id}")
-    public String delete2(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete2/{id}/{idemp}")
+    public String delete2(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
         
         try{
-        Beneficio beneficio =beneficioService.getBeneficioById(id).get();
-         Empleadobeneficio emben = new  Empleadobeneficio(); 
-         emben.getEmpleado();
-         empleadoBeneficioService.deleteEmpleadobeneficio(id);
+        empleadoBeneficioService.deleteEmpleadobeneficio(idemp);
          
-         bitacoraService.BitacoraRegistry("se elimino un Beneficio",getRequest().getRemoteAddr(), 
+         bitacoraService.BitacoraRegistry("se elimino un beneficio a un empleado",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+//         Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+//         model.addAttribute("empleado",cod);
         model.addAttribute("msg", 3);
         }
-        catch(Exception e){
-         model.addAttribute("msg", 4);
-        }
-//       return PREFIX + "beneficios";
-return "redirect:/empleados/show/"+id;
+        catch (Exception ex) {
+                  
+                     System.out.println("deletebenefcioempleado {");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
+                     
+                      model.addAttribute("msg", 4);
+              }
+       return PREFIX + "beneficioss";
+//return "redirect:/empleados/show/"+idemp;
        // return "redirect:/beneficios/";
     }
     

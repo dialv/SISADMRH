@@ -154,6 +154,8 @@ public class MisionController extends UtilsController {
             Mision mision = misionService.getMisionById(id).get();
             mision.setEstadomision(0);
             misionService.saveMision(mision);
+             bitacoraService.BitacoraRegistry("se elimino una Mision", getRequest().getRemoteAddr(),
+            getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 3);
         } catch (Exception e) {
             model.addAttribute("msg", 4);

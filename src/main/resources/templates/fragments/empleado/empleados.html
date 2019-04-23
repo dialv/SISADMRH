@@ -33,7 +33,7 @@
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${empleado.codigoempleado}">Código empleado</td>
                 <td th:text="${empleado.nombreempleado} + ' ' + ${empleado.apellidoempleado} ">nombreempleado</td>
-                <td th:text="${empleado.fechanacimientoempleado}">Fecha nacimiento empleado</td>                
+                <td th:text="${#calendars.format(empleado.fechanacimientoempleado, 'dd/MM/yyyy')}">Fecha nacimiento empleado</td>                
                 <td th:text="${empleado.duiempleado}">Dui empleado</td>
                 <td th:text="${empleado.nitempleador}">Nit empleador</td>
                 <td th:text="${empleado.emailempleado}">Email empleado</td>

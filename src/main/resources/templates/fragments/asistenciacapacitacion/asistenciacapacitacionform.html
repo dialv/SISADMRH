@@ -75,7 +75,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <div class="form-group">
                         <label class="col-sm-2 control-label ">Horas Recibidas:</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas"/>
+                            <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas" th:text="${d.horasrecibidas}'>
                         </div>
                              <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('horas')" onmouseout ="javascript:ocultarAyuda('horas')">a</a></b>
@@ -184,6 +184,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         });
         });
     </script>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>	
 </html>

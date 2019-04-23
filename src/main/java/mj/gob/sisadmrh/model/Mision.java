@@ -96,6 +96,9 @@ public class Mision implements Serializable {
     @Size(max = 50)
     @Column(name = "organismopatrocinador")
     private String organismopatrocinador;
+     @Size(max = 100)
+    @Column(name = "direccion")
+    private String direccion;
     @Column(name = "viaticos")
     private Float viaticos;
     @Size(max = 200)
@@ -317,6 +320,15 @@ public class Mision implements Serializable {
 
     public void setBoletoterr(String boletoterr) {
         this.boletoterr = boletoterr;
+    }
+    
+    
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     @Override

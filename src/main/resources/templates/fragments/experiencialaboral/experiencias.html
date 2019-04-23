@@ -40,19 +40,18 @@
 }
  </style>
      
-    <title>SISADMRH-Consulta de Datos de Capacitaciones Recibidas</title>
+    <title>SISADMRH-Consulta de Datos de Experiencia Laboral</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-<!--      <div class="contenedorizq"><label  >pnt_cem5_2</label>  
+<!--      <div class="contenedorizq"><label  >pnt_cem6_2</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>-->
-<script> Textheader('pnt_cem5_2',document.title);</script>
-
+<script> Textheader('pnt_cem6_2',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,15 +59,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
             </div>
     <h3 align="center"></h3>
     
 
     
-        <br> 
+        <br>
         
-      
+        
+        
   
 
                </div>
@@ -181,12 +181,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
     swal({
     title: "Exito!",
-            text: "Registro agregado correctamente",
+            text: "Registro eliminado correctamente",
             type: "success",
             icon: "success"
             }).then(function() {
-//    location.href = '../../empleados/';
- location.href = '../../../empleados/show/'+[[${empleado}]];
+                 location.href = '../../../empleados/show/'+[[${empleado}]];
+//    location.href = '../empleados/show/'+ document.getElementById("codem").value;
     });
     }
 

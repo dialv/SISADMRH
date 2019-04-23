@@ -53,11 +53,13 @@
 
     swal({
     title: "Exito!",
-            text: "Registro agregado correctamente",
+            text: "Registro eliminado correctamente",
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../../empleados/';
+//                alert([[${empleado}]])
+                 location.href = '../../../empleados/show/'+[[${empleado}]];
+//    location.href = '../../empleados/';
     });
     }
 

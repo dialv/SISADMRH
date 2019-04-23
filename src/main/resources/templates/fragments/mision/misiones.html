@@ -70,7 +70,7 @@
                 type: "success",
                 icon: "success",
        }).then(function() {
-                location.href = '../misiones/';
+                location.href = '../../misiones/';
        }); 
 }
     
@@ -94,7 +94,7 @@
             })
                     .then((willDelete) => {
                         if (willDelete) {
-                            location.href = '../delete/' + id;
+                            location.href = './delete/' + id;
                         } else {
                             swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
                         }

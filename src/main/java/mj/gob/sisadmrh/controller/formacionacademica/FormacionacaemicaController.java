@@ -118,20 +118,25 @@ public class FormacionacaemicaController extends UtilsController{
         return PREFIX +"formacionacademicashow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
          try{
             Formacionacademica formacionacademica = formacionacademicaService.getFormacionacademicaById(id).get();
             formacionacademica.setEstadoformacion(0);
             formacionacademicaService.saveFormacionacademica(formacionacademica);
+              Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
             model.addAttribute("formacionacademica", formacionacademica);
          }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        return PREFIX +"formacionacademicashow";
+        return PREFIX +"formacionacademicas";
     }
+    
+    
+    
   @RequestMapping(value = "formacionacademica")
     public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status, @RequestParam("file") MultipartFile file) {
         try{

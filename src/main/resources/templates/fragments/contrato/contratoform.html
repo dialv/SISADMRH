@@ -77,9 +77,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
             </div>
             </form>
-  <form class="form-horizontal"  id="formcontrato" th:object="${contrato}" th:action="@{../contrato}" method="post">
+  <form class="form-horizontal"  id="formcontrato" th:object="${contrato}" th:action="@{../contrato}" method="post" enctype="multipart/form-data">
                 <input type="hidden" th:field="*{codigocontrato}"/>
-                <!--<input type="hidden" id="codem" th:field="*{codigoempleado}"/>-->
+                <input type="hidden" id="codemc" th:field="*{codigoempleado}"/>
             <div class="col-md-12"  >
                  <div class="form-group">
                      <br>
@@ -137,6 +137,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup22">Ingrese el numero de subpartida del Empleado solo se admitiran 9 caracteres.!</span>
                     </div>
                 </div>
+                
+                
+<!--                
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Acuerdo o Nombramiento(*):</label>
                     <div class="col-sm-5">
@@ -147,7 +150,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         
                         <span class="popuptext" id="poppup31">Ingrese el acuerdo o nombramiento del Empleado solo se admitiran 50 caracteres.!</span>
                     </div>
-                </div>
+                </div>-->
                     <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Inicio(*):</label>
                 <div class="col-sm-2">
@@ -170,6 +173,40 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup20">Seleccione o digite la Fecha de finalizacion del contrato del Empleado el formtado debe ser  dia/mes/año .!</span>
                     </div>
             </div>
+                
+                   <div class="form-group">
+                        <label class="col-sm-3 control-label">Cambio de Plaza:</label>
+                        <div class="col-sm-2" >
+                              <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
+                            <ul>
+                              
+                                    <input id="features1" name="cambioplaza" type="checkbox" value="1" />
+                                    <input name="_features" type="hidden" value="on" />
+                                    <label for="features1"></label>
+                                    
+                            </ul>  
+                        </div>
+                        <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('mes')" onmouseout ="javascript:ocultarAyuda('mes')">a</a></b>
+                        
+                        <span class="popuptext" id="mes">Marque la cajita si es cambio de plaza.!</span>
+                    </div>
+                    </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Acuerdo:</label>
+                    <div class="col-sm-6">
+                        <input type="file" name="file" />
+                               <!--class="" required="true" th:field="*{docaprovacion}"-->
+                               
+                    </div>
+                    
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup26')" onmouseout ="javascript:ocultarAyuda('poppup26')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup26">selecione el archivo PDF del contrato  obtenido por el Empleado hacer click en el boton selecionar archivo.!</span>
+                    </div>
+                </div>
 <!--                <div class="form-group">
                     <label class="col-sm-3 control-label">Cambio de Plaza(*):</label>
                     <div class="col-sm-5" align="left" th:field="*{plazanominal}">
@@ -322,6 +359,7 @@ var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
 //alert(str);
 $(function () {
           document.getElementById("codem").value = str;
+           document.getElementById("codemc").value = str;
       });}
 	</script>
           

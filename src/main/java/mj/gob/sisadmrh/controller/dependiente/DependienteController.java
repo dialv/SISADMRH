@@ -104,13 +104,15 @@ public class DependienteController extends UtilsController {
         return PREFIX + "dependienteshow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id, Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id, @PathVariable Integer idemp,Model model) {
 
         try {
             Dependiente dependiente = dependienteService.getDependienteById(id).get();
             dependiente.setEstadodependiente(0);
             dependienteService.saveDependiente(dependiente);
+            Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         } catch (Exception e) {
             model.addAttribute("msg", 4);

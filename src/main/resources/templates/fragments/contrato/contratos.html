@@ -40,19 +40,18 @@
 }
  </style>
      
-    <title>SISADMRH-Consulta de Datos de Capacitaciones Recibidas</title>
+    <title>SISADMRH-Contratos</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-<!--      <div class="contenedorizq"><label  >pnt_cem5_2</label>  
+<!--      <div class="contenedorizq"><label  >pnt_ce13_2</label>  
     <label  class="der">
     <script >
 var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>-->
-<script> Textheader('pnt_cem5_2',document.title);</script>
-
+<script> Textheader('pnt_ce13_2',document.title);</script>
 <!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
@@ -60,15 +59,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
             </div>
-    <h3 align="center"></h3>
+    <h3 align="center">Consulta de Datos de Contrato</h3>
     
 
     
-        <br> 
+        <br>
         
-      
+     
   
 
                </div>
@@ -174,30 +173,29 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	</script>
-<script th:inline="javascript">
-
+              <script th:inline="javascript">
     $(document).ready(function () {
-    if ([[${msg}]] === 3){
-
-    swal({
-    title: "Exito!",
-            text: "Registro agregado correctamente",
-            type: "success",
-            icon: "success"
-            }).then(function() {
-//    location.href = '../../empleados/';
+    if([[${msg}]]===3){
+       swal({
+                title: "Exito!",
+                text: "Registro eliminado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+//                location.href = '../../empleados/';
  location.href = '../../../empleados/show/'+[[${empleado}]];
+       }); 
+}
+    
+    if([[${msg}]]===4){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
     });
-    }
-
-    if ([[${msg}]] === 4){
-    swal({
-    title: "ERROR!",
-            text: "Ocurrio un error en el proceso",
-            type: "error",
-            icon: "error"
-            });
-    }
-    });</script>         
+</script> 
         
 </html>
