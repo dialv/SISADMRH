@@ -65,7 +65,7 @@ public class CapacitacionController extends UtilsController{
            Iterable<Estado> estadoCap = estadoService.findBySuperior(1694);
            model.addAttribute("capacitadores", capacitadores);//pasa los datos a la vista
         model.addAttribute("catCap", catCap);
-         
+        
          model.addAttribute("deptoResponsalbe", deptoResponsalbe);
          model.addAttribute("estadoCap", estadoCap);
          status.setComplete();

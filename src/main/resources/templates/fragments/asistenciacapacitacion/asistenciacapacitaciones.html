@@ -38,7 +38,6 @@
                             <td th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion de Capacitacion</td>
                             <td th:text="${asistenciacapacitacion.telefono}">Telefono</td>
                             <td th:text="${asistenciacapacitacion.email}">Correo</td>
-                            <td><a th:href="${'../empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion/'+ asistenciacapacitacion.codigoasistenciacapacitacion }" class="btn btn-primary">Asignar Empleados</a></td>
                             <td><a th:href="${'./show/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-info">Mostrar</a></td>
                             <td sec:authorize="hasRole('ROLE_OPERATIVO')">  <a th:href="${'./edit/' + asistenciacapacitacion.codigoasistenciacapacitacion}" class="btn btn-success">Editar</a></td>
                             <td sec:authorize="hasRole('ROLE_OPERATIVO')">  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${asistenciacapacitacion.codigoasistenciacapacitacion} + '\');'" >Eliminar</a></td>

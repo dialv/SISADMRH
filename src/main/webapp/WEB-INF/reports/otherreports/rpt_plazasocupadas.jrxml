@@ -28,7 +28,7 @@ DATE_FORMAT(p.fechacontrataciondesde, "%d/ %m /%Y") as 'Fecha de Nombramiento', 
 p.ubicacionpuesto as 'Ubicacion',p.sublinea as 'Linea de Trabajo'
  FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and  p.estadopuesto=1
 and p.fechacontrataciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigo Puesto" class="java.lang.Integer"/>
 	<field name="Nombre Puesto" class="java.lang.String"/>

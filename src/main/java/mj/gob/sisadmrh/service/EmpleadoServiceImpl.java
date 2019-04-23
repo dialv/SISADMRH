@@ -63,7 +63,7 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 
     @Override
     public List<Object[]> findBycumples(String finicial, String ffinal) {
-return empleadoRep.findByCumples(finicial,ffinal)   ;
+return empleadoRep.findByCumples(finicial)   ;
         }
 
     @Override

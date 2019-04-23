@@ -180,6 +180,7 @@ jQuery(document).ready(function() {
     jQuery('.num_telefono').mask('0000-0000');
     jQuery('.num_dui').mask('00000000-0');
     jQuery('.num_decimal2').mask('000.00');
+    jQuery('.num_decimal3').mask('0000000.00', {reverse: true});
     jQuery('.fecha_dies').mask('00/00/0000');
 
 });

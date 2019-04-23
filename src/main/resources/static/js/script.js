@@ -205,6 +205,39 @@ function fecha_format() {
         val = arreglo[1]+"/"+arreglo[0]+"/"+arreglo[2];
         return val;
     }
+    
+     function format_fechaedit(val){
+//          alert(val);
+        var fecha = val.replace(new RegExp('-', 'g'), '');
+//        alert("fecha:"+fecha);
+        var yy=fecha.substring(0,4)
+        var mm=fecha.substring(4,6)
+        var dd=fecha.substring(6,8)
+//        alert(dd+"/"+mm+"/"+yy);
+        fecha=dd+"/"+mm+"/"+yy;
+        return fecha;
+    }
 
+
+function edit_fecha_format() {
+    var URLactual = window.location.href;
+     var formularios = document.forms;
+    if (URLactual.includes("edit")){
+//        alert(formularios.length);
+        for (var i=0; i<formularios.length;i++){
+                        for (var j=0; j<formularios[i].elements.length; j++){
+                            var value = formularios[i].elements[j].id;
+                            if(value.includes("fecha") || value.includes("fdesde") || value.includes("fhasta") ){
+//                                alert("id:"+value)
+                                       var val= formularios[i].elements[j].value
+                                       val=format_fechaedit(val)
+                                       formularios[i].elements[j].value=val
+                                        }
+                        }
+        }
+            
+    }
+
+}
 
 

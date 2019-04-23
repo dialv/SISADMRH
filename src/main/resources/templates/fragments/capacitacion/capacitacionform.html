@@ -66,7 +66,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <label class="col-sm-2 control-label">Categoria Capacitación(*):</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                             <select class="form-control" required="true" name="institucioncapacitador" >
+                             <select class="form-control" required="true" th:field="*{categoriacapacitacion}" >
                                 <option th:each="c:${catCap}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                             
                             </select>
@@ -92,7 +92,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <label class="col-sm-2 control-label">Departamento Responsable(*):</label>
                         <div class="col-sm-5">
                             <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                            <select class="form-control" required="true" name="institucioncapacitador" >
+                            <select class="form-control" required="true" th:field="*{departamentoresponsable}">
                                 <option th:each="c:${deptoResponsalbe}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                             
                             </select>
@@ -215,7 +215,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Estado de la Capacitación(*):</label>
                         <div class="col-sm-2">
-                             <select class="form-control" required="true" name="institucioncapacitador" >
+                             <select class="form-control" required="true" th:field="*{estadocapacitacion}">
                                 <option th:each="c:${estadoCap}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                             
                             </select>
