@@ -144,7 +144,7 @@
         var pass = $("#pass").val();
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
-                $("#fingreso").val(nufecha($("#fingreso").val()))
+                //$("#fingreso").val(nufecha($("#fingreso").val()))
                 $("form#usuarioform").submit();
             }
             else{
@@ -165,7 +165,7 @@
     });
     if ([[${msg}]] === 0){
     swal({
-    title: "Usuario Generado con exito ",
+    title: "Usuario Modificado con exito ",
             text: [[${usuarioname}]],
             icon: "success"
     }).then(function() {

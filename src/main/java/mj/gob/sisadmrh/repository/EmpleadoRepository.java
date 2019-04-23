@@ -53,11 +53,18 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
             @Param("FFINAL") String ffinal);
 
     /* PARA GNERAR REPORTE PLAZAS OCUPADAS EXEL***************************/
-     @Query(value = " SELECT p.codigopuesto,p.nombrepuesto,e.nombreempleado, e.apellidoempleado,e.sexoempleado,p.sueldobase,p.fechanombramiento,DATE_FORMAT(p.fechacontrataciondesde,  '%d/%m/%Y') as fechacontrataciondesde, "
-            + "DATE_FORMAT(p.fechacontratacionhasta,  '%d/%m/%Y') as  fechacontratacionhasta,p.ubicacionpuesto,p.sublinea FROM puesto p "
-            + "  inner join empleadopuesto ep on p.codigopuesto=ep.codigopuesto "
-            + " inner join empleado e on ep.codigoempleado=e.codigoempleado "
-            + " where p.fechacontrataciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') and p.fechacontrataciondesde <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') and p.estadopuesto=1 ", nativeQuery = true)
+     @Query(value = " SELECT p.codigopuesto as 'codigo Puesto',"
+             + "p.nombrepuesto as 'Nombre Puesto',"
+             + "concat(e.nombreempleado,' ',e.apellidoempleado) as 'Nombre de Empleado',"
+             + "e.sexoempleado as 'Sexo',"
+             + "p.sueldobase as 'sueldo Basico'," 
+             + "DATE_FORMAT(p.fechacontrataciondesde, \"%d/ %m /%Y\") as 'Fecha de Nombramiento', "
+             + "DATE_FORMAT(p.fechacontratacionhasta, \"%d/ %m /%Y\") as 'Fecha de Desvinculacion'," 
+             + "p.ubicacionpuesto as 'Ubicacion',"
+             + "p.sublinea as 'Linea de Trabajo'" 
+             + " FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and  p.estadopuesto=1\n" +
+            "and p.fechacontrataciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y')\n" +
+            "and p.fechacontrataciondesde <= STR_TO_DATE(:FFINAL, '%d/%m/%Y')", nativeQuery = true)
     List<Object[]> findByPlazasOcupadas(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 
