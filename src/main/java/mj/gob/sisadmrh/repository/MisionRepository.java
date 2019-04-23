@@ -14,7 +14,7 @@ import org.springframework.data.repository.query.Param;
 //para generar el reporte de excel de misiones externas `
 public interface MisionRepository extends CrudRepository<Mision, Integer>{
     //Para generar reportes de Misiones Externas1
-    @Query(value="select  concat(e.nombreempleado,' ',e.apellidoempleado),p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado  inner join puesto p on e.codigopuesto=p.codigopuesto "
+    @Query(value="select  concat(e.nombreempleado,' ',e.apellidoempleado),p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto "
             + " where m.fechasalidamision >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') and m.fechasalidamision <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') and tipomision=0  "
 , nativeQuery = true)
 
@@ -22,11 +22,7 @@ public interface MisionRepository extends CrudRepository<Mision, Integer>{
                                              @Param("FFINAL") String ffinal);
     //Para generar reportes de Misiones Externas2
     @Query(value = "SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') , DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y'),m.gastoviaje,m.numeroacuerdo,m.boleto,m.organismopatrocinador,"
-            + "m.organismoinvita  from mision m "
-        + " inner join empleadomision em on m.codigomision=em.codigomision "
-        + " inner join empleado e on e.codigoempleado=em.codigoempleado "
-      
-        + " inner join puesto p on e.codigopuesto=p.codigopuesto  "+
+            + "m.organismoinvita  from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto  "+
 " where m.fechasalidamision>=STR_TO_DATE(:FINICIAL, '%d/%m/%Y')" +
 " AND m.fechasalidamision<=STR_TO_DATE(:FFINAL, '%d/%m/%Y') and tipomision=0 ",nativeQuery = true)
 List<Object[]> findByMisionExterna2(@Param("FINICIAL") String finicial, 
