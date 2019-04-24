@@ -48,7 +48,7 @@ return asistenciaCapacitacionRep.findById(id);
     @Override
     public List<Object[]> findnamesBycemp(String emp) {
         
-    return  asistenciaCapacitacionRep.findnamesBycemp(emp);
+    return  asistenciaCapacitacionRep.findnamesBycemp(emp);   // servira para jalar el empleado,puesto y ubicacionfisica
     }
     
 

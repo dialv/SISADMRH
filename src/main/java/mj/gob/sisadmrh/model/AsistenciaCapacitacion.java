@@ -51,9 +51,9 @@ public class AsistenciaCapacitacion implements Serializable {
     @Column(name = "ESTADOASISTENCIA")
     private int estadoasistencia;
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "codigoempleado")
-    private int codigoempleado;
+//    @NotNull
+//    @Column(name = "codigoempleado")
+//    private int codigoempleado;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -132,13 +132,7 @@ public class AsistenciaCapacitacion implements Serializable {
     public String toString() {
         return "mj.gob.sisadmrh.model.Asistenciacapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
     }
-    public int getCodigoempleado() {
-        return codigoempleado;
-    }
-    public void setCodigoempleado(int codigoempleado) {
-        this.codigoempleado = codigoempleado;
-    }
-
+ 
     public int getHorasrecibidas() {
         return horasrecibidas;
     }
