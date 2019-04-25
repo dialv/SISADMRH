@@ -33,18 +33,20 @@ public class AbogadosView extends AbstractXlsView{
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_abogados.xls\"");
         
  Iterable<Empleado> abogadoList = (Iterable<Empleado>) model.get("abogadosList");
- Sheet sheet = workbook.createSheet("Abogados Data");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Codigo de empleado");
- header.createCell(1).setCellValue("Fecha de ingreso");
- header.createCell(2).setCellValue("Nombre completo");
+Sheet sheet = workbook.createSheet("Lista de Abogados");
+ sheet.createRow(1).createCell(3).setCellValue("REPORTE DE ABOGADOS");
+ Row header = sheet.createRow(2);
+ 
+ header.createCell(3).setCellValue("Codigo de empleado");
+ header.createCell(4).setCellValue("Fecha de ingreso");
+ header.createCell(5).setCellValue("Nombre completo");
   
- int rowNum = 1;
+ int rowNum = 3;
  for(Empleado abogadosPojo:abogadoList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue(abogadosPojo.getCodigoempleado());
- row.createCell(1).setCellValue(abogadosPojo.getFechaingresoministerio());
- row.createCell(2).setCellValue(abogadosPojo.getNombreempleado());
+ row.createCell(3).setCellValue(abogadosPojo.getCodigoempleado());
+ row.createCell(4).setCellValue(abogadosPojo.getFechaingresoministerio());
+ row.createCell(5).setCellValue(abogadosPojo.getNombreempleado());
  }
  }
 }
