@@ -26,22 +26,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  <table id="tablita" class="table table-striped table-bordered" >
             <thead>
             <tr>
-                <th>Codigo</th>
+                <th>Codigo Usuario</th>
                 <th>Usuario</th>
                 <th>Estado</th>
                 <th>Estado de Contraseña</th>
                 <th>Fecha de Ingreso </th>
-                <th>Fecha de Baja</th>
+<!--                <th>Fecha de Baja</th>-->
                    <th></th><th></th><th></th>
             </tr>
             </thead>
             <tr th:each="usuario : ${usuarios}">
-                <td th:text="${usuario.codigousuario}">Codigo</td>
+                <td th:text="${usuario.codigousuario}">Codigo Usuario</td>
                 <td th:text="${usuario.nombreusuario}">Usuario</td>
                 <td th:text="${usuario.estadousuario}?'Activo':'Inactivo'">Estado</td>
-                <td th:text="${usuario.controlcontrasenia=='1'}?'Temporal':'Verificada'">control</td>
-                <td th:text="${#calendars.format(usuario.fechaingreso, 'dd/MM/yyyy')}">Fecha Desde</td>
-                <td th:text="${#calendars.format(usuario.fechabaja, 'dd/MM/yyyy')}">Fecha de baja</td>
+                <td th:text="${usuario.controlcontrasenia=='1'}?'Temporal':'Verificada'">control Contraseña</td>
+                <td th:text="${#calendars.format(usuario.fechaingreso, 'dd/MM/yyyy')}">Fecha Ingreso</td>
+                <!--<td th:text="${#calendars.format(usuario.fechabaja, 'dd/MM/yyyy')}">Fecha de baja</td>-->
                  
                 <td><a th:href="${'./show/' + usuario.codigousuario}" class="btn btn-info">Mostrar</a></td>
                 <td> <a th:href="${'./edit/' + usuario.codigousuario}" class="btn btn-success">Editar</a></td>

@@ -19,12 +19,13 @@
                         <thead>
                             <tr>
                                 <th>Codigo de Asistencia de Capacitacion</th>
-                                <th>Capacitación</th>
-                                <th>Ubicacion Fisica</th>
-                                <th>Horas Recibidas</th>
-                                <th>Ubicacion Asistentes Capacitacion</th>
-                                <th>Telefono</th>
-                                <th>Correo</th>
+                                <th>Capacitación a Asiganar</th>
+                                <th>Ubicacion Fisica de Capacitación</th>
+                                <th>Horas Recibidas de Capacitación</th>
+                                <th>Puesto Empleado</th>
+                                <th>Ubicación Física de Capacitación</th>
+                                <th>Telefono Empleado</th>
+                                <th>Correo Empleado</th>
                                 <th></th><th></th>
                                 <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                                 <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
@@ -35,6 +36,7 @@
                             <td th:text="${asistenciacapacitacion.codigocapacitacion.nombrecapacitacion}">Capacitacion</td>
                             <td th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion Fisica</td>
                             <td th:text="${asistenciacapacitacion.horasrecibidas}">Horas Recibidas</td>
+                             <td th:text="${asistenciacapacitacion.puesto}">Horas Recibidas</td>
                             <td th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion de Capacitacion</td>
                             <td th:text="${asistenciacapacitacion.telefono}">Telefono</td>
                             <td th:text="${asistenciacapacitacion.email}">Correo</td>
@@ -69,7 +71,7 @@
     if ([[${msg}]] === 1){
     swal({
     title: "ERROR!",
-            text: "Ocurrio un error en el proceso",
+            text: "Seleccione una Capacitacion  y un Empleado",
             type: "error",
             icon: "error"
     });

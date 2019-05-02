@@ -42,6 +42,7 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "UBICACIONASISTENCIACAPACITACION")
     private String ubicacionasistenciacapacitacion;
+   
     @Size(max = 11)
     @Column(name = "TELEFONO")
     private String telefono;
@@ -62,6 +63,10 @@ public class AsistenciaCapacitacion implements Serializable {
     @Column(name = "CODIGOASISTENCIACAPACITACION")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoasistenciacapacitacion;
+      @Size(max = 50)
+        @Column(name = "PUESTO")
+    private String puesto;
+
 //    @ManyToMany(mappedBy = "asistenciacapacitacionList")
 //    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
@@ -105,6 +110,15 @@ public class AsistenciaCapacitacion implements Serializable {
     public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
         this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
     }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
 
    
 

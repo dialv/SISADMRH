@@ -11,15 +11,15 @@
         </div>
         <div class="col-md-9">
             <div class="row text-center">
-                <img src="../../static/image/cuadros.png" width="100" th:src="@{/image/cuadros.png}"/>
+                <img src="../../static/image/cuadros.png" width="75" th:src="@{/image/cuadros.png}"/>
             </div>
             <div th:if="${not #lists.isEmpty(cuadrodirectivos)}">
                 <table id="tablita" class="table table-striped">
                     <thead> 
                         <tr>
                             <th>Código</th>
-                            <th>Area</th>
-                            <th>Descripción</th>
+                            <th>Area a que Pertenece</th>
+                            <th>Descripción del Motivo</th>
                             <th>Fecha Presentación Desde</th>
                             <th>Fecha Presentación Hasta</th>
                             <th></th>

@@ -22,7 +22,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <div class="col-md-8">
                 <br><br>
           <div class="row text-center">
-                        <img src="../../static/image/cuadro.png" width="100" th:src="@{/image/cuadro.png}"/>
+                        <img src="../../static/image/cuadro.png" width="75" th:src="@{/image/cuadro.png}"/>
             <!--<h3 align="center">Crear Cuadro Directivos</h3>-->
     <div>
         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
@@ -32,6 +32,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-2 control-label">Responsable Directo:(*):</label>
                 <div class="col-sm-5">
                      <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
+                          <option value="0">-- Seleccione Un Responsable Directo --</option>
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                    <!--<input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -43,7 +44,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Area:(*)</label>
+                <label class="col-sm-2 control-label">Area a que Pertenece:(*)</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
                 </div>
@@ -55,7 +56,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
           
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripción:(*)</label>
+                <label class="col-sm-2 control-label">Descripción del Motivo:(*)</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
                 </div>
@@ -66,7 +67,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha  desde:(*)</label>
+                <label class="col-sm-2 control-label">Fecha Presentación Desde:(*)</label>
                 <div class="col-sm-2">
                     <input type="text" required="true"  class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
@@ -77,7 +78,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
             </div>
    <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha Hasta:(*)</label>
+                <label class="col-sm-2 control-label">Fecha Presentación Hasta(*)</label>
                 <div class="col-sm-2">
                     <input type="text" required="true" class="form-control fecha_format" id="fhasta" th:field="*{fechapresentacionhasta}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>

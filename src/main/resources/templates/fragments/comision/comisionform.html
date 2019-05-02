@@ -21,15 +21,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     <div class="col-md-9">
     <div class="row text-center">
         <br><br>
-                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+                        <img src="../../static/image/roles.png" width="75" th:src="@{/image/roles.png}"/>
     </div><br>
         <!--<h3 align="center">Crear Comision</h3>-->
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
                 <input type="hidden" th:field="*{codigocomision}"/>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre de  Comision:</label>
-                    <div class="col-sm-6">
+                    <label class="col-sm-3 control-label">Nombre de  Comisión:</label>
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true" th:field="*{nombrecomision}"/>
                     </div>
                       <div class="popup "><b>
@@ -39,7 +39,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de inicio de Comision(*):</label>
+                <label class="col-sm-3 control-label">Fecha de inicio de Comisión(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadesdecomision" id="fechadesdecomision"  th:field="*{fechadesdecomision}" onchange="isDat(this.value,'fechahastacomision');Fechas(this.value,$('#fechahastacomision').val().toString(),'fechadesdecomision','fechahastacomision')"/>
                 </div>
@@ -50,7 +50,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de fin de Comision(*):</label>
+                <label class="col-sm-3 control-label">Fecha de fin de Comisión(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahastacomision" id="fechahastacomision"  th:field="*{fechahastacomision}" onchange="isDat(this.value,'fechahastacomision');Fechas($('#fechadesdecomision').val().toString(),this.value,'fechadesdecomision','fechahastacomision')"/>
                 </div>
@@ -61,8 +61,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                                <label class="col-sm-2 control-label">Numero de acuerdo comision:</label>
-                                <div class="col-sm-4">
+                                <label class="col-sm-3 control-label">Numero de acuerdo comisión:</label>
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control" th:field="*{numeroacuerdocomision}"/>
                                 </div>
                                  <div class="popup "><b>
@@ -72,8 +72,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                             </div>
                <div class="form-group">
-                    <label class="col-sm-2 control-label">Acuerdo:</label>
-                    <div class="col-sm-5">
+                    <label class="col-sm-3 control-label">Subir Acuerdo:</label>
+                    <div class="col-sm-7">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                

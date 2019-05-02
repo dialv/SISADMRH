@@ -13,13 +13,14 @@
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
             <div class="row text-center">
-                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                        <img src="../../static/image/evaluacion.png" width="75" th:src="@{/image/evaluacion.png}"/>
                          </div>
             <!--<h3 align="center">Consulta de Evaluacion de Capacitaciones</h3>-->
             <div>
                 <form class="form-horizontal">
+                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Código de evaluación capacitación:</label>
@@ -35,12 +36,13 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Lugar de capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitacion</p></div>
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitación</p></div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Hora:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${evaluacioncapacitacion.horaevualuacioncapacitacion}">Hora</p></div>
+                               
+                                <p class="form-control-static" th:text= "${#calendars.format(evaluacioncapacitacion.horaevualuacioncapacitacion, ' HH:mm')}">Hora</p></div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Dominio del Tema:</label>

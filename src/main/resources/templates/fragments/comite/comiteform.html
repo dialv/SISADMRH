@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Comite</title>
+        <title>Crear Comité</title>
     <th:block th:include="../templates/header"></th:block>
 
 </head>
@@ -21,31 +21,34 @@
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-            <br><br>
+            <br>
             <div class="row text-center">
-                <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+                <img src="../../static/image/roles.png" width="75" th:src="@{/image/roles.png}"/>
                 <!--<h3 align="center" >Crear Comite</h3>-->
                 <div>
+                    <br>
+                    <div class="col-md-12">
                     <form class="form-horizontal" onsubmit="return validateForm()" th:object="${comite}" th:action="@{../comite}" method="post">
                                   <input type="hidden" th:field="*{codigocomite}"/>
                         <!--  <input type="hidden" th:field="*{nombrecomite}"/>-->
                       
                        
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nombre de Comite:</label>
+                            <label class="col-sm-4 control-label">Nombre del Comité(*):</label>
                             <div class="col-sm-5">
                                 <input type="text" class="form-control" size="30" maxlength="30" required="true" placeholder="Escriba El nombre del Comite"  th:field="*{nombrecomite}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
 
-                                <span class="popuptext" id="nombre">Ingrese el nombre del Comite. Solo se permiten 30 caracteres!</span>
+                                <span class="popuptext" id="nombre">Ingrese el nombre del Comité. Solo se permiten 30 caracteres!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Responsable del Comite:</label>
+                            <label class="col-sm-4 control-label">Responsable del Comité(*):</label>
                             <div class="col-sm-5">
                                 <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
+                                     <option value=""> Selecione un encargado del comité</option>
                                     <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                                 </select>
                                 <!--<input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -53,24 +56,28 @@
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('encargadocmite')" onmouseout ="javascript:ocultarAyuda('encargadocmite')">a</a></b>
 
-                                <span class="popuptext" id="encargadocmite">Seleccione el encargado del Comite.!</span>
+                                <span class="popuptext" id="encargadocmite">Seleccione el encargado del Comité.!</span>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label ">Descripción:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control"required="true" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" th:field="*{desripcioncomite}"/>
-                            </div>
+                            <label class="col-sm-4 control-label ">Descripción del Comité(*):</label>
+                            <div class="col-sm-7">
+                                <!--<input type="text" class="form-control"required="true" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" th:field="*{desripcioncomite}"/>-->
+                            
+                            <textarea rows="2" cols="50" class="form-control" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" required="true" th:field="*{desripcioncomite}">
+
+                            </textarea>
+                                </div>
                              <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcionn')" onmouseout ="javascript:ocultarAyuda('descripcionn')">a</a></b>
 
-                                <span class="popuptext" id="descripcionn">Seleccione el encargado del Comite.!</span>
+                                <span class="popuptext" id="descripcionn">Ingrese una Descripcion al Comité.!</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Numero de Acuerdo:</label>
+                            <label class="col-sm-4 control-label">Numero de Acuerdo Comité(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{numeroacuerdocomite}"/>
                             </div>
@@ -83,7 +90,7 @@
 
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Miembros maximos:</label>
+                            <label class="col-sm-4 control-label">Miembros maximos del comité(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{miembromaximo}"/>
                             </div>
@@ -95,18 +102,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Desde:</label>
+                            <label class="col-sm-4 control-label">Fecha Inicio Comité(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}" id="fechadesdecomite" onchange="isDat(this.value,'fechadesdecomite');Fechas(this.value,$('#fechahastacomite').val().toString(),'fechadesdecomite','fechahastacomite')"/>
                             </div>
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
                         
-                        <span class="popuptext" id="fechadesde">Ingrese la Fecha de inicio del Comite. Haga un clic en la caja vacía.!</span>
+                        <span class="popuptext" id="fechadesde">Ingrese la Fecha de inicio del Comité. Haga un clic en la caja vacía.!</span>
                     </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Hasta:</label>
+                            <label class="col-sm-4 control-label">Fecha Hasta comité(*):</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechahastacomite}" id="fechahastacomite" onchange="isDat(this.value,'fechahastacomite');Fechas($('#fechadesdecomite').val().toString(),this.value,'fechadesdecomite','fechahastacomite')"/>
                             </div>
@@ -115,6 +122,7 @@
                         
                         <span class="popuptext" id="fechahasta">Ingrese la Fecha de finalizacion del comite. Haga un clic en la caja vacía.!</span>
                     </div>
+                        </div>
                         </div>
 
                         <div class="col-md-12">
@@ -153,7 +161,7 @@
         if ([[${msg}]] === 1){
         swal({
         title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
+                text: "Debe seleccionar un encargado de Comite",
                 type: "error",
                 icon: "error"
         });

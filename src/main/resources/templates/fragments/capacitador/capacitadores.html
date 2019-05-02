@@ -18,11 +18,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
-               <br><br>
+               
           <div class="row text-center">
-                        <img src="../../static/image/capacitador.png" width="150" th:src="@{/image/capacitador.png}"/>
+                        <img src="../../static/image/capacitador.png" width="75" th:src="@{/image/capacitador.png}"/>
                          </div>
-           <!--<h3 align="center">Listado de Capacitadores</h3>-->
+            <br>
+          
    
     <div th:if="${not #lists.isEmpty(capacitadores)}">
         <!--<h3 align="center">Listado de Capacitadores</h3>-->
@@ -30,25 +31,26 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             
             <thead>
             <tr>
-                <th>Codigo</th>
+                <th>Codigo Capacitador</th>
                 <th>Responsable del Capacitador</th>
                 <th>Nombre de Capacitador</th>
                 <th>Tema Dominio</th>
-                <th>Institución</th>
+                <th>Institución que Pertenece Capacitador</th>
                 <th>Tipo Capacitador</th>
                 <th>Tipo Agrupación</th>
-                  <th>Dui</th>
-                  <th>Nit</th>
+                  <th>Dui Capacitador</th>
+                  <th>Nit Capacitador</th>
                   <th>Carnet Residente</th>
-                  <th>Telefono</th>
-                  <th>Celular</th>
-                  <th>Email</th>
+                  <th>Telefono Fijo Capacitador</th>
+                  <th>Movil Capacitador</th>
+                  <th>Email Capacitador</th>
 <!--                  <th>Codigo Empleado</th>-->
                     <th></th>
                     <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                     <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
             </tr>
-            </thead>
+            <!-- para que funcione la busqueda debe llevar un head y los th-->
+            </thead>//
             <tr th:each="capacitador : ${capacitadores}">
                 <td th:text="${capacitador.codigocapacitador}">Código</td>
                  <td th:text="${capacitador.codigoempleado.nombreempleado}">Codigo</td>
@@ -109,7 +111,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     });
 </script> 
  <script th:inline="javascript">
-      $(document).ready(function () {
+      $(document).ready(function () {//funcion para realizar busquedas en pantallad de consulta
             $('#tablita').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"

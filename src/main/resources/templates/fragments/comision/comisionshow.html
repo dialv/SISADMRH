@@ -16,40 +16,40 @@
         <div class="col-md-8">
             <div class="row text-center">
         <br><br>
-                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+                        <img src="../../static/image/roles.png" width="75" th:src="@{/image/roles.png}"/>
                     </div>
         <div>
              <form class="form-horizontal">
                 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Código:</label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-6 control-label">Código Comisión:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${comision.codigocomision}">Usuario Id</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Nombre:</label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-6 control-label">Nombre Comision:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${comision.nombrecomision}">Nombre</p>
                     </div>
                 </div>
              
                 
                  <div class="form-group">
-                    <label class="col-sm-4 control-label">Fecha de Inicio de Comision:</label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-6 control-label">Fecha de Inicio de Comision:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${#calendars.format(comision.fechadesdecomision, 'dd/MM/yyyy')}">descripcion</p>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Fecha Fin de Comision:</label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-6 control-label">Fecha Fin de Comision:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${#calendars.format(comision.fechahastacomision, 'dd/MM/yyyy')}">descripcion</p>
                     </div>
                 </div>
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">Numero de Acuerdo de la Comision:</label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-6 control-label">Numero de Acuerdo de la Comision:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${comision.numeroacuerdocomision}">Nombre</p>
                     </div>
                 </div>
