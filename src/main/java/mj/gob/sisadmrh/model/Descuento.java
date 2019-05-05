@@ -10,8 +10,12 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,7 +27,7 @@ import javax.validation.constraints.Size;
  * @author gladiador
  */
 @Entity
-@Table(name = "descuento")
+@Table(name = "DESCUENTO")
 @NamedQueries({
     @NamedQuery(name = "Descuento.findAll", query = "SELECT d FROM Descuento d")})
 public class Descuento implements Serializable {
@@ -33,6 +37,7 @@ public class Descuento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "CODIGODESCUENTO")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigodescuento;
     @Size(max = 50)
     @Column(name = "NOMBREDESCUENTO")
@@ -40,19 +45,26 @@ public class Descuento implements Serializable {
     @Size(max = 50)
     @Column(name = "TIPODESCUENTO")
     private String tipodescuento;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    //
+   // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "MONTODESCUENTO")
     private Float montodescuento;
     @Size(max = 100)
     @Column(name = "TIPOBANCO")
     private String tipobanco;
-    @Size(max = 100)
-    @Column(name = "CLASE")
-    private String clase;
+//    @Size(max = 100)
+//    @Column(name = "CLASE")
+//    private String clase;
     @Column(name = "MONTOPAGO")
     private Float montopago;
     @Column(name = "SALARIO")
     private Float salario;
+    @NotNull
+    @Column(name = "ESTADODESCUENTO")
+    private Integer estadodescuento;
+     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
+    @ManyToOne(optional = false)
+    private Empleado codigoempleado;
 //    @ManyToMany(mappedBy = "descuentoList")
 //    private List<Empleado> empleadoList;
 //    
@@ -104,13 +116,13 @@ public class Descuento implements Serializable {
         this.tipobanco = tipobanco;
     }
 
-    public String getClase() {
-        return clase;
-    }
-
-    public void setClase(String clase) {
-        this.clase = clase;
-    }
+//    public String getClase() {
+//        return clase;
+//    }
+//
+//    public void setClase(String clase) {
+//        this.clase = clase;
+//    }
 
     public Float getMontopago() {
         return montopago;
@@ -126,6 +138,21 @@ public class Descuento implements Serializable {
 
     public void setSalario(Float salario) {
         this.salario = salario;
+    }
+   public Empleado getCodigoempleado() {
+        return codigoempleado;
+    }
+
+    public void setCodigoempleado(Empleado codigoempleado) {
+        this.codigoempleado = codigoempleado;
+    }
+
+    public Integer getEstadodescuento() {
+        return estadodescuento;
+    }
+
+    public void setEstadodescuento(Integer estadodescuento) {
+        this.estadodescuento = estadodescuento;
     }
 
 //    public List<Empleado> getEmpleadoList() {
@@ -143,6 +170,7 @@ public class Descuento implements Serializable {
         return hash;
     }
 
+ 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -159,6 +187,10 @@ public class Descuento implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Descuento[ codigodescuento=" + codigodescuento + " ]";
+    }
+
+    public void getEstadodescuento(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

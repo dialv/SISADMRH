@@ -91,11 +91,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     }
     $(document).ready(function () {
         $('#fechainicial').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
 
         $('#fechafinal').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
         $('#pdf').click(function(){
             $("#formreport").attr('action', '../misionesinternas/1')

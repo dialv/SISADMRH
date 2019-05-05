@@ -42,6 +42,7 @@
                                         <a href="#" th:href="@{/beneficios/}">Gestionar Beneficios</a></li>
                                 </ul>
                             </li>
+                            
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Cuadros Directivos <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
@@ -51,7 +52,18 @@
                                         <a href="#" th:href="@{/cuadrodirectivos/}">Gestionar Cuadros Directivos</a></li>
                                 </ul>
                             </li>
+                               <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                                <ul class="dropdown-menu forAnimate" role="menu">
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/asistenciacapacitaciones/new/asistenciacapacitacion}">Crear Asistencias Capacitaciones</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/asistenciacapacitaciones/}">Gestionar Asistencias <br>de Capacitaciones</a></li>
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Asignar Asistencia de Empleado <br> a Capacitaciones</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
+                                </ul>
+                            </li>
+                            
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
+                                
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                     <!--<li><a href="#" th:href="@{/capacitaciones/buscar/}">Buscar Capacitaciones</a></li>-->
@@ -81,16 +93,7 @@
                                     <!--li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/costocapacitaciones/report/}">Reporte de Costo de Capacitaciones</a></li-->
                                 </ul>
                             </li>
-                            <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias Capacitaciones <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-                                <ul class="dropdown-menu forAnimate" role="menu">
-                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/asistenciacapacitaciones/new/asistenciacapacitacion}">Crear Asistencias Capacitaciones</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/asistenciacapacitaciones/}">Gestionar Asistencias <br>de Capacitaciones</a></li>
-                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/empleadoasistenciacapacitaciones/new/empleadoasistenciacapacitacion}">Asignar Asistencia de Empleado <br> a Capacitaciones</a></li>
-                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/empleadoasistenciacapacitaciones/}">Consultar EmpleadoCapacitaciones</a></li>
-                                </ul>
-                            </li>
-                            
+                         
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diagnosticos <br> de Capacitaciones<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                                 <ul class="dropdown-menu forAnimate" role="menu">
@@ -111,6 +114,15 @@
                                     <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/comites/new/comite}">Crear comit&eacute;s</a></li>
                                     <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/comites/}">Gestionar comit&eacute;s</a></li>
                                     <!--li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')"><a href="#" th:href="@{/otherreports/comites/}">Reporte de comit&eacute;s</a></li-->
+                                </ul>
+                            </li>
+                            
+                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Descuentos <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                                <ul class="dropdown-menu forAnimate" role="menu">
+                                    <li sec:authorize="hasRole('ROLE_OPERATIVO')"><a href="#" th:href="@{/descuentos/new/descuento}">Crear Descuentos</a></li>
+                                    <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" ><a href="#" th:href="@{/descuentos/}">Gestionar Descuentos</a></li>
+                                    <!--li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" ><a href="#" th:href="@{/otherreports/capacitadores/}">Reporte Capacitador</a></li-->
                                 </ul>
                             </li>
                             <li sec:authorize="hasAnyRole('ROLE_OPERATIVO','ROLE_TACTICO')" class="dropdown">

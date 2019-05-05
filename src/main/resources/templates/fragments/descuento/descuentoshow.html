@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+
+        <title>Detalle de Descuentos </title>
+    <th:block th:include="../templates/header"></th:block>
+
+
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-8">
+            <!--<h3 align="center">Detalle  del Comite</h3>-->
+            <div class="row text-center" >
+                <br>
+                        <img src="../../static/image/roles.png" width="75" th:src="@{/image/roles.png}"/>
+            </div>
+            <div>
+                <br>
+                <form class="form-horizontal">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Código de Descuento</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${descuento.codigodescuento}">Codigo de comite</p></div>
+                        </div>
+                          <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre Empleado:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${descuento.codigoempleado.nombreempleado}">Responsable</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Nombre del Descuento</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${descuento.nombredescuento}">Nombre de comite</p>
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Tipo Banco:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${descuento.tipobanco}">Desripción de Comite</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Monto Descuento:</label>
+                            <div class="col-sm-7">
+                                <p class="form-control-static" th:text="${descuento.montodescuento}">Numero de Acuerdo</p>
+                            </div>
+                        </div>
+
+                        
+
+                    
+
+ 
+                        
+                    </div> 
+
+
+                </form> 
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                    <a href="#" th:href="@{/comites/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+
+</body>
+<script>
+    Textheader('pnt_crco',document.title);
+</script>
+</html>
