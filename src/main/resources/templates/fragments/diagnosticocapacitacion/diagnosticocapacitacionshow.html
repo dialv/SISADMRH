@@ -15,11 +15,12 @@
         </div>
         <div class="col-md-8">
              <div class="row text-center">
-                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                        <img src="../../static/image/evaluacion.png" width="75" th:src="@{/image/evaluacion.png}"/>
                          </div>
             <div>
                 <form class="form-horizontal">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
+                         <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Código de Diagnostico de Capacitación:</label>
                             <div class="col-sm-7">
@@ -40,17 +41,21 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Necesidad de Capacitación</label>
+                            <label class="col-sm-5 control-label">Necesidad de Capacitación:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${diagnosticocapacitacion.necesidadcapacitacion}">Necesidad de Capacitacion</p>
                             </div>
                         </div>
+                            
+                        
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Que Mes es mas Oportuno:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${diagnosticocapacitacion.mescapacitacion}">Que Mes es mas oportuno</p>
                             </div>
                         </div>
+                             </div>
+                          <div class="col-md-6">  
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Año dejecución:</label>
                             <div class="col-sm-7">
@@ -84,7 +89,7 @@
                             </div>
                         </div>
 
-                     
+                     </div>
                        
                         
                         

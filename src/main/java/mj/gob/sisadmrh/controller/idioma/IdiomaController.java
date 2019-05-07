@@ -134,12 +134,14 @@ public class IdiomaController extends UtilsController{
         return PREFIX +"idiomashow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
         try{
             Idioma idioma = idiomaService.getIdiomaById(id).get();
             idioma.setEstadoidioma(0);
           idiomaService.saveIdioma(idioma);
+          Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
 //           model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
            model.addAttribute("msg", 3);
         }
@@ -148,8 +150,8 @@ public class IdiomaController extends UtilsController{
         }
         
 //        return "redirect:/idiomas/";
-  return "redirect:/empleados/";
-//        return PREFIX + "idiomas";
+//  return "redirect:/empleados/";
+        return PREFIX + "idiomas";
     }
     
     

@@ -326,8 +326,12 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
        public ModelAndView notariosxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <Empleado> notariosList = empleadoService.findabogados(fechainicio, fechafin, 4); 
+              Iterable <Empleado> notariosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
               return new ModelAndView(new NotariosView(), "notariosList", notariosList);
+              
+              
+              
+              
        }
 
     

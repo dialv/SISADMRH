@@ -100,12 +100,14 @@ public class ExperiencialaboralController extends UtilsController{
         return PREFIX +"experienciashow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
          try{
              Experiencialaboral experiencialaboral = experiencialaboralService.getExperiencialaboralById(id).get();
              experiencialaboral.setEstadoexp(0);
             experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+            Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         model.addAttribute("experiencialaboral", experiencialaboral);
          }
@@ -114,7 +116,7 @@ public class ExperiencialaboralController extends UtilsController{
         }
        
 //        return "redirect:/experiencialaborales/";
-        return PREFIX +"experienciashow";
+        return PREFIX +"experiencias";
     }
           @RequestMapping(value = "experiencialaboral")
     public String saveRol(Experiencialaboral experiencialaboral, Model model, SessionStatus status) {

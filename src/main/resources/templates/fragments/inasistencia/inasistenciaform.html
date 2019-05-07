@@ -28,16 +28,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <!--                <input type="hidden" th:field="*{codigocomision}"/>
                 <input type="hidden" th:field="*{nombrecomision}"/>-->
                              <div class="form-group">
-                        <label class="col-sm-2 control-label">Empleado :</label>
-                        <div class="col-sm-10" >
+                        <label class="col-sm-2 control-label">Empleado:(*)</label>
+                        <div class="col-sm-6" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
+                                 <option value="0">-- Seleccione un Empleado --</option>
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
                         </div>
+                        <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('inaemp')" onmouseout ="javascript:ocultarAyuda('inaemp')">a</a></b>
+
+                                <span class="popuptext" id="inaemp">Seleccione el empleado. !!</span>
+                            </div>
                     </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Motivo de Inasistencia:</label>
+                    <label class="col-sm-2 control-label">Motivo de Inasistencia:(*)</label>
                     <div class="col-sm-9">
                        <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{motivoinasistencia}">
 
@@ -53,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                 
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Constancia de Inasistencia:</label>
+                    <label class="col-sm-2 control-label">Justificacion Inasistencia:(*)</label>
                     <div class="col-sm-9">
                         <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{constanciainasistencia}">
 
@@ -67,7 +73,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Desde:</label>
+                    <label class="col-sm-2 control-label"> Fecha Inicio Inasistencia:(*)</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control fecha_format" id="fdesde" required="true" th:field="*{fechadesdeinasistencia}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                     </div>
@@ -78,7 +84,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Hasta:</label>
+                    <label class="col-sm-2 control-label"> Fecha Fin Inasistencia:(*)</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechahastainasistencia}"onmouseout ="javascript:ocultarAyuda('fechahasta')"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                     </div>
@@ -91,7 +97,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
   <div class="col-md-12">
       
          <div class="form-group">
-                    <label class="col-sm-2 control-label">acuerdo:</label>
+                    <label class="col-sm-2 control-label">Acuerdo:(*)</label>
                     <div class="col-sm-4">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
@@ -115,7 +121,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
     </div>
          </div>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script>
     Textheader('pnt_inac',document.title);

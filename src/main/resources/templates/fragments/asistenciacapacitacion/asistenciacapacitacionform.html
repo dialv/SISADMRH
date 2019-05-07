@@ -18,18 +18,21 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-             <br><br>
+             <br>
           <div class="row text-center">
-                        <img src="../../static/image/asistencia.png" width="150" th:src="@{/image/asistencia.png}"/>
+                        <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
             <!--<h3 align="center">Crear Asistencias de Capacitación</h3>-->
-            <div>
+            <div class="row text-center">
+                <br>
                 <form class="form-horizontal" id="formascap" th:object="${formasistenciacapacitancion}" th:action="@{../asistenciacapacitacion}" method="post">
                     
                      <!--<input type="hidden" name="codigocuadrodirectivo"/>-->
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Capacitación:</label>
+                        <label class="col-sm-4 control-label">Capacitación a Asignar(*):</label>
                         <div class="col-sm-6" >
+                           
                             <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
+                                 <option value="-1">-- Seleccione una Capacitación --</option>
                                 <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -42,21 +45,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
 
  
-<!--                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">Codigo empleado:</label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control numeros" required="true" name="codigoempleado"/>
-                        </div>
-                          <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('codigoempleado')" onmouseout ="javascript:ocultarAyuda('codigoempleado')">a</a></b>
-                        
-                        <span class="popuptext" id="codigoempleado">Seleccione el código empleado, debe ser los digitos del 1 al 9.!</span>
-                    </div>
-                    </div>-->
 
-                   
                                  <div class="form-group">
-                        <label class="col-sm-2 control-label">Empleado:</label>
+                        <label class="col-sm-4 control-label">Nombre del Empleado(*):</label>
                         <div class="col-sm-6">
                             <!--<select class="form-control" id="combo" th:field="*{asistenciaCapacitacion.codigoempleado.codigoempleado}" >-->
                             <select class="form-control" id="combo"  >
@@ -73,7 +64,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                                         </div>
                      <div class="form-group">
-                        <label class="col-sm-2 control-label ">Horas Recibidas:</label>
+                        <label class="col-sm-4 control-label ">Horas Recibidas de Capacitación:(*)</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas"/>
                         </div>
@@ -88,9 +79,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                    
                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">Puesto:</label>
+                        <label class="col-sm-4 control-label ">Puesto del Empleado(*):</label>
                         <div class="col-sm-6">
-                            <input type="text" id="puesto" class="form-control" maxlength="50"required="true" />
+                            <input type="text" id="puesto" class="form-control" maxlength="50"required="true"name="puesto" />
                         </div>
                              <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('puestos')" onmouseout ="javascript:ocultarAyuda('puestos')">a</a></b>
@@ -99,7 +90,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">Ubicación Física:</label>
+                        <label class="col-sm-4 control-label ">Ubicación Física de Capacitación(*):</label>
                         <div class="col-sm-6">
                             <input type="text" id="ubicacion" class="form-control " size="50" maxlength="50"required="true" name="ubicacionasistenciacapacitacion" />
                         </div>
@@ -110,9 +101,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">Telefono:</label>
+                        <label class="col-sm-4 control-label ">Telefono del Empleado(*):</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control num_telefono" required="true" name="telefono"/>
+                            <input type="text" id="telefonoo"class="form-control num_telefono" required="true" name="telefono"/>
                         </div>
                              <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('telefono')" onmouseout ="javascript:ocultarAyuda('telefono')">a</a></b>
@@ -123,9 +114,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Correo:</label>
+                        <label class="col-sm-4 control-label">Correo del Empleado(*):</label>
                         <div class="col-sm-6">
-                            <input type="email" class="form-control" size="50" minlength="50" required="true" name="email"/>
+                            <input type="email" id="correoo"class="form-control" size="50" maxlength="50" required="true" name="email"/>
                         </div>
                              <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('correo')" onmouseout ="javascript:ocultarAyuda('correo')">a</a></b>
@@ -134,16 +125,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
 
-                    <!--             <div class="form-group">
-                                    <label class="col-sm-2 control-label">Responsable del Comite:</label>
-                                                         <div class="col-sm-10">
-                                                             <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
-                                                    <option th:each="c:${capacitaciones}" placeholder="Seleccionar capacitacion" th:value="${c.codigocapacitacion" th:text="${c. nombrecapacitacion}"></option>
-                                                </select>
-                                   <input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
-                                                              </div>
-                                                    </div>-->
-
+                   
 
                     <div class="col-md-12">
                         <div class="row" align="center">
@@ -173,10 +155,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  $.ajax({
                     url : '../llenadocombo/' + $( this ).val().toString(),
                     success : function(data) {
+                        $('#correoo').val(data[3]);
+                           $('#telefonoo').val(data[2]);
                         $('#ubicacion').val(data[1]);
                         $('#puesto').val(data[0]);
                     },
                     error: function() {
+                        ('#correoo').val("");
+                        $('#telefonoo').val("");
                         $('#ubicacion').val("");
                         $('#puesto').val("");
                     }
@@ -184,6 +170,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         });
         });
     </script>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>	
 </html>

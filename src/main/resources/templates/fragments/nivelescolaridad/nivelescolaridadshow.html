@@ -17,62 +17,61 @@
             
              <br><br>
           <div class="row text-center">
-                        <img src="../../static/image/formacion.png" width="150" th:src="@{/image/formacion.png}"/>
+                        <img src="../../static/image/formacion.png" width="75" th:src="@{/image/formacion.png}"/>
                     </div>
         <div>
             <form class="form-horizontal">
                 <div class="form-group">
-              <label class="col-sm-2 control-label">Código:</label>
-                    <div class="col-sm-10">
+              <label class="col-sm-5 control-label">Código Nivel Escolar:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${nivelescolaridad.codigonivelnivelescolaridad}">codigo nivel escolaridad</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Centro Educativo:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">Centro Educativo:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${nivelescolaridad.centroeducativo}">Centro educativo</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Años Aprobados:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">Años Aprobados:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${nivelescolaridad.aniosaprobados}">anios aprobados</p>
                     </div>
                 </div>
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Estudios Realizados:</label>
-                    <div class="col-sm-10">
-                        <!-- aqui presenta probremas de parceo en estudios realizados-->
-                   <!--<p class="form-control-static" th:text="${nivelescolaridad.estudiorealizado">estudiorealizado</p>-->
+                   <div class="form-group">
+                    <label class="col-sm-5 control-label">Estudios realizados</label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static" th:text="${nivelescolaridad.estudiorealizado}">Finalizado</p>
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Finalizado:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">Finalizado:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${nivelescolaridad.finalizado}">Finalizado</p>
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Titulo Obtenido:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">Titulo Obtenido:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${nivelescolaridad.tituloobtenido}">titulo obtenido</p>
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">País Nivel Escolardiad:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">País Nivel Escolardiad:</label>
+                    <div class="col-sm-6">
                         <p class="form-control-static" th:text="${nivelescolaridad.paisnivelescolaridad}">Pais </p>
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Desde:</label>
+                    <label class="col-sm-5 control-label">Fecha Inicio Nivel Escolar</label>
                     
-                    <div class="col-sm-10">                      <p class="form-control-static" th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MM/yyyy')}">Fecha desde</p>
+                    <div class="col-sm-6">                      <p class="form-control-static" th:text="${#dates.format(nivelescolaridad.fechadesdenivelescolaridad, 'dd/MM/yyyy')}">Fecha desde</p>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Hasta:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-5 control-label">Fecha Fin Nivel Escolar</label>
+                    <div class="col-sm-6">
                        <p class="form-control-static" th:text="${#calendars.format(nivelescolaridad.fechahastanivelescolaridad, 'dd/MM/yyyy')}">fecha hasta</p>
                     </div>
                 </div>    

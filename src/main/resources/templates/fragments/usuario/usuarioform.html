@@ -113,6 +113,9 @@
             </div>
         </div>
     </div>
+       <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script th:inline="javascript">
     Textheader('pnt_geus', document.title);
@@ -152,6 +155,15 @@
     if ([[${msg}]] === 0){
     swal({
     title: "Usuario Generado con exito ",
+            text: [[${usuarioname}]],
+            icon: "success"
+    }).then(function() {
+    location.href = '../usuarios/';
+    });
+    }
+    if ([[${msg}]] === 10){
+    swal({
+    title: "Usuario Modificado con exito ",
             text: [[${usuarioname}]],
             icon: "success"
     }).then(function() {

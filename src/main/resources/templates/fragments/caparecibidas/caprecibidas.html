@@ -66,80 +66,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     
 
     
-        <br> <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
-            
-            <div class="col-md-12" style="background-color:#d9edf7;">
-                <div class="panel-info">
-                    <div class="panel-heading row text-center">
-                        <h3>Informacion de Capacitaciones Recibidas del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
-                    </div>
-                </div>
-            </div>
-</form>
-       <form class="form-horizontal">
-            <br>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">Código:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${caparecibida.codigocaparecibidas}">codigo de Empleado</p></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">Tipo de Evento:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${caparecibida.tipoevento}">Nombre de Empleado</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">Especialidad del Evento:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${caparecibida.especialidad}">Apellido de Empleado</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">Organismo Patrocinador</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${caparecibida.organismo}">Fecha de Nacimiento</p>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="col-sm-7 control-label">País:</label>
-                            <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${caparecibida.pais}">Telefono Movil de Empleado</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha del Evento:</label>
-                            <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${#calendars.format(caparecibida.fechaevento, 'dd/MM/yyyy')}">DUI</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-7 control-label">Duración Horas:</label>
-                            <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${caparecibida.dhoras}">Email Empleado</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-7 control-label">Duración Dias:</label>
-                            <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${caparecibida.ddias}">Email Empleado</p>
-                            </div>
-                        </div>
-                    </div> 
-
-
-                </form>
-        
-        <div class="col-md-12">
-                    <div class="row" align="center">
-                        <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                  
-          <!--<button type="submit" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>-->
-
-                    </div>
-                </div>
+        <br> 
   
 
                </div>
@@ -252,11 +179,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
     swal({
     title: "Exito!",
-            text: "Registro agregado correctamente",
+            text: "Registro eliminado correctamente",
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../../empleados/';
+//    location.href = '../../empleados/';
+ location.href = '../../../empleados/show/'+[[${empleado}]];
     });
     }
 

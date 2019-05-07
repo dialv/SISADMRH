@@ -23,12 +23,12 @@
             <form class="form-horizontal">
                 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">código de bitacora:</label>
+                    <label class="col-sm-2 control-label">Código de bitacora:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${bitacora.codigobitacora}">codigo bitacora</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Evento:</label>
+                    <label class="col-sm-2 control-label">Nombre Evento:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${bitacora.nombreeventobitacora}">evento</p>
                     </div>
@@ -36,12 +36,12 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha del Evento:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${bitacora.fechabitacora}">Fecha del Evento</p>
+                        <p class="form-control-static" th:text="${#calendars.format(bitacora.fechabitacora, 'dd/MM/yyyy')}">Fecha del Evento</p>
                     </div>
                 </div>
                 
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">ip de origen</label>
+                    <label class="col-sm-2 control-label">Ip de origen</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${bitacora.ip}">ip de origen</p>
                     </div>
@@ -57,7 +57,7 @@
             </form>
              <div class="col-md-12">
                     <div class="row" align="center">
-                        <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/bitacoras/}">Reg</a></button>                
+                       <a href="#" th:href="@{/bitacoras/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                  
 
                     </div>
                 </div>

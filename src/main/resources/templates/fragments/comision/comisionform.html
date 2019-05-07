@@ -5,10 +5,8 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-        <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-        <div class="col-md-9">
+       
+        
 <!--<div class="contenedorizq"> 
     <label  class="der">
     <script >
@@ -17,34 +15,73 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div>-->
 <div class="row">
-          
+           <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
     <div class="col-md-9">
     <div class="row text-center">
         <br><br>
-                        <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
+                        <img src="../../static/image/roles.png" width="75" th:src="@{/image/roles.png}"/>
     </div><br>
         <!--<h3 align="center">Crear Comision</h3>-->
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
                 <input type="hidden" th:field="*{codigocomision}"/>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre Comision:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label">Nombre de  Comisión:</label>
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true" th:field="*{nombrecomision}"/>
+                    </div>
+                      <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup201')" onmouseout ="javascript:ocultarAyuda('poppup201')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup201">Digite el nombre de la comision.!</span>
                     </div>
                 </div>
                 <div class="form-group">
-                                <label class="col-sm-2 control-label">Numero de acuerdo comision:</label>
-                                <div class="col-sm-10">
+                <label class="col-sm-3 control-label">Fecha de inicio de Comisión(*):</label>
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadesdecomision" id="fechadesdecomision"  th:field="*{fechadesdecomision}" onchange="isDat(this.value,'fechahastacomision');Fechas(this.value,$('#fechahastacomision').val().toString(),'fechadesdecomision','fechahastacomision')"/>
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup21')" onmouseout ="javascript:ocultarAyuda('poppup21')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup21">Seleccione o digite la Fecha de inicio de la comision el formtado debe ser  dia/mes/año .!</span>
+                    </div>
+            </div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha de fin de Comisión(*):</label>
+                <div class="col-sm-2">
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahastacomision" id="fechahastacomision"  th:field="*{fechahastacomision}" onchange="isDat(this.value,'fechahastacomision');Fechas($('#fechadesdecomision').val().toString(),this.value,'fechadesdecomision','fechahastacomision')"/>
+                </div>
+                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup20">Seleccione o digite la Fecha final de la comision  el formtado debe ser  dia/mes/año .!</span>
+                    </div>
+            </div>
+                <div class="form-group">
+                                <label class="col-sm-3 control-label">Numero de acuerdo comisión:</label>
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control" th:field="*{numeroacuerdocomision}"/>
                                 </div>
+                                 <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2012')" onmouseout ="javascript:ocultarAyuda('poppup2012')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2012">Digite el numero de acuerdo de la comision.!</span>
+                    </div>
                             </div>
                <div class="form-group">
-                    <label class="col-sm-2 control-label">Acuerdo:</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label">Subir Acuerdo:</label>
+                    <div class="col-sm-7">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
                                
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2013')" onmouseout ="javascript:ocultarAyuda('poppup2013')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup2013">Seleccione el acuerdo de la mision el archivo debe ser en formato PDF.!</span>
                     </div>
                 </div>
                 <div class="row" align="center">
@@ -59,16 +96,32 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
     </div>
     </div>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script>
+    
+     function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDat(val,id){
+                        var foo=ExisteFecha(val,id).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    } 
     $(document).ready(function () {
         $('#fechadesdecomision').datepicker({
-            dateFormat: 'yy-mm-dd'
+           dateFormat: 'dd/mm/yy'
         });
 
         $('#fechahastacomision').datepicker({
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'dd/mm/yy'
         });
        
     });

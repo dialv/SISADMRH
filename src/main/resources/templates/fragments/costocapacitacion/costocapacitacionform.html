@@ -1,140 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  
-<head lang="en">
 
-    <title>Crear Costo de Capacitación</title>
-  <th:block th:include="../templates/header"></th:block>
- 
-  </head>
+    <head lang="en">
+
+        <title>Crear Costo de Capacitación</title>
+    <th:block th:include="../templates/header"></th:block>
+
+</head>
 <body>
-<!--      <div class="contenedorizq"><label  >pnt_cosc</label> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-<div class="row">
-        
-         <div class="col-md-3">
-         <th:block th:include="../templates/menu"></th:block>
-    </div> 
-        <div class="col-md-8">
-             <br><br>
-          <div class="row text-center">
-                        <img src="../../static/image/costo.png" width="200" th:src="@{/image/costo.png}"/>
-    
-          <!--<h3 align="center"> Crear Costos de Capacitación</h3>-->
-    <div>
-        <form class="form-horizontal" th:object="${costocapacitacion}" th:action="@{../costocapacitacion}" method="post">
-          <input type="hidden" th:field="*{codigocostocapacitacion}"/>
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Capacitación:</label>
-                <div class="col-sm-5">
-                    <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
-                         <option value="0">-- Seleccione la Capacitación --</option>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div> 
+        <div class="col-md-9">
+            <br>
+            <div class="row text-center">
+                <img src="../../static/image/costo.png" width="75" th:src="@{/image/costo.png}"/>
+
+            </div>
+            <!--<h3 align="center"> Crear Costos de Capacitación</h3>-->
+            <div>
+                <form id ="costocapform" class="form-horizontal" th:object="${costocapacitacion}" th:action="@{../costocapacitacion}" method="post">
+                    <input type="hidden" th:field="*{codigocostocapacitacion}"/>
+
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label"> Nombre Capacitación(*):</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
+                                <option value="0">-- Seleccione la Capacitación --</option>
                                 <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
-                    <!--<input type="number" class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}"/>-->
-                </div>
-                 <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacionn')" onmouseout ="javascript:ocultarAyuda('capacitacionn')">a</a></b>
+                        </div>
+                        <div class="popup col-sm-1"><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacionn')" onmouseout ="javascript:ocultarAyuda('capacitacionn')">a</a></b>
 
-                                <span class="popuptext" id="capacitacionn">Seleccione la Capacitación.!</span>
-                            </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Costo Por Persona $:</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal2" required="true" maxlength="5" th:field="*{costopersona}"/>
-                </div>
-                 <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numeropersonas')" onmouseout ="javascript:ocultarAyuda('numeropersonas')">a</a></b>
+                            <span class="popuptext" id="capacitacionn">Seleccione la Capacitación.!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Costo Por Persona $(*):</label>
+                        <div class="col-sm-2">
+                            <input id="costopp" type="text" class="form-control num_decimal3 numeros" required="true" maxlength="10" th:field="*{costopersona}"/>
+                        </div>
+                        <div class="popup col-sm-1"><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numeropersonas')" onmouseout ="javascript:ocultarAyuda('numeropersonas')">a</a></b>
 
-                                <span class="popuptext" id="numeropersonas">Ingrese el Costo por persona.!</span>
-                            </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Numero de Personas:</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control numeros" required="true" maxlength="2" th:field="*{numeropersona}"/>
-                </div>
-                <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nump')" onmouseout ="javascript:ocultarAyuda('nump')">a</a></b>
+                            <span class="popuptext" id="numeropersonas">Ingrese el Costo por persona.!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Numero de Personas(*):</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control numeros" required="true" maxlength="3" th:field="*{numeropersona}"/>
+                        </div>
+                        <div class="popup col-sm-1"><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nump')" onmouseout ="javascript:ocultarAyuda('nump')">a</a></b>
 
-                                <span class="popuptext" id="nump">Ingrese el Numero de Personas. Solo es permitido la combinacion de los dititos del 0 al 9.!</span>
-                            </div>
-            </div>
-            
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Costo Capacitador $:</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control num_decimal2"  required="true" maxlength="6" th:field="*{costocapacitador}"/>
-                </div>
-                          <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('costopers')" onmouseout ="javascript:ocultarAyuda('costopers')">a</a></b>
+                            <span class="popuptext" id="nump">Ingrese el Numero de Personas. Solo es permitido la combinacion de los dititos del 0 al 9.!</span>
+                        </div>
+                    </div>
 
-                                <span class="popuptext" id="costopers">Ingrese el Costo por persona . Solo es permititido numeros.!</span>
-                            </div>
-            </div>
-           
-            
-            
-           
-        
-            
-            <div class="col-md-12">
-            <div class="row" align="center">
-                 <a href="#" th:href="@{/costocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Costo Capacitador $(*):</label>
+                        <div class="col-sm-2">
+                            <input id="costocap" type="text" class="form-control num_decimal3 numeros"  required="true" maxlength="10" th:field="*{costocapacitador}"/>
+                        </div>
+                        <div class="popup col-sm-1"><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('costopers')" onmouseout ="javascript:ocultarAyuda('costopers')">a</a></b>
+
+                            <span class="popuptext" id="costopers">Ingrese el Costo por persona . Solo es permititido numeros.!</span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="row" align="center">
+                            <a href="#" th:href="@{/costocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                            <button type="submit"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-            </div>
-    </div>
-        </form>
-    </div>  
+                        </div>
+                    </div>
+                </form>
+            </div>  
         </div>
     </div>
-    
- <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
-        </div>   
-    
-<script>
-    $(document).ready(function () {
-         Textheader('pnt_cosc',document.title);
-        $('#fechadesdecomite').datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
 
-        $('#fechahastacomite').datepicker({
-            dateFormat: 'yy-mm-dd'
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>   
+
+    <script>
+        $(document).ready(function () {
+        Textheader('pnt_cosc', document.title);
+        $('#fechadesdecomite').datepicker({
+        dateFormat: 'yy-mm-dd'
         });
-    });
+        $('#fechahastacomite').datepicker({
+        dateFormat: 'yy-mm-dd'
+        });
+        });
     </script>
-<script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
+    <script th:inline="javascript">
+        $(document).ready(function () {
+        if ([[${msg}]] === 0){
+        swal({
+        title: "Exito!",
                 text: "Registro agregado correctamente",
                 type: "success",
                 icon: "success"
-       }).then(function() {
-                location.href = '../costocapacitaciones/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
+        }).then(function() {
+        location.href = '../costocapacitaciones/';
+        });
+        }
+
+        if ([[${msg}]] === 1){
         swal({
-                title: "ERROR!",
+        title: "ERROR!",
                 text: "Ocurrio un error en el proceso",
                 type: "error",
                 icon: "error"
-       });
-    }
-    });
-</script>
+        });
+        }
+        });
+
+    </script>
 
 
 </body>	

@@ -103,6 +103,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup3">Ingrese el Objetivo de la Misión solo se admitiran 100 caracteres.!</span>
                     </div>
             </div>
+               
+                  <div class="form-group">
+                <label class="col-sm-3 control-label">Dirección de Misión(*):</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="n16" required="true" size="100" maxlength="100" th:field="*{direccion}"/>
+                </div>
+                  <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup251')" onmouseout ="javascript:ocultarAyuda('poppup251')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup251">Ingrese la direccion de donde se realizara la Misión solo se admitiran 100 caracteres .!</span>
+                    </div>
+            </div>
 <!--             <div class="form-group">
                         <label class="col-sm-3 control-label">Empleado :</label>
                         <div class="col-sm-7" >
@@ -331,12 +343,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
             </div>
                   
-<!--                  <div class="form-group">
+                  <div class="form-group">
                 <label class="col-sm-3 control-label">Organismo que invita(*):</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" th:field="*{organismoinvita}"/>
+                    <input type="text"  id="n15" class="form-control" th:field="*{organismoinvita}"/>
                 </div>
-            </div>-->
+                
+                   <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1681')" onmouseout ="javascript:ocultarAyuda('poppup1681')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1681">Ingrese el Nombre del Organismo que Invita a la Misión solo se admitiran 50 caracteres numericos.!</span>
+                    </div>
+            </div>
             
         </div>
 
@@ -446,13 +464,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 //                          $('#fechasalidamision').prop('disabled', false);
                           $('#n6').prop('disabled', false);
                           $('#n7').prop('disabled', false);
-                          $('#fecharegresomision').prop('disabled', false);
+//                          $('#fecharegresomision').prop('disabled', false);
                           $('#fechaacuerdo').prop('disabled', false);
 //                          $('#n10').prop('disabled', false);
                           $('#n11').prop('disabled', false);
                           $('#n12').prop('disabled', false);
                           $('#n13').prop('disabled', false);
                           $('#n14').prop('disabled', false);
+                           $('#n15').prop('disabled', 'disabled');
+                           $('#n16').prop('disabled', 'disabled');
                         }else{
                           $('#n1').prop('disabled', 'disabled');
                           $('#n2').prop('disabled', 'disabled');
@@ -461,13 +481,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 //                          $('#fechasalidamision').prop('disabled', 'disabled');
                           $('#n6').prop('disabled', 'disabled');
                           $('#n7').prop('disabled', 'disabled');
-                          $('#fecharegresomision').prop('disabled', 'disabled');
+//                          $('#fecharegresomision').prop('disabled', 'disabled');
                           $('#fechaacuerdo').prop('disabled', 'disabled');
 //                          $('#n10').prop('disabled', 'disabled');
                           $('#n11').prop('disabled', 'disabled');
                           $('#n12').prop('disabled', 'disabled');
                           $('#n13').prop('disabled', 'disabled');
                           $('#n14').prop('disabled', 'disabled');
+                           $('#n15').prop('disabled', false);
+                            $('#n16').prop('disabled', false);
                         }
                       });
 		});

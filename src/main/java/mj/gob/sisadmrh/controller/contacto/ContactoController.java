@@ -101,14 +101,16 @@ public class ContactoController extends UtilsController{
         return PREFIX +"contactoshow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
        
          try{
              Contacto contacto = contactoService.getContactoById(id).get();
              contacto.setEstadocontacto("0");
              
          contactoService.saveContacto(contacto);
+         Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
           model.addAttribute("msg", 3);
         }
         catch(Exception e){

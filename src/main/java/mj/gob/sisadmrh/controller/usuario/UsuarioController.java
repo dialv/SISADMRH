@@ -1,6 +1,5 @@
 package mj.gob.sisadmrh.controller.usuario;
 
-import java.util.Date;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.service.UsuarioRolService;
@@ -68,8 +67,6 @@ public class UsuarioController extends UtilsController{
         aux.setDui(usuario.getDui());
         aux.setFechaingreso(usuario.getFechaingreso());
         try{
-//        Date fecha = new Date();
-//        usuario.setFechaingreso(fecha);
         usuario.setEstadousuario(1);
         usuario.setControlcontrasenia("1");
         usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
@@ -87,26 +84,25 @@ public class UsuarioController extends UtilsController{
          model.addAttribute("msg", 1);
         }
         return PREFIX+"usuarioform";
-       // return "redirect:./show/" + usuario.getCodigousuario();
     }
     @RequestMapping(value = "usuarioedit")
     public String editUsuario(Usuario usuario,Model model, SessionStatus status) {
         try{
         usuario.setEstadousuario(1);
         usuario.setControlcontrasenia("1");
-        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
+        usuario.setContraseniausuario((usuario.getContraseniausuario().length()>49)?usuario.getContraseniausuario()
+                :paswordEnc.encode(usuario.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
         bitacoraService.BitacoraRegistry("se modifico Usuario",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-         model.addAttribute("msg", 0);
+         model.addAttribute("msg", 10);
          model.addAttribute("usuarioname", usuario.getNombreusuario());
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
         }
         return PREFIX+"usuarioform";
-       // return "redirect:./show/" + usuario.getCodigousuario();
     }
     
     @RequestMapping("show/{id}")
@@ -132,7 +128,6 @@ public class UsuarioController extends UtilsController{
         model.addAttribute("msg", 4);
         }
         return PREFIX + "usuarios";
-       // return "redirect:/usuarios/";
     }
     private String generaUser(String nombre, String apellido, String vez){
             String username = (vez.equals("0"))

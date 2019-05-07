@@ -26,10 +26,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <table id = "tablita" class="table table-striped">
             <thead>
             <tr>
-                <th>Co&acute;digo bitacora</th>
-                <th>evento</th>
-                <th>fecha del evento</th>
-                <th>ip de origen </th>
+                <th>Código bitacora</th>
+                <th> Nombre evento</th>
+                <th>Fecha del evento</th>
+                <th>Ip de origen </th>
                  <th>Usuario</th>
                  <th>Acciones</th>
                 
@@ -38,7 +38,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <tr th:each="bitacora : ${bitacoras}">
                 <td th:text="${bitacora.codigobitacora}">Codigo bitacora</td>
                 <td th:text="${bitacora.nombreeventobitacora}">evento</td>
-                <td th:text="${bitacora.fechabitacora}">fecha del evento</td>
+                <td th:text="${#calendars.format(bitacora.fechabitacora, 'dd/MM/yyyy')}">fecha del evento</td>
                  <td th:text="${bitacora.ip}">ip de origen </td>
                   <td th:text="${bitacora.codigousuariobitacora}">Usuario</td>
                 

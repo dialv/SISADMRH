@@ -72,11 +72,15 @@ public class PuestoController extends UtilsController {
             Puesto puesto = puestoService.getPuestoById(id).get();
             puesto.setEstadopuesto(0);
             puestoService.savePuesto(puesto);
+            bitacoraService.BitacoraRegistry("se elimino un Puesto", getRequest().getRemoteAddr(),
+            getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+            
             model.addAttribute("msg", 3);
         } catch (Exception e) {
             model.addAttribute("msg", 4);
         }
-        return PREFIX + "puestoform";
+
+        return PREFIX + "puestos";
     }
     
 }

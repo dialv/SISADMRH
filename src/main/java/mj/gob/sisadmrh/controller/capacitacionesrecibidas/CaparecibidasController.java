@@ -119,18 +119,21 @@ public class CaparecibidasController extends UtilsController{
         return PREFIX +"caprecibidashow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id, Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
          try{
              Caparecibidas caparecibidas = caparecibidasService.getCaparecibidasById(id).get();
              caparecibidas.setEstadocapa(0);
             caparecibidasService.saveCaparecibidas(caparecibidas);
+            Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-          return "redirect:/empleados/";
+          return PREFIX +"caprecibidas";
+//          return "redirect:/empleados/";
 //        return PREFIX  +"caparecibidas";
     }
     

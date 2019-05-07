@@ -23,7 +23,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
      <div class="col-md-9">
           <div class="row text-center">
-                        <img src="../../static/image/beneficios.png" width="200" th:src="@{/image/beneficios.png}"/>
+                        <img src="../../static/image/beneficios.png" width="75" th:src="@{/image/beneficios.png}"/>
                     </div>
         <!--<h3 align="center">Formulario de Beneficios</h3>-->
   
@@ -60,7 +60,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de inicio(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" name="fechadesde" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fdesde" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
                <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
@@ -72,7 +72,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de Finalización(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" name="fechahasta" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fhasta" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
               <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
@@ -102,10 +102,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </div>
     </div>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script>
-     function Fechas(val1,val2,val3,val4){
+        function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
                             swal(foo[1], foo[0]);
@@ -118,6 +120,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             swal(foo[1], foo[0]);
                         }
                     }
+                    
     $(document).ready(function () {
         $('#fdesde').datepicker({
               dateFormat: 'dd/mm/yy'
@@ -128,12 +131,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         });
        
     });
-    			function Fechas(idinicial,idfinal){
-                        var foo=document.getElementById(idfinal).value
-                            if( foo != 0){
-                            ValidarFecha(document.getElementById(idinicial).value,document.getElementById(idfinal).value,idinicial,idfinal);
-                        }
-                    }
+    			
 </script>
 
 </body>

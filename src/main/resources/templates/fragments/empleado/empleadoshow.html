@@ -284,7 +284,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${contacto.emailcontacto}">emailcontacto</td>
 															<td><a th:href="${'../../contactos/show/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../contactos/edit/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
-															<td><a th:onclick="'eliminar(\'' + ${'../../contactos/delete/' + contacto.codigocontacto}+ '\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../contactos/delete/' + contacto.codigocontacto}+'/'+${empleado.codigoempleado}+ '\');'" class="btn btn-danger">Eliminar</a></td>
 															
 															</tr>
 															</table>
@@ -343,7 +343,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../dependientes/show/'+ dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../dependientes/edit/' + dependiente.codigodependiente}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../dependientes/delete/' + dependiente.codigodependiente}" class="btn btn-danger">Eliminar</a></td>-->
-                                                                                                                        <td><a th:onclick="'eliminar(\'' + ${'../../dependientes/delete/' + dependiente.codigodependiente} + '\');'" class="btn btn-danger">Eliminar</a></td>
+                                                                                                                        <td><a th:onclick="'eliminar(\'' + ${'../../dependientes/delete/' + dependiente.codigodependiente} +'/'+${empleado.codigoempleado}+ '\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -402,11 +402,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td th:text="${formacionacademica.centroeducativo}">centroeducativo</td>   
 															<td th:text="${formacionacademica.tituloobtenido}">tituloobtenido</td>   
 															<td th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">fechadesdeformacionacademica</td> 
-                                                                                                                        <td><a  class="btn btn-danger" th:onclick="'../../descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
+                                                                                                                        <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
 															<td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../formacionacademicas/edit/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../formacionacademicas/delete/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -468,7 +468,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../caparecibidas/show/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                                                                                                                         <td><a th:href="${'../../caparecibidas/edit/' + caparecibida.codigocaparecibidas}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas} +'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../caparecibidas/delete/' + caparecibida.codigocaparecibidas} +'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -532,7 +532,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../experiencialaborales/edit/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../experiencialaborales/delete/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -592,7 +592,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../ubicacionfisicas/show/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../ubicacionfisicas/edit/' + ubicacionfisica.codigoubicacion}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion} +'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../ubicacionfisicas/delete/' + ubicacionfisica.codigoubicacion} +'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -642,17 +642,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<th></th>
 															<th></th>
 															<th></th>
+                                                                                                                        <th></th>
 															</tr>
 															</thead>
 															<tr th:each="contrato : ${contratos}">
 															<td th:text="${contrato.codigocontrato}">codigocontrato</td>
 															<td th:text="${#calendars.format(contrato.fechainiciocontrato, 'dd/MM/yyyy')}	">fechainiciocontrato</td>
 															<td th:text="${#calendars.format(contrato.fechafincontrato, 'dd/MM/yyyy')}	">fechafincontrato</td>   
-															<td th:text="${contrato.salarioactual}">salarioactual</td>    
+															<td th:text="${contrato.salarioactual}">salarioactual</td>  
+                                                                                                                         <td><a  class="btn btn-danger" th:onclick="'descargapdfc(\'' + ${contrato.codigocontrato} + '\');'" >Descargar acuerdo</a></td>
 															<td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../contratos/edit/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../contratos/delete/' + contrato.codigocontrato}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../contratos/delete/' + contrato.codigocontrato}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../contratos/delete/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -712,7 +714,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../hijodiscapacidades/show/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../hijodiscapacidades/edit/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' +  ${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' +  ${'../../hijodiscapacidades/delete/' + hijodiscapacidad.codigohijodiscapacidad}+'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -776,7 +778,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../idiomas/show/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../idiomas/edit/' + idioma.codigoidioma}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../idiomas/delete/' + idioma.codigoidioma}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' +  ${'../../idiomas/delete/' + idioma.codigoidioma} +'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' +  ${'../../idiomas/delete/' + idioma.codigoidioma} +'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -838,7 +840,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<td><a th:href="${'../../beneficios/show2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
 															<td><a th:href="${'../../beneficios/edit2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-success">Editar</a></td>
 															<!--<td><a th:href="${'../../beneficio/delete/' + beneficio.codigobeneficio}" class="btn btn-danger">Eliminar</a></td>-->
-															<td><a th:onclick="'eliminar(\'' + ${'../../beneficios/delete2/' + beneficio.codigobeneficio}+'\');'" class="btn btn-danger">Eliminar</a></td>
+															<td><a th:onclick="'eliminar(\'' + ${'../../beneficios/delete2/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}+'\');'" class="btn btn-danger">Eliminar</a></td>
 															</tr>
 															</table>
 															</div>
@@ -935,6 +937,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     });
      </script> 
 	 <script th:inline="javascript">
+              function descargapdf(idpdf){
+        location.href = '../../formacionacademicas/descarga/' + idpdf;
+        }
+        function descargapdfc(idpdf){
+        location.href = '../../contratos/descarga/' + idpdf;
+        }
+             
         $(document).ready(function () {
     if([[${msg}]]===3){
        swal({

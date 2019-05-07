@@ -42,6 +42,7 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "UBICACIONASISTENCIACAPACITACION")
     private String ubicacionasistenciacapacitacion;
+   
     @Size(max = 11)
     @Column(name = "TELEFONO")
     private String telefono;
@@ -51,9 +52,9 @@ public class AsistenciaCapacitacion implements Serializable {
     @Column(name = "ESTADOASISTENCIA")
     private int estadoasistencia;
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "codigoempleado")
-    private int codigoempleado;
+//    @NotNull
+//    @Column(name = "codigoempleado")
+//    private int codigoempleado;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -62,6 +63,10 @@ public class AsistenciaCapacitacion implements Serializable {
     @Column(name = "CODIGOASISTENCIACAPACITACION")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigoasistenciacapacitacion;
+      @Size(max = 50)
+        @Column(name = "PUESTO")
+    private String puesto;
+
 //    @ManyToMany(mappedBy = "asistenciacapacitacionList")
 //    private List<Empleado> empleadoList;
     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
@@ -106,6 +111,15 @@ public class AsistenciaCapacitacion implements Serializable {
         this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
     }
 
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+
    
 
     @Override
@@ -132,13 +146,7 @@ public class AsistenciaCapacitacion implements Serializable {
     public String toString() {
         return "mj.gob.sisadmrh.model.Asistenciacapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
     }
-    public int getCodigoempleado() {
-        return codigoempleado;
-    }
-    public void setCodigoempleado(int codigoempleado) {
-        this.codigoempleado = codigoempleado;
-    }
-
+ 
     public int getHorasrecibidas() {
         return horasrecibidas;
     }

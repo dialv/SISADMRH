@@ -11,7 +11,7 @@
                     </div>
      <div class="col-md-9">
           <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/images.jpeg}"/>
                     </div>
     <div th:if="${not #lists.isEmpty(comisiones)}">
         <table id="tablita" class="table table-striped " style="width:100%" >
@@ -30,8 +30,8 @@
             <tr th:each="comision : ${comisiones}">
                 <td th:text="${comision.codigocomision}">Código</td>
                 <td th:text="${comision.nombrecomision}">Nombre</td>
-                <td th:text="${comision.fechadesdecomision}">Fecha Inicio</td>
-                <td th:text="${comision.fechahastacomision}">Fecha Fin</td>
+                <td th:text=" ${#calendars.format(comision.fechadesdecomision, 'dd/MM/yyyy')}">Fecha Inicio</td>
+                <td th:text=" ${#calendars.format(comision.fechahastacomision, 'dd/MM/yyyy')}">Fecha Fin</td>
                 <td><a  class="btn btn-danger" th:onclick="'descargapdf(\'' + ${comision.codigocomision} + '\');'" >Descargar acuerdo</a></td>
                 <td><a th:href="${'./show/' + comision.codigocomision}" class="btn btn-info">Mostrar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a th:href="${'./edit/' + comision.codigocomision}" class="btn btn-success">Editar</a></td>
@@ -42,6 +42,10 @@
     </div>
 </div>
             </div>
+    <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
+
      <script th:inline="javascript">
            Textheader('pnt_gecoms',document.title);
         $(document).ready(function () {

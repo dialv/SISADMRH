@@ -55,10 +55,10 @@ public class CuadroDirectivo implements Serializable {
     private String responsablecuadrodirectivo;
     
     @Column(name = "fechapresentaciondesde")
-//   
+//   @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechapresentaciondesde;
-    
+//       @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Column(name = "fechapresentacionhasta")
 //   
     @Temporal(javax.persistence.TemporalType.DATE)
