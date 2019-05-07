@@ -7,8 +7,10 @@ package mj.gob.sisadmrh.controller.EmpleadoController;
 
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Estado;
 
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.EstadoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -29,6 +31,9 @@ public class EmpleadoController  extends UtilsController{
         this.empleadoService = empleadoService;
     }
     
+    @Autowired
+    private EstadoService estadoService;
+    
     private final String PREFIX = "fragments/empleado/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
@@ -38,13 +43,16 @@ public class EmpleadoController  extends UtilsController{
     
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
+        model.addAttribute("departamento", estadoService.findBySuperior(2562));
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }
 
     @RequestMapping("new/empleado")
     public String newEmpleado(Model model) {
+       
         model.addAttribute("empleado", new Empleado());
+        model.addAttribute("departamento", estadoService.findBySuperior(2562));
         return PREFIX + "empleadoform";
     }
 

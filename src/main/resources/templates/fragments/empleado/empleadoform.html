@@ -157,13 +157,11 @@
                     </div>
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Departamento de Nacimiento del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Departamentasdo de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
                     <select class="form-control" name="departamentonacimiento" >
                             <!--th:field="*{departamentonacimiento}">-->
-                        <option>Santa Ana</option>
-                        <option>San Salvador</option>
-                         <option>San Miguel</option>
+                        <option th:each="c:${departamento}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                     </select>
                 </div>
                 <div class="popup "><b>

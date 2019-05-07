@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,8 +68,15 @@ public class ContratoController extends UtilsController{
     }
     
      @RequestMapping("edit/contrato/{id}")
-    public String editcontacto(Contrato contrato,@PathVariable Integer id, Model model,SessionStatus status) {
+    public String editcontacto(Contrato contrato,@PathVariable Integer id, Model model,SessionStatus status, @RequestParam("file") MultipartFile file) {
+
         contrato.setEstadocontrato(1);
+        try {
+            contrato.setAcuerdonombramiento(file.getBytes());
+        } catch (IOException ex) {
+            Logger.getLogger(ContratoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         contratoService.saveContrato(contrato);
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contrato",getRequest().getRemoteAddr(), 
