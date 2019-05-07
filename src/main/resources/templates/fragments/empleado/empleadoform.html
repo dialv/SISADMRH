@@ -159,11 +159,9 @@
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Departamento de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
-                    <select class="form-control" name="departamentonacimiento" >
-                            <!--th:field="*{departamentonacimiento}">-->
-                        <option>Santa Ana</option>
-                        <option>San Salvador</option>
-                         <option>San Miguel</option>
+                    <select class="form-control" name="departamentonacimiento" onchange="searchmunicipio(this);" >
+                        <option>--seleccione un departamento--</option>
+                    <option th:each="d:${departamentos}" th:value="${d.codigoestado}" th:text="${d.nombreestado}"></option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -174,12 +172,10 @@
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
-                <div class="col-sm-4">
+                <div class="col-sm-4" id ="refresh-after-municipio">
                     <select class="form-control" name="municipionacimiento">
-                            <!--th:field="*{municipionacimiento}">-->
-                        <option>Santa Tecla</option>
-                        <option>antiguo Cuscatlan</option>
-                         <option>Mejicanos</option>
+                        <option>--seleccione un municipio--</option>
+                        <option th:each="e:${municipios}" th:value="${e.codigoestado}" th:text="${e.nombreestado}"></option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -285,7 +281,7 @@
             </div>
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Municipio de Residencia del Empleado(*):</label>
-                <div class="col-sm-5">
+                <div class="col-sm-5" >
                     <select class="form-control" name="municipioresidencia" >
                             <!--th:field="*{municipioresidencia}" >-->
                         <option>Santa Tecla</option>
@@ -688,6 +684,10 @@
     $(document).ready(function () {
       ordenarSelect('select');
     });
+    function searchmunicipio(object) {
+        var txtVal = object.value;
+        doLoad(null, './../municipio/' + txtVal, 'refresh-after-municipio', null);
+    }
   </script>
 </html>
 

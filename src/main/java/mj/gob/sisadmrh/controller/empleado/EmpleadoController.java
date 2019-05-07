@@ -23,6 +23,7 @@ import mj.gob.sisadmrh.service.CaparecibidasService;
 import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.DependienteService;
+import mj.gob.sisadmrh.service.EstadoService;
 import mj.gob.sisadmrh.service.ExperiencialaboralService;
 import mj.gob.sisadmrh.service.FormacionacademicaService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
@@ -44,11 +45,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value = "empleados")
 public class EmpleadoController extends UtilsController {
+    
 
     private EmpleadoService empleadoService;
 
     private PuestoService puestoService;
+    
+    
 
+    @Autowired
+    private EstadoService estadoService;
+    
     @Autowired
     public void SetPuestoService(PuestoService puestoService) {
         this.puestoService = puestoService;
@@ -146,6 +153,7 @@ public class EmpleadoController extends UtilsController {
     public String edit(@PathVariable Integer id, Model model){
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
         model.addAttribute("puestos", puestos);
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }
@@ -155,8 +163,24 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("empleado", new Empleado());
 
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         return PREFIX + "empleadoform";
+    }
+    
+       @RequestMapping(value = "/municipio/{act}")
+        public String acteco(@PathVariable(value = "act") Integer act, Model model ) throws Exception {
+        model.addAttribute("empleado", new Empleado());
+        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("puestos", puestos);
+        model.addAttribute("municipios", estadoService.findBySuperior(act));
+        return  PREFIX + "empleadoform";
+    }
+       @RequestMapping(value = "/municipiores/{act}")
+        public String actecores(@PathVariable(value = "act") Integer act, Model model ) throws Exception {
+        model.addAttribute("municipiosres", estadoService.findBySuperior(act));
+        return  PREFIX + "empleadoform";
     }
 
     @RequestMapping(value = "empleado")
