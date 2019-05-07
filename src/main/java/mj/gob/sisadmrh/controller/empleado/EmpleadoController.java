@@ -33,10 +33,12 @@ import mj.gob.sisadmrh.service.UbicacionFisicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 /**
  *
  * @author dialv
@@ -168,9 +170,9 @@ public class EmpleadoController extends UtilsController {
         return PREFIX + "empleadoform";
     }
     
-       @RequestMapping(value = "/municipio/{act}")
-        public String acteco(@PathVariable(value = "act") Integer act, Model model ) throws Exception {
-        model.addAttribute("empleado", new Empleado());
+       @RequestMapping(value = "/municipio/{act}/{idemp}")
+        public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem ) throws Exception {
+        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
