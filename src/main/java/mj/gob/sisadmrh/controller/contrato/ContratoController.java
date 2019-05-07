@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Contrato;
+import mj.gob.sisadmrh.model.Empleadocontrato;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
@@ -66,8 +67,23 @@ public class ContratoController extends UtilsController{
     }
     
      @RequestMapping("edit/contrato/{id}")
-    public String editcontacto(Contrato contrato,@PathVariable Integer id, Model model,SessionStatus status) {
+    public String editcontacto(Contrato contrato,@PathVariable Integer id, @RequestParam("file") MultipartFile file,Model model,SessionStatus status) {
         contrato.setEstadocontrato(1);
+           try {
+          contrato.setAcuerdonombramiento(file.getBytes());
+           }  catch (Exception ex) {
+                  
+                     System.out.println("Multipart Edit{");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
+              }
         contratoService.saveContrato(contrato);
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contrato",getRequest().getRemoteAddr(), 
@@ -107,6 +123,16 @@ public class ContratoController extends UtilsController{
             contrato.setEstadocontrato(1);
             contratoService.saveContrato(contrato);
              status.setComplete();
+              Empleadocontrato emcon = new  Empleadocontrato();
+//        emcon.setContacto(contacto);
+//        Empleado em = empleadoService.getEmpleadoById(id).get();
+//        EmpleadocontactoPK emconpk = new EmpleadocontactoPK();
+//        emconpk.setCodigocontacto(contacto.getCodigocontacto());
+//        emconpk.setCodigoempleado(em.getCodigoempleado());
+//        emcon.setEmpleadocontactoPK(emconpk);
+//        empleadoContactoService.saveEmpleadocontacto(emcon);
+        bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
             model.addAttribute("msg", 0);
         }
         
