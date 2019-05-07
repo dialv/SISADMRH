@@ -686,7 +686,8 @@
     });
     function searchmunicipio(object) {
         var txtVal = object.value;
-        doLoad(null, './../municipio/' + txtVal, 'refresh-after-municipio', null);
+        var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+        doLoad(null, './../municipio/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
     }
   </script>
 </html>
