@@ -90,12 +90,13 @@ public class UsuarioController extends UtilsController{
         try{
         usuario.setEstadousuario(1);
         usuario.setControlcontrasenia("1");
-        usuario.setContraseniausuario(paswordEnc.encode(usuario.getContraseniausuario()));
+        usuario.setContraseniausuario((usuario.getContraseniausuario().length()>49)?usuario.getContraseniausuario()
+                :paswordEnc.encode(usuario.getContraseniausuario()));
         usuarioService.saveUsuario(usuario);
         status.setComplete();
         bitacoraService.BitacoraRegistry("se modifico Usuario",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-         model.addAttribute("msg", 0);
+         model.addAttribute("msg", 10);
          model.addAttribute("usuarioname", usuario.getNombreusuario());
         }
         catch(Exception e){

@@ -161,6 +161,15 @@
     location.href = '../usuarios/';
     });
     }
+    if ([[${msg}]] === 10){
+    swal({
+    title: "Usuario Modificado con exito ",
+            text: [[${usuarioname}]],
+            icon: "success"
+    }).then(function() {
+    location.href = '../usuarios/';
+    });
+    }
 
     if ([[${msg}]] === 1){
     swal({
