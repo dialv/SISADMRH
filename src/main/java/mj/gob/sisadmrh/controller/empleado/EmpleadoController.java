@@ -2,6 +2,7 @@ package mj.gob.sisadmrh.controller.empleado;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -11,6 +12,7 @@ import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Dependiente;
 import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.model.Experiencialaboral;
 import mj.gob.sisadmrh.model.Formacionacademica;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
@@ -33,10 +35,14 @@ import mj.gob.sisadmrh.service.UbicacionFisicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 /**
  *
  * @author dialv
@@ -168,9 +174,9 @@ public class EmpleadoController extends UtilsController {
         return PREFIX + "empleadoform";
     }
     
-       @RequestMapping(value = "/municipio/{act}")
-        public String acteco(@PathVariable(value = "act") Integer act, Model model ) throws Exception {
-        model.addAttribute("empleado", new Empleado());
+       @RequestMapping(value = "/municipio/{act}/{idemp}")
+        public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem ) throws Exception {
+        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
@@ -184,8 +190,14 @@ public class EmpleadoController extends UtilsController {
     }
 
     @RequestMapping(value = "empleado")
-    public String saveEmpleado(@Valid Empleado empleado, Model model) {//,SessionStatus status
+    public String saveEmpleado(@Valid Empleado empleado,BindingResult result, Model model,SessionStatus status) {//,SessionStatus status
         try {
+            
+            Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+            Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
+           
+            empleado.setDepartamentonacimiento(depto.getNombreestado());
+            empleado.setMunicipionacimiento(municipio.getNombreestado());
             empleadoService.saveEmpleado(empleado);
             model.addAttribute("msg", 0);
         } catch (Exception e) {

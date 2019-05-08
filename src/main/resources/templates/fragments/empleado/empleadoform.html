@@ -159,8 +159,8 @@
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Departamento de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
-                    <select class="form-control" name="departamentonacimiento" onchange="searchmunicipio(this);" >
-                        <option>--seleccione un departamento--</option>
+                    <select class="form-control" name="departamentonacimiento" th:field="*{departamentonacimiento}" onchange="searchmunicipio(this);" >
+                        <option value="0">--seleccione un departamento--</option>
                     <option th:each="d:${departamentos}" th:value="${d.codigoestado}" th:text="${d.nombreestado}"></option>
                     </select>
                 </div>
@@ -173,8 +173,8 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4" id ="refresh-after-municipio">
-                    <select class="form-control" name="municipionacimiento">
-                        <option>--seleccione un municipio--</option>
+                    <select class="form-control" name="municipionacimiento" th:field="*{municipionacimiento}">
+                        <option value="0">--seleccione un municipio--</option>
                         <option th:each="e:${municipios}" th:value="${e.codigoestado}" th:text="${e.nombreestado}"></option>
                     </select>
                 </div>
@@ -686,7 +686,8 @@
     });
     function searchmunicipio(object) {
         var txtVal = object.value;
-        doLoad(null, './../municipio/' + txtVal, 'refresh-after-municipio', null);
+        var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+        doLoad(null, './../municipio/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
     }
   </script>
 </html>
