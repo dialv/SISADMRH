@@ -46,7 +46,7 @@ public class CuadroDirectivoController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("cuadrodirectivo", cuadroDirectivoService.getCuadroDirectivoById(id));
-         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+         Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
 //         
       model.addAttribute("empleados", empleados);
         return PREFIX + "cuadrodirectivoform";
