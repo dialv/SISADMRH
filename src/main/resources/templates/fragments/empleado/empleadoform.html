@@ -160,7 +160,7 @@
                 <label class="col-sm-3 control-label">Departamentasdo de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
                     <select class="form-control" name="departamentonacimiento" th:field="*{departamentonacimiento}" onchange="searchmunicipio(this);" >
-                        <option value="0">--seleccione un departamento--</option>
+                    <option th:value="${departamentonacimiento}" th:text="${departamentonacimiento==null}?'--seleccione un departamento--':${departamentonacimiento}"></option>-->
                     <option th:each="d:${departamentos}" th:value="${d.codigoestado}" th:text="${d.nombreestado}"></option>
                     </select>
                 </div>
@@ -174,8 +174,8 @@
                 <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4" id ="refresh-after-municipio">
                     <select class="form-control" name="municipionacimiento" th:field="*{municipionacimiento}">
-                        <option value="0">--seleccione un municipio--</option>
-                        <option th:each="e:${municipios}" th:value="${e.codigoestado}" th:text="${e.nombreestado}"></option>
+                        <option th:value="${municipionacimiento}" th:text="${municipionacimiento==null}?'--seleccione un municipio--':${municipionacimiento}"></option>-->
+                    <option th:each="e:${municipios}" th:value="${e.codigoestado}" th:text="${e.nombreestado}"></option>
                     </select>
                 </div>
                 <div class="popup "><b>
