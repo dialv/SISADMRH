@@ -33,6 +33,12 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+     @Override
+    public Iterable<Empleado> listAllActivosPensionados() {
+     return empleadoRep.listAllActivosPensionados();
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public Optional<Empleado> getEmpleadoById(Integer id) {
         return empleadoRep.findById(id);

@@ -1,9 +1,11 @@
 package mj.gob.sisadmrh.controller.mision;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadomision;
@@ -127,7 +129,11 @@ public class MisionController extends UtilsController {
         }
         return PREFIX + "misionform";
     }
-
+ @RequestMapping(value = "descarga/{id}")
+    public void verDocumento(HttpServletResponse response, @PathVariable(value = "id") Integer id) 
+           throws IOException{ 
+           streamReport(response, misionService.getMisionById(id).get().getDocacuerdo(), "AcuerdoMisiones.pdf");
+    }
     @RequestMapping("show/{id}")
     public String showMision(@PathVariable Integer id, Model model) {
         model.addAttribute("mision", misionService.getMisionById(id).get());

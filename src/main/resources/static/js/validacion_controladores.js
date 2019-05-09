@@ -2627,3 +2627,155 @@ var existeFecha = function(fecha) {
     }
     return true;
 };
+
+
+var doLoad = function(btn, url, div, func) {
+    wait('#' + div);
+    var ismultipart = jQuery(btn).hasClass('multipart');
+    if (ismultipart===null || (ismultipart !== 'true' && ismultipart !== true && ismultipart !== 1 && ismultipart !== '1' && ismultipart !== 'yes' && ismultipart !== 'si' && ismultipart !== 'on')) {
+        url = encodeURI(url);
+        jQuery('#' + div).load(url + ' #' + div, function(responseTxt, statusTxt, xhr) {
+            jQuery("#numsol").val("");
+            if (statusTxt === 'success') {
+
+                unlockButton(btn);
+                var f = func + '(responseTxt, statusTxt, xhr)';
+                var hide = jQuery(btn).attr('hide');
+                if (!hide===null) {
+                    if (hide === 'true') {
+                        try {
+                            jQuery(btn).hide();
+                        } catch (e) {
+                        }
+                    }
+                }
+                else {
+                    try {
+                        jQuery(btn).button('option', 'disabled', false);
+                    } catch (e) {
+                    }
+                }
+                try {
+                    eval(f);
+                } catch (e) {
+                }
+            } else {
+                var divname = div===null ? 'waitDiv' : div + 'waitDiv';
+                var msg = "Ha ocurrido un error inesperado: ";
+                jQuery('#' + divname).hide();
+                jQuery('#' + divname).remove();
+                uialert('ERROR: ' + msg + xhr.status + " " + xhr.statusText, '¡Error Inesperado!');
+            }
+        });
+    } else {
+        var data = new FormData();
+        jQuery("input[type=file]").each(function() {
+            var files = jQuery(this)[0].files;
+            if (!files===null) {
+                var filenameseparator = jQuery(files).length > 1 ? '_' : '';
+                jQuery.each(jQuery(this)[0].files, function(i, file) {
+                    var filename = jQuery(this).attr('id');
+                    filename = (filename===null ? 'archivo' : filename)
+                            + ((!filenameseparator===null && filenameseparator !== '') ? (filenameseparator + i) : '');
+                    data.append(filename, file);
+                    console.log('search for(' + filename + ')');
+                });
+            }
+        });
+
+        jQuery.ajax({
+            url: url,
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            sync: false,
+            type: 'POST'
+        }).always(
+                function(responseTxt, statusTxt, xhr) {
+                    if (statusTxt === 'success') {
+//                        jQuery('#waitDiv').hide();
+                        var divname = div===null ? 'waitDiv' : div + 'waitDiv';
+                        jQuery('#' + divname).hide();
+                        jQuery('#' + div).html(jQuery(responseTxt).find('#' + div).html() + '<div id="#errorMessages">' + jQuery(responseTxt).find('#errorMessages').html() + '</div>');
+                        jQuery('#errorMessages').hide();
+                        unlockButton(btn);
+                        var f = func + '(responseTxt, statusTxt, xhr)';
+                        var hide = jQuery(btn).attr('hide');
+                        if (!hide===null) {
+                            if (hide === 'true') {
+                                try {
+                                    jQuery(btn).hide();
+                                } catch (e) {
+                                }
+                            }
+                        } else {
+                            try {
+                                jQuery(btn).button('option', 'disabled', false);
+                            } catch (e) {
+                            }
+                        }
+                        try {
+                            eval(f);
+                        } catch (e) {
+                        }
+                    }
+                }
+        );
+    }
+
+};
+
+var uialert = function(msg, title) {
+    title = isUndefinedOrNull(title) ? '&#161;ALERTA&#33;' : title;
+    var div = jQuery('<div id="uialert" title="' + title + '">'
+            + '<p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>' + msg + '</p>'
+            + '</div>');
+    jQuery(div).dialog({
+        resizable: false,
+        height: 140,
+        modal: true,
+        buttons: {
+            "Ok": {text: 'Ok', class: 'yeahbutton', click: function() {
+                    jQuery(this).dialog("close");
+                }}
+        }
+    }).dialog("open");
+};
+
+var wait = function(element) {
+    if (!isUndefinedOrNull(element) && !isUndefinedOrNull(jQuery(element).position())) {
+        var width = 350;
+        var height = 60;
+        var offset = 30; // 22
+        var outset = 6; // 22
+        var message = 'Espere por favor, actualizando...';
+        var top = jQuery(element).height() / 2 - height / 2;
+        var left = jQuery(element).width() / 2 - width / 2;
+        var divname = jQuery(element).attr('id');
+        var divname = isUndefinedOrNull(divname) ? 'waitDiv' : divname + 'waitDiv';
+//    console.log('element:'+element);
+        var newDiv = '<div id="' + divname + '" class="ui-overlay ui-corner-all"  style="margin-top: ' + jQuery(element).css('marginTop') + '; margin-left:' + jQuery(element).css('marginLeft') + '; margin-right:' + jQuery(element).css('marginRight') + '; margin-bottom:' + jQuery(element).css('marginBottom') + '; width: ' + jQuery(element).width() + 'px; height: ' + jQuery(element).height() + 'px; position: absolute; left: ' + jQuery(element).position().left + 'px; top: ' + jQuery(element).position().top + 'px;">'
+                + '<div class="ui-widget-overlay ui-corner-all"></div>'
+                + '<div class="ui-widget-shadow ui-corner-all"            style="position: absolute; width: ' + (width + outset) + 'px; height: ' + (height + outset) + 'px; left: ' + left + 'px; top: ' + top + 'px;"></div>'
+                + '<div class="ui-widget ui-widget-content ui-corner-all" style="vertical-align:middle; position: absolute; width: ' + (width - offset) + 'px; height: ' + (height - offset) + 'px; left: ' + (left + offset / 5) + 'px; top: ' + (top + offset / 5) + 'px; padding: 10px;"><img style=" float:left; paddin:0 0; margin: 0 0;" id="loadingIcon" src="./images/loading.gif" title="' + message + '" /><div class="waitmessagetext">' + message + '</div></div></div>';
+        jQuery(element).append(newDiv);
+//        console.log(newDiv);
+    }
+};
+
+var isUndefinedOrNull = function(o) {
+    return (!o || o === null || o === undefined);
+};
+
+var unlockButton = function(btn) {
+    try {
+//        console.log('unlockButton(' + jQuery(btn).attr('id') + ')');
+        jQuery(btn).removeClass('disabled');
+    } catch (e) {
+    }
+    try {
+        jQuery(btn).button('option', 'disabled', false);
+    } catch (e) {
+    }
+};

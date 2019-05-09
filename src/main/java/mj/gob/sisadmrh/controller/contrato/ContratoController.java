@@ -17,8 +17,12 @@ import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Contrato;
+import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Empleadocontrato;
+import mj.gob.sisadmrh.model.EmpleadocontratoPK;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.ContratoService;
+import mj.gob.sisadmrh.service.EmpleadoContratoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 //import mj.gob.sisadmrh.service.ContratoContratoService;
 import net.sf.jasperreports.engine.JRException;
@@ -46,7 +50,8 @@ public class ContratoController extends UtilsController{
     
  @Autowired
     private EmpleadoService empleadoService;
-
+ @Autowired
+    private EmpleadoContratoService empleadoContratoService;
     
     @Autowired
     public void setContratoService(ContratoService contratoService) {
@@ -68,15 +73,23 @@ public class ContratoController extends UtilsController{
     }
     
      @RequestMapping("edit/contrato/{id}")
-    public String editcontacto(Contrato contrato,@PathVariable Integer id, Model model,SessionStatus status, @RequestParam("file") MultipartFile file) {
-
+    public String editcontacto(Contrato contrato,@PathVariable Integer id, @RequestParam("file") MultipartFile file,Model model,SessionStatus status) {
         contrato.setEstadocontrato(1);
-        try {
-            contrato.setAcuerdonombramiento(file.getBytes());
-        } catch (IOException ex) {
-            Logger.getLogger(ContratoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+           try {
+          contrato.setAcuerdonombramiento(file.getBytes());
+           }  catch (Exception ex) {
+                  
+                     System.out.println("Multipart Edit{");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
+              }
         contratoService.saveContrato(contrato);
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contrato",getRequest().getRemoteAddr(), 
@@ -116,6 +129,15 @@ public class ContratoController extends UtilsController{
             contrato.setEstadocontrato(1);
             contratoService.saveContrato(contrato);
              status.setComplete();
+        Empleadocontrato emcon = new  Empleadocontrato();
+        Empleado em = empleadoService.getEmpleadoById(id).get();
+        EmpleadocontratoPK emconpk = new EmpleadocontratoPK();
+        emconpk.setCodigocontrato(contrato.getCodigocontrato());
+        emconpk.setCodigoempleado(em.getCodigoempleado());
+        emcon.setEmpleadocontratoPK(emconpk);
+        empleadoContratoService.saveEmpleadocontrato(emcon);
+        bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());
             model.addAttribute("msg", 0);
         }
         

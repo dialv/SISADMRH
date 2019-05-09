@@ -104,7 +104,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
    
     
     
-    @Query(value = " SELECT concat(e.nombreempleado,' ',e.apellidoempleado) as 'Nombre',p.nombrepuesto as 'Nombre de Puesto',u.nombreubicacion as 'Ubicacion',c.acuerdocuadrodirectivo as 'No. Acuerdo' , DATE_FORMAT(c.fechapresentaciondesde,'%d/%m/%Y') as 'Fecha Desde', DATE_FORMAT(c.fechapresentacionhasta, '%d/%m/%Y') as 'Fecha Hasta' FROM `empleado` e, puesto p , ubicacionfisica u, cuadrodirectivo c WHERE e.codigopuesto=p.codigopuesto and e.codigoempleado=u.codigoempleado and e.codigoempleado=c.codigoempleado and e.estadoempleado=2 and c.fechapresentaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') and c.fechapresentacionhasta <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') ", nativeQuery = true)
+    @Query(value = " SELECT concat(e.nombreempleado,' ',e.apellidoempleado) as 'Nombre',p.nombrepuesto as 'Nombre de Puesto',u.nombreubicacion as 'Ubicacion',c.acuerdocuadrodirectivo as 'No. Acuerdo' , DATE_FORMAT(c.fechapresentaciondesde,'%d/%m/%Y') as 'Fecha Desde', DATE_FORMAT(c.fechapresentacionhasta, '%d/%m/%Y') as 'Fecha Hasta' FROM `empleado` e, puesto p , ubicacionfisica u, cuadrodirectivo c WHERE e.codigopuesto=p.codigopuesto and e.codigoempleado=u.codigoempleado and e.codigoempleado=c.codigoempleado and e.estadoempleado in(1,3) and c.fechapresentaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') and c.fechapresentaciondesde <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') ", nativeQuery = true)
     List<Object[]> findByExoneradoMarcacion(@Param("FINICIAL") String finicial,
             @Param("FFINAL") String ffinal);
 // reporte exel para personal pensionado
@@ -183,4 +183,7 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
      @Query(value = "DELETE FROM  empleadomision  WHERE \n"
             + " codigomision= :id  ", nativeQuery = true)
     void DeleteListadoMision(@Param("id") int dato);
+    
+    @Query("SELECT o FROM Empleado o WHERE o.estadoempleado = 1 or o.estadoempleado = 3")
+    public Iterable<Empleado> listAllActivosPensionados();
 }

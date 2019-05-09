@@ -240,4 +240,58 @@ function edit_fecha_format() {
 
 }
 
+function pdffile(){
+    var formularios = document.forms;
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+                        var value = formularios[i].elements[j].name;
+                        var value2 = formularios[i].elements[j].value;
+                        var value3 = formularios[i].elements[j].value.split(".");
+                        if(value.includes("file") ){
+                             if(!value2.includes("pdf")){
+                             formularios[i].elements[j].value="";
+                              swal({
+                title: "Error! en la extension del archivo:" +value3[1],
+                text: "El formato del Archivo debe ser PDF",
+                type: "error",
+                icon: "error"
+       });
+                        }
+
+                    }
+                    else if(value.includes("archivo") ){
+                        if(!value2.includes("csv")){
+                             formularios[i].elements[j].value="";
+                              swal({
+                title: "Error! en la extension del archivo:" +value3[1],
+                text: "El formato del Archivo debe ser CSV",
+                type: "error",
+                icon: "error"
+       });
+                        }
+                    }
+                }
+            }
+          }
+          
+          function pdffile_event(){
+    var formularios = document.forms;
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+                        var value = formularios[i].elements[j].name;
+                        var value2 = formularios[i].elements[j].value;
+                        if(value.includes("file") ){
+                            formularios[i].elements[j].setAttribute("accept", "application/pdf");
+                              formularios[i].elements[j].setAttribute("onchange", "pdffile()");
+                    }
+                    else if(value.includes("archivo") ){
+                            formularios[i].elements[j].setAttribute("accept", ".csv");
+                              formularios[i].elements[j].setAttribute("onchange", "pdffile()");
+                    }
+                }
+            }
+          }
+            
+
+
 
