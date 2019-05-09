@@ -2,7 +2,6 @@ package mj.gob.sisadmrh.controller.empleado;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import mj.gob.sisadmrh.controller.UtilsController;
@@ -36,12 +35,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 /**
  *
@@ -51,38 +48,26 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @RequestMapping(value = "empleados")
 public class EmpleadoController extends UtilsController {
-    
 
     private EmpleadoService empleadoService;
-
     private PuestoService puestoService;
-    
-    
-
     @Autowired
     private EstadoService estadoService;
-    
     @Autowired
     public void SetPuestoService(PuestoService puestoService) {
         this.puestoService = puestoService;
     }
-
     private ContactoService contactoService;
-
     @Autowired
     public void setContactoService(ContactoService contactoService) {
         this.contactoService = contactoService;
     }
-
     private DependienteService dependienteRep;
-
     @Autowired
     public void setDependienteService(DependienteService dependienteRep) {
         this.dependienteRep = dependienteRep;
     }
-
     private CaparecibidasService caparecibidasRep;
-
     @Autowired
     public void setCaparecibidasService(CaparecibidasService caparecibidasRep) {
         this.caparecibidasRep = caparecibidasRep;
@@ -192,14 +177,19 @@ public class EmpleadoController extends UtilsController {
     @RequestMapping(value = "empleado")
     public String saveEmpleado(@Valid Empleado empleado,BindingResult result, Model model,SessionStatus status) {//,SessionStatus status
         try {
-            
+            try{
             Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
             Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
-           
             empleado.setDepartamentonacimiento(depto.getNombreestado());
             empleado.setMunicipionacimiento(municipio.getNombreestado());
             empleadoService.saveEmpleado(empleado);
-            model.addAttribute("msg", 0);
+                model.addAttribute("msg", 0);
+           
+            }catch(Exception e){
+            empleadoService.saveEmpleado(empleado);
+            
+                model.addAttribute("msg", 0);
+            }
         } catch (Exception e) {
             model.addAttribute("msg", 1);
         }
