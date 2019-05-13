@@ -115,12 +115,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Parentesco del Dependiente(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="parentesco" > 
+                <div class="col-sm-5">
+                    <select class="form-control" name="parentesco" th:field="*{parentesco}" > 
                             <!--th:field="*{parentesco}" >-->
-                        <option>Hijo</option>
-                        <option>Tio</option>
-                         <option>Hermano</option>
+                             <option value="0">--seleccione el parentesco del dependiente--</option>
+                        <option value="Hijo">Hijo</option>
+                        <option value="Tio">Tio</option>
+                         <option value="Hermano">Hermano</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -131,11 +132,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>	
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Sexo del Dependiente(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="sexo" >
+                <div class="col-sm-5">
+                    <select class="form-control" name="sexo" th:field="*{sexo}">
                         <!--th:field="*{sexo}">-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
+                         <option value="0">--seleccione el sexo del dependiente--</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
                     </select>
                 </div>
                 <div class="popup "><b>

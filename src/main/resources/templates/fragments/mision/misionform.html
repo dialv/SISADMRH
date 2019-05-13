@@ -64,8 +64,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <div class="col-md-12">
            <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Misión(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="tipomision" id="tipomision">
+                <div class="col-sm-5">
+                    <select class="form-control" name="tipomision" id="tipomision" th:field="*{tipomision}"> 
+                        <option value="3">--seleccione el tipo de Mision--</option>
                         <option value="0">Externa</option>
                         <option value="1">Interna</option>
                         <!--<option>Gobierno</option>-->
@@ -127,11 +128,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            
             <div class="form-group">
                 <label class="col-sm-3 control-label">Responsable del Gasto(*):</label>
-                <div class="col-sm-4">
-                    <select class="form-control" name="responsablegasto"  id="n1">
-                        <option>ONG</option>
-                        <option>Ministerio</option>
-                        <option>Gobierno</option>
+                <div class="col-sm-5">
+                    <select class="form-control" name="responsablegasto"  id="n1" th:field="*{responsablegasto}">
+                         <option value="3">--seleccione el responsable del gasto--</option>
+                        <option value="ONG">ONG</option>
+                        <option value="Ministerio">Ministerio</option>
+                        <option value="Gobierno">Gobierno</option>
 
                     </select>
                 </div>
@@ -192,10 +194,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
-                    <select class="form-control" name="paisdestino" id="n6">
-                        <option>El Salvador</option>
-                        <option>Mexico</option>
-                        <option>Guatemala</option>
+                    <select class="form-control" name="paisdestino" id="n6" th:field="*{paisdestino}">
+                        <option value="3">--seleccione el pais--</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Guatemala">Guatemala</option>
 
                     </select>
                 </div>
@@ -210,10 +213,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
-                    <select class="form-control" name="organismopatrocinador" >
-                        <option>ONG</option>
-                        <option>Ministerio</option>
-                        <option>Gobierno</option>
+                    <select class="form-control" name="organismopatrocinador" th:field="*{organismopatrocinador}">
+                        <option value="3">--seleccione el organismo patrocinador--</option>
+                        <option value="ONG">ONG</option>
+                        <option value="Ministerio">Ministerio</option>
+                        <option value="Gobierno">Gobierno</option>
 
                     </select>
                 </div>

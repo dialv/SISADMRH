@@ -152,7 +152,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>-->
                     <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Inicio(*):</label>
+                <label class="col-sm-3 control-label">Fecha de Inicio de Contrato(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año"type="text"  name="fechaicontrato" id="fechaicontrato" th:field="*{fechainiciocontrato}" onchange="isDat(this.value,'fechaicontrato');Fechas(this.value,$('#fechafcontrato').val().toString(),'fechaicontrato','fechafcontrato')"/>
                 </div>
@@ -163,7 +163,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Finalizacion(*):</label>
+                <label class="col-sm-3 control-label">Fecha de Fin de Contrato(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafcontrato" id="fechafcontrato" th:field="*{fechafincontrato}" onchange="isDat(this.value,'fechafcontrato');Fechas($('#fechaicontrato').val().toString(),this.value,'fechaicontrato','fechafcontrato')"/>
                 </div>

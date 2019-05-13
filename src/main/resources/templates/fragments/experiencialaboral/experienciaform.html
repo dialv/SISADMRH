@@ -85,11 +85,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                      <br>
                 <label class="col-sm-3 control-label">Sector(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="sectorexperiencialaboral" >
+                <div class="col-sm-5">
+                    <select class="form-control" name="sectorexperiencialaboral" th:field="*{sectorexperiencialaboral}"> 
                         <!--th:field="*{sectorexperiencialaboral}">-->
-                        <option>Privado</option>
-                        <option>Publico</option>
+                         <option value="0">--seleccione el sector de la experiencia laboral--</option>
+                        <option value="Privado">Privado</option>
+                        <option value="Publico">Publico</option>
                     </select>
                 </div>
                 <div class="popup "><b>

@@ -118,11 +118,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Pais(*):</label>
                 <div class="col-sm-3">
-                    <select class="form-control" name="pais" >
+                    <select class="form-control" name="pais" th:field="*{pais}">
                             <!--th:field="*{pais}"  >-->
-                        <option>El Salvador</option>
-                        <option>Estado Unidos</option>
-                         <option>Mexico</option>
+                             <option value="0">--seleccione un pais--</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Estado Unidos">Estado Unidos</option>
+                         <option value="Mexico">Mexico</option>
                     </select>
                 </div>
                 <div class="popup "><b>

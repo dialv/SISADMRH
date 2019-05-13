@@ -135,10 +135,11 @@
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Termino(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="termino">
+                    <select class="form-control" name="termino" th:field="*{termino}">
                             <!--th:field="*{termino}">-->
-                        <option>Si</option>
-                        <option>No</option>
+                             <option value="0">--seleccione una opcion--</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
                 <div class="popup "><b>

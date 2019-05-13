@@ -126,11 +126,12 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Sexo del Contacto(*):</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="sexocontanto" >
+                        <div class="col-sm-5">
+                            <select class="form-control" name="sexocontanto" th:field="*{sexocontacto}">
                                 <!--th:field="*{sexocontacto}" >-->
-                                <option>Femenino</option>
-                                <option>Masculino</option>
+                                <option value="0">--seleccione el sexo del contacto--</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
                             </select>
                         </div>
                         <div class="popup "><b>

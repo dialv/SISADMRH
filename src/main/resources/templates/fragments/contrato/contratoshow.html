@@ -118,13 +118,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Inicio:</label>
+                            <label class="col-sm-7 control-label">Fecha de Inicio de Contrato:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(contrato.fechainiciocontrato, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Fin:</label>
+                            <label class="col-sm-7 control-label">Fecha de Fin de Contrato:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(contrato.fechafincontrato, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>

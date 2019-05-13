@@ -17,9 +17,9 @@
  DATE_FORMAT(p.fechacontratacionhasta, "%d/ %m /%Y") as "Fecha Hasta",
  p.nombrepuesto,p.ubicacionpuesto
 FROM `empleado` e, puesto p
-WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=1 and
+WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3 and
 p.fechacontrataciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and p.fechacontratacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>

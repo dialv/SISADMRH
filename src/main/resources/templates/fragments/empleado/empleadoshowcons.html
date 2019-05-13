@@ -24,13 +24,13 @@
                                 <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de Empleado</label>
+                            <label class="col-sm-5 control-label">Nombre del Empleado</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Apellido de Empleado:</label>
+                            <label class="col-sm-5 control-label">Apellido del Empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
                             </div>
@@ -228,10 +228,10 @@
                                                                     <tr>
                                                                         <th>Codigo</th>
                                                                         <th>Nombre de  Contacto</th>
-                                                                        <th>Direccion</th>
-                                                                        <th>Telefono Fijo</th>
-                                                                        <th>Telefono Movi</th>
-                                                                        <th>Email</th>
+                                                                        <th>Direccion de Contacto</th>
+                                                                        <th>Telefono Fijo de Contacto</th>
+                                                                        <th>Telefono Movil de Contacto</th>
+                                                                        <th>Email de Contacto</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -318,7 +318,7 @@
                                                                         <th>Estudios Realizados</th>
                                                                         <th>Centro Educativo</th>
                                                                         <th>Titulo Obtenido</th>
-                                                                        <th>Fecha</th>
+                                                                        <th>Fecha Desde</th>
                                                                         <th>Documento</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
@@ -328,7 +328,7 @@
                                                                     <td th:text="${formacionacademica.estudiosrealizados}">estudiosrealizados</td>
                                                                     <td th:text="${formacionacademica.centroeducativo}">centroeducativo</td>   
                                                                     <td th:text="${formacionacademica.tituloobtenido}">tituloobtenido</td>   
-                                                                    <td th:text="${formacionacademica.fechadesdeformacionacademica}">fechadesdeformacionacademica</td> 
+                                                                    <td th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">fechadesdeformacionacademica</td> 
                                                                     <td><a  class="btn btn-danger" th:onclick="'../../descargapdf(\'' + ${formacionacademica.codigoformacionacademica} + '\');'" >Descargar acuerdo</a></td>
                                                                     <td><a th:href="${'../../formacionacademicas/show/' + formacionacademica.codigoformacionacademica}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                                                                 </tr>
@@ -362,10 +362,10 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Codigo</th>
-                                                                        <th>Estudios Realizados</th>
-                                                                        <th>Centro Educativo</th>
-                                                                        <th>Titulo Obtenido</th>
-                                                                        <th>Fecha</th>
+                                                                        <th>Tipo Evento</th>
+                                                                        <th>Especialidad del Evento</th>
+                                                                        <th>Organismo Patrocinador</th>
+                                                                        <th>Fecha del Evento</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -418,8 +418,8 @@
                                                                 <tr th:each="experiencialaboral : ${experiencialaborales}">
                                                                     <td th:text="${experiencialaboral.codigoexperiencialaboral}">codigoexperiencialaboral</td>
                                                                     <td th:text="${experiencialaboral.nombreinstitucion}">nombreinstitucion</td>
-                                                                    <td th:text="${experiencialaboral.fechadesdeexperiencialaboral}">fechadesdeexperiencialaboral</td>   
-                                                                    <td th:text="${experiencialaboral.fechahastaexperiencialaboral}">fechahastaexperiencialaboral</td>   
+                                                                    <td th:text="${#calendars.format(experiencialaboral.fechadesdeexperiencialaboral, 'dd/MM/yyyy')}	">fechadesdeexperiencialaboral</td>   
+                                                                    <td th:text="${#calendars.format(experiencialaboral.fechahastaexperiencialaboral, 'dd/MM/yyyy')}	">fechahastaexperiencialaboral</td>   
                                                                     <td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
                                                                     <td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
                                                                     <td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
@@ -497,17 +497,17 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Codigo</th>
-                                                                        <th>Fecha de Inicio</th>
-                                                                        <th>Fecha de Fin</th>
+                                                                        <th>Fecha de Inicio de Contrato</th>
+                                                                        <th>Fecha de Fin de Contrato</th>
                                                                         <th>Salario</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tr th:each="contrato : ${contratos}">
                                                                     <td th:text="${contrato.codigocontrato}">codigocontrato</td>
-                                                                    <td th:text="${contrato.fechainiciocontrato}">fechainiciocontrato</td>
-                                                                    <td th:text="${contrato.fechafincontrato}">fechafincontrato</td>   
-                                                                    <td th:text="${contrato.salarioactual}">salarioactual</td>    
+                                                                   <td th:text="${#calendars.format(contrato.fechainiciocontrato, 'dd/MM/yyyy')}	">fechainiciocontrato</td>
+                                                                    <td th:text="${#calendars.format(contrato.fechafincontrato, 'dd/MM/yyyy')}	">fechafincontrato</td>   
+                                                                     <td th:text="${contrato.salarioactual}">salarioactual</td>    
                                                                     <td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                                                                 </tr>
                                                             </table>
@@ -647,8 +647,8 @@
                                                                     <td th:text="${beneficio.codigobeneficio}">codigobeneficio</td>
                                                                     <td th:text="${beneficio.nombrebeneficio}">nombrebeneficio</td>
                                                                     <td th:text="${beneficio.descripcionbeneficio}">descripcionbeneficio</td>  
-                                                                    <td th:text="${beneficio.fechainiciobeneficio}">fechainiciobeneficio</td>   
-                                                                    <td th:text="${beneficio.fechafinalizarbeneficio}">fechafinalizarbeneficio</td> 															
+                                                                    <td th:text="${#calendars.format(beneficio.fechainiciobeneficio, 'dd/MM/yyyy')}">fechainiciobeneficio</td>   
+                                                                    <td th:text="${#calendars.format(beneficio.fechafinalizarbeneficio, 'dd/MM/yyyy')}	">fechafinalizarbeneficio</td> 															
                                                                     <td><a th:href="${'../../beneficio/show/' + beneficio.codigobeneficio}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                                                                 </tr>
                                                             </table>

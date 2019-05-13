@@ -145,6 +145,7 @@ public class EmpleadoController extends UtilsController {
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
         model.addAttribute("puestos", puestos);
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }
@@ -155,6 +156,7 @@ public class EmpleadoController extends UtilsController {
 
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         return PREFIX + "empleadoform";
     }
@@ -164,13 +166,22 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
         Iterable<Puesto> puestos = puestoService.listAllPuestos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         model.addAttribute("municipios", estadoService.findBySuperior(act));
         return  PREFIX + "empleadoform";
     }
-       @RequestMapping(value = "/municipiores/{act}")
-        public String actecores(@PathVariable(value = "act") Integer act, Model model ) throws Exception {
-        model.addAttribute("municipiosres", estadoService.findBySuperior(act));
+       @RequestMapping(value = "/municipiore/{act}/{act2}/{act3}{idemp}")
+        public String actecores(@PathVariable(value = "act") Integer act,@PathVariable(value = "act2") Integer act2,@PathVariable(value = "act3") Integer act3, Model model, @PathVariable(value = "idemp") Integer idem  ) throws Exception {
+//        model.addAttribute("municipiosres", estadoService.findBySuperior(act));
+        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
+        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
+        model.addAttribute("puestos", puestos);
+        model.addAttribute("municipios", estadoService.findBySuperior(act2));
+        model.addAttribute("mun",act3);
+        model.addAttribute("municipiores", estadoService.findBySuperior(act));
         return  PREFIX + "empleadoform";
     }
 

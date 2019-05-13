@@ -10,9 +10,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.codigoempleado,concat(e.nombreempleado,' ',e.apellidoempleado)as 'nombre',p.nombrepuesto,p.ubicacionpuesto,DATE_FORMAT(c.fechainiciocontrato, "%d/ %m /%Y") as 'fechainiciocontrato',c.salarioactual FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto
+		<![CDATA[SELECT e.codigoempleado,concat(e.nombreempleado,' ',e.apellidoempleado)as 'nombre',p.nombrepuesto,p.ubicacionpuesto,DATE_FORMAT(c.fechainiciocontrato, "%d/ %m /%Y") as 'fechainiciocontrato',c.salarioactual FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=1
 and
-c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechafincontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainiciocontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

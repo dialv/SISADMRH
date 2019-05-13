@@ -174,8 +174,8 @@ and c.fechapresentaciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Fecha Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="435" y="0" width="76" height="14" forecolor="#000000" backcolor="#FFFFFF" uuid="2c1ab128-9a36-455a-a3ae-a603af474896"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="444" y="0" width="60" height="14" forecolor="#000000" backcolor="#FFFFFF" uuid="2c1ab128-9a36-455a-a3ae-a603af474896"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Hasta]]></text>

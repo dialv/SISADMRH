@@ -84,10 +84,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Categoria del Puesto(*):</label>
                 <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                    <select class="form-control" name="categoriapuesto" >
-                        <option>Categoria 1</option>
-                        <option>Categoria 2</option>
-                        <option>Categoria 3</option>
+                    <select class="form-control" name="categoriapuesto" th:field="*{categoriapuesto}">
+                         <option value="0">--seleccione categoria del puesto--</option>
+                        <option value="Categoria 1">Categoria 1</option>
+                        <option value="Categoria 2">Categoria 2</option>
+                        <option value="Categoria 3">Categoria 3</option>
 
                     </select>
                 </div>
@@ -114,10 +115,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
-                    <select class="form-control" name="ubicacionpuesto" >
-                        <option>Coordinacion de Personal</option>
-                        <option>Capacitacion de Personal</option>
-                        <option>Coordinacion Tecnica</option>
+                    <select class="form-control" name="ubicacionpuesto" th:field="*{ubicacionpuesto}" >
+                        <option value="0">--seleccione la ubicacion geografica del puesto--</option>
+                        <option value="Capacitacion de Personal">Capacitacion de Personal</option>
+                        <option value="Coordinacion Tecnica">Coordinacion Tecnica</option>
 
                     </select>
                 </div>
@@ -144,9 +145,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-sm-3">
                     <!--<input type="text" class="form-control" th:field="*{formapago}"/>-->
                     
-                    <select class="form-control" name="formapago" >
-                        <option>Cada 15 dias</option>
-                        <option>Cada 30 dias</option>
+                    <select class="form-control" name="formapago" th:field="*{formapago}">
+                        <option value="0">--seleccione la forma de pago--</option>
+                        <option value="Cada 15 dias">Cada 15 dias</option>
+                        <option value="Cada 30 dias">Cada 30 dias</option>
 
                     </select>
                 </div>
@@ -236,12 +238,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
              <div class="form-group">
                 <label class="col-sm-3 control-label">Nivel del Puesto(*):</label>
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{nivelpuesto}"/>-->
-                    <select class="form-control" name="nivelpuesto" >
-                        <option>Gerencial</option>
-                        <option>Estrategico</option>
-                        <option>Operativo</option>
+                    <select class="form-control" name="nivelpuesto" th:field="*{nivelpuesto}">
+                        <option value="0">--seleccione el nivel del puesto--</option>
+                        <option value="Gerencial">Gerencial</option>
+                        <option value="Estrategico">Estrategico</option>
+                        <option value="Operativo">Operativo</option>
 
                     </select>
                 </div>
@@ -253,12 +256,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Sublinea del Puesto(*):</label>
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                    <select class="form-control" name="sublinea" >
-                        <option>Sublinea 1</option>
-                        <option>Sublinea 2</option>
-                        <option>Sublinea 3</option>
+                    <select class="form-control" name="sublinea" th:field="*{sublinea}">
+                        <option value="0">--seleccione la sublinea del puesto--</option>
+                        <option value="Sublinea 1">Sublinea 1</option>
+                        <option value="Sublinea 2">Sublinea 2</option>
+                        <option value="Sublinea 3">Sublinea 3</option>
 
                     </select>
                 </div>
@@ -270,12 +274,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Fianza(*):</label>
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{tipofinanza}"/>-->
-                    <select class="form-control" name="tipofinanza" >
-                        <option>Fianza 1</option>
-                        <option>Fianza 2</option>
-                        <option>Fianza 3</option>
+                    <select class="form-control" name="tipofinanza" th:field="*{tipofinanza}">
+                        <option value="0">--seleccioneel tipo de fianza del puesto--</option>
+                        
+                        <option value="Fianza 1">Fianza 1</option>
+                        <option value="Fianza 2">Fianza 2</option>
+                        <option value="Fianza 3">Fianza 3</option>
 
                     </select>
                 </div>
@@ -287,9 +293,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
 <div class="form-group">
                 <label class="col-sm-3 control-label">Estado de Puesto de Trabajo(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="estadopuesto" th:field="*{estadopuesto}">
+                <div class="col-sm-5">
+                    <select class="form-control" name="estadopuesto" th:field="*{estadopuesto}" >
                             <!--th:field="*{tipocuenta}">-->
+                            <option value="7">--seleccione el estado del puesto--</option>
                         <option value="1">Activo</option>
                         <option value="2">Plaza Ocupada</option>
                         <option value="0">De Baja</option>

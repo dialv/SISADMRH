@@ -27,7 +27,7 @@ e.codigopuesto=p.codigopuesto and
 e.codigoempleado=en.codigoempleado and
 n.codigonivelnivelescolaridad=en.codigonivelnivelescolaridad and
 n.fechadesdenivelescolaridad >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and n.fechahastanivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and n.fechadesdenivelescolaridad <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String"/>
 	<field name="Nombre de Plaza" class="java.lang.String"/>

@@ -14,7 +14,7 @@
 FROM `asistenciacapacitacion`a ,`capacitacion` c
 WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.fechacapacitaciondesde and
 c.fechacapacitaciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and c.fechacapacitacionhasta <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and c.fechacapacitaciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Noempleados" class="java.lang.Long"/>
 	<field name="Ubicacion" class="java.lang.String"/>

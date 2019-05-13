@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT concat(e.nombreempleado,' ' ,e.apellidoempleado) as 'nombre',p.ubicacionpuesto,p.nombrepuesto,p.numeropartidapuesto, p.numerosubpartidapuesto,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=1]]>
+		<![CDATA[SELECT concat(e.nombreempleado,' ' ,e.apellidoempleado) as 'nombre',p.ubicacionpuesto,p.nombrepuesto,p.numeropartidapuesto, p.numerosubpartidapuesto,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=4]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String"/>
 	<field name="ubicacionpuesto" class="java.lang.String">

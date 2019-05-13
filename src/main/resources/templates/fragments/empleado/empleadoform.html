@@ -92,6 +92,7 @@
                         <label class="col-sm-3 control-label">Puesto del Empleado:</label>
                         <div class="col-sm-5" >
                             <select class="form-control"  th:field="*{codigopuesto}"  width="50" id="select" name="select">
+                                  <option value="0">--seleccione el puesto para el Empleado--</option>
                                 <option th:each="c:${puestos}" th:value="${c.codigopuesto}" th:text="${c.nombrepuesto}"></option>
                             </select>
                         </div>
@@ -145,8 +146,9 @@
                 <div class="col-sm-4">
                     <select class="form-control" name="nacionalidad" >
                         <!--th:field="*{nacionalidad}">-->
-                        <option>Salvadoreño</option>
-                        <option>Hondureño</option>
+                        <option value="0">--seleccione la Nacionalidad del Empleado--</option>
+                        <option value="Salvadoreño">Salvadoreño</option>
+                        <option value="Hondureño">Hondureño</option>
 
                     </select>
                 </div>
@@ -159,7 +161,7 @@
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Departamentasdo de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4">
-                    <select class="form-control" name="departamentonacimiento" th:field="*{departamentonacimiento}" onchange="searchmunicipio(this);" >
+                    <select id="dep1" class="form-control" name="departamentonacimiento" th:field="*{departamentonacimiento}" onchange="searchmunicipio(this,'1');" >
                     <option th:value="${departamentonacimiento}" th:text="${departamentonacimiento==null}?'--seleccione un departamento--':${departamentonacimiento}"></option>-->
                     <option th:each="d:${departamentos}" th:value="${d.codigoestado}" th:text="${d.nombreestado}"></option>
                     </select>
@@ -173,7 +175,7 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
                 <div class="col-sm-4" id ="refresh-after-municipio">
-                    <select class="form-control" name="municipionacimiento" th:field="*{municipionacimiento}">
+                    <select id="mun1" class="form-control" name="municipionacimiento" th:field="*{municipionacimiento}">
                         <option th:value="${municipionacimiento}" th:text="${municipionacimiento==null}?'--seleccione un municipio--':${municipionacimiento}"></option>-->
                     <option th:each="e:${municipios}" th:value="${e.codigoestado}" th:text="${e.nombreestado}"></option>
                     </select>
@@ -188,11 +190,12 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Estado Familiar del Empleado(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="estadofamiliar">
+                    <select class="form-control" name="estadofamiliar" th:field="*{estadofamiliar}">
                             <!--th:field="*{estadofamiliar}">-->
-                        <option>Soltero</option>
-                        <option>Casado</option>
-                         <option>Viudo</option>
+                              <option value="0">--seleccione el estado familiar del Empleado--</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Casado">Casado</option>
+                         <option value="Viudo">Viudo</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -206,8 +209,9 @@
                 <div class="col-sm-2">
                     <select class="form-control" name="sexoempleado" >
                             <!--th:field="*{sexoempleado}">-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
+                              <option value="0">--seleccione el sexo del Empleado--</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -266,11 +270,15 @@
                   <div class="form-group">
                 <label class="col-sm-3 control-label">Departamento de Residencia del Empleado(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="departamentorecidencia" >
-                            <!--th:field="*{departamentorecidencia}">-->
+<!--                    <select class="form-control" name="departamentorecidencia" >
+                            th:field="*{departamentorecidencia}">
                         <option>Santa Ana</option>
                         <option>San Salvador</option>
                          <option>San Miguel</option>
+                    </select>-->
+                     <select class="form-control" name="departamentorecidencia" th:field="*{departamentorecidencia}" onchange="searchmunicipio(this,'2');" >
+                    <option th:value="${departamentorecidencia}" th:text="${departamentorecidencia==null}?'--seleccione un departamento--':${departamentorecidencia}"></option>-->
+                    <option th:each="f:${departamentosres}" th:value="${f.codigoestado}" th:text="${f.nombreestado}"></option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -282,11 +290,16 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Municipio de Residencia del Empleado(*):</label>
                 <div class="col-sm-5" >
-                    <select class="form-control" name="municipioresidencia" >
-                            <!--th:field="*{municipioresidencia}" >-->
+<!--                    <select class="form-control" name="municipioresidencia" >
+                            th:field="*{municipioresidencia}" >
                         <option>Santa Tecla</option>
                         <option>antiguo Cuscatlan</option>
                          <option>Mejicanos</option>
+                    </select>-->
+                    
+                      <select class="form-control" name="municipioresidencia" th:field="*{municipioresidencia}">
+                        <option th:value="${municipioresidencia}" th:text="${municipioresidencia==null}?'--seleccione un municipio--':${municipioresidencia}"></option>-->
+                    <option th:each="g:${municipiores}" th:value="${g.codigoestado}" th:text="${g.nombreestado}"></option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -370,12 +383,13 @@
                     <label class="col-sm-3 control-label">Grupo Sanguineo del Empleado(*):</label>
                     <div class="col-sm-2">
                         <!--<input type="text" class="form-control"    th:field="*{gruposanquineo}" />-->
-                          <select class="form-control" name="gruposanquineo" >
+                          <select class="form-control" name="gruposanquineo" th:field="*{gruposanquineo}" >
                             <!--th:field="*{departamentorecidencia}">-->
-                        <option>Grupo A</option>
-                        <option>Grupo B</option>
-                         <option>Grupo AB</option>
-                         <option>Grupo 0</option>
+                        <option value="0">--seleccione el grupo sanguineo del Empleado--</option>
+                        <option value="Grupo A">Grupo A</option>
+                        <option value="Grupo B">Grupo B</option>
+                         <option value="Grupo AB">Grupo AB</option>
+                         <option value="Grupo O">Grupo 0</option>
                     </select>
                     </div>
                      <div class="popup "><b>
@@ -387,10 +401,11 @@
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Pension del Empleado(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="afiliacionpension" >
+                    <select class="form-control" name="afiliacionpension"  th:field="*{afiliacionpension}">
                             <!--th:field="*{afiliacionpension}" >-->
-                        <option>AFP CONFIA</option>
-                        <option>AFP CRECER</option>
+                             <option value="0">--seleccione tipo de pension del Empleado--</option>
+                        <option value="AFP CONFIA">AFP CONFIA</option>
+                        <option value="AFP CRECER">AFP CRECER</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -424,10 +439,11 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Cuenta Bancaria del Empleado(*):</label>
                 <div class="col-sm-2">
-                    <select class="form-control" name="tipocuenta" >
+                    <select class="form-control" name="tipocuenta" th:field="*{tipocuenta}">
                             <!--th:field="*{tipocuenta}">-->
-                        <option>Ahorros</option>
-                        <option>Corriente</option>
+                             <option value="0">--seleccione el tipo de cuenta Bancaria del Empleado--</option>
+                        <option value="Ahorros">Ahorros</option>
+                        <option value="Corriente">Corriente</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -453,6 +469,7 @@
                 <div class="col-sm-2">
                     <select class="form-control" name="estadoempleado" th:field="*{estadoempleado}">
                             <!--th:field="*{tipocuenta}">-->
+                             <option value="7">--seleccione el estado del Empleado--</option>
                         <option value="1">Activo</option>
                         <option value="3">Pensionado</option>
                         <option value="2">Indemnizado</option>
@@ -653,6 +670,12 @@
     });
 </script> 
 
+ <script th:inline="javascript">
+    $(document).ready(function () {
+     document.getElementById('mun1').value=[[${mun}]]
+    });
+</script> 
+
 <script>
     var URLactual = window.location.href;
     if (URLactual.includes("edit")){
@@ -684,11 +707,23 @@
     $(document).ready(function () {
       ordenarSelect('select');
     });
-    function searchmunicipio(object) {
+    function searchmunicipio(object,value) {
         var txtVal = object.value;
         var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
-        doLoad(null, './../municipio/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
+        if(value==1){
+            doLoad(null, './../municipio/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
+        }else if(value==2){
+            var txtVal2 =  document.getElementById('dep1').value;
+             var txtVal3 =  document.getElementById('mun1').value;
+            doLoad(null, './../municipiore/' + txtVal + '/' + txtVal2 + '/' + txtVal3 + '/'+ idemp , 'refresh-after-municipio', null);
+        }
+       
     }
+//     function searchmunicipiores(object) {
+//        var txtVal = object.value;
+//        var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+//        doLoad(null, './../municipiore/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
+//    }
   </script>
 </html>
 
