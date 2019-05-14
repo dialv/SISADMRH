@@ -129,6 +129,18 @@
         </div>
 </body>
 <script th:inline="javascript">
+    var SwalColors = {
+  red: "rgba(0,0,0,250)",
+  green: "rgba(50, 250, 50, 0.45)",
+  blue: "rgba(0, 0, 255, 0.45)"
+};
+
+function SwalOverlayColor(color){
+  setTimeout(function(){
+    $(".swal-overlay").css({"background-color":SwalColors[color]});
+  },200);
+}
+
     Textheader('pnt_geus', document.title);
     
     $(document).ready(function () {
@@ -149,10 +161,11 @@
                 $("form#usuarioform").submit();
             }
             else{
+            SwalOverlayColor("red");    
             swal({
                 title: "ERROR!",
                 text: "la contraseña debe tener al menos 8 caracteres",
-                icon: "error"
+                icon: "error",
             });
             }
         }
