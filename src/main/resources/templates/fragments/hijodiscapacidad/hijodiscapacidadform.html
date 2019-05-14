@@ -122,11 +122,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Tipo de Discapacidad(*):</label>
                 <div class="col-sm-5">
-                    <select class="form-control" name="tipodiscapacidad"  >
+                    <select class="form-control" name="tipodiscapacidad" th:field="*{tipodiscapacidad}" >
                             <!--th:field="*{sexocontacto}" >-->
                         <option value="0">--seleccione el tipo de Discapacidad--</option>
-                        <option>Mental</option>
-                        <option>Fisica</option>
+                        <option value="Mental">Mental</option>
+                        <option value="Fisica">Fisica</option>
                     </select>
                 </div>
                 <div class="popup "><b>

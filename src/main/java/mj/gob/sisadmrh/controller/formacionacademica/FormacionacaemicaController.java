@@ -57,8 +57,16 @@ public class FormacionacaemicaController extends UtilsController{
     }
     
     @RequestMapping("edit/formacionacademica/{id}")
-    public String editformacion(Formacionacademica formacionacademica,@PathVariable Integer id, Model model,SessionStatus status) {
-        formacionacademica.setEstadoformacion(1);
+    public String editformacion(Formacionacademica formacionacademica,@RequestParam("file") MultipartFile file,@PathVariable Integer id, Model model,SessionStatus status) {
+        
+          try {
+            formacionacademica.setDoctitulo(file.getBytes());
+            formacionacademica.setEstadoformacion(1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(FormacionacaemicaController.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
         formacionacademicaService.saveFormacionacademica(formacionacademica);
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico una formacion academica",getRequest().getRemoteAddr(), 

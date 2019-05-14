@@ -46,10 +46,10 @@ var f = new Date();
 document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </script></label>
 </div><br>-->
-<script> Textheader('pnt_cme',document.title);</script>
+<script> Textheader('pnt_cme',document.title); </script>
 <!--<div class="container">-->
  <div class="row">
- <div class="col-md-3">
+ <div class="col-md-3" >
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
@@ -389,7 +389,45 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-            
+            function load(){
+//                alert($("#tipomision").val());
+                 if($("#tipomision").val() !== "1"){
+//                          $('lb1').html('some value');
+                          $('#n1').prop('disabled', false);
+                          $('#n2').prop('disabled', false);
+                          $('#n3').prop('disabled', false);
+                          $('#n4').prop('disabled', false);
+//                          $('#fechasalidamision').prop('disabled', false);
+                          $('#n6').prop('disabled', false);
+                          $('#n7').prop('disabled', false);
+//                          $('#fecharegresomision').prop('disabled', false);
+                          $('#fechaacuerdo').prop('disabled', false);
+//                          $('#n10').prop('disabled', false);
+                          $('#n11').prop('disabled', false);
+                          $('#n12').prop('disabled', false);
+                          $('#n13').prop('disabled', false);
+                          $('#n14').prop('disabled', false);
+                           $('#n15').prop('disabled', 'disabled');
+                           $('#n16').prop('disabled', 'disabled');
+                        }else{
+                          $('#n1').prop('disabled', 'disabled');
+                          $('#n2').prop('disabled', 'disabled');
+                          $('#n3').prop('disabled', 'disabled');
+                          $('#n4').prop('disabled', 'disabled');
+//                          $('#fechasalidamision').prop('disabled', 'disabled');
+                          $('#n6').prop('disabled', 'disabled');
+                          $('#n7').prop('disabled', 'disabled');
+//                          $('#fecharegresomision').prop('disabled', 'disabled');
+                          $('#fechaacuerdo').prop('disabled', 'disabled');
+//                          $('#n10').prop('disabled', 'disabled');
+                          $('#n11').prop('disabled', 'disabled');
+                          $('#n12').prop('disabled', 'disabled');
+                          $('#n13').prop('disabled', 'disabled');
+                          $('#n14').prop('disabled', 'disabled');
+                           $('#n15').prop('disabled', false);
+                            $('#n16').prop('disabled', false);
+                        }
+            }
 
 
             function Fechas(val1,val2,val3,val4){
@@ -423,6 +461,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 // 		});
 		
 		$(document).ready(function () {
+                    load();
 		    var date = new Date();
 		    var currentMonth = date.getMonth();
 		    var currentDate = date.getDate();
@@ -506,6 +545,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 text: "Registro agregado correctamente",
                 type: "success",
                 icon: "success"
+                
        }).then(function() {
                 location.href = '../misiones/';
        }); 

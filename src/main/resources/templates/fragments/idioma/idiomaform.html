@@ -98,11 +98,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Habla(*):</label>
-                    <div class="col-sm-2">
-                        <select class="form-control" name="habla"  >
+                    <div class="col-sm-5">
+                        <select class="form-control" name="habla" th:field="*{habla}" >
                             <!--th:field="*{sexoidioma}" >-->
-                        <option>Si</option>
-                        <option>No</option>
+                             <option value="0">--seleccione una opcion--</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
                     </select>
                     </div>
                     <div class="popup "><b>
@@ -113,11 +114,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
                       <div class="form-group">
                     <label class="col-sm-3 control-label">Escribe(*):</label>
-                    <div class="col-sm-2">
-                         <select class="form-control" name="escribe"  >
+                    <div class="col-sm-5">
+                         <select class="form-control" name="escribe"  th:field="*{escribe}">
                             <!--th:field="*{sexoidioma}" >-->
-                        <option>Si</option>
-                        <option>No</option>
+                        <option value="0">--seleccione una opcion--</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
                     </select>
                     </div>
                     <div class="popup "><b>
@@ -128,11 +130,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
                      <div class="form-group">
                 <label class="col-sm-3 control-label">Traduce(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="traduce"  >
+                <div class="col-sm-5">
+                    <select class="form-control" name="traduce" th:field="*{traduce}" >
                             <!--th:field="*{sexoidioma}" >-->
-                        <option>Si</option>
-                        <option>No</option>
+                       <option value="0">--seleccione una opcion--</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -146,12 +149,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <!--                    <div class="col-sm-5">
                         <input type="text" class="form-control"    th:field="*{nivel}" />
                     </div>-->
-<div class="col-sm-2">
-                    <select class="form-control" name="nivel"  >
+<div class="col-sm-5">
+                    <select class="form-control" name="nivel" th:field="*{nivel}" >
                             <!--th:field="*{sexoidioma}" >-->
-                        <option>Basico</option>
-                        <option>Intermedio</option>
-                        <option>Avanzado</option>
+                             <option value="0">--seleccione el nivel--</option>
+                        <option value="Basico">Basico</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzado">Avanzado</option>
                     </select>
                 </div>
  <div class="popup "><b>

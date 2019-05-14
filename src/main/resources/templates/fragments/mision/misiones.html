@@ -18,6 +18,7 @@
             <thead>
             <tr>
                 <th>Codigo de Misi&oacute;n</th>
+                <th>Tipo de  Misi&oacute;n</th>
                 <th>Nombre de  Misi&oacute;n</th>
                 <th>Objetivo de Misi&oacute;n</th>
                 <th>Responsable del Gasto </th>
@@ -31,7 +32,12 @@
             </thead>
             <tr th:each="mision : ${misiones}">
                 <td th:text="${mision.codigomision}">codigomision</td>
-                <!--<td th:text="${mision.tipomision}">tipomision</td>-->
+                <td >
+                    <span th:if="${mision.tipomision} == 0"  th:text="Externa"  ></span>
+                    <span th:if="${mision.tipomision} == 1"  th:text="Interna"></span>
+                
+                </td>
+                
                 <td th:text="${mision.nombremision}">nombremision</td>
                 <td th:text="${mision.objetivomision}">objetivomision</td>
                 <td th:text="${mision.responsablegasto}">reponsablegasto</td>
@@ -41,7 +47,7 @@
                 <td><a  class="btn btn-danger" th:onclick="'descargapdfc(\'' + ${mision.codigomision} + '\');'" >Descargar acuerdo</a></td>
 															
                 <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-info">Mostrar</a></td>
-                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success ">Modificar</a></td>
+                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success ">Editar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:onclick="'eliminar(\'' + ${ mision.codigomision} +'\');'" class="btn btn-danger">Eliminar</a></td>
             </tr>
         </table>

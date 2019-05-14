@@ -165,7 +165,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Correo Electronico del Contacto(*):</label>
                         <div class="col-sm-5">
-                            <input type="email" class="form-control" required="true"  id="mail" th:field="*{emailcontacto}"    />
+                            <input type="email" class="form-control" required="true"   th:field="*{emailcontacto}"    />
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
@@ -283,17 +283,10 @@
                                     dateFormat: 'dd/mm/yy'
                                     });
                                     });$('#btnGuardar').click(function(){
-//                                        alert( '--'+document.getElementById("mail").value+'--')
-                                        if(!document.getElementById("mail").value.includes("")){
-                                            $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
-                                            $("form#formcontacto").submit(); 
-                                        }
-                                   
+                                    $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
+                                    $("form#formcontacto").submit();
                                     }
-                                    );
-  
-                
-            </script>
+                                    );</script>
 <script th:inline="javascript">
 
     $(document).ready(function () {

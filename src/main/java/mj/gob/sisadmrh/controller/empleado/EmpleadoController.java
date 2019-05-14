@@ -191,8 +191,10 @@ public class EmpleadoController extends UtilsController {
             try{
             Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
             Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
-            empleado.setDepartamentonacimiento(depto.getNombreestado());
-            empleado.setMunicipionacimiento(municipio.getNombreestado());
+//            empleado.setDepartamentonacimiento(depto.getNombreestado());
+//            empleado.setMunicipionacimiento(municipio.getNombreestado());
+             empleado.setDepartamentonacimiento(""+depto.getCodigoestado());
+            empleado.setMunicipionacimiento(""+municipio.getCodigoestado());
             empleadoService.saveEmpleado(empleado);
                 model.addAttribute("msg", 0);
            
