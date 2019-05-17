@@ -213,6 +213,8 @@ public class EmpleadoController extends UtilsController {
     public String showEmpleado(@PathVariable Integer id, Model model) {
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         System.out.print("IDEMPLEADO" + id);
+        
+         model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));
 
         Iterable<Contacto> contacto = contactoService.findByDato(id);
         model.addAttribute("contactos", contacto);

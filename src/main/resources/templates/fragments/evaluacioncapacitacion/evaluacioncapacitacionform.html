@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha y Hora(*):</label>
                             <div class="col-sm-6">
-                                <input input data-format="dd/MM/yyyy hh:mm:ss" type="text"id="hra" class="form-control fecha_datetime" name="horaevualuacioncapacitacion"/>
+                                <input input-group date type="text"id="hra" class="form-control fecha_datetime" name="horaevualuacioncapacitacion"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('hora')" onmouseout ="javascript:ocultarAyuda('hora')">a</a></b>
@@ -76,9 +76,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Dominio del Tema(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
                                 <select class="form-control" name="dominiotema" >
+                                      <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
 
@@ -93,9 +94,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Habilidades de Comunicación(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
 
                                 <select class="form-control" name="habilidadcomunicacion" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
 
@@ -110,9 +112,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Llena sus Espectativas(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
 
                                 <select class="form-control" name="espectativa" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -126,9 +129,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Contenido se Desarrollo con Claridad(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
 
                                 <select class="form-control" name="claridadtema" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -142,9 +146,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Aclara dudas con Precisión(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
 
                                 <select class="form-control" name="alclaradudas" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -158,9 +163,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Mantiene el Interes del Tema(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
 
                                 <select class="form-control" name="interestema" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -174,9 +180,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Satisface en el Tema(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{nivelpuesto}"/>-->
                                 <select class="form-control" name="satifacciondetema" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -190,9 +197,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Comprensión del Tema(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="comprenciondetema" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -207,9 +215,10 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Planeación del Tiempo(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="planeaciontiempo" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -223,9 +232,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Distribución del Tiempo(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="distribuciontiempo" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -238,9 +248,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Contenido Claro(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="contenidoclaro" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -253,9 +264,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">El contenido Es aplicable a su Trabajo(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="contenidoaplicadotrabajo" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -269,9 +281,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Satisfecho con el Contenido(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="satisfechocontenido" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -284,9 +297,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Es necesaria la Capacitación(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="necesariocapacitacion" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -299,9 +313,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">El equipo tecnologico es el Adecuado(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="equipotecnologico" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -314,9 +329,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Material Usado fue el apropiado(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="materialutilizado" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -329,9 +345,10 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Tiempo Capacitación fue Optimo(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="tiempocapacitacionoptimo" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <option>Si</option>
                                     <option>No</option>
                                 </select>
@@ -345,9 +362,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Puntualidad Fecha y Hora(*):</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
                                 <select class="form-control" name="puntualidad" >
+                                    <option value="0">-- Seleccione un Opcion --</option>
                                     <!--<option> </option>-->
                                     <option>Si</option>
                                     <option>No</option>
@@ -424,7 +442,7 @@
     $(document).ready(function () {
     $('#hra').datepicker({
 //     format: 'DD-MM-YYYY HH:mm'
-  ateFormat: 'dd/MM/yyyy hh:mm:ss'
+  dateFormat: 'dd/mm/yy 00:00:00'
     });
     $('#fechacapacitacionhasta').datepicker({
     dateFormat: 'dd/mm/yy'

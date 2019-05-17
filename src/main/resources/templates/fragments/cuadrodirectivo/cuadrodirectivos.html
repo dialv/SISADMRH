@@ -17,7 +17,8 @@
                 <table id="tablita" class="table table-striped">
                     <thead> 
                         <tr>
-                            <th>Código</th>
+                            <th>Código Cuadro Directivo</th>
+                            <th>Responsable directo</th>
                             <th>Area a que Pertenece</th>
                             <th>Descripción del Motivo</th>
                             <th>Fecha Presentación Desde</th>
@@ -29,6 +30,7 @@
                     </thead>
                     <tr th:each="cuadrodirectivo : ${cuadrodirectivos}">
                         <td align="center" th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
+                        <td th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">area</td>
                         <td th:text="${cuadrodirectivo.area}">area</td>
                         <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
                         <td th:text="${#calendars.format(cuadrodirectivo.fechapresentaciondesde, 'dd/MM/yyyy')}">F. Presentacion Desde</td>
