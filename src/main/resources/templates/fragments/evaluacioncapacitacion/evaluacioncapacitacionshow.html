@@ -39,10 +39,10 @@
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitación</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Hora:</label>
+                            <label class="col-sm-5 control-label">FEcha y Hora:</label>
                             <div class="col-sm-7">
                                
-                                <p class="form-control-static" th:text= "${#calendars.format(evaluacioncapacitacion.horaevualuacioncapacitacion, ' HH:mm')}">Hora</p></div>
+                                <p class="form-control-static" th:text= "${#calendars.format(evaluacioncapacitacion.horaevualuacioncapacitacion, ' dd/MM/yyyy HH:mm')}">Hora</p></div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Dominio del Tema:</label>

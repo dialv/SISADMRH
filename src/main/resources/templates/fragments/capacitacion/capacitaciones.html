@@ -21,7 +21,7 @@
                     <thead>
             <tr>
                 <th>Código Capacitación</th>
-                <th> nombre de Capacitación</th>
+                <th> Nombre de Capacitación</th>
                 <th>Descripción  Capacitación</th>
                 <th>Categoría  Capacitación</th>
                 <th>Descripción Categoría de Capacitación</th>
@@ -35,7 +35,7 @@
                 <th>Fecha  de Inicio de Capacitación </th>
                 <th>Fecha  Fin  Capacitación </th>
                 <th>Tipo  de Capacitación</th>
-                <th>Estado de  Capacitación</th>
+                <!--<th>Estado de  Capacitación</th>-->
                 <th>Nombre del  Capacitador</th>
                 <th></th>
                 <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
@@ -58,7 +58,7 @@
                 <td th:text="${#calendars.format(capacitacion.fechacapacitaciondesde, 'dd/MM/yyyy')}">Fecha Desde</td>
                 <td th:text="${#calendars.format(capacitacion.fechacapacitacionhasta, 'dd/MM/yyyy')}">Fecha Desde</td>
                 <td th:text="${capacitacion.tipocapacitacion}">Tipo Capacitacion</td>
-                <td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>
+                <!--<td th:text="${capacitacion.estadocapacitacion}">Estado Capacitacion</td>-->
                 <td th:text="${capacitacion.codigocapacitador.nombrecapacitador}">Nombre Capacitador</td>
                 <!--<td><a th:onclick="'javascript:CrearLista(\'' + ${capacitacion.codigocapacitacion} + '\');'" type="submit" class="btn btn-warning">Crear Lista de Asistencia</a></td>-->
                 <td><a th:href="${'./show/' + capacitacion.codigocapacitacion}" class="btn btn-info">Mostrar</a> </td>

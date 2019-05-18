@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Nombre del Comité(*):</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" size="30" maxlength="30" required="true" placeholder="Escriba El nombre del Comite"  th:field="*{nombrecomite}"/>
+                                <input type="text" class="form-control" size="30" maxlength="30" required="true"  th:field="*{nombrecomite}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
@@ -49,7 +49,7 @@
                             <div class="col-sm-5">
                                 <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
                                      <option value=""> Selecione un encargado del comité</option>
-                                    <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
+                                    <option th:each="c:${empleados}"  th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                                 </select>
                                 <!--<input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
                             </div>
@@ -66,7 +66,7 @@
                             <div class="col-sm-7">
                                 <!--<input type="text" class="form-control"required="true" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" th:field="*{desripcioncomite}"/>-->
                             
-                            <textarea rows="2" cols="50" class="form-control" size="100" maxlength="100" placeholder="Escriba la Descripcion del comite" required="true" th:field="*{desripcioncomite}">
+                            <textarea rows="2" cols="50" class="form-control" size="100" maxlength="100" required="true" th:field="*{desripcioncomite}">
 
                             </textarea>
                                 </div>
@@ -79,7 +79,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Numero de Acuerdo Comité(*):</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{numeroacuerdocomite}"/>
+                                <input type="text" class="form-control numeros" required="true"   th:field="*{numeroacuerdocomite}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('acuerdo')" onmouseout ="javascript:ocultarAyuda('acuerdo')">a</a></b>
@@ -92,7 +92,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Miembros maximos del comité(*):</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control numeros" required="true" placeholder="Escriba solo Numeros Positivos"  th:field="*{miembromaximo}"/>
+                                <input type="text" class="form-control numeros" required="true"   th:field="*{miembromaximo}"/>
                             </div>
                              <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('miembros')" onmouseout ="javascript:ocultarAyuda('miembros')">a</a></b>
@@ -104,7 +104,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Fecha Inicio Comité(*):</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechadesdecomite}" id="fechadesdecomite" onchange="isDat(this.value,'fechadesdecomite');Fechas(this.value,$('#fechahastacomite').val().toString(),'fechadesdecomite','fechahastacomite')"/>
+                                <input type="text" class="form-control fecha_format" required="true" th:field="*{fechadesdecomite}" id="fechadesdecomite" onchange="isDat(this.value,'fechadesdecomite');Fechas(this.value,$('#fechahastacomite').val().toString(),'fechadesdecomite','fechahastacomite')"/>
                             </div>
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
@@ -113,9 +113,9 @@
                     </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Fecha Hasta comité(*):</label>
+                            <label class="col-sm-4 control-label">Fecha Fin comité(*):</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control fecha_format"  placeholder="DD/MM/YYYY" required="true" th:field="*{fechahastacomite}" id="fechahastacomite" onchange="isDat(this.value,'fechahastacomite');Fechas($('#fechadesdecomite').val().toString(),this.value,'fechadesdecomite','fechahastacomite')"/>
+                                <input type="text" class="form-control fecha_format" required="true" th:field="*{fechahastacomite}" id="fechahastacomite" onchange="isDat(this.value,'fechahastacomite');Fechas($('#fechadesdecomite').val().toString(),this.value,'fechadesdecomite','fechahastacomite')"/>
                             </div>
                                <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" onmouseout ="javascript:ocultarAyuda('fechahasta')">a</a></b>

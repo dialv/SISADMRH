@@ -26,7 +26,7 @@
                 <form class="form-horizontal" th:object="${diagnosticocapacitacion}" th:action="@{../diagnosticocapacitacion}" method="post">
            <input type="hidden" th:field="*{codigodiagnosticocapacitacion}"/>
                 <div class="form-group">
-                <label class="col-sm-5 control-label"> Nombre Capacitación:</label>
+                <label class="col-sm-5 control-label"> Nombre Capacitación(*):</label>
                 <div class="col-sm-6">
                     <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
                          <option value="0">-- Seleccione la Capacitación --</option>
@@ -41,7 +41,7 @@
                     </div>
             </div>
                <div class="form-group">  
-           <label class="col-sm-5 control-label">Nombre Dirección:</label>
+           <label class="col-sm-5 control-label">Nombre Dirección  de la Necesidad de la Capacitacion(*):</label>
                 <div class="col-sm-6">
                      <select class="form-control" th:field="*{direccion}" >
                           <option value="0">-- Seleccione una Dirección --</option>
@@ -75,7 +75,7 @@
 
                     
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">Que Mes es mas oportuno hacer las Capacitaciones:</label>
+                        <label class="col-sm-5 control-label">Que Mes es mas oportuno hacer las Capacitaciones(*):</label>
                         <div class="col-sm-4" >
                               <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
                             <ul>
@@ -139,7 +139,7 @@
                     </div>
                     </div>
           <div class="form-group">
-                        <label class="col-sm-5 control-label">Año de ejecución:</label>
+                        <label class="col-sm-5 control-label">Año de ejecución(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control numeros" size="4" maxlength="4" required="true" placeholder=""  th:field="*{anioejecucion}"/>
                         </div>
@@ -152,7 +152,7 @@
                     
                     
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">Personal que recibira Capacitación:</label>
+                        <label class="col-sm-5 control-label">Personal que recibira Capacitación(*):</label>
                         <div class="col-sm-6">
                             <!--<input type="text" class="form-control" size="100" maxlength="100" required="true" placeholder=""  th:field="*{personalrecibir}"/>-->
                             <textarea rows="3" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{personalrecibir}">
@@ -167,7 +167,7 @@
                     </div>
                     
                           <div class="form-group">
-                        <label class="col-sm-5 control-label">Resultado que desea Obtener en la Capacitación:</label>
+                        <label class="col-sm-5 control-label">Resultado que desea Obtener en la Capacitación(*):</label>
                         <div class="col-sm-6">
                             <!--<input type="text" class="form-control" size="500" maxlength="500" required="true" placeholder=""  th:field="*{resultadoobtener}"/>-->
                             <textarea rows="4" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{resultadoobtener}">
@@ -182,7 +182,7 @@
                     </div>
 
     <div class="form-group">
-                        <label class="col-sm-5 control-label">Nombre de quien Autoriza:</label>
+                        <label class="col-sm-5 control-label">Nombre de quien Autoriza(*):</label>
                         <div class="col-sm-6">
                            <textarea rows="4" cols="50" class="form-control" size="150" maxlength="150"  required="true" th:field="*{nombreautorizadiagnosticocapacitacion}">
 
@@ -198,7 +198,7 @@
                     
                     
                         <div class="form-group">
-                        <label class="col-sm-5 control-label">Cargo de quien Autoriza:</label>
+                        <label class="col-sm-5 control-label">Cargo de quien Autoriza(*):</label>
                         <div class="col-sm-6">
                           <textarea rows="4" cols="50" class="form-control" size="150" maxlength="150"  required="true" th:field="*{cargoautorizadiagnosticocapacitacion}">
 
