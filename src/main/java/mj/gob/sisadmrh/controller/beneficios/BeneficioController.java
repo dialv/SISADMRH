@@ -160,7 +160,7 @@ public class BeneficioController extends UtilsController{
     public String newEmpleadoBeneficio(Model model,@PathVariable Integer id) {
         model.addAttribute("beneficio", new Beneficio());
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
-        Iterable<Beneficio> beneficio = beneficioService.listAllBeneficios();
+        Iterable<Beneficio> beneficio = beneficioService.listAllActivos();
 //         
       model.addAttribute("beneficios", beneficio);
         return PREFIX + "beneficioempleadoform";
@@ -214,13 +214,14 @@ public class BeneficioController extends UtilsController{
          emben.setEmpleadobeneficioPK(embenpk);
          emben.setFechabeneficio(new Date());
          empleadoBeneficioService.saveEmpleadobeneficio(emben);
-         model.addAttribute("msg", 0);
+         model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
          model.addAttribute("msg", 1);
           Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
         }
-       return "redirect:/empleados/show/"+id;
+//       return "redirect:/empleados/show/"+id;
+       return PREFIX + "beneficioss1";
         
        // return "redirect:./show/" + beneficio.getCodigobeneficio();
     }

@@ -142,7 +142,7 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
-        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("puestos", puestos);
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
          model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
@@ -154,7 +154,7 @@ public class EmpleadoController extends UtilsController {
     public String newEmpleado(Model model) {
         model.addAttribute("empleado", new Empleado());
 
-        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
@@ -164,7 +164,7 @@ public class EmpleadoController extends UtilsController {
        @RequestMapping(value = "/municipio/{act}/{idemp}")
         public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem ) throws Exception {
         model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
-        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
@@ -175,7 +175,7 @@ public class EmpleadoController extends UtilsController {
         public String actecores(@PathVariable(value = "act") Integer act,@PathVariable(value = "act2") Integer act2,@PathVariable(value = "act3") Integer act3, Model model, @PathVariable(value = "idemp") Integer idem  ) throws Exception {
 //        model.addAttribute("municipiosres", estadoService.findBySuperior(act));
         model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
-        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);

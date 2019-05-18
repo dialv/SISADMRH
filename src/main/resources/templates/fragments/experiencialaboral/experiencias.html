@@ -81,6 +81,40 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
        
 </body>
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+//alert(document.getElementById("codem").value);
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../../empleados/show/'+ [[${empleado}]];
+    });
+    }
+if ([[${msg}]] === 2){
+
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../../../empleados/show/'+ [[${empleado}]];
+    });
+    }
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+            });
+    }
+    });</script> 
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

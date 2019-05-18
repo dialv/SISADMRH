@@ -77,7 +77,10 @@ public class HijodiscapacidadController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un hijo con discapacidad",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"hijodiscapacidads";
     }
 
     @RequestMapping("new/{id}")
@@ -101,14 +104,15 @@ public class HijodiscapacidadController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadohijodiscapacidadPK(emconpk);
         empleadoHijosdiscapacidadService.saveEmpleadohijodiscapacidad(emcon);
-            model.addAttribute("msg", 0);
+            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
         
 //        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
- return "redirect:/empleados/show/"+id;
+// return "redirect:/empleados/show/"+id;
+return PREFIX +"hijodiscapacidads";
     }
     
     @RequestMapping("show/{id}/{idemp}")    

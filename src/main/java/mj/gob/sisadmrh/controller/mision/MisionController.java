@@ -144,6 +144,7 @@ public class MisionController extends UtilsController {
     public String showMisionEmp(@PathVariable Integer id, Model model) {
 //        model.addAttribute("mision", misionService.getMisionById(id).get());
         model.addAttribute("misionemps", empleadoService.findByMisionesEmpleados(id));
+//         model.addAttribute("msg", 3);
         return PREFIX + "misionempshow";
     }
     
@@ -182,7 +183,8 @@ public class MisionController extends UtilsController {
             model.addAttribute("msg", 4);
 
         }
-         return "redirect:/misiones/list/mision";
+         return PREFIX + "misionempshow";
+//         return "redirect:/misiones/list/mision";
     }
     
     @RequestMapping("deletelistado/{id}")

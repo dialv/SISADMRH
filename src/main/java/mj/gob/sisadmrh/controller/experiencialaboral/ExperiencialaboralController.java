@@ -59,7 +59,10 @@ public class ExperiencialaboralController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico una Experiencia laboral",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"experiencias";
     }
 
     @RequestMapping("new/{id}")
@@ -84,13 +87,15 @@ public class ExperiencialaboralController extends UtilsController{
             emcon.setEmpleadoexperiencialaboralPK(emconpk);
             empleadoExperiencialaboralService.saveEmpleadoexperiencialaboral(emcon);
             model.addAttribute("msg", 0);
+            model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
        
 //        return "redirect:./show/" + experiencialaboral.getCodigoexperiencialaboral();
-  return "redirect:/empleados/show/"+id;
+//  return "redirect:/empleados/show/"+id;
+   return PREFIX +"experiencias";
     }
     
     @RequestMapping("show/{id}/{idemp}")      

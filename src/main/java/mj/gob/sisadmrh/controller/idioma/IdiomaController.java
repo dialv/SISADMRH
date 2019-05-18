@@ -85,7 +85,10 @@ public class IdiomaController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un idioma",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"idiomas";
     }
     
     @RequestMapping("new/{id}") 
@@ -114,7 +117,7 @@ public class IdiomaController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoidiomaPK(emconpk);
         empleadoIdiomaService.saveEmpleadoidioma(emcon);
-            model.addAttribute("msg", 0);
+            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
@@ -124,7 +127,8 @@ public class IdiomaController extends UtilsController{
 //        emp.setCodigoempleado(idioma.getCodigoidioma());
 //        empleadoidiomaPK.saveEmpleadoIdioma(emp);
 //        return "redirect:./show/" + idioma.getCodigoidioma();
-    return "redirect:/empleados/show/"+id;
+//    return "redirect:/empleados/show/"+id;
+ return PREFIX + "idiomas";
     }
     
    @RequestMapping("show/{id}/{idemp}")    

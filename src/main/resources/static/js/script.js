@@ -29,6 +29,7 @@ function ValidarFecha(fechainicio,fechafin,idinicial,idfinal){
             //        alert("La Fecha de inicio no puede ser mayor que Fecha Final");
                     msj="La Fecha de inicio no debe ser mayor a la Fecha Final";
                     messages=msj+","+msj1+","+msj2;
+//                    document.getElementById(idinicial).focus();
             //         document.getElementById(idinicial).value=" ";
 //                     document.getElementById(idfinal).value=" ";
                     return messages; 

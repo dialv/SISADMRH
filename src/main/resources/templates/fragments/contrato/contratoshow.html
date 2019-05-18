@@ -130,9 +130,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Plaza Nominal:</label>
+                            <label class="col-sm-7 control-label">Cambio de Plaza:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${contrato.plazanominal}">Email Empleado</p>
+                                  <span th:if="${contrato.plazanominal} == 1"  th:text="Si"  ></span>
+                    <span th:if="${contrato.plazanominal} == NULL"  th:text="No"></span>
+                                <!--<p class="form-control-static" th:text="${contrato.plazanominal}" >Email Empleado</p>-->
                             </div>
                         </div>
                     </div> 

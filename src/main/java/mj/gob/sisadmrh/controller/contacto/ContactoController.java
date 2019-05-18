@@ -58,7 +58,10 @@ public class ContactoController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contacto",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+         model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+//        return "redirect:/empleados/show/"+id;
+        return PREFIX + "contactos";
     }
 
     @RequestMapping("new/{id}") 
@@ -85,6 +88,7 @@ public class ContactoController extends UtilsController{
         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
+         model.addAttribute("empleado",id);
          }
         catch(Exception e){
          model.addAttribute("msg", 1);
@@ -100,8 +104,8 @@ public class ContactoController extends UtilsController{
                      System.out.println("}");
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-        return "redirect:/empleados/show/"+id;
-//         return PREFIX + "contactoform";
+//        return "redirect:/empleados/show/"+id;
+         return PREFIX + "contactos";
     }
     
     @RequestMapping("show/{id}/{idemp}")    
