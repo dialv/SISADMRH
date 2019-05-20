@@ -33,7 +33,7 @@
                             <td th:text="${diagnosticocapacitacion.direccion}">Direccion</td>
                             <td th:text="${diagnosticocapacitacion.necesidadcapacitacion}">Nesecidad</td>
                             <td><a th:href="${'./show/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-info">Mostrar</a></td>
-                            <td sec:authorize="hasRole('ROLE_OPERATIVO')">  <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-primary">Editar</a></td>
+                            <td sec:authorize="hasRole('ROLE_OPERATIVO')">  <a th:href="${'./edit/' + diagnosticocapacitacion.codigodiagnosticocapacitacion}" class="btn btn-success">Editar</a></td>
                             <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${diagnosticocapacitacion.codigodiagnosticocapacitacion} + '\');'" >Eliminar</a></td>
                         </tr>
                     </table>

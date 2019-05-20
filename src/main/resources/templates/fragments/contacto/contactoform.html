@@ -291,14 +291,14 @@
 
     $(document).ready(function () {
     if ([[${msg}]] === 0){
-
+alert(document.getElementById("codem").value);
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../empleados/show/'+ document.getElementById("codem").value;
+    location.href = '../../empleados/show/'+ document.getElementById("codem").value;
     });
     }
 

@@ -101,7 +101,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="form-group">
                 <label class="col-sm-3 control-label">Sueldo Base(*):</label>
                 <div class="col-sm-2">
-                    <input type="number" step="0.01" class="form-control" th:field="*{sueldobase}"/>
+                    <input type="text"  class="form-control num_decimal3 numeros" th:field="*{sueldobase}"/>
                 </div>
                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
@@ -174,7 +174,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Fecha de Contratación Desde(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacontrataciondesde}" name="fechacontrataciondesde" id="fechacontrataciondesde"  onchange="isDat(this.value,'fechacontrataciondesde');Fechas(this.value,$('#fechacontratacionhasta').val().toString(),'fechacontrataciondesde','fechacontratacionhasta')"/>
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacontrataciondesde}" name="fechacontrataciondesde" id="fechacontrataciondesde"  onchange="isDat(this.value,'fechacontrataciondesde');Fechas(this.value,$('#fechacontratacionhasta').val().toString(),'fechacontrataciondesde','fechacontratacionhasta');Fechas($('#fechacreacion').val().toString(),this.value,'fechacreacion','fechacontrataciondesde')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup41')" onmouseout ="javascript:ocultarAyuda('poppup41')">a</a></b>
@@ -204,7 +204,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Fecha de Creación(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacreacion}" name="fechacreacion" id="fechacreacion" onchange="isDat(this.value,'fechacreacion')"/>
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechacreacion}" name="fechacreacion" id="fechacreacion"  onchange="isDat(this.value,'fechacreacion');Fechas(this.value,$('#fechabaja').val().toString(),'fechacreacion','fechabaja');Fechas(this.value,$('#fechacontrataciondesde').val().toString(),'fechacreacion','fechacontrataciondesde');Fechas(this.value,$('#fechamodificacion').val().toString(),'fechacreacion','fechamodificacion')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup43')" onmouseout ="javascript:ocultarAyuda('poppup43')">a</a></b>
@@ -216,7 +216,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Fecha de Baja(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechabaja}" name="fechabaja" id="fechabaja" onchange="isDat(this.value,'fechabaja')"/>
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechabaja}" name="fechabaja" id="fechabaja"  onchange="isDat(this.value,'fechabaja');Fechas($('#fechacreacion').val().toString(),this.value,'fechacreacion','fechabaja')"/>
                 </div>
                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup44')" onmouseout ="javascript:ocultarAyuda('poppup44')">a</a></b>
@@ -228,7 +228,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Fecha de Modificación(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechamodificacion}" name="fechamodificacion" id="fechamodificacion" onchange="isDat(this.value,'fechamodificacion')"/>
+                     <input class="form-control fecha_format " placeholder="dia/mes/año" type="text" th:field="*{fechamodificacion}" name="fechamodificacion" id="fechamodificacion" onchange="isDat(this.value,'fechamodificacion');Fechas($('#fechacreacion').val().toString(),this.value,'fechacreacion','fechamodificacion')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup45')" onmouseout ="javascript:ocultarAyuda('poppup45')">a</a></b>

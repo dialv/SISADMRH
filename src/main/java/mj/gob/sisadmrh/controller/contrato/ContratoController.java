@@ -94,7 +94,10 @@ public class ContratoController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contrato",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"contratos";
     }
 
     @RequestMapping("new/{id}")
@@ -139,6 +142,7 @@ public class ContratoController extends UtilsController{
         bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());
             model.addAttribute("msg", 0);
+            model.addAttribute("empleado",id);
         }
         
        
@@ -157,9 +161,9 @@ public class ContratoController extends UtilsController{
                      System.out.println("}");
                   model.addAttribute("msg", 1);
               }
-        
+        return PREFIX +"contratos";
 //        return "redirect:./show/" + contrato.getCodigocontrato();
- return "redirect:/empleados/show/"+id;
+// return "redirect:/empleados/show/"+id;
     }
     
       @RequestMapping(value = "descarga/{id}")

@@ -77,7 +77,10 @@ public class CaparecibidasController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico una capacitacion recibida",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"caprecibidas";
     }
     @RequestMapping("new/{id}")
     public String newCaparecibidas(Model model,@PathVariable Integer id) {
@@ -102,6 +105,7 @@ public class CaparecibidasController extends UtilsController{
         emcon.setEmpleadocaparecibidasPK(emconpk);
         empleadoCaparecibidasService.saveEmpleadocaprecibidas(emcon);
             model.addAttribute("msg", 0);
+              model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
@@ -109,7 +113,8 @@ public class CaparecibidasController extends UtilsController{
 //        return PREFIX+"caprecibidasform";
         
 //        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+return PREFIX +"caprecibidas";
     }
     
     @RequestMapping("show/{id}/{idemp}")    

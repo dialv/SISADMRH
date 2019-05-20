@@ -85,7 +85,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <br>
                     <label class="col-sm-3 control-label">Salario Actual(*):</label>
                     <div class="col-sm-2">
-                        <input type="text"  class="form-control num_decimal"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
+                        <input type="text"  class="form-control num_decimal3 numeros"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
@@ -180,7 +180,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
                             <ul>
                               
-                                    <input id="features1" name="cambioplaza" type="checkbox" value="1" />
+                                    <input id="features1" name="cambioplaza" type="checkbox"  th:field="*{plazanominal}" value="1" />
                                     <input name="_features" type="hidden" value="on" />
                                     <label for="features1"></label>
                                     

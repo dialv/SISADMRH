@@ -138,7 +138,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Fecha de Nacimiento del Hijo con discapacidad:</label>
                     <div class="col-sm-2">
-                          <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value,'fechasepr')"/>
+                          <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value,'fechasepr');fechaNac(this.value,'fechasepr')"/>
                     </div>
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
