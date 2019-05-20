@@ -36,7 +36,7 @@ public class ComiteController extends UtilsController {
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("comite", comiteService.getComiteById(id));
-        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+        Iterable<Empleado> empleados = empleadoService.listAllActivos();
         model.addAttribute("empleados", empleados);
         return PREFIX + "comiteform";
     }
@@ -51,7 +51,7 @@ public class ComiteController extends UtilsController {
     @RequestMapping("new/comite")
     public String newComite(Model model) {
         model.addAttribute("comite", new Comite());
-        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+        Iterable<Empleado> empleados = empleadoService.listAllActivos();
         model.addAttribute("empleados", empleados);
         return PREFIX + "comiteform";
     }
