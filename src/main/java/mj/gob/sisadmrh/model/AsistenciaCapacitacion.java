@@ -6,14 +6,20 @@
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,10 +33,13 @@ import javax.validation.constraints.Size;
 public class AsistenciaCapacitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "codigocapacitacion")
-    private int codigocapacitacion;
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "codigocapacitacion")
+//    private int codigocapacitacion;
+     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+   private Capacitacion codigocapacitacion;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -57,11 +66,14 @@ public class AsistenciaCapacitacion implements Serializable {
     @Size(max = 50)
     @Column(name = "puesto")
     private String puesto;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "codigoempleado")
-    private int codigoempleado;
-
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "codigoempleado")
+//    private int codigoempleado;
+    @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Empleado codigoempleado;
+    
     public AsistenciaCapacitacion() {
     }
 
@@ -69,7 +81,7 @@ public class AsistenciaCapacitacion implements Serializable {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
 
-    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion, int codigocapacitacion, int horasrecibidas, int estadoasistencia, int codigoempleado) {
+    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion, Capacitacion codigocapacitacion, int horasrecibidas, int estadoasistencia, Empleado codigoempleado) {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
         this.codigocapacitacion = codigocapacitacion;
         this.horasrecibidas = horasrecibidas;
@@ -77,11 +89,11 @@ public class AsistenciaCapacitacion implements Serializable {
         this.codigoempleado = codigoempleado;
     }
 
-    public int getCodigocapacitacion() {
+    public Capacitacion getCodigocapacitacion() {
         return codigocapacitacion;
     }
 
-    public void setCodigocapacitacion(int codigocapacitacion) {
+    public void setCodigocapacitacion(Capacitacion codigocapacitacion) {
         this.codigocapacitacion = codigocapacitacion;
     }
 
@@ -141,11 +153,11 @@ public class AsistenciaCapacitacion implements Serializable {
         this.puesto = puesto;
     }
 
-    public int getCodigoempleado() {
+    public Empleado getCodigoempleado() {
         return codigoempleado;
     }
 
-    public void setCodigoempleado(int codigoempleado) {
+    public void setCodigoempleado(Empleado codigoempleado) {
         this.codigoempleado = codigoempleado;
     }
 
