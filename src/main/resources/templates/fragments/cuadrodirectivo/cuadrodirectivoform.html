@@ -1,174 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
     <title>Crear Cuadro Directivo</title>
-  <th:block th:include="../templates/header"></th:block>
- 
-  </head>
-<body>
-    <script> Textheader('pnt_crcd',document.title);</script>
-<!--       <div class="contenedorizq"><label  >pnt_crcd</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-     <div class="row">
-        <div class="col-md-3">
-         <th:block th:include="../templates/menu"></th:block>
-    </div> 
-        <div class="col-md-8">
+    <th:block th:include="../templates/header"></th:block>
+    <body>
+        <script> Textheader('pnt_crcd', document.title);</script>
+        <div class="row">
+            <div class="col-md-3">
+                <th:block th:include="../templates/menu"></th:block>
+            </div> 
+            <div class="col-md-8">
                 <br><br>
-          <div class="row text-center">
-                        <img src="../../static/image/cuadro.png" width="75" th:src="@{/image/cuadro.png}"/>
-            <!--<h3 align="center">Crear Cuadro Directivos</h3>-->
-    <div>
-        <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
- <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
-
- <div class="form-group">
-                <label class="col-sm-2 control-label">Responsable Directo:(*):</label>
-                <div class="col-sm-5">
-                     <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
-                          <option value="0">-- Seleccione Un Responsable Directo --</option>
-                                <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
-                            </select>
-                   <!--<input type="text" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
-                </div>
-                <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('cuadrodirectivo')" onmouseout ="javascript:ocultarAyuda('cuadrodirectivo')">a</a></b>
-
-                                <span class="popuptext" id="cuadrodirectivo">Seleccione el encargado del Cuadro Directivo.!</span>
+                <div class="row text-center">
+                    <img src="../../static/image/cuadro.png" width="75" th:src="@{/image/cuadro.png}"/>
+                    <div>
+                        <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
+                            <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Responsable Directo:(*):</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
+                                        <option value="0">-- Seleccione Un Responsable Directo --</option>
+                                        <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
+                                    </select>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('cuadrodirectivo')" onmouseout ="javascript:ocultarAyuda('cuadrodirectivo')">a</a></b>
+                                    <span class="popuptext" id="cuadrodirectivo">Seleccione el encargado del Cuadro Directivo.!</span>
+                                </div>
                             </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Area a que Pertenece:(*)</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
-                </div>
-                <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('areaa')" onmouseout ="javascript:ocultarAyuda('areaa')">a</a></b>
-
-                                <span class="popuptext" id="areaa">Ingrese el area a la que pertenece el Empleado. Solo se permiten 30 caracteres!</span>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">&Aacute;rea a que Pertenece:(*)</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('areaa')" onmouseout ="javascript:ocultarAyuda('areaa')">a</a></b>
+                                    <span class="popuptext" id="areaa">Ingrese el area a la que pertenece el Empleado. Solo se permiten 30 caracteres!</span>
+                                </div>
                             </div>
-            </div>
-          
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Descripción del Motivo:(*)</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
-                </div>
-                <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descc')" onmouseout ="javascript:ocultarAyuda('descc')">a</a></b>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Descripción del Motivo:(*)</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descc')" onmouseout ="javascript:ocultarAyuda('descc')">a</a></b>
 
-                                <span class="popuptext" id="descc">Ingrese una Descripcion del cuadro Directivo. Solo se permiten 100 caracteres!</span>
+                                    <span class="popuptext" id="descc">Ingrese una Descripcion del cuadro Directivo. Solo se permiten 100 caracteres!</span>
+                                </div>
                             </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha Presentación Desde:(*)</label>
-                <div class="col-sm-2">
-                    <input type="text" required="true"  class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
-                </div>
-                              <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaprsentaciondesde')" onmouseout ="javascript:ocultarAyuda('fechaprsentaciondesde')">a</a></b>
-
-                                <span class="popuptext" id="fechaprsentaciondesde">Ingrese la fecha de presentacion Desde!</span>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Fecha de Presentación Inicial:(*)</label>
+                                <div class="col-sm-2">
+                                    <input type="text" required="true"  class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value, 'fdesde'); Fechas(this.value, $('#fhasta').val().toString(), 'fdesde', 'fhasta')"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaprsentaciondesde')" onmouseout ="javascript:ocultarAyuda('fechaprsentaciondesde')">a</a></b>
+                                    <span class="popuptext" id="fechaprsentaciondesde">Ingrese la fecha de presentacion inicial</span>
+                                </div>
                             </div>
-            </div>
-   <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha Presentación Hasta(*)</label>
-                <div class="col-sm-2">
-                    <input type="text" required="true" class="form-control fecha_format" id="fhasta" th:field="*{fechapresentacionhasta}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
-                </div>
-                              <div class="popup col-sm-1"><b>
-                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechapresentacionhasta')" onmouseout ="javascript:ocultarAyuda('fechapresentacionhasta')">a</a></b>
-
-                                <span class="popuptext" id="fechapresentacionhasta">Ingrese la fecha de presentacion hasta!</span>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Fecha de Presentación Final(*)</label>
+                                <div class="col-sm-2">
+                                    <input type="text" required="true" class="form-control fecha_format" id="fhasta" th:field="*{fechapresentacionhasta}"onchange="isDat(this.value, 'fhasta'); Fechas($('#fdesde').val().toString(), this.value, 'fdesde', 'fhasta')"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechapresentacionhasta')" onmouseout ="javascript:ocultarAyuda('fechapresentacionhasta')">a</a></b>
+                                    <span class="popuptext" id="fechapresentacionhasta">Ingrese la fecha de presentacion final</span>
+                                </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="row" align="center">
+                                    <a href="#" th:href="@{/cuadrodirectivos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
+                                    <button id="guardar" type="submit"  onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                    <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
- 
- 
-            
-                      
-<div class="col-md-12">
-            <div class="row" align="center">
-                <a href="#" th:href="@{/cuadrodirectivos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                <button id="guardar" type="submit"  onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                 <!--<button id="guardar2" type="button" onclick="edit_fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>probar</button>-->
-                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+            <div class="col-md-12">
+                <th:block th:include="../templates/footer"></th:block>
             </div>
-    </div>
-        </form>
-    </div>
-            
-        </div>
-          
-    </div>
-                <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
-        </div>
-<!--<div class="container">-->
-    
-<!--</div>-->
-
-</body>
-<!--<script>
-    fecha_format();
-    </script>-->
-<script th:inline="javascript">
-   
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
+    </body>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+        if ([[${msg}]] === 0){
+        swal({
+        title: "Exito!",
                 text: "Registro agregado correctamente",
                 type: "success",
                 icon: "success"
-       }).then(function() {
-//                location.href = '../cuadrodirectivos/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
+        }).then(function() {
+        });
+        }
+        if ([[${msg}]] === 1){
         swal({
-                title: "ERROR!",
+        title: "ERROR!",
                 text: "Ocurrio un error en el proceso",
                 type: "error",
                 icon: "error"
-       });
-    }
-    });
-</script> 
-<script>
-//    edit_fecha_format(); 
-//    format_fechaedit("20/19/0404");
-    function Fechas(val1,val2,val3,val4){
-                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-                    
-                    function isDat(val,id){
-                        var foo=ExisteFecha(val,id).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-    $(document).ready(function () {
-          
-        $('#fdesde').datepicker({
-           dateFormat: 'dd/mm/yy'
         });
-         $('#fhasta').datepicker({
-           dateFormat: 'dd/mm/yy'
+        }
         });
+    </script> 
+    <script>
+        function Fechas(val1, val2, val3, val4){
+        var foo = ValidarFecha(val1, val2, val3, val4).split(","); ;
+        if (foo[0] != foo[2]){
+        swal(foo[1], foo[0]);
+        }
+        }
+        function isDat(val, id){
+        var foo = ExisteFecha(val, id).split(","); ;
+        if (foo[0] != foo[2]){
+        swal(foo[1], foo[0]);
+        }
+        }
+        $(document).ready(function () {
 
-        
-        
-    });
-</script>
-  
+        $('#fdesde').datepicker({
+        dateFormat: 'dd/mm/yy'
+        });
+        $('#fhasta').datepicker({
+        dateFormat: 'dd/mm/yy'
+        });
+        });
+    </script>
 </html>
