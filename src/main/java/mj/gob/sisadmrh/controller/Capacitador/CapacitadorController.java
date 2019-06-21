@@ -56,7 +56,7 @@ public class CapacitadorController extends UtilsController{
     private final String PREFIX="fragments/capacitador/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-    model.addAttribute("capacitadores", capacitadorService.listAllActivos());
+    model.addAttribute("capacitadores", capacitadorService.listAllCapacitador());
     return PREFIX + "capacitadores";
     }
     @RequestMapping("edit/{id}")
