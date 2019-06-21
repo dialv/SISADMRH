@@ -1,6 +1,7 @@
 package mj.gob.sisadmrh.controller.archivos;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Date;
@@ -85,7 +86,7 @@ public class ArchivosController extends UtilsController{
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
                     });
                 model.addAttribute("msg", 2);
-            } catch (Exception e) {
+            } catch (IOException | NumberFormatException | ParseException e) {
                 model.addAttribute("msg", 3);
             } finally {
                 if (br != null) {

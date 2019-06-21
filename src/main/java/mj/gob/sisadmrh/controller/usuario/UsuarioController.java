@@ -130,15 +130,40 @@ public class UsuarioController extends UtilsController{
         return PREFIX + "usuarios";
     }
     private String generaUser(String nombre, String apellido, String vez){
-            String username = (vez.equals("0"))
-                            ?
-                    ((nombre.charAt(0)+apellido.split(" ")[0]).length()>16)?
-                    (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,16).toLowerCase():
+        String username = (vez.equals("0")) ?
+            ((nombre.charAt(0)+apellido.split(" ")[0]).length()>16) ?
+                (nombre.charAt(0)+apellido.split(" ")[0]).substring(0,16).toLowerCase() :
+                ((nombre.charAt(0)+apellido.split(" ")[0]).length()<8)?
+                    aleatory((nombre.charAt(0)+apellido.split(" ")[0]).toLowerCase()) :
                     (nombre.charAt(0)+apellido.split(" ")[0]).toLowerCase()
-                            :  
-                    vez.length()>13     ?
+                :  
+                vez.length()>13     ?
                     (vez.substring(0,13)+((int) (Math.random() * 999) + 1)).toLowerCase():
                     (vez+((int) (Math.random() * 999) + 1)).toLowerCase();
             return (usuarioService.findbyUser(username)!=null)?generaUser(nombre, apellido, username): username.toLowerCase();            
+    }
+    
+    private String aleatory (String user){
+        switch(user.length()){
+            case 2:
+                user+=((int) (Math.random() * 999999) + 1);
+                break;
+            case 3:
+                user+=((int) (Math.random() * 99999) + 1);
+                break;
+            case 4:
+                user+=((int) (Math.random() * 9999) + 1);
+                break;
+            case 5:
+                user+=((int) (Math.random() * 999) + 1);
+                break;
+            case 6:
+                user+=((int) (Math.random() * 99) + 1);
+                break;
+            case 7:
+                user+=((int) (Math.random() * 9) + 1);
+                break;
+        }
+    return user;
     }
 }
