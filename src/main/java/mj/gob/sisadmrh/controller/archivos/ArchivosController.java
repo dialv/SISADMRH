@@ -81,11 +81,17 @@ public class ArchivosController extends UtilsController{
                     i++;
                 }
                 listDocumentos.forEach((emp) -> {
+                    try{
                     empleadoService.saveEmpleado(emp);
-                      bitacoraService.BitacoraRegistry("se guardo un archivo",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+                    bitacoraService.BitacoraRegistry("se guardo un archivo",getRequest().getRemoteAddr(), 
+                        getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+                    model.addAttribute("msg", 2);
+                    }
+                    catch(Exception e){
+                    model.addAttribute("msg", 4);
+                    }
                     });
-                model.addAttribute("msg", 2);
+                
             } catch (IOException | NumberFormatException | ParseException e) {
                 model.addAttribute("msg", 3);
             } finally {
