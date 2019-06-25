@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Crear Usuario</title>
+        <title>Editar Usuario</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Usuario:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
+                            <input type="text" readonly class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
