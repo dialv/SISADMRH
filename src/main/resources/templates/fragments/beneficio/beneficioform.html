@@ -58,7 +58,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  </div>
                   
 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de inicio(*):</label>
+                <label class="col-sm-2 control-label">Fecha de Inicio(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control fecha_format" name="fdesde" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
