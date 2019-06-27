@@ -16,7 +16,7 @@
                         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
                             <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Responsable Directo:(*):</label>
+                                <label class="col-sm-2 control-label">Responsable Directo(*):</label>
                                 <div class="col-sm-5">
                                     <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
                                         <option value="0">-- Seleccione Un Responsable Directo --</option>
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">&Aacute;rea a que Pertenece:(*)</label>
+                                <label class="col-sm-2 control-label">&Aacute;rea a que Pertenece(*):</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>
                                 </div>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Descripción del Motivo:(*)</label>
+                                <label class="col-sm-2 control-label">Descripción del Motivo(*):</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" required="true" size="100"maxlength="100" th:field="*{desripcioncuadrodirectivo}"/>
                                 </div>
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Fecha de Presentación Inicial:(*)</label>
+                                <label class="col-sm-2 control-label">Fecha de Presentación Inicial(*):</label>
                                 <div class="col-sm-2">
                                     <input type="text" required="true"  class="form-control fecha_format" id="fdesde" th:field="*{fechapresentaciondesde}"onchange="isDat(this.value, 'fdesde'); Fechas(this.value, $('#fhasta').val().toString(), 'fdesde', 'fhasta')"/>
                                 </div>
