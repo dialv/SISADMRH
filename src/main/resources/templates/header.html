@@ -1,54 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
     <head lang="en">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
         <link href="../static/css/Style1.css" th:href="@{/css/Style1.css}" rel="stylesheet" media="screen"/>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
         <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
-<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-         <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-        <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-         <script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
-        <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+        <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery-ui.js}"></script>
         <script type="text/javascript" th:src="@{/js/SweetAlert.min.js}"></script>
-        <!--SweetAlert.min-->
-        <!--<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>-->
         <script type="text/javascript" th:src="@{/js/jquery.dataTables.min.js}"></script>
-        <!--<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>-->
-         <script type="text/javascript" th:src="@{/js/dataTables.bootstrap4.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/dataTables.bootstrap4.min.js}"></script>
         <script type="text/javascript" th:src="@{/js/jquery.mask.min.js}"></script>
         <script type="text/javascript" th:src="@{/js/validacion_controladores.js}"></script>
         <script type="text/javascript" th:src="@{/js/validacion_controladores2.js}"></script>
-        <script type="text/javascript"  th:src="@{/js/script.js}"></script>
-        <!--<script type="text/javascript" th:src="@{/js/jquery-ui.min.js}"></script>-->
+        <script type="text/javascript" th:src="@{/js/script.js}"></script>
         <script type="text/javascript" th:src="@{/js/validacion_todores3.js}"></script>
         <script type="text/javascript" th:src="@{/js/helpJs.js}"></script>
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
-        <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-         <link href="../static/css/jquery-ui.css" th:href="@{/css/jquery-ui.css}" rel="stylesheet" media="screen"/>
-        <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">-->
-         <link href="../static/css/dataTables.bootstrap4.min.css" th:href="@{/css/dataTables.bootstrap4.min.css}" rel="stylesheet" media="screen"/>
-        <link rel="shortcut icon" type="../../static/image/favicon.png"   th:href="@{/image/favicon.png}"/>
-		
-    </head>
-    
-    <body>
-        <!--<div class="container">-->
-        <div th:fragment="header">
-            <div class="row fondoloco">
-                <div  class="col-md-3">
-                    <div class="row text-center">
-                        <img src="../../static/image/gob.png"  th:src="@{/image/gob.png}"/>
-                    </div>
+        <link href="../static/css/jquery-ui.css" th:href="@{/css/jquery-ui.css}" rel="stylesheet" media="screen"/>
+<link href="../static/css/dataTables.bootstrap4.min.css" th:href="@{/css/dataTables.bootstrap4.min.css}" rel="stylesheet" media="screen"/>
+<link rel="shortcut icon" type="../../static/image/favicon.png"   th:href="@{/image/favicon.png}"/>
+</head>
+<body>
+    <div th:fragment="header">
+        <div class="row fondoloco">
+            <div  class="col-md-3">
+                <div class="row text-center">
+                    <img src="../../static/image/gob.png"  th:src="@{/image/gob.png}"/>
                 </div>
-                <div class="col-md-6">
-                    <div class="row text-center">
-                        <h2 class="hmod">Ministerio de Justicia y Seguridad Pública
+            </div>
+            <div class="col-md-6">
+                <div class="row text-center">
+                    <h2 class="hmod">Ministerio de Justicia y Seguridad Pública
                         <br>Dirección de Recursos Humanos
                         <br>SISADMRH</h2>
-                        <!--class="hmod"-->
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -56,81 +40,37 @@
                         <img src="../../static/image/mjsp.jpg"  th:src="@{/image/mjsp.jpg}"/>
                     </div>
                 </div>
-<!--                <div class="col-lg-11">
-                    <div class="col-md-9">
-                    </div>
-                    <div class="col-md-1">
-                        <img src="../../static/image/user.png" class="imauser" th:src="@{/image/user.png}"/>
-                    </div>
-                    <div class="celdauser col-md-1">
-                     USUARIO:<b th:if="${#request.userPrincipal != null}" th:utext="${#request.userPrincipal.getName()}" ></b>
-                    </div>
-                    
-                </div>-->
-
-<!--                <div class="celdauser1 col-lg-12">
-                <div class="col-md-8">
-               </div>
-                    <div class="col-md-2">
-                    </div>
-                <div class="col-md-2">
-                          <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Cerrar Session</a>
-                  
-               </div>
-                   
-                </div>-->
-
-
-
             </div>
             <div class="row fondoloco">
-                 <div class="form-group">
-                        <div class="col-md-2">
-                             
-                        </div> 
-                      <div class="col-md-6">
-
-
-                        </div>
-                      <div class="col-md-2">
-
-
-                        </div>
-                      <div class="col-md-2">
-
-                         <label  class="der" >Fecha:
-                              <script >
-                          var f = new Date();
-                          document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-                          </script></label>
-                        </div>
-                     </div>
+                <div class="form-group">
+                    <div class="col-md-2">
+                    </div> 
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-2">
+                        <label  class="der" >Fecha:
+                            <script >
+                                var f = new Date();
+                                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+                            </script></label>
+                    </div>
+                </div>
                 <div class="form-group ">
-                        <div class="col-md-4">
-                               <label  id="nombrepantalla"></label> 
-                        </div> 
-                      <div class="col-md-4 conteinertitulopantalla" align="center">
-                            <!--<label class="hmod" id="titulopantalla" ></label>--> 
-                            <h2 class="hmod" id="titulopantalla" align="center"></h2>
-                            <!--<h3 id="titulopantalla" align="center"></h3>-->
-                        </div>
-<!--                      <div class="col-md-2" align="right">
-                          
-                        </div>-->
-                      <div class="col-md-4" align="right">  
-                          <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-user"></span><b th:if="${#request.userPrincipal != null}"  th:utext="${#request.userPrincipal.getName()}" ></b>
-                            </button>
-                            <!--<img src="../../static/image/close.png" class="" th:src="@{/image/close .png}"/>-->
-                            <a th:if="${#request.userPrincipal != null}" class="btn btn-danger" th:href="@{/logout}">Cerrar Session</a>                        
-                        </div>
-                     </div>
-                 
+                    <div class="col-md-4">
+                        <label  id="nombrepantalla"></label> 
+                    </div> 
+                    <div class="col-md-4 conteinertitulopantalla" align="center">
+                        <h2 class="hmod" id="titulopantalla" align="center"></h2>
+                    </div>
+                    <div class="col-md-4" align="right">  
+                        <button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-user"></span><b th:if="${#request.userPrincipal != null}"  th:utext="${#request.userPrincipal.getName()}" ></b>
+                        </button>
+                        <a th:if="${#request.userPrincipal != null}" class="btn btn-danger" th:href="@{/logout}">Cerrar Session</a>                        
+                    </div>
+                </div>
             </div>
-            
-                
-
         </div>
     </body>
-           
-    
 </html>
