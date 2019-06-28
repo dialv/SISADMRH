@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Listado de Bitacora</title>
+    <title>Detalle de bitacora</title>
      <th:block th:include="../templates/header"></th:block>
  
 
@@ -28,13 +28,13 @@
                         <p class="form-control-static" th:text="${bitacora.codigobitacora}">codigo bitacora</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre Evento:</label>
+                    <label class="col-sm-2 control-label">Nombre evento:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${bitacora.nombreeventobitacora}">evento</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha del Evento:</label>
+                    <label class="col-sm-2 control-label">Fecha del evento:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${#calendars.format(bitacora.fechabitacora, 'dd/MM/yyyy')}">Fecha del Evento</p>
                     </div>

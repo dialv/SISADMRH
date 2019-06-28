@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH-Reporte de Capacitaciones</title>
+        <title>Reporte de capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -20,21 +20,21 @@
                 <form class="form-horizontal" id="formcapacitacion" th:object="${capacitaciones}">
 
                    <div class="form-group">
-                        <label class="col-sm-3 control-label" >Nombre Capacitacion:</label>
+                        <label class="col-sm-3 control-label" >Nombre capacitacion:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="codigo" name="codigo">
-                            <option value="0">-- Seleccione la Capacitacion --</option>
+                            <option value="0">-- Seleccione la capacitacion --</option>
                             <option th:each="d:${capacitaciones}" th:value="${d.codigocapacitacion}" th:text="${d.nombrecapacitacion}"></option>
                             </select>
                             <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
                         </div>
                     </div>
                      <div class="form-group">    
-                        <label class="col-sm-3 control-label">Fecha Inicial:</label>
+                        <label class="col-sm-3 control-label">Fecha inicial:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechainicial" name="fechainicial"/>
                         </div>
-                        <label class="col-sm-2 control-label">Fecha Final:</label>
+                        <label class="col-sm-2 control-label">Fecha final:</label>
                         <div class="col-sm-3">
                             <input type="text" class="form-control" id="fechafinal" name="fechafinal"/>
                         </div>

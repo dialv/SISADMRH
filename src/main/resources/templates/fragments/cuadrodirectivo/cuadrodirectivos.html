@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Listado de Cuadro Directivo</title>
+        <title>Listado de  cuadros directivos</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -17,12 +17,12 @@
                 <table id="tablita" class="table table-striped">
                     <thead> 
                         <tr>
-                            <th>Código Cuadro Directivo</th>
+                            <th>Código cuadro directivo</th>
                             <th>Responsable directo</th>
-                            <th>Area a que Pertenece</th>
-                            <th>Descripción del Motivo</th>
-                            <th>Fecha Presentación Desde</th>
-                            <th>Fecha Presentación Hasta</th>
+                            <th>Área a que pertenece</th>
+                            <th>Descripción del motivo</th>
+                            <th>Fecha presentación desde</th>
+                            <th>Fecha presentación hasta</th>
                             <th></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>

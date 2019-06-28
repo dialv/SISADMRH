@@ -35,14 +35,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-6 control-label">Motivo de Inasistencia</label>
+                    <label class="col-sm-6 control-label">Motivo de inasistencia</label>
                     <div class="col-sm-6">
                         <p class="form-control-static" th:text="${inasistencia.motivoinasistencia}">justiticacion</p>
                         <!--<p class="form-control-static" th:text="${capacitador.codigoempleado.codigoempleado}">Codigo Empleado</p>-->
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-6 control-label">Justiciación Inasistencia</label>
+                    <label class="col-sm-6 control-label">Justiciación inasistencia</label>
                     <div class="col-sm-6">
                         <p class="form-control-static" th:text="${inasistencia.constanciainasistencia}">justiticacion</p>
                         <!--<p class="form-control-static" th:text="${capacitador.codigoempleado.codigoempleado}">Codigo Empleado</p>-->
@@ -50,13 +50,13 @@
                 </div>
                 
                         <div class="form-group">
-                    <label class="col-sm-6 control-label">Fecha Inicio Inasistencia:</label>
+                    <label class="col-sm-6 control-label">Fecha inicio inasistencia:</label>
                     <div class="col-sm-6">
                         <p class="" th:text="${#calendars.format(inasistencia.fechadesdeinasistencia, 'dd/MM/yyyy')}">Fecha Hasta</p>
                     </div>
                 </div>
                          <div class="form-group">
-                    <label class="col-sm-6 control-label">Fecha Fin Inasistencia</label>
+                    <label class="col-sm-6 control-label">Fecha fin inasistencia</label>
                     <div class="col-sm-6">
                         <p class="" th:text="${#calendars.format(inasistencia.fechahastainasistencia, 'dd/MM/yyyy')}">Fecha Hasta</p>
                     </div>

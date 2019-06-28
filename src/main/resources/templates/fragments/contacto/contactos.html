@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Listado de Empleados</title>
+    <title>Consultar contactos del empleado</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -18,12 +18,12 @@
         <h3 align="center">Listado de contactos</h3>
         <table class="table table-striped">
             <tr >
-                <th>Código de Contacto</th>
-                <th>Nombre de Contacto</th>
-                <th>Dirección de Contacto </th>
-                <th>Telefono Fijo de Contacto</th>
-                <th>Telefono Móvil de Contacto</th>
-                <th>Email</th>
+                <th>Código del contacto</th>
+                <th>Nombre del contacto</th>
+                <th>Dirección del contacto </th>
+                <th>Teléfono fijo del contacto</th>
+                <th>Teléfono móvil del contacto</th>
+                <th>Correo electronico del contacto</th>
             </tr>
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${contacto.codigocontacto}">codigocontacto</td>

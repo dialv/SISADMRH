@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Listado Diagnostico Capacitaciones</title>
+    <title>Consultar diagnosticos de capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -18,10 +18,10 @@
                      <table id="tablita" class="table table-striped table-bordered" style="width:100%" >
                          <thead>
                          <tr>
-                             <th>Codigo Diagnostico</th>
-                              <th>Nombre Capacitación</th>
-                            <th>Nombre Dirección</th>
-                            <th>Necesidad de Capacitación</th>
+                             <th>Codigo diagnostico</th>
+                              <th>Nombre capacitación</th>
+                            <th>Nombre dirección</th>
+                            <th>Necesidad de capacitación</th>
                             <th></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>

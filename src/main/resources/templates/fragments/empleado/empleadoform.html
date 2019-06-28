@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Empleado</title>
+    <title>Crear Empleado</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-md-8"><br><br>
             <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/images.jpeg}"/>
             </div>
             
           
@@ -79,7 +79,7 @@
                    </div>   -->
                   <div class="row text-center" >
                        <!--<a href="#" th:href="@{'.././show/' +   $('#codem').val().toString())}" class="btn btn-info">Gestionar  <br> Informacion Adicional</a>-->  
-                        <a href="#" id="btngestionar" class="btn btn-info">Gestionar  <br> Informacion Adicional</a>  
+                        <a href="#" id="btngestionar" class="btn btn-info">Gestionar  <br> informacion adicional</a>  
                   <div class="popup " id="divpop"><b>
                          <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppupr')" onmouseout ="javascript:ocultarAyuda('poppupr')">a</a></b>                       
                         <span class="popuptext" id="poppupr">Opcion para gestionar informacion adicional del empleado.!</span>
@@ -89,10 +89,10 @@
             </div>
                 
                 <div class="form-group">
-                        <label class="col-sm-3 control-label">Puesto del Empleado:</label>
+                        <label class="col-sm-3 control-label">Puesto del empleado:</label>
                         <div class="col-sm-5" >
                             <select class="form-control"  th:field="*{codigopuesto}"  width="50" id="select" name="select">
-                                  <option value="0">--seleccione el puesto para el Empleado--</option>
+                                  <option value="0">--seleccione el puesto para el empleado--</option>
                                 <option th:each="c:${puestos}" th:value="${c.codigopuesto}" th:text="${c.nombrepuesto}"></option>
                             </select>
                         </div>
@@ -105,7 +105,7 @@
                 
                 
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombres del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Nombres del empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombreempleado}"  >
                                         
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellidos del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Apellidos del empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{apellidoempleado}" />
                     </div>
@@ -130,7 +130,7 @@
                      
                 </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Nacimiento del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Fecha de nacimiento del empleado(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" size="10" name="fechanacimiento" id="fechanacimiento"  th:field="*{fechanacimientoempleado}" onchange="fechaNac(this.value,'fechanacimiento')" />
                     
@@ -142,11 +142,11 @@
                     </div>
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Nacionalidad del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Nacionalidad del empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="nacionalidad" th:field="*{nacionalidad}">
                         <!--th:field="*{nacionalidad}">-->
-                        <option value="0">--seleccione la Nacionalidad del Empleado--</option>
+                        <option value="0">--seleccione la nacionalidad del empleado--</option>
                         <option value="Salvadoreño">Salvadoreño</option>
                         <option value="Hondureño">Hondureño</option>
 
@@ -159,7 +159,7 @@
                     </div>
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Departamentasdo de Nacimiento del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Departamentasdo de nacimiento del empleado(*):</label>
                 <div class="col-sm-4">
                     <select id="dep1" class="form-control" name="departamentonacimiento" th:field="*{departamentonacimiento}" onchange="searchmunicipio(this,'1');" >
                     <option th:value="${departamentonacimiento}" th:text="${departamentonacimiento==null}?'--seleccione un departamento--':${departamentonacimiento}"></option>
@@ -174,7 +174,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Municipio de Nacimiento del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Municipio de nacimiento del empleado(*):</label>
                 <div class="col-sm-4" id ="refresh-after-municipio">
                     <select style="width:255px;" id="mun1" class="form-control" name="municipionacimiento" th:field="*{municipionacimiento}">
                         <option th:value="${municipionacimiento}" th:text="${municipionacimiento==null}?'--seleccione un municipio--':${municipionacimiento}"></option>
@@ -189,7 +189,7 @@
                 
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Estado Familiar del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Estado familiar del empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="estadofamiliar" th:field="*{estadofamiliar}">
                             <!--th:field="*{estadofamiliar}">-->
@@ -206,11 +206,11 @@
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Sexo del empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="sexoempleado" th:field="*{sexoempleado}">
                             <!--th:field="*{sexoempleado}">-->
-                              <option value="0">--seleccione el sexo del Empleado--</option>
+                              <option value="0">--seleccione el sexo del empleado--</option>
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                     </select>
@@ -222,7 +222,7 @@
                     </div>
             </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Residencia Permanente del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Residencia permanente del empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{recidenciapermanente}" />
                     </div>
@@ -233,7 +233,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Fijo del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Teléfono fijo del empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text"  class="form-control num_telefono" required="true"    th:field="*{telefonofijoempleado} "/>
                     </div>
@@ -244,7 +244,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Telefono Movil del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Teléfono móvil del empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text"  class="form-control num_telefono" required="true"   th:field="*{telefonomovilempleado}  "/>
                     </div>
@@ -255,7 +255,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Correo Electronico del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Correo electronico del empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="email" class="form-control"  required="true" th:field="*{emailempleado}  "/>
                     </div>
@@ -301,42 +301,42 @@
             </div>-->
                 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">DUI del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">DUI del empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control num_dui"  required="true"   th:field="*{duiempleado}"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup16')" onmouseout ="javascript:ocultarAyuda('poppup16')">a</a></b>
                         
-                        <span class="popuptext" id="poppup16">Ingrese el DUI del Empleado solo se admitiran 9 caracteres numericos.!</span>
+                        <span class="popuptext" id="poppup16">Ingrese el DUI del empleado solo se admitiran 9 caracteres numericos.!</span>
                     </div>
                 </div>
                 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">NIT del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">NIT del empleado(*):</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control num_nit" required="true"  th:field="*{nitempleador}"   />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup17')" onmouseout ="javascript:ocultarAyuda('poppup17')">a</a></b>
                         
-                        <span class="popuptext" id="poppup17">Ingrese el NIT del Empleado solo se admitiran 14 caracteres numericos.!</span>
+                        <span class="popuptext" id="poppup17">Ingrese el NIT del empleado solo se admitiran 14 caracteres numericos.!</span>
                     </div>
                 </div>
                 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">ISSS del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">ISSS del empleado(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control num_isss" required="true"  th:field="*{isssempleado}" />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup18')" onmouseout ="javascript:ocultarAyuda('poppup18')">a</a></b>
                         
-                        <span class="popuptext" id="poppup18">Ingrese el ISSS del Empleado solo se admitiran 9 caracteres numericos.!</span>
+                        <span class="popuptext" id="poppup18">Ingrese el ISSS del empleado solo se admitiran 9 caracteres numericos.!</span>
                     </div>
                 </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Ingreso al Sector Publico (*):</label>
+                <label class="col-sm-3 control-label">Fecha de ingreso al sector publico (*):</label>
                 <div class="col-sm-2">
                     
                      <input class="form-control fecha_format" type="text"   placeholder="dia/mes/año" name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}"  onchange="isDat(this.value,'fechasepu');Fechas(this.value,$('#fechamin').val().toString(),'fechasepu','fechamin')" />
@@ -348,7 +348,7 @@
                     </div>
             </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Ingreso al Sector Privado(*):</label>
+                <label class="col-sm-3 control-label">Fecha de ingreso al sector privado(*):</label>
                 <div class="col-sm-2">
                     <input class="form-control fecha_format" type="text"  placeholder="dia/mes/año"  name="fechasepr" id="fechasepr"  th:field="*{fechaingresosecpriv}"  onchange="isDat(this.value,'fechasepr')"/>
                  </div>
@@ -359,7 +359,7 @@
                     </div>
             </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Ingreso al Ministerio(*):</label>
+                <label class="col-sm-3 control-label">Fecha de Ingreso al ministerio(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" type="text"  name="fechamin" id="fechamin"  th:field="*{fechaingresoministerio}" onchange="isDat(this.value,'fechamin');Fechas($('#fechasepu').val().toString(),this.value,'fechasepu','fechamin')" />
                 </div>
@@ -371,12 +371,12 @@
             </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Grupo Sanguineo del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Grupo sanguineo del empleado(*):</label>
                     <div class="col-sm-5">
                         <!--<input type="text" class="form-control"    th:field="*{gruposanquineo}" />-->
                           <select class="form-control" name="gruposanquineo" th:field="*{gruposanquineo}" >
                             <!--th:field="*{departamentorecidencia}">-->
-                        <option value="0">--seleccione el grupo sanguineo del Empleado--</option>
+                        <option value="0">--seleccione el grupo sanguineo del empleado--</option>
                         <option value="Grupo A">Grupo A</option>
                         <option value="Grupo B">Grupo B</option>
                          <option value="Grupo AB">Grupo AB</option>
@@ -390,7 +390,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de Pension del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Tipo de pension del empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="afiliacionpension"  th:field="*{afiliacionpension}">
                             <!--th:field="*{afiliacionpension}" >-->
@@ -406,7 +406,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">NUP del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">NUP del empleado(*):</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control num_nup" required="true"  th:field="*{numeroafiliacion}"  />
                     </div>
@@ -417,7 +417,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Banco en el que se le deposita al Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Banco en el que se le deposita al empleado(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50"   th:field="*{nombreinstiuciondepositar}"  />
                     </div>
@@ -428,7 +428,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de Cuenta Bancaria del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Tipo de cuenta bancaria del empleado(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="tipocuenta" th:field="*{tipocuenta}">
                             <!--th:field="*{tipocuenta}">-->
@@ -445,7 +445,7 @@
              
             </div>
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Numero de Cuenta Bancaria del Empleado(*):</label>
+                    <label class="col-sm-3 control-label">Numero de cuenta bancaria del empleado(*):</label>
                     <div class="col-sm-4">
                         <input type="text"  class="form-control num_cuenta"   required="true" size="30" th:field="*{numerocuenta} "/>
                     </div>
@@ -456,7 +456,7 @@
                     </div>
                 </div>
  <div class="form-group">
-                <label class="col-sm-3 control-label">Estado del Empleado(*):</label>
+                <label class="col-sm-3 control-label">Estado del empleado(*):</label>
                 <div class="col-sm-6">
                     <select class="form-control" name="estadoempleado" th:field="*{estadoempleado}">
                             <!--th:field="*{tipocuenta}">-->

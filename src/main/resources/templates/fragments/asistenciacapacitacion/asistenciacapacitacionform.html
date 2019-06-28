@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-    <title>Crear Asistencia Capacitación</title>
+    <title>Crear asistencia capacitación</title>
     <th:block th:include="../templates/header"></th:block>
    
 </head>
@@ -28,11 +28,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     
                      <!--<input type="hidden" name="codigocuadrodirectivo"/>-->
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Capacitación a Asignar(*):</label>
+                        <label class="col-sm-4 control-label">Capacitación a asignar(*):</label>
                         <div class="col-sm-6" >
                            
                             <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
-                                 <option value="-1">-- Seleccione una Capacitación --</option>
+                                 <option value="-1">-- Seleccione una capacitación --</option>
                                 <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -47,7 +47,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  
 
                                  <div class="form-group">
-                        <label class="col-sm-4 control-label">Nombre del Empleado(*):</label>
+                        <label class="col-sm-4 control-label">Nombre del empleado(*):</label>
                         <div class="col-sm-6">
                             <!--<select class="form-control" id="combo" th:field="*{asistenciaCapacitacion.codigoempleado.codigoempleado}" >-->
                             <select class="form-control" id="combo" name="codigoempleado.codigoempleado"  >
@@ -64,7 +64,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                                         </div>
                      <div class="form-group">
-                        <label class="col-sm-4 control-label ">Horas Recibidas de Capacitación:(*)</label>
+                        <label class="col-sm-4 control-label ">Horas recibidas de capacitación:(*)</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas"/>
                         </div>
@@ -79,7 +79,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                    
                     <div class="form-group">
-                        <label class="col-sm-4 control-label ">Puesto del Empleado(*):</label>
+                        <label class="col-sm-4 control-label ">Puesto del empleado(*):</label>
                         <div class="col-sm-6">
                             <input type="text" id="puesto" class="form-control" maxlength="50"required="true"name="puesto" />
                         </div>
@@ -90,7 +90,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label ">Ubicación Física de Capacitación(*):</label>
+                        <label class="col-sm-4 control-label ">Ubicación física de capacitación(*):</label>
                         <div class="col-sm-6">
                             <input type="text" id="ubicacion" class="form-control " size="50" maxlength="50"required="true" name="ubicacionasistenciacapacitacion" />
                         </div>
@@ -101,7 +101,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label ">Telefono del Empleado(*):</label>
+                        <label class="col-sm-4 control-label ">Telefono del empleado(*):</label>
                         <div class="col-sm-2">
                             <input type="text" id="telefonoo"class="form-control num_telefono" required="true" name="telefono"/>
                         </div>
@@ -114,7 +114,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Correo del Empleado(*):</label>
+                        <label class="col-sm-4 control-label">Correo del empleado(*):</label>
                         <div class="col-sm-6">
                             <input type="email" id="correoo"class="form-control" size="50" maxlength="50" required="true" name="email"/>
                         </div>
@@ -142,6 +142,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 
     <script th:inline="javascript">
+         Textheader('pnt_acap', document.title);
         $(document).ready(function () {
             Textheader('pnt_asca',document.title);
             $('#fechadesdecomite').datepicker({

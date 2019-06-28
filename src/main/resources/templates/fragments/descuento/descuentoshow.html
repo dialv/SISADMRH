@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Detalle de Descuentos </title>
+        <title>Detalle de Descuento </title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -24,32 +24,32 @@
                 <form class="form-horizontal">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Código de Descuento</label>
+                            <label class="col-sm-5 control-label">Código de descuento</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${descuento.codigodescuento}">Codigo de comite</p></div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre Empleado:</label>
+                            <label class="col-sm-5 control-label">Nombre empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${descuento.codigoempleado.nombreempleado}">Responsable</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre del Descuento</label>
+                            <label class="col-sm-5 control-label">Nombre del descuento</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${descuento.nombredescuento}">Nombre de comite</p>
                             </div>
                         </div>
                       
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tipo Banco:</label>
+                            <label class="col-sm-5 control-label">Tipo banco:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${descuento.tipobanco}">Desripción de Comite</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Monto Descuento:</label>
+                            <label class="col-sm-5 control-label">Monto descuento:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${descuento.montodescuento}">Numero de Acuerdo</p>
                             </div>

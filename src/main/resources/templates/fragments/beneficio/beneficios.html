@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Beneficios</title>
+        <title>Listado de beneficios</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -17,11 +17,11 @@
                 <table id = "tablita" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Código Beneficio</th>
-                            <th>Nombre Beneficio</th>
-                            <th>Descripción Beneficio</th>
-                            <th>Fecha Inicio Beneficio</th>
-                            <th>Fecha Fin Beneficio</th>
+                            <th>Código beneficio</th>
+                            <th>Nombre beneficio</th>
+                            <th>Descripción beneficio</th>
+                            <th>Fecha inicio beneficio</th>
+                            <th>Fecha fin beneficio</th>
                             <th></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>

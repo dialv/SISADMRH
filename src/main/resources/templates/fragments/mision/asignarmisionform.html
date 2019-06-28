@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>SISADMRH-Asignar Misi&oacute;n a Empleado</title>
+    <title>Asignar misi&oacute;n a empleado</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -17,10 +17,10 @@
         <h3 align="center"></h3>
         <form class="form-horizontal" id="formmision" th:object="${mision}"   method="post">
         <div class="form-group">
-                        <label class="col-sm-3 control-label">Nombre de Misi&oacute;n:</label>
+                        <label class="col-sm-3 control-label">Nombre de misi&oacute;n:</label>
                         <div class="col-sm-7" >
                             <select class="form-control"  id="cmbmision"  name="cmbmision" th:field="*{codigomision}" >
-                                <option value="0">-- Seleccione una Mision --</option>
+                                <option value="0">-- Seleccione una mision --</option>
                                 <option th:each="c:${misiones}" th:value="${c.codigomision}" th:text="${c.nombremision}"></option>
                             </select>
                         </div>
@@ -35,11 +35,11 @@
           <form class="form-horizontal" id="formempleado" th:object="${empleado}">
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" >Nombre del Empleado:</label>
+                        <label class="col-sm-3 control-label" >Nombre del empleado:</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
                               <select class="form-control" id="codigo" name="codigo"  >
-                                  <option value="0">-- Seleccione un Empleado --</option>
+                                  <option value="0">-- Seleccione un empleado --</option>
                                 <option  th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                         </div>

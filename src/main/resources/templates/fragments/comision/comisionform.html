@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Crear Comisiones</title>
+    <title>Crear Comision</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
        
-        
-<!--<div class="contenedorizq"> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>-->
+ 
 <div class="row">
            <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
@@ -28,7 +21,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
                 <input type="hidden" th:field="*{codigocomision}"/>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre de  Comisión:</label>
+                    <label class="col-sm-3 control-label">Nombre de  comisión:</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true" th:field="*{nombrecomision}"/>
                     </div>
@@ -39,7 +32,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de inicio de Comisión(*):</label>
+                <label class="col-sm-3 control-label">Fecha inicio de comisión(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadesdecomision" id="fechadesdecomision"  th:field="*{fechadesdecomision}" onchange="isDat(this.value,'fechahastacomision');Fechas(this.value,$('#fechahastacomision').val().toString(),'fechadesdecomision','fechahastacomision')"/>
                 </div>
@@ -50,7 +43,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de fin de Comisión(*):</label>
+                <label class="col-sm-3 control-label">Fecha  fin de comisión(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahastacomision" id="fechahastacomision"  th:field="*{fechahastacomision}" onchange="isDat(this.value,'fechahastacomision');Fechas($('#fechadesdecomision').val().toString(),this.value,'fechadesdecomision','fechahastacomision')"/>
                 </div>
@@ -72,7 +65,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                             </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Subir Acuerdo:</label>
+                    <label class="col-sm-3 control-label">Subir acuerdo de comisión:</label>
                     <div class="col-sm-7">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->

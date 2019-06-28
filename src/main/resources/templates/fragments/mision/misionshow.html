@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>SISADMRH-Consulta de Datos de Misi&oacute;n</title>
+    <title>Listado misi&oacute;n</title>
      <th:block th:include="../templates/header"></th:block>
  
 
@@ -23,7 +23,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/mision.png}"/>
             </div>
     <h3 align="center"></h3>
         <div>
@@ -35,13 +35,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <p class="form-control-static" th:text="${mision.codigomision}">codigo de Mision</p></div>
                 </div>
                      <div class="form-group">
-                    <label class="col-sm-5 control-label">Tipo de Misi&oacute;n:</label>
+                    <label class="col-sm-5 control-label">Tipo de misi&oacute;n:</label>
                     <div class="col-sm-7">
                                 <p class="form-control-static">  <span th:if="${mision.tipomision} == 0"  th:text="Externa"  ></span> <span th:if="${mision.tipomision} == 1"  th:text="Interna"></span>  </p>
                             </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-5 control-label">Nombre de Misi&oacute;n:</label>
+                    <label class="col-sm-5 control-label">Nombre de misi&oacute;n:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.nombremision}">Nombre de Mision</p>
                     </div>
@@ -53,7 +53,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-5 control-label">Responsable Gasto:</label>
+                    <label class="col-sm-5 control-label">Responsable gasto:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.responsablegasto}">Responsable Gasto</p>
                     </div>
@@ -65,25 +65,25 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                      <div class="form-group">
-                    <label class="col-sm-5 control-label">Gasto Viaje:</label>
+                    <label class="col-sm-5 control-label">Gasto viaje:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.gastoviaje}">Responsable Gasto</p>
                     </div>
                 </div>
                        <div class="form-group">
-                    <label class="col-sm-5 control-label">Gastos Terminales</label>
+                    <label class="col-sm-5 control-label">Gastos de viaje</label>
                     <div class="col-sm-7">
-                        <p class="form-control-static" th:text="${mision.gastoterminales}">Gasto Viaje</p>
+                        <p class="form-control-static" th:text="${mision.gastoviaje}">Gasto Viaje</p>
                     </div>
                 </div>
                        <div class="form-group">
-                    <label class="col-sm-5 control-label">Gastos Terminales</label>
+                    <label class="col-sm-5 control-label">Gastos terminales</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.gastoterminales}">Gasto Viaje</p>
                     </div>
                 </div>
                      <div class="form-group">
-                    <label class="col-sm-5 control-label">Organismo que Invita</label>
+                    <label class="col-sm-5 control-label">Organismo que invita</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${mision.organismoinvita}">Gasto Viaje</p>
                     </div>
@@ -91,13 +91,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   </div> 
                       <div class="col-md-6">
                           <div class="form-group">
-                    <label class="col-sm-7 control-label">Direcci&oacute;n de Misi&oacute;n:</label>
+                    <label class="col-sm-7 control-label">Direcci&oacute;n de misi&oacute;n:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.direccion}">Gasto Viaje</p>
                     </div>
                 </div>
                          <div class="form-group">
-                    <label class="col-sm-7 control-label">Fecha de Salida:</label>
+                    <label class="col-sm-7 control-label">Fecha de salida:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">Fecha de Salida</p>
                     </div>
@@ -109,7 +109,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                       <div class="form-group">
-                    <label class="col-sm-7 control-label">Organismo Patrocinador:</label>
+                    <label class="col-sm-7 control-label">Organismo patrocinador:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.organismopatrocinador}">Gasto Viaje</p>
                     </div>
@@ -121,7 +121,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                              <div class="form-group">
-                    <label class="col-sm-7 control-label">Fecha de Regreso</label>
+                    <label class="col-sm-7 control-label">Fecha de regreso</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${#calendars.format(mision.fecharegresomision, 'dd/MM/yyyy')}">Gasto Viaje</p>
                     </div>
@@ -135,26 +135,26 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
                           
                            <div class="form-group">
-                    <label class="col-sm-7 control-label">Boleto Aereo</label>
+                    <label class="col-sm-7 control-label">Boleto aereo</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.boleto}">Gasto Viaje</p>
                     </div>
                 </div>
                           
                            <div class="form-group">
-                    <label class="col-sm-7 control-label">Boleto Terrestre:</label>
+                    <label class="col-sm-7 control-label">Boleto terrestre:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.boletoterr}">Gasto Viaje</p>
                     </div>
                 </div>
                           <div class="form-group">
-                    <label class="col-sm-7 control-label">Cantidad de Dias</label>
+                    <label class="col-sm-7 control-label">Cantidad de dias</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.cantidaddia}">Gasto Viaje</p>
                     </div>
                 </div> 
                           <div class="form-group">
-                    <label class="col-sm-7 control-label">Cantidad de Meses:</label>
+                    <label class="col-sm-7 control-label">Cantidad de meses:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.cantidadmeses}">Gasto Viaje</p>
                     </div>

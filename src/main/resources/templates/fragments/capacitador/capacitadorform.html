@@ -30,10 +30,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Empleado Responsable del Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Empleado responsable del capacitador(*):</label>
                         <div class="col-sm-5" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
-                                 <option value="0">-- Seleccione un Encargado del Capacitador --</option>
+                                 <option value="0">-- Seleccione un encargado del capacitador --</option>
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                         </div>
@@ -45,7 +45,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Nombre Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Nombre de capacitador(*):</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control"required="true" size="100" maxlength="100" th:field="*{nombrecapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nombrecapacitador')}" th:errors="*{nombrecapacitador}"></small>
@@ -57,10 +57,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Tema de Dominio(*):</label>
+                        <label class="col-sm-3 control-label">Tema de dominio(*):</label>
                         <div class="col-sm-8">
                             <select class="form-control"  required="true" th:field="*{temadominio}" >
-                                  <option value="0">-- Seleccione un un Tema--</option>
+                                  <option value="0">-- Seleccione un un tema--</option>
                              <option th:each="c:${dominio}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
 
@@ -69,16 +69,16 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tema')" onmouseout ="javascript:ocultarAyuda('tema')">a</a></b>
                         
-                        <span class="popuptext" id="tema">Seleccione el Tema de Dominio del Capacitador.!</span>
+                        <span class="popuptext" id="tema">Seleccione el tema de dominio del capacitador.!</span>
                     </div>
                     </div>
                    
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Institución que Pertenece Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Institución que pertenece capacitador(*):</label>
                         <div class="col-sm-8">
                             
                             <select class="form-control" required="true" th:field="*{institucioncapacitador}" >
-                                <option value="0">-- Seleccione una Institución--</option>
+                                <option value="0">-- Seleccione una institución--</option>
                                 <option th:each="c:${tinst}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
                             
                             </select>
@@ -86,15 +86,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('institucionn')" onmouseout ="javascript:ocultarAyuda('institucionn')">a</a></b>
                         
-                        <span class="popuptext" id="institucionn">Seleccione la Institución!</span>
+                        <span class="popuptext" id="institucionn">Seleccione la institución!</span>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Tipo Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Tipo capacitador(*):</label>
                         <div class="col-sm-8">
 
                             <select class="form-control" required="true" th:field="*{tipocapacitador}" >
-                                  <option value="0">-- Seleccione un tipo Capacitador--</option>
+                                  <option value="0">-- Seleccione un tipo capacitador--</option>
                                 <option th:each="c:${tipoCapacitador}" th:value="${c.nombreestado}" th:text="${c.nombreestado}"></option>
 
                             </select>
@@ -102,11 +102,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipocapacitador')" onmouseout ="javascript:ocultarAyuda('tipocapacitador')">a</a></b>
                         
-                        <span class="popuptext" id="tipocapacitador">Seleccione El tipo de Capacitador!</span>
+                        <span class="popuptext" id="tipocapacitador">Seleccione el tipo de capacitador!</span>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Tipo Agrupación(*):</label>
+                        <label class="col-sm-3 control-label">Tipo de agrupación(*):</label>
                         <div class="col-sm-8">
 
                             <select class="form-control" required="true"th:field="*{tipoagrupacion}" >
@@ -118,11 +118,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                              <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoagrupacion')" onmouseout ="javascript:ocultarAyuda('tipoagrupacion')">a</a></b>
                         
-                        <span class="popuptext" id="tipoagrupacion">Seleccione El tipo de Agrupacioón!</span>
+                        <span class="popuptext" id="tipoagrupacion">Seleccione el tipo de agrupacioón!</span>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">DUI Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">DUI de capacitador(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_dui" required="true" th:field="*{duicapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>
@@ -134,7 +134,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">NIT Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">NIT de capacitador(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_nit" required="true"th:field="*{nitcapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nitcapacitador')}" th:errors="*{nitcapacitador}"></small>
@@ -146,7 +146,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Carnet de Residencia(*):</label>
+                        <label class="col-sm-3 control-label">Carnet de residencia(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="5" onkeypress="return valida(event)" th:field="*{carnetresidencia}"/>
                               <small class="form-text text-danger" th:if="${#fields.hasErrors('carnetresidencia')}" th:errors="*{carnetresidencia}"></small>
@@ -154,11 +154,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                           <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('carnet')" onmouseout ="javascript:ocultarAyuda('carnet')">a</a></b>
                         
-                        <span class="popuptext" id="carnet">Ingrese el Carnet. Solo es permitido digitos del o al 9. !</span>
+                        <span class="popuptext" id="carnet">Ingrese el carnet. Solo es permitido digitos del o al 9. !</span>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Teléfono Fijo Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Teléfono fijo de capacitador(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonocapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonocapacitador')}" th:errors="*{telefonocapacitador}"></small>
@@ -166,11 +166,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                          <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('telefonoo')" onmouseout ="javascript:ocultarAyuda('telefonoo')">a</a></b>
                         
-                        <span class="popuptext" id="telefonoo">Ingrese el Telefono Fijo. Solo es permitido digitos del o al 9. !</span>
+                        <span class="popuptext" id="telefonoo">Ingrese el telefono fijo. Solo es permitido digitos del o al 9. !</span>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Móvil Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Teléfono móvil de capacitador(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonomovilcapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonomovilcapacitador')}" th:errors="*{telefonomovilcapacitador}"></small>
@@ -178,11 +178,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                           <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('celular')" onmouseout ="javascript:ocultarAyuda('celular')">a</a></b>
                         
-                        <span class="popuptext" id="celular">Ingrese el Telefono Movil. Solo es permitido digitos del o al 9. !</span>
+                        <span class="popuptext" id="celular">Ingrese el telefono movil. Solo es permitido digitos del o al 9. !</span>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Email Capacitador(*):</label>
+                        <label class="col-sm-3 control-label">Email de capacitador(*):</label>
                         <div class="col-sm-5">
                             <input type="email" class="form-control" size="50" maxlength="50" required="true" th:field="*{emailcapacitador}"/>
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('emailcapacitador')}" th:errors="*{emailcapacitador}"></small>-->

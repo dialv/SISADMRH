@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH-Detalle de Empleado</title>
+        <title>Detalle de Empleado</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-9">
             <div class="row text-center">
-                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/images.jpeg}"/>
             </div>
             <h3 align="center"></h3>
             <div>
@@ -24,74 +24,74 @@
                                 <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre del Empleado</label>
+                            <label class="col-sm-5 control-label">Nombre del empleado</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Apellido del Empleado:</label>
+                            <label class="col-sm-5 control-label">Apellido del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
+                            <label class="col-sm-5 control-label">Fecha de nacimiento:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechanacimientoempleado, 'dd/MM/yyyy')}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Nacionalidad del Empleado:</label>
+                            <label class="col-sm-5 control-label">Nacionalidad del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.nacionalidad}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                         
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Departamento de Nacimiento del Empleado:</label>
+                            <label class="col-sm-5 control-label">Departamento de nacimiento del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.departamentonacimiento}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Municipio de Nacimiento del Empleado:</label>
+                            <label class="col-sm-5 control-label">Municipio de nacimiento del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.municipionacimiento}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Estado Familiar del Empleado:</label>
+                            <label class="col-sm-5 control-label">Estado familiar del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.estadofamiliar}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Sexo del Empleado:</label>
+                            <label class="col-sm-5 control-label">Sexo del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.sexoempleado}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                            <div class="form-group">
-                            <label class="col-sm-5 control-label">Residencia Permanente del Empleado:</label>
+                            <label class="col-sm-5 control-label">Residencia permanente del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.recidenciapermanente}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Telefono Fijo del Empleado:</label>
+                            <label class="col-sm-5 control-label">Teléfono fijo del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.telefonofijoempleado}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Telefono Movil del Empleado:</label>
+                            <label class="col-sm-5 control-label">Teléfono móvil del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.telefonomovilempleado}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Correo Eletronico del Empleado:</label>
+                            <label class="col-sm-5 control-label">Correo eletronico del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.emailempleado}">Fecha de Nacimiento</p>
                             </div>
@@ -112,19 +112,19 @@
                             </div>
                         </div>-->
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">DUI del Empleado:</label>
+                            <label class="col-sm-7 control-label">DUI del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.duiempleado}">Telefono Movil de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">NIT del Empleado:</label>
+                            <label class="col-sm-7 control-label">NIT del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.nitempleador}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">ISSS del Empleado:</label>
+                            <label class="col-sm-7 control-label">ISSS del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.isssempleado}">NIT</p>
                             </div>
@@ -136,55 +136,55 @@
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Ingreso al Sector Privado:</label>
+                            <label class="col-sm-7 control-label">Fecha de ingreso al sector privado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresosecpriv, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Ingreso al Ministerio:</label>
+                            <label class="col-sm-7 control-label">Fecha de ingreso al ministerio:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresoministerio, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                            <div class="form-group">
-                            <label class="col-sm-7 control-label">Grupo Sanguineo del Empleado:</label>
+                            <label class="col-sm-7 control-label">Grupo sanguineo del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.gruposanquineo}">NIT</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Tipo de Pension del Empleado:</label>
+                            <label class="col-sm-7 control-label">Tipo de Pension del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.afiliacionpension}">NIT</p>
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-7 control-label">NUP del Empleado:</label>
+                            <label class="col-sm-7 control-label">NUP del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.numeroafiliacion}">NIT</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Banco en el que se le deposita al Empleado:</label>
+                            <label class="col-sm-7 control-label">Banco en el que se le deposita al empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.nombreinstiuciondepositar}">NIT</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Tipo de Cuenta Bancaria del Empleado:</label>
+                            <label class="col-sm-7 control-label">Tipo de cuenta bancaria del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.tipocuenta}">NIT</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Numero de Cuenta Bancaria del Empleado:</label>
+                            <label class="col-sm-7 control-label">Numero de Cuenta bancaria del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.numerocuenta}">NIT</p>
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-7 control-label">Estado del Empleado:</label>
+                            <label class="col-sm-7 control-label">Estado del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" > 
                                    <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span> <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span> <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"></span> <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span> <span th:if="${empleado.estadoempleado} == 0"  th:text="De Baja"></span> </p>
@@ -197,7 +197,7 @@
                 <div class="col-md-12" style="background-color:#d9edf7;">
                     <div class="panel-info">
                         <div class="panel-heading">
-                            Para Gestionar informacion extra del Empleado se listan las siguientes opciones :
+                            Para Gestionar informacion extra del empleado se listan las siguientes opciones :
                         </div>
                     </div>
                 </div>
@@ -218,20 +218,20 @@
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/contactos.jpg}"/>
                                                     </div>	
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Contactos</h3>
+                                                            <h3 align="center">Listado contactos</h3>
                                                             <table id="tablita" class="tablita table table-striped table-bordered" >
                                                                 <thead> 
                                                                     <tr>
-                                                                        <th>Codigo</th>
-                                                                        <th>Nombre de  Contacto</th>
-                                                                        <th>Direccion de Contacto</th>
-                                                                        <th>Telefono Fijo de Contacto</th>
-                                                                        <th>Telefono Movil de Contacto</th>
-                                                                        <th>Email de Contacto</th>
+                                                                        <th>Codigo contacto</th>
+                                                                        <th>Nombre de  contacto</th>
+                                                                        <th>Direccion de contacto</th>
+                                                                        <th>Teléfono fijo de contacto</th>
+                                                                        <th>Teléfono móvil de contacto</th>
+                                                                        <th>Correo de contacto</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -265,16 +265,16 @@
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/dependientes.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Dependientes</h3>
+                                                            <h3 align="center">Listado de dependientes</h3>
                                                             <table id="tablita1" class="tablita table table-striped table-bordered" >
                                                                 <thead> 
                                                                     <tr >
-                                                                        <th>Codigo</th>
-                                                                        <th>Nombre de  Dependiente</th>
+                                                                        <th>Código</th>
+                                                                        <th>Nombre de  dependiente</th>
                                                                         <th>Parentesco</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
@@ -302,23 +302,23 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Formacion Academica</h3>
+                                                    <h3 class="panel-title">Formacion academica</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/formacion.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Formacion Academica</h3>
+                                                            <h3 align="center">Listado de formación academica</h3>
                                                             <table id="tablita2" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr >
-                                                                        <th>Codigo</th>
-                                                                        <th>Estudios Realizados</th>
-                                                                        <th>Centro Educativo</th>
-                                                                        <th>Titulo Obtenido</th>
-                                                                        <th>Fecha Desde</th>
+                                                                        <th>Código</th>
+                                                                        <th>Estudios realizados</th>
+                                                                        <th>Centro educativo</th>
+                                                                        <th>Titulo obtenido</th>
+                                                                        <th>Fecha desde</th>
                                                                         <th>Documento</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
@@ -349,23 +349,23 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Capacitaciones Recibidas</h3>
+                                                    <h3 class="panel-title">Capacitaciones recibidas</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/capacitacion.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Capacitaciones Recibidas</h3>
+                                                            <h3 align="center">Listado de capacitaciones recibidas</h3>
                                                             <table id="tablita3" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Codigo</th>
+                                                                        <th>Código</th>
                                                                         <th>Tipo Evento</th>
-                                                                        <th>Especialidad del Evento</th>
-                                                                        <th>Organismo Patrocinador</th>
-                                                                        <th>Fecha del Evento</th>
+                                                                        <th>Especialidad del evento</th>
+                                                                        <th>Organismo patrocinador</th>
+                                                                        <th>Fecha del evento</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -394,23 +394,23 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Experiencia Laboral</h3>
+                                                    <h3 class="panel-title">Experiencia laboral</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/experiencia.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Experiencia Laboral</h3>
+                                                            <h3 align="center">Listado de experiencia laboral</h3>
                                                             <table id="tablita4" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Codigo</th>
-                                                                        <th>Nombre Institucion</th>
-                                                                        <th>Fecha Desde</th>
-                                                                        <th>Fecha Hasta</th>
-                                                                        <th>Salario Inicial</th>
+                                                                        <th>Código</th>
+                                                                        <th>Nombre institucion</th>
+                                                                        <th>Fecha desde</th>
+                                                                        <th>Fecha hasta</th>
+                                                                        <th>Salario inicial</th>
                                                                         <th>Sector</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
@@ -441,22 +441,22 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Ubicacion Fisica</h3>
+                                                    <h3 class="panel-title">Ubicacion física</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/ubicacion.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Ubicacion Fisica</h3>
+                                                            <h3 align="center">Listado de ubicación fisica</h3>
                                                             <table id="tablita5" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr >
-                                                                        <th>Codigo</th>
+                                                                        <th>Código</th>
                                                                         <th>Cargo</th>
-                                                                        <th>Jefe Inmediato</th>
-                                                                        <th>Nombre Ubicacion</th>
+                                                                        <th>Jefe inmediato</th>
+                                                                        <th>Nombre ubicacion</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -488,18 +488,18 @@
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contrato.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Contrato</h3>
+                                                            <h3 align="center">Listado de contratos</h3>
                                                             <table id="tablita6" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Codigo</th>
-                                                                        <th>Fecha de Inicio de Contrato</th>
-                                                                        <th>Fecha de Fin de Contrato</th>
-                                                                        <th>Salario Actual</th>
+                                                                        <th>Código</th>
+                                                                        <th>Fecha de inicio de contrato</th>
+                                                                        <th>Fecha de fin de contrato</th>
+                                                                        <th>Salario actual</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -527,22 +527,22 @@
                                         <div class="card-body"> 
                                             <div class="panel panel-primary">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title">Hijos con Discapacidad</h3>
+                                                    <h3 class="panel-title"> Hijos con discapacidades</h3>
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/discapacidad.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Hijos con Discapacidad</h3>
+                                                            <h3 align="center">Listado de Hijos con discapacidades</h3>
                                                             <table id="tablita7" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Codigo</th>
+                                                                        <th>Código</th>
                                                                         <th>Nombre</th>
                                                                         <th>Discapacidad</th>
-                                                                        <th>Tipo de Discapacidad</th>
+                                                                        <th>Tipo de discapacidad</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>
@@ -574,16 +574,16 @@
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
+                                                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/idioma.jpg}"/>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Idiomas</h3>
+                                                            <h3 align="center">Listado de idiomas</h3>
                                                             <table id="tablita8" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Codigo</th>
-                                                                        <th>Nombre de Idioma</th>
+                                                                        <th>Código</th>
+                                                                        <th>Nombre de idioma</th>
                                                                         <th>Escribe</th>
                                                                         <th>Habla</th>
                                                                         <th>Traduce</th>
@@ -626,20 +626,20 @@
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row text-center">
-                                                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/beneficio.png}"/>
+                                                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/beneficio.png}"/>
                                                     </div>
                                                     <!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h3 align="center">Beneficos</h3>
+                                                            <h3 align="center">Listado de beneficios</h3>
                                                             <table id="tablita9" class="tablita table table-striped table-bordered" >
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Codigo</th>
+                                                                        <th>Código</th>
                                                                         <th>Nombre</th>
                                                                         <th>Descripción</th>
-                                                                        <th>Fecha Inicio</th>
-                                                                        <th>Fecha Fin</th>
+                                                                        <th>Fecha inicio</th>
+                                                                        <th>Fecha fin</th>
                                                                         <th>Detalle</th>
                                                                     </tr>
                                                                 </thead>

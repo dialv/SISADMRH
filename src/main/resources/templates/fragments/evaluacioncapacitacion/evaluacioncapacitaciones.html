@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Listado de Evaluacion de Capacitaciones</title>
+        <title>Consultar  Evaluaciones de Capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -17,11 +17,11 @@
                 <table id="tablita" class="table table-striped table-bordered" >
                     <thead>
                         <tr>
-                            <th>Codigo Capacitación</th>
-                            <th>Lugar Evaluacion</th>
-                            <th>Hora</th>
-                            <th>Dominio Tema</th>
-                            <th>Habilidad Comunicación</th>
+                            <th>Codigo capacitación</th>
+                            <th>Lugar evaluacion</th>
+                            <th>Fecha y hora</th>
+                            <th>Dominio del tema</th>
+                            <th>Habilidad comunicación</th>
                             <th></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>

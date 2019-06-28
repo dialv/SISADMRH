@@ -31,7 +31,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Formacion Academica</title>
+    <title>Crear formación academica</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/formacion.jpg}"/>
             </div>
     <h3 align="center">  </h3>
         <br>
@@ -51,7 +51,7 @@
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando informacion del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
@@ -63,7 +63,7 @@
             <div class="col-md-12"  >
                    <br>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Estudios Realizados(*):</label>
+                    <label class="col-sm-3 control-label">Estudios realizados(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{estudiosrealizados}" />
                     </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Centro Educativo(*):</label>
+                    <label class="col-sm-3 control-label">Centro educativo(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="50" maxlength="50"   th:field="*{centroeducativo}"   />
                     </div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Años Aprobados(*):</label>
+                    <label class="col-sm-3 control-label">Años aprobados(*):</label>
                     <div class="col-sm-1">
                         <input type="text" class="form-control numeros" required="true" maxlength="1"  th:field="*{aniosaprobados}" />
                     </div>
@@ -111,7 +111,7 @@
                     </div>
             </div>-->
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                <label class="col-sm-3 control-label">Fecha desde(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechadfa');Fechas(this.value,$('#fechahfa').val().toString(),'fechadfa','fechahfa')"/>
                 </div>
@@ -122,7 +122,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <label class="col-sm-3 control-label">Fecha hasta(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechahastaformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
                 </div>
@@ -133,8 +133,8 @@
                     </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Termino(*):</label>
-                <div class="col-sm-2">
+                <label class="col-sm-3 control-label">Terminó(*):</label>
+                <div class="col-sm-4">
                     <select class="form-control" name="termino" th:field="*{termino}">
                             <!--th:field="*{termino}">-->
                              <option value="0">--seleccione una opcion--</option>
@@ -149,7 +149,7 @@
                     </div>
             </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Titulo Obtenido(*):</label>
+                    <label class="col-sm-3 control-label">Titulo obtenido(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="200" maxlength="200"   th:field="*{tituloobtenido}" />
                     </div>
@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Titulo</label>
+                    <label class="col-sm-2 control-label">Subir Titulo</label>
                     <div class="col-sm-5">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->

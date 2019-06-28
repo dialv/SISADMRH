@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Asingnar asistencias a empleados</title>
+    <title>Consulta de asistencias de empleados a capacitaciones</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-          <div class="contenedorizq"> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>
+    <script> Textheader('pnt_ceac',document.title);</script>
 <div class="row">
  <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
     <div class="col-md-9">
          <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Asistencia capacitacion de empleados</h3>
+        <!--<h3 align="center">Asistencia capacitacion de empleados</h3>-->
     <div th:if="${not #lists.isEmpty(empleadoasistenciacapacitaciones)}">
         <div class="table-responsive">
   <table class="table">
@@ -40,10 +34,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </div>
     </div>
+    </div>
 </body
 
-</script>
+
     <script th:inline="javascript">
+       
            $(document).ready(function () {
         if ([[${msg}]] === 3){
         swal({
@@ -82,5 +78,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 }
                 });
         }
+          
     </script>
 </html>

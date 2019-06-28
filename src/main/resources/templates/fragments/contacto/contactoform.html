@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-<title>SISADMRH-Crear Contacto</title>
+<title>Crear Contacto</title>
 <th:block th:include="../templates/header"></th:block>
 </head>
 
@@ -63,7 +63,7 @@
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+                <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contactos.jpg}"/>
             </div>
             <h3 align="center"></h3>
             <br>
@@ -88,7 +88,7 @@
                 <div class="col-md-12"  >
                     <div class="form-group">
                         <br>
-                        <label class="col-sm-3 control-label">Nombres del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Nombres del contacto(*):</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombrecontacto}"  />
                         </div>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Apellidos del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Apellidos del contacto(*):</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control"  required="true" size="50" maxlength="50" th:field="*{apellidocontacto}"   />
                         </div>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Dirección del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Dirección del contacto(*):</label>
                         <div class="col-sm-8">
                             <!--<input type="text" class="form-control"  required="true" size="100" maxlength="100" th:field="*{direccion}"  />-->
                             <textarea rows="4" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{direccion}">
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Sexo del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Sexo del contacto(*):</label>
                         <div class="col-sm-5">
                             <select class="form-control" name="sexocontanto" th:field="*{sexocontacto}">
                                 <!--th:field="*{sexocontacto}" >-->
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Telefono Fijo del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Teléfono fijo del contacto(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonofijocontacto}" />
                         </div>
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Telefono Móvil del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Teléfono móvil del contacto(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonomovilcontacto}"  />
                         </div>
@@ -163,14 +163,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Correo Electronico del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Correo electronico del contacto(*):</label>
                         <div class="col-sm-5">
                             <input type="email" class="form-control" required="true"   th:field="*{emailcontacto}"    />
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
 
-                            <span class="popuptext" id="poppup13">Ingrese el correo electronico  del Contacto del  Empleado solo se admitiran 50 caracteres.!</span>
+                            <span class="popuptext" id="poppup13">Ingrese el correo electronico  del contacto del  Empleado solo se admitiran 50 caracteres.!</span>
                         </div>
                     </div>
                 </div>

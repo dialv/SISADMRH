@@ -32,10 +32,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <form class="form-horizontal" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
                      <div class="col-md-6">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Nombres Empleado:</label>
+                        <label class="col-sm-4 control-label">Nombres empleado:(*)</label>
                         <div class="col-sm-7" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
-                                 <option value="0">-- Seleccione un Empleado --</option>
+                                 <option value="0">-- Seleccione un empleado --</option>
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -47,7 +47,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
     <div class="form-group">
-                        <label class="col-sm-3 control-label">Nombre de Incapacidad:(*)</label>
+                        <label class="col-sm-4 control-label">Nombre de incapacidad:(*)</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" size="70" maxlength="70" required="true"th:field="*{nombreincapacidad}"/>
                           
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Numero Formulario ISSS:(*)</label>
+                        <label class="col-sm-4 control-label">Nº formulario ISSS:(*)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" size="12" maxlength="12" required="true"th:field="*{numerofichaisss}"/>
                           
@@ -67,12 +67,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numiss')" onmouseout ="javascript:ocultarAyuda('numiss')">a</a></b>
                         
-                        <span class="popuptext" id="numiss">Ingrese el Numero del Formulario ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
+                        <span class="popuptext" id="numiss">Ingrese el numero del formulario ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
                     </div>
                     </div>
              
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">DUI Empleado:(*)</label>
+                        <label class="col-sm-4 control-label">DUI empleado:(*)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control num_dui"  max="12"  maxlength="12" required="true" th:field="*{dui}"/>
                         </div>
@@ -84,7 +84,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                         
                           <div class="form-group">
-                        <label class="col-sm-3 control-label">Numero ISSS Empleado:(*)</label>
+                        <label class="col-sm-4 control-label">Nº ISSS empleado:(*)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control num_dui" max="12"  maxlength="12" required="true" th:field="*{isss}"/>
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
@@ -97,7 +97,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
            
                          <div class="form-group">
-                        <label class="col-sm-3 control-label">Fecha Inicio Incapacidad:(*)</label>
+                        <label class="col-sm-4 control-label">Fecha inicio incapacidad:(*)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control fecha_format " id="fdesde" required="true" th:field="*{fechadesdeincapacidad}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
@@ -111,7 +111,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                         
                           <div class="form-group">
-                        <label class="col-sm-3 control-label">Fecha Fin Incapacidad:(*)</label>
+                        <label class="col-sm-4 control-label">Fecha fin incapacidad:(*)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control fecha_format " id="fhasta" required="true" th:field="*{fechahastaincapacidad}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                              <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
@@ -127,11 +127,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-md-6">
                         
                           <div class="form-group">
-                            <label class="col-sm-3 control-label">Tipo Incapacidad(*):</label>
+                            <label class="col-sm-3 control-label">Tipo incapacidad(*):</label>
                             <div class="col-sm-8">
 
                                 <select class="form-control" name="tipoincapacidad" >
-                                     <option value="0">-- Seleccione un Tipo Incapacidad --</option>
+                                     <option value="0">-- Seleccione un tipo incapacidad --</option>
                                     <option>Parcial</option>
                                     <option>Permanente</option>
                                 </select>
@@ -144,11 +144,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                          
                             <div class="form-group">
-                            <label class="col-sm-3 control-label">Forma Incapcidad(*):</label>
+                            <label class="col-sm-3 control-label">Forma incapcidad(*):</label>
                             <div class="col-sm-8">
 
                                 <select class="form-control" name="formaincapacidad" >
-                                     <option value="0">-- Seleccione una Forma Incapacidad --</option>
+                                     <option value="0">-- Seleccione una forma incapacidad --</option>
                                     <option>Remunerada</option>
                                     <option>No remunerada</option>
                                 </select>
@@ -176,7 +176,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                         
                                      <div class="form-group">
-                        <label class="col-sm-3 control-label">Diagnostico Incapacidad:(*)</label>
+                        <label class="col-sm-3 control-label">Diagnostico incapacidad:</label>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control "max="500" maxlength="500" required="true" th:field="*{diagnostico}"/>-->
                                      <textarea rows="6" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{diagnostico}">
@@ -189,7 +189,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     </div>
                      <div class="form-group">
-                    <label class="col-sm-4 control-label">Subir Documento o Diagnostico Incapacidad:</label>
+                    <label class="col-sm-4 control-label">Subir documento o diagnostico incapacidad:</label>
                     <div class="col-sm-6">
                         <input type="file" name="file"  />
                          
@@ -205,7 +205,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
                     <div class="col-md-12">
                         <div class="row" align="center">
-                             <a href="#" th:href="@{/incapacidadaes/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                             <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                             <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                         </div>

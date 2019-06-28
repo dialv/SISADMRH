@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Contratos</title>
+    <title>Detalle de contrato</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,9 +59,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contrato.jpg}"/>
             </div>
-    <h3 align="center">Consulta de Datos de Contrato</h3>
+    <!--<h3 align="center">Consulta de Datos de Contrato</h3>-->
     
 
     
@@ -72,7 +72,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Información de Contacto del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Información de contacto del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
             </div>
@@ -81,24 +81,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <br>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Código:</label>
+                            <label class="col-sm-5 control-label">Código de contrato:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${contrato.codigocontrato}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Salario Actual:</label>
+                            <label class="col-sm-5 control-label">Salario actual $:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${contrato.salarioactual}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Unidad Presupuestaria:</label>
+                            <label class="col-sm-5 control-label">Unidad presupuestaria:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${contrato.unidadprecide}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Linea de Trabajo:</label>
+                            <label class="col-sm-5 control-label">Linea de trabajo:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${contrato.lineatrabajo}">Fecha de Nacimiento</p>
                             </div>
@@ -118,19 +118,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Inicio de Contrato:</label>
+                            <label class="col-sm-7 control-label">Fecha de inicio de contrato:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(contrato.fechainiciocontrato, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Fin de Contrato:</label>
+                            <label class="col-sm-7 control-label">Fecha de fin de contrato:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(contrato.fechafincontrato, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Cambio de Plaza:</label>
+                            <label class="col-sm-7 control-label">Cambio de plaza:</label>
                             <div class="col-sm-5">
                                   <span th:if="${contrato.plazanominal} == 1"  th:text="Si"  ></span>
                     <span th:if="${contrato.plazanominal} == NULL"  th:text="No"></span>

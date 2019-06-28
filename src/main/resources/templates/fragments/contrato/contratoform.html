@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Contrato</title>
+    <title>Crear contrato</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contrato.jpg}"/>
             </div>
     <h3 align="center"> </h3>
     
@@ -71,7 +71,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Información del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando información del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
@@ -83,7 +83,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12"  >
                  <div class="form-group">
                      <br>
-                    <label class="col-sm-3 control-label">Salario Actual(*):</label>
+                    <label class="col-sm-3 control-label">Salario actual $(*):</label>
                     <div class="col-sm-2">
                         <input type="text"  class="form-control num_decimal3 numeros"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
                     </div>
@@ -94,7 +94,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Unidad Presupuestaria(*):</label>
+                    <label class="col-sm-3 control-label">Unidad presupuestaria(*):</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" required="true" size="100" maxlength="100"  th:field="*{unidadprecide}"   />
                     </div>
@@ -105,7 +105,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Linea de Trabajo(*):</label>
+                    <label class="col-sm-3 control-label">Linea de trabajo(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control"   required="true" size="100" maxlength="100" th:field="*{lineatrabajo}"   />
                     </div>
@@ -116,7 +116,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Numero de Partida(*):</label>
+                    <label class="col-sm-3 control-label">Numero de partida(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control"  required="true" size="9" maxlength="9"  th:field="*{partidacontrato}"   />
                     </div>
@@ -127,7 +127,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Numero de Subpartida(*):</label>
+                    <label class="col-sm-3 control-label">Numero de subpartida(*):</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control"    required="true" size="100" maxlength="100" th:field="*{subpartidacontrato}"  />
                     </div>
@@ -152,7 +152,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>-->
                     <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Inicio de Contrato(*):</label>
+                <label class="col-sm-3 control-label">Fecha de inicio de contrato(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año"type="text"  name="fechaicontrato" id="fechaicontrato" th:field="*{fechainiciocontrato}" onchange="isDat(this.value,'fechaicontrato');Fechas(this.value,$('#fechafcontrato').val().toString(),'fechaicontrato','fechafcontrato')"/>
                 </div>
@@ -163,7 +163,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Fin de Contrato(*):</label>
+                <label class="col-sm-3 control-label">Fecha de fin de contrato(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafcontrato" id="fechafcontrato" th:field="*{fechafincontrato}" onchange="isDat(this.value,'fechafcontrato');Fechas($('#fechaicontrato').val().toString(),this.value,'fechaicontrato','fechafcontrato')"/>
                 </div>
@@ -175,7 +175,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                 
                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Cambio de Plaza:</label>
+                        <label class="col-sm-3 control-label">Cambio de plaza:</label>
                         <div class="col-sm-2" >
                               <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
                             <ul>
@@ -194,7 +194,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Acuerdo:</label>
+                    <label class="col-sm-3 control-label">Subir acuerdo:</label>
                     <div class="col-sm-6">
                         <input id="file" type="file" name="file" accept="application/pdf" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->

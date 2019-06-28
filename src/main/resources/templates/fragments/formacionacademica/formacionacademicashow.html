@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Consulta de Datos de Formacion Academica </title>
+    <title>Detalle de formacion academica </title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/formacion.jpg}"/>
             </div>
     <h3 align="center"></h3>
     
@@ -70,7 +70,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Informacion de Formacion Academica del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Informacion de formacion academica del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
             </div>
@@ -84,19 +84,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 <p class="form-control-static" th:text="${formacionacademica.codigoformacionacademica}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Estudios Realizados:</label>
+                            <label class="col-sm-5 control-label">Estudios realizados:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${formacionacademica.estudiosrealizados}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Centro Educativo:</label>
+                            <label class="col-sm-5 control-label">Centro educativo:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${formacionacademica.centroeducativo}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Años Aprobados</label>
+                            <label class="col-sm-5 control-label">Años aprobados</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${formacionacademica.aniosaprobados}">Fecha de Nacimiento</p>
                             </div>
@@ -110,13 +110,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>-->
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha Desde:</label>
+                            <label class="col-sm-7 control-label">Fecha desde:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(formacionacademica.fechadesdeformacionacademica, 'dd/MM/yyyy')}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecna Hasta:</label>
+                            <label class="col-sm-7 control-label">Fecna hasta:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(formacionacademica.fechahastaformacionacademica, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
@@ -128,7 +128,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Titulo Obtenido</label>
+                            <label class="col-sm-7 control-label">Titulo obtenido</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${formacionacademica.tituloobtenido}">Email Empleado</p>
                             </div>

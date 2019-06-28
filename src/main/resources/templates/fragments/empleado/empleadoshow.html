@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>SISADMRH-Detalle de Empleado</title>
+        <title>Detalle de Empleado</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -23,62 +23,62 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-9">
 		 <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/images.jpeg}"/>
                     </div>
             <h3 align="center"></h3>
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Código:</label>
+                            <label class="col-sm-5 control-label">Código de empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.codigoempleado}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre del Empleado</label>
+                            <label class="col-sm-5 control-label">Nombre del empleado</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.nombreempleado}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Apellido del Empleado:</label>
+                            <label class="col-sm-5 control-label">Apellido del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.apellidoempleado}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha de Nacimiento:</label>
+                            <label class="col-sm-5 control-label">Fecha de nacimiento:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechanacimientoempleado, 'dd/MM/yyyy')}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Nacionalidad del Empleado:</label>
+                            <label class="col-sm-5 control-label">Nacionalidad del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.nacionalidad}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                         
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Departamento de Nacimiento del Empleado:</label>
+                            <label class="col-sm-5 control-label">Departamento de nacimiento del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.departamentonacimiento}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Municipio de Nacimiento del Empleado:</label>
+                            <label class="col-sm-5 control-label">Municipio de nacimiento del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.municipionacimiento}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Estado Familiar del Empleado:</label>
+                            <label class="col-sm-5 control-label">Estado familiar del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.estadofamiliar}">Fecha de Nacimiento</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Sexo del Empleado:</label>
+                            <label class="col-sm-5 control-label">Sexo del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.sexoempleado}">Fecha de Nacimiento</p>
                             </div>
@@ -90,7 +90,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Telefono Fijo del Empleado:</label>
+                            <label class="col-sm-5 control-label">Telefono fijo del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.telefonofijoempleado}">Fecha de Nacimiento</p>
                             </div>
@@ -102,7 +102,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Correo Eletronico del Empleado:</label>
+                            <label class="col-sm-5 control-label">Correo eletronico del empleado:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${empleado.emailempleado}">Fecha de Nacimiento</p>
                             </div>
@@ -123,37 +123,37 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>-->
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">DUI del Empleado:</label>
+                            <label class="col-sm-7 control-label">DUI del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.duiempleado}">Telefono Movil de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">NIT del Empleado:</label>
+                            <label class="col-sm-7 control-label">NIT del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.nitempleador}">DUI</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">ISSS del Empleado:</label>
+                            <label class="col-sm-7 control-label">ISSS del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.isssempleado}">NIT</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Ingreso al Sector Publico:</label>
+                            <label class="col-sm-7 control-label">Fecha de ingreso al sector publico:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresosecpub, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Ingreso al Sector Privado:</label>
+                            <label class="col-sm-7 control-label">Fecha de ingreso al sector privado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresosecpriv, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Ingreso al Ministerio:</label>
+                            <label class="col-sm-7 control-label">Fecha de ingreso al ministerio:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(empleado.fechaingresoministerio, 'dd/MM/yyyy')}">Email Empleado</p>
                             </div>
@@ -165,37 +165,37 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Tipo de Pension del Empleado:</label>
+                            <label class="col-sm-7 control-label">Tipo de pension del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.afiliacionpension}">NIT</p>
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-7 control-label">NUP del Empleado:</label>
+                            <label class="col-sm-7 control-label">NUP del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.numeroafiliacion}">NIT</p>
                             </div>
                         </div>
                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Banco en el que se le deposita al Empleado:</label>
+                            <label class="col-sm-7 control-label">Banco en el que se le deposita al empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.nombreinstiuciondepositar}">NIT</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Tipo de Cuenta Bancaria del Empleado:</label>
+                            <label class="col-sm-7 control-label">Tipo de cuenta bancaria del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.tipocuenta}">NIT</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Numero de Cuenta Bancaria del Empleado:</label>
+                            <label class="col-sm-7 control-label">Numero de cuenta bancaria del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${empleado.numerocuenta}">NIT</p>
                             </div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-7 control-label">Estado del Empleado:</label>
+                            <label class="col-sm-7 control-label">Estado del empleado:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static">  <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span> <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span> <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"></span> <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span> <span th:if="${empleado.estadoempleado} == 0"  th:text="De Baja"></span> </p>
                             </div>
@@ -252,7 +252,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contactos.jpg}"/>
 														</div>	
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -264,12 +264,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<table id="tablita" class="table table-striped table-bordered" >
 															<thead> 
 															<tr >
-															<th>Codigo</th>
-															<th>Nombre de  Contacto</th>
-															<th>Direccion de Contacto</th>
-															<th>Telefono Fijo de Contacto</th>
-															<th>Telefono Movil de Contacto</th>
-															<th>Email de Contacto</th>
+															<th>Código de contacto</th>
+															<th>Nombre de  contacto</th>
+															<th>Dirección de contacto</th>
+															<th>Teléfono fijo de contacto</th>
+															<th>Teléfono móvil de contacto</th>
+															<th>Correo electronico de contacto</th>
 															<th></th>
 															<th></th>
 															<th></th>
@@ -316,7 +316,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/dependientes.jpg}"/>
 														</div>														
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -328,9 +328,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<table id="tablita1" class="table table-striped table-bordered" >
 															<thead> 
 															<tr >
-															<th>Codigo</th>
-															<th>Nombre de  Dependiente</th>
-															<th>Parentesco</th>
+															<th>Código dependiente</th>
+															<th>Nombre de  dependiente</th>
+															<th>parentesco</th>
 															<th></th>
 															<th></th>
 															<th></th>
@@ -366,7 +366,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                            		<div class="panel panel-primary">
 														<div class="panel-heading">
 															<h3 class="panel-title"> 
-																Formacion Academica   
+																Formacion academica   
 																<a th:href="@{|../../formacionacademicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
 																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
@@ -374,7 +374,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/formacion.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -382,15 +382,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<div class="col-md-12">
 
 															<!--</div>-->
-															<h3 align="center">Formacion Academica</h3>
+															<h3 align="center">Formacion academica</h3>
 															<table id="tablita2" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
-															<th>Estudios Realizados</th>
-															<th>Centro Educativo</th>
-															<th>Titulo Obtenido</th>
-															<th>Fecha Desde</th>
+															<th>Código</th>
+															<th>Estudios realizados</th>
+															<th>Centro educativo</th>
+															<th>Titulo obtenido</th>
+															<th>Fecha desde</th>
 															<th></th>
 															<th></th>
 															<th></th>
@@ -429,7 +429,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                            		<div class="panel panel-primary">
 														<div class="panel-heading">
 															<h3 class="panel-title"> 
-																Capacitaciones Recibidas  
+																Capacitaciones recibidas  
 																<a th:href="@{|../../caparecibidas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
 																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
@@ -437,7 +437,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/capacitacion.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/capacitacion.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -445,15 +445,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<div class="col-md-12">
 
 															<!--</div>-->
-															<h3 align="center">Capacitaciones Recibidas</h3>
+															<h3 align="center">Capacitaciones recibidas</h3>
 															<table id="tablita3" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
-															<th>Tipo Evento</th>
-															<th>Especialidad del Evento</th>
-															<th>Organismo Patrocinador</th>
-															<th>Fecha del Evento</th>
+															<th>Código de capacitacion</th>
+															<th>Tipo evento</th>
+															<th>Especialidad del evento</th>
+															<th>Organismo patrocinador</th>
+															<th>Fecha del evento</th>
 															<th></th>
 															<th></th>
 															<th></th>
@@ -491,7 +491,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                            		<div class="panel panel-primary">
 														<div class="panel-heading">
 															<h3 class="panel-title"> 
-																Experiencia Laboral 
+																Experiencia laboral 
 																<a th:href="@{|../../experiencialaborales/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
 																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
@@ -499,7 +499,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/experiencia.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/experiencia.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -507,15 +507,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<div class="col-md-12">
 
 															<!--</div>-->
-															<h3 align="center">Experiencia Laboral</h3>
+															<h3 align="center">Experiencia laboral</h3>
 															<table id="tablita4" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
-															<th>Nombre Institucion</th>
-															<th>Fecha Desde</th>
-															<th>Fecha Hasta</th>
-															<th>Salario Inicial</th>
+															<th>Código</th>
+															<th>Nombre institución</th>
+															<th>Fecha desde</th>
+															<th>Fecha hasta</th>
+															<th>Salario inicial $</th>
 															<th>Sector</th>
 															<th></th>
 															<th></th>
@@ -555,7 +555,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                            		<div class="panel panel-primary">
 														<div class="panel-heading">
 															<h3 class="panel-title"> 
-																Ubicacion Fisica  
+																Ubicacion física  
 																<a th:href="@{|../../ubicacionfisicas/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
 																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
@@ -563,7 +563,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/ubicacion.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -571,14 +571,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<div class="col-md-12">
 
 															<!--</div>-->
-															<h3 align="center">Ubicacion Fisica</h3>
+															<h3 align="center">Ubicacion física</h3>
 															<table id="tablita5" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
 															<th>Codigo</th>
 															<th>Cargo</th>
-															<th>Jefe Inmediato</th>
-															<th>Nombre Ubicacion</th>
+															<th>Jefe inmediato</th>
+															<th>Nombre ubicacion</th>
 															<th></th>
 															<th></th>
 															<th></th>
@@ -623,7 +623,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contrato.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contrato.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -635,9 +635,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<table id="tablita6" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
-															<th>Fecha de Inicio de Contrato</th>
-                                                                                                                        <th>Fecha de Fin de Contrato</th>
+															<th>Código</th>
+															<th>Fecha de inicio de contrato</th>
+                                                                                                                        <th>Fecha de fin de contrato</th>
 															<th>Salario Actual</th>
 															<th></th>
 															<th></th>
@@ -677,7 +677,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                            		<div class="panel panel-primary">
 														<div class="panel-heading">
 															<h3 class="panel-title"> 
-																Hijos con Discapacidad 
+																Hijos con discapacidad 
 																<a th:href="@{|../../hijodiscapacidades/new/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
 																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
@@ -685,7 +685,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/discapacidad.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -693,14 +693,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<div class="col-md-12">
 
 															<!--</div>-->
-															<h3 align="center">Hijos con Discapacidad</h3>
+															<h3 align="center">Hijos con discapacidad</h3>
 															<table id="tablita7" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
+															<th>Código</th>
 															<th>Nombre</th>
 															<th>Discapacidad</th>
-															<th>Tipo de Discapacidad</th>
+															<th>Tipo de discapacidad</th>
 															<th></th>
 															<th></th>
 															<th></th>
@@ -745,7 +745,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/idioma.jpg}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -757,8 +757,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<table id="tablita8" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
-															<th>Nombre de Idioma</th>
+															<th>Código</th>
+															<th>Nombre de idioma</th>
 															<th>Escribe</th>
 															<th>Habla</th>
 															<th>Traduce</th>
@@ -801,7 +801,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                            		<div class="panel panel-primary">
 														<div class="panel-heading">
 															<h3 class="panel-title"> 
-																Beneficos
+																Beneficios
 																<a th:href="@{|../../beneficios/asignar/${empleado.codigoempleado}|}" title="" class="btn-sm btn-success pull-right">
 																	<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus">Crear</span> 
 																</a>
@@ -809,7 +809,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 														</div>
 														<div class="panel-body">
 														 <div class="row text-center">
-															<img src="../../static/image/images.jpeg" width="200" th:src="@{/image/beneficio.png}"/>
+															<img src="../../static/image/images.jpeg" width="100" th:src="@{/image/beneficio.png}"/>
 														</div>
 															<!--<div th:if="${not #lists.isEmpty(contactos)}" >-->
 															<div class="row">
@@ -817,15 +817,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<div class="col-md-12">
 
 															<!--</div>-->
-															<h3 align="center">Beneficos</h3>
+															<h3 align="center">Beneficios</h3>
 															<table id="tablita9" class="table table-striped table-bordered" >
 															<thead>
 															<tr >
-															<th>Codigo</th>
-															<th>Nombre</th>
+															<th>Código</th>
+															<th>Nombre beneficio</th>
 															<th>Descripción</th>
-															<th>Fecha Inicio</th>
-															<th>Fecha Fin</th>
+															<th>Fecha inicio</th>
+															<th>Fecha fin</th>
 															<th></th>
 															<th></th>
 															<th></th>

@@ -3,7 +3,7 @@
 
     <head lang="en">
 
-        <title>Crear Costo de Capacitación</title>
+        <title>Crear costo de capacitación</title>
     <th:block th:include="../templates/header"></th:block>
 
 </head>
@@ -26,32 +26,32 @@
                     <input type="hidden" th:field="*{codigocostocapacitacion}"/>
 
                     <div class="form-group">
-                        <label class="col-sm-5 control-label"> Nombre Capacitación(*):</label>
+                        <label class="col-sm-5 control-label"> Nombre capacitación(*):</label>
                         <div class="col-sm-5">
                             <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
-                                <option value="0">-- Seleccione la Capacitación --</option>
+                                <option value="0">-- Seleccione la capacitación --</option>
                                 <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                             </select>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacionn')" onmouseout ="javascript:ocultarAyuda('capacitacionn')">a</a></b>
 
-                            <span class="popuptext" id="capacitacionn">Seleccione la Capacitación.!</span>
+                            <span class="popuptext" id="capacitacionn">Seleccione la capacitación.!</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">Costo Por Persona $(*):</label>
+                        <label class="col-sm-5 control-label">Costo por persona $(*):</label>
                         <div class="col-sm-2">
                             <input id="costopp" type="text" class="form-control num_decimal3 numeros" required="true" maxlength="10" th:field="*{costopersona}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numeropersonas')" onmouseout ="javascript:ocultarAyuda('numeropersonas')">a</a></b>
 
-                            <span class="popuptext" id="numeropersonas">Ingrese el Costo por persona.!</span>
+                            <span class="popuptext" id="numeropersonas">Ingrese el costo por persona.!</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">Numero de Personas(*):</label>
+                        <label class="col-sm-5 control-label">Numero de personas(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control numeros" required="true" maxlength="3" th:field="*{numeropersona}"/>
                         </div>
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">Costo Capacitador $(*):</label>
+                        <label class="col-sm-5 control-label">Costo capacitador $(*):</label>
                         <div class="col-sm-2">
                             <input id="costocap" type="text" class="form-control num_decimal3 numeros"  required="true" maxlength="10" th:field="*{costocapacitador}"/>
                         </div>

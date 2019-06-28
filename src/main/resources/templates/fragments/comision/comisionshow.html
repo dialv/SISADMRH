@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Listado Comisiones</title>
+    <title>Detalle de  comisión</title>
      <th:block th:include="../templates/header"></th:block>
  
 
@@ -27,7 +27,7 @@
                         <p class="form-control-static" th:text="${comision.codigocomision}">Usuario Id</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-6 control-label">Nombre Comision:</label>
+                    <label class="col-sm-6 control-label">Nombre de comisión</label>
                     <div class="col-sm-6">
                         <p class="form-control-static" th:text="${comision.nombrecomision}">Nombre</p>
                     </div>
@@ -35,20 +35,20 @@
              
                 
                  <div class="form-group">
-                    <label class="col-sm-6 control-label">Fecha de Inicio de Comision:</label>
+                    <label class="col-sm-6 control-label">Fecha inicio de comisión</label>
                     <div class="col-sm-6">
                         <p class="form-control-static" th:text="${#calendars.format(comision.fechadesdecomision, 'dd/MM/yyyy')}">descripcion</p>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-6 control-label">Fecha Fin de Comision:</label>
+                    <label class="col-sm-6 control-label">Fecha fin de comisión</label>
                     <div class="col-sm-6">
                         <p class="form-control-static" th:text="${#calendars.format(comision.fechahastacomision, 'dd/MM/yyyy')}">descripcion</p>
                     </div>
                 </div>
                   <div class="form-group">
-                    <label class="col-sm-6 control-label">Numero de Acuerdo de la Comision:</label>
+                    <label class="col-sm-6 control-label">Numero de acuerdo de la comisión</label>
                     <div class="col-sm-6">
                         <p class="form-control-static" th:text="${comision.numeroacuerdocomision}">Nombre</p>
                     </div>

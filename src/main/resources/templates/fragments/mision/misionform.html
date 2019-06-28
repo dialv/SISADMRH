@@ -35,7 +35,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Misi&oacute;n</title>
+    <title>Crear misi&oacute;n</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -54,7 +54,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
              <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/mision.png}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/mision.png}"/>
             </div>
     <h3 align="center"> </h3>
         
@@ -63,10 +63,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <!--<input type="hidden" th:field="*{nombremision}"/>-->
            <div class="col-md-12">
            <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de Misión(*):</label>
+                <label class="col-sm-3 control-label">Tipo de misión(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="tipomision" id="tipomision" th:field="*{tipomision}"> 
-                        <option value="3">--seleccione el tipo de Mision--</option>
+                        <option value="3">--seleccione el tipo de mision--</option>
                         <option value="0">Externa</option>
                         <option value="1">Interna</option>
                         <!--<option>Gobierno</option>-->
@@ -80,7 +80,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Nombre de Misión(*):</label>
+                <label class="col-sm-3 control-label">Nombre de misión(*):</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombremision}" />
                 </div>
@@ -91,7 +91,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Objetivo de Misión(*):</label>
+                <label class="col-sm-3 control-label">Objetivo de misión(*):</label>
                 <div class="col-sm-5">
                     <!--<input type="text" step="0.01" class="form-control" required="true" size="100" maxlength="100" th:field="*{objetivomision}"/>-->
                     <textarea rows="4" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{objetivomision}">
@@ -106,7 +106,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Dirección de Misión(*):</label>
+                <label class="col-sm-3 control-label">Dirección de misión(*):</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" id="n16" required="true" size="100" maxlength="100" th:field="*{direccion}"/>
                 </div>
@@ -127,7 +127,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>-->
            
             <div class="form-group">
-                <label class="col-sm-3 control-label">Responsable del Gasto(*):</label>
+                <label class="col-sm-3 control-label">Responsable del gasto(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="responsablegasto"  id="n1" th:field="*{responsablegasto}">
                          <option value="3">--seleccione el responsable del gasto--</option>
@@ -156,7 +156,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Gasto Viaje(*):</label>
+                <label class="col-sm-3 control-label">Gasto viaje(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control num_decimal" id="n3" required="true" maxlength="6"  th:field="*{gastoviaje}"/>
                 </div>
@@ -167,7 +167,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
 <div class="form-group">
-                <label class="col-sm-3 control-label">Gasto Terminales(*):</label>
+                <label class="col-sm-3 control-label">Gasto terminales(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control num_decimal"  id="n4" required="true" maxlength="6"  th:field="*{gastoterminales}"/>
                 </div>
@@ -178,7 +178,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label" id="lb1">Fecha de Salida(*):</label>
+                <label class="col-sm-3 control-label" id="lb1">Fecha de salida(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision" onchange="isDat(this.value,'fechasalidamision');Fechas(this.value,$('#fecharegresomision').val().toString(),'fechasalidamision','fecharegresomision')" />
@@ -209,7 +209,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
     <div class="form-group">
-                <label class="col-sm-3 control-label">Organismo Patrocinador(*):</label>
+                <label class="col-sm-3 control-label">Organismo patrocinador(*):</label>
                 <div class="col-sm-5">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                     <!--<select class="form-control" name="ubicacionpuesto" th:field="*{ubicacion}">-->
@@ -245,7 +245,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  
            
            <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Regreso(*):</label>
+                <label class="col-sm-3 control-label">Fecha de regreso(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" onchange="isDat(this.value,'fecharegresomision');Fechas($('#fechasalidamision').val().toString(),this.value,'fechasalidamision','fecharegresomision')"/>
@@ -260,7 +260,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                   
                   
            <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Acuerdo(*):</label>
+                <label class="col-sm-3 control-label">Fecha de acuerdo(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" th:field="*{fechaacuerdomision}" name="fechaacuerdomision" id="fechaacuerdo" onchange="isDat(this.value,'fechaacuerdo')" />
                 </div>
@@ -272,7 +272,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            </div>
              
              <div class="form-group">
-                    <label class="col-sm-3 control-label">Acuerdo</label>
+                    <label class="col-sm-3 control-label">Subir acuerdo</label>
                     <div class="col-sm-5">
                         <input type="file" name="file" id="n10"/>
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
@@ -297,7 +297,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <button type="submit" class="btn btn-default">Agregar</button>
                 </div>-->
            <div class="form-group">
-                <label class="col-sm-3 control-label">Boleto Aeroe(*):</label>
+                <label class="col-sm-3 control-label">Boleto aeroe(*):</label>
                 <div class="col-sm-3">
                     <input type="text" class="form-control numeros" id="n11" required="true" size="20" maxlength="20" th:field="*{boleto}"/>
                 </div>
@@ -308,7 +308,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Boleto Terrestre(*):</label>
+                <label class="col-sm-3 control-label">Boleto terrestre(*):</label>
                 <div class="col-sm-3">
                     <input type="text" class="form-control numeros" id="n12" required="true" size="20" maxlength="20" th:field="*{boletoterr}"/>
                 </div>
@@ -321,7 +321,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                   
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Cantidad de D&#237;as(*):</label>
+                <label class="col-sm-3 control-label">Cantidad de d&#237;as(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control numeros" id="n13" required="true" maxlength="3" th:field="*{cantidaddia}"/>
                 </div>
@@ -335,7 +335,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
                   
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Cantidad de Meses(*):</label>
+                <label class="col-sm-3 control-label">Cantidad de meses(*):</label>
                 <div class="col-sm-2">
                     <input type="text" class="form-control numeros" id="n14" required="true" maxlength="2" th:field="*{cantidadmeses}"/>
                 </div>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Crear Inasistencias</title>
+        <title>Crear inasistencias</title>
     <th:block th:include="../templates/header"></th:block>
     
 </head>
@@ -31,7 +31,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <label class="col-sm-2 control-label">Empleado:(*)</label>
                         <div class="col-sm-6" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
-                                 <option value="0">-- Seleccione un Empleado --</option>
+                                 <option value="0">-- Seleccione un empleado --</option>
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                             <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
@@ -43,7 +43,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                     </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Motivo de Inasistencia:(*)</label>
+                    <label class="col-sm-2 control-label">Motivo de inasistencia:(*)</label>
                     <div class="col-sm-9">
                        <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{motivoinasistencia}">
 
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                 
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Justificacion Inasistencia:(*)</label>
+                    <label class="col-sm-2 control-label">Justificacion inasistencia:(*)</label>
                     <div class="col-sm-9">
                         <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{constanciainasistencia}">
 
@@ -73,7 +73,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"> Fecha Inicio Inasistencia:(*)</label>
+                    <label class="col-sm-2 control-label"> Fecha inicio inasistencia:(*)</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control fecha_format" id="fdesde" required="true" th:field="*{fechadesdeinasistencia}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                     </div>
@@ -84,7 +84,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"> Fecha Fin Inasistencia:(*)</label>
+                    <label class="col-sm-2 control-label"> Fecha fin inasistencia:(*)</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechahastainasistencia}"onmouseout ="javascript:ocultarAyuda('fechahasta')"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                     </div>
@@ -97,7 +97,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
   <div class="col-md-12">
       
          <div class="form-group">
-                    <label class="col-sm-2 control-label">Acuerdo:(*)</label>
+                    <label class="col-sm-2 control-label">Subir acuerdo:(*)</label>
                     <div class="col-sm-4">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->

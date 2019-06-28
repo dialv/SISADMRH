@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Consulta de Datos de Ubicacion Fisica </title>
+    <title>Detalle ubicacion fisica </title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/ubicacion.jpg}"/>
             </div>
     <h3 align="center"></h3>
     
@@ -71,7 +71,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Informacion de Ubicacion Fisica del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Informacion de ubicacion fisica del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 <p class="form-control-static" th:text="${ubicacionfisica.codigoubicacion}">codigo de Empleado</p></div>
                         </div>
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de Ubicación</label>
+                            <label class="col-sm-5 control-label">Nombre de ubicación</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${ubicacionfisica.nombreubicacion}">Nombre de Empleado</p>
                             </div>
@@ -97,13 +97,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Cargo Funcional:</label>
+                            <label class="col-sm-5 control-label">Cargo funcional:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${ubicacionfisica.cargofuncional}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tareas que Desempeña:</label>
+                            <label class="col-sm-5 control-label">Tareas que desempeña:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${ubicacionfisica.teareadesempenia}">Fecha de Nacimiento</p>
                             </div>

@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Crear Usuario</title>
+        <title>Asignar asistencia de capacitaciones a empleados</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_geus</label>
-        <label  class="der">
-            <script >
-                var f = new Date();
-                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
-            </script></label>
-    </div><br>
+  
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -19,9 +13,9 @@
         <div class="col-md-9">
             <br><br>
             <div class="row text-center">
-                <img src="../../static/image/agregarusuario.png" width="150" th:src="@{/image/agregarusuario.png}"/>
+                <img src="../../static/image/agregarusuario.png" width="75" th:src="@{/image/agregarusuario.png}"/>
             </div>
-            <h3 align="center">Asignar empleados a Capacitaciones</h3>
+            <!--<h3 align="center">Asignar empleados a Capacitaciones</h3>-->
             <div>
                 <form class="form-horizontal" id="formempasis" th:object="${formasistenciaempleadocapacitacion}" th:action="@{../empleadoasistenciacapacitaciones}" method="post" >
                     <div class="form-group">
@@ -52,6 +46,7 @@
                         <div class="row" align="center">
                               <a href="#" th:href="@{/empleadoasistenciacapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                              <button type="submit" class="btn btn-default" id="btnGuardar">Agregar</button>
+                             <!--<button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span></button>-->
                             <button type="reset" class="btn btn-default">Limpiar</button>
                          </div>
                     </div>
@@ -64,6 +59,7 @@
         </div>
  </body>
 <script>
+     Textheader('pnt_eaca', document.title);
     $(document).ready(function () {
     $('#fechaingreso').datepicker({
     dateFormat: 'yy-mm-dd'

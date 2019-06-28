@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>SISADMRH-Agregar Empleados a Misi&oacute;n</title>
+    <title>Agregar empleados a misi&oacute;n</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -37,7 +37,7 @@
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Agregando Empleados a Misi&oacute;n:  <label id="nomision" class=" control-label" th:text="${mision.nombremision}"></label> </h3>
+                        <h3>Agregando empleados a misi&oacute;n:  <label id="nomision" class=" control-label" th:text="${mision.nombremision}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codmision"  th:value="${mision.codigomision}"/>
@@ -48,11 +48,11 @@
  
                     <div class="form-group">
                          
-                        <label class="col-sm-3 control-label" >Nombre del Empleado:</label><br>
+                        <label class="col-sm-3 control-label" >Nombre del empleado:</label><br>
                         <div class="col-sm-7">
                             <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
                               <select class="form-control" id="codigo" name="codigo"  >
-                                  <option value="0">-- Seleccione un Empleado --</option>
+                                  <option value="0">-- Seleccione un empleado --</option>
                                 <option  th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                             </select>
                         </div>

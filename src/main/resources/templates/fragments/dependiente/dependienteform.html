@@ -36,7 +36,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Dependiente</title>
+    <title>Crear dependiente</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -55,7 +55,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/dependientes.jpg}"/>
             </div>
     <h3 align="center"> </h3>
      <br>
@@ -81,18 +81,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12"  >
                 <br>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombres del Dependiente(*):</label>
+                    <label class="col-sm-3 control-label">Nombres del dependiente(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombredependiente}"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
                         
-                        <span class="popuptext" id="poppup1">Ingrese el Nombre del Dependiente del Empleado solo se admitiran 50 caracteres.!</span>
+                        <span class="popuptext" id="poppup1">Ingrese el nombre del dependiente del empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellidos del Dependiente(*):</label>
+                    <label class="col-sm-3 control-label">Apellidos del dependiente(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="50" maxlength="50"  th:field="*{apellidodependiente}"  />
                     </div>
@@ -103,7 +103,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Nacimiento del Dependiente(*):</label>
+                <label class="col-sm-3 control-label">Fecha de nacimiento del dependiente(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" onchange="isDat(this.value,'fechanacde');fechaNac(this.value,'fechanacde')"  />
                 </div>
@@ -114,7 +114,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Parentesco del Dependiente(*):</label>
+                <label class="col-sm-3 control-label">Parentesco del dependiente(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="parentesco" th:field="*{parentesco}" > 
                             <!--th:field="*{parentesco}" >-->
@@ -127,11 +127,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
                         
-                        <span class="popuptext" id="poppup3">Ingrese el parentesco del Dependiente del Empleado solo se admitiran 100 caracteres.!</span>
+                        <span class="popuptext" id="poppup3">Ingrese el parentesco del dependiente del dmpleado solo se admitiran 100 caracteres.!</span>
                     </div>
             </div>	
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo del Dependiente(*):</label>
+                <label class="col-sm-3 control-label">Sexo del dependiente(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="sexo" th:field="*{sexo}">
                         <!--th:field="*{sexo}">-->
@@ -143,7 +143,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
                         
-                        <span class="popuptext" id="poppup4">Seleccione el genero del Dependiente del Empleado desplegando la lista.!</span>
+                        <span class="popuptext" id="poppup4">Seleccione el genero del dependiente del empleado desplegando la lista.!</span>
                     </div>
             </div>
                 </div>

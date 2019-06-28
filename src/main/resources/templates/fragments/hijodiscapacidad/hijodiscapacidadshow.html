@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Consulta de Datos de Hijo Con Discapacidad</title>
+    <title>Detalle de hijo con discapacidad</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/discapacidad.jpg}"/>
             </div>
     <h3 align="center"></h3>
     
@@ -71,7 +71,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Informacion de Hijos con Discapacidad del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Informacion de hijos con discapacidad del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
             </div>
@@ -85,19 +85,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 <p class="form-control-static" th:text="${hijodiscapacidad.codigohijodiscapacidad}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre del Hijo con discapacidad:</label>
+                            <label class="col-sm-5 control-label">Nombre del hijo con discapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.nombrehijodiscapacidad}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Apellido del Hijo con discapacidad:</label>
+                            <label class="col-sm-5 control-label">Apellido del hijo con discapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.apellidohijodiscapacidad}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de Discapacidad:</label>
+                            <label class="col-sm-5 control-label">Nombre de discapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.nombrediscapacidad}">Fecha de Nacimiento</p>
                             </div>
@@ -105,13 +105,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div> 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Tipo de Discapacidad:</label>
+                            <label class="col-sm-7 control-label">Tipo de discapacidad:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.tipodiscapacidad}">Telefono Movil de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Nacimiento del Hijo con discapacidad:</label>
+                            <label class="col-sm-7 control-label">Fecha de nacimiento del hijo con discapacidad:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${#calendars.format(hijodiscapacidad.fechanamimientohijosdiscapacidad, 'dd/MM/yyyy')}">DUI</p>
                             </div>

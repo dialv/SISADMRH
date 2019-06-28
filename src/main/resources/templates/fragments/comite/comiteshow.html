@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Detalle de Comité </title>
+        <title>Detalle del Comité </title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -24,52 +24,52 @@
                 <form class="form-horizontal">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Código de Comité:</label>
+                            <label class="col-sm-5 control-label">Código de comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.codigocomite}">Codigo de comite</p></div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre del Comité:</label>
+                            <label class="col-sm-5 control-label">Nombre del comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.nombrecomite}">Nombre de comite</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Responsable del  Comité:</label>
+                            <label class="col-sm-5 control-label">Responsable del  comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.codigoempleado.nombreempleado}">Responsable</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Desripción del Comité:</label>
+                            <label class="col-sm-5 control-label">Descripción del comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.desripcioncomite}">Desripción de Comite</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Número de Acuerdo del Comité:</label>
+                            <label class="col-sm-5 control-label">Número de Acuerdo del comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.numeroacuerdocomite}">Numero de Acuerdo</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Miembros Máximos del Comité:</label>
+                            <label class="col-sm-5 control-label">Miembros máximos del comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${comite.miembromaximo}">Miembros Maximos</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha Inicio Comité:</label>
+                            <label class="col-sm-5 control-label">Fecha inicio del comité:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${#calendars.format(comite.fechadesdecomite, 'dd/MM/yyyy')}">Fecha Desde</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha Fin Comité :</label>
+                            <label class="col-sm-5 control-label">Fecha fin del comité :</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${#calendars.format(comite.fechahastacomite, 'dd/MM/yyyy')}">Fecha Hasta </p>
                             </div>

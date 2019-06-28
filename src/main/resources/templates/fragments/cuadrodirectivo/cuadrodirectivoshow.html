@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Datos de Cuadros Directivos</title>
+        <title>Detalle de cuadro directivo</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -20,7 +20,7 @@
 <div class="row text-center">
     <img src="../../static/image/cuadro.png" width="75" th:src="@{/image/cuadro.png}"/></div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Código Cuadro Directivo:</label>
+                    <label class="col-sm-4 control-label">Código cuadro directivo:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${cuadrodirectivo.codigocuadrodirectivo}">cuadro Id</p></div>
                 </div>
@@ -31,21 +31,21 @@
                     </div>
                 </div>-->
  <div class="form-group">
-                                    <label class="col-sm-4 control-label">Responsable Directo:</label>
+                                    <label class="col-sm-4 control-label">Responsable directo:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">Codigo Empleado</p>
                                          <!--<p class="form-control-static" th:text="${capacitador.codigoempleado.codigoempleado}">Codigo Empleado</p>-->
                                     </div>
                                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Área a que Pertenece:</label>
+                    <label class="col-sm-4 control-label">Área a que pertenece:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${cuadrodirectivo.area}">Area</p>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Descripción del Motivo:</label>
+                    <label class="col-sm-4 control-label">Descripción del motivo:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripción</p>
                     </div>
@@ -55,13 +55,13 @@
               
 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Fecha Presentación Desde:</label>
+                    <label class="col-sm-4 control-label">Fecha presentación desde:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${#calendars.format(cuadrodirectivo.fechapresentaciondesde, 'dd/MM/yyyy')}">Valor de estado</p>
                     </div>
                 </div>
  <div class="form-group">
-                    <label class="col-sm-4 control-label">Fecha Presentación Hasta:</label>
+                    <label class="col-sm-4 control-label">Fecha presentación hasta:</label>
                     <div class="col-sm-7">
                         <p class="form-control-static" th:text="${#calendars.format(cuadrodirectivo.fechapresentacionhasta, 'dd/MM/yyyy')}">Valor de estado</p>
                     </div>

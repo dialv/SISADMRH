@@ -40,7 +40,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Capacitaciones Recibidas</title>
+    <title>Crear capacitaciones recibidas</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -71,7 +71,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Información del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando información del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
@@ -83,7 +83,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12"  >
                  <div class="form-group">
                       <br>
-                    <label class="col-sm-3 control-label">Tipo de Evento(*):</label>
+                    <label class="col-sm-3 control-label">Tipo de evento(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true"  th:field="*{tipoevento}"  />
                     </div>
@@ -94,7 +94,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Especialidad del Evento(*):</label>
+                    <label class="col-sm-3 control-label">Especialidad del evento(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" size="50" maxlength="50" required="true"   th:field="*{especialidad}" />
                     </div>
@@ -105,18 +105,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Organismo Patrocinador(*):</label>
+                    <label class="col-sm-3 control-label">Organismo patrocinador(*):</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control"  size="200" maxlength="200" required="true"   th:field="*{organismo}"   />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup27')" onmouseout ="javascript:ocultarAyuda('poppup27')">a</a></b>
                         
-                        <span class="popuptext" id="poppup27">Ingrese el Organismo patrocinador del evento en el que participara el Empleado solo se admitiran 100 caracteres .!</span>
+                        <span class="popuptext" id="poppup27">Ingrese el organismo patrocinador del evento en el que participara el Empleado solo se admitiran 100 caracteres .!</span>
                     </div>
                 </div>
                    <div class="form-group">
-                <label class="col-sm-3 control-label">Pais(*):</label>
+                <label class="col-sm-3 control-label">País(*):</label>
                 <div class="col-sm-3">
                     <select class="form-control" name="pais" th:field="*{pais}">
                             <!--th:field="*{pais}"  >-->
@@ -134,9 +134,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha del Evento(*):</label>
+                <label class="col-sm-3 control-label">Fecha del evento(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" required="true"  name="fechacapreevento" id="fechacapreevento"  th:field="*{fechaevento}" onchange="isDat(this.value,'fechacapreevento')"/>
+                     <input class="form-control fecha_format"  type="text" required="true"  name="fechacapreevento" id="fechacapreevento"  th:field="*{fechaevento}" onchange="isDat(this.value,'fechacapreevento')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup19')" onmouseout ="javascript:ocultarAyuda('poppup19')">a</a></b>
@@ -145,7 +145,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Duración Horas(*):</label>
+                    <label class="col-sm-3 control-label">Duración horas(*):</label>
                     <div class="col-sm-1">
                         <input type="text" class="form-control numeros"  required="true"   th:field="*{dhoras}" />
                     </div>
@@ -156,7 +156,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Duración Dias(*):</label>
+                    <label class="col-sm-3 control-label">Duración dias(*):</label>
                     <div class="col-sm-1">
                         <input type="text" class="form-control numeros"   required="true" th:field="*{ddias}"  />
                     </div>
