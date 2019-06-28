@@ -33,6 +33,10 @@
                 icon: "success",
         }).then(function() {
          location.href = '../../../empleados/show/'+[[${empleado}]];
+         swal({
+       text: "Redirigiendo a consulta de empleados",
+       icon: "success"
+    })
         });
         }
         if ([[${msg}]] === 4){

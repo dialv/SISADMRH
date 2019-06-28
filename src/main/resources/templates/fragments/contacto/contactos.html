@@ -58,6 +58,10 @@
             icon: "success"
             }).then(function() {
     location.href = '../../empleados/show/'+ [[${empleado}]];
+       swal({
+       text: "Redirigiendo a consulta de empleado",
+       icon: "success"
+    })
     });
     }
     if ([[${msg}]] === 2){
@@ -69,6 +73,10 @@
             icon: "success"
             }).then(function() {
     location.href = '../../../empleados/show/'+ [[${empleado}]];
+       swal({
+       text: "Redirigiendo a consulta de empleado",
+       icon: "success"
+    })
     });
     }
     

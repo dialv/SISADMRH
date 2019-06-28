@@ -265,6 +265,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        }).then(function() {
 //                location.href = '../../empleados/';
  location.href = '../../../empleados/show/'+[[${empleado}]];
+    swal({
+       text: "Redirigiendo a consulta de empleado",
+       icon: "success"
+    })
        }); 
 }
     

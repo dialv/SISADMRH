@@ -299,7 +299,11 @@ alert(document.getElementById("codem").value);
             icon: "success"
             }).then(function() {
     location.href = '../../empleados/show/'+ document.getElementById("codem").value;
-    });
+       swal({
+       text: "Redirigiendo a consulta de empleado",
+       icon: "success"
+    })
+});
     }
 
     if ([[${msg}]] === 1){

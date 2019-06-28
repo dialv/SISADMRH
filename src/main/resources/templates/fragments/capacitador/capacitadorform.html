@@ -227,6 +227,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 type: "success"
        }).then(function() {
                 location.href = '../capacitadores/';
+                swal({
+       text: "Redirigiendo a consulta de capacitadores",
+       icon: "success"
+    })
        }); 
 }
     
