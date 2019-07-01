@@ -27,23 +27,18 @@
            
             
              <div class="table-responsive">
-                    <table id="tablita" class="table table-striped table-bordered" >
+                     <table id="tablita" class="table table-striped table-bordered" >
                         <thead>
                             <tr>
                                 <th>Nombre de empleado</th>
                                 <th>Nombre capacitacion</th>
                             </tr>
-                            <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
-                <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
-                  <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
-                        <th></th>
                         </thead>
-                        
-                 <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
-                <td th:text="${empleadocapacitacion.empleado.nombreempleado}+', '+${empleadocapacitacion.empleado.apellidoempleado}">Nombre de Empleado</td>
-                <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Nombre Capacitacion</td>
-            </tr>
-                        
+                        <tr th:each="empleadocapacitacion : ${empleadocapacitaciones}">
+                            <td th:text="${empleadocapacitacion.empleado.nombreempleado}+',
+                                '+${empleadocapacitacion.empleado.apellidoempleado}">Nombre de Empleado</td>
+                            <td th:text="${empleadocapacitacion.capacitacion.nombrecapacitacion}">Nombre Capacitacion</td>
+                        </tr>    
                     </table>
                 </div>
                 
