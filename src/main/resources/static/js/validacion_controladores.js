@@ -370,6 +370,9 @@ var Fechaformat = function() {
         jQuery(this).mask('00/00/0000');
     });
 };
+var fecha_format = function() {
+    jQuery('#loader').addclass("loader");
+};
 var NumCuenta = function() {
     jQuery('.num_cuenta').each(function() {
         jQuery(this).mask('00000000000000000');
