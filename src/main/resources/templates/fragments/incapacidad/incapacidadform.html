@@ -28,7 +28,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
             <!--<h3 align="center">Registro de Incapacidades</h3>-->
             <div>
-                <form class="form-horizontal" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" onsubmit="return validateForm()" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
                      <div class="col-md-6">
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Nombres empleado:(*)</label>
@@ -94,7 +94,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="ISSS">Ingrese el Numero del  ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
                     </div>
                     </div>
-           
+           <div class="form-group">
+                        <label class="col-sm-4 control-label">Fecha emision:(*)</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control fecha_format " id="femision" required="true" th:field="*{fechaemision}"onchange="isDat(this.value,'feemision');Fechas(this.value,$('#fhasta').val().toString(),'feemision','fhasta')"/>
+                             <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
+                        </div>
+                            <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('feemision')" onmouseout ="javascript:ocultarAyuda('feemision')">a</a></b>
+                        
+                        <span class="popuptext" id="fechainicio">Ingrese la Fecha de la Incapacidad. Haga un clic en la caja vacía.! .!</span>
+                    </div>
+                        
+                    </div>
                          <div class="form-group">
                         <label class="col-sm-4 control-label">Fecha inicio incapacidad:(*)</label>
                         <div class="col-sm-4">
@@ -121,6 +133,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="fechafin">Ingrese la Fecha Hasta de la  incapacidad. Haga un clic en la caja vacía.! .!</span>
                     </div>
                     </div>
+                           <div class="form-group">
+                        <label class="col-sm-4 control-label">Subsidio $:(*)</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control num_decimal3"  size="70" maxlength="70" required="true"th:field="*{subsidio}"/>
+                          
+                        </div>
+                              <div class="popup col-sm-1"><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('subsidioo')" onmouseout ="javascript:ocultarAyuda('subsidioo')">a</a></b>
+                        
+                        <span class="popuptext" id="subsidioo">Ingrese el Nombre de la Incapacidad.Solo se acepta. Solo Se acepta 70 Caracteres.!</span>
+                    </div>
+                    </div>
+                         
+                         
                  
                      </div>
                     <div class="col-md-6">
@@ -259,6 +285,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         }
                     }
     $(document).ready(function () {
+        $('#femision').datepicker({
+           dateFormat: 'dd/mm/yy'
+        });
         $('#fdesde').datepicker({
            dateFormat: 'dd/mm/yy'
         });

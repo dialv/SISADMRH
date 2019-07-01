@@ -54,6 +54,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-6 control-label">Fecha emisión</label>
+                            <div class="col-sm-6">
+                                   <p class="" th:text="${#calendars.format(incapacidad.fechaemision, 'dd/MM/yyyy')}">Fecha Hasta</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-6 control-label">Fecha inicio incapacidad:</label>
                             <div class="col-sm-6">
                                    <p class="" th:text="${#calendars.format(incapacidad.fechadesdeincapacidad, 'dd/MM/yyyy')}">Fecha Hasta</p>

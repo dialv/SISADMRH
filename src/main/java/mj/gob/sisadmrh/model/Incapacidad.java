@@ -82,7 +82,7 @@ public class Incapacidad implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaincapacidad;
     @Column(name = "FECHAEMISION")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+//    @DateTimeFormat(pattern = "YYYY-MM-dd")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaemision;
     @Size(max = 30)
