@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH-Asignar Empleados a Capacitacion</title>
+        <title>SISADMRH-Asignar empleados a capacitacion</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -124,6 +124,10 @@
             icon: "success"
     }).then(function() {
     location.href = '../empleadocapacitaciones/';
+    swal({
+                text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+                })
     });
     }
      if ([[${msg}]] === 1){

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>Consulta Evaluacion de Capacitación</title>
+        <title>Detalle de Evaluación de capacitación</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -13,16 +13,17 @@
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
             <div class="row text-center">
-                        <img src="../../static/image/evaluacion.png" width="150" th:src="@{/image/evaluacion.png}"/>
+                        <img src="../../static/image/evaluacion.png" width="75" th:src="@{/image/evaluacion.png}"/>
                          </div>
             <!--<h3 align="center">Consulta de Evaluacion de Capacitaciones</h3>-->
             <div>
                 <form class="form-horizontal">
+                    
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">código de evaluación capacitación:</label>
+                            <label class="col-sm-5 control-label">Código de evaluación capacitación:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.codigoevaluacioncapacitacion}">codigo evaluacion capacitacion</p></div>
                         </div>
@@ -35,15 +36,16 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Lugar de capacitación:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitacion</p></div>
+                                <p class="form-control-static" th:text="${evaluacioncapacitacion.lugarcapacitacion}">Lugar capacitación</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Hora:</label>
+                            <label class="col-sm-5 control-label">Fecha y hora:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${evaluacioncapacitacion.horaevualuacioncapacitacion}">Hora</p></div>
+                               
+                                <p class="form-control-static" th:text= "${#calendars.format(evaluacioncapacitacion.horaevualuacioncapacitacion, ' dd/MM/yyyy HH:mm')}">Hora</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Dominio del Tema:</label>
+                            <label class="col-sm-5 control-label">Dominio del tema:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${evaluacioncapacitacion.dominiotema}">Dominio del Tema</p>
                             </div>
@@ -77,7 +79,7 @@
                                     
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Mantiene el Interes del tema:</label>
+                                    <label class="col-sm-5 control-label">Mantiene el interes del tema:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.interestema}">Aclara dudas con precision</p>
                                     </div>
@@ -91,7 +93,7 @@
                         </div>
                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Comprencion del Tema:</label>
+                                    <label class="col-sm-5 control-label">Comprencion del tema:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.comprenciondetema}">Comprencion del Tema</p>
                                     </div>
@@ -103,49 +105,49 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Distribución de Tiempo:</label>
+                                    <label class="col-sm-5 control-label">Distribución de tiempo:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.distribuciontiempo}">Distribucion de Tiempo</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Contenido Calaro:</label>
+                                    <label class="col-sm-5 control-label">Contenido claro:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.contenidoclaro}">Contenido Calaro</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">El Contenido es Aplicable a su trabajo:</label>
+                                    <label class="col-sm-5 control-label">El contenido es aplicable a su trabajo:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.contenidoaplicadotrabajo}">El Contenido es Aplicable a su trabajo</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Satisfecho con el Contenido:</label>
+                                    <label class="col-sm-5 control-label">Satisfecho con el contenido:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.satisfechocontenido}">Satisfecho con el Contenido</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Es necesaria la Capacitación:</label>
+                                    <label class="col-sm-5 control-label">Es necesaria la capacitación:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.necesariocapacitacion}">Es necesaria la Capacitacion</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">El Equipo Tecnologico es el Adecuado:</label>
+                                    <label class="col-sm-5 control-label">El equipo tecnologico es el adecuado:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.equipotecnologico}">El Equipo Tecnologico es el Adecuado</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Material Usado fue el apropiado:</label>
+                                    <label class="col-sm-5 control-label">Material usado fue el apropiado:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.materialutilizado}">Material Usado fue el apropiado</p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">El tiempo de Capacitacion fue Optimo:</label>
+                                    <label class="col-sm-5 control-label">El tiempo de capacitacion fue optimo:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.tiempocapacitacionoptimo}">El tiempo de Capacitacion fue Optimo</p>
                                     </div>
@@ -159,7 +161,7 @@
                                 </div>
                                 
                                  <div class="form-group">
-                                    <label class="col-sm-5 control-label">Puntalidad en Fecha y Hora:</label>
+                                    <label class="col-sm-5 control-label">Puntalidad en fecha y hora:</label>
                                     <div class="col-sm-7">
                                         <p class="form-control-static" th:text="${evaluacioncapacitacion.puntualidad}">Puntalidad en Fecha y Hora</p>
                                     </div>

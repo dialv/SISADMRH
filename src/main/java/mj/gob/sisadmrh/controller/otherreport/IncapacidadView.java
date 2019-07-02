@@ -52,13 +52,13 @@ public class IncapacidadView  extends AbstractXlsView {
  row.createCell(3).setCellValue((String) incapacidad[1]);
  row.createCell(4).setCellValue((String) incapacidad[2]);
  row.createCell(5).setCellValue((String) incapacidad[3]);
- row.createCell(6).setCellValue((Date) incapacidad[4]);
- row.createCell(7).setCellValue((Date) incapacidad[5]);
+ row.createCell(6).setCellValue((String) ""+incapacidad[4]);
+ row.createCell(7).setCellValue((String)""+ incapacidad[5]);
  row.createCell(8).setCellValue((String) incapacidad[6]);
  row.createCell(9).setCellValue((String) incapacidad[7]);
  row.createCell(10).setCellValue((String) incapacidad[8]);
- row.createCell(11).setCellValue((Float) incapacidad[9]);
- row.createCell(12).setCellValue((Date) incapacidad[10]);
+ row.createCell(11).setCellValue((String) ""+incapacidad[9]);
+ row.createCell(12).setCellValue((String) ""+incapacidad[10]);
 
  }
  }

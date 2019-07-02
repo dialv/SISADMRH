@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Crear Usuario</title>
+        <title>Asignar empleados a capacitaciones </title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="contenedorizq"><label  >pnt_geus</label>
-        <label  class="der">
-            <script >
-                var f = new Date();
-                document.write(f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
-            </script></label>
-    </div><br>
+   
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -19,9 +13,9 @@
         <div class="col-md-9">
             <br><br>
             <div class="row text-center">
-                <img src="../../static/image/agregarusuario.png" width="150" th:src="@{/image/agregarusuario.png}"/>
+                <img src="../../static/image/agregarusuario.png" width="75" th:src="@{/image/agregarusuario.png}"/>
             </div>
-            <h3 align="center">Asignar empleados </h3>
+            <!--<h3 align="center">Asignar empleados </h3>-->
             <div>
                 <form class="form-horizontal" th:object="${formempleadocapacitacion}" th:action="@{../empleadocapacitacion}" method="post" >
                     <div class="form-group">
@@ -33,7 +27,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombre Capacitacion:</label>
+                        <label class="col-sm-2 control-label">Nombre capacitación:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="capacitacion.codigocapacitacion" >
                                 <option th:each="c:${formempleadocapacitacion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
@@ -42,8 +36,10 @@
                     </div>
                      <div class="col-md-12">
                         <div class="row" align="center">
-                               <a href="#" th:href="@{/empleadocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                             <button type="submit" class="btn btn-default">Agregar</button>
+                             <a href="#" th:href="@{/empleadocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                               <!--<a href="#" th:href="@{/empleadocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>-->  
+                            <button type="submit" id="guardar"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Asignar</button>
+                               <!--<button type="submit" class="btn btn-default">Agregar</button>-->
                             <button type="reset" class="btn btn-default">Limpiar</button>
                          </div>
                     </div>
@@ -52,7 +48,11 @@
         </div>
     </div>
  </body>
+    <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 <script>
+    Textheader('pnt_ccap', document.title);
     $(document).ready(function () {
     $('#fechaingreso').datepicker({
     dateFormat: 'yy-mm-dd'
@@ -67,8 +67,13 @@
  </body>
 <script th:inline="javascript">
     $(document).ready(function () {
+           $('#guardar').click(function(){
+                    $("#loader").addClass("loader");
+                    });
+    
     if ([[${msg}]] === 0){
-    swal({
+                   $("#loader").addClass("loader");
+     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",
             type: "success",
@@ -76,7 +81,7 @@
     }).then(function() {
     location.href = '../empleadocapacitaciones/';
     });
-    }
+}
      if ([[${msg}]] === 1){
     swal({
     title: "ERROR!",
@@ -86,5 +91,6 @@
     });
     }
     });
+    
 </script> 
  </html>

@@ -32,23 +32,31 @@ public class CapacitadorView extends AbstractXlsView{
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_capacitadores.xls\"");
         
- Iterable<Capacitador> capacitadorList = (Iterable<Capacitador>) model.get("capacitadorList");
+ List<Object[]> capacitadorList = (List<Object[]>) model.get("capacitadorList");
  Sheet sheet = workbook.createSheet("Capacitador Data");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Nombre de Capacitador");
- header.createCell(1).setCellValue("Tipo Capacitador");
- header.createCell(2).setCellValue("Telefono movil");
-  header.createCell(3).setCellValue("Email");
-   header.createCell(4).setCellValue("Temas de Dominio");
+  sheet.createRow(0).createCell(3).setCellValue("");
+  sheet.createRow(1).createCell(4).setCellValue("REPORTE DE CAPACITADORES");
+ Row header = sheet.createRow(2);
+ header.createCell(2).setCellValue("Nombre de Capacitador");
+ header.createCell(3).setCellValue("Tipo Capacitador");
+ header.createCell(4).setCellValue("Telefono movil");
+  header.createCell(5).setCellValue("Email");
+   header.createCell(6).setCellValue("Temas de Dominio");
   
- int rowNum = 1;
- for(Capacitador capacitadorPojo:capacitadorList){
+ int rowNum = 3;
+ for(Object[] capacitadorPojo:capacitadorList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue(capacitadorPojo.getNombrecapacitador());
- row.createCell(1).setCellValue(capacitadorPojo.getTipocapacitador());
- row.createCell(2).setCellValue(capacitadorPojo.getTelefonomovilcapacitador());
-  row.createCell(3).setCellValue(capacitadorPojo.getEmailcapacitador());
-   row.createCell(4).setCellValue(capacitadorPojo.getTemadominio());
+ row.createCell(2).setCellValue((String) ""+capacitadorPojo[5]);
+ row.createCell(3).setCellValue((String) ""+capacitadorPojo[9]);
+ row.createCell(4).setCellValue((String) ""+capacitadorPojo[7]);
+  row.createCell(5).setCellValue((String) ""+capacitadorPojo[3]);
+   row.createCell(6).setCellValue((String) ""+capacitadorPojo[8]);
+   
+// row.createCell(0).setCellValue(capacitadorPojo.getNombrecapacitador());
+// row.createCell(1).setCellValue(capacitadorPojo.getTipocapacitador());
+// row.createCell(2).setCellValue(capacitadorPojo.getTelefonomovilcapacitador());
+//  row.createCell(3).setCellValue(capacitadorPojo.getEmailcapacitador());
+//   row.createCell(4).setCellValue(capacitadorPojo.getTemadominio());
  }
  }
 }

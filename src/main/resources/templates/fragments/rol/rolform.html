@@ -22,31 +22,30 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <br><br>
                         <img src="../../static/image/roles.png" width="150" th:src="@{/image/roles.png}"/>
                     </div>
-        <h3 align="center">Rol Detalle</h3>
     <div>
         <form class="form-horizontal" th:object="${rol}" th:action="@{../rol}" method="post">
         <input type="hidden" th:field="*{codigorol}"/>
   
             <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de Rol:</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" required="true" size="100" maxlength="100" th:field="*{nombrerol}"/>
+                <label class="col-sm-2 control-label">Nombre de Rol(*):</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{nombrerol}"/>
                 </div>
                  <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('rol')" onmouseout ="javascript:ocultarAyuda('rol')">a</a></b>
 
-                                <span class="popuptext" id="rol">Ingrese el Nombre del Rol. Solo se permiten maximon  100 caracteres. !!</span>
+                                <span class="popuptext" id="rol">Ingrese el Nombre del Rol. Solo se permiten maximon  50 caracteres. !!</span>
                             </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripcion de Rol:</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{descripcionrol}"/>
+                <label class="col-sm-2 control-label">Descripción de Rol(*):</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" required="true" size="100" maxlength="100" th:field="*{descripcionrol}"/>
                 </div>
                  <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcionn')" onmouseout ="javascript:ocultarAyuda('descripcionn')">a</a></b>
 
-                                <span class="popuptext" id="descripcionn">Ingrese una descripcion al Rol. Solo se permiten maximon  30 caracteres. !!</span>
+                                <span class="popuptext" id="descripcionn">Ingrese una descripcion al Rol. Solo se permiten maximon  100 caracteres. !!</span>
                             </div>
             </div>
 <!--            <div class="form-group">
@@ -57,7 +56,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>-->
  </div>
             <div class="row" align="center">
-            <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/roles/}">Reg</a></button>
+                                 <a href="#" th:href="@{/roles/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                             <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
@@ -67,7 +66,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </div>
     </div>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script th:inline="javascript">
     $(document).ready(function () {

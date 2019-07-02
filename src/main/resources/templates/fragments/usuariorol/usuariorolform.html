@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Agregar Rol al Usuario</title>
+        <title>Agregar rol al usuario</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -26,7 +26,7 @@
             <div>
                 <form class="form-horizontal" th:object="${formusuariorol}" th:action="@{../usuariorol}" method="post" >
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Nombre de Usuario:</label>
+                        <label class="col-sm-2 control-label">Usuario:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="usuario.codigousuario" >
                                 <option th:each="c:${formusuariorol.usuarios}" th:value="${c.codigousuario}" th:text="${c.nombreusuario}"></option>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">nombre del rol:</label>
+                        <label class="col-sm-2 control-label">Rol:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="rol.codigorol" >
                                 <option th:each="c:${formusuariorol.roles}" th:value="${c.codigorol}" th:text="${c.nombrerol}"></option>
@@ -44,8 +44,8 @@
 
                     <div class="col-md-12">
                     <div class="row" align="center">
-                            <button type="button" class="btn btn-info"><a href="#" th:href="@{/usuariosroles/}">Regresar</a></button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a href="#" th:href="@{/usuariosroles/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>   
+                            <button type="submit" id ="guardar" class="btn btn-primary">Guardar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
                     </div>
 </div>
@@ -72,7 +72,13 @@
 </body>
 <script th:inline="javascript">
     $(document).ready(function () {
+        
+    $('#guardar').click(function(){
+    $("#loader").addClass("loader");
+    });
+  
     if ([[${msg}]] === 0){
+    $("#loader").addClass("loader");
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",

@@ -6,13 +6,9 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
      <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -59,7 +55,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/idioma.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/idioma.jpg}"/>
             </div>
     <h3 align="center"></h3>
     
@@ -80,7 +76,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <br>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">codigo:</label>
+                            <label class="col-sm-5 control-label">Código:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${idioma.codigoidioma}">codigo de Empleado</p></div>
                         </div>
@@ -143,8 +139,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
+    	<script>
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -245,7 +240,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../../empleados/';
+//    location.href = '../../empleados/';
+ location.href = '../../../empleados/show/'+[[${empleado}]];
+ swal({
+       text: "Redirigiendo a consulta de empleado",
+       icon: "success"
+    })
     });
     }
 

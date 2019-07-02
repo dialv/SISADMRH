@@ -17,4 +17,7 @@ public interface UsuarioService {
     void deleteUsuario(Integer id);
 
     Iterable<Usuario> listAllActivos();
+    
+    Usuario findbyUser(String
+            usuario);
 }

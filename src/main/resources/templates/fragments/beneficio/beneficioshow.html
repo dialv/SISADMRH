@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>SISADMRH</title>
+    <title>Detalle de beneficios</title>
      <th:block th:include="../templates/header"></th:block>
  
 
@@ -15,54 +15,60 @@
                     </div>
      <div class="col-md-9">
           <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/images.jpeg}"/>
+                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/images.jpeg}"/>
                     </div>
-        <h3 align="center">Detalle de Beneficios</h3>
     
         <div>
             <form class="form-horizontal">
                 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">código:</label>
+                    <label class="col-sm-2 control-label">Código beneficio:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${beneficio.codigobeneficio}">Usuario Id</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Nombre:</label>
+                    <label class="col-sm-2 control-label">Nombre beneficio:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${beneficio.nombrebeneficio}">Nombre</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Descripción:</label>
+                    <label class="col-sm-2 control-label">Descripción beneficio:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${beneficio.descripcionbeneficio}">descripcion</p>
                     </div>
                 </div>
                 
                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha de Inicio de Beneficio:</label>
+                    <label class="col-sm-2 control-label">Fecha de inicio beneficio:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${beneficio.fechainiciobeneficio}">descripcion</p>
+                         <p class="form-control-static" th:text="${#calendars.format(beneficio.fechainiciobeneficio, 'dd/MM/yyyy')}">Fecha fin</p>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha Fin de Beneficio:</label>
+                    <label class="col-sm-2 control-label">Fecha fin beneficio:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${beneficio.fechafinalizarbeneficio}">descripcion</p>
+                         <p class="form-control-static" th:text="${#calendars.format(beneficio.fechafinalizarbeneficio, 'dd/MM/yyyy')}">Fecha fin</p>
                     </div>
                 </div>
                 
             </form>
-             <div class="col-md-12">
+            <div class="col-md-12">
                     <div class="row" align="center">
- <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-arrow-left">Regresar</span><a href="#" th:href="@{/beneficios/}">Reg</a></button>
+                       <a href="#" th:href="@{/beneficios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
+            
     </div>
 </div>
     </div>
 
 </body>
+<script>
+    $(document).ready(function () {
+         Textheader('pnt_bene',document.title);
+       
+    });
+    </script>
 </html>

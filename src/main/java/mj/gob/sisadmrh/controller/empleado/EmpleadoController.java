@@ -11,6 +11,7 @@ import mj.gob.sisadmrh.model.Contacto;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Dependiente;
 import mj.gob.sisadmrh.model.Empleado;
+import mj.gob.sisadmrh.model.Estado;
 import mj.gob.sisadmrh.model.Experiencialaboral;
 import mj.gob.sisadmrh.model.Formacionacademica;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
@@ -23,6 +24,7 @@ import mj.gob.sisadmrh.service.CaparecibidasService;
 import mj.gob.sisadmrh.service.ContactoService;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.DependienteService;
+import mj.gob.sisadmrh.service.EstadoService;
 import mj.gob.sisadmrh.service.ExperiencialaboralService;
 import mj.gob.sisadmrh.service.FormacionacademicaService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
@@ -32,10 +34,12 @@ import mj.gob.sisadmrh.service.UbicacionFisicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 /**
  *
  * @author dialv
@@ -46,30 +50,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class EmpleadoController extends UtilsController {
 
     private EmpleadoService empleadoService;
-
     private PuestoService puestoService;
-
+    @Autowired
+    private EstadoService estadoService;
     @Autowired
     public void SetPuestoService(PuestoService puestoService) {
         this.puestoService = puestoService;
     }
-
     private ContactoService contactoService;
-
     @Autowired
     public void setContactoService(ContactoService contactoService) {
         this.contactoService = contactoService;
     }
-
     private DependienteService dependienteRep;
-
     @Autowired
     public void setDependienteService(DependienteService dependienteRep) {
         this.dependienteRep = dependienteRep;
     }
-
     private CaparecibidasService caparecibidasRep;
-
     @Autowired
     public void setCaparecibidasService(CaparecibidasService caparecibidasRep) {
         this.caparecibidasRep = caparecibidasRep;
@@ -144,8 +142,10 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
-        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("puestos", puestos);
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }
@@ -154,16 +154,55 @@ public class EmpleadoController extends UtilsController {
     public String newEmpleado(Model model) {
         model.addAttribute("empleado", new Empleado());
 
-        Iterable<Puesto> puestos = puestoService.listAllPuestos();
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         return PREFIX + "empleadoform";
     }
+    
+       @RequestMapping(value = "/municipio/{act}/{idemp}")
+        public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem ) throws Exception {
+        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
+        model.addAttribute("puestos", puestos);
+        model.addAttribute("municipios", estadoService.findBySuperior(act));
+        return  PREFIX + "empleadoform";
+    }
+       @RequestMapping(value = "/municipiore/{act}/{act2}/{act3}{idemp}")
+        public String actecores(@PathVariable(value = "act") Integer act,@PathVariable(value = "act2") Integer act2,@PathVariable(value = "act3") Integer act3, Model model, @PathVariable(value = "idemp") Integer idem  ) throws Exception {
+//        model.addAttribute("municipiosres", estadoService.findBySuperior(act));
+        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
+        Iterable<Puesto> puestos = puestoService.listAllActivos();
+        model.addAttribute("departamentos", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
+        model.addAttribute("puestos", puestos);
+        model.addAttribute("municipios", estadoService.findBySuperior(act2));
+        model.addAttribute("mun",act3);
+        model.addAttribute("municipiores", estadoService.findBySuperior(act));
+        return  PREFIX + "empleadoform";
+    }
 
     @RequestMapping(value = "empleado")
-    public String saveEmpleado(@Valid Empleado empleado, Model model) {//,SessionStatus status
+    public String saveEmpleado(@Valid Empleado empleado,BindingResult result, Model model,SessionStatus status) {//,SessionStatus status
         try {
+            try{
+            Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+            Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
+//            empleado.setDepartamentonacimiento(depto.getNombreestado());
+//            empleado.setMunicipionacimiento(municipio.getNombreestado());
+             empleado.setDepartamentonacimiento(""+depto.getCodigoestado());
+            empleado.setMunicipionacimiento(""+municipio.getCodigoestado());
             empleadoService.saveEmpleado(empleado);
-            model.addAttribute("msg", 0);
+                model.addAttribute("msg", 0);
+           
+            }catch(Exception e){
+            empleadoService.saveEmpleado(empleado);
+            
+                model.addAttribute("msg", 0);
+            }
         } catch (Exception e) {
             model.addAttribute("msg", 1);
         }
@@ -172,8 +211,15 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("show/{id}")
     public String showEmpleado(@PathVariable Integer id, Model model) {
-        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
+        Empleado empleado = empleadoService.getEmpleadoById(id).get();
+        Estado depto = estadoService.getEstadoById(Integer.parseInt(empleado.getDepartamentonacimiento())).get();
+        Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+        empleado.setDepartamentonacimiento(depto.getNombreestado());
+        empleado.setMunicipionacimiento(munic.getNombreestado());
+        model.addAttribute("empleado", empleado );
         System.out.print("IDEMPLEADO" + id);
+        
+         model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));
 
         Iterable<Contacto> contacto = contactoService.findByDato(id);
         model.addAttribute("contactos", contacto);
@@ -209,7 +255,12 @@ public class EmpleadoController extends UtilsController {
     }
     @RequestMapping("showcons/{id}")
     public String showEmpleadocons(@PathVariable Integer id, Model model) {
-        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
+        Empleado empleado = empleadoService.getEmpleadoById(id).get();
+        Estado depto = estadoService.getEstadoById(Integer.parseInt(empleado.getDepartamentonacimiento())).get();
+        Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+        empleado.setDepartamentonacimiento(depto.getNombreestado());
+        empleado.setMunicipionacimiento(munic.getNombreestado());
+        model.addAttribute("empleado", empleado );
         System.out.print("IDEMPLEADO" + id);
 
         Iterable<Contacto> contacto = contactoService.findByDato(id);

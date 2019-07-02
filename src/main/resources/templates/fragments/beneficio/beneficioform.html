@@ -10,22 +10,16 @@
 <body>
    
      
-<!--       <div class="contenedorizq"> <label  >pnt_crbe</label> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div>-->
+
 <div class="row">
      <div class="col-md-3">
                         <th:block th:include="../templates/menu"></th:block>
                     </div>
      <div class="col-md-9">
           <div class="row text-center">
-                        <img src="../../static/image/beneficios.png" width="200" th:src="@{/image/beneficios.png}"/>
+                        <img src="../../static/image/beneficios.png" width="75" th:src="@{/image/beneficios.png}"/>
                     </div>
-        <!--<h3 align="center">Formulario de Beneficios</h3>-->
+      
   
   
     <div>
@@ -33,7 +27,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <input type="hidden" th:field="*{codigobeneficio}"/>
   
           <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre de Beneficio:</label>
+                <label class="col-sm-2 control-label">Nombre de beneficio(*):</label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{nombrebeneficio}"/>
                 </div>
@@ -45,7 +39,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  </div>
               
             <div class="form-group">
-                <label class="col-sm-2 control-label">Descripción Beneficio:</label>
+                <label class="col-sm-2 control-label">Descripción beneficio(*):</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" size="100" maxlength="100" required="true" th:field="*{descripcionbeneficio}"/>
                 
@@ -53,14 +47,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
               <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('descripcion')" onmouseout ="javascript:ocultarAyuda('descripcion')">a</a></b>
                         
-                        <span class="popuptext" id="descripcion">Ingrese la Descripcion del beneficio, solo se admitiran 5100 caracteres.!</span>
+                        <span class="popuptext" id="descripcion">Ingrese la Descripcion del beneficio, solo se admitiran 100 caracteres.!</span>
                     </div>
                  </div>
                   
 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de inicio:</label>
+                <label class="col-sm-2 control-label">Fecha de inicio(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fdesde" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                 </div>
                <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
@@ -70,9 +64,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  </div>
  
 <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha de Finalización:</label>
+                <label class="col-sm-2 control-label">Fecha de finalización(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fhasta" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                 </div>
               <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
@@ -85,7 +79,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <div class="col-md-12">
                         <div class="row" align="center">
                             <a href="#" th:href="@{/beneficios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                             
                            
@@ -102,10 +96,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     </div>
 </div>
     </div>
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script>
-     function Fechas(val1,val2,val3,val4){
+        function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
                             swal(foo[1], foo[0]);
@@ -118,6 +114,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             swal(foo[1], foo[0]);
                         }
                     }
+                    
     $(document).ready(function () {
         $('#fdesde').datepicker({
               dateFormat: 'dd/mm/yy'
@@ -128,12 +125,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         });
        
     });
-    			function Fechas(idinicial,idfinal){
-                        var foo=document.getElementById(idfinal).value
-                            if( foo != 0){
-                            ValidarFecha(document.getElementById(idinicial).value,document.getElementById(idfinal).value,idinicial,idfinal);
-                        }
-                    }
+    			
 </script>
 
 </body>
@@ -148,6 +140,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 icon: "success"
        }).then(function() {
                 location.href = '../beneficios/';
+                swal({
+       text: "Redirigiendo a consulta de beneficios",
+       icon: "success"
+    })
        }); 
 }
     

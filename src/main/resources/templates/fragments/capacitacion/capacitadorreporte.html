@@ -2,16 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">-->
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    
-     
-     
-    <title>SISADMRH-Reporte de Capacitadores</title>
+    <title>Reporte de capacitadores</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -34,14 +25,14 @@
            <!--<div class="col-md-6">-->
          
             <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <label class="col-sm-5 control-label">Fecha desde(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control" type="text"  name="fechacontrataciondesde" id="fechacontrataciondesde"  />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <label class="col-sm-5 control-label">Fecha hasta(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control" type="text"  name="fechacontratacionhasta" id="fechacontratacionhasta"  />
@@ -74,19 +65,7 @@
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
 <script src="../static/css/stylemenu.js"></script>
-	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-// 		$(document).ready(function() {
-// 			$(function () {
-// 				$("#datepickersince").datepicker();
-// 			});
-
-// 			$(function () {
-// 				$("#datepickeruntil").datepicker();
-// 			});
-// 		});
-		
 		$(document).ready(function () {
 		    var date = new Date();
 		    var currentMonth = date.getMonth();

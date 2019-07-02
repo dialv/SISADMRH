@@ -74,13 +74,13 @@
                         <div class="form-group">
                             <br><br>
                             <label class="col-sm-3 control-label"></label>
-                            <label class="col-sm-2 control-label">Nombre de Usuario:</label>
+                            <label class="col-sm-2 control-label">Usuario:</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
+                                <input type="text" readonly class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
-                                <span class="popuptext" id="nomUser">Ingrese el Nombre del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
+                                <span class="popuptext" id="nomUser">Ingrese el Identificador de Usuario. Solo es permitido digitos 50 caracteres. !!</span>
                             </div>
                         </div>
                         

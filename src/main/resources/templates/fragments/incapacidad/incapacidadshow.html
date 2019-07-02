@@ -16,101 +16,106 @@
         <div class="col-md-8">
             <!--<h3 align="center">Consulta de Incapacidades</h3>-->
             <div class="row text-center">
-            <img src="../../static/image/asistencia.png" width="100" th:src="@{/image/asistencia.png}"/>
+            <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
            </div>
             <div>
                 <form class="form-horizontal">
                     <div class="col-md-6">
+                        
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Código de Incapacidad:</label>
-                            <div class="col-sm-7">
+                          
+                            <label class="col-sm-6 control-label">Código de incapacidad:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.codigoincapacidad}">codigo de Incapacidad</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de Incapacitado:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Nombre de empleado</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.codigoempleado.nombreempleado}">Nombre de Incapacitado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Numero Formulario ISSS:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Nº formulario ISSS:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.numerofichaisss}">Numero Formulario ISSS</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Dui:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Dui empleado:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.dui}">Dui</p>
                             </div>
                         </div>
+                         
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Numero ISSS:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Nº ISSS empleado:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.isss}">Numero ISSS</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha Desde:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${incapacidad.fechadesdeincapacidad}">Fecha Desde</p>
+                            <label class="col-sm-6 control-label">Fecha emisión</label>
+                            <div class="col-sm-6">
+                                   <p class="" th:text="${#calendars.format(incapacidad.fechaemision, 'dd/MM/yyyy')}">Fecha Hasta</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fecha Hasta:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${incapacidad.fechahastaincapacidad}">Fecha Hasta</p>
+                            <label class="col-sm-6 control-label">Fecha inicio incapacidad:</label>
+                            <div class="col-sm-6">
+                                   <p class="" th:text="${#calendars.format(incapacidad.fechadesdeincapacidad, 'dd/MM/yyyy')}">Fecha Hasta</p>
+                            </div>
+                        </div>
+                        </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Fecha fin incapacidad:</label>
+                            <div class="col-sm-6">
+                                 <p class="" th:text="${#calendars.format(incapacidad.fechahastaincapacidad, 'dd/MM/yyyy')}">Fecha Hasta</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tipo de Incapacidad:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Tipo de incapacidad:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.tipoincapacidad}">Tipo de Incapacidad</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Forma Incapacidad:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Forma incapacidad:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.formaincapacidad}">Forma Incapacidad</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Fondo:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Fondo:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.fondoincapacidad}">Fondo </p>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Diagnostico:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-6 control-label">Diagnostico incapacidad:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.diagnostico}">Diagnostico </p>
                             </div>
                         </div>
-                          <div class="form-group">
-                            <label class="col-sm-5 control-label">Subir Formulario:</label>
-                            <div class="col-sm-7">
+<!--                          <div class="form-group">
+                            <label class="col-sm-6 control-label">Subir Incapacidad:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${incapacidad.documento1}">Subir Formulario</p>
                             </div>
-                        </div>
-                        
-<!--                          <div class="form-group">
-                            <label class="col-sm-7 control-label">Subir Documento2:</label>
-                            <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${incapacidad.documento2}">Subir Documento2 </p>
-                            </div>
                         </div>-->
-                        
+ 
                     </div> 
+                 
 
 
                 </form>
                 <div class="col-md-12">
                     <div class="row" align="center">
- <a href="#" th:href="@{/incapacidadaes/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+ <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
             </div>

@@ -41,6 +41,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario saveUsuario(Usuario usuario) {
         return usuarioRep.save(usuario);
     }
+    
+    @Override
+    public Usuario findbyUser(String usuario) {
+        return usuarioRep.findbyusername(usuario);
+    }
 
     @Override
     public void deleteUsuario(Integer id) {

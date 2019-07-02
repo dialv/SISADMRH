@@ -77,7 +77,10 @@ public class HijodiscapacidadController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un hijo con discapacidad",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"hijodiscapacidads";
     }
 
     @RequestMapping("new/{id}")
@@ -101,14 +104,15 @@ public class HijodiscapacidadController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadohijodiscapacidadPK(emconpk);
         empleadoHijosdiscapacidadService.saveEmpleadohijodiscapacidad(emcon);
-            model.addAttribute("msg", 0);
+            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
         
 //        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
- return "redirect:/empleados/show/"+id;
+// return "redirect:/empleados/show/"+id;
+return PREFIX +"hijodiscapacidads";
     }
     
     @RequestMapping("show/{id}/{idemp}")    
@@ -118,21 +122,23 @@ public class HijodiscapacidadController extends UtilsController{
         return PREFIX +"hijodiscapacidadshow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
         try{
             Hijodiscapacidad hijodiscapacidad = hijodiscapacidadService.getHijodiscapacidadById(id).get();
             hijodiscapacidad.setEstadohijos(0);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+            Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
 //            model.addAttribute("hijodiscapacidad", hijodiscapacidad);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        return "redirect:/empleados/";
+//        return "redirect:/empleados/";
 //        return "redirect:/hijodiscapacidades/";
-//        return PREFIX +"hijodiscapacidades";
+        return PREFIX +"hijodiscapacidads";
     }
     
      @RequestMapping(value = "hijodiscapacidad")

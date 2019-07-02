@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Beneficios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            <div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/beneficio.png}"/>
+            </div>
+            
+    <script th:inline="javascript">
+        $(document).ready(function () {
+        $('#tablita').DataTable({
+        "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }});
+        });
+    </script>
+    <script th:inline="javascript">
+        Textheader('pnt_crbe', document.title);
+        $(document).ready(function () {
+        if ([[${msg}]] === 3){
+        swal({
+        title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+        }).then(function() {
+         location.href = '../../../empleados/show/'+[[${empleado}]];
+         swal({
+       text: "Redirigiendo a consulta de empleados",
+       icon: "success"
+    })
+        });
+        }
+        if ([[${msg}]] === 4){
+        swal({
+        title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+        });
+        }
+        });
+        function eliminar(id) {
+        swal({
+        title: "Desea Eliminar?",
+                text: "Favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+        })
+                .then((willDelete) => {
+                if (willDelete) {
+                location.href = './delete/' + id;
+                } else {
+                swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
+                }
+                });
+        }
+    </script>
+</body>
+</html>

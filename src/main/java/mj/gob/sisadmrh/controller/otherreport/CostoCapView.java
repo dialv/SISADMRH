@@ -40,8 +40,8 @@ public class CostoCapView extends AbstractXlsView{
 
  header.createCell(2).setCellValue("Cantidad de Personas");
  header.createCell(3).setCellValue("Tema");
- header.createCell(4).setCellValue("Costo por Persona");
-  header.createCell(5).setCellValue("Costo Total");
+ header.createCell(4).setCellValue("Costo por Persona ($)");
+  header.createCell(5).setCellValue("Costo Total ($)");
   
  int rowNum = 3;
  for(Object[] List : costoList){

@@ -2,17 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -40,7 +31,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Ubicacion Fisica</title>
+    <title>Crear ubicacion fisica</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +50,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/ubicacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/ubicacion.jpg}"/>
             </div>
     <h3 align="center">  </h3>
     
@@ -71,7 +62,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando información del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
@@ -85,7 +76,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                  <div class="form-group">
                      <br>
-                    <label class="col-sm-3 control-label">Nombre de Ubicacion(*):</label>
+                    <label class="col-sm-3 control-label">Nombre de ubicación(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"  th:field="*{nombreubicacion}"  required="false" size="50" maxlength="50"  />
                     </div>
@@ -97,7 +88,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
                 <div class="form-group">
                     <br>
-                    <label class="col-sm-3 control-label">Nombre de Jefe Inmediato(*):</label>
+                    <label class="col-sm-3 control-label">Nombre de jefe inmediato(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{jefeinmediato}"  />
                     </div>
@@ -114,7 +105,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>-->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Cargo Funcional(*):</label>
+                    <label class="col-sm-3 control-label">Cargo funcional(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{cargofuncional}" />
                     </div>
@@ -125,7 +116,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Principales Tareas que desempeña(*):</label>
+                    <label class="col-sm-3 control-label">Principales tareas que desempeña(*):</label>
                     <div class="col-sm-8">
                         <!--<input type="text" class="form-control" required="true" size="500" maxlength="500"   th:field="*{teareadesempenia}" />-->
                     <textarea rows="4" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{teareadesempenia}">
@@ -181,8 +172,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 
 <script src="../static/css/hydro/js/jquery.js"></script>
-	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 // 		$(document).ready(function() {
 // 			$(function () {
@@ -274,22 +263,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
                 
                   $('#btnGuardar').click(function(){
+                       $("#loader").addClass("loader");
             $("#formubicacion").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
             $("form#formubicacion").submit();
             
         });
-var URLactual = window.location.href;
-var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
-//alert(str);
-$(function () {
-          document.getElementById("codem").value = str;
-      });
+
 	</script>
         
         
         <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
+         $("#loader").addClass("loader");
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",
@@ -297,6 +283,7 @@ $(function () {
                 icon: "success"
        }).then(function() {
                  location.href = '../empleados/show/'+ document.getElementById("codem").value;
+                 
        }); 
 }
     

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>SISADMRH-Constancia de Servicios</title>
+        <title>SISADMRH-Constancia de servicios</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -22,17 +22,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </h3>
            
 <div class="row text-center">
-                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/reportes.png}"/>
+                <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/reportes.png}"/>
 </div> 
             <div>
                 <br>
                 <form class="form-horizontal" id="formreport">
 
                    <div class="form-group">
-                        <label class="col-sm-3 control-label" >Nombre de Empleado:</label>
+                        <label class="col-sm-3 control-label" >Nombre de empleado:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="codigo" name="codigo">
-                            <option value="0">-- Seleccione El Empleado --</option>
+                            <option value="0">-- Seleccione el empleado --</option>
                             <option th:each="d:${empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
                             </select>
                             <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
@@ -49,7 +49,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>-->
  <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Desde(*):</label>
+                <label class="col-sm-5 control-label">Fecha desde(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechainicial" id="fechainicial"  onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/>
@@ -61,7 +61,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha Hasta(*):</label>
+                <label class="col-sm-5 control-label">Fecha hasta(*):</label>
                 <div class="col-sm-4">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />

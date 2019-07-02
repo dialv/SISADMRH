@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -14,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -46,6 +42,11 @@ public class Contrato implements Serializable {
     @Size(max = 100)
     @Column(name = "LINEATRABAJO")
     private String lineatrabajo;
+     @Lob
+    @Column(name = "acuerdonombramiento")
+    private byte[] acuerdonombramiento;
+
+    @Basic(optional = false)
     @Size(max = 9)
     @Column(name = "PARTIDACONTRATO")
     private String partidacontrato;
@@ -54,7 +55,8 @@ public class Contrato implements Serializable {
     private String subpartidacontrato;
     @Column(name = "estadocontrato")
     private Integer estadocontrato;
-
+     @Column(name = "cambioplaza")
+    private Integer cambioplaza;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -66,11 +68,13 @@ public class Contrato implements Serializable {
     @Column(name = "SALARIOACTUAL")
     private Float salarioactual;
     @Column(name = "FECHAINICIOCONTRATO")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
+//    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechainiciocontrato;
     @Column(name = "FECHAFINCONTRATO")
-    @DateTimeFormat(pattern = "YYYY/MM/dd")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechafincontrato;
+    
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")
     @ManyToOne(optional = false)
     private Empleado codigoempleado;
@@ -98,6 +102,21 @@ public class Contrato implements Serializable {
         this.salarioactual = salarioactual;
     }
 
+    public byte[] getAcuerdonombramiento() {
+        return acuerdonombramiento;
+    }
+
+    public void setAcuerdonombramiento(byte[] acuerdonombramiento) {
+        this.acuerdonombramiento = acuerdonombramiento;
+    }
+
+    public Integer getCambioplaza() {
+        return cambioplaza;
+    }
+
+    public void setCambioplaza(Integer cambioplaza) {
+        this.cambioplaza = cambioplaza;
+    }
 
     public Date getFechainiciocontrato() {
         return fechainiciocontrato;

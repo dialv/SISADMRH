@@ -43,12 +43,13 @@ public class Experiencialaboral implements Serializable {
     @Column(name = "nombreinstitucion")
     private String nombreinstitucion;
     @Column(name = "fechadesdeexperiencialaboral")
-    @DateTimeFormat(pattern = "dd/mm/yy")
+//    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdeexperiencialaboral;
     @Column(name = "fechahastaexperiencialaboral")
-    @DateTimeFormat(pattern = "dd/mm/yy")
+//    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastaexperiencialaboral;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "salarioinicial")
     private Float salarioinicial;
     @Column(name = "salariofinal")

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -21,11 +16,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
-
 /**
  *
  * @author root
@@ -35,7 +28,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -53,20 +45,19 @@ public class Usuario implements Serializable {
     @Column(name = "CONTRASENIAUSUARIO")
     private String contraseniausuario;
     @Column(name = "CONTROLCONTRASENIA")
-    private Integer controlcontrasenia;
+    private String controlcontrasenia;
     @Column(name = "ESTADOUSUARIO")
     private Integer estadousuario;
-   @Column(name = "FECHAINGRESO")
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
-   // @Temporal(TemporalType.DATE)
+    @Column(name = "FECHAINGRESO")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaingreso;
     @Column(name = "FECHACADUCIDAD")
-    //@Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacaducidad;
     @Column(name = "FECHABAJA")
-  //  @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechabaja;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<Usuariorol> usuariorolList;
@@ -112,11 +103,11 @@ public class Usuario implements Serializable {
         this.contraseniausuario = contraseniausuario;
     }
 
-    public Integer getControlcontrasenia() {
+    public String getControlcontrasenia() {
         return controlcontrasenia;
     }
 
-    public void setControlcontrasenia(Integer controlcontrasenia) {
+    public void setControlcontrasenia(String controlcontrasenia) {
         this.controlcontrasenia = controlcontrasenia;
     }
 

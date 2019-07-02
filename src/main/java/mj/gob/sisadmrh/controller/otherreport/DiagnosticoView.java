@@ -32,27 +32,40 @@ public class DiagnosticoView extends AbstractXlsView{
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_temasdiagnostico.xls\"");
         
- Iterable<DiagnosticoCapacitacion> capacitadorList = (Iterable<DiagnosticoCapacitacion>) model.get("diagnosticoList");
+ List<Object[]> capacitadorList = (List<Object[]>) model.get("diagnosticoList");
  Sheet sheet = workbook.createSheet("Diagnostico Data");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Temas");
- header.createCell(1).setCellValue("Direccion");
- header.createCell(2).setCellValue("Necesidades");
-  header.createCell(3).setCellValue("Mes");
-   header.createCell(4).setCellValue("Resultados a Obtener");
-   header.createCell(5).setCellValue("Quien autoriza");
-   header.createCell(6).setCellValue("Cargo quien autoriza");
+ sheet.createRow(0).createCell(3).setCellValue("");
+ sheet.createRow(1).createCell(4).setCellValue("REPORTE DE DIAGNOSTICO DE NECESIDADES DE CAPACITACION");
+ 
+ Row header = sheet.createRow(2);
   
- int rowNum = 1;
- for(DiagnosticoCapacitacion DiagnosticoPojo:capacitadorList){
+ header.createCell(2).setCellValue("Temas");
+ header.createCell(3).setCellValue("Direccion");
+ header.createCell(4).setCellValue("Necesidades");
+ header.createCell(5).setCellValue("Mes");
+ header.createCell(6).setCellValue("Resultados a Obtener");
+ header.createCell(7).setCellValue("Quien autoriza");
+ header.createCell(8).setCellValue("Cargo quien autoriza");
+  
+ int rowNum = 3;
+ for(Object[] DiagnosticoPojo:capacitadorList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue(DiagnosticoPojo.getTemacapacitacion());
- row.createCell(1).setCellValue(DiagnosticoPojo.getDireccion());
- row.createCell(2).setCellValue(DiagnosticoPojo.getNecesidadcapacitacion());
-  row.createCell(3).setCellValue(DiagnosticoPojo.getMescapacitacion());
-   row.createCell(4).setCellValue(DiagnosticoPojo.getResultadoobtener());
-   row.createCell(5).setCellValue(DiagnosticoPojo.getNombreautorizadiagnosticocapacitacion());
-   row.createCell(6).setCellValue(DiagnosticoPojo.getCargoautorizadiagnosticocapacitacion());
+ 
+  row.createCell(2).setCellValue((String) ""+DiagnosticoPojo[8]);
+  row.createCell(3).setCellValue((String) ""+DiagnosticoPojo[2]);
+  row.createCell(4).setCellValue((String) ""+DiagnosticoPojo[4]);
+  row.createCell(5).setCellValue((String) ""+DiagnosticoPojo[3]);
+  row.createCell(6).setCellValue((String) ""+DiagnosticoPojo[6]);
+  row.createCell(7).setCellValue((String) ""+DiagnosticoPojo[5]);
+  row.createCell(8).setCellValue((String) ""+DiagnosticoPojo[1]);
  }
+// row.createCell(0).setCellValue(DiagnosticoPojo.getTemacapacitacion());
+// row.createCell(1).setCellValue(DiagnosticoPojo.getDireccion());
+// row.createCell(2).setCellValue(DiagnosticoPojo.getNecesidadcapacitacion());
+//  row.createCell(3).setCellValue(DiagnosticoPojo.getMescapacitacion());
+//   row.createCell(4).setCellValue(DiagnosticoPojo.getResultadoobtener());
+//   row.createCell(5).setCellValue(DiagnosticoPojo.getNombreautorizadiagnosticocapacitacion());
+//   row.createCell(6).setCellValue(DiagnosticoPojo.getCargoautorizadiagnosticocapacitacion());
+// }
  }
 }

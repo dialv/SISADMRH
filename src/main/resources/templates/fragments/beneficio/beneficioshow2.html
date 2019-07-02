@@ -24,7 +24,7 @@
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Informacion de Beneficio del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Informacion de beneficio del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 
                 <div class="form-group">
                      <br>
-                    <label class="col-sm-2 control-label">código:</label>
+                    <label class="col-sm-2 control-label">Código:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${beneficio.codigobeneficio}">Usuario Id</p></div>
                 </div>
@@ -54,14 +54,14 @@
                  <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha de Inicio de Beneficio:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${beneficio.fechainiciobeneficio}">descripcion</p>
+                        <p class="form-control-static" th:text="${#calendars.format(beneficio.fechainiciobeneficio, 'dd/MM/yyyy')}">descripcion</p>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Fecha Fin de Beneficio:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${beneficio.fechafinalizarbeneficio}">descripcion</p>
+                        <p class="form-control-static" th:text="${#calendars.format(beneficio.fechafinalizarbeneficio, 'dd/MM/yyyy')}">descripcion</p>
                     </div>
                 </div>
                 

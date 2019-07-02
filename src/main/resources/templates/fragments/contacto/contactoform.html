@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-<title>SISADMRH-Crear Contacto</title>
+<title>Crear Contacto</title>
 <th:block th:include="../templates/header"></th:block>
 </head>
 
-<!--DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
 <style type="text/css">
     .boton{
         width:30px;
@@ -63,7 +48,7 @@
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/contactos.jpg}"/>
+                <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/contactos.jpg}"/>
             </div>
             <h3 align="center"></h3>
             <br>
@@ -72,7 +57,7 @@
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando Información del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
@@ -88,7 +73,7 @@
                 <div class="col-md-12"  >
                     <div class="form-group">
                         <br>
-                        <label class="col-sm-3 control-label">Nombres del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Nombres del contacto(*):</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombrecontacto}"  />
                         </div>
@@ -99,7 +84,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Apellidos del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Apellidos del contacto(*):</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control"  required="true" size="50" maxlength="50" th:field="*{apellidocontacto}"   />
                         </div>
@@ -110,7 +95,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Direccion del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Dirección del contacto(*):</label>
                         <div class="col-sm-8">
                             <!--<input type="text" class="form-control"  required="true" size="100" maxlength="100" th:field="*{direccion}"  />-->
                             <textarea rows="4" cols="50" class="form-control" size="100" maxlength="100"  required="true" th:field="*{direccion}">
@@ -121,16 +106,17 @@
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
 
-                            <span class="popuptext" id="poppup3">Ingrese la Direcion del Contacto del Empleado solo se admitiran 100 caracteres.!</span>
+                            <span class="popuptext" id="poppup3">Ingrese la Direción del Contacto del Empleado solo se admitiran 100 caracteres.!</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Sexo del Contacto(*):</label>
-                        <div class="col-sm-2">
-                            <select class="form-control" name="sexocontanto" >
+                        <label class="col-sm-3 control-label">Sexo del contacto(*):</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="sexocontanto" th:field="*{sexocontacto}">
                                 <!--th:field="*{sexocontacto}" >-->
-                                <option>Femenino</option>
-                                <option>Masculino</option>
+                                <option value="0">--seleccione el sexo del contacto--</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
                             </select>
                         </div>
                         <div class="popup "><b>
@@ -140,7 +126,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Telefono Fijo del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Teléfono fijo del contacto(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonofijocontacto}" />
                         </div>
@@ -151,25 +137,25 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Telefono Movil del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Teléfono móvil del contacto(*):</label>
                         <div class="col-sm-2">
                             <input type="text" class="form-control num_telefono" required="true"    th:field="*{telefonomovilcontacto}"  />
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup12')" onmouseout ="javascript:ocultarAyuda('poppup12')">a</a></b>
 
-                            <span class="popuptext" id="poppup12">Ingrese el telefono movil del Contacto del Empleado solo se admitiran 9 caracteres numericos.!</span>
+                            <span class="popuptext" id="poppup12">Ingrese el telefono móvil del Contacto del Empleado solo se admitiran 9 caracteres numericos.!</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Correo Electronico del Contacto(*):</label>
+                        <label class="col-sm-3 control-label">Correo electronico del contacto(*):</label>
                         <div class="col-sm-5">
                             <input type="email" class="form-control" required="true"   th:field="*{emailcontacto}"    />
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
 
-                            <span class="popuptext" id="poppup13">Ingrese el correo electronico  del Contacto del  Empleado solo se admitiran 50 caracteres.!</span>
+                            <span class="popuptext" id="poppup13">Ingrese el correo electronico  del contacto del  Empleado solo se admitiran 50 caracteres.!</span>
                         </div>
                     </div>
                 </div>
@@ -181,7 +167,7 @@
 
                           <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
 
-                        <button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                        <button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                         <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
                     </div>
@@ -204,17 +190,7 @@
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-// 		$(document).ready(function() {
-// 			$(function () {
-// 				$("#datepickersince").datepicker();
-// 			});
-
-// 			$(function () {
-// 				$("#datepickeruntil").datepicker();
-// 			});
-// 		});
 
                                     $(document).ready(function () {
                                     var date = new Date();
@@ -290,15 +266,19 @@
 
     $(document).ready(function () {
     if ([[${msg}]] === 0){
-
+alert(document.getElementById("codem").value);
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../empleados/show/'+ document.getElementById("codem").value;
-    });
+    location.href = '../../empleados/show/'+ document.getElementById("codem").value;
+       swal({
+       text: "Redirigiendo a consulta de empleado",
+       icon: "success"
+    })
+});
     }
 
     if ([[${msg}]] === 1){

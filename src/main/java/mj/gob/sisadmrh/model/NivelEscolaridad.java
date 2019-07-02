@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -48,20 +49,16 @@ public class NivelEscolaridad implements Serializable {
     @Column(name = "PAISNIVELESCOLARIDAD")
     private String paisnivelescolaridad;
     @Column(name = "FECHADESDENIVELESCOLARIDAD")
-     @DateTimeFormat(pattern = "dd/MM/yyyy")
+//    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdenivelescolaridad;
     @Column(name = "FECHAHASTANIVELESCOLARIDAD")
-    //@Temporal(TemporalType.DATE)
-      @DateTimeFormat(pattern = "dd/MM/yyyy")
+//    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastanivelescolaridad;
     @Lob
     @Column(name = "TITULO")
     private byte[] titulo;//sube el formularios
-
-    
-//   @ManyToMany(mappedBy = "nivelescolaridadList")
-//   private List<Empleado> empleadoList;
-
     public NivelEscolaridad() {
     }
 

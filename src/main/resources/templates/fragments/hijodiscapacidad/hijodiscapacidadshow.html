@@ -6,13 +6,8 @@
      <meta name="keywords" content="">
      <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -40,7 +35,7 @@
 }
  </style>
      
-    <title>SISADMRH-Consulta de Datos de Hijo Con Discapacidad</title>
+    <title>Detalle de hijo con discapacidad</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -59,7 +54,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/discapacidad.jpg}"/>
             </div>
     <h3 align="center"></h3>
     
@@ -71,7 +66,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Informacion de Hijos con Discapacidad del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Informacion de hijos con discapacidad del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
             </div>
@@ -80,24 +75,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <br>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">codigo:</label>
+                            <label class="col-sm-5 control-label">Código:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.codigohijodiscapacidad}">codigo de Empleado</p></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de Contacto:</label>
+                            <label class="col-sm-5 control-label">Nombre del hijo con discapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.nombrehijodiscapacidad}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Apellido de Contacto:</label>
+                            <label class="col-sm-5 control-label">Apellido del hijo con discapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.apellidohijodiscapacidad}">Apellido de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre Discapacidad:</label>
+                            <label class="col-sm-5 control-label">Nombre de discapacidad:</label>
                             <div class="col-sm-7">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.nombrediscapacidad}">Fecha de Nacimiento</p>
                             </div>
@@ -105,15 +100,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div> 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Tipo Discapacidad:</label>
+                            <label class="col-sm-7 control-label">Tipo de discapacidad:</label>
                             <div class="col-sm-5">
                                 <p class="form-control-static" th:text="${hijodiscapacidad.tipodiscapacidad}">Telefono Movil de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Fecha de Nacimiento:</label>
+                            <label class="col-sm-7 control-label">Fecha de nacimiento del hijo con discapacidad:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static" th:text="${hijodiscapacidad.fechanamimientohijosdiscapacidad}">DUI</p>
+                                <p class="form-control-static" th:text="${#calendars.format(hijodiscapacidad.fechanamimientohijosdiscapacidad, 'dd/MM/yyyy')}">DUI</p>
                             </div>
                         </div>
                         
@@ -141,8 +136,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
+    	<script>
 // 		$(document).ready(function() {
 // 			$(function () {
 // 				$("#datepickersince").datepicker();
@@ -243,7 +237,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../../empleados/';
+//    location.href = '../../empleados/';
+ location.href = '../../../empleados/show/'+[[${empleado}]];
+ swal({
+                text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+                })
     });
     }
 

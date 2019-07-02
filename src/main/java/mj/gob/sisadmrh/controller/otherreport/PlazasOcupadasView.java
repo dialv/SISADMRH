@@ -44,8 +44,8 @@ public class PlazasOcupadasView extends AbstractXlsView{
 // header.createCell(5).setCellValue("apelldio");
  header.createCell(5).setCellValue("Sexo");
  header.createCell(6).setCellValue("Sueldo Basico");
- header.createCell(7).setCellValue("Desde");
-  header.createCell(8).setCellValue("Hasta");
+ header.createCell(7).setCellValue("Fecha de nombramiento");
+  header.createCell(8).setCellValue("Fecha de desvinculacion");
    header.createCell(9).setCellValue("Ubicacion");
  header.createCell(10).setCellValue("Sub lineade Trabajo");
   
@@ -61,17 +61,17 @@ public class PlazasOcupadasView extends AbstractXlsView{
            
            
         
- row.createCell(2).setCellValue((Integer) plazasOcupadas[0]);
- row.createCell(3).setCellValue((String) plazasOcupadas[1]);
- row.createCell(4).setCellValue((String) plazasOcupadas[2]+" "+plazasOcupadas[3]);
+ row.createCell(2).setCellValue((String) ""+plazasOcupadas[0]);
+ row.createCell(3).setCellValue((String) ""+plazasOcupadas[1]);
+ row.createCell(4).setCellValue((String) ""+plazasOcupadas[2]);
+ row.createCell(5).setCellValue((String) ""+plazasOcupadas[3]);
 // row.createCell(5).setCellValue((String) plazasOcupadas[3]);
- row.createCell(5).setCellValue((String) plazasOcupadas[4]);
- row.createCell(6).setCellValue((Float) plazasOcupadas[5]);
+ row.createCell(6).setCellValue((String) ""+plazasOcupadas[4]);
+ row.createCell(7).setCellValue((String) ""+plazasOcupadas[5]);
  //row.createCell(7).setCellValue((String) plazasOcupadas[6]);
- row.createCell(7).setCellValue((Date) plazasOcupadas[7]);
-  row.createCell(8).setCellValue((Date) plazasOcupadas[8]);
-   row.createCell(9).setCellValue((String) plazasOcupadas[9]);
- row.createCell(10).setCellValue((String) plazasOcupadas[10]);
+ row.createCell(8).setCellValue((String) ""+plazasOcupadas[6]);
+  row.createCell(9).setCellValue((String) ""+plazasOcupadas[7]);
+  row.createCell(10).setCellValue((String) ""+plazasOcupadas[8]);
  
  }
  }

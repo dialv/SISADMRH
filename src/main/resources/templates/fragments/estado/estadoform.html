@@ -2,16 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Crear Elementos</title>
+    <title>Crear elementos</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
-<!--       <div class="contenedorizq"><label  >pnt_stdo</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>-->
+
 </div><br>
  <div class="row">
         <div class="col-md-3">
@@ -21,6 +16,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <div class="col-md-8">
             <!--<h3 align="center" >Crear Estado</h3>-->
     <div>
+          <div class="row text-center">
+                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/images.jpeg}"/>
+                    </div>
         <form class="form-horizontal" th:object="${formestado}" th:action="@{../estado}" method="post">
             <input type="hidden" th:field="*{estado.codigoestado}"/>
             <!--<input type="hidden" th:field="*{nombreestado}"/>-->
@@ -31,8 +29,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
             </div>-->
             <div class="form-group">
-                <label class="col-sm-2 control-label">Nombre del estado:</label>
-                <div class="col-sm-6">
+                <label class="col-sm-3 control-label">Nombre del estado:</label>
+                <div class="col-sm-7">
                     <input type="text" class="form-control" required="true" size="50" maxlength="50" th:field="*{estado.nombreestado}"/>
                 </div>
                   <div class="popup col-sm-1"><b>
@@ -42,8 +40,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Estado Superior:</label>
-                <div class="col-sm-6">
+                <label class="col-sm-3 control-label">Estado superior:</label>
+                <div class="col-sm-7">
                     <select class="form-control" th:field="*{estado.codigoestadosuperior}" >
                          <option value="">-- Seleccione el estado superior --</option>
                                 <option th:each="c:${formestado.estados}" th:value="${c.codigoestado}" th:text="${c.nombreestado}"></option>
@@ -71,7 +69,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
     </div>
    
-
+   <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>
 <script th:inline="javascript">
     Textheader('pnt_cstd',document.title);
@@ -83,6 +83,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             type: "success"
     }).then(function() {
     location.href = '../estados/';
+    swal({
+                text: "Redirigiendo a consulta de estados",
+                icon: "success"
+                })
     });
     }
 

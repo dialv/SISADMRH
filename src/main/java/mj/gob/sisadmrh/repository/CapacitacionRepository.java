@@ -37,8 +37,8 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
 " inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado\n" +
 " INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion" 
 + " where " 
-+ " fechacapacitaciondesde >= :FINICIAL " 
-+ " and ca.fechacapacitacionhasta  <= :FFINAL ", 
++ " ca.fechacapacitaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') " 
++ " and ca.fechacapacitaciondesde  <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') ", 
          nativeQuery = true)
 
     public List<Object[]> findByCapacitacionesR(@Param("FINICIAL") String finicial, 
@@ -68,16 +68,35 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
             Iterable <Capacitador> findCapacitadores(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
             
-              @Query(value = "SELECT  co.`numeropersona` as 'Cantidad de Personas',c.nombrecapacitacion as 'Tema',co.`costopersona` as'Costo por Persomna', (`costocapacitador`+(`numeropersona`*`costopersona`)) as 'Costo Total'\n" +
+              @Query(value = "SELECT  co.`numeropersona` as 'Cantidad de Personas',c.nombrecapacitacion as 'Tema',co.`costopersona` as'Costo por Persona', (co.`costocapacitador`+(co.`numeropersona`*co.`costopersona`)) as 'Costo Total'\n" +
 "FROM `costocapacitacion`co,capacitacion c \n" +
-"WHERE co.`codigocapacitacion`=c.`codigocapacitacion`"
+"WHERE co.`codigocapacitacion`=c.`codigocapacitacion` and c.fechacapacitaciondesde>= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') and c.fechacapacitaciondesde<= STR_TO_DATE(:FFINAL, '%d/%m/%Y')"
           ,nativeQuery = true)
   List<Object[]> CostoCapacitacionExcel(@Param("FINICIAL") String finicial, 
                                              @Param("FFINAL") String ffinal);
   
-  @Query(value = "SELECT e.*,c.nombrecapacitacion,c.fechacapacitacion,ca.nombrecapacitador FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`= :CODIGO \n" +
-"and c.fechacapacitaciondesde >= :FINICIAL\n" +
-"and c.fechacapacitacionhasta <= :FFINAL", 
+  @Query(value = "SELECT "
+          + "c.nombrecapacitacion,"
+          + "ca.nombrecapacitador,"
+          + "e.lugarcapacitacion, \n" +
+            "DATE_FORMAT(c.fechacapacitaciondesde, '%d/%m/%Y') as fechacapacitacion,\n" +
+            "e.horaevualuacioncapacitacion,\n" +
+            "e.dominiotema,\n" +
+            "e.habilidadcomunicacion,\n" +
+            "e.espectativa,\n" +
+            "e.claridadtema,\n" +
+            "e.materialutilizado, "
+          + "e.alclaradudas,"
+          + "e.interestema,"
+          + "e.satifacciondetema,"
+//          + "e.satifacciondetema,"
+          + "e.comprenciondetema,"
+          + "e.contenidoclaro,"+
+            "e.contenidoaplicadotrabajo,\n" +
+            "e.satisfechocontenido \n" +
+"           FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`= :CODIGO \n" +
+"and c.fechacapacitaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') \n" +
+"and c.fechacapacitacionhasta <= STR_TO_DATE(:FFINAL, '%d/%m/%Y')", 
          nativeQuery = true)
 
     public List<Object[]> EvaluacionCapacitacionesExcel(@Param("FINICIAL") String finicial, 

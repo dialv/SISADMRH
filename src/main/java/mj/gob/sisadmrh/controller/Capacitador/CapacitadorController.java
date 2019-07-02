@@ -56,13 +56,13 @@ public class CapacitadorController extends UtilsController{
     private final String PREFIX="fragments/capacitador/";
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
-    model.addAttribute("capacitadores", capacitadorService.listAllActivos());
+    model.addAttribute("capacitadores", capacitadorService.listAllCapacitador());
     return PREFIX + "capacitadores";
     }
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id));
-         Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+         Iterable<Empleado> empleados = empleadoService.listAllActivos();
          Iterable<Estado> tinst = estadoService.findBySuperior(712);
        Iterable<Estado> dominio = estadoService.findBySuperior(1406);
         Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);
@@ -81,7 +81,7 @@ public class CapacitadorController extends UtilsController{
         model.addAttribute("capacitador", new Capacitador());
         
         // -----------Manda a la vista los empleados
-       Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+       Iterable<Empleado> empleados = empleadoService.listAllActivos();
        Iterable<Estado> tinst = estadoService.findBySuperior(712);
        Iterable<Estado> dominio = estadoService.findBySuperior(1406);
         Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);

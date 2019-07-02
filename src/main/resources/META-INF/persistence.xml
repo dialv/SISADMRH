@@ -50,6 +50,7 @@
     <class>mj.gob.sisadmrh.model.Usuario</class>
     <class>mj.gob.sisadmrh.model.Empleadoasistenciacapacitacion</class>
     <class>mj.gob.sisadmrh.model.Asistenciacapacitacion</class>
+    <class>mj.gob.sisadmrh.model.Empleadomision</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SISADMRH?zeroDateTimeBehavior=convertToNull"/>

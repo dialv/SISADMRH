@@ -22,6 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -52,12 +53,17 @@ public class CuadroDirectivo implements Serializable {
     @Size(max = 30)
     @Column(name = "responsablecuadrodirectivo")
     private String responsablecuadrodirectivo;
+    
     @Column(name = "fechapresentaciondesde")
-    @Temporal(TemporalType.TIMESTAMP)
+//   @DateTimeFormat(pattern = "dd/MM/YYYY")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechapresentaciondesde;
+//       @DateTimeFormat(pattern = "dd/MM/YYYY")
     @Column(name = "fechapresentacionhasta")
-    @Temporal(TemporalType.TIMESTAMP)
+//   
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechapresentacionhasta;
+    
     @Column(name = "acuerdocuadrodirectivo")
     private Integer acuerdocuadrodirectivo;
     @Column(name = "ESTADOCUADRODIRECTIVO")

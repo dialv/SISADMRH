@@ -2,18 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
-     <style type="text/css">
+<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+<style type="text/css">
      .boton{
   width:30px;
   height:30px;
@@ -40,50 +31,39 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Formacion Academica</title>
+    <title>Crear formación academica</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
     <script> Textheader('pnt_cem4',document.title);</script>
-<!--    <div class="contenedorizq"><label  >pnt_cem4</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-<!--<div class="container">-->
  <div class="row">
  <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/formacion.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/formacion.jpg}"/>
             </div>
     <h3 align="center">  </h3>
-    
-
-    
         <br>
           <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
             
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando informacion del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
             </div>
             </form>
-<form class="form-horizontal" id="formformacion" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" id="formformacion" th:object="${formacionacademica}" th:action="@{../formacionacademica}" method="post" enctype="multipart/form-data">
           <input type="hidden" th:field="*{codigoformacionacademica}"/>
           <!--<input type="hidden" id="codem"  />-->
             <div class="col-md-12"  >
                    <br>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Estudios Realizados(*):</label>
+                    <label class="col-sm-3 control-label">Estudios realizados(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{estudiosrealizados}" />
                     </div>
@@ -94,7 +74,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Centro Educativo(*):</label>
+                    <label class="col-sm-3 control-label">Centro educativo(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="50" maxlength="50"   th:field="*{centroeducativo}"   />
                     </div>
@@ -105,7 +85,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Años Aprobados(*):</label>
+                    <label class="col-sm-3 control-label">Años aprobados(*):</label>
                     <div class="col-sm-1">
                         <input type="text" class="form-control numeros" required="true" maxlength="1"  th:field="*{aniosaprobados}" />
                     </div>
@@ -115,7 +95,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup12">Ingrese los años aprobados del Empleado solo se admitiran  caracteres numericos.!</span>
                     </div>
                 </div>
-                 <div class="form-group">
+<!--                 <div class="form-group">
                 <label class="col-sm-3 control-label">Pais(*):</label>
                 <div class="col-sm-4">
                     <select class="form-control" name="mun" >
@@ -129,9 +109,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         
                         <span class="popuptext" id="poppup14">Seleccione el pais en el que realizo los estudios el Empleado desplegando la lista.!</span>
                     </div>
-            </div>
+            </div>-->
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha Desde(*):</label>
+                <label class="col-sm-3 control-label">Fecha desde(*):</label>
                 <div class="col-sm-2">
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechadfa');Fechas(this.value,$('#fechahfa').val().toString(),'fechadfa','fechahfa')"/>
                 </div>
@@ -142,9 +122,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha Hasta(*):</label>
+                <label class="col-sm-3 control-label">Fecha hasta(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechahastaformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
@@ -153,12 +133,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Termino(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="termino">
+                <label class="col-sm-3 control-label">Terminó(*):</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="termino" th:field="*{termino}">
                             <!--th:field="*{termino}">-->
-                        <option>Si</option>
-                        <option>No</option>
+                             <option value="0">--seleccione una opcion--</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
                 <div class="popup "><b>
@@ -168,7 +149,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Titulo Obtenido(*):</label>
+                    <label class="col-sm-3 control-label">Titulo obtenido(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="200" maxlength="200"   th:field="*{tituloobtenido}" />
                     </div>
@@ -179,7 +160,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Titulo</label>
+                    <label class="col-sm-2 control-label">Subir Titulo</label>
                     <div class="col-sm-5">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
@@ -223,8 +204,6 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
        
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
-	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
             function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
@@ -238,19 +217,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         if(foo[0]!=foo[2]){
                             swal(foo[1], foo[0]);
                         }
-                    }
-// 		$(document).ready(function() {
-// 			$(function () {
-// 				$("#datepickersince").datepicker();
-// 			});
-
-// 			$(function () {
-// 				$("#datepickeruntil").datepicker();
-// 			});
-// 		});
-		
+                    }		
 		$(document).ready(function () {
-		    var date = new Date();
+                   
+                    var date = new Date();
 		    var currentMonth = date.getMonth();
 		    var currentDate = date.getDate();
 		    var currentYear = date.getFullYear();
@@ -328,6 +298,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
                 $('#btnGuardar').click(function(){
+                     $("#loader").addClass("loader");
             $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
             $("form#formformacion").submit();
             
@@ -337,6 +308,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
          <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
+         $("#loader").addClass("loader");
+                   
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",
@@ -344,6 +317,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 icon: "success"
        }).then(function() {
                  location.href = '../../empleados/';
+                 
        }); 
 }
     

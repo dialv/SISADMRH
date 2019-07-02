@@ -19,7 +19,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface AsistenciaCapacitacionRepository extends CrudRepository<AsistenciaCapacitacion, Integer>{
     
-    @Query(value=" select p.nombrepuesto, uf.nombreubicacion,e.telefonofijoempleado,e.telefonomovilempleado,e.emailempleado from empleadopuesto ep \n" +
+    @Query(value=" select p.nombrepuesto, uf.nombreubicacion,e.telefonofijoempleado,e.emailempleado,e.telefonomovilempleado from empleadopuesto ep \n" +
                     " inner join  empleadoubicacionfisica eu \n" +
                     "on ep.codigoempleado=eu.codigoempleado \n" +
                     "inner join ubicacionfisica uf \n" +

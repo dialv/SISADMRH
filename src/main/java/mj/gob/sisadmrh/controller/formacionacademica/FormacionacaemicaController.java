@@ -57,13 +57,24 @@ public class FormacionacaemicaController extends UtilsController{
     }
     
     @RequestMapping("edit/formacionacademica/{id}")
-    public String editformacion(Formacionacademica formacionacademica,@PathVariable Integer id, Model model,SessionStatus status) {
-        formacionacademica.setEstadoformacion(1);
+    public String editformacion(Formacionacademica formacionacademica,@RequestParam("file") MultipartFile file,@PathVariable Integer id, Model model,SessionStatus status) {
+        
+          try {
+            formacionacademica.setDoctitulo(file.getBytes());
+            formacionacademica.setEstadoformacion(1);
+             
+        } catch (IOException ex) {
+            Logger.getLogger(FormacionacaemicaController.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
         formacionacademicaService.saveFormacionacademica(formacionacademica);
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico una formacion academica",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"formacionacademicas";
     }
 
     @RequestMapping("new/{id}")
@@ -103,12 +114,14 @@ public class FormacionacaemicaController extends UtilsController{
         emcon.setEmpleadoformacionPK(emconpk);
         empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
         model.addAttribute("msg", 0);
+        model.addAttribute("empleado",id);
          }catch(Exception e){
             model.addAttribute("msg", 1);
         }
         
 //        return "redirect:./show/" + formacionacademica.getCodigoformacionacademica();
-       return "redirect:/empleados/show/"+id;
+//       return "redirect:/empleados/show/"+id;
+ return PREFIX +"formacionacademicas";
     }
     
     @RequestMapping("show/{id}/{idemp}")    
@@ -118,20 +131,25 @@ public class FormacionacaemicaController extends UtilsController{
         return PREFIX +"formacionacademicashow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
          try{
             Formacionacademica formacionacademica = formacionacademicaService.getFormacionacademicaById(id).get();
             formacionacademica.setEstadoformacion(0);
             formacionacademicaService.saveFormacionacademica(formacionacademica);
+              Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
             model.addAttribute("formacionacademica", formacionacademica);
          }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-        return PREFIX +"formacionacademicashow";
+        return PREFIX +"formacionacademicas";
     }
+    
+    
+    
   @RequestMapping(value = "formacionacademica")
     public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status, @RequestParam("file") MultipartFile file) {
         try{

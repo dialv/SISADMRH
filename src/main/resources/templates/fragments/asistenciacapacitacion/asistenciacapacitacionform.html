@@ -1,189 +1,153 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-    <title>Crear Asistencia Capacitación</title>
+        <title>Crear asistencia capacitación</title>
     <th:block th:include="../templates/header"></th:block>
-   
 </head>
 <body>
-<!--     <div ><label  >pnt_asca</label> </div>
-       <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-             <br><br>
-          <div class="row text-center">
-                        <img src="../../static/image/asistencia.png" width="150" th:src="@{/image/asistencia.png}"/>
-            <!--<h3 align="center">Crear Asistencias de Capacitación</h3>-->
-            <div>
-                <form class="form-horizontal" id="formascap" th:object="${formasistenciacapacitancion}" th:action="@{../asistenciacapacitacion}" method="post">
-                    
-                     <!--<input type="hidden" name="codigocuadrodirectivo"/>-->
+            <br>
+            <div class="row text-center">
+                <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
+                <div class="row text-center">
+                    <br>
+                    <form class="form-horizontal" id="formascap" th:object="${formasistenciacapacitancion}" th:action="@{../asistenciacapacitacion}" method="post">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Capacitación:</label>
-                        <div class="col-sm-6" >
-                            <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
-                                <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
-                            </select>
-                            <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacion')" onmouseout ="javascript:ocultarAyuda('capacitacion')">a</a></b>
-                        
+                            <label class="col-sm-4 control-label">Capacitación a asignar(*):</label>
+                            <div class="col-sm-6" >
+
+                                <select class="form-control" name="codigocapacitacion.codigocapacitacion" >
+                                    <option value="-1">-- Seleccione una capacitación --</option>
+                                    <option th:each="c:${formasistenciacapacitancion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
+                                </select>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('capacitacion')" onmouseout ="javascript:ocultarAyuda('capacitacion')">a</a></b>
                         <span class="popuptext" id="capacitacion">Seleccione la Capacitacion de la Lista.!</span>
-                    </div>
-                    </div>
-
- 
-<!--                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">Codigo empleado:</label>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control numeros" required="true" name="codigoempleado"/>
+                            </div>
                         </div>
-                          <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('codigoempleado')" onmouseout ="javascript:ocultarAyuda('codigoempleado')">a</a></b>
-                        
-                        <span class="popuptext" id="codigoempleado">Seleccione el código empleado, debe ser los digitos del 1 al 9.!</span>
-                    </div>
-                    </div>-->
-
-                   
-                                 <div class="form-group">
-                        <label class="col-sm-2 control-label">Empleado:</label>
-                        <div class="col-sm-6">
-                            <!--<select class="form-control" id="combo" th:field="*{asistenciaCapacitacion.codigoempleado.codigoempleado}" >-->
-                            <select class="form-control" id="combo"  >
-                            <option value="0">-- Seleccione un empleado --</option>
-                            <option th:each="d:${formasistenciacapacitancion.empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
-                            </select>
-                            <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
-                            <!--<input type="text" class="form-control" th:field="*{formasistenciacapacitancion.codigoempleado.codigoempleado}"/>-->
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Nombre del empleado(*):</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" id="combo" name="codigoempleado.codigoempleado"  >
+                                    <option value="0">-- Seleccione un empleado --</option>
+                                    <option th:each="d:${formasistenciacapacitancion.empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
+                                </select>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('codempledo')" onmouseout ="javascript:ocultarAyuda('codempledo')">a</a></b>
+                                <span class="popuptext" id="codempledo">Seleccione El empleado de la lista de la Lista.!</span>
+                            </div>
                         </div>
-                          <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('codempledo')" onmouseout ="javascript:ocultarAyuda('codempledo')">a</a></b>
-                        
-                        <span class="popuptext" id="codempledo">Seleccione El empleado de la lista de la Lista.!</span>
-                    </div>
-                                        </div>
-                     <div class="form-group">
-                        <label class="col-sm-2 control-label ">Horas Recibidas:</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas"/>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label ">Horas recibidas de capacitación:(*)</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control numeros" required="true" maxlength="3" name="horasrecibidas"/>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('horas')" onmouseout ="javascript:ocultarAyuda('horas')">a</a></b>
+
+                                <span class="popuptext" id="horas">Ingrese las horas, solo la combinacion de digitos del 0 al 9.!</span>
+                            </div>
                         </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('horas')" onmouseout ="javascript:ocultarAyuda('horas')">a</a></b>
-                        
-                        <span class="popuptext" id="horas">Ingrese las horas, solo la combinacion de digitos del 0 al 9.!</span>
-                    </div>
-                    </div>
-                   
-
-
-                   
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label ">Puesto:</label>
-                        <div class="col-sm-6">
-                            <input type="text" id="puesto" class="form-control" maxlength="50"required="true" />
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label ">Puesto del empleado(*):</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="puesto" class="form-control" maxlength="50"required="true"name="puesto" />
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('puestos')" onmouseout ="javascript:ocultarAyuda('puestos')">a</a></b>
+                                <span class="popuptext" id="puestos">Ingrese el puesto, solo se aceptan 50 caracteres.!</span>
+                            </div>
                         </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('puestos')" onmouseout ="javascript:ocultarAyuda('puestos')">a</a></b>
-                        
-                        <span class="popuptext" id="puestos">Ingrese el puesto, solo se aceptan 50 caracteres.!</span>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label ">Ubicación Física:</label>
-                        <div class="col-sm-6">
-                            <input type="text" id="ubicacion" class="form-control " size="50" maxlength="50"required="true" name="ubicacionasistenciacapacitacion" />
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label ">Ubicación física de capacitación(*):</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="ubicacion" class="form-control " size="50" maxlength="50"required="true" name="ubicacionasistenciacapacitacion" />
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ubicacionn')" onmouseout ="javascript:ocultarAyuda('ubicacionn')">a</a></b>
+
+                                <span class="popuptext" id="ubicacionn">Seleccione El empleado de la lista de la Lista.!</span>
+                            </div>
                         </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ubicacionn')" onmouseout ="javascript:ocultarAyuda('ubicacionn')">a</a></b>
-                        
-                        <span class="popuptext" id="ubicacionn">Seleccione El empleado de la lista de la Lista.!</span>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label ">Telefono:</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control num_telefono" required="true" name="telefono"/>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label ">Telefono del empleado(*):</label>
+                            <div class="col-sm-2">
+                                <input type="text" id="telefonoo"class="form-control num_telefono" required="true" name="telefono"/>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('telefono')" onmouseout ="javascript:ocultarAyuda('telefono')">a</a></b>
+
+                                <span class="popuptext" id="telefono">Ingrese el Numero de telefono. solo se Permiten digitos del 0 al 9.!</span>
+                            </div>
                         </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('telefono')" onmouseout ="javascript:ocultarAyuda('telefono')">a</a></b>
-                        
-                        <span class="popuptext" id="telefono">Ingrese el Numero de telefono. solo se Permiten digitos del 0 al 9.!</span>
-                    </div>
-                    </div>
 
 
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Correo:</label>
-                        <div class="col-sm-6">
-                            <input type="email" class="form-control" size="50" minlength="50" required="true" name="email"/>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Correo del empleado(*):</label>
+                            <div class="col-sm-6">
+                                <input type="email" id="correoo"class="form-control" size="50" maxlength="50" required="true" name="email"/>
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('correo')" onmouseout ="javascript:ocultarAyuda('correo')">a</a></b>
+
+                                <span class="popuptext" id="correo">Ingrese el correo. Solo se aceptan 20 caracteres, es Obligatorio la @.!</span>
+                            </div>
                         </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('correo')" onmouseout ="javascript:ocultarAyuda('correo')">a</a></b>
-                        
-                        <span class="popuptext" id="correo">Ingrese el correo. Solo se aceptan 20 caracteres, es Obligatorio la @.!</span>
-                    </div>
-                    </div>
-
-                    <!--             <div class="form-group">
-                                    <label class="col-sm-2 control-label">Responsable del Comite:</label>
-                                                         <div class="col-sm-10">
-                                                             <select class="form-control" th:field="*{codigocapacitacion.codigocapacitacion}" >
-                                                    <option th:each="c:${capacitaciones}" placeholder="Seleccionar capacitacion" th:value="${c.codigocapacitacion" th:text="${c. nombrecapacitacion}"></option>
-                                                </select>
-                                   <input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>
-                                                              </div>
-                                                    </div>-->
 
 
-                    <div class="col-md-12">
-                        <div class="row" align="center">
-                            <a href="#" th:href="@{/asistenciacapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-                        
+
+                        <div class="col-md-12">
+                            <div class="row" align="center">
+                                <a href="#" th:href="@{/asistenciacapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
+                                <button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+
             </div>
-
         </div>
-    </div>
 
-    <script th:inline="javascript">
-        $(document).ready(function () {
-            Textheader('pnt_asca',document.title);
-            $('#fechadesdecomite').datepicker({
-                dateFormat: 'yy-mm-dd'
+        <script th:inline="javascript">
+            Textheader('pnt_acap', document.title);
+            $(document).ready(function () {
+                Textheader('pnt_asca', document.title);
+                $('#fechadesdecomite').datepicker({
+                    dateFormat: 'yy-mm-dd'
+                });
+
+                $('#fechahastacomite').datepicker({
+                    dateFormat: 'yy-mm-dd'
+                });
+                $('#combo').change(function () {
+                    $.ajax({
+                        url: '../llenadocombo/' + $(this).val().toString(),
+                        success: function (data) {
+                            $('#correoo').val(data[3]);
+                            $('#telefonoo').val(data[2]);
+                            $('#ubicacion').val(data[1]);
+                            $('#puesto').val(data[0]);
+                        },
+                        error: function () {
+                            ('#correoo').val("");
+                            $('#telefonoo').val("");
+                            $('#ubicacion').val("");
+                            $('#puesto').val("");
+                        }
+                    });
+                });
             });
-
-            $('#fechahastacomite').datepicker({
-                dateFormat: 'yy-mm-dd'
-            });
-            $('#combo').change(function(){
-                 $.ajax({
-                    url : '../llenadocombo/' + $( this ).val().toString(),
-                    success : function(data) {
-                        $('#ubicacion').val(data[1]);
-                        $('#puesto').val(data[0]);
-                    },
-                    error: function() {
-                        $('#ubicacion').val("");
-                        $('#puesto').val("");
-                    }
-        });
-        });
-        });
-    </script>
-
+        </script>
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div>
 </body>	
 </html>

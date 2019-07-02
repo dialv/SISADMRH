@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>SISADMRH-Detalle de Asistencias de Capacitacion</title>
+        <title>SISADMRH-Detalle de asistencias de capacitación</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -10,85 +10,77 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-md-3">
-            <th:block th:include="../templates/menu"></th:block>
-        </div>
-        <div class="col-md-8">
-            <h3 align="center">Detalle de Asistencia Capacitación</h3>
-            <div>
-                <form class="form-horizontal">
-                    <div class="col-md-6">
+     <div class="col-md-3">
+                        <th:block th:include="../templates/menu"></th:block>
+                    </div>
+     <div class="col-md-9">
+          <div class="row text-center">
+                       <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
+                    </div>
+    
+        <div>
+            <form class="form-horizontal">
+              <div class="form-group">
+                            <label class="col-sm-5 control-label">Código de asistencia capacitación :</label>
+                            <div class="col-sm-6">
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">Código de Asistencia Capacitación</p>
+                            </div>
+                        </div>
+                        
+
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">código:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p></div>
-                        </div>
-                          <div class="form-group">
-                            <label class="col-sm-5 control-label">códigoempleado:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoempleado}">codigo de comite</p></div>
-                        </div>
-                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Nombre de empleado:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.codigoasistenciacapacitacion}">codigo de comite</p></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">Horas Recibidas:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-5 control-label">Horas recibidas capacitación:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.horasrecibidas}">Horas Recibidas</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Ubicación Física de Capacitacion:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-5 control-label">Ubicación física de capacitación</label>
+                            <div class="col-sm-4">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion Fisica de Capacitacion</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Capacitación:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-5 control-label">Nombre capacitación:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.codigocapacitacion.nombrecapacitacion}">Codigo de Capacitacion</p>
                             </div>
-                             <div class="form-group">
-                            <label class="col-sm-5 control-label">Ubicación fisíca:</label>
-                            <div class="col-sm-7">
+                            </div>
+<!--                             <div class="form-group">
+                            <label class="col-sm-5 control-label">Ubicación física de capacitación:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.ubicacionasistenciacapacitacion}">Ubicacion Fisica de Capacitacion</p>
                             </div>
+                        </div>-->
+                            <div class="form-group">
+                            <label class="col-sm-5 control-label">Puesto empleado:</label>
+                            <div class="col-sm-6">
+                                <p class="form-control-static" th:text="${asistenciacapacitacion.puesto}">Ubicacion Fisica de Capacitacion</p>
+                            </div>
                         </div>
-                        </div>
+                    
                           <div class="form-group">
-                            <label class="col-sm-5 control-label">Telefono:</label>
-                            <div class="col-sm-7">
+                            <label class="col-sm-5 control-label">Teléfono empleado:</label>
+                            <div class="col-sm-6">
                                 <p class="form-control-static" th:text="${asistenciacapacitacion.telefono}">Codigo de Capacitacion</p>
-                                  <div class="form-group">
-                            <label class="col-sm-5 control-label">Correo:</label>
-                            <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${asistenciacapacitacion.email}">Codigo de Capacitacion</p>
+                                  </div>
                             </div>
-                        </div>
-                            </div>
-                        </div>
-                        
-                        
-
-                        
-                       
-                    </div> 
-
-
-                </form>
-                <div class="col-md-12">
+                
+            </form>
+            <div class="col-md-12">
                     <div class="row" align="center">
-                                       <button type="button" class="btn btn-default"><a href="#" th:href="@{/asistenciacapacitaciones/}">Regresar</a></button>
+                       <a href="#" th:href="@{/asistenciacapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
-        </div>
+            
     </div>
-
+</div>
+    </div>
 </body>
+<script>
+    $(document).ready(function () {
+         Textheader('pnt_cudi',document.title);
+       
+    });
+    </script>
 </html>

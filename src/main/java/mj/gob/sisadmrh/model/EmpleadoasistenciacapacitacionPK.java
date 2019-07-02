@@ -13,6 +13,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -29,11 +30,7 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
     @NotNull
     @Column(name = "codigoasistenciacapacitacion")
     private int codigoasistenciacapacitacion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "fecha")
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+   
 
     public EmpleadoasistenciacapacitacionPK() {
     }
@@ -41,7 +38,7 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
     public EmpleadoasistenciacapacitacionPK(int codigoempleado, int codigoasistenciacapacitacion, Date fecha) {
         this.codigoempleado = codigoempleado;
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
-        this.fecha = fecha;
+  
     }
 
     public int getCodigoempleado() {
@@ -60,20 +57,14 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+   
 
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) codigoempleado;
         hash += (int) codigoasistenciacapacitacion;
-        hash += (fecha != null ? fecha.hashCode() : 0);
+       
         return hash;
     }
 
@@ -90,15 +81,13 @@ public class EmpleadoasistenciacapacitacionPK implements Serializable {
         if (this.codigoasistenciacapacitacion != other.codigoasistenciacapacitacion) {
             return false;
         }
-        if ((this.fecha == null && other.fecha != null) || (this.fecha != null && !this.fecha.equals(other.fecha))) {
-            return false;
-        }
+        
         return true;
     }
 
     @Override
     public String toString() {
-        return "mj.gob.sisadmrh.model.EmpleadoasistenciacapacitacionPK[ codigoempleado=" + codigoempleado + ", codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + ", fecha=" + fecha + " ]";
+        return "mj.gob.sisadmrh.model.EmpleadoasistenciacapacitacionPK[ codigoempleado=" + codigoempleado + ", codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + ", fecha=" +  " ]";
     }
     
 }

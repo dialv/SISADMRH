@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -52,14 +53,13 @@ public class Comite implements Serializable {
     private Integer estadocomite;
     
     @Column(name = "FECHADESDECOMITE")
-   // @DateTimeFormat(pattern = "YYYY-MM-dd")
-   // @DateTimeFormat(pattern = "dd-MM-YYYY")
-      @DateTimeFormat(pattern = "dd/MM/yyyy")
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechadesdecomite;
     
     @Column(name = "FECHAHASTACOMITE")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-   //  @DateTimeFormat(pattern = "dd-MM-YYYY")
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechahastacomite;
     
     @JoinColumn(name = "CODIGOEMPLEADO", referencedColumnName = "CODIGOEMPLEADO")

@@ -36,12 +36,11 @@ public class ExoneradoMarcacionView extends AbstractXlsView{
  Row header = sheet.createRow(2);
 
  header.createCell(2).setCellValue("Nombre empleado");
- header.createCell(3).setCellValue("Apellido");
- header.createCell(4).setCellValue("Nombre Puesto");
- header.createCell(6).setCellValue("ubicacion");
- header.createCell(7).setCellValue("Acuerdo ");
- header.createCell(8).setCellValue("Fecha Desde ");
- header.createCell(9).setCellValue("Fecha hasta ");
+ header.createCell(3).setCellValue("Nombre Puesto");
+ header.createCell(4).setCellValue("Ubicacion");
+ header.createCell(5).setCellValue("No. Acuerdo ");
+ header.createCell(6).setCellValue("Fecha Desde ");
+ header.createCell(7).setCellValue("Fecha hasta ");
 //  header.createCell(10).setCellValue("Hasta");
 //   header.createCell(11).setCellValue("Ubicacion");
 // header.createCell(12).setCellValue("Sub lineade Trabajo");
@@ -58,13 +57,12 @@ public class ExoneradoMarcacionView extends AbstractXlsView{
            
            
         
- row.createCell(2).setCellValue((String) exoneradoMarcacion[0]);
- row.createCell(3).setCellValue((String) exoneradoMarcacion[1]);
- row.createCell(4).setCellValue((String) exoneradoMarcacion[2]);
- row.createCell(5).setCellValue((String) exoneradoMarcacion[3]);
- row.createCell(5).setCellValue((Integer) exoneradoMarcacion[4]);
- row.createCell(6).setCellValue((Date) exoneradoMarcacion[5]);
- row.createCell(7).setCellValue((Date) exoneradoMarcacion[6]);
+ row.createCell(2).setCellValue((String) ""+ exoneradoMarcacion[0]);
+ row.createCell(3).setCellValue((String) ""+ exoneradoMarcacion[1]);
+ row.createCell(4).setCellValue((String) ""+ exoneradoMarcacion[2]);
+ row.createCell(5).setCellValue((String) ""+ exoneradoMarcacion[3]);
+ row.createCell(6).setCellValue((String) ""+ exoneradoMarcacion[4]);
+ row.createCell(7).setCellValue((String) ""+ exoneradoMarcacion[5]);
 // row.createCell(7).setCellValue((Date) exoneradoMarcacion[7]);
 //  row.createCell(8).setCellValue((Date) exoneradoMarcacion[8]);
 //   row.createCell(9).setCellValue((String) exoneradoMarcacion[9]);

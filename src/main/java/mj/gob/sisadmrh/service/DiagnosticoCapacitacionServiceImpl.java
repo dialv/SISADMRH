@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.DiagnosticoCapacitacion;
 import mj.gob.sisadmrh.model.Ubicacionfisica;
@@ -53,7 +54,7 @@ public class DiagnosticoCapacitacionServiceImpl  implements DiagnosticoCapacitac
     }
     
      @Override
-    public Iterable<DiagnosticoCapacitacion> Diagnosticoexcel(String finicial, String ffinal) {
+    public List<Object[]> Diagnosticoexcel(String finicial, String ffinal) {
         return diagnostivoRep.Diagnosticoexcel(finicial, ffinal);
         
     }

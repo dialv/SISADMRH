@@ -16,7 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -27,50 +26,67 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author jorge
+ * @author dialv
  */
 @Entity
 @Table(name = "asistenciacapacitacion")
-//@NamedQueries({
-//    @NamedQuery(name = "AsistenciaCapacitacion.findAll", query = "SELECT a FROM AsistenciaCapacitacion a")})
 public class AsistenciaCapacitacion implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "codigocapacitacion")
+//    private int codigocapacitacion;
+     @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+   private Capacitacion codigocapacitacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "codigoasistenciacapacitacion")
+    private Integer codigoasistenciacapacitacion;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 50)
+    @Column(name = "email")
+    private String email;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "HORASRECIBIDAS")
+    @Column(name = "horasrecibidas")
     private int horasrecibidas;
-    @Size(max = 50)
-    @Column(name = "UBICACIONASISTENCIACAPACITACION")
-    private String ubicacionasistenciacapacitacion;
     @Size(max = 11)
-    @Column(name = "TELEFONO")
+    @Column(name = "telefono")
     private String telefono;
     @Size(max = 50)
-    @Column(name = "EMAIL")
-    private String email;
+    @Column(name = "ubicacionasistenciacapacitacion")
+    private String ubicacionasistenciacapacitacion;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "ESTADOASISTENCIA")
     private int estadoasistencia;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "codigoempleado")
-    private int codigoempleado;
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "CODIGOASISTENCIACAPACITACION")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer codigoasistenciacapacitacion;
-//    @ManyToMany(mappedBy = "asistenciacapacitacionList")
-//    private List<Empleado> empleadoList;
-    @JoinColumn(name = "CODIGOCAPACITACION", referencedColumnName = "CODIGOCAPACITACION")
-    @ManyToOne(optional = false)
-   private Capacitacion codigocapacitacion;
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "asistenciacapacitacion", fetch = FetchType.LAZY)
-    private List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList;
-
+    @Size(max = 50)
+    @Column(name = "puesto")
+    private String puesto;
+//    @Basic(optional = false)
+//    @NotNull
+//    @Column(name = "codigoempleado")
+//    private int codigoempleado;
+    @JoinColumn(name = "codigoempleado", referencedColumnName = "codigoempleado")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Empleado codigoempleado;
+    
     public AsistenciaCapacitacion() {
+    }
+
+    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion) {
+        this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
+    }
+
+    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion, Capacitacion codigocapacitacion, int horasrecibidas, int estadoasistencia, Empleado codigoempleado) {
+        this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
+        this.codigocapacitacion = codigocapacitacion;
+        this.horasrecibidas = horasrecibidas;
+        this.estadoasistencia = estadoasistencia;
+        this.codigoempleado = codigoempleado;
     }
 
     public Capacitacion getCodigocapacitacion() {
@@ -81,15 +97,6 @@ public class AsistenciaCapacitacion implements Serializable {
         this.codigocapacitacion = codigocapacitacion;
     }
 
-    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion) {
-        this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
-    }
-
-    public AsistenciaCapacitacion(Integer codigoasistenciacapacitacion, int horasrecibidas) {
-        this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
-        this.horasrecibidas = horasrecibidas;
-    }
-
     public Integer getCodigoasistenciacapacitacion() {
         return codigoasistenciacapacitacion;
     }
@@ -98,15 +105,61 @@ public class AsistenciaCapacitacion implements Serializable {
         this.codigoasistenciacapacitacion = codigoasistenciacapacitacion;
     }
 
-    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
-        return empleadoasistenciacapacitacionList;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmpleadoasistenciacapacitacionList(List<Empleadoasistenciacapacitacion> empleadoasistenciacapacitacionList) {
-        this.empleadoasistenciacapacitacionList = empleadoasistenciacapacitacionList;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-   
+    public int getHorasrecibidas() {
+        return horasrecibidas;
+    }
+
+    public void setHorasrecibidas(int horasrecibidas) {
+        this.horasrecibidas = horasrecibidas;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getUbicacionasistenciacapacitacion() {
+        return ubicacionasistenciacapacitacion;
+    }
+
+    public void setUbicacionasistenciacapacitacion(String ubicacionasistenciacapacitacion) {
+        this.ubicacionasistenciacapacitacion = ubicacionasistenciacapacitacion;
+    }
+
+    public int getEstadoasistencia() {
+        return estadoasistencia;
+    }
+
+    public void setEstadoasistencia(int estadoasistencia) {
+        this.estadoasistencia = estadoasistencia;
+    }
+
+    public String getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
+    }
+
+    public Empleado getCodigoempleado() {
+        return codigoempleado;
+    }
+
+    public void setCodigoempleado(Empleado codigoempleado) {
+        this.codigoempleado = codigoempleado;
+    }
 
     @Override
     public int hashCode() {
@@ -131,52 +184,6 @@ public class AsistenciaCapacitacion implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Asistenciacapacitacion[ codigoasistenciacapacitacion=" + codigoasistenciacapacitacion + " ]";
-    }
-    public int getCodigoempleado() {
-        return codigoempleado;
-    }
-    public void setCodigoempleado(int codigoempleado) {
-        this.codigoempleado = codigoempleado;
-    }
-
-    public int getHorasrecibidas() {
-        return horasrecibidas;
-    }
-
-    public void setHorasrecibidas(int horasrecibidas) {
-        this.horasrecibidas = horasrecibidas;
-    }
-
-    public String getUbicacionasistenciacapacitacion() {
-        return ubicacionasistenciacapacitacion;
-    }
-
-    public void setUbicacionasistenciacapacitacion(String ubicacionasistenciacapacitacion) {
-        this.ubicacionasistenciacapacitacion = ubicacionasistenciacapacitacion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getEstadoasistencia() {
-        return estadoasistencia;
-    }
-
-    public void setEstadoasistencia(int estadoasistencia) {
-        this.estadoasistencia = estadoasistencia;
     }
     
 }

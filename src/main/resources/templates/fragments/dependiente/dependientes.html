@@ -18,11 +18,11 @@
         <h3 align="center">Listado de contactos</h3>
         <table class="table table-striped">
             <tr >
-                <th>Codigo de Contacto</th>
+                <th>Código de Contacto</th>
                 <th>Nombre de  Contacto</th>
-                <th>Direccion</th>
+                <th>Dirección</th>
                 <th>Telefono Fijo</th>
-                <th>Telefono Movi</th>
+                <th>Telefono Móvi</th>
                 <th>Email</th>
             </tr>
             <tr th:each="empleado : ${empleados}">
@@ -49,7 +49,22 @@
 <script th:inline="javascript">
 
     $(document).ready(function () {
-    if ([[${msg}]] === 3){
+    if ([[${msg}]] === 0){
+//alert(document.getElementById("codem").value);
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+    location.href = '../../empleados/show/'+ [[${empleado}]];
+    swal({
+                text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+                })
+    });
+    }
+if ([[${msg}]] === 2){
 
     swal({
     title: "Exito!",
@@ -57,7 +72,34 @@
             type: "success",
             icon: "success"
             }).then(function() {
-    location.href = '../../empleados/';
+    location.href = '../../../empleados/show/'+ [[${empleado}]];
+    swal({
+                text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+                })
+    });
+    }
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+            });
+    }
+    });</script> 
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+    if ([[${msg}]] === 3){
+
+    swal({
+    title: "Exito!",
+            text: "Registro eliminado correctamente",
+            type: "success",
+            icon: "success"
+            }).then(function() {
+     location.href = '../../../empleados/show/'+[[${empleado}]];
     });
     }
 

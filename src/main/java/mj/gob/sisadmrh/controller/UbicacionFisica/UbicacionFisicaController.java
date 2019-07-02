@@ -63,7 +63,10 @@ public class UbicacionFisicaController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico una Ubicacion Fisica",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"ubicacionfisicas";
     }
     
     @RequestMapping("new/{id}")
@@ -92,7 +95,7 @@ public class UbicacionFisicaController extends UtilsController{
         empleadoUbicacionfisicaService.saveEmpleadoubicacionfisica(emcon);
          bitacoraService.BitacoraRegistry("se Creo una Ubiscaion Fisica",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-           model.addAttribute("msg", 0);
+           model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
            model.addAttribute("msg", 1);
@@ -108,7 +111,8 @@ public class UbicacionFisicaController extends UtilsController{
                 }
                 System.out.println("}");
         }
-       return "redirect:/empleados/show/"+id;
+//       return "redirect:/empleados/show/"+id;
+ return PREFIX +"ubicacionfisicas";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();
     }
@@ -121,12 +125,14 @@ public class UbicacionFisicaController extends UtilsController{
         
         return PREFIX +"ubicacionfisicashow";
     }
-     @RequestMapping("delete/{id}")  
-    public String delete(@PathVariable Integer id,Model model) {
+     @RequestMapping("delete/{id}/{idemp}")  
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
         try{
        Ubicacionfisica ubicacionfisica = ubicacionFisicaService.getUbicacionFisicaById(id).get();
        ubicacionfisica.setEstadoubicacion(0);
         ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
+          Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
          model.addAttribute("msg", 3);
 //          model.addAttribute("ubicacionfisica",ubicacionfisica);
         }
@@ -134,24 +140,24 @@ public class UbicacionFisicaController extends UtilsController{
         {
         model.addAttribute("msg", 4);
         }
-    return "redirect:/empleados/";
+//    return "redirect:/empleados/";
 //        return "redirect:/ubicacionfisicas/";
-//        return PREFIX +"ubicacionfisicashow";
+        return PREFIX +"ubicacionfisicas";
     }
     
-              @RequestMapping(value = "ubicacionfisica")
-    public String saveRol(Ubicacionfisica ubicacionfisica, Model model, SessionStatus status) {
-        try{
-        ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se cambio una ubicacionfisica ",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-         return "redirect:/empleados/";
-    }
+//              @RequestMapping(value = "ubicacionfisica")
+//    public String saveRol(Ubicacionfisica ubicacionfisica, Model model, SessionStatus status) {
+//        try{
+//        ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
+//        status.setComplete();
+//         bitacoraService.BitacoraRegistry("se cambio una ubicacionfisica ",getRequest().getRemoteAddr(), 
+//                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+//        model.addAttribute("msg", 0);
+//        }
+//        catch(Exception e){
+//        model.addAttribute("msg", 1);
+//        }
+//         return "redirect:/empleados/";
+//    }
     
 }

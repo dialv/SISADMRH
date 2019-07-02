@@ -20,7 +20,8 @@
  inner join empleadopuesto ep ON ep.codigoempleado=ep.codigoempleado inner join puesto p on ep.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
 WHERE c.codigocomite=$P{CODIGO}
 and c.fechadesdecomite>=$P{FECHAINICIO}
-and c.fechahastacomite<=$P{FECHAFIN}]]>
+]]>
+	<!--and c.fechahastacomite<=$P{FECHAFIN}-->
 	</queryString>
 	<field name="COUNT(c.codigocomite)" class="java.lang.Long"/>
 	<field name="nombreempleado" class="java.lang.String">

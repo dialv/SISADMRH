@@ -33,6 +33,12 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+     @Override
+    public Iterable<Empleado> listAllActivosPensionados() {
+     return empleadoRep.listAllActivosPensionados();
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public Optional<Empleado> getEmpleadoById(Integer id) {
         return empleadoRep.findById(id);
@@ -63,7 +69,7 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 
     @Override
     public List<Object[]> findBycumples(String finicial, String ffinal) {
-return empleadoRep.findByCumples(finicial,ffinal)   ;
+return empleadoRep.findByCumples(finicial)   ;
         }
 
     @Override
@@ -113,8 +119,8 @@ return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
     }
 
     @Override
-    public List<Object[]> findByPuestosCaducar(String finicial, String ffinal) {
-return  empleadoRep.findByPuestosCaducar(finicial, ffinal);
+    public List<Object[]> findByPuestosCaducarExcel(String finicial, String ffinal) {
+return  empleadoRep.findByPuestosCaducarExcel(finicial, ffinal);
     }
 
     @Override
@@ -137,6 +143,8 @@ return empleadoRep.findByIncapacidad(finicial, ffinal);
         return empleadoRep.findByAsistenciaCapacitacion(id);
         
     }
+    
+    
     @Override
         public void DeleteEmpleadoAsistenciaCap(int id) {
         empleadoRep.DeleteEmpleadoAsistenciaCap(id);
@@ -146,4 +154,21 @@ return empleadoRep.findByIncapacidad(finicial, ffinal);
     public Iterable<Empleado> listAllActivos() {
      return empleadoRep.listAllActivos();
     }    
+     @Override
+    public List<Object[]> findByMisionesEmpleados(int id) {
+        return empleadoRep.findByMisionesEmpleados(id);
+        
+    }
+     @Override
+    public List<Object[]> findByMisionesAsignadas() {
+        return empleadoRep.findByMisionesAsignadas();
+        
+    }
+    
+     @Override
+        public void DeleteListadoMision(int id) {
+        empleadoRep.DeleteListadoMision(id);
+    }
+    
+    
 }

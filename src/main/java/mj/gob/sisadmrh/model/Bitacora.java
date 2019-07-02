@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -45,6 +46,7 @@ public class Bitacora implements Serializable {
     private String nombreeventobitacora;
     @Column(name = "FECHABITACORA")
     @Temporal(TemporalType.DATE)
+//    
     private Date fechabitacora;
     @Size(max = 18)
     @Column(name = "IP")

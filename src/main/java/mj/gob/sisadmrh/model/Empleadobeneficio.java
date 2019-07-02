@@ -38,7 +38,7 @@ public class Empleadobeneficio implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHABENEFICIO")
-    @DateTimeFormat(pattern = "YYYY-MM-dd")
+//    
     private Date fechabeneficio;
     @JoinColumn(name = "CODIGOBENEFICIO", referencedColumnName = "CODIGOBENEFICIO", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

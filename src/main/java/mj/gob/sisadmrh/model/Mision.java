@@ -12,6 +12,7 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -44,15 +45,17 @@ public class Mision implements Serializable {
     @Column(name = "documento")
     private String documento;
     @Column(name = "fechaacuerdomision")
-     @DateTimeFormat(pattern = "YYYY/MM/dd")
+//    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaacuerdomision;
     @Column(name = "fecharegresomision")
-     @DateTimeFormat(pattern = "YYYY/MM/dd")
+//    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecharegresomision;
     @Column(name = "fechasalidamision")
-     @DateTimeFormat(pattern = "YYYY/MM/dd")
-    private Date fechasalidamision;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+//     
+    @Temporal(javax.persistence.TemporalType.DATE)
+     private Date fechasalidamision;
     @Column(name = "gastostotales")
     private Float gastostotales;
     @Column(name = "gastoterminales")
@@ -93,6 +96,9 @@ public class Mision implements Serializable {
     @Size(max = 50)
     @Column(name = "organismopatrocinador")
     private String organismopatrocinador;
+     @Size(max = 100)
+    @Column(name = "direccion")
+    private String direccion;
     @Column(name = "viaticos")
     private Float viaticos;
     @Size(max = 200)
@@ -314,6 +320,15 @@ public class Mision implements Serializable {
 
     public void setBoletoterr(String boletoterr) {
         this.boletoterr = boletoterr;
+    }
+    
+    
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     @Override

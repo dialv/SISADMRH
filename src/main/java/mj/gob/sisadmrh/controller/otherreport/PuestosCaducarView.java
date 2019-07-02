@@ -15,12 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractXlsView;
 
 /**
  *
  * @author jorge
  */
+@Component("fragments/puestoscaducar.xlsx")
 public class PuestosCaducarView  extends AbstractXlsView{
  @Override
  protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
@@ -58,17 +60,17 @@ public class PuestosCaducarView  extends AbstractXlsView{
            
            
         
- row.createCell(2).setCellValue((Integer) puestosCaducar[0]);
+ row.createCell(2).setCellValue((String) ""+puestosCaducar[0]);
  row.createCell(3).setCellValue((String) puestosCaducar[1]);
- row.createCell(4).setCellValue((Date) puestosCaducar[2]);
- row.createCell(5).setCellValue((Date) puestosCaducar[3]);
- row.createCell(6).setCellValue((String) puestosCaducar[4]);
- row.createCell(7).setCellValue((Float) puestosCaducar[5]);
+ row.createCell(4).setCellValue((String) ""+puestosCaducar[2]);
+ row.createCell(5).setCellValue((String)""+ puestosCaducar[3]);
+ row.createCell(6).setCellValue((String)""+  puestosCaducar[4]);
+ row.createCell(7).setCellValue((String) puestosCaducar[5]);
  
- row.createCell(8).setCellValue((String) puestosCaducar[7]);
-  row.createCell(9).setCellValue((String) puestosCaducar[8]);
-   row.createCell(10).setCellValue((String) puestosCaducar[9]);
- row.createCell(11).setCellValue((String) puestosCaducar[10]);
+ row.createCell(8).setCellValue((String)""+ puestosCaducar[6]);
+  row.createCell(9).setCellValue((String)""+ puestosCaducar[7]);
+//   row.createCell(10).setCellValue((String) puestosCaducar[9]);
+// row.createCell(11).setCellValue((String) puestosCaducar[10]);
  
  }
  }

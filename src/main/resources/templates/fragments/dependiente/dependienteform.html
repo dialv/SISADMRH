@@ -3,12 +3,7 @@
 <head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
       <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -36,7 +31,7 @@
 }
  </style>
      
-    <title>SISADMRH-Crear Dependiente</title>
+    <title>Crear dependiente</title>
   <th:block th:include="../templates/header"></th:block>
   </head>
 <body>
@@ -55,7 +50,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/dependientes.jpg}"/>
+                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/dependientes.jpg}"/>
             </div>
     <h3 align="center"> </h3>
      <br>
@@ -64,7 +59,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12" style="background-color:#d9edf7;">
                 <div class="panel-info">
                     <div class="panel-heading row text-center">
-                        <h3>Gestionando Informacion del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        <h3>Gestionando Información del Empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
                     </div>
                 </div>
                  <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
@@ -81,18 +76,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12"  >
                 <br>
                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombres del Dependiente(*):</label>
+                    <label class="col-sm-3 control-label">Nombres del dependiente(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{nombredependiente}"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
                         
-                        <span class="popuptext" id="poppup1">Ingrese el Nombre del Dependiente del Empleado solo se admitiran 50 caracteres.!</span>
+                        <span class="popuptext" id="poppup1">Ingrese el nombre del dependiente del empleado solo se admitiran 50 caracteres.!</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellidos del Dependiente(*):</label>
+                    <label class="col-sm-3 control-label">Apellidos del dependiente(*):</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" required="true" size="50" maxlength="50"  th:field="*{apellidodependiente}"  />
                     </div>
@@ -103,9 +98,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                 </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Fecha de Nacimiento del Dependiente(*):</label>
+                <label class="col-sm-3 control-label">Fecha de nacimiento del dependiente(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" onchange="isDat(this.value,'fechanacde')"  />
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" onchange="isDat(this.value,'fechanacde');fechaNac(this.value,'fechanacde')"  />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
@@ -114,34 +109,36 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
             </div>
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Parentesco del Dependiente(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="parentesco" > 
+                <label class="col-sm-3 control-label">Parentesco del dependiente(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="parentesco" th:field="*{parentesco}" > 
                             <!--th:field="*{parentesco}" >-->
-                        <option>Hijo</option>
-                        <option>Tio</option>
-                         <option>Hermano</option>
+                             <option value="0">--seleccione el parentesco del dependiente--</option>
+                        <option value="Hijo">Hijo</option>
+                        <option value="Tio">Tio</option>
+                         <option value="Hermano">Hermano</option>
                     </select>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
                         
-                        <span class="popuptext" id="poppup3">Ingrese el parentesco del Dependiente del Empleado solo se admitiran 100 caracteres.!</span>
+                        <span class="popuptext" id="poppup3">Ingrese el parentesco del dependiente del dmpleado solo se admitiran 100 caracteres.!</span>
                     </div>
             </div>	
                   <div class="form-group">
-                <label class="col-sm-3 control-label">Sexo del Dependiente(*):</label>
-                <div class="col-sm-2">
-                    <select class="form-control" name="sexo" >
+                <label class="col-sm-3 control-label">Sexo del dependiente(*):</label>
+                <div class="col-sm-5">
+                    <select class="form-control" name="sexo" th:field="*{sexo}">
                         <!--th:field="*{sexo}">-->
-                        <option>Femenino</option>
-                        <option>Masculino</option>
+                         <option value="0">--seleccione el sexo del dependiente--</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
                     </select>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
                         
-                        <span class="popuptext" id="poppup4">Seleccione el genero del Dependiente del Empleado desplegando la lista.!</span>
+                        <span class="popuptext" id="poppup4">Seleccione el genero del dependiente del empleado desplegando la lista.!</span>
                     </div>
             </div>
                 </div>
@@ -151,7 +148,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>   
-<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -173,8 +170,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
 	        
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
+   	<script>
             function fechaNac(val,id){
                         var foo=FechaNacimiento(val,id).split(",");;
                         if(foo[0]!=foo[2]){
@@ -281,6 +277,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 icon: "success"
        }).then(function() {
                  location.href = '../empleados/show/'+ document.getElementById("codem").value;
+                 swal({
+                text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+                })
        }); 
 }
     

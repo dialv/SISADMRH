@@ -77,7 +77,10 @@ public class CaparecibidasController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico una capacitacion recibida",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+          return PREFIX +"caprecibidas";
     }
     @RequestMapping("new/{id}")
     public String newCaparecibidas(Model model,@PathVariable Integer id) {
@@ -102,6 +105,7 @@ public class CaparecibidasController extends UtilsController{
         emcon.setEmpleadocaparecibidasPK(emconpk);
         empleadoCaparecibidasService.saveEmpleadocaprecibidas(emcon);
             model.addAttribute("msg", 0);
+              model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
@@ -109,7 +113,8 @@ public class CaparecibidasController extends UtilsController{
 //        return PREFIX+"caprecibidasform";
         
 //        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
-        return "redirect:/empleados/show/"+id;
+//        return "redirect:/empleados/show/"+id;
+return PREFIX +"caprecibidas";
     }
     
     @RequestMapping("show/{id}/{idemp}")    
@@ -119,18 +124,21 @@ public class CaparecibidasController extends UtilsController{
         return PREFIX +"caprecibidashow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id, Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
          try{
              Caparecibidas caparecibidas = caparecibidasService.getCaparecibidasById(id).get();
              caparecibidas.setEstadocapa(0);
             caparecibidasService.saveCaparecibidas(caparecibidas);
+            Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-          return "redirect:/empleados/";
+          return PREFIX +"caprecibidas";
+//          return "redirect:/empleados/";
 //        return PREFIX  +"caparecibidas";
     }
     

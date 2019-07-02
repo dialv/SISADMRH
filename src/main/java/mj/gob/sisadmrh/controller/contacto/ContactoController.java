@@ -58,7 +58,10 @@ public class ContactoController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contacto",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        return "redirect:/empleados/show/"+id;
+         model.addAttribute("msg", 2);
+         model.addAttribute("empleado",id);
+//        return "redirect:/empleados/show/"+id;
+        return PREFIX + "contactos";
     }
 
     @RequestMapping("new/{id}") 
@@ -85,13 +88,24 @@ public class ContactoController extends UtilsController{
         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
+         model.addAttribute("empleado",id);
          }
         catch(Exception e){
          model.addAttribute("msg", 1);
+          System.out.println("Error {");
+                     StackTraceElement[] elementRaster3 = e.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+e.getMessage());
+                     }
+                     System.out.println("}");
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-        return "redirect:/empleados/show/"+id;
-//         return PREFIX + "contactoform";
+//        return "redirect:/empleados/show/"+id;
+         return PREFIX + "contactos";
     }
     
     @RequestMapping("show/{id}/{idemp}")    
@@ -101,14 +115,16 @@ public class ContactoController extends UtilsController{
         return PREFIX +"contactoshow";
     }
 
-    @RequestMapping("delete/{id}")
-    public String delete(@PathVariable Integer id,Model model) {
+    @RequestMapping("delete/{id}/{idemp}")
+    public String delete(@PathVariable Integer id,@PathVariable Integer idemp,Model model) {
        
          try{
              Contacto contacto = contactoService.getContactoById(id).get();
              contacto.setEstadocontacto("0");
              
          contactoService.saveContacto(contacto);
+         Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          model.addAttribute("empleado",cod);
           model.addAttribute("msg", 3);
         }
         catch(Exception e){
@@ -117,20 +133,20 @@ public class ContactoController extends UtilsController{
         return PREFIX + "contactos";
     }
     
-     @RequestMapping(value = "contacto")
-    public String saveRol(Contacto contacto, Model model, SessionStatus status) {
-        try{
-        contacto.setSexocontacto("masculino");
-        contacto.setEstadocontacto("1");
-        contactoService.saveContacto(contacto);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-        return "redirect:/empleados/";
-    }
+//     @RequestMapping(value = "contacto")
+//    public String saveRol(Contacto contacto, Model model, SessionStatus status) {
+//        try{
+//        contacto.setSexocontacto("masculino");
+//        contacto.setEstadocontacto("1");
+//        contactoService.saveContacto(contacto);
+//        status.setComplete();
+//         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
+//                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+//        model.addAttribute("msg", 0);
+//        }
+//        catch(Exception e){
+//        model.addAttribute("msg", 1);
+//        }
+//        return "redirect:/empleados/";
+//    }
  }

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Beneficios</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            <div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/beneficio.png}"/>
+            </div>
+            <div th:if="${not #lists.isEmpty(beneficios)}">
+                <table id = "tablita" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Código Beneficio</th>
+                            <th>Nombre Beneficio</th>
+                            <th>Descripción Beneficio</th>
+                            <th>Fecha Inicio Beneficio</th>
+                            <th>Fecha Fin Beneficio</th>
+                            <th>Fecha Fin Beneficio</th>
+                            <th></th>
+                            <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                            <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
+                        </tr>
+                    </thead>
+                    <tr th:each="beneficio : ${beneficios}">
+                        <td th:text="${beneficio.codigobeneficio}">Codigo</td>
+                        <td th:text="${beneficio.nombrebeneficio}">Nombre</td>
+                        <td th:text="${beneficio.descripcionbeneficio}">descripcion</td>
+                        <td th:text="${#calendars.format(beneficio.fechainiciobeneficio, 'dd/MM/yyyy')}">Fecha Desde</td>
+                        <td th:text="${#calendars.format(beneficio.fechafinalizarbeneficio, 'dd/MM/yyyy')}">Fecha Desde</td>
+                        <td><a th:href="${'./show/' + beneficio.codigobeneficio}" class="btn btn-info">Mostrar</a></td>
+                        <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + beneficio.codigobeneficio}" class="btn btn-success">Editar</a></td>
+                        <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${beneficio.codigobeneficio} + '\');'" >Eliminar</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+        $('#tablita').DataTable({
+        "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }});
+        });
+    </script>
+    <script th:inline="javascript">
+        Textheader('pnt_crbe', document.title);
+        $(document).ready(function () {
+        if ([[${msg}]] === 3){
+        swal({
+        title: "Exito!",
+                text: "Registro Eliminado correctamente",
+                type: "success",
+                icon: "success",
+        }).then(function() {
+        location.href = '../../beneficios/';
+        });
+        }
+        if ([[${msg}]] === 4){
+        swal({
+        title: "ERROR!",
+                text: "Ocurrio un error al eliminar el registro",
+                type: "error",
+                icon: "error"
+        });
+        }
+        });
+        function eliminar(id) {
+        swal({
+        title: "Desea Eliminar?",
+                text: "Favor confirme que desea eliminar este registro!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+        })
+                .then((willDelete) => {
+                if (willDelete) {
+                location.href = './delete/' + id;
+                } else {
+                swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
+                }
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
- 
     <body>
-        
- <div th:fragment="footer">
-
-    <footer class="footer">
-      <div class="container" align="center">
-        <span class="text-muted"> Derechos Reservados UES/FIA/EISI.</span>
-      </div>
-    </footer>
- </div>
-
-        </body>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-       
-    
+        <div th:fragment="footer">
+            <footer class="footer">
+                <div class="container" align="center">
+                    <span class="text-muted"> Derechos Reservados UES/FIA/EISI.</span>
+                </div>
+            </footer>
+        </div>
+    </body>
+    <script>
+        edit_fecha_format();
+    </script>
+    <script>
+        pdffile_event();
+    </script>
 </html>

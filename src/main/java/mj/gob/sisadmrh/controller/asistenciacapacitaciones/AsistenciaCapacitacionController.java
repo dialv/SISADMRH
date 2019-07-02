@@ -66,7 +66,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
          model.addAttribute("formasistenciacapacitancion", asistenciaCapacitacionService.getAsistenciacapacitacionById(id));
        
          form.setCapacitaciones(capacitacionService.listAllCapacitacion());
-        form.setEmpleados(empleadoService.listAllEmpleado());
+        form.setEmpleados(empleadoService.listAllActivos());
          model.addAttribute("formasistenciacapacitancion", form);
         
        // model.addAttribute("asistenciacapacitacion", asistenciaCapacitacionService.getAsistenciaCapacitacionById(id));
@@ -79,7 +79,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
         AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
         //para jalar el nombre de capacitaciones
         form.setCapacitaciones(capacitacionService.listAllCapacitacion());
-        form.setEmpleados(empleadoService.listAllEmpleado());
+        form.setEmpleados(empleadoService.listAllActivos());
         //para jalar los nombres de los empleados 
         model.addAttribute("formasistenciacapacitancion", form);
         return PREFIX + "asistenciacapacitacionform";

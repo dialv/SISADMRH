@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Capacitacion;
 import mj.gob.sisadmrh.model.Capacitador;
@@ -23,7 +24,7 @@ public interface CapacitadorService {
      Iterable<Capacitador> findByDato(String dato);
      Iterable<Capacitador> findByCapacitador(String dato);
      
-      Iterable <Capacitador> findCapacitadores(String finicial, String ffinal);
+       List<Object[]>  findCapacitadores(String finicial, String ffinal);
 
     
     
