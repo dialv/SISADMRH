@@ -309,7 +309,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  <div class="col-md-12">
             <div class="row" align="center">
                    <a href="#" th:href="@{/puestos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-<button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="submit" id ="guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
 
@@ -326,9 +326,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
    <div class="col-md-12">
             <th:block th:include="../templates/footer"></th:block>
-        </div>
-
-  </div>      
+        </div>     
        
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
@@ -359,6 +357,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 // 		});
 		
 		$(document).ready(function () {
+                    $('#guardar').click(function(){
+                    $("#loader").addClass("loader");
+                    });
 		    var date = new Date();
 		    var currentMonth = date.getMonth();
 		    var currentDate = date.getDate();
@@ -399,6 +400,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
+        $("#loader").addClass("loader");
+    
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",

@@ -5,7 +5,7 @@
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
-    <div class="row">
+    <div class="row" >
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
@@ -16,7 +16,7 @@
             </div>
             <br>
             <div>
-                <form id ="usuarioform" class="form-horizontal" th:object="${usuario}" th:action="${msg==1?'../usuarios/usuario':'../usuario'}" method="post" >
+                <form id ="usuarioform" autocomplete="off" class="form-horizontal" th:object="${usuario}" th:action="${msg==1?'../usuarios/usuario':'../usuario'}" method="post" >
                     <h3>Introduzca los datos del Usuario</h3>
                     <input type="hidden" th:field="*{codigousuario}"/>
                     <div class="form-group">
@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Confirmacion de contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="text" id="confpass" class="form-control " required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                            <input type="text" id="confpass" class="form-control" required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passwconf')" onmouseout ="javascript:ocultarAyuda('passwconf')">a</a></b>
@@ -80,28 +80,6 @@
                             <span class="popuptext" id="finicio">Ingrese la Fecha inicial de la Contraseña.  . !!</span>
                         </div>
                     </div>
-                    <!--div class="form-group">
-                        <label class="col-sm-2 control-label">Fecha de caducidad:</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control fecha_format" id="fhasta"  th:field="*{fechacaducidad}" placeholder="dia/mes/año" onchange="isDat(this.value, 'fhasta'); Fechas($('#fdesde').val().toString(), this.value, 'fdesde', 'fhasta')"/>
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ffinal')" onmouseout ="javascript:ocultarAyuda('ffinal')">a</a></b>
-
-                            <span class="popuptext" id="ffinal">Ingrese la Fecha de Caducidad.  . !!</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Fecha de baja:</label>
-                        <div class="col-sm-2">
-                            <input type="text" placeholder="dia/mes/año"class="form-control fecha_format" id="fchabaja" th:field="*{fechabaja}"/>
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fbajo')" onmouseout ="javascript:ocultarAyuda('fbajo')">a</a></b>
-
-                            <span class="popuptext" id="fbajo">Ingrese la Fecha de Baja.  . !!</span>
-                        </div>
-                    </div-->
                     <div class="col-md-12">
                         <div class="row" align="center">
                             <a href="#" th:href="@{/usuarios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
@@ -133,7 +111,8 @@
         var pass = $("#pass").val();
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
-                $("#fingreso").val(nufecha($("#fingreso").val()))
+                $("#loader").addClass("loader");
+                $("#fingreso").val(nufecha($("#fingreso").val()));
                 $("form#usuarioform").submit();
             }
             else{
@@ -153,25 +132,23 @@
         }
     });
     if ([[${msg}]] === 0){
+    $("#loader").addClass("loader");   
     swal({
     title: "Usuario Generado con exito ",
             text: [[${usuarioname}]],
             icon: "success"
-    }).then(function() {
+    }).then(function() { 
     location.href = '../usuarios/';
     });
     }
     if ([[${msg}]] === 10){
+    $("#loader").addClass("loader");   
     swal({
     title: "Usuario Modificado con exito ",
             text: [[${usuarioname}]],
             icon: "success"
     }).then(function() {
     location.href = '../usuarios/';
-    swal({
-       text: "Redirigiendo a consulta de usuario",
-       icon: "success"
-    })
     });
     }
 

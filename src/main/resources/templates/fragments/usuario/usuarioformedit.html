@@ -153,6 +153,7 @@ function SwalOverlayColor(){
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
                 //$("#fingreso").val(nufecha($("#fingreso").val()))
+                $("#loader").addClass("loader");
                 $("form#usuarioform").submit();
             }
             else{
@@ -173,16 +174,13 @@ function SwalOverlayColor(){
         }
     });
     if ([[${msg}]] === 0){
+    $("#loader").addClass("loader");
     swal({
     title: "Usuario Modificado con exito ",
             text: [[${usuarioname}]],
             icon: "success"
     }).then(function() {
     location.href = '../usuarios/';
-    swal({
-       text: "Redirigiendo a consulta de usuarios",
-       icon: "success"
-    })
     });
     }
 

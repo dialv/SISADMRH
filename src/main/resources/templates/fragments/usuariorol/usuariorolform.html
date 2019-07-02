@@ -45,7 +45,7 @@
                     <div class="col-md-12">
                     <div class="row" align="center">
                         <a href="#" th:href="@{/usuariosroles/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>   
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" id ="guardar" class="btn btn-primary">Guardar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
                     </div>
 </div>
@@ -72,7 +72,13 @@
 </body>
 <script th:inline="javascript">
     $(document).ready(function () {
+        
+    $('#guardar').click(function(){
+    $("#loader").addClass("loader");
+    });
+  
     if ([[${msg}]] === 0){
+    $("#loader").addClass("loader");
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",
@@ -80,10 +86,6 @@
             icon: "success"
     }).then(function() {
     location.href = '../usuarios/';
-    swal({
-       text: "Redirigiendo a consulta de usuarios",
-       icon: "success"
-    })
     });
     }
 

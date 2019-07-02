@@ -371,7 +371,7 @@ var Fechaformat = function() {
     });
 };
 var fecha_format = function() {
-    jQuery('#loader').addclass("loader");
+    jQuery("#loader").addClass("loader");
 };
 var NumCuenta = function() {
     jQuery('.num_cuenta').each(function() {
