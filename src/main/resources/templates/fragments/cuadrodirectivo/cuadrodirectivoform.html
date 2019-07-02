@@ -72,7 +72,7 @@
                             <div class="col-md-12">
                                 <div class="row" align="center">
                                     <a href="#" th:href="@{/cuadrodirectivos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                                    <button id="guardar" type="submit"  onclick="fecha_format();" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                    <button id="guardar" type="submit"  id="guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                                     <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                                 </div>
                             </div>
@@ -86,7 +86,12 @@
     </body>
     <script th:inline="javascript">
         $(document).ready(function () {
+               $('#guardar').click(function(){
+                    $("#loader").addClass("loader");
+                    });
         if ([[${msg}]] === 0){
+            $("#loader").addClass("loader");
+                    
         swal({
         title: "Exito!",
                 text: "Registro agregado correctamente",
@@ -94,10 +99,7 @@
                 icon: "success"
         }).then(function() {
             location.href = '../cuadrodirectivos/';
-               swal({
-                text: "Redirigiendo a consulta de cuadro directivos",
-                icon: "success"
-                })
+             
         });
         }
         if ([[${msg}]] === 1){

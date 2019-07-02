@@ -199,7 +199,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <div class="col-md-12">
                         <div class="row" align="center">
                              <a href="#" th:href="@{/capacitadores/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit"  id="guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                         
                         </div>
@@ -219,17 +219,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <script th:inline="javascript">
     Textheader('pnt_ccap',document.title);
     $(document).ready(function () {
+         $('#guardar').click(function(){
+                    $("#loader").addClass("loader");
+                    });
     if([[${msg}]]===0){
+         $("#loader").addClass("loader");
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",
                 type: "success"
        }).then(function() {
                 location.href = '../capacitadores/';
-                swal({
-       text: "Redirigiendo a consulta de capacitadores",
-       icon: "success"
-    })
+             
        }); 
 }
     

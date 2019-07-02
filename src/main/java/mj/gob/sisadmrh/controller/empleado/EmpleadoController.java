@@ -211,7 +211,12 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("show/{id}")
     public String showEmpleado(@PathVariable Integer id, Model model) {
-        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
+        Empleado empleado = empleadoService.getEmpleadoById(id).get();
+        Estado depto = estadoService.getEstadoById(Integer.parseInt(empleado.getDepartamentonacimiento())).get();
+        Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+        empleado.setDepartamentonacimiento(depto.getNombreestado());
+        empleado.setMunicipionacimiento(munic.getNombreestado());
+        model.addAttribute("empleado", empleado );
         System.out.print("IDEMPLEADO" + id);
         
          model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));
@@ -250,7 +255,12 @@ public class EmpleadoController extends UtilsController {
     }
     @RequestMapping("showcons/{id}")
     public String showEmpleadocons(@PathVariable Integer id, Model model) {
-        model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
+        Empleado empleado = empleadoService.getEmpleadoById(id).get();
+        Estado depto = estadoService.getEstadoById(Integer.parseInt(empleado.getDepartamentonacimiento())).get();
+        Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+        empleado.setDepartamentonacimiento(depto.getNombreestado());
+        empleado.setMunicipionacimiento(munic.getNombreestado());
+        model.addAttribute("empleado", empleado );
         System.out.print("IDEMPLEADO" + id);
 
         Iterable<Contacto> contacto = contactoService.findByDato(id);

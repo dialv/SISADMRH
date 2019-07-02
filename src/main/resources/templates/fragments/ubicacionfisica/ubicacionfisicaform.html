@@ -263,6 +263,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
                 
                   $('#btnGuardar').click(function(){
+                       $("#loader").addClass("loader");
             $("#formubicacion").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
             $("form#formubicacion").submit();
             
@@ -274,6 +275,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
+         $("#loader").addClass("loader");
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",
@@ -281,10 +283,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 icon: "success"
        }).then(function() {
                  location.href = '../empleados/show/'+ document.getElementById("codem").value;
-                 swal({
-       text: "Redirigiendo a consulta de empleado",
-       icon: "success"
-    })
+                 
        }); 
 }
     

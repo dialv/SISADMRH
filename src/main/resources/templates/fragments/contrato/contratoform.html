@@ -335,6 +335,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
                  $('#btnGuardar').click(function(){
+                      $("#loader").addClass("loader");
             $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
             $("form#formcontrato").submit();
 //            
@@ -358,6 +359,7 @@ $(function () {
         <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
+         $("#loader").addClass("loader");
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",
@@ -365,10 +367,6 @@ $(function () {
                 icon: "success"
        }).then(function() {
                 location.href = '../empleados/';
-                   swal({
-       text: "Redirigiendo a consulta de empleado",
-       icon: "success"
-    })
        }); 
 }
     

@@ -279,7 +279,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	 $('#btnGuardar').click(function(){
-            $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
+ $("#loader").addClass("loader");
+        $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
             $("form#formcontacto").submit();
             
         });
@@ -287,17 +288,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <script th:inline="javascript">
     $(document).ready(function () {
     if([[${msg}]]===0){
-       swal({
+        $("#loader").addClass("loader");
+            swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",
                 type: "success",
                 icon: "success"
        }).then(function() {
                  location.href = '../../empleados/';
-                 swal({
-                text: "Redirigiendo a consulta de empleados",
-                icon: "success"
-                })
+           
        }); 
 }
     
