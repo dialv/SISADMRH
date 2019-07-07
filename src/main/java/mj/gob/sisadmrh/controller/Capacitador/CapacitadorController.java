@@ -112,7 +112,7 @@ try{
   model.addAttribute("msg", 1);
 }
 
-        return PREFIX + "capacitadorform";
+        return PREFIX + "capacitadores";
 
         }
   

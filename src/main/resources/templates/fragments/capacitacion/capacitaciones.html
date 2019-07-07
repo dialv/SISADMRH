@@ -160,5 +160,33 @@
                     });
         }
     </script>
+    <script th:inline="javascript">
+    $(document).ready(function () {
+        
+        
+    if([[${msg}]]===0){
+                   
+       swal({
+                title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+       }).then(function() {
+                location.href = '../capacitaciones/';
+                
+       }); 
+}
+    
+    if([[${msg}]]===1){
+        swal({
+                title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+       });
+    }
+    });
+</script>    
+
 </body>
 </html>

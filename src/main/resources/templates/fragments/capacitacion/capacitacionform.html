@@ -262,35 +262,7 @@
         <th:block th:include="../templates/footer"></th:block>
         
     </div>  
-    <script th:inline="javascript">
-    $(document).ready(function () {
-        $('#guardar').click(function(){
-                    $("#loader").addClass("loader");
-                    });
-        
-    if([[${msg}]]===0){
-                    $("#loader").addClass("loader");
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                location.href = '../capacitaciones/';
-                
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-</script>    
+      
     <script>
         function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
