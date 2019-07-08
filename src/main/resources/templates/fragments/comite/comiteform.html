@@ -73,7 +73,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Numero de acuerdo comité(*):</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control numeros" maxlength="14" required="true"   th:field="*{numeroacuerdocomite}"/>
+                                <input type="text" class="form-control numeros" maxlength="5" required="true"   th:field="*{numeroacuerdocomite}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('acuerdo')" onmouseout ="javascript:ocultarAyuda('acuerdo')">a</a></b>
@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Miembros maximos del comité(*):</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control numeros" required="true"   th:field="*{miembromaximo}"/>
+                                <input type="text" class="form-control numeros" required="true" maxlength="3" minlength="1" th:field="*{miembromaximo}"/>
                             </div>
                              <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('miembros')" onmouseout ="javascript:ocultarAyuda('miembros')">a</a></b>

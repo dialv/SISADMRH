@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="61040501-82b0-436f-934f-a899fdfcb57e">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="123"/>
+	<property name="ireport.y" value="171"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -411,42 +411,42 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainici
 				<text><![CDATA[Hace Constar que]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="64" y="250" width="339" height="14" uuid="394c8f14-e0c3-4f75-af14-a0665edbf237"/>
+				<reportElement x="63" y="278" width="339" height="14" uuid="394c8f14-e0c3-4f75-af14-a0665edbf237"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[sin tachaduras por un periodo de treinta dias, dada en la ciudad de San Salvador,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="168" y="236" width="110" height="14" uuid="bd96b35e-2027-44db-8ef7-f2a33f1e78ab"/>
+				<reportElement x="167" y="264" width="110" height="14" uuid="bd96b35e-2027-44db-8ef7-f2a33f1e78ab"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreinstitucion}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="63" y="236" width="103" height="14" uuid="c9c12a21-fa4b-40a4-b108-ab19c911e8ff"/>
+				<reportElement x="62" y="264" width="103" height="14" uuid="c9c12a21-fa4b-40a4-b108-ab19c911e8ff"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Y para ser presentado  a]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="276" y="236" width="241" height="14" uuid="bdd38e56-7f0b-4f58-bcf9-6fcf176cd03a"/>
+				<reportElement x="275" y="264" width="241" height="14" uuid="bdd38e56-7f0b-4f58-bcf9-6fcf176cd03a"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[, se extiende la presente,la cual tendra validez y en original]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="64" y="265" width="339" height="14" uuid="041762ee-ea15-402a-a0d3-0db966985ed6"/>
+				<reportElement x="63" y="293" width="339" height="14" uuid="041762ee-ea15-402a-a0d3-0db966985ed6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA["DIOS UNION LIBERTAD"]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="400" y="250" width="100" height="14" uuid="1e6ddd8d-2409-4c2c-aca0-d6e6367e3594"/>
+				<reportElement x="399" y="278" width="100" height="14" uuid="1e6ddd8d-2409-4c2c-aca0-d6e6367e3594"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="true"/>
 				</textElement>
