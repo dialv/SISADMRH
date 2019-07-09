@@ -7,14 +7,7 @@
 </head>
 <body>
     
-<!--   <div class="contenedorizq"><label  >pnt_ccap</label> 
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-    <!--<div class="container">-->
+
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -122,7 +115,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">DUI de capacitador(*):</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control num_dui" required="true" th:field="*{duicapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>
                         </div>
@@ -134,7 +127,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">NIT de capacitador(*):</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control num_nit" required="true"th:field="*{nitcapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('nitcapacitador')}" th:errors="*{nitcapacitador}"></small>
                         </div>
@@ -219,11 +212,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 <script th:inline="javascript">
     Textheader('pnt_ccap',document.title);
     $(document).ready(function () {
-         $('#guardar').click(function(){
-                    $("#loader").addClass("loader");
-                    });
+//         $('#guardar').click(function(){
+//                    $("#loader").addClass("loader");
+//                    });
     if([[${msg}]]===0){
-         $("#loader").addClass("loader");
+//         $("#loader").addClass("loader");
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",

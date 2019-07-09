@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Capacitación(*):</label>
                             <div class="col-sm-8">
-                                <select class="form-control" name="codigocapacitacion.codigocapacitacion">
+                                <select class="form-control"  th:field="*{codigocapacitacion.codigocapacitacion}">
                                     <option value="0">-- Seleccione la capacitación --</option>
                                     <option th:each="c:${capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                                 </select>
@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Lugar de la capacitación(*):</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" max="100" maxlength="100" required="true" name="lugarcapacitacion"/>
+                                <input type="text" class="form-control" max="100" maxlength="100" required="true" th:field="*{lugarcapacitacion}" />
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('stadosperior')" onmouseout ="javascript:ocultarAyuda('stadosperior')">a</a></b>
@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha y hora(*):</label>
                             <div class="col-sm-6">
-                                <input input-group date type="text"id="hra" class="form-control fecha_datetime" name="horaevualuacioncapacitacion"/>
+                                <input input-group date type="text"id="hra" class="form-control fecha_datetime" th:field="*{horaevualuacioncapacitacion}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('hora')" onmouseout ="javascript:ocultarAyuda('hora')">a</a></b>
@@ -78,10 +78,10 @@
                             <label class="col-sm-3 control-label">Dominio del tema(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{categoriapuesto}"/>-->
-                                <select class="form-control" name="dominiotema" >
+                                <select class="form-control"   th:field="*{dominiotema}">
                                       <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
 
                                 </select>
                             </div>
@@ -96,10 +96,10 @@
                             <label class="col-sm-3 control-label">Habilidades de comunicación(*):</label>
                             <div class="col-sm-6">
 
-                                <select class="form-control" name="habilidadcomunicacion" >
+                                <select class="form-control"  th:field="*{habilidadcomunicacion}">
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
 
 
                                 </select>
@@ -114,10 +114,10 @@
                             <label class="col-sm-3 control-label">Llena sus espectativas(*):</label>
                             <div class="col-sm-6">
 
-                                <select class="form-control" name="espectativa" >
+                                <select class="form-control"  th:field="*{espectativa}">
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -131,10 +131,10 @@
                             <label class="col-sm-3 control-label">Contenido se desarrollo con claridad(*):</label>
                             <div class="col-sm-6">
 
-                                <select class="form-control" name="claridadtema" >
+                                <select class="form-control"  th:field="*{claridadtema}">
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -148,10 +148,10 @@
                             <label class="col-sm-3 control-label">Aclara dudas con precisión(*):</label>
                             <div class="col-sm-6">
 
-                                <select class="form-control" name="alclaradudas" >
+                                <select class="form-control" th:field="*{alclaradudas}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -165,10 +165,10 @@
                             <label class="col-sm-3 control-label">Mantiene el interes del tema(*):</label>
                             <div class="col-sm-6">
 
-                                <select class="form-control" name="interestema" >
+                                <select class="form-control" th:field="*{interestema}">
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -182,10 +182,10 @@
                             <label class="col-sm-3 control-label">Satisface en el tema(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{nivelpuesto}"/>-->
-                                <select class="form-control" name="satifacciondetema" >
+                                <select class="form-control" th:field="*{satifacciondetema}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -199,10 +199,10 @@
                             <label class="col-sm-3 control-label">Comprensión del tema(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="comprenciondetema" >
+                                <select class="form-control" th:field="*{comprenciondetema}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -217,10 +217,10 @@
                             <label class="col-sm-3 control-label">Planeación del tiempo(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="planeaciontiempo" >
+                                <select class="form-control"  th:field="*{planeaciontiempo}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -234,10 +234,10 @@
                             <label class="col-sm-3 control-label">Distribución del tiempo(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="distribuciontiempo" >
+                                <select class="form-control" th:field="*{distribuciontiempo}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -250,10 +250,10 @@
                             <label class="col-sm-3 control-label">Contenido claro(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="contenidoclaro" >
+                                <select class="form-control" th:field="*{contenidoclaro}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -266,10 +266,10 @@
                             <label class="col-sm-3 control-label">El contenido es aplicable a su trabajo(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="contenidoaplicadotrabajo" >
+                                <select class="form-control" th:field="*{contenidoaplicadotrabajo}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
 
                             </div>
@@ -283,10 +283,10 @@
                             <label class="col-sm-3 control-label">Satisfecho con el contenido(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="satisfechocontenido" >
+                                <select class="form-control" th:field="*{satisfechocontenido}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -299,10 +299,10 @@
                             <label class="col-sm-3 control-label">Es necesaria la capacitación(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="necesariocapacitacion" >
+                                <select class="form-control"  th:field="*{necesariocapacitacion}" >
                                     <option value="0">-- Seleccione un opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -315,10 +315,10 @@
                             <label class="col-sm-3 control-label">El equipo tecnologico es el adecuado(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="equipotecnologico" >
+                                <select class="form-control"  th:field="*{equipotecnologico}" >
                                     <option value="0">-- Seleccione un Opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -331,10 +331,10 @@
                             <label class="col-sm-3 control-label">Material usado fue el apropiado(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="materialutilizado" >
+                                <select class="form-control"  th:field="*{materialutilizado}">
                                     <option value="0">-- Seleccione un Opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -347,12 +347,13 @@
                             <label class="col-sm-3 control-label">Tiempo capacitación fue optimo(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="tiempocapacitacionoptimo" >
+                                <select class="form-control"  th:field="*{tiempocapacitacionoptimo}">
                                     <option value="0">-- Seleccione un Opción --</option>
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
+                            
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('opcionnnnnnnn')" onmouseout ="javascript:ocultarAyuda('opcionnnnnnnn')">a</a></b>
 
@@ -364,11 +365,11 @@
                             <label class="col-sm-3 control-label">Puntualidad fecha y hora(*):</label>
                             <div class="col-sm-6">
                                 <!--<input type="text" class="form-control" th:field="*{sublinea}"/>-->
-                                <select class="form-control" name="puntualidad" >
+                                <select class="form-control" th:field="*{puntualidad}" >
                                     <option value="0">-- Seleccione un Opción --</option>
                                     <!--<option> </option>-->
-                                    <option>Si</option>
-                                    <option>No</option>
+                                     <option value="Si">Si</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="popup col-sm-1"><b>
@@ -382,7 +383,7 @@
                             <label class="col-sm-3 control-label">Comentario o fugerencia(*):</label>
                             <div class="col-sm-7">
 
-                                <input type="text" class="form-control" max="100" maxlength="100" required="true" name="comentario"/>
+                                <input type="text" class="form-control" max="100" maxlength="100" required="true"  th:field="*{comentario}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('comentario')" onmouseout ="javascript:ocultarAyuda('comentario')">a</a></b>

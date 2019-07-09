@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
 	<property name="ireport.zoom" value="2.1435888100000016"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="389"/>
+	<property name="ireport.x" value="24"/>
+	<property name="ireport.y" value="852"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -394,42 +394,42 @@ c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[detallados en el siguiente cuadro.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="42" y="214" width="103" height="14" uuid="a1b178b9-fd40-4e69-b70b-05b49085665b"/>
+				<reportElement x="62" y="250" width="103" height="14" uuid="a1b178b9-fd40-4e69-b70b-05b49085665b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Y para ser presentado  a]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="147" y="214" width="110" height="14" uuid="bf61a9b3-89d4-439a-8708-fbc7f803fd87"/>
+				<reportElement x="167" y="250" width="110" height="14" uuid="bf61a9b3-89d4-439a-8708-fbc7f803fd87"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreinstitucion}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="255" y="214" width="315" height="14" uuid="65df9e53-851b-4971-bdb2-fde1fcab6d42"/>
+				<reportElement x="275" y="250" width="315" height="14" uuid="65df9e53-851b-4971-bdb2-fde1fcab6d42"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[, se extiende la presente,la cual tendra validez y en original sin tachaduras]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="43" y="228" width="282" height="14" uuid="86203a82-75f6-41f2-a486-9a62b50af9ba"/>
+				<reportElement x="63" y="264" width="282" height="14" uuid="86203a82-75f6-41f2-a486-9a62b50af9ba"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[por un periodo de treinta dias, dada en la ciudad de San Salvador,]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="310" y="228" width="100" height="14" uuid="7b9ebcb2-2c9b-4eb3-97d9-38cb11dacda8"/>
+				<reportElement x="330" y="264" width="100" height="14" uuid="7b9ebcb2-2c9b-4eb3-97d9-38cb11dacda8"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DATE_FORMAT(CURRENT_DATE, '%d/%m/%Y')}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="43" y="243" width="339" height="14" uuid="18b13fbb-a149-4e7b-bd43-28a100b87494"/>
+				<reportElement x="63" y="279" width="339" height="14" uuid="18b13fbb-a149-4e7b-bd43-28a100b87494"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
