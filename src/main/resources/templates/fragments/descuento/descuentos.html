@@ -42,7 +42,7 @@
                 <td th:text="${descuento.montodescuento}">Descripcion Cat</td>
                 
                 <!--<td><a th:onclick="'javascript:CrearLista(\'' + ${capacitacion.codigocapacitacion} + '\');'" type="submit" class="btn btn-warning">Crear Lista de Asistencia</a></td>-->
-                <td><a th:href="${'./show/' + descuento.codigodescuento}" class="btn btn-info">Mostrar</a> </td>
+                 <td><a th:href="${'./show/' + descuento.codigodescuento}" class="btn btn-info">Mostrar</a> </td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + descuento.codigodescuento}" class="btn btn-success">Editar</a> </td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${descuento.codigodescuento} + '\');'" >Eliminar</a> </td>
             </tr>
