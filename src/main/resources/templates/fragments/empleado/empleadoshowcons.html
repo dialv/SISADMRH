@@ -420,7 +420,7 @@
                                                                     <td th:text="${experiencialaboral.nombreinstitucion}">nombreinstitucion</td>
                                                                     <td th:text="${#calendars.format(experiencialaboral.fechadesdeexperiencialaboral, 'dd/MM/yyyy')}	">fechadesdeexperiencialaboral</td>   
                                                                     <td th:text="${#calendars.format(experiencialaboral.fechahastaexperiencialaboral, 'dd/MM/yyyy')}	">fechahastaexperiencialaboral</td>   
-                                                                    <td th:text="${experiencialaboral.salarioinicial}">salarioinicial</td> 
+                                                                    <td th:text="${#numbers.formatDecimal(experiencialaboral.salarioinicial, 0, 'COMMA', 2, 'POINT')} ">salarioinicial</td> 
                                                                     <td th:text="${experiencialaboral.sectorexperiencialaboral}">sectorexperiencialaboral</td> 															
                                                                     <td><a th:href="${'../../experiencialaborales/show/' + experiencialaboral.codigoexperiencialaboral}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                                                                 </tr>
@@ -507,7 +507,7 @@
                                                                     <td th:text="${contrato.codigocontrato}">codigocontrato</td>
                                                                    <td th:text="${#calendars.format(contrato.fechainiciocontrato, 'dd/MM/yyyy')}	">fechainiciocontrato</td>
                                                                     <td th:text="${#calendars.format(contrato.fechafincontrato, 'dd/MM/yyyy')}	">fechafincontrato</td>   
-                                                                     <td th:text="${contrato.salarioactual}">salarioactual</td>    
+                                                                     <td th:text="${#numbers.formatDecimal(contrato.salarioactual, 0, 'COMMA', 2, 'POINT')}">salarioactual</td>    
                                                                     <td><a th:href="${'../../contratos/show/' + contrato.codigocontrato}+'/'+${empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                                                                 </tr>
                                                             </table>
