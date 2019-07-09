@@ -42,7 +42,7 @@ public class DescuentoController extends UtilsController {
 
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("descuentos", descuentoService.getDescuentoById(id));
+        model.addAttribute("descuento", descuentoService.getDescuentoById(id));
          Iterable<Empleado> empleados = empleadoService.listAllActivos();
         model.addAttribute("empleados", empleados);
         return PREFIX + "descuentoform";
@@ -71,7 +71,7 @@ public class DescuentoController extends UtilsController {
         } catch (Exception e) {
             model.addAttribute("msg", 1);
         }
-        return PREFIX + "descuentos";
+        return PREFIX + "descuentoform";
     }
 
     @RequestMapping("show/{id}")
@@ -80,12 +80,11 @@ public class DescuentoController extends UtilsController {
         return PREFIX + "descuentoshow";
     }
 
-    @RequestMapping("delete/{id}")
+   @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
         try {
-            Descuento descuento = descuentoService.getDescuentoById(id).get();
+            Descuento descuento=descuentoService.getDescuentoById(id).get();
             descuento.setEstadodescuento(0);
-            
             descuentoService.saveDescuento(descuento);
             bitacoraService.BitacoraRegistry("se elimino un descuento", getRequest().getRemoteAddr(),
             getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
@@ -95,6 +94,7 @@ public class DescuentoController extends UtilsController {
         }
         return "redirect:/descuentos/";
     }
+
     
    
   
