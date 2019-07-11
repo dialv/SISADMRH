@@ -99,15 +99,16 @@
     Textheader('pnt_geus', document.title);
     
     $(document).ready(function () {
-    
+        var ad = $("#fingreso").prop("defaultValue");
+        if (ad!==null){
+        $('#fingreso').val($.datepicker.formatDate('dd/mm/yy', new Date(ad)));
+        }
         $('#pass').attr('type', 'password');
         $('#confpass').attr('type', 'password');
         $('#fingreso').datepicker({
                     dateFormat: 'dd/mm/yy'
         });
-
-        $('#guardar').click(function(){
-    
+        $('#guardar').click(function(){ 
         var pass = $("#pass").val();
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
