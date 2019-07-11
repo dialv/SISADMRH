@@ -100,7 +100,7 @@
     
     $(document).ready(function () {
         var ad = $("#fingreso").prop("defaultValue");
-        if (ad!==null){
+        if (ad!==""){
         $('#fingreso').val($.datepicker.formatDate('dd/mm/yy', new Date(ad)));
         }
         $('#pass').attr('type', 'password');
