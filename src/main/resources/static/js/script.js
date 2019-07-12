@@ -109,6 +109,25 @@ function FechaActualMenor(fecha){
      
 }
 
+function FechaActualMayor(fecha){
+    
+    var msj="";
+    var msj1="Mensaje de Validacion de Fecha!";
+    var msj2="FormatoValido";
+    var messages="";
+    var date = new Date();
+    var inicio = Date.parse(convertDateFormat(fecha));
+     var d = new Date(inicio);
+//     alert(d+" # "+date)
+     if (d>date)
+     {
+          msj="La Fecha  ingresada no debe ser mayor a la Fecha Actual";
+           messages=msj+","+msj1+","+msj2;
+           return  messages;
+     }
+     
+}
+
 
 function FechaNacimiento(fecha,id){
      var msj="";
