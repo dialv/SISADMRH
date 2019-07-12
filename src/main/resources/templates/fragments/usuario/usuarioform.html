@@ -26,7 +26,7 @@
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
-                            <span class="popuptext" id="nomUser">Ingrese los Nombres del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
+                            <span class="popuptext" id="nomUser">Ingrese los Nombres del Usuario. Solo es permitido 50 caracteres. !!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -36,17 +36,17 @@
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
-                            <span class="popuptext" id="nomUser">Ingrese los apellidos del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
+                            <span class="popuptext" id="nomUser">Ingrese los apellidos del Usuario. Solo es permitido 50 caracteres. !!</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">DUI:</label>
                         <div class="col-sm-6">
-                            <input type="text" id="duius" name="duiuser" class="form-control numeros" required="true" size="100" maxlength="9" th:field="${usuario.dui}" />
+                            <input type="text" id="duius" name="duiuser" class="form-control numeros dui" required="true" size="100" maxlength="9" th:field="${usuario.dui}" />
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dui')" onmouseout ="javascript:ocultarAyuda('dui')">a</a></b>
-                            <span class="popuptext" id="dui">Ingrese el DUI del Usuario. Solo es permitido digitos 9 caracteres. !!</span>
+                            <span class="popuptext" id="dui">Ingrese el DUI del Usuario. Solo es permitido 9 digitos.</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -77,7 +77,7 @@
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('finicio')" onmouseout ="javascript:ocultarAyuda('finicio')">a</a></b>
 
-                            <span class="popuptext" id="finicio">Ingrese la Fecha inicial de la Contraseña.  . !!</span>
+                            <span class="popuptext" id="finicio">Ingrese la fecha de ingreso del usuario</span>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -156,7 +156,7 @@
     if ([[${msg}]] === 1){
     swal({
     title: "ERROR!",
-            text: "El numero de dui ya existe",
+            text: "El numero de DUI ya existe",
             icon: "error"
     });
     }
