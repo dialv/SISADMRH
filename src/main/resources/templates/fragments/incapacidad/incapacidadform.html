@@ -155,10 +155,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <label class="col-sm-3 control-label">Tipo incapacidad(*):</label>
                             <div class="col-sm-8">
 
-                                <select class="form-control" name="tipoincapacidad" >
+                                <select class="form-control"  th:field="*{tipoincapacidad}" >
                                      <option value="0">-- Seleccione un tipo incapacidad --</option>
-                                    <option>Parcial</option>
-                                    <option>Permanente</option>
+                                     <option value="Parcial">Parcial</option>
+                                     <option value="Permanente">Permanente</option>
                                 </select>
                             </div>
                                 <div class="popup col-sm-1"><b>
@@ -172,10 +172,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <label class="col-sm-3 control-label">Forma incapcidad(*):</label>
                             <div class="col-sm-8">
 
-                                <select class="form-control" name="formaincapacidad" >
+                                <select class="form-control"  th:field="*{formaincapacidad}">
                                      <option value="0">-- Seleccione una forma incapacidad --</option>
-                                    <option>Remunerada</option>
-                                    <option>No remunerada</option>
+                                     <option value="Remunerada">Remunerada</option>
+                                     <option value="No remunerada"> No remunerada</option>
                                 </select>
                             </div>
                                     <div class="popup col-sm-1"><b>

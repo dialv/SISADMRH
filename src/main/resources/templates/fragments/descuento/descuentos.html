@@ -24,8 +24,9 @@
                 <th> Nombre de descuento</th>
                 <th>Tipo descuento</th>
                 <th>Tipo banco</th>
+                <th>Nombre empleado</th>
                 <th>Monto descuento</th>
-                 <th>Nombre empleado</th>
+                 
                
              
                 <th></th>
@@ -39,12 +40,13 @@
                 <td th:text="${descuento.tipodescuento}">Descripcion</td>
                 <td th:text="${descuento.tipobanco}">Categoria</td>
                 <td th:text="${descuento.codigoempleado.nombreempleado}">Descripcion Cat</td>
-                <td th:text="${descuento.montodescuento}">Descripcion Cat</td>
+                <!--<td th:text="${descuento.montodescuento}">Descripcion Cat</td>-->
+                <td th:text="${#numbers.formatDecimal(descuento.montodescuento, 0, 'COMMA', 2, 'POINT')}">salarioactual</td>  
                 
                 <!--<td><a th:onclick="'javascript:CrearLista(\'' + ${capacitacion.codigocapacitacion} + '\');'" type="submit" class="btn btn-warning">Crear Lista de Asistencia</a></td>-->
-                <td><a th:href="${'./show/' + descuento.codigodescuento}" class="btn btn-info">Mostrar</a> </td>
-                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + descuento.codigodescuento}" class="btn btn-success">Editar</a> </td>
-                <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${descuento.codigodescuento} + '\');'" >Eliminar</a> </td>
+                 <td><a th:href="${'./show/' + descuento.codigodescuento}" class="btn btn-info">Mostrar</a> </td>
+               <td sec:authorize="hasRole('ROLE_OPERATIVO')">  <a th:href="${'./edit/' + descuento.codigodescuento}" class="btn btn-success">Editar</a> </td>
+                            <td sec:authorize="hasRole('ROLE_OPERATIVO')">   <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${descuento.codigodescuento} + '\');'" >Eliminar</a> </td>
             </tr>
         </table>
             </form>   
@@ -54,81 +56,45 @@
                 </div>
     </div>  
     </div>
-   
    <script th:inline="javascript">
-       
-       
-       function CrearLista(value) {
-//        alert("codigoassitencia:" +"codigoempleado:"+value);
-        
-        $("#formp").attr('action', '../asistenciacapacitaciones/new/asistenciacapacitacion/'+value);
-//         $("#formp").attr('action', '../asistenciacapacitaciones/'+value);
-//            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/');
-        $("form#formp").submit();
-      }
-       
-      $(document).ready(function () {
-            $('#tablita').DataTable( {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );
-    });
-	</script>
-   
-     <script th:inline="javascript">
-             if ([[${msg}]] === 0){
-        swal({
-        title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-        }).then(function() {
-        location.href = '../descuentos/';
-        swal({
-                text: "Redirigiendo a consulta de descuentos",
-                icon: "success"
-                })
-        });
-        }
-       
-    if([[${msg}]]===3){
-       swal({
-           
-                title: "Exito!",
-                text: "Registro Eliminado correctamente",
-                type: "success",
-                icon: "success",
-       }).then(function() {
-                location.href = '../../capacitaciones/';
-       }); 
-}
-    
-    if([[${msg}]]===4){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error al eliminar el registro",
-                type: "error",
-                icon: "error"
-       });
-    }
-
-        
-        function eliminar(id) {
+            $(document).ready(function () {
+            if ([[${msg}]] === 3){
             swal({
-                title: "Desea Eliminar?",
-                text: "Favor confirme que desea eliminar este registro!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
+
+            title: "Exito!",
+                    text: "Registro Eliminado correctamente",
+                    type: "success",
+                    icon: "success",
+            }).then(function() {
+           location.href = '../descuentos/';
+            });
+            }
+
+            if ([[${msg}]] === 4){
+            swal({
+            title: "ERROR!",
+                    text: "Ocurrio un error al eliminar el registro",
+                    type: "error",
+                    icon: "error"
+            });
+            }
+            });
+            function eliminar(id) {
+            swal({
+            title: "Desea Eliminar?",
+                    text: "favor confirme que desea eliminar este registro!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
             })
                     .then((willDelete) => {
-                        if (willDelete) {
-                            location.href = './delete/' + id;
-                        } else {
-                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
-                        }
+                    if (willDelete) {
+                    location.href = './delete/' + id;
+                    } else {
+                    swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
+                    }
                     });
-        }
-    </script>
+            }
+        </script>
 </body>
 </html>

@@ -109,6 +109,25 @@ function FechaActualMenor(fecha){
      
 }
 
+function FechaActualMayor(fecha){
+    
+    var msj="";
+    var msj1="Mensaje de Validacion de Fecha!";
+    var msj2="FormatoValido";
+    var messages="";
+    var date = new Date();
+    var inicio = Date.parse(convertDateFormat(fecha));
+     var d = new Date(inicio);
+//     alert(d+" # "+date)
+     if (d>date)
+     {
+          msj="La Fecha  ingresada no debe ser mayor a la Fecha Actual";
+           messages=msj+","+msj1+","+msj2;
+           return  messages;
+     }
+     
+}
+
 
 function FechaNacimiento(fecha,id){
      var msj="";
@@ -138,10 +157,86 @@ function FechaNacimiento(fecha,id){
 	}
 }
 
+function FechaNacimientoh(fecha,id){
+     var msj="";
+    var msj1="Mensaje de Validacion de Fecha!";
+    var msj2="FormatoValido";
+    var messages="";
+        var fecha_aux = fecha.split("/");
+        var date = new Date();
+        var mm=fecha_aux[1];
+        var dd=fecha_aux[0];
+        var yy=fecha_aux[2];
+        var currentYear = date.getFullYear();
+        var currentMonth = date.getMonth()+1;
+        var currentday = date.getDay();
+        
+        var mmm= parseInt(mm);
+//        alert("mes "+currentMonth +" mesm "+mmm +"dd "+currentday+" ddm "+dd);
+ 	var Fecha1 = new Date(fecha_aux[2],fecha_aux[1]-1,fecha_aux[0]);
+ 
+ 	//Comprobamos si existe la fecha
+        
+	if ( dd>31 || dd<0 || mm>12  || mm<0 || yy>(currentYear) || yy<(currentYear-100)){
+		msj="Fecha introducida es incorrecta";
+//                 document.getElementById(id).value=" ";
+		return messages=msj+","+msj1+","+msj2;;
+	}
+        if (  dd>(currentday)  && mmm>(currentMonth) && yy>(currentYear)){
+		msj="Fecha introducida es incorrecta";
+//                 document.getElementById(id).value=" ";
+		return messages=msj+","+msj1+","+msj2;;
+	} if (  dd>(currentday)  && mmm==(currentMonth) && yy==(currentYear)){
+		msj="Fecha introducida es incorrecta";
+//                 document.getElementById(id).value=" ";
+		return messages=msj+","+msj1+","+msj2;;
+	}
+	else{
+		   msj="FormatoValido";
+                    messages=msj+","+msj1+","+msj2;
+                    return  messages;
+	}
+}
+
+function ValidarFechaReporteh(fechainicio,fechafin,idinicial,idfinal){
+    var msj="";
+    var msj1="Mensaje de Validacion de Fecha!";
+    var msj2="FormatoValido";
+    
+    var messages="";
+     if(fechainicio.length != 0 && fechafin.length == 0){
+          msj="FormatoValido";
+            messages=msj+","+msj1+","+msj2;
+           return  messages;
+     }
+      else 
+          if(fechafin.length != 0){
+        //    alert("fecha inicio="+fechainicio+" final="+fechafin);
+            //Formato MES/DIA/AÑO
+            var inicio = Date.parse(convertDateFormat(fechainicio)); //01 de Octubre del 2013
+            var final = Date.parse(convertDateFormat(fechafin)); //03 de Octubre del 2013
+
+//            alert("inicio="+inicio+" final="+final);
+                if (inicio > final) {
+            //        alert("La Fecha de inicio no puede ser mayor que Fecha Final");
+                    msj="La Fecha de inicio no debe ser mayor a la Fecha Final";
+                    messages=msj+","+msj1+","+msj2;
+            //         document.getElementById(idinicial).value=" ";
+//                     document.getElementById(idfinal).value=" ";
+                    return messages; 
+                }else{
+                    msj="FormatoValido";
+                    messages=msj+","+msj1+","+msj2;
+                   return  messages;
+                }
+         }
+    
+}
 function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
     var msj="";
     var msj1="Mensaje de Validacion de Fecha!";
     var msj2="FormatoValido";
+    
     var messages="";
      if(fechainicio.length != 0 && fechafin.length == 0){
           msj="FormatoValido";

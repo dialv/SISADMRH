@@ -51,7 +51,7 @@ public class Bitacora implements Serializable {
     @Size(max = 18)
     @Column(name = "IP")
     private String ip;
-    @Size(max = 10)
+    @Size(max = 17)
     @Column(name = "CODIGOUSUARIOBITACORA")
     private String codigousuariobitacora;
 

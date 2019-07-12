@@ -30,7 +30,7 @@
                         <label class="col-sm-2 control-label">Nombre Capacitación:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="asistenciacapacitacion.codigoasistenciacapacitacion" id="asistencia" >
-                                <option th:each="c:${formasistenciaempleadocapacitacion.asistenciacapacitaciones}" th:value="${c.codigoasistenciacapacitacion}" th:text="${c.codigocapacitacion.nombrecapacitacion}"></option>
+                                <option th:each="c:${formasistenciaempleadocapacitacion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombecapacitacion"></option>
                         </select>
                         </div>
                     </div>

@@ -97,6 +97,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="poppup7">Ingrese el la unidad presupuestaria solo se admitiran dos decimales caracteres numericos.!</span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Sistema de pago(*):</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{sistemapago}"   />
+                    </div>
+                     <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('sispago')" onmouseout ="javascript:ocultarAyuda('sispago')">a</a></b>
+                        
+                        <span class="popuptext" id="sispago">Ingrese el sistema de pago del empleado solo se admitiran 50 caracteres .!</span>
+                    </div>
+                </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Linea de trabajo(*):</label>
                     <div class="col-sm-2">

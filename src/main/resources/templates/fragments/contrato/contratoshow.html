@@ -79,7 +79,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Salario actual $:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${contrato.salarioactual}">Nombre de Empleado</p>
+                                <p class="form-control-static" th:text="${#numbers.formatDecimal(contrato.salarioactual, 0, 'COMMA', 2, 'POINT')}">Nombre de Empleado</p>
                             </div>
                         </div>
                         <div class="form-group">
