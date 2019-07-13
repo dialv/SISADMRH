@@ -21,6 +21,7 @@
             <tr>
                 <th>Codigo usuario</th>
                 <th>Usuario</th>
+                <th>Nombre completo</th>
                 <th>Estado</th>
                 <th>Estado de contraseña</th>
                 <th>Fecha de ingreso </th>
@@ -30,6 +31,7 @@
             <tr th:each="usuario : ${usuarios}">
                 <td th:text="${usuario.codigousuario}">Codigo Usuario</td>
                 <td th:text="${usuario.nombreusuario}">Usuario</td>
+                <td th:text="${usuario.nombrecompleto}">Nombre</td>
                 <td th:text="${usuario.estadousuario}?'Activo':'Inactivo'">Estado</td>
                 <td th:text="${usuario.controlcontrasenia=='1'}?'Temporal':'Verificada'">control Contraseña</td>
                 <td th:text="${#calendars.format(usuario.fechaingreso, 'dd/MM/yyyy')}">Fecha Ingreso</td>

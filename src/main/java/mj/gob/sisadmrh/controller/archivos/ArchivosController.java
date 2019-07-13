@@ -1,4 +1,4 @@
-package mj.gob.sisadmrh.controller.archivos;
+ package mj.gob.sisadmrh.controller.archivos;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -76,6 +76,7 @@ public class ArchivosController extends UtilsController{
                     documento.setTelefonomovilempleado(parts[24]);
                     documento.setTipocuenta(parts[25]);
                     documento.setTiponacionalidad(parts[26]);
+                    documento.setNumerocuenta(parts[27]);
                     listDocumentos.add(documento);
                     }
                     i++;
