@@ -226,7 +226,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Estado de Puesto de Trabajo(*):</label>
+<!--                        <label class="col-sm-3 control-label">Estado de Puesto de Trabajo(*):</label>
                         <div class="col-sm-5">
                             <select class="form-control" name="estadopuesto" th:field="*{estadopuesto}" >
                                 <option value="7">--seleccione el estado del puesto--</option>
@@ -234,7 +234,7 @@
                                 <option value="2">Plaza Ocupada</option>
                                 <option value="0">De Baja</option>
                             </select>
-                        </div>
+                        </div>-->
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup263')" onmouseout ="javascript:ocultarAyuda('poppup263')">a</a></b>
                         <span class="popuptext" id="poppup263">Seleccione el estado del puesto desplegando la lista.</span>
@@ -316,6 +316,15 @@
     swal({
     title: "ERROR!",
             text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+
+    if ([[${msg}]] === 5){
+    swal({
+    title: "ERROR!",
+            text: "el puesto no se puede eliminar porque aun contiene empleados activos",
             type: "error",
             icon: "error"
     });

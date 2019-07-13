@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Puesto;
+import mj.gob.sisadmrh.service.EmpleadoService;
 
 /**
  *
@@ -18,6 +19,8 @@ import mj.gob.sisadmrh.model.Puesto;
 @Controller
 @RequestMapping(value = "puestos")
 public class PuestoController extends UtilsController {
+    @Autowired
+    private EmpleadoService empleadoService;
     
     private PuestoService puestoService;
     
@@ -71,11 +74,16 @@ public class PuestoController extends UtilsController {
         try {
             Puesto puesto = puestoService.getPuestoById(id).get();
             puesto.setEstadopuesto(0);
+            if(empleadoService.activosPuestos(puesto.getCodigopuesto())){
             puestoService.savePuesto(puesto);
             bitacoraService.BitacoraRegistry("se elimino un Puesto", getRequest().getRemoteAddr(),
             getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-            
             model.addAttribute("msg", 3);
+            }
+            else{
+            model.addAttribute("msg", 5);
+            }
+            
         } catch (Exception e) {
             model.addAttribute("msg", 4);
         }

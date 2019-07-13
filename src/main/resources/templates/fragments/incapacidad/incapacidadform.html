@@ -133,42 +133,33 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="fechafin">Ingrese la Fecha Hasta de la  incapacidad. Haga un clic en la caja vacía.! .!</span>
                     </div>
                     </div>
-                           <div class="form-group">
+                    <div class="form-group">
                         <label class="col-sm-4 control-label">Subsidio $:(*)</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control num_decimal3"  size="70" maxlength="70" required="true"th:field="*{subsidio}"/>
-                          
                         </div>
-                              <div class="popup col-sm-1"><b>
+                        <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('subsidioo')" onmouseout ="javascript:ocultarAyuda('subsidioo')">a</a></b>
-                        
-                        <span class="popuptext" id="subsidioo">Ingrese el Nombre de la Incapacidad.Solo se acepta. Solo Se acepta 70 Caracteres.!</span>
+                            <span class="popuptext" id="subsidioo">Ingrese el Nombre de la Incapacidad.Solo se acepta. Solo Se acepta 70 Caracteres.!</span>
+                        </div>
                     </div>
                     </div>
-                         
-                         
-                 
-                     </div>
                     <div class="col-md-6">
-                        
-                          <div class="form-group">
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">Tipo incapacidad(*):</label>
                             <div class="col-sm-8">
-
                                 <select class="form-control"  th:field="*{tipoincapacidad}" >
                                      <option value="0">-- Seleccione un tipo incapacidad --</option>
                                      <option value="Parcial">Parcial</option>
                                      <option value="Permanente">Permanente</option>
                                 </select>
                             </div>
-                                <div class="popup col-sm-1"><b>
+                            <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoincapacidad')" onmouseout ="javascript:ocultarAyuda('tipoincapacidad')">a</a></b>
-                        
-                        <span class="popuptext" id="tipoincapacidad">Ingrese el tipo de incapacidad. Haga un clic en la caja vacía.! .!</span>
-                    </div>
+                            <span class="popuptext" id="tipoincapacidad">Ingrese el tipo de incapacidad. Haga un clic en la caja vacía.! .!</span>
+                            </div>
                         </div>
-                         
-                            <div class="form-group">
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">Forma incapcidad(*):</label>
                             <div class="col-sm-8">
 
