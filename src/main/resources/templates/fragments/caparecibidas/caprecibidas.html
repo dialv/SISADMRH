@@ -27,7 +27,6 @@
                 padding:5px 5px 5px 0;
             }
         </style>
-
         <title>Consultar  Capacitaciones recibidas</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
@@ -57,72 +56,25 @@
         var currentMonth = date.getMonth();
         var currentDate = date.getDate();
         var currentYear = date.getFullYear();
-        $('#fechanacimiento').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechasepu').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechasepr').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechamin').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechanacde').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechahfa').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechadfa').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('#fechacapreevento').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechadexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechahexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechadubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechaicontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechafcontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
-        $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-        dateFormat: 'yy-mm-dd'
-        });
+        $('#fechanacimiento').datepicker({   dateFormat: 'yy-mm-dd'   });
+        $('#fechasepu').datepicker({         dateFormat: 'yy-mm-dd'   });
+        $('#fechasepr').datepicker({         dateFormat: 'yy-mm-dd'   });
+        $('#fechamin').datepicker({          dateFormat: 'yy-mm-dd'   });
+        $('#fechanacde').datepicker({        dateFormat: 'yy-mm-dd'   });
+        $('#fechahfa').datepicker({          dateFormat: 'yy-mm-dd'   });
+        $('#fechadfa').datepicker({          dateFormat: 'yy-mm-dd'   });
+        $('#fechacapreevento').datepicker({  dateFormat: 'yy-mm-dd'   });
+        $('fechadexlaboral').datepicker({    dateFormat: 'yy-mm-dd'   });
+        $('fechahexlaboral').datepicker({    dateFormat: 'yy-mm-dd'   });
+        $('fechadubf').datepicker({          dateFormat: 'yy-mm-dd'   });
+        $('fechahubf').datepicker({          dateFormat: 'yy-mm-dd'   });
+        $('fechaicontrato').datepicker({     dateFormat: 'yy-mm-dd'   });
+        $('fechafcontrato').datepicker({     dateFormat: 'yy-mm-dd'   });
+        $('fechahubf').datepicker({          dateFormat: 'yy-mm-dd'   });
         });</script>
 <script th:inline="javascript">
-
     $(document).ready(function () {
     if ([[${msg}]] === 0){
-//alert(document.getElementById("codem").value);
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",
@@ -133,11 +85,9 @@
     swal({
     text: "Redirigiendo a consulta de empleado",
             icon: "success"
-            })
-            });
+    })         });
     }
     if ([[${msg}]] === 2){
-
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",
@@ -145,8 +95,7 @@
             icon: "success"
     }).then(function() {
     location.href = '../../../empleados/show/' + [[${empleado}]];
-    });
-    }
+    }); }
     if ([[${msg}]] === 1){
     swal({
     title: "ERROR!",
@@ -157,29 +106,23 @@
     }
     });</script> 
 <script th:inline="javascript">
-
     $(document).ready(function () {
     if ([[${msg}]] === 3){
-
     swal({
     title: "Exito!",
             text: "Registro eliminado correctamente",
             type: "success",
             icon: "success"
     }).then(function() {
-//    location.href = '../../empleados/';
     location.href = '../../../empleados/show/' + [[${empleado}]];
     });
     }
-
     if ([[${msg}]] === 4){
     swal({
     title: "ERROR!",
             text: "Ocurrio un error en el proceso",
             type: "error",
             icon: "error"
-    });
-    }
-    });</script>         
-
+    }); }    });
+</script>         
 </html>

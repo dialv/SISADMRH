@@ -35,7 +35,6 @@
                 <td >
                     <span th:if="${mision.tipomision} == 0"  th:text="Externa"  ></span>
                     <span th:if="${mision.tipomision} == 1"  th:text="Interna"></span>
-                
                 </td>
                 
                 <td th:text="${mision.nombremision}">nombremision</td>
@@ -43,9 +42,7 @@
                 <td th:text="${mision.responsablegasto}">reponsablegasto</td>
                 <td th:text="${#calendars.format(mision.fechasalidamision, 'dd/MM/yyyy')}">fechasalidamision</td>
                 <td th:text="${#calendars.format(mision.fecharegresomision, 'dd/MM/yyyy')}">fecharegresomision</td>
-                <!--<td><a th:href="${'./showmisionesemp/' + mision.codigomision}" class="btn btn-primary">GestionarMiembros</a></td>-->
                 <td><a  class="btn btn-danger" th:onclick="'descargapdfc(\'' + ${mision.codigomision} + '\');'" >Descargar acuerdo</a></td>
-															
                 <td><a th:href="${'./show/' + mision.codigomision}" class="btn btn-info">Mostrar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:href="${'./edit/' + mision.codigomision}" class="btn btn-success ">Editar</a></td>
                 <td sec:authorize="hasRole('ROLE_OPERATIVO')"><a th:onclick="'eliminar(\'' + ${ mision.codigomision} +'\');'" class="btn btn-danger">Eliminar</a></td>

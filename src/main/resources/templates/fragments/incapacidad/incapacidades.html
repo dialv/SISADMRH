@@ -5,7 +5,7 @@
     <title>Listado de Incapacidades</title>
 </head>
 <body>
-    <div th:if="${not #lists.isEmpty(incapacidades)}">
+    <div>
         <div class="row">
             <div class="col-md-3">
                 <th:block th:include="../templates/menu"></th:block>
@@ -51,19 +51,14 @@
                         <td>  <a th:href="${'./show/' + incapacidad.codigoincapacidad}" class="btn btn-info">Mostrar</a></td>
                         <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a th:href="${'./edit/' +incapacidad.codigoincapacidad}" class="btn btn-primary">Editar</a></td>
                         <td sec:authorize="hasRole('ROLE_OPERATIVO')"> <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${incapacidad.codigoincapacidad} + '\');'" >Eliminar</a></td> 
-
                     </tr>
                 </table>
-
             </div>
             <div class="col-md-12">
                 <th:block th:include="../templates/footer"></th:block>
             </div>
         </div>  
     </div>
-
-
-
     <script th:inline="javascript">
         $(document).ready(function () {
         Textheader('pnt_creinca', document.title);
