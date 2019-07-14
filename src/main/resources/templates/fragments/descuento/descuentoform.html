@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
     <head lang="en">
-
         <title>Crear Descuentos</title>
     <th:block th:include="../templates/header"></th:block>
-
 </head>
 <body>
-    <script> Textheader('pnt_desc',document.title);</script>
-
+    <script> Textheader('pnt_desc', document.title);</script>
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
@@ -18,186 +14,136 @@
             <br>
             <div class="row text-center">
                 <img src="../../static/image/roles.png" width="75" th:src="@{/image/costos.png}"/>
-               
                 <div>
                     <br>
                     <div class="col-md-12">
-                    
                         <form class="form-horizontal" th:object="${descuento}" th:action="@{../descuento}" method="post">
-            <input type="hidden" th:field="*{codigodescuento}"/>
-             <div class="form-group">
-                  <label class="col-sm-3 control-label">Nombre de empleado*):</label>
-   <div class="col-sm-5">
-       
-                                <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
-                                     <option value=""> Selecione un empleado</option>
-                                    <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
-                                </select>
-                                <!--<input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
+                            <input type="hidden" th:field="*{codigodescuento}"/>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nombre de empleado*):</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
+                                        <option value=""> Selecione un empleado</option>
+                                        <option th:each="c:${empleados}" placeholder="Seleccione El Responsable del Comite" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
+                                    </select>
+                                </div>
                             </div>
-                 </div>
-            
-            
-          <div class="form-group">
-                <label class="col-sm-3 control-label">Nombre de descuento(*):</label>
-                <div class="col-sm-7">
-                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{nombredescuento}"/>
-                </div>
-              <div class="popup"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
-                        
-                        <span class="popuptext" id="nombre">Ingrese el Nombre del Descuento solo se admitiran 30 caracteres.!</span>
-                    </div>
-                 </div>
-<!--                      <div class="form-group">
-                <label class="col-sm-3 control-label">Salario $(*):</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" num_decimal3 numeros required="true" size="30" maxlength="30" th:field="*{salario}"/>
-                </div>
-              <div class="popup"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('salario')" onmouseout ="javascript:ocultarAyuda('salario')">a</a></b>
-                        
-                        <span class="popuptext" id="salario">Ingrese el Salario..!</span>
-                    </div>
-                 </div>-->
-            
-            
-               <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de descuento(*):</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{tipodescuento}"/>
-                </div>
-              <div class="popup"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('td')" onmouseout ="javascript:ocultarAyuda('td')">a</a></b>
-                        
-                        <span class="popuptext" id="td">Ingrese el tipo del descuento..!</span>
-                    </div>
-                 </div>
-            
-               <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo banco(*):</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{tipobanco}"/>
-                </div>
-              <div class="popup"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tb')" onmouseout ="javascript:ocultarAyuda('tb')">a</a></b>
-                        
-                        <span class="popuptext" id="tb">Ingrese el tipo de banco. solo se admitiran 30 caracteres.!</span>
-                    </div>
-                 </div>
-            
-     
-            
-<!--              <div class="form-group">
-                <label class="col-sm-3 control-label">Monto Pago $(*):</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control" num_decimal3 numeros required="true" size="30" maxlength="30" th:field="*{montopago}"/>
-                </div>
-              <div class="popup"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('mp')" onmouseout ="javascript:ocultarAyuda('mp')">a</a></b>
-                        
-                        <span class="popuptext" id="mp">Ingrese el Monto a pagar. solo se admitiran 30 caracteres.!</span>
-                    </div>
-                 </div>-->
-            
-               <div class="form-group">
-                <label class="col-sm-3 control-label">Monto descuento $(*):</label>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control num_decimal3 numeros"  required="true" size="30" maxlength="30" th:field="*{montodescuento}"/>
-                </div>
-              <div class="popup"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('md')" onmouseout ="javascript:ocultarAyuda('md')">a</a></b>
-                        
-                        <span class="popuptext" id="md">Ingrese el nombre del descuento.!</span>
-                    </div>
-                 </div>
-             
-            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nombre de descuento(*):</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{nombredescuento}"/>
+                                </div>
+                                <div class="popup"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombre')" onmouseout ="javascript:ocultarAyuda('nombre')">a</a></b>
+                                    <span class="popuptext" id="nombre">Ingrese el Nombre del Descuento solo se admitiran 30 caracteres.!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Tipo de descuento(*):</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{tipodescuento}"/>
+                                </div>
+                                <div class="popup"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('td')" onmouseout ="javascript:ocultarAyuda('td')">a</a></b>
 
-<div class="col-md-12">
-                        <div class="row" align="center">
-                            <a href="#" th:href="@{/descuentos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-              
-                        </div>
+                                    <span class="popuptext" id="td">Ingrese el tipo del descuento..!</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Tipo banco(*):</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{tipobanco}"/>
+                                </div>
+                                <div class="popup"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tb')" onmouseout ="javascript:ocultarAyuda('tb')">a</a></b>
+                                    <span class="popuptext" id="tb">Ingrese el tipo de banco. solo se admitiran 30 caracteres.!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Monto descuento $(*):</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control num_decimal3 numeros"  required="true" size="30" maxlength="30" th:field="*{montodescuento}"/>
+                                </div>
+                                <div class="popup"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('md')" onmouseout ="javascript:ocultarAyuda('md')">a</a></b>
+                                 <span class="popuptext" id="md">Ingrese el monto del descuento.!</span>
+                                </div>
+                            </div>
+                        <div class="col-md-12">
+                                <div class="row" align="center">
+                                    <a href="#" th:href="@{/descuentos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
+                                    <button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                    <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
-        </form>
-
+                </div>
             </div>
         </div>
-    </div>
-    
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div> 
+        <script th:inline="javascript">
+            $(document).ready(function () {
+            if ([[${msg}]] === 0){
+            swal({
+            title: "Exito!",
+                    text: "Registro agregado correctamente",
+                    type: "success",
+                    icon: "success"
+            }).then(function() {
+            location.href = '../descuentos/';
+            swal({
+            text: "Redirigiendo a consulta de descuentos",
+                    icon: "success"
+            })
+            });
+            }
 
-    </div>
- <div class="col-md-12">
-        <th:block th:include="../templates/footer"></th:block>
-    </div> 
-    <script th:inline="javascript">
-        $(document).ready(function () {
-        if ([[${msg}]] === 0){
-        swal({
-        title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-        }).then(function() {
-        location.href = '../descuentos/';
-        swal({
-                text: "Redirigiendo a consulta de descuentos",
-                icon: "success"
-                })
-        });
-        }
+            if ([[${msg}]] === 1){
+            swal({
+            title: "ERROR!",
+                    text: "Debe seleccionar un encargado de Comite",
+                    type: "error",
+                    icon: "error"
+            });
+            }
+            });
+            $(document).ready(function () {
+            $('#fechadesdecomite').datepicker({
+            dateFormat: 'dd/mm/yy'
+            });
+            $('#fechahastacomite').datepicker({
+            dateFormat: 'dd/mm/yy'
+            });
+            });
+        </script> 
+        <script>
+            Textheader('pnt_inac', document.title);
+            function Fechas(val1, val2, val3, val4){
+            var foo = ValidarFecha(val1, val2, val3, val4).split(","); ;
+            if (foo[0] != foo[2]){
+            swal(foo[1], foo[0]);
+            }
+            }
 
-        if ([[${msg}]] === 1){
-        swal({
-        title: "ERROR!",
-                text: "Debe seleccionar un encargado de Comite",
-                type: "error",
-                icon: "error"
-        });
-        }
-        });
-        
-        $(document).ready(function () {
-        $('#fechadesdecomite').datepicker({
+            function isDat(val, id){
+            var foo = ExisteFecha(val, id).split(","); ;
+            if (foo[0] != foo[2]){
+            swal(foo[1], foo[0]);
+            }
+            }
+            $(document).ready(function () {
+            $('#fechadesdecomite').datepicker({
             dateFormat: 'dd/mm/yy'
-        });
-
-        $('#fechahastacomite').datepicker({
+            });
+            $('#fechahastacomite').datepicker({
             dateFormat: 'dd/mm/yy'
-        });
-       
-    });
-    </script> 
-<script>
-    Textheader('pnt_inac',document.title);
-                function Fechas(val1,val2,val3,val4){
-                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-                    
-                    function isDat(val,id){
-                        var foo=ExisteFecha(val,id).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-    $(document).ready(function () {
-        $('#fechadesdecomite').datepicker({
-            dateFormat: 'dd/mm/yy'
-        });
-
-        $('#fechahastacomite').datepicker({
-            dateFormat: 'dd/mm/yy'
-        });
-       
-    });
-</script>
+            });
+            });
+        </script>
 
 
 </body>	
