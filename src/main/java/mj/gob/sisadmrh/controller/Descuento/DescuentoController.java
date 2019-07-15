@@ -36,7 +36,7 @@ public class DescuentoController extends UtilsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("descuentos", descuentoService.listAllDescuento());
+        model.addAttribute("descuentos", descuentoService.listAllActivos());
         return PREFIX + "descuentos";
     }
 

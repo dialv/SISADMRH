@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
 
-        <title>detalle de Capacitador</title>
+        <title>Detalle de capacitador</title>
     <th:block th:include="../templates/header"></th:block>
 
 
@@ -30,7 +30,7 @@
  <div class="form-group">
                                     <label class="col-sm-4 control-label">Responsable del capacitador</label>
                                     <div class="col-sm-8">
-                                        <p class="form-control-static" th:text="${capacitador.codigoempleado.nombreempleado}">Codigo Empleado</p>
+                                        <p class="form-control-static" th:text="${capacitador.codigoempleado.nombreempleado}+', '+${capacitador.codigoempleado.nombreempleado}">Codigo Empleado</p>
                                          <!--<p class="form-control-static" th:text="${capacitador.codigoempleado.codigoempleado}">Codigo Empleado</p>-->
                                     </div>
                                 </div>

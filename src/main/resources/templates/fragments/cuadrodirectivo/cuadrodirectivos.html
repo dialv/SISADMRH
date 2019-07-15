@@ -30,7 +30,7 @@
                     </thead>
                     <tr th:each="cuadrodirectivo : ${cuadrodirectivos}">
                         <td align="center" th:text="${cuadrodirectivo.codigocuadrodirectivo}">Codigo</td>
-                        <td th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">area</td>
+                          <td class="" th:text="${cuadrodirectivo.codigoempleado.nombreempleado}+', '+${cuadrodirectivo.codigoempleado.apellidoempleado}">Empleado/td>
                         <td th:text="${cuadrodirectivo.area}">area</td>
                         <td th:text="${cuadrodirectivo.desripcioncuadrodirectivo}">Descripcion</td>
                         <td th:text="${#calendars.format(cuadrodirectivo.fechapresentaciondesde, 'dd/MM/yyyy')}">F. Presentacion Desde</td>

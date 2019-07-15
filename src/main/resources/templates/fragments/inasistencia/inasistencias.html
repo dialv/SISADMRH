@@ -29,7 +29,7 @@
                     </thead>
                     <tr th:each="inasistencia : ${inasistencias}">
                         <td th:text="${inasistencia.codigoinasistencia}">Codigo</td>
-                        <td th:text="${inasistencia.codigoempleado.nombreempleado}">Nombre</td>
+                         <td th:text="${inasistencia.codigoempleado.nombreempleado}+', '+${inasistencia.codigoempleado.apellidoempleado}">Nombre de Incapacidad</td>
                         <td th:text="${inasistencia.motivoinasistencia}">Motivo</td>
                         <td th:text="${inasistencia.constanciainasistencia}">Justificación</td>
                         <td th:text="${#calendars.format(inasistencia.fechadesdeinasistencia, 'dd/MM/yyyy')}">Fecha Desde</td>

@@ -37,7 +37,7 @@
                     <tr th:each="incapacidad : ${incapacidades}">
                         <!--<td th:text="${incapacidad.codigoempleado.nombreempleado}">Codigo</td>-->
                         <td th:text="${incapacidad.codigoincapacidad}">Codigo</td>
-                        <td th:text="${incapacidad.codigoempleado.nombreempleado}">Nombre de Incapacidad</td>
+                        <td th:text="${incapacidad.codigoempleado.nombreempleado}+', '+${incapacidad.codigoempleado.apellidoempleado}">Nombre de Incapacidad</td>
                         <td th:text="${incapacidad.numerofichaisss}">Numero Fomulario</td>
                         <td th:text="${incapacidad.dui}">DUI</td>
                         <td th:text="${incapacidad.isss}">Numero ISSS</td>

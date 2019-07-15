@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Nombre empleado:</label>
                             <div class="col-sm-7">
-                                <p class="form-control-static" th:text="${descuento.codigoempleado.nombreempleado}+, +${descuento.codigoempleado.apellidoempleado}">Responsable</p>
+                                <p class="form-control-static" th:text="${descuento.codigoempleado.nombreempleado}+', '+${descuento.codigoempleado.nombreempleado}">Responsable</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,17 +48,20 @@
                         </div>
                     </div> 
                 </form> 
-                <div class="col-md-12">
+                
+            </div>
+            
+        </div>
+        <div class="col-md-12">
                     <div class="row" align="center">
                         <a href="#" th:href="@{/descuentos/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>    
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
     <div class="col-md-12">
         <th:block th:include="../templates/footer"></th:block>
     </div>
+    
 </body>
 <script>
     Textheader('pnt_crco', document.title);
