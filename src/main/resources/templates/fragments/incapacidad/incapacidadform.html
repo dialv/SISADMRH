@@ -3,287 +3,253 @@
     <head lang="en">
         <title>Crear Incapacidad</title>
     <th:block th:include="../templates/header"></th:block>
-    
-        <script type="text/javascript" th:src="@{/js/validacion_controladores.js}"></script>
-        <script type="text/javascript" th:src="@{/js/validacion_controladores2.js}"></script>
-        
+    <script type="text/javascript" th:src="@{/js/validacion_controladores.js}"></script>
+    <script type="text/javascript" th:src="@{/js/validacion_controladores2.js}"></script>
 </head>
 <body>
-   
     <div class="row">
         <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div> 
         <div class="col-md-8">
-                  <br><br>
-          <div class="row text-center">
-                        <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
-            <div>
-                <form class="form-horizontal" onsubmit="return validateForm()" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
-                     <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Nombres empleado:(*)</label>
-                        <div class="col-sm-7" >
-                            <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
-                                 <option value="0">-- Seleccione un empleado --</option>
-                                <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
-                            </select>
-                            <!--<input type="text" class="form-control" onkeypress="return valida(event)" th:field="*{codigoempleado.codigoempleado}"/>-->
-                        </div>
-                            <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('emp')" onmouseout ="javascript:ocultarAyuda('emp')">a</a></b>
-                        
-                        <span class="popuptext" id="emp">Seleccione el empleado. .!</span>
-                    </div>
-                    </div>
-    <div class="form-group">
-                        <label class="col-sm-4 control-label">Nombre de incapacidad:(*)</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" size="70" maxlength="70" required="true"th:field="*{nombreincapacidad}"/>
-                          
-                        </div>
-                              <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombreincapacid')" onmouseout ="javascript:ocultarAyuda('nombreincapacid')">a</a></b>
-                        
-                        <span class="popuptext" id="nombreincapacid">Ingrese el Nombre de la Incapacidad. Solo Se acepta 70 Caracteres.!</span>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Nº formulario ISSS:(*)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" size="12" maxlength="12" required="true"th:field="*{numerofichaisss}"/>
-                          
-                        </div>
-                              <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numiss')" onmouseout ="javascript:ocultarAyuda('numiss')">a</a></b>
-                        
-                        <span class="popuptext" id="numiss">Ingrese el numero del formulario ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
-                    </div>
-                    </div>
-             
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">DUI empleado:(*)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control num_dui"  max="12"  maxlength="12" required="true" th:field="*{dui}"/>
-                        </div>
-                              <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('duii')" onmouseout ="javascript:ocultarAyuda('duii')">a</a></b>
-                        
-                        <span class="popuptext" id="duii">Ingrese el DUI.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
-                    </div>
-                    </div>
-                        
-                          <div class="form-group">
-                        <label class="col-sm-4 control-label">Nº ISSS empleado:(*)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control num_dui" max="12"  maxlength="12" required="true" th:field="*{isss}"/>
-                             <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
-                        </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ISSS')" onmouseout ="javascript:ocultarAyuda('ISSS')">a</a></b>
-                        
-                        <span class="popuptext" id="ISSS">Ingrese el Numero del  ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
-                    </div>
-                    </div>
-           <div class="form-group">
-                        <label class="col-sm-4 control-label">Fecha emision:(*)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control fecha_format " id="femision" required="true" th:field="*{fechaemision}"onchange="isDat(this.value,'fechaemisionn');Fechas(this.value,$('#fdesde').val().toString(),'fechaemisionn','fechainicio')"/>
-                             <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
-                        </div>
-                            <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaemisionn')" onmouseout ="javascript:ocultarAyuda('fechaemisionn')">a</a></b>
-                        
-                        <span class="popuptext" id="fechaemisionn">Ingrese la fecha de emision  de la incapacidad!</span>
-                    </div>
-                        
-                    </div>
-                         <div class="form-group">
-                        <label class="col-sm-4 control-label">Fecha inicio incapacidad:(*)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control fecha_format " id="fdesde" required="true" th:field="*{fechadesdeincapacidad}"onchange="isDat(this.value,'fechainicio');Fechas(this.value,$('#fhasta').val().toString(),'fechainicio','fhasta')"/>
-                             <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
-                        </div>
-                            <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
-                        
-                        <span class="popuptext" >Ingrese la fecha inicio de la incapacidad.</span>
-                    </div>
-                        
-                    </div>
-                        
-                          <div class="form-group">
-                        <label class="col-sm-4 control-label">Fecha fin incapacidad:(*)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control fecha_format " id="fhasta" required="true" th:field="*{fechahastaincapacidad}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
-                             <!--<small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>-->
-                        </div>
-                            <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
-                        
-                        <span class="popuptext" id="fechafin">Ingrese la fecha fin de la  incapacidad.</span>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Subsidio $:(*)</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control num_decimal3"  size="70" maxlength="70" required="true"th:field="*{subsidio}"/>
-                        </div>
-                        <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('subsidioo')" onmouseout ="javascript:ocultarAyuda('subsidioo')">a</a></b>
-                            <span class="popuptext" id="subsidioo">Ingrese el monto del subsidio!.</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Tipo incapacidad(*):</label>
-                            <div class="col-sm-8">
-                                <select class="form-control"  th:field="*{tipoincapacidad}" >
-                                     <option value="0">-- Seleccione un tipo incapacidad --</option>
-                                     <option value="Parcial">Parcial</option>
-                                     <option value="Permanente">Permanente</option>
-                                </select>
+            <br><br>
+            <div class="row text-center">
+                <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
+                <div>
+                    <form class="form-horizontal" onsubmit="return validateForm()" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nombres empleado:(*)</label>
+                                <div class="col-sm-7" >
+                                    <select class="form-control"  id="combo" th:field="*{codigoempleado.codigoempleado}" >
+                                        <option value="0">-- Seleccione un empleado --</option>
+                                        <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
+                                    </select>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('emp')" onmouseout ="javascript:ocultarAyuda('emp')">a</a></b>
+                                        <span class="popuptext" id="emp">Seleccione el empleado. .!</span>
+                                </div>
                             </div>
-                            <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoincapacidadd')" onmouseout ="javascript:ocultarAyuda('tipoincapacidadd')">a</a></b>
-                            <span class="popuptext" id="tipoincapacidadd">Ingrese el tipo de incapacidad. Haga un clic en la caja vacía.! .!</span>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nombre de incapacidad:(*)</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" size="70" maxlength="70" required="true"th:field="*{nombreincapacidad}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nombreincapacid')" onmouseout ="javascript:ocultarAyuda('nombreincapacid')">a</a></b>
+                                    <span class="popuptext" id="nombreincapacid">Ingrese el Nombre de la Incapacidad. Solo Se acepta 70 Caracteres.!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nº formulario ISSS:(*)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" size="12" maxlength="12" required="true"th:field="*{numerofichaisss}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('numiss')" onmouseout ="javascript:ocultarAyuda('numiss')">a</a></b>
+                                    <span class="popuptext" id="numiss">Ingrese el numero del formulario ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">DUI empleado:(*)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control num_dui"  id = "duiemp" max="12"  maxlength="12" required="true" th:field="*{dui}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('duii')" onmouseout ="javascript:ocultarAyuda('duii')">a</a></b>
+                                    <span class="popuptext" id="duii">Ingrese el DUI.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Nº ISSS empleado:(*)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control num_dui" id = "nupemp" max="12"  maxlength="12" required="true" th:field="*{isss}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('ISSS')" onmouseout ="javascript:ocultarAyuda('ISSS')">a</a></b>
+                                        <span class="popuptext" id="ISSS">Ingrese el Numero del  ISSS.Solo se acepta la combinacion de los digitos del 0 al 9 .!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Fecha emision:(*)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control fecha_format " id="femision" required="true" th:field="*{fechaemision}"onchange="isDat(this.value, 'fechaemisionn'); Fechas(this.value, $('#fdesde').val().toString(), 'fechaemisionn', 'fechainicio')"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaemisionn')" onmouseout ="javascript:ocultarAyuda('fechaemisionn')">a</a></b>
+                                        <span class="popuptext" id="fechaemisionn">Ingrese la fecha de emision  de la incapacidad!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Fecha inicio incapacidad:(*)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control fecha_format " id="fdesde" required="true" th:field="*{fechadesdeincapacidad}"onchange="isDat(this.value, 'fechainicio'); Fechas(this.value, $('#fhasta').val().toString(), 'fechainicio', 'fhasta')"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
+                                        <span class="popuptext" >Ingrese la fecha inicio de la incapacidad.</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Fecha fin incapacidad:(*)</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control fecha_format " id="fhasta" required="true" th:field="*{fechahastaincapacidad}"onchange="isDat(this.value, 'fhasta'); Fechas($('#fdesde').val().toString(), this.value, 'fdesde', 'fhasta')"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
+                                    <span class="popuptext" id="fechafin">Ingrese la fecha fin de la  incapacidad.</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Subsidio $:(*)</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control num_decimal3"  size="70" maxlength="70" required="true"th:field="*{subsidio}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('subsidioo')" onmouseout ="javascript:ocultarAyuda('subsidioo')">a</a></b>
+                                    <span class="popuptext" id="subsidioo">Ingrese el monto del subsidio!.</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Forma incapcidad(*):</label>
-                            <div class="col-sm-8">
-
-                                <select class="form-control"  th:field="*{formaincapacidad}">
-                                     <option value="0">-- Seleccione una forma incapacidad --</option>
-                                     <option value="Remunerada">Remunerada</option>
-                                     <option value="No remunerada"> No remunerada</option>
-                                </select>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Tipo incapacidad(*):</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control"  th:field="*{tipoincapacidad}" >
+                                        <option value="0">-- Seleccione un tipo incapacidad --</option>
+                                        <option value="Parcial">Parcial</option>
+                                        <option value="Permanente">Permanente</option>
+                                    </select>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('tipoincapacidadd')" onmouseout ="javascript:ocultarAyuda('tipoincapacidadd')">a</a></b>
+                                    <span class="popuptext" id="tipoincapacidadd">Ingrese el tipo de incapacidad. Haga un clic en la caja vacía.! .!</span>
+                                </div>
                             </div>
-                                    <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('formaincapacidadd')" onmouseout ="javascript:ocultarAyuda('formaincapacidadd')">a</a></b>
-                        
-                        <span class="popuptext" id="formaincapacidadd">Ingrese la forma de incapacidad. Haga un clic en la caja vacía.! .!</span>
-                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Forma incapcidad(*):</label>
+                                <div class="col-sm-8">
+                                        <select class="form-control"  th:field="*{formaincapacidad}">
+                                        <option value="0">-- Seleccione una forma incapacidad --</option>
+                                        <option value="Remunerada">Remunerada</option>
+                                        <option value="No remunerada"> No remunerada</option>
+                                    </select>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('formaincapacidadd')" onmouseout ="javascript:ocultarAyuda('formaincapacidadd')">a</a></b>
+                                    <span class="popuptext" id="formaincapacidadd">Ingrese la forma de incapacidad. Haga un clic en la caja vacía.! .!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Fondo:(*)</label>
+                                <div class="col-sm-7">
+                                    <textarea rows="4" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{fondoincapacidad}">
+                                    </textarea>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fondo')" onmouseout ="javascript:ocultarAyuda('fondo')">a</a></b>
+                                    <span class="popuptext" id="fondo">Ingrese el fondo de incapacidad. Solo se permiten 200 Caracteres.!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Diagnostico incapacidad:</label>
+                                <div class="col-sm-7">
+                                    <textarea rows="6" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{diagnostico}">
+                                    </textarea>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('diagnos')" onmouseout ="javascript:ocultarAyuda('diagnos')">a</a></b>
+                                    <span class="popuptext" id="diagnos">Ingrese el diagnostico de la incapacidad. Solo se permiten 500 Caracteres.!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Subir documento o diagnostico incapacidad:</label>
+                                <div class="col-sm-6">
+                                    <input type="file" name="file"  />
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('subirdiagnostico')" onmouseout ="javascript:ocultarAyuda('subirdiagnostico')">a</a></b>
+                                    <span class="popuptext" id="subirdiagnostico">Suba el documento de la incapacidad. la capacidad maxima son 4 MB.!</span>
+                                </div>
+                            </div>
+                        </div>         
+                        <div class="col-md-12">
+                            <div class="row" align="center">
+                                <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                                <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
+                            </div>
                         </div>
-                        
-                                  <div class="form-group">
-                        <label class="col-sm-3 control-label">Fondo:(*)</label>
-                        <div class="col-sm-7">
-                            <!--<input type="text" class="form-control "max="200" maxlength="200" required="true" th:field="*{fondoincapacidad}"/>-->
-                                      <textarea rows="4" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{fondoincapacidad}">
-
-                            </textarea>
-                        </div>
-                                  <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fondo')" onmouseout ="javascript:ocultarAyuda('fondo')">a</a></b>
-                        
-                        <span class="popuptext" id="fondo">Ingrese el fondo de incapacidad. Solo se permiten 200 Caracteres.!</span>
-                    </div>
-                    </div>
-                        
-                                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Diagnostico incapacidad:</label>
-                        <div class="col-sm-7">
-                            <!--<input type="text" class="form-control "max="500" maxlength="500" required="true" th:field="*{diagnostico}"/>-->
-                                     <textarea rows="6" cols="50" class="form-control" size="500" maxlength="500"  required="true" th:field="*{diagnostico}">
-                            </textarea>
-                        </div>
-                                 <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('diagnos')" onmouseout ="javascript:ocultarAyuda('diagnos')">a</a></b>
-                        
-                        <span class="popuptext" id="diagnos">Ingrese el diagnostico de la incapacidad. Solo se permiten 500 Caracteres.!</span>
-                    </div>
-                    </div>
-                     <div class="form-group">
-                    <label class="col-sm-4 control-label">Subir documento o diagnostico incapacidad:</label>
-                    <div class="col-sm-6">
-                        <input type="file" name="file"  />
-                         
-                    </div>
-                             <div class="popup col-sm-1"><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('subirdiagnostico')" onmouseout ="javascript:ocultarAyuda('subirdiagnostico')">a</a></b>
-                        
-                        <span class="popuptext" id="subirdiagnostico">Suba el documento de la incapacidad. la capacidad maxima son 4 MB.!</span>
-                    </div>
+                    </form>
                 </div>
-               
-                 </div>         
-
-                    <div class="col-md-12">
-                        <div class="row" align="center">
-                             <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                            <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-                        </div>
-                    </div>
-                </form>
             </div>
-
         </div>
-    </div>
-    <div class="col-md-12">
-        <th:block th:include="../templates/footer"></th:block>
-    </div>   
-
-
-
+        <div class="col-md-12">
+            <th:block th:include="../templates/footer"></th:block>
+        </div> 
+    </div>     
 </body>
 <script th:inline="javascript">
-    Textheader('pnt_creinca',document.title);
+    Textheader('pnt_creinca', document.title);
     $(document).ready(function () {
-    if([[${msg}]]===0){
-       swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success"
-       }).then(function() {
-                location.href = '../incapacidades/';
-       }); 
-}
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error"
-       });
+    if ([[${msg}]] === 0){
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success"
+    }).then(function() {
+    location.href = '../incapacidades/';
+    });
     }
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error"
     });
-</script>
-
+    }
+    });</script>
 <script>
-      function Fechas(val1,val2,val3,val4){
-                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-                    
-                    function isDat(val,id){
-                        var foo=ExisteFecha(val,id).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
+    function Fechas(val1, val2, val3, val4){
+    var foo = ValidarFecha(val1, val2, val3, val4).split(","); ;
+    if (foo[0] != foo[2]){
+    swal(foo[1], foo[0]);
+    }
+    }
+
+    function isDat(val, id){
+    var foo = ExisteFecha(val, id).split(","); ;
+    if (foo[0] != foo[2]){
+    swal(foo[1], foo[0]);
+    }
+    }
     $(document).ready(function () {
-        $('#femision').datepicker({
-           dateFormat: 'dd/mm/yy'
-        });
-        $('#fdesde').datepicker({
-           dateFormat: 'dd/mm/yy'
-        });
-
-        $('#fhasta').datepicker({
-           dateFormat: 'dd/mm/yy'
-        });
+    $('#femision').datepicker({
+    dateFormat: 'dd/mm/yy'
     });
+    $('#fdesde').datepicker({
+    dateFormat: 'dd/mm/yy'
+    });
+    $('#fhasta').datepicker({
+    dateFormat: 'dd/mm/yy'
+    });
+    });
+    $('#combo').change(function () {
+                    $.ajax({
+                        url: '../llenadocombo/' + $(this).val().toString(),
+                        success: function (data) {
+                            $('#duiemp').val(data[0]);
+                            $('#nupemp').val(data[1]);
+                        },
+                        error: function () {
+                            $('#duiemp').val("");
+                            $('#nupemp').val("");
+                        }
+                    });
+                });
     function descargapdf(idpdf){
-             location.href = './descarga/' + idpdf;
-        }
+    location.href = './descarga/' + idpdf;
+    }
 </script>
-
-<!--script type="text/javascript" th:src="@{/js/sweetalert.js}"></script>
-<script type="text/javascript" th:src="@{/js/SweetAlert.min.js}"></script>
-<script type="text/javascript" th:src="@{/ccs/sweetalert.ccs}"></script-->
 </html>
