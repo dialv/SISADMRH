@@ -1,237 +1,138 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <style type="text/css">
-     .boton{
-  width:30px;
-  height:30px;
-  background-color:#03800b;
-  margin: 5px;
-  padding:10px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  font-size:11px;
-  line-height:32px;
-  text-transform: uppercase;
-  float:left;
-}
-.boton:hover{
-  opacity: 0.50;
-  -moz-opacity: .50;
-  filter:alpha (opacity=50);
-}
-.boton a{
-  color:#fff;
-  text-decoration:none;
-  padding:5px 5px 5px 0;
-}
- </style>
-     
-    <title>SISADMRH-Consulta de Datos de Hijo Con Discapacidad</title>
-  <th:block th:include="../templates/header"></th:block>
-  </head>
+    <head lang="en">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+        <style type="text/css">
+            .boton{
+                width:30px;
+                height:30px;
+                background-color:#03800b;
+                margin: 5px;
+                padding:10px;
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+                border-radius: 50px;
+                font-size:11px;
+                line-height:32px;
+                text-transform: uppercase;
+                float:left;
+            }
+            .boton:hover{
+                opacity: 0.50;
+                -moz-opacity: .50;
+                filter:alpha (opacity=50);
+            }
+            .boton a{
+                color:#fff;
+                text-decoration:none;
+                padding:5px 5px 5px 0;
+            }
+        </style>
+        <title>SISADMRH-Consulta de Datos de Hijo Con Discapacidad</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
 <body>
-    <script> Textheader('pnt_ce13_2',document.title);</script>
-<!--      <div class="contenedorizq"><label  >pnt_ce13_2</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-<!--<div class="container">-->
- <div class="row">
- <div class="col-md-3">
+    <script> Textheader('pnt_ce13_2', document.title);</script>
+    <div class="row">
+        <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
+                <img src="../../static/image/images.jpeg" width="200" th:src="@{/image/discapacidad.jpg}"/>
             </div>
-    <h3 align="center"></h3>
-    
-
-    
-        <br>
-           
-  
-
-               </div>
-            </div>
-
-   <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
+            <h3 align="center"></h3>        <br>
         </div>
-
-        
-       
+    </div>
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
-	        
-    <script th:inline="javascript">
+<script th:inline="javascript">
+        $(document).ready(function () {
+        if ([[${msg}]] === 0){
+        swal({
+        title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+        }).then(function() {
+        location.href = '../../empleados/show/' + [[${empleado}]];
+        swal({
+        text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+        })
+                });
+        }
+        if ([[${msg}]] === 2){
 
+        swal({
+        title: "Exito!",
+                text: "Registro agregado correctamente",
+                type: "success",
+                icon: "success"
+        }).then(function() {
+        location.href = '../../../empleados/show/' + [[${empleado}]];
+        swal({
+        text: "Redirigiendo a consulta de empleados",
+                icon: "success"
+        })
+                });
+        }
+        if ([[${msg}]] === 1){
+        swal({
+        title: "ERROR!",
+                text: "Ocurrio un error en el proceso",
+                type: "error",
+                icon: "error"
+        });
+        }
+        });</script> 
+<script>
     $(document).ready(function () {
-    if ([[${msg}]] === 0){
-//alert(document.getElementById("codem").value);
-    swal({
-    title: "Exito!",
-            text: "Registro agregado correctamente",
-            type: "success",
-            icon: "success"
-            }).then(function() {
-    location.href = '../../empleados/show/'+ [[${empleado}]];
-    swal({
-                text: "Redirigiendo a consulta de empleados",
-                icon: "success"
-                })
-    });
-    }
-if ([[${msg}]] === 2){
-
-    swal({
-    title: "Exito!",
-            text: "Registro agregado correctamente",
-            type: "success",
-            icon: "success"
-            }).then(function() {
-    location.href = '../../../empleados/show/'+ [[${empleado}]];
-    swal({
-                text: "Redirigiendo a consulta de empleados",
-                icon: "success"
-                })
-    });
-    }
-    if ([[${msg}]] === 1){
-    swal({
-    title: "ERROR!",
-            text: "Ocurrio un error en el proceso",
-            type: "error",
-            icon: "error"
-            });
-    }
-    });</script> 
-	<script>
-// 		$(document).ready(function() {
-// 			$(function () {
-// 				$("#datepickersince").datepicker();
-// 			});
-
-// 			$(function () {
-// 				$("#datepickeruntil").datepicker();
-// 			});
-// 		});
-		
-		$(document).ready(function () {
-		    var date = new Date();
-		    var currentMonth = date.getMonth();
-		    var currentDate = date.getDate();
-		    var currentYear = date.getFullYear();
-                    
-		    $('#fechanacimiento').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'yy-mm-dd'
-		    });
-		    
-		    $('#fechasepu').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('#fechasepr').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('#fechamin').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('#fechanacde').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('#fechahfa').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('#fechadfa').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('#fechacapreevento').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                    $('fechadexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    $('fechahexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    $('fechadubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                     $('fechaicontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                     $('fechafcontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-                    
-                     $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });
-		});
-	</script>
+    var date = new Date();
+    var currentMonth = date.getMonth();
+    var currentDate = date.getDate();
+    var currentYear = date.getFullYear();
+    $('#fechanacimiento').datepicker({      dateFormat: 'yy-mm-dd'    });
+    $('#fechasepu').datepicker({            dateFormat: 'yy-mm-dd'    });
+    $('#fechasepr').datepicker({            dateFormat: 'yy-mm-dd'    });
+    $('#fechamin').datepicker({             dateFormat: 'yy-mm-dd'    });
+    $('#fechanacde').datepicker({           dateFormat: 'yy-mm-dd'    });
+    $('#fechahfa').datepicker({             dateFormat: 'yy-mm-dd'    });
+    $('#fechadfa').datepicker({             dateFormat: 'yy-mm-dd'    });
+    $('#fechacapreevento').datepicker({     dateFormat: 'yy-mm-dd'    });
+    $('fechadexlaboral').datepicker({       dateFormat: 'yy-mm-dd'    });
+    $('fechahexlaboral').datepicker({       dateFormat: 'yy-mm-dd'    });
+    $('fechadubf').datepicker({             dateFormat: 'yy-mm-dd'    });
+    $('fechahubf').datepicker({             dateFormat: 'yy-mm-dd'    });
+    $('fechaicontrato').datepicker({        dateFormat: 'yy-mm-dd'    });
+    $('fechafcontrato').datepicker({        dateFormat: 'yy-mm-dd'    });
+    $('fechahubf').datepicker({             dateFormat: 'yy-mm-dd'    });
+    });</script>
 <script th:inline="javascript">
 
     $(document).ready(function () {
     if ([[${msg}]] === 3){
-
     swal({
     title: "Exito!",
             text: "Registro eliminado correctamente",
             type: "success",
             icon: "success"
-            }).then(function() {
-//    location.href = '../../empleados/';
- location.href = '../../../empleados/show/'+[[${empleado}]];
+    }).then(function() {
+    location.href = '../../../empleados/show/' + [[${empleado}]];
     });
     }
-
     if ([[${msg}]] === 4){
     swal({
     title: "ERROR!",
             text: "Ocurrio un error en el proceso",
             type: "error",
             icon: "error"
-            });
+    });
     }
     });</script>         
-        
 </html>

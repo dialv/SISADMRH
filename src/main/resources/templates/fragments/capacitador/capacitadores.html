@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>listado de Capacitadores Capacitadores</title>
+        <title>Listado de capacitadores</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <img src="../../static/image/capacitador.png" width="75" th:src="@{/image/capacitador.png}"/>
             </div>
             <br>
-            <div th:if="${not #lists.isEmpty(capacitadores)}">
+            <div>
                 <table id="tablita" class="table table-striped table-bordered" >
                     <thead>
                         <tr>
@@ -26,12 +26,12 @@
                             <th>Institución que pertenece capacitador</th>
                             <th>Tipo capacitador</th>
                             <th>Tipo de  agrupación</th>
-                            <th>Dui de capacitador</th>
-                            <th>Nit de capacitador</th>
+                            <th>DUI de capacitador</th>
+                            <th>NIT de capacitador</th>
                             <th>Carnet de residecia</th>
-                            <th>Telefono fijo de capacitador</th>
-                            <th> Telefono movil de capacitador</th>
-                            <th>Email de capacitador</th>
+                            <th>Teléfono fijo de capacitador</th>
+                            <th> Teléfono movil de capacitador</th>
+                            <th>Correo de capacitador</th>
                             <!--                  <th>Codigo Empleado</th>-->
                             <th></th>
                             <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
@@ -43,7 +43,8 @@
 
                         <td th:text="${capacitador.codigocapacitador}">Código</td>
                         <td th:text="${capacitador.estadocapacitador}?'Activo':'Inactivo'">Estado</td>
-                        <td th:text="${capacitador.codigoempleado.nombreempleado}">Codigo</td>
+                        <!--<td th:text="${capacitador.codigoempleado.nombreempleado}">Codigo</td>-->
+                        <td th:text="${capacitador.codigoempleado.nombreempleado}+', '+${capacitador.codigoempleado.nombreempleado}">Nombre</td>
                         <td th:text="${capacitador.nombrecapacitador}">Nombre</td>
                         <td th:text="${capacitador.temadominio}">Tema</td>
                         <td th:text="${capacitador.institucioncapacitador}">Institución</td>

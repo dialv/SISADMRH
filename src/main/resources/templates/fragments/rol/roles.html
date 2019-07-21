@@ -7,49 +7,48 @@
 <body>
 
     <div class="row">
-             <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-     <div class="col-md-9">
-          <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/images.jpeg}"/>
-                    </div>
-        <!--<h3 align="center">Todos los Roles</h3>-->
-        <div th:if="${not #lists.isEmpty(roles)}">
-            <table id="tablita" class="table table-striped">
-                  <thead>  
-                <tr>
-                    <th>Código de rol</th>
-                    <th>Nombre de rol</th>
-                    <th>Descripcion de rol</th>
-                    <th></th><th></th><th></th>
-
-                </tr>
-                  </thead> 
-                <tr th:each="rol : ${roles}">
-                    <td th:text="${rol.codigorol}">Codigo</td>
-                    <td th:text="${rol.nombrerol}">Nombre</td>
-                    <td th:text="${rol.descripcionrol}">descripcion</td>
-                    <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-info">Mostrar</a></td>
-                     <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-success">Editar</a></td>
-                    <!--<td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>-->
-                   <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Borrar</a></td>
-                </tr>
-            </table>
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
         </div>
-         </div>
+        <div class="col-md-9">
+            <div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/images.jpeg}"/>
+            </div>
+            <div>
+                <table id="tablita" class="table table-striped">
+                    <thead>  
+                        <tr>
+                            <th>Código de rol</th>
+                            <th>Nombre de rol</th>
+                            <th>Descripcion de rol</th>
+                            <th></th><th></th><th></th>
+
+                        </tr>
+                    </thead> 
+                    <tr th:each="rol : ${roles}">
+                        <td th:text="${rol.codigorol}">Codigo</td>
+                        <td th:text="${rol.nombrerol}">Nombre</td>
+                        <td th:text="${rol.descripcionrol}">descripcion</td>
+                        <td><a th:href="${'./show/' + rol.codigorol}" class="btn btn-info">Mostrar</a></td>
+                        <td><a th:href="${'./edit/' + rol.codigorol}" class="btn btn-success">Editar</a></td>
+                        <!--<td><a th:href="${'./delete/' + rol.codigorol}" class="btn btn-danger">Delete</a></td>-->
+                        <td>  <a  class="btn btn-danger" th:onclick="'eliminar(\'' + ${rol.codigorol} + '\');'" >Borrar</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
     <script th:inline="javascript">
-        Textheader('pnt_crol',document.title);
-      $(document).ready(function () {
-            $('#tablita').DataTable( {
+        Textheader('pnt_crol', document.title);
+        $(document).ready(function () {
+        $('#tablita').DataTable({
         "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-        }} );
-    });
+        "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }});
+        });
     </script>
     <script th:inline="javascript">
-           $(document).ready(function () {
+        $(document).ready(function () {
         if ([[${msg}]] === 3){
         swal({
 

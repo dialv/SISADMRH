@@ -6,87 +6,79 @@
 </head>
 <body>
     <div class="row">
-             <div class="col-md-3">
-                        <th:block th:include="../templates/menu"></th:block>
-                    </div>
-     <div class="col-md-9">
-          <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/images.jpeg}"/>
-                    </div>
-         <div th:if="${not #lists.isEmpty(estados)}">
-        <table id="tablita" class="table table-striped">
-            <thead>
-            <tr>
-                <th>Codigo estado</th>
-                <th>Nombre estado</th>
-                <th>Valor estado</th>
-                 <th>Acciones</th>
-                
-            </tr>
-                        </thead>
-
-            <tr th:each="estado : ${estados}">
-                <td th:text="${estado.codigoestado}">Codigo</td>
-                <td th:text="${estado.nombreestado}">Nombre</td>
-                <td th:text="${estado.codigoestadosuperior}">superior</td>
-                
-                
-                
-                <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-info">Mostrar</a>
-                <a sec:authorize="hasRole('ROLE_OPERATIVO')" th:href="${'./edit/' + estado.codigoestado}" class="btn btn-success">Editar</a>
-                <a sec:authorize="hasRole('ROLE_OPERATIVO')" class="btn btn-danger" th:onclick="'eliminar(\'' + ${estado.codigoestado} + '\');'" >Eliminar</a>
-                <!--<a th:href="${'./delete/' + estado.codigoestado}" class="btn btn-danger">Delete</a>-->
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-     <script th:inline="javascript">
-         Textheader('pnt_cstd',document.title);
-        $(document).ready(function () {
-             $('#tablita').DataTable({
-                "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-                }});
-            
-    if([[${msg}]]===3){
-       swal({
-           
-                title: "Exito!",
-                text: "Registro Eliminado correctamente",
-                type: "success",
-                icon: "success",
-       }).then(function() {
-                location.href = '../../roles/';
-       }); 
-}
-    
-    if([[${msg}]]===4){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error al eliminar el registro",
-                type: "error",
-                icon: "error"
-       });
-    }
-    });
-        
-        function eliminar(id) {
+        <div class="col-md-3">
+            <th:block th:include="../templates/menu"></th:block>
+        </div>
+        <div class="col-md-9">
+            <div class="row text-center">
+                <img src="../../static/image/images.jpeg" width="75" th:src="@{/image/images.jpeg}"/>
+            </div>
+            <div>
+                <table id="tablita" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Codigo estado</th>
+                            <th>Nombre estado</th>
+                            <th>Valor estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tr th:each="estado : ${estados}">
+                        <td th:text="${estado.codigoestado}">Codigo</td>
+                        <td th:text="${estado.nombreestado}">Nombre</td>
+                        <td th:text="${estado.codigoestadosuperior}">superior</td>
+                        <td><a th:href="${'./show/' + estado.codigoestado}" class="btn btn-info">Mostrar</a>
+                            <a sec:authorize="hasRole('ROLE_OPERATIVO')" th:href="${'./edit/' + estado.codigoestado}" class="btn btn-success">Editar</a>
+                            <a sec:authorize="hasRole('ROLE_OPERATIVO')" class="btn btn-danger" th:onclick="'eliminar(\'' + ${estado.codigoestado} + '\');'" >Eliminar</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script th:inline="javascript">
+            Textheader('pnt_cstd', document.title);
+            $(document).ready(function () {
+            $('#tablita').DataTable({
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }});
+            if ([[${msg}]] === 3){
             swal({
-                title: "Desea Eliminar?",
-                text: "Favor confirme que desea eliminar este registro!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
+
+            title: "Exito!",
+                    text: "Registro Eliminado correctamente",
+                    type: "success",
+                    icon: "success",
+            }).then(function() {
+            location.href = '../../roles/';
+            });
+            }
+
+            if ([[${msg}]] === 4){
+            swal({
+            title: "ERROR!",
+                    text: "Ocurrio un error al eliminar el registro",
+                    type: "error",
+                    icon: "error"
+            });
+            }
+            });
+            function eliminar(id) {
+            swal({
+            title: "Desea Eliminar?",
+                    text: "Favor confirme que desea eliminar este registro!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
             })
                     .then((willDelete) => {
-                        if (willDelete) {
-                            location.href = './delete/' + id;
-                        } else {
-                            swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
-                        }
+                    if (willDelete) {
+                    location.href = './delete/' + id;
+                    } else {
+                    swal("Accion cancelada", "Se ha cancelado la operacion de eliminado", "error");
+                    }
                     });
-        }
-    </script>
+            }
+        </script>
 </body>
 </html>

@@ -63,7 +63,7 @@ public class Usuario implements Serializable {
     private List<Usuariorol> usuariorolList;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 9)
+    @Size(min = 1, max = 11)
     @Column(name = "dui")
     private String dui;
 

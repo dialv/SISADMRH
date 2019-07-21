@@ -34,7 +34,8 @@ public interface EmpleadoService {
     List<Object[]> PseronalActivoExcel(String finicial, String ffinal);    
     List<Object[]> EstadisticocapacitadoExcel(String finicial, String ffinal);
     List<Object[]> PersonalIndemnizadooExcel(String finicial, String ffinal);
-   
+    boolean activosPuestos(int estado);
+    
     
 
     List<Object[]> findBycumples(String finicial, String ffinal);

@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label class="col-sm-6 control-label">Nombre de empleado</label>
                             <div class="col-sm-6">
-                                <p class="form-control-static" th:text="${incapacidad.codigoempleado.nombreempleado}">Nombre de Incapacitado</p>
+                                <p class="form-control-static" th:text="${incapacidad.codigoempleado.nombreempleado}+', '+${incapacidad.codigoempleado.apellidoempleado}">Nombre de Incapacitado</p>
                             </div>
                         </div>
                         <div class="form-group">

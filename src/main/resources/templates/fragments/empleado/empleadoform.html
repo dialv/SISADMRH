@@ -407,7 +407,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Banco en el que se le deposita al empleado(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control"   required="true" size="50"   th:field="*{nombreinstiuciondepositar}"  />
+                        <input type="text" class="form-control"   required="true" size="50" maxlength="50"  th:field="*{nombreinstiuciondepositar}"  />
                     </div>
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup25')" onmouseout ="javascript:ocultarAyuda('poppup25')">a</a></b>
@@ -446,7 +446,7 @@
  <div class="form-group">
                 <label class="col-sm-3 control-label">Estado del empleado(*):</label>
                 <div class="col-sm-6">
-                    <select class="form-control" name="estadoempleado" th:field="*{estadoempleado}">
+                    <select class="form-control" name="estadoempleado" required="true" th:field="*{estadoempleado}">
                             <!--th:field="*{tipocuenta}">-->
                              <option value="7">--seleccione el estado del Empleado--</option>
                         <option value="1">Activo</option>

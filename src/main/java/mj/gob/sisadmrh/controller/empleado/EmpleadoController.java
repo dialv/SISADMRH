@@ -40,6 +40,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
+
 /**
  *
  * @author dialv
@@ -53,21 +54,25 @@ public class EmpleadoController extends UtilsController {
     private PuestoService puestoService;
     @Autowired
     private EstadoService estadoService;
+
     @Autowired
     public void SetPuestoService(PuestoService puestoService) {
         this.puestoService = puestoService;
     }
     private ContactoService contactoService;
+
     @Autowired
     public void setContactoService(ContactoService contactoService) {
         this.contactoService = contactoService;
     }
     private DependienteService dependienteRep;
+
     @Autowired
     public void setDependienteService(DependienteService dependienteRep) {
         this.dependienteRep = dependienteRep;
     }
     private CaparecibidasService caparecibidasRep;
+
     @Autowired
     public void setCaparecibidasService(CaparecibidasService caparecibidasRep) {
         this.caparecibidasRep = caparecibidasRep;
@@ -77,7 +82,7 @@ public class EmpleadoController extends UtilsController {
 
     @Autowired
     public void setDependienteService(FormacionacademicaService formacionacademicaRep) {
-        this.formacionacademicaRep = formacionacademicaRep ;
+        this.formacionacademicaRep = formacionacademicaRep;
     }
 
     private ExperiencialaboralService experiencialaboralRep;
@@ -134,6 +139,7 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("empleados", empleadoService.listAllActivos());
         return PREFIX + "empleados";
     }
+
     @RequestMapping(value = "/consulta", method = RequestMethod.GET)
     public String listconsulta(Model model) {
         model.addAttribute("empleados", empleadoService.listAllActivos());
@@ -141,11 +147,11 @@ public class EmpleadoController extends UtilsController {
     }
 
     @RequestMapping("edit/{id}")
-    public String edit(@PathVariable Integer id, Model model){
+    public String edit(@PathVariable Integer id, Model model) {
         Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("puestos", puestos);
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
-         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
+        model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
         return PREFIX + "empleadoform";
     }
@@ -160,53 +166,59 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("puestos", puestos);
         return PREFIX + "empleadoform";
     }
-    
-       @RequestMapping(value = "/municipio/{act}/{idemp}")
-        public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem ) throws Exception {
-        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
+
+    @RequestMapping(value = "/municipio/{act}/{idemp}")
+    public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem) throws Exception {
+        model.addAttribute("empleado", (idem == 0) ? new Empleado() : empleadoService.getEmpleadoById(idem));
         Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         model.addAttribute("municipios", estadoService.findBySuperior(act));
-        return  PREFIX + "empleadoform";
+        return PREFIX + "empleadoform";
     }
-       @RequestMapping(value = "/municipiore/{act}/{act2}/{act3}{idemp}")
-        public String actecores(@PathVariable(value = "act") Integer act,@PathVariable(value = "act2") Integer act2,@PathVariable(value = "act3") Integer act3, Model model, @PathVariable(value = "idemp") Integer idem  ) throws Exception {
+
+    @RequestMapping(value = "/municipiore/{act}/{act2}/{act3}{idemp}")
+    public String actecores(@PathVariable(value = "act") Integer act, @PathVariable(value = "act2") Integer act2, @PathVariable(value = "act3") Integer act3, Model model, @PathVariable(value = "idemp") Integer idem) throws Exception {
 //        model.addAttribute("municipiosres", estadoService.findBySuperior(act));
-        model.addAttribute("empleado",(idem==0)?new Empleado():empleadoService.getEmpleadoById(idem));
+        model.addAttribute("empleado", (idem == 0) ? new Empleado() : empleadoService.getEmpleadoById(idem));
         Iterable<Puesto> puestos = puestoService.listAllActivos();
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         model.addAttribute("municipios", estadoService.findBySuperior(act2));
-        model.addAttribute("mun",act3);
+        model.addAttribute("mun", act3);
         model.addAttribute("municipiores", estadoService.findBySuperior(act));
-        return  PREFIX + "empleadoform";
+        return PREFIX + "empleadoform";
     }
 
     @RequestMapping(value = "empleado")
-    public String saveEmpleado(@Valid Empleado empleado,BindingResult result, Model model,SessionStatus status) {//,SessionStatus status
+    public String saveEmpleado(@Valid Empleado empleado, BindingResult result, Model model, SessionStatus status) {//,SessionStatus status
         try {
-            try{
-            Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
-            Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
-//            empleado.setDepartamentonacimiento(depto.getNombreestado());
-//            empleado.setMunicipionacimiento(municipio.getNombreestado());
-             empleado.setDepartamentonacimiento(""+depto.getCodigoestado());
-            empleado.setMunicipionacimiento(""+municipio.getCodigoestado());
-            empleadoService.saveEmpleado(empleado);
+            try {
+                Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+                Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
+                empleado.setDepartamentonacimiento("" + depto.getCodigoestado());
+                empleado.setMunicipionacimiento("" + municipio.getCodigoestado());
+                modipuesto(empleado.getCodigopuesto());
+                empleadoService.saveEmpleado(empleado);
                 model.addAttribute("msg", 0);
-           
-            }catch(Exception e){
-            empleadoService.saveEmpleado(empleado);
-            
+
+            } catch (Exception e) {
+                empleadoService.saveEmpleado(empleado);
+
                 model.addAttribute("msg", 0);
             }
         } catch (Exception e) {
             model.addAttribute("msg", 1);
         }
         return PREFIX + "empleadoform";
+    }
+
+    private void modipuesto(Integer idpuesto) {
+        Puesto puesto = puestoService.getPuestoById(idpuesto).get();
+        puesto.setEstadopuesto(2);
+        puestoService.savePuesto(puesto);
     }
 
     @RequestMapping("show/{id}")
@@ -216,11 +228,10 @@ public class EmpleadoController extends UtilsController {
         Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
         empleado.setDepartamentonacimiento(depto.getNombreestado());
         empleado.setMunicipionacimiento(munic.getNombreestado());
-        model.addAttribute("empleado", empleado );
+        model.addAttribute("empleado", empleado);
         System.out.print("IDEMPLEADO" + id);
-        
-//         model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));
 
+//         model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));
         Iterable<Contacto> contacto = contactoService.findByDato(id);
         model.addAttribute("contactos", contacto);
 
@@ -253,6 +264,7 @@ public class EmpleadoController extends UtilsController {
 
         return PREFIX + "empleadoshow";
     }
+
     @RequestMapping("showcons/{id}")
     public String showEmpleadocons(@PathVariable Integer id, Model model) {
         Empleado empleado = empleadoService.getEmpleadoById(id).get();
@@ -260,7 +272,7 @@ public class EmpleadoController extends UtilsController {
         Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
         empleado.setDepartamentonacimiento(depto.getNombreestado());
         empleado.setMunicipionacimiento(munic.getNombreestado());
-        model.addAttribute("empleado", empleado );
+        model.addAttribute("empleado", empleado);
         System.out.print("IDEMPLEADO" + id);
 
         Iterable<Contacto> contacto = contactoService.findByDato(id);

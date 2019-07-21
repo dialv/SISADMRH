@@ -33,7 +33,7 @@
  <div class="form-group">
                                     <label class="col-sm-4 control-label">Responsable directo:</label>
                                     <div class="col-sm-7">
-                                        <p class="form-control-static" th:text="${cuadrodirectivo.codigoempleado.nombreempleado}">Codigo Empleado</p>
+                                        <p class="form-control-static" th:text="${cuadrodirectivo.codigoempleado.nombreempleado}+', '+${cuadrodirectivo.codigoempleado.apellidoempleado}">Codigo Empleado</p>
                                          <!--<p class="form-control-static" th:text="${capacitador.codigoempleado.codigoempleado}">Codigo Empleado</p>-->
                                     </div>
                                 </div>

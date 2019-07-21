@@ -160,6 +160,9 @@ public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
     @Query("SELECT o FROM Empleado o WHERE o.estadoempleado != 0")
     public Iterable<Empleado> listAllActivos();
     
+    @Query("SELECT o FROM Empleado o WHERE o.estadoempleado != 0 and o.codigopuesto= :idpuesto")
+    public Iterable<Empleado> listAllActivosPuestos(@Param("idpuesto") int estado);
+    
     
     @Query(value = "select \n" +
                         "em.idme,m.codigomision,m.nombremision, \n" +

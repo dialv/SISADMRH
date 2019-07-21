@@ -17,7 +17,7 @@
             <br>
             <div>
                 <form id ="usuarioform" autocomplete="off" class="form-horizontal" th:object="${usuario}" th:action="${msg==1?'../usuarios/usuario':'../usuario'}" method="post" >
-                    <h3>Introduzca los datos del Usuario</h3>
+                    <!--h3>Introduzca los datos del Usuario</h3-->
                     <input type="hidden" th:field="*{codigousuario}"/>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombres:</label>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
-                            <span class="popuptext" id="nomUser">Ingrese los Nombres del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
+                            <span class="popuptext" id="nomUser">Ingrese los Nombres del Usuario. Solo es permitido 50 caracteres. !!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -35,24 +35,24 @@
                             <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
                         </div>
                         <div class="popup col-sm-1"><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
-                            <span class="popuptext" id="nomUser">Ingrese los apellidos del Usuario. Solo es permitido digitos 50 caracteres. !!</span>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('apeUser')" onmouseout ="javascript:ocultarAyuda('apeUser')">a</a></b>
+                            <span class="popuptext" id="apeUser">Ingrese los apellidos del Usuario. Solo es permitido 50 caracteres. !!</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">DUI:</label>
                         <div class="col-sm-6">
-                            <input type="text" id="duius" name="duiuser" class="form-control numeros" required="true" size="100" maxlength="9" th:field="${usuario.dui}" />
+                            <input type="text" id="duius" name="duiuser" autocomplete="off" class="form-control numeros num_dui" required="true" size="100" maxlength="11" th:field="${usuario.dui}" />
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('dui')" onmouseout ="javascript:ocultarAyuda('dui')">a</a></b>
-                            <span class="popuptext" id="dui">Ingrese el DUI del Usuario. Solo es permitido digitos 9 caracteres. !!</span>
+                            <span class="popuptext" id="dui">Ingrese el DUI del Usuario. Solo es permitido 9 digitos.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" required="true" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
+                            <input type="text" class="form-control" required="true" autocomplete="off" id = "pass" size="100" maxlength="50" th:field="*{contraseniausuario}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passw')" onmouseout ="javascript:ocultarAyuda('passw')">a</a></b>
@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Confirmacion de contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="text" id="confpass" class="form-control" required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                            <input type="text" id="confpass" class="form-control" autocomplete="off" required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passwconf')" onmouseout ="javascript:ocultarAyuda('passwconf')">a</a></b>
@@ -72,12 +72,12 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha ingreso:</label>
                         <div class="col-sm-2">
-                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" th:field="*{fechaingreso}"/>
+                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" th:field="*{fechaingreso}" onchange="isDate(this.value)"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('finicio')" onmouseout ="javascript:ocultarAyuda('finicio')">a</a></b>
 
-                            <span class="popuptext" id="finicio">Ingrese la Fecha inicial de la Contraseña.  . !!</span>
+                            <span class="popuptext" id="finicio">Registre la fecha de ingreso del usuario</span>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -95,6 +95,26 @@
             <th:block th:include="../templates/footer"></th:block>
         </div>
 </body>
+
+<script>
+           
+					 function Fechas(val1,val2,val3,val4){
+                        var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
+                        if(foo[0]!=foo[2]){
+                            swal(foo[1], foo[0]);
+                        }
+                    }
+                    
+                    function isDate(val){
+                        var foo=FechaActualMayor(val);
+                        if(foo!=null){
+                            swal("ERROR!", "La fecha de ingreso no puede ser mayor que hoy");
+                           // $("#fingreso").val("");
+                        }
+                    }
+
+		
+	</script>
 <script th:inline="javascript">
     Textheader('pnt_geus', document.title);
     
@@ -156,7 +176,7 @@
     if ([[${msg}]] === 1){
     swal({
     title: "ERROR!",
-            text: "El numero de dui ya existe",
+            text: "El numero de DUI ya existe",
             icon: "error"
     });
     }
