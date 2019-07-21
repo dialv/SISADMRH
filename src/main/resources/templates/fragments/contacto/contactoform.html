@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Sexo del contacto(*):</label>
                         <div class="col-sm-5">
-                            <select class="form-control" name="sexocontanto" th:field="*{sexocontacto}">
+                            <select class="form-control" name="sexocontanto" required="true" th:field="*{sexocontacto}">
                                 <!--th:field="*{sexocontacto}" >-->
                                 <option value="0">--seleccione el sexo del contacto--</option>
                                 <option value="Femenino">Femenino</option>
@@ -149,8 +149,8 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Correo electronico del contacto(*):</label>
-                        <div class="col-sm-5">
-                            <input type="email" class="form-control" required="true"   th:field="*{emailcontacto}"    />
+                        <div class="col-sm-">
+                            <input type="email" class="form-control" required="true" size="100" maxlength="70"  th:field="*{emailcontacto}"    />
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup13')" onmouseout ="javascript:ocultarAyuda('poppup13')">a</a></b>
