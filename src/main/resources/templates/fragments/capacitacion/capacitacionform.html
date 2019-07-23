@@ -279,6 +279,9 @@
                     }
                     
         $(document).ready(function () {
+             $('#guardar').click(function(){
+		validate_value_field();
+	});
             $('#fdesde').datepicker({
                 dateFormat: 'dd/mm/yy'
             });

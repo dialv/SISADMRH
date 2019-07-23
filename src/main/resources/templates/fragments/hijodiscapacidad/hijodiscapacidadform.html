@@ -279,9 +279,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	 $('#btnGuardar').click(function(){
- $("#loader").addClass("loader");
-        $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
-            $("form#formcontacto").submit();
+// $("#loader").addClass("loader");
+var flag =validate_value_field();
+        if(flag==false){
+           $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
+            $("form#formcontacto").submit(); 
+        }
+        
             
         });
 	</script>

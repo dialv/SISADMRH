@@ -136,7 +136,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <div class="col-md-12">
             <div class="row" align="center">
                  <a href="#" th:href="@{/nivelescolaridades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit" id="guardar" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
             </div>
     </div>
@@ -164,7 +164,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     }
 //        funcion para validar los campos fecha
     $(document).ready(function () {//esto es ejecucion jquery cuando inicia con un $ las funciones para este script deben ir entre las etiquetas del script no en las de jquery
-        
+         $('#guardar').click(function(){
+		validate_value_field();
+	});
         $('#fdesde').datepicker({
            dateFormat: 'dd/mm/yy'
         });

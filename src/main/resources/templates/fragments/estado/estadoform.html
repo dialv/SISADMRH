@@ -57,7 +57,7 @@
            <div class="col-md-12">
             <div class="row" align="center">
                  <a href="#" th:href="@{/estados/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit" id="guardar"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                         
             </div>
@@ -76,6 +76,9 @@
 <script th:inline="javascript">
     Textheader('pnt_cstd',document.title);
     $(document).ready(function () {
+        $('#guardar').click(function(){
+		validate_value_field();
+	});
     if ([[${msg}]] === 0){
     swal({
     title: "Exito!",

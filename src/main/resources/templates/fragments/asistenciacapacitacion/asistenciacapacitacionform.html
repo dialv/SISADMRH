@@ -105,7 +105,7 @@
                         <div class="col-md-12">
                             <div class="row" align="center">
                                 <a href="#" th:href="@{/asistenciacapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                                <button type="submit" onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                <button type="submit" id="guardar"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                                 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
                             </div>
@@ -119,6 +119,10 @@
         <script th:inline="javascript">
             Textheader('pnt_acap', document.title);
             $(document).ready(function () {
+                $('#guardar').click(function(){
+                        validate_value_field();
+//                    $("#loader").addClass("loader");
+                    });
                 Textheader('pnt_asca', document.title);
                 $('#fechadesdecomite').datepicker({
                     dateFormat: 'yy-mm-dd'

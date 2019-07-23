@@ -258,10 +258,12 @@
                                     dateFormat: 'dd/mm/yy'
                                     });
                                     });$('#btnGuardar').click(function(){
-                                    $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
-                                    $("form#formcontacto").submit();
-                                    }
-                                    );</script>
+                                        var flag =validate_value_field();
+                                        if(flag==false){
+                                            $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
+                                            $("form#formcontacto").submit(); 
+                                        }
+                                    });</script>
 <script th:inline="javascript">
 
     $(document).ready(function () {

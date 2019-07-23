@@ -303,8 +303,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	 $('#btnGuardar').click(function(){
-            $("#formex").attr('action', '../experiencialaboral/'+ $("#codem").val().toString());
-            $("form#formex").submit();
+             var flag =validate_value_field();
+        if(flag==false){
+             $("#formex").attr('action', '../experiencialaboral/'+ $("#codem").val().toString());
+            $("form#formex").submit();           
+        }
+
             
         });
 		

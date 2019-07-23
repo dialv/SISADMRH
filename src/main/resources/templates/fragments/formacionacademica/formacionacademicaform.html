@@ -298,9 +298,13 @@
 		    });
 		});
                 $('#btnGuardar').click(function(){
-                     $("#loader").addClass("loader");
-            $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
-            $("form#formformacion").submit();
+//                     $("#loader").addClass("loader");
+        var flag =validate_value_field();
+        if(flag==false){
+             $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
+            $("form#formformacion").submit();           
+        }
+
             
         });
 	</script>

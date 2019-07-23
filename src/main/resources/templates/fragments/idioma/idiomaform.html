@@ -280,8 +280,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	 $('#btnGuardar').click(function(){
+             var flag =validate_value_field();
+        if(flag==false){
             $("#formidioma").attr('action', '../idioma/'+ $("#codem").val().toString());
-            $("form#formidioma").submit();
+            $("form#formidioma").submit();            
+        }
+
             
         });
 	</script>

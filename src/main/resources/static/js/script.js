@@ -335,6 +335,87 @@ function edit_fecha_format() {
     }
 
 }
+function required_field_select(){
+    var formularios = document.forms;
+    var flag= false;
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+//                        var value = formularios[i].elements[j].setAttribute();
+                        var value2 = formularios[i].elements[j].value;
+                        var value3 = formularios[i].elements[j].type;
+                        if(value3.includes("select") && value2==("") ){
+                            formularios[i].elements[j].setAttribute("required","required");;
+//                            formularios[i].elements[j].setAttribute("aria-required", "true");;
+//                            alert(value2+ " "+value3);
+                        }
+                         if(value3.includes("select") && value2==("0") ){
+                            formularios[i].elements[j].setAttribute("required","required");;
+//                            formularios[i].elements[j].setAttribute("aria-required", "true");;
+//                            alert(value2+ " "+value3);
+                            formularios[i].elements[j].value="";
+                        }
+						
+						if(value3.includes("select") && value2==("-1") ){
+                            formularios[i].elements[j].setAttribute("required","required");;
+//                            formularios[i].elements[j].setAttribute("aria-required", "true");;
+//                            alert(value2+ " "+value3);
+                            formularios[i].elements[j].value="";
+                        }
+
+                }            
+            }
+            return flag;
+          }
+function validate_value_field(){
+    var formularios = document.forms;
+    var flag= false;
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+//                        var value = formularios[i].elements[j].setAttribute();
+                        var value2 = formularios[i].elements[j].value;
+                        var value3 = formularios[i].elements[j].type;
+                         var value4 = formularios[i].elements[j].id;
+//                        if(value3.includes("select") && value2==("")){
+////                            formularios[i].elements[j].setAttribute("required", "true");;
+//                            formularios[i].elements[j].setAttribute("aria-required", "true");;
+////                            alert(value2+ " "+value3);
+//                        }
+                        if (value3.includes("reset") || value3.includes("submit") || value3.includes("hidden")){
+                        }else{
+                             if(value3.includes("select") && value2==("0") ){
+                            formularios[i].elements[j].setAttribute("required","required");;
+//                            formularios[i].elements[j].setAttribute("aria-required", "true");;
+//                            alert(value2+ " "+value3);
+                            formularios[i].elements[j].value="";
+                            value2="";
+                        }
+						
+						if(value3.includes("select") && value2==("-1") ){
+                            formularios[i].elements[j].setAttribute("required","required");;
+//                            formularios[i].elements[j].setAttribute("aria-required", "true");;
+//                            alert(value2+ " "+value3);
+                            formularios[i].elements[j].value="";
+                            value2="";
+                        }
+                            
+                            if(value2==("") ){
+                                flag=true;
+//                                alert(value2+ " "+value3);
+                                }
+                                
+                            }
+                }
+                if (flag==false){
+                     onclik_validate_value_field();
+                }
+                
+            }
+            return flag;
+          }
+
+function onclik_validate_value_field(){
+        $("#loader").addClass("loader");
+            }
 
 function pdffile(){
     var formularios = document.forms;

@@ -257,10 +257,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
               
 		});
                   $('#btnGuardar').click(function(){
-            $("#formcaprecibidas").attr('action', '../caparecibida/'+ $("#codem").val().toString());
-            $("form#formcaprecibidas").submit();
-            
-        });
+                      var flag =validate_value_field();
+                    if(flag==false){
+                        $("#formcaprecibidas").attr('action', '../caparecibida/'+ $("#codem").val().toString());
+                        $("form#formcaprecibidas").submit();
+                    }
+                });
 	</script>
 
               <script th:inline="javascript">

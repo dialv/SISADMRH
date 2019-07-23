@@ -78,7 +78,7 @@
                     <div class="col-md-12">
                         <div class="row" align="center">
                             <a href="#" th:href="@{/costocapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit"  id="guardar"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                         </div>
                     </div>
@@ -93,6 +93,9 @@
 
     <script>
         $(document).ready(function () {
+             $('#guardar').click(function(){
+		validate_value_field();
+	});
         Textheader('pnt_cosc', document.title);
         $('#fechadesdecomite').datepicker({
         dateFormat: 'yy-mm-dd'

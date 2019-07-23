@@ -138,9 +138,12 @@
     $('#Asignarbtn').click(function(){
 //            $("#formempleado").attr('action', '../../mision/asignar/'+ $("#cmbmision").val().toString()+'/'+$("#codigo").val().toString());
 //            $("form#formempleado").submit();
-//            
-             location.href = '../mision/asignar/'+ $("#cmbmision").val().toString()+'/'+$("#codigo").val().toString();
-            
+            var flag =validate_value_field();
+        if(flag==false){
+                    location.href = '../mision/asignar/'+ $("#cmbmision").val().toString()+'/'+$("#codigo").val().toString();
+                 
+        }
+
         });
         
 

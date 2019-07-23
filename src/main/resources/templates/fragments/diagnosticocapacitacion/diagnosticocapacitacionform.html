@@ -251,9 +251,12 @@
 
 <script th:inline="javascript">
     $(document).ready(function () {
-       $('#guardar').click(function(){
-                    $("#loader").addClass("loader");
-                    });
+        $('#guardar').click(function(){
+		validate_value_field();
+	});
+//       $('#guardar').click(function(){
+//                    $("#loader").addClass("loader");
+//                    });
         if ([[${msg}]] === 0){
                        $("#loader").addClass("loader");
      

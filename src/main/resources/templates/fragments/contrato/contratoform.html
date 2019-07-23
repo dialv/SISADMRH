@@ -346,11 +346,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
                  $('#btnGuardar').click(function(){
-                      $("#loader").addClass("loader");
-            $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
-            $("form#formcontrato").submit();
-//            
-        });
+//                      $("#loader").addClass("loader");
+                    var flag =validate_value_field();
+                            if(flag==false){
+                                $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
+                                $("form#formcontrato").submit();
+                            }
+                });
                 
                 var URLactual = window.location.href;
                 if (URLactual.includes("edit")){

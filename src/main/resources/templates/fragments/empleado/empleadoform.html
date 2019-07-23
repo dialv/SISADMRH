@@ -529,9 +529,12 @@
                     }
 		
 		$(document).ready(function () {
-                    $('#guardar').click(function(){
-                    $("#loader").addClass("loader");
-                    });
+//                    $('#guardar').click(function(){
+//                    $("#loader").addClass("loader");
+//                    });
+$('#guardar').click(function(){
+		validate_value_field();
+	});
 		    var date = new Date();
 		    var currentMonth = date.getMonth();
 		    var currentDate = date.getDate();
