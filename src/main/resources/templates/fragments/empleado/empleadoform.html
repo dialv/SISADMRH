@@ -120,7 +120,7 @@
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de nacimiento del empleado(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" size="10" name="fechanacimiento" id="fechanacimiento"  th:field="*{fechanacimientoempleado}" onchange="fechaNac(this.value,'fechanacimiento')" />
+                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" size="10" required="true" name="fechanacimiento" id="fechanacimiento"  th:field="*{fechanacimientoempleado}" onchange="fechaNac(this.value,'fechanacimiento')" />
                     
                 </div>
                  <div class="popup "><b>
@@ -134,7 +134,7 @@
                 <div class="col-sm-5">
                     <select class="form-control" name="nacionalidad" th:field="*{nacionalidad}">
                         <!--th:field="*{nacionalidad}">-->
-                        <option value="0">--seleccione la nacionalidad del empleado--</option>
+                        <option value="">--seleccione la nacionalidad del empleado--</option>
                         <option value="Salvadoreño">Salvadoreño</option>
                         <option value="Hondureño">Hondureño</option>
 
@@ -181,7 +181,7 @@
                 <div class="col-sm-5">
                     <select class="form-control" name="estadofamiliar" th:field="*{estadofamiliar}">
                             <!--th:field="*{estadofamiliar}">-->
-                              <option value="0">--seleccione el estado familiar del Empleado--</option>
+                              <option value="">--seleccione el estado familiar del Empleado--</option>
                         <option value="Soltero">Soltero</option>
                         <option value="Casado">Casado</option>
                          <option value="Viudo">Viudo</option>
@@ -198,7 +198,7 @@
                 <div class="col-sm-5">
                     <select class="form-control" name="sexoempleado" th:field="*{sexoempleado}">
                             <!--th:field="*{sexoempleado}">-->
-                              <option value="0">--seleccione el sexo del empleado--</option>
+                              <option value="">--seleccione el sexo del empleado--</option>
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
                     </select>
@@ -327,7 +327,7 @@
                 <label class="col-sm-3 control-label">Fecha de ingreso al sector publico (*):</label>
                 <div class="col-sm-2">
                     
-                     <input class="form-control fecha_format" type="text"   placeholder="dia/mes/año" name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}"  onchange="isDat(this.value,'fechasepu');Fechas(this.value,$('#fechamin').val().toString(),'fechasepu','fechamin')" />
+                     <input class="form-control fecha_format" type="text"   placeholder="dia/mes/año" required="true" name="fechasepu" id="fechasepu" th:field="*{fechaingresosecpub}"  onchange="isDat(this.value,'fechasepu');Fechas(this.value,$('#fechamin').val().toString(),'fechasepu','fechamin')" />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup19')" onmouseout ="javascript:ocultarAyuda('poppup19')">a</a></b>
@@ -338,7 +338,7 @@
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de ingreso al sector privado(*):</label>
                 <div class="col-sm-2">
-                    <input class="form-control fecha_format" type="text"  placeholder="dia/mes/año"  name="fechasepr" id="fechasepr"  th:field="*{fechaingresosecpriv}"  onchange="isDat(this.value,'fechasepr')"/>
+                    <input class="form-control fecha_format" type="text"  placeholder="dia/mes/año" required="true" name="fechasepr" id="fechasepr"  th:field="*{fechaingresosecpriv}"  onchange="isDat(this.value,'fechasepr')"/>
                  </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
@@ -349,7 +349,7 @@
                    <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de Ingreso al ministerio(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" type="text"  name="fechamin" id="fechamin"  th:field="*{fechaingresoministerio}" onchange="isDat(this.value,'fechamin');Fechas($('#fechasepu').val().toString(),this.value,'fechasepu','fechamin')" />
+                     <input class="form-control fecha_format" type="text" placeholder="dia/mes/año" required="true"   name="fechamin" id="fechamin"  th:field="*{fechaingresoministerio}" onchange="isDat(this.value,'fechamin');Fechas($('#fechasepu').val().toString(),this.value,'fechasepu','fechamin')" />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup21')" onmouseout ="javascript:ocultarAyuda('poppup21')">a</a></b>
@@ -364,7 +364,7 @@
                         <!--<input type="text" class="form-control"    th:field="*{gruposanquineo}" />-->
                           <select class="form-control" name="gruposanquineo" th:field="*{gruposanquineo}" >
                             <!--th:field="*{departamentorecidencia}">-->
-                        <option value="0">--seleccione el grupo sanguineo del empleado--</option>
+                        <option value="">--seleccione el grupo sanguineo del empleado--</option>
                         <option value="Grupo A">Grupo A</option>
                         <option value="Grupo B">Grupo B</option>
                          <option value="Grupo AB">Grupo AB</option>
@@ -382,7 +382,7 @@
                 <div class="col-sm-5">
                     <select class="form-control" name="afiliacionpension"  th:field="*{afiliacionpension}">
                             <!--th:field="*{afiliacionpension}" >-->
-                             <option value="0">--seleccione tipo de pension del Empleado--</option>
+                             <option value="">--seleccione tipo de pension del Empleado--</option>
                         <option value="AFP CONFIA">AFP CONFIA</option>
                         <option value="AFP CRECER">AFP CRECER</option>
                     </select>
@@ -420,7 +420,7 @@
                 <div class="col-sm-5">
                     <select class="form-control" name="tipocuenta" th:field="*{tipocuenta}">
                             <!--th:field="*{tipocuenta}">-->
-                             <option value="0">--seleccione el tipo de cuenta Bancaria del Empleado--</option>
+                             <option value="">--seleccione el tipo de cuenta Bancaria del Empleado--</option>
                         <option value="Ahorros">Ahorros</option>
                         <option value="Corriente">Corriente</option>
                     </select>
@@ -448,7 +448,7 @@
                 <div class="col-sm-6">
                     <select class="form-control" name="estadoempleado" required="true" th:field="*{estadoempleado}">
                             <!--th:field="*{tipocuenta}">-->
-                             <option value="7">--seleccione el estado del empleado--</option>
+                             <option value="">--seleccione el estado del empleado--</option>
                         <option value="1">Activo</option>
                         <option value="3">Pensionado</option>
                         <option value="2">Indemnizado</option>

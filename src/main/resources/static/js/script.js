@@ -282,17 +282,75 @@ function Textheader(texto,titulo){
 function fecha_format() {
     var msg = '';
     var formularios = document.forms;
+    var valuearray=new Array();
+    var idarray=new Array();
+    var typearray=new Array();
     for (var i=0; i<formularios.length;i++){
                     for (var j=0; j<formularios[i].elements.length; j++){
                         var value = formularios[i].elements[j].id;
-                        if(value.includes("fecha") || value.includes("fdesde") || value.includes("fhasta") ){
-//                            alert("id:"+value)
-                                   var val= formularios[i].elements[j].value
-                                   val=nufecha(val)
-                                   formularios[i].elements[j].value=val
-                                    }
+                        var value2= formularios[i].elements[j].value;
+                        var value3= formularios[i].elements[j].type;
+                        valuearray.push(value2);
+                        idarray.push(value);
+                        typearray.push(value3);
+//                        if(value.includes("fecha") || value.includes("fdesde") || value.includes("fhasta") ){
+//                           
+//                                   var val= formularios[i].elements[j].value
+//                                    
+//                                    
+//                                    if(val!=""){
+//                                        val=nufecha(val)
+//                                        formularios[i].elements[j].value=val
+//                                        }
+//                                   
+//                                    }
                     }
     }
+    
+     var flag1=false;
+//                    
+                     for(var i=0;i<idarray.length;i++)
+                        {
+                            
+                            if (typearray[i].toString().includes("reset") || typearray[i].toString().includes("submit") || typearray[i].toString().includes("hidden") | typearray[i].toString().includes("file")){
+                                        }else{
+                                           var val= valuearray[i].toString()
+//                                            alert("valor:"+val)
+                                            if(val==""){
+                                               flag1=true; 
+                                            } 
+                                        }
+
+                         }
+//                    alert(flag1);
+                    if(flag1==false){
+                    for(var i=0;i<idarray.length;i++)
+                    {
+                        
+                        if(idarray[i].toString().includes("fecha") || idarray[i].toString().includes("fdesde") || idarray[i].toString().includes("fhasta") ){
+                           
+                                   var val= valuearray[i].toString();
+                                    if(val!=""){
+                                        val=nufecha(val)
+//                                        formularios[i].elements[j].value=val
+//                                        alert("id:"+idarray[i].toString()+" val:"+val);
+                                       
+                                            for (var k=0; k<formularios.length;k++){
+                                                 for (var j=0; j<formularios[k].elements.length; j++){
+                                                     var idvalue = formularios[k].elements[j].id;
+                                                     if(idarray[i].toString()==idvalue){
+                                                        
+                                                        formularios[k].elements[j].value=val;     
+                                                         alert("id:"+idarray[i].toString()+" idvalue:"+idvalue+" val:"+val);
+                                                     }
+                                                 }
+                                             }
+                                        
+                                        }
+                                   
+                                    }
+                    }  
+                    }
 
 }
 
@@ -352,14 +410,14 @@ function required_field_select(){
                             formularios[i].elements[j].setAttribute("required","required");;
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
 //                            alert(value2+ " "+value3);
-                            formularios[i].elements[j].value="";
+//                            formularios[i].elements[j].value="";
                         }
 						
-						if(value3.includes("select") && value2==("-1") ){
+			if(value3.includes("select") && value2==("-1") ){
                             formularios[i].elements[j].setAttribute("required","required");;
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
 //                            alert(value2+ " "+value3);
-                            formularios[i].elements[j].value="";
+//                            formularios[i].elements[j].value="";
                         }
 
                 }            
@@ -369,19 +427,23 @@ function required_field_select(){
 function validate_value_field(){
     var formularios = document.forms;
     var flag= false;
+    var valuearray=new Array();
+    var typearray=new Array();
     for (var i=0; i<formularios.length;i++){
                     for (var j=0; j<formularios[i].elements.length; j++){
 //                        var value = formularios[i].elements[j].setAttribute();
                         var value2 = formularios[i].elements[j].value;
                         var value3 = formularios[i].elements[j].type;
-                         var value4 = formularios[i].elements[j].id;
+//                        var value4 = formularios[i].elements[j].id;
 //                        if(value3.includes("select") && value2==("")){
 ////                            formularios[i].elements[j].setAttribute("required", "true");;
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
-////                            alert(value2+ " "+value3);
+//                            alert(value2+ " "+value3);
 //                        }
-                        if (value3.includes("reset") || value3.includes("submit") || value3.includes("hidden")){
-                        }else{
+                        if (value3.includes("reset") || value3.includes("submit") || value3.includes("hidden")|| value3.includes("file")){
+                        }else{ 
+                             valuearray.push(value2);
+                              typearray.push(value3);
                              if(value3.includes("select") && value2==("0") ){
                             formularios[i].elements[j].setAttribute("required","required");;
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
@@ -390,32 +452,50 @@ function validate_value_field(){
                             value2="";
                         }
 						
-						if(value3.includes("select") && value2==("-1") ){
+			if(value3.includes("select") && value2==("-1") ){
                             formularios[i].elements[j].setAttribute("required","required");;
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
 //                            alert(value2+ " "+value3);
                             formularios[i].elements[j].value="";
                             value2="";
                         }
-                            
-                            if(value2==("") ){
-                                flag=true;
-//                                alert(value2+ " "+value3);
-                                }
+                        
+                        
+//                            if(value2==("") ){
+////                                alert(value2+ " "+value3);
+//                                flag=true;
+////                                alert(flag+ " flag");
+//                                }
                                 
                             }
                 }
-                if (flag==false){
-                     onclik_validate_value_field();
-                }
+                
+                
                 
             }
+            
+//             alert("tamaño "+valuearray.length);
+                 
+                for(var i=0;i<valuearray.length;i++)
+                    {
+                         if(valuearray[i].toString()==("") ){
+                             flag=true; 
+//                             alert(valuearray[i].toString()+" "+typearray[i].toString());
+                         }//else{flag=false;}
+                    }
+//                    alert(flag);
+                fecha_format();
+                if (flag==false){
+//                    alert(" No debe Entrar");
+//                     onclik_validate_value_field();
+                      $("#loader").addClass("loader");
+                }
             return flag;
           }
 
-function onclik_validate_value_field(){
-        $("#loader").addClass("loader");
-            }
+//function onclik_validate_value_field(){
+//        $("#loader").addClass("loader");
+//            }
 
 function pdffile(){
     var formularios = document.forms;
