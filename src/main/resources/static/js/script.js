@@ -341,7 +341,8 @@ function fecha_format() {
                                                      if(idarray[i].toString()==idvalue){
                                                         
                                                         formularios[k].elements[j].value=val;     
-                                                         alert("id:"+idarray[i].toString()+" idvalue:"+idvalue+" val:"+val);
+  // arturo comente esto porque salia de metido en las fechas
+  //                                                        alert("id:"+idarray[i].toString()+" idvalue:"+idvalue+" val:"+val);
                                                      }
                                                  }
                                              }
