@@ -1,331 +1,196 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!--     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head lang="en">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+        <style type="text/css">
+            .boton{ width:30px;                 height:30px;               background-color:#03800b;
+                    margin: 5px;                padding:10px;              -webkit-border-radius: 50px;
+                    -moz-border-radius: 50px;   border-radius: 50px;       font-size:11px;
+                    line-height:32px;           text-transform: uppercase; float:left;
+            }
+            .boton:hover{
+                opacity: 0.50;  -moz-opacity: .50;  filter:alpha (opacity=50);
+            }
+            .boton a{
+                color:#fff;  text-decoration:none;  padding:5px 5px 5px 0;
+            }
+        </style>
 
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
-     <style type="text/css">
-     .boton{
-  width:30px;
-  height:30px;
-  background-color:#03800b;
-  margin: 5px;
-  padding:10px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  font-size:11px;
-  line-height:32px;
-  text-transform: uppercase;
-  float:left;
-}
-.boton:hover{
-  opacity: 0.50;
-  -moz-opacity: .50;
-  filter:alpha (opacity=50);
-}
-.boton a{
-  color:#fff;
-  text-decoration:none;
-  padding:5px 5px 5px 0;
-}
- </style>
-     
-    <title>Crear Hijo Con Discapacidad</title>
-  <th:block th:include="../templates/header"></th:block>
-  </head>
+        <title>Crear Hijo Con Capacidades especiales</title>
+    <th:block th:include="../templates/header"></th:block>
+</head>
 <body>
-<!--    <div class="contenedorizq"><label  >pnt_ce13</label>  
-    <label  class="der">
-    <script >
-var f = new Date();
-document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-</script></label>
-</div><br>-->
-<script> Textheader('pnt_ce13',document.title);</script>
-<!--<div class="container">-->
- <div class="row">
- <div class="col-md-3">
+    <script> Textheader('pnt_ce13', document.title);</script>
+    <div class="row">
+        <div class="col-md-3">
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-8">
             <div class="row text-center">
-                    <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/discapacidad.jpg}"/>
+                <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/discapacidad.jpg}"/>
             </div>
-    <h3 align="center">   </h3>
-    
-
-    
-        <br>
-          <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
-            
-            <div class="col-md-12" style="background-color:#d9edf7;">
-                <div class="panel-info">
-                    <div class="panel-heading row text-center">
-                        <h3>Gestionando información del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+            <h3 align="center">   </h3>
+            <br>
+            <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+                <div class="col-md-12" style="background-color:#d9edf7;">
+                    <div class="panel-info">
+                        <div class="panel-heading row text-center">
+                            <h3>Gestionando información del empleado:  <label id="nomemp" class=" control-label" th:text="${empleado.nombreempleado} +' ' +${empleado.apellidoempleado}"></label> </h3>
+                        </div>
                     </div>
+                    <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
                 </div>
-                 <input type="hidden" id="codem"  th:value="${empleado.codigoempleado}"/>
-            </div>
             </form>
-      <form class="form-horizontal" id="formcontacto" th:object="${hijodiscapacidad}" th:action="@{../hijodiscapacidad}" method="post">
-<!--          <span th:object="${empleadoContacto}"> 
-             <input type="text" th:field="*{codigoempleado}"/>
-          </span>-->
-            <input type="hidden" th:field="*{codigohijodiscapacidad}"/>
-<!--            <input type="hidden" th:field="*{nombrehijodiscapacidad}"/>-->
-            <!--<input type="hidden" id="codem"  />-->
-            <div class="col-md-12"  >
-                 <div class="form-group">
-                     <br>
-                    <label class="col-sm-3 control-label">Nombres del hijo con discapacidad(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombrehijodiscapacidad}"  />
+            <form class="form-horizontal" id="formcontacto" th:object="${hijodiscapacidad}" th:action="@{../hijodiscapacidad}" method="post">
+                <input type="hidden" th:field="*{codigohijodiscapacidad}"/>
+                <div class="col-md-12"  >
+                    <div class="form-group">
+                        <br>
+                        <label class="col-sm-3 control-label">Nombres del hijo con capacidades especiales(*):</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{nombrehijodiscapacidad}"  />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
+
+                            <span class="popuptext" id="poppup2">Ingrese el nombre del Hijo del  empleado solo se admitiran 50 caracteres.!</span>
+                        </div>
                     </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup2">Ingrese el nombre del Hijo del  empleado solo se admitiran 50 caracteres.!</span>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Apellidos del hijo con capacidades especiales(*):</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{apellidohijodiscapacidad}"   />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                            <span class="popuptext" id="poppup3">Ingrese el apellido del hijo del empleado solo se admitiran 50 caracteres.!</span>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Nombre de capacidad especial(*):</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombrediscapacidad}"  />
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup6')" onmouseout ="javascript:ocultarAyuda('poppup6')">a</a></b>
+                            <span class="popuptext" id="poppup6">Seleccione el nombre de la discpacidad del hijo del empleado desplegando la lista.!</span>
+                        </div>
                     </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Apellidos del hijo con discapacidad(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"    required="true" size="50" maxlength="50" th:field="*{apellidohijodiscapacidad}"   />
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Tipo de capacidad especial(*):</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="tipodiscapacidad" th:field="*{tipodiscapacidad}" >
+                                <option value="0">--seleccione el tipo de capacidad especial--</option>
+                                <option value="Mental">Mental</option>
+                                <option value="Fisica">Fisica</option>
+                            </select>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
+                            <span class="popuptext" id="poppup5">Seleccione la discapacidad del hijo del empleado desplegando la lista.!</span>
+                        </div>
                     </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup3">Ingrese el apellido del hijo del empleado solo se admitiran 50 caracteres.!</span>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Fecha de nacimiento del hijo con discapacidad:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control fecha_format"  type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value, 'fechasepr'); fechaNac(this.value, 'fechasepr')"/>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
+                                <span class="popuptext" id="poppup4">Seleccione o digite la fecha de nacimiento del hijo del empleado el formtado debe ser  dia/mes/año .!</span>
+                        </div>
                     </div>
                 </div>
-                      <div class="form-group">
-                    <label class="col-sm-3 control-label">Nombre de discapacidad(*):</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control"  required="true" size="50" maxlength="50"  th:field="*{nombrediscapacidad}"  />
-                    </div>
-                    <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup6')" onmouseout ="javascript:ocultarAyuda('poppup6')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup6">Seleccione el nombre de la discpacidad del hijo del empleado desplegando la lista.!</span>
+                <div class="col-md-12">
+                    <div class="row" align="center">
+                        <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
+                        <button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                        <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                     </div>
                 </div>
-                     <div class="form-group">
-                <label class="col-sm-3 control-label">Tipo de discapacidad(*):</label>
-                <div class="col-sm-5">
-                    <select class="form-control" name="tipodiscapacidad" th:field="*{tipodiscapacidad}" >
-                            <!--th:field="*{sexocontacto}" >-->
-                        <option value="0">--seleccione el tipo de discapacidad--</option>
-                        <option value="Mental">Mental</option>
-                        <option value="Fisica">Fisica</option>
-                    </select>
-                </div>
-                <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup5')" onmouseout ="javascript:ocultarAyuda('poppup5')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup5">Seleccione la discapacidad del hijo del empleado desplegando la lista.!</span>
-                    </div>
-            </div>
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Fecha de nacimiento del hijo con discapacidad:</label>
-                    <div class="col-sm-2">
-                          <input class="form-control fecha_format"  type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value,'fechasepr');fechaNac(this.value,'fechasepr')"/>
-                    </div>
-                     <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
-                        
-                        <span class="popuptext" id="poppup4">Seleccione o digite la fecha de nacimiento del hijo del empleado el formtado debe ser  dia/mes/año .!</span>
-                    </div>
-                    </div>
-                     
-                </div>
-                
-          <div class="col-md-12">
-            <div class="row" align="center">
-
-                <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-
-<button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-
-<button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
-
-<!--                <button type="button" class="btn btn-default"><a href="#" th:href="@{/empleados/}">Regresar</a></button>
-                <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
-                <button type="reset" class="btn btn-default">Limpiar</button>
-            </div>-->
-    </div>
-            <!--</span>-->
-      </form>
-        
-      
-  
-
-               </div>
-            </div>
-
-   <div class="col-md-12">
-            <th:block th:include="../templates/footer"></th:block>
+            </form>
         </div>
-
-        
-       
+    </div>
+    <div class="col-md-12">
+        <th:block th:include="../templates/footer"></th:block>
+    </div>
 </body>
- 
-<script src="../static/css/hydro/js/jquery.js"></script>
-	<script>
-            function fechaNac(val,id){
-                        var foo=FechaNacimientoh(val,id).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-                    
-                    function isDat(val,id){
-                        var foo=ExisteFecha(val,id).split(",");;
-                        if(foo[0]!=foo[2]){
-                            swal(foo[1], foo[0]);
-                        }
-                    }
-// 		$(document).ready(function() {
-// 			$(function () {
-// 				$("#datepickersince").datepicker();
-// 			});
 
-// 			$(function () {
-// 				$("#datepickeruntil").datepicker();
-// 			});
-// 		});
-		
-		$(document).ready(function () {
-		    var date = new Date();
-		    var currentMonth = date.getMonth();
-		    var currentDate = date.getDate();
-		    var currentYear = date.getFullYear();
-                    
-		    $('#fechanacimiento').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		       dateFormat: 'dd/mm/yy'
-		    });
-		    
-		    $('#fechasepu').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechasepr').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechamin').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechanacde').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechahfa').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechadfa').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('#fechacapreevento').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                    $('fechadexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    $('fechahexlaboral').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    $('fechadubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                     $('fechaicontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                     $('fechafcontrato').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-                    
-                     $('fechahubf').datepicker({
-// 		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'dd/mm/yy'
-		    });
-		});
-	 $('#btnGuardar').click(function(){
-// $("#loader").addClass("loader");
-var flag =validate_value_field();
-        if(flag==false){
-           $("#formcontacto").attr('action', '../hijodiscapacidad/'+ $("#codem").val().toString());
-            $("form#formcontacto").submit(); 
-        }
-        
-            
-        });
-	</script>
-        <script th:inline="javascript">
-    $(document).ready(function () {
-    if([[${msg}]]===0){
-        $("#loader").addClass("loader");
-            swal({
-                title: "Exito!",
-                text: "Registro agregado correctamente",
-                type: "success",
-                icon: "success"
-       }).then(function() {
-                 location.href = '../../empleados/';
-           
-       }); 
+<script src="../static/css/hydro/js/jquery.js"></script>
+<script>
+function fechaNac(val, id){
+var foo = FechaNacimientoh(val, id).split(","); ;
+if (foo[0] != foo[2]){
+swal(foo[1], foo[0]);
 }
-    
-    if([[${msg}]]===1){
-        swal({
-                title: "ERROR!",
-                text: "Ocurrio un error en el proceso",
-                type: "error",
-                icon: "error"
-       });
-    }
+}
+
+function isDat(val, id){
+var foo = ExisteFecha(val, id).split(","); ;
+if (foo[0] != foo[2]){
+swal(foo[1], foo[0]);
+}
+}
+$(document).ready(function () {
+var date = new Date();
+var currentMonth = date.getMonth();
+var currentDate = date.getDate();
+var currentYear = date.getFullYear();
+$('#fechanacimiento').datepicker({      dateFormat: 'dd/mm/yy'      });
+$('#fechasepu').datepicker({            dateFormat: 'dd/mm/yy'      });
+$('#fechasepr').datepicker({            dateFormat: 'dd/mm/yy'      });
+$('#fechamin').datepicker({             dateFormat: 'dd/mm/yy'      });
+$('#fechanacde').datepicker({           dateFormat: 'dd/mm/yy'      });
+$('#fechahfa').datepicker({             dateFormat: 'dd/mm/yy'      });
+$('#fechadfa').datepicker({             dateFormat: 'dd/mm/yy'      });
+$('#fechacapreevento').datepicker({     dateFormat: 'dd/mm/yy'      });
+$('fechadexlaboral').datepicker({       dateFormat: 'dd/mm/yy'      });
+$('fechahexlaboral').datepicker({       dateFormat: 'dd/mm/yy'      });
+$('fechadubf').datepicker({             dateFormat: 'dd/mm/yy'      });
+$('fechahubf').datepicker({             dateFormat: 'dd/mm/yy'      });
+$('fechaicontrato').datepicker({        dateFormat: 'dd/mm/yy'      });
+$('fechafcontrato').datepicker({        dateFormat: 'dd/mm/yy'      });
+$('fechahubf').datepicker({             dateFormat: 'dd/mm/yy'      });
+});
+$('#btnGuardar').click(function(){
+$("#loader").addClass("loader");
+$("#formcontacto").attr('action', '../hijodiscapacidad/' + $("#codem").val().toString());
+$("form#formcontacto").submit();
+});
+</script>
+<script th:inline="javascript">
+    $(document).ready(function () {
+    if ([[${msg}]] === 0){
+    $("#loader").addClass("loader");
+    swal({
+    title: "Exito!",
+            text: "Registro agregado correctamente",
+            type: "success",
+            icon: "success"
+    }).then(function() {
+    location.href = '../../empleados/';
     });
-</script> 
-        <script>       
-            var URLactual = window.location.href;
-                if (URLactual.includes("edit")){
-//                    alert("str");
-                }
-                else{
-//                    alert("str1");
-var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
-//alert(str);
-$(function () {
-          document.getElementById("codem").value = str;
-      });}
-	</script>
-        
+    }
+
+    if ([[${msg}]] === 1){
+    swal({
+    title: "ERROR!",
+            text: "Ocurrio un error en el proceso",
+            type: "error",
+            icon: "error"
+    });
+    }
+    });</script> 
+<script>
+    var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
+    }
+    else{
+    var str = URLactual.substring(URLactual.indexOf("new") + 4, URLactual.length);
+    $(function () {
+    document.getElementById("codem").value = str;
+    }); }
+</script>
 </html>

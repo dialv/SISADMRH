@@ -1,36 +1,19 @@
 package mj.gob.sisadmrh.controller.hijodiscapacidad;
 
-import mj.gob.sisadmrh.controller.hijodiscapacidad.*;
-import mj.gob.sisadmrh.controller.hijodiscapacidad.*;
-import mj.gob.sisadmrh.controller.hijodiscapacidad.*;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadohijodiscapacidad;
 import mj.gob.sisadmrh.model.EmpleadohijodiscapacidadPK;
 import mj.gob.sisadmrh.model.Hijodiscapacidad;
-import mj.gob.sisadmrh.model.Hijodiscapacidad;
 import mj.gob.sisadmrh.service.EmpleadoHijosdiscapacidadService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.HijosdiscapacidadService;
-import mj.gob.sisadmrh.service.HijosdiscapacidadService;
-//import mj.gob.sisadmrh.service.HijodiscapacidadHijodiscapacidadService;
-import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 /**
@@ -43,13 +26,10 @@ import org.springframework.web.bind.support.SessionStatus;
 public class HijodiscapacidadController extends UtilsController{
     
     private HijosdiscapacidadService hijodiscapacidadService ;
-//    private HijodiscapacidadHijodiscapacidadService hijodiscapacidadHijodiscapacidadService;
     @Autowired
     private EmpleadoHijosdiscapacidadService empleadoHijosdiscapacidadService;
     @Autowired
     private EmpleadoService empleadoService;
-
-
     
     @Autowired
     public void setHijodiscapacidadService(HijosdiscapacidadService hijodiscapacidadService) {
@@ -77,8 +57,7 @@ public class HijodiscapacidadController extends UtilsController{
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un hijo con discapacidad",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-//        return "redirect:/empleados/show/"+id;
-model.addAttribute("msg", 2);
+         model.addAttribute("msg", 2);
          model.addAttribute("empleado",id);
           return PREFIX +"hijodiscapacidads";
     }
@@ -109,10 +88,7 @@ model.addAttribute("msg", 2);
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
-        
-//        return "redirect:./show/" + hijodiscapacidad.getCodigohijodiscapacidad();
-// return "redirect:/empleados/show/"+id;
-return PREFIX +"hijodiscapacidads";
+    return PREFIX +"hijodiscapacidads";
     }
     
     @RequestMapping("show/{id}/{idemp}")    
@@ -129,15 +105,12 @@ return PREFIX +"hijodiscapacidads";
             hijodiscapacidad.setEstadohijos(0);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
-          model.addAttribute("empleado",cod);
+            model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
-//            model.addAttribute("hijodiscapacidad", hijodiscapacidad);
         }
         catch(Exception e){
             model.addAttribute("msg", 4);
         }
-//        return "redirect:/empleados/";
-//        return "redirect:/hijodiscapacidades/";
         return PREFIX +"hijodiscapacidads";
     }
     
@@ -155,6 +128,4 @@ return PREFIX +"hijodiscapacidads";
         }
             return "redirect:/empleados/";
     }
-    
-    
 }

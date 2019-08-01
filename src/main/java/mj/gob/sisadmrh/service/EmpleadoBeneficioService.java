@@ -14,5 +14,5 @@ public interface EmpleadoBeneficioService {
 
     Empleadobeneficio saveEmpleadobeneficio(Empleadobeneficio beneficio);
 
-    void deleteEmpleadobeneficio(Integer id);
+    void deleteEmpleadobeneficio(Empleadobeneficio id);
 }

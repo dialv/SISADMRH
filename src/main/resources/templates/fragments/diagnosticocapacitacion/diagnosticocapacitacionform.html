@@ -77,7 +77,7 @@
                     <div class="form-group">
                         <label class="col-sm-5 control-label">Que mes es mas oportuno hacer las capacitaciones(*):</label>
                         <div class="col-sm-4" >
-                              <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
+                              <input type="hidden" class="form-control "  maxlength="200"  placeholder="" id="meses" th:field="*{mescapacitacion}"/>
                             <ul>
                                 <li>
                                     <input id="features1" name="mescapacitacion" type="checkbox" value="Enero" />
@@ -114,7 +114,7 @@
                                     <input name="_features" type="hidden" value="on" />
                                     <label for="features8">AGO</label>
 
-                                    <input id="features9" name="mescapacitacion" type="checkbox" value="Setbiembre" />
+                                    <input id="features9" name="mescapacitacion" type="checkbox" value="Setbiembre"  />
                                     <input name="_features" type="hidden" value="on" />
                                     <label for="features9">SEP</label>
 
@@ -280,7 +280,45 @@
     }
     });
 </script> 
-
+<script>
+    var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
+       if($("#meses").val().toString().includes("Enero")){
+           document.getElementById("features1").checked = true;
+       } if($("#meses").val().toString().includes("Febrero")){
+           document.getElementById("features2").checked = true;
+       } if($("#meses").val().toString().includes("Marzo")){
+           document.getElementById("features3").checked = true;
+       } if($("#meses").val().toString().includes("Abril")){
+           document.getElementById("features4").checked = true;
+       } if($("#meses").val().toString().includes("Mayo")){
+           document.getElementById("features5").checked = true;
+       } if($("#meses").val().toString().includes("Junio")){
+           document.getElementById("features6").checked = true;
+       } if($("#meses").val().toString().includes("Julio")){
+           document.getElementById("features7").checked = true;
+       } if($("#meses").val().toString().includes("Agosto")){
+           document.getElementById("features8").checked = true;
+       } if($("#meses").val().toString().includes("Septiembre")){
+           document.getElementById("features9").checked = true;
+       } if($("#meses").val().toString().includes("Octubre")){
+           document.getElementById("features10").checked = true;
+       } if($("#meses").val().toString().includes("Noviembre")){
+           document.getElementById("features11").checked = true;
+       } if($("#meses").val().toString().includes("Diciembre")){
+           document.getElementById("features12").checked = true;
+       }
+         $("#meses").val(""); 
+    }
+//   
+    else{
+//                    alert("str1");
+// $('#btngestionar').hide();
+// $('#divpop').hide();
+                     document.getElementById('btngestionar').style.display = 'none';
+                     document.getElementById('divpop').style.display = 'none';
+  }
+</script>
 
 
 </body>	

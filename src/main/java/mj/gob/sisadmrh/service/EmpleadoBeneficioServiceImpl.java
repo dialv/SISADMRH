@@ -2,6 +2,7 @@ package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Empleadobeneficio;
+import mj.gob.sisadmrh.model.EmpleadobeneficioPK;
 import mj.gob.sisadmrh.repository.EmpleadoBeneficioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,8 +39,8 @@ public class EmpleadoBeneficioServiceImpl implements EmpleadoBeneficioService {
     }
 
     @Override
-    public void deleteEmpleadobeneficio(Integer id) {
-        empleadobeneficiorep.deleteById(id);
+    public void deleteEmpleadobeneficio(Empleadobeneficio id) {
+        empleadobeneficiorep.delete(id);
     }
 
 
