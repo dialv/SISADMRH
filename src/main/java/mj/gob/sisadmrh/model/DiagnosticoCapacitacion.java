@@ -49,7 +49,7 @@ public class DiagnosticoCapacitacion implements Serializable {
     @Size(max = 500)
     @Column(name = "NECESIDADCAPACITACION")
     private String necesidadcapacitacion;
-    @Size(max = 20)
+    @Size(max = 500)
     @Column(name = "MESCAPACITACION")
     private String mescapacitacion;
     @Size(max = 500)

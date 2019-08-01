@@ -114,7 +114,7 @@
                         <div class="col-sm-5">
                             <select class="form-control" name="sexocontanto" required="true" th:field="*{sexocontacto}">
                                 <!--th:field="*{sexocontacto}" >-->
-                                <option value="0">--seleccione el sexo del contacto--</option>
+                                <option value="">--seleccione el sexo del contacto--</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
                             </select>
@@ -133,7 +133,7 @@
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup11')" onmouseout ="javascript:ocultarAyuda('poppup11')">a</a></b>
 
-                            <span class="popuptext" id="poppup11">Ingrese el telefono fijo del Contacto del Empleado solo se admitiran 9 digitos.!</span>
+                            <span class="popuptext" id="poppup11">Ingrese el telefono fijo del Contacto del empleado solo se admitiran digitos del 0 al 9!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -149,7 +149,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Correo electronico del contacto(*):</label>
-                        <div class="col-sm-">
+                        <div class="col-sm-5">
                             <input type="email" class="form-control" required="true" size="100" maxlength="70"  th:field="*{emailcontacto}"    />
                         </div>
                         <div class="popup "><b>
@@ -258,15 +258,19 @@
                                     dateFormat: 'dd/mm/yy'
                                     });
                                     });$('#btnGuardar').click(function(){
-                                    $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
-                                    $("form#formcontacto").submit();
-                                    }
-                                    );</script>
+                                        var flag =validate_value_field();
+//                                        alert(flag);
+                                        if(flag==false){
+//                                            alert(flag);
+                                            $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
+                                            $("form#formcontacto").submit(); 
+                                        }
+                                    });</script>
 <script th:inline="javascript">
 
     $(document).ready(function () {
     if ([[${msg}]] === 0){
-alert(document.getElementById("codem").value);
+//alert(document.getElementById("codem").value);
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",

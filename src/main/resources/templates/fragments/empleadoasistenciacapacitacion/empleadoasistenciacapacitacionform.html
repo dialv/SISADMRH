@@ -72,10 +72,14 @@
     });
     
      $('#btnGuardar').click(function(){
-//         alert($("#asistencia").val().toString());          
-            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/'+ $("#asistencia").val()+"/"+$("#empleado").val());
-//            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/');
-            $("form#formempasis").submit();
+//         alert($("#asistencia").val().toString()); 
+        var flag =validate_value_field();
+                if(flag==false){
+                    $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/'+ $("#asistencia").val()+"/"+$("#empleado").val());
+        //            $("#formempasis").attr('action', '../empleadoasistenciacapacitacion/');
+                    $("form#formempasis").submit();           
+                }
+
     });
 
    });

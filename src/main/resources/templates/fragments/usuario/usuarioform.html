@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nombres:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombrecompleto}" />
+                            <input type="text" id="nombres" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombrecompleto}" />
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('nomUser')" onmouseout ="javascript:ocultarAyuda('nomUser')">a</a></b>
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Apellidos:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
+                            <input type="text" id="apellido" class="form-control letras" required="true" size="100" maxlength="50" th:field="*{nombreusuario}" />
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('apeUser')" onmouseout ="javascript:ocultarAyuda('apeUser')">a</a></b>
@@ -72,7 +72,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha ingreso:</label>
                         <div class="col-sm-2">
-                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" th:field="*{fechaingreso}" onchange="isDate(this.value)"/>
+                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" required="true" th:field="*{fechaingreso}" onchange="isDate(this.value)"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('finicio')" onmouseout ="javascript:ocultarAyuda('finicio')">a</a></b>
@@ -132,9 +132,27 @@
         var pass = $("#pass").val();
         if (pass == $("#confpass").val()){
             if (pass.length >= 8){
-                $("#loader").addClass("loader");
-                $("#fingreso").val(nufecha($("#fingreso").val()));
-                $("form#usuarioform").submit();
+                if($('#fingreso').val()!==""){
+                    if($('#nombres').val()!==""&&$('#apellido').val()!==""){
+                        $("#loader").addClass("loader");
+                        $("#fingreso").val(nufecha($("#fingreso").val()));
+                        $("form#usuarioform").submit();
+                    }
+                    else{
+                        swal({
+                        title: "ERROR!",
+                        text: "Nombre y apellido no puede estar vacio",
+                        icon: "error"
+                        });
+                    }
+                }
+                else{
+                    swal({
+                    title: "ERROR!",
+                    text: "la fecha de ingreso no puede estar vacia",
+                    icon: "error"
+                });
+                }
             }
             else{
             swal({

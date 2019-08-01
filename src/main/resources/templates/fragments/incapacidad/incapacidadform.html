@@ -3,8 +3,8 @@
     <head lang="en">
         <title>Crear Incapacidad</title>
     <th:block th:include="../templates/header"></th:block>
-    <script type="text/javascript" th:src="@{/js/validacion_controladores.js}"></script>
-    <script type="text/javascript" th:src="@{/js/validacion_controladores2.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/validacion_controladores.js}"></script>-->
+    <!--<script type="text/javascript" th:src="@{/js/validacion_controladores2.js}"></script>-->
 </head>
 <body>
     <div class="row">
@@ -22,7 +22,7 @@
                                 <label class="col-sm-4 control-label">Nombres empleado:(*)</label>
                                 <div class="col-sm-7" >
                                     <select class="form-control"  id="combo" th:field="*{codigoempleado.codigoempleado}" >
-                                        <option value="0">-- Seleccione un empleado --</option>
+                                        <option value="">-- Seleccione un empleado --</option>
                                         <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                                     </select>
                                 </div>
@@ -84,11 +84,11 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Fecha inicio incapacidad:(*)</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control fecha_format " id="fdesde" required="true" th:field="*{fechadesdeincapacidad}"onchange="isDat(this.value, 'fechainicio'); Fechas(this.value, $('#fhasta').val().toString(), 'fechainicio', 'fhasta')"/>
+                                    <input type="text" class="form-control fecha_format " id="fdesde" required="true" th:field="*{fechadesdeincapacidad}"onchange="isDat(this.value, 'fdesde'); Fechas(this.value, $('#fhasta').val().toString(), 'fdesde', 'fhasta')"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
                                         <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
-                                        <span class="popuptext" >Ingrese la fecha inicio de la incapacidad.</span>
+                                        <span class="popuptext" id="fechainicio">Ingrese la fecha inicio de la incapacidad.</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -117,7 +117,7 @@
                                 <label class="col-sm-3 control-label">Tipo incapacidad(*):</label>
                                 <div class="col-sm-8">
                                     <select class="form-control"  th:field="*{tipoincapacidad}" >
-                                        <option value="0">-- Seleccione un tipo incapacidad --</option>
+                                        <option value="">-- Seleccione un tipo incapacidad --</option>
                                         <option value="Parcial">Parcial</option>
                                         <option value="Permanente">Permanente</option>
                                     </select>
@@ -131,7 +131,7 @@
                                 <label class="col-sm-3 control-label">Forma incapcidad(*):</label>
                                 <div class="col-sm-8">
                                         <select class="form-control"  th:field="*{formaincapacidad}">
-                                        <option value="0">-- Seleccione una forma incapacidad --</option>
+                                        <option value="">-- Seleccione una forma incapacidad --</option>
                                         <option value="Remunerada">Remunerada</option>
                                         <option value="No remunerada"> No remunerada</option>
                                     </select>
@@ -177,7 +177,7 @@
                         <div class="col-md-12">
                             <div class="row" align="center">
                                 <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                                <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                <button type="submit" id="guardar"   class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                                 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                             </div>
                         </div>
@@ -225,6 +225,12 @@
     }
     }
     $(document).ready(function () {
+
+                     $('#guardar').click(function(){
+//                         alert("");
+		validate_value_field();
+	});
+        
     $('#femision').datepicker({
     dateFormat: 'dd/mm/yy'
     });
@@ -234,6 +240,8 @@
     $('#fhasta').datepicker({
     dateFormat: 'dd/mm/yy'
     });
+    
+
     });
     $('#combo').change(function () {
                     $.ajax({

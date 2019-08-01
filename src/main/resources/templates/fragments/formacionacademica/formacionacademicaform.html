@@ -92,7 +92,7 @@
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup12')" onmouseout ="javascript:ocultarAyuda('poppup12')">a</a></b>
                         
-                        <span class="popuptext" id="poppup12">Ingrese los años aprobados del Empleado solo se admitiran  digitos.!</span>
+                        <span class="popuptext" id="poppup12">Ingrese los años aprobados del empleado solo se admitiran  digitos del 0 al 9.!</span>
                     </div>
                 </div>
 <!--                 <div class="form-group">
@@ -113,7 +113,7 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha desde(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechadfa');Fechas(this.value,$('#fechahfa').val().toString(),'fechadfa','fechahfa')"/>
+                    <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" required="true"  name="fechadfa" id="fechadfa"   th:field="*{fechadesdeformacionacademica}" onchange="isDat(this.value,'fechadfa');Fechas(this.value,$('#fechahfa').val().toString(),'fechadfa','fechahfa')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup19')" onmouseout ="javascript:ocultarAyuda('poppup19')">a</a></b>
@@ -124,12 +124,12 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha hasta(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahfa" id="fechahfa" th:field="*{fechahastaformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
+                    <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" required="true"  name="fechahfa" id="fechahfa" th:field="*{fechahastaformacionacademica}" onchange="isDat(this.value,'fechahfa');Fechas($('#fechadfa').val().toString(),this.value,'fechadfa','fechahfa')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
                         
-                        <span class="popuptext" id="poppup20">ingrese la Fecha inicial de los estudios realizados por el Empleado el formtado debe ser  dia/mes/año .!</span>
+                        <span class="popuptext" id="poppup20">ingrese la Fecha inicial de los estudios realizados por el empleado .</span>
                     </div>
             </div>
                   <div class="form-group">
@@ -156,11 +156,11 @@
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup16')" onmouseout ="javascript:ocultarAyuda('poppup16')">a</a></b>
                         
-                        <span class="popuptext" id="poppup16">Ingrese el titulo obtenido por el Empleado solo se admitiran 9 digitos.!</span>
+                        <span class="popuptext" id="poppup16">Ingrese el titulo obtenido por el empleado solo se admitiran 200 caracteres!</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Subir Titulo</label>
+                    <label class="col-sm-2 control-label">Subir titulo</label>
                     <div class="col-sm-5">
                         <input type="file" name="file" />
                                <!--class="" required="true" th:field="*{docaprovacion}"-->
@@ -170,7 +170,7 @@
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup26')" onmouseout ="javascript:ocultarAyuda('poppup26')">a</a></b>
                         
-                        <span class="popuptext" id="poppup26">selecione el archivo PDF del titulo obtenido por el Empleado hacer click en el boton selecionar archivo.!</span>
+                        <span class="popuptext" id="poppup26">selecione el archivo PDF del titulo obtenido por el empleado hacer click en el boton selecionar archivo.!</span>
                     </div>
                 </div>
 
@@ -298,9 +298,13 @@
 		    });
 		});
                 $('#btnGuardar').click(function(){
-                     $("#loader").addClass("loader");
-            $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
-            $("form#formformacion").submit();
+//                     $("#loader").addClass("loader");
+        var flag =validate_value_field();
+        if(flag==false){
+             $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
+            $("form#formformacion").submit();           
+        }
+
             
         });
 	</script>

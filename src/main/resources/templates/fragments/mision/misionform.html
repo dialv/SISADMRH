@@ -537,8 +537,11 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <script th:inline="javascript">
       $(document).ready(function () {
            $('#guardar').click(function(){
-                    $("#loader").addClass("loader");
-                    });
+		validate_value_field();
+	});
+//           $('#guardar').click(function(){
+////                    $("#loader").addClass("loader");
+//                    });
     if([[${msg}]]===0){
         $("#loader").addClass("loader");
                     

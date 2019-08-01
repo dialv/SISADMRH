@@ -78,6 +78,7 @@ public class ComiteController extends UtilsController {
                      StackTraceElement[] elementRaster3 = ex.getStackTrace();
                      for (int in3=0;in3<elementRaster3.length;in3++) {
                          final StackTraceElement elementSTD=elementRaster3[in3];
+                           System.out.println(" "+comite.getFechadesdecomite());
                          System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
                          System.out.println("   getMethodName="+elementSTD.getMethodName());
                          System.out.println("   getLineNumber="+elementSTD.getLineNumber());

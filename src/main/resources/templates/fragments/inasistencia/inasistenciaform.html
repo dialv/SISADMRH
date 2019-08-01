@@ -61,7 +61,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-2 control-label">Justificacion inasistencia:(*)</label>
                     <div class="col-sm-9">
-                        <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  required="true" th:field="*{constanciainasistencia}">
+                        <textarea rows="3" cols="50" class="form-control" size="200" maxlength="200"  fth:field="*{constanciainasistencia}">
 
                             </textarea>
                         <!--<input type="text" class="form-control" size="200" maxlength="200" required="true" th:field="*{constanciainasistencia}"/>-->
@@ -75,7 +75,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-2 control-label"> Fecha inicio inasistencia:(*)</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control fecha_format" id="fdesde" required="true" th:field="*{fechadesdeinasistencia}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                        <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" size="10"  id="fdesde" required="true" th:field="*{fechadesdeinasistencia}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                     </div>
                        <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechadesde')" onmouseout ="javascript:ocultarAyuda('fechadesde')">a</a></b>
@@ -86,7 +86,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-2 control-label"> Fecha fin inasistencia:(*)</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechahastainasistencia}"onmouseout ="javascript:ocultarAyuda('fechahasta')"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                        <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" size="10"  id="fhasta" required="true" th:field="*{fechahastainasistencia}"onmouseout ="javascript:ocultarAyuda('fechahasta')"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                     </div>
                      <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechahasta')" >a</a></b>
@@ -111,7 +111,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 </div>
                         <div class="row" align="center">
                              <a href="#" th:href="@{/inasistencias/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit"  onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit" id="guardar"   onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                         </div>
                          
@@ -141,6 +141,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         }
                     }
     $(document).ready(function () {
+//         $('#guardar').click(function(){
+//		validate_value_field();
+//	});
         $('#fdesde').datepicker({
             dateFormat: 'dd/mm/yy'
         });

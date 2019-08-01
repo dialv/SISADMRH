@@ -212,6 +212,9 @@
 <script th:inline="javascript">
     Textheader('pnt_ccap',document.title);
     $(document).ready(function () {
+         $('#guardar').click(function(){
+		validate_value_field();
+	});
 //         $('#guardar').click(function(){
 //                    $("#loader").addClass("loader");
 //                    });
