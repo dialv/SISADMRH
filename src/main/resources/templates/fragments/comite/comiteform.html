@@ -22,7 +22,7 @@
                 <div>
                     <br>
                     <div class="col-md-12">
-                    <form class="form-horizontal" onsubmit="return validateForm()" th:object="${comite}" th:action="@{../comite}" method="post">
+                    <form class="form-horizontal" th:object="${comite}" th:action="@{../comite}" method="post">
                                   <input type="hidden" th:field="*{codigocomite}"/>
                         <!--  <input type="hidden" th:field="*{nombrecomite}"/>-->
                       
@@ -117,12 +117,11 @@
                         <span class="popuptext" id="fechahasta">Ingrese la Fecha de finalizacion del comite. Haga un clic en la caja vacía.!</span>
                     </div>
                         </div>
-                        </div>
 
                         <div class="col-md-12">
                             <div class="row" align="center">
                                  <a href="#" th:href="@{/comites/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                                <button type="submit"  id="guardar"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                <button type="submit"  id="guardar"   class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                                 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                             </div>
                         </div>

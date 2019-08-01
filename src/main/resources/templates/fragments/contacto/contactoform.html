@@ -114,7 +114,7 @@
                         <div class="col-sm-5">
                             <select class="form-control" name="sexocontanto" required="true" th:field="*{sexocontacto}">
                                 <!--th:field="*{sexocontacto}" >-->
-                                <option value="0">--seleccione el sexo del contacto--</option>
+                                <option value="">--seleccione el sexo del contacto--</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Masculino">Masculino</option>
                             </select>
@@ -149,7 +149,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Correo electronico del contacto(*):</label>
-                        <div class="col-sm-">
+                        <div class="col-sm-5">
                             <input type="email" class="form-control" required="true" size="100" maxlength="70"  th:field="*{emailcontacto}"    />
                         </div>
                         <div class="popup "><b>
@@ -259,7 +259,9 @@
                                     });
                                     });$('#btnGuardar').click(function(){
                                         var flag =validate_value_field();
+//                                        alert(flag);
                                         if(flag==false){
+//                                            alert(flag);
                                             $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
                                             $("form#formcontacto").submit(); 
                                         }
@@ -268,7 +270,7 @@
 
     $(document).ready(function () {
     if ([[${msg}]] === 0){
-alert(document.getElementById("codem").value);
+//alert(document.getElementById("codem").value);
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",

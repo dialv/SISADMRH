@@ -34,7 +34,7 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha inicio de comisión(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechadesdecomision" id="fechadesdecomision"  th:field="*{fechadesdecomision}" onchange="isDat(this.value,'fechahastacomision');Fechas(this.value,$('#fechahastacomision').val().toString(),'fechadesdecomision','fechahastacomision')"/>
+                     <input class="form-control fecha_format" required="true" placeholder="dia/mes/año" type="text"  name="fechadesdecomision" id="fechadesdecomision"  th:field="*{fechadesdecomision}" onchange="isDat(this.value,'fechahastacomision');Fechas(this.value,$('#fechahastacomision').val().toString(),'fechadesdecomision','fechahastacomision')"/>
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup21')" onmouseout ="javascript:ocultarAyuda('poppup21')">a</a></b>
@@ -45,7 +45,7 @@
                 <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha  fin de comisión(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechahastacomision" id="fechahastacomision"  th:field="*{fechahastacomision}" onchange="isDat(this.value,'fechahastacomision');Fechas($('#fechadesdecomision').val().toString(),this.value,'fechadesdecomision','fechahastacomision')"/>
+                     <input class="form-control fecha_format" required="true" placeholder="dia/mes/año" type="text"  name="fechahastacomision" id="fechahastacomision"  th:field="*{fechahastacomision}" onchange="isDat(this.value,'fechahastacomision');Fechas($('#fechadesdecomision').val().toString(),this.value,'fechadesdecomision','fechahastacomision')"/>
                 </div>
                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup20')" onmouseout ="javascript:ocultarAyuda('poppup20')">a</a></b>
@@ -56,7 +56,7 @@
                 <div class="form-group">
                                 <label class="col-sm-3 control-label">Numero de acuerdo comisión:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" th:field="*{numeroacuerdocomision}"/>
+                                    <input type="text" required="true" class="form-control numeros" maxlength="6" th:field="*{numeroacuerdocomision}"/>
                                 </div>
                                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2012')" onmouseout ="javascript:ocultarAyuda('poppup2012')">a</a></b>
