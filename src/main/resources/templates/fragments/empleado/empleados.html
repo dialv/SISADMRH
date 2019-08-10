@@ -20,10 +20,11 @@
             <thead> 
                 <tr>
                 <th>Código</th>
-                <th>Nombre</th>
+                <th>Estado</th>
+                <th >Nombre</th>
                 <th>Fecha de nacimiento</th>
                 <th>DUI</th>
-                <th>NIT</th>
+                <!--<th>NIT</th>-->
                 <th>Correo electronico</th>
                 <th></th>
                 <th sec:authorize="hasRole('ROLE_OPERATIVO')"></th>
@@ -32,10 +33,17 @@
              </thead>
             <tr th:each="empleado : ${empleados}">
                 <td th:text="${empleado.codigoempleado}">Código empleado</td>
+                 <td>
+                        <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span>
+                        <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span>
+                        <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"  ></span>
+                        <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span>
+                        <span th:if="${empleado.estadoempleado} == 5"  th:text="De Baja"  ></span>
+                    </td> 
                 <td th:text="${empleado.nombreempleado} + ' ' + ${empleado.apellidoempleado} ">nombreempleado</td>
                 <td th:text="${#calendars.format(empleado.fechanacimientoempleado, 'dd/MM/yyyy')}">Fecha nacimiento empleado</td>                
                 <td th:text="${empleado.duiempleado}">Dui empleado</td>
-                <td th:text="${empleado.nitempleador}">Nit empleador</td>
+                <!--<td th:text="${empleado.nitempleador}">Nit empleador</td>-->
                 <td th:text="${empleado.emailempleado}">Email empleado</td>
                 <td><a th:href="${'./showcons/' + empleado.codigoempleado}" class="btn btn-info">Mostrar</a></td>
                 <!--<td><a th:href="${'./show/' + empleado.codigoempleado}" class="btn btn-info">Gestion <br> complementaria</a></td>-->

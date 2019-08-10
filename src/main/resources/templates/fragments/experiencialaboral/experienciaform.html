@@ -70,7 +70,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             </div>
             </form>
 <form class="form-horizontal" id="formex" th:object="${experiencialaboral}" th:action="@{../experiencialaboral}" method="post">
-                <input type="hidden" th:field="*{codigoexperiencialaboral}"/>
+                <input type="hidden" id="codex" th:field="*{codigoexperiencialaboral}"/>
                 <!--<input type="hidden" id="codem"  />-->
             <div class="col-md-12" >
                  <div class="form-group">
@@ -251,6 +251,27 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         }
                         
                     }
+                    
+                     function validar_salarios_guardar(){
+                        var flag=false;
+                        var val1 = document.getElementById("salarioinicial").value; 
+                        var val2 = document.getElementById("salariofinal").value; 
+//                        alert("/val1:/"+val1+"/val2:/"+val2);
+                        if(val1 == ("") || val2 == ("") ){
+//                             alert("/val1:/"+val1+"/val2:/"+val2);
+                        }else{
+                            var a = parseFloat(val1)
+                            var b = parseFloat(val2)
+                             if(a>b){
+                                 flag=false;
+//                                   swal("Validacion de Salarios","El Salario Final no debe ser Mayor al inicial" );
+                             }else{
+                                  flag=true;
+                             }
+                        }
+                        return flag;
+                        
+                    }
 
         
                       function salarios(val){
@@ -356,10 +377,18 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
 	 $('#btnGuardar').click(function(){
              var flag =validate_value_field();
-        if(flag==false){
-             $("#formex").attr('action', '../experiencialaboral/'+ $("#codem").val().toString());
-            $("form#formex").submit();           
-        }
+             var flag2=validar_salarios_guardar();
+//             alert(flag);
+//             if(flag2==true){
+                if(flag==false ){
+                    $("#formex").attr('action', '../experiencialaboral/'+ $("#codem").val().toString());
+                    $("form#formex").submit();           
+                } 
+//             }else{
+//                  swal("Validacion de Salarios","El Salario Final no debe ser Mayor al inicial" );
+//                  location.href =  document.getElementById("codem").value+'/'+document.getElementById("codex").value;
+//             }
+        
 
             
         });

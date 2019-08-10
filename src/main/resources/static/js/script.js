@@ -341,7 +341,7 @@ function fecha_format() {
                                                      if(idarray[i].toString()==idvalue){
                                                         
                                                         formularios[k].elements[j].value=val;     
-                                                         alert("id:"+idarray[i].toString()+" idvalue:"+idvalue+" val:"+val);
+//                                                         alert("id:"+idarray[i].toString()+" idvalue:"+idvalue+" val:"+val);
                                                      }
                                                  }
                                              }
@@ -484,7 +484,7 @@ function validate_value_field(){
                          }//else{flag=false;}
                     }
 //                    alert(flag);
-                fecha_format();
+//                fecha_format();
                 if (flag==false){
 //                    alert(" No debe Entrar");
 //                     onclik_validate_value_field();
