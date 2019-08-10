@@ -196,6 +196,17 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <span class="popuptext" id="mes">Marque la cajita si es cambio de plaza.!</span>
                     </div>
                     </div>
+              <div class="form-group">
+                            <label class="col-sm-3 control-label">Plaza nominal(*):</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control " required="true" maxlength="50" minlength="1" th:field="*{plazanominal}"/>
+                            </div>
+                             <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('plzaza')" onmouseout ="javascript:ocultarAyuda('plzaza')">a</a></b>
+
+                                <span class="popuptext" id="plzaza">Ingrese la plaza nominal</span>
+                            </div>
+                        </div>
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Subir acuerdo:</label>
