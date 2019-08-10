@@ -116,7 +116,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">DUI de capacitador(*):</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control num_dui" required="true" th:field="*{duicapacitador}"/>
+                            <input type="text" id="duicap" class="form-control num_dui" required="true" th:field="*{duicapacitador}"/>
                              <small class="form-text text-danger" th:if="${#fields.hasErrors('duicapacitador')}" th:errors="*{duicapacitador}"></small>
                         </div>
                            <div class="popup col-sm-1"><b>
@@ -140,8 +140,9 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Carnet de residencia(*):</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control numeros" required="true" maxlength="5" onkeypress="return valida(event)" th:field="*{carnetresidencia}"/>
-                              <small class="form-text text-danger" th:if="${#fields.hasErrors('carnetresidencia')}" th:errors="*{carnetresidencia}"></small>
+                            <input type="text" id="resident" class="form-control numeros" required="true" maxlength="5"  th:field="*{carnetresidencia}"/>
+                       <!--onkeypress="return valida(event)" no se que hacia esto-->
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('carnetresidencia')}" th:errors="*{carnetresidencia}"></small>
                         </div>
                           <div class="popup col-sm-1"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('carnet')" onmouseout ="javascript:ocultarAyuda('carnet')">a</a></b>
@@ -215,11 +216,24 @@
          $('#guardar').click(function(){
 		validate_value_field();
 	});
-//         $('#guardar').click(function(){
-//                    $("#loader").addClass("loader");
-//                    });
+        $('#duicap').change(function(){
+            $('#resident').val('');
+            if($('#duicap').val()!==""){
+                $('#resident').attr("readonly", true);
+            }else{
+                $('#resident').attr("readonly", false);    
+            }
+        });
+        $('#resident').change(function(){
+            $('#duicap').val('');    
+        if($('#resident').val()!==""){
+                $('#duicap').attr("readonly", true);
+            }else{
+                $('#duicap').attr("readonly", false);    
+            }
+        });
+        
     if([[${msg}]]===0){
-//         $("#loader").addClass("loader");
        swal({
                 title: "Exito!",
                 text: "Registro agregado correctamente",

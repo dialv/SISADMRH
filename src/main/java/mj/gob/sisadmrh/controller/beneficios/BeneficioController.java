@@ -131,7 +131,7 @@ public class BeneficioController extends UtilsController {
             System.out.println("}");
             model.addAttribute("msg", 4);
         }
-        return PREFIX + "beneficios";
+        return "redirect:/empleados/show/" + idemp;
     }
 
     @RequestMapping("asignar/{id}")
@@ -192,7 +192,7 @@ public class BeneficioController extends UtilsController {
             model.addAttribute("msg", 1);
             Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
         }
-        return PREFIX + "beneficioss1";
+        return "redirect:/empleados/show/" + id;
     }
 
     @RequestMapping("report/")
