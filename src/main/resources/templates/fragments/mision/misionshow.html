@@ -37,7 +37,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <div class="form-group">
                     <label class="col-sm-5 control-label">Tipo de misi&oacute;n:</label>
                     <div class="col-sm-7">
-                                <p class="form-control-static">  <span th:if="${mision.tipomision} == 0"  th:text="Externa"  ></span> <span th:if="${mision.tipomision} == 1"  th:text="Interna"></span>  </p>
+                                <p class="form-control-static">  <span th:if="${mision.tipomision} == 1"  th:text="Externa"  ></span> <span th:if="${mision.tipomision} == 2"  th:text="Interna"></span>  </p>
                             </div>
                 </div>
                 <div class="form-group">

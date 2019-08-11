@@ -278,8 +278,89 @@ function Textheader(texto,titulo){
      document.getElementById('titulopantalla').innerHTML = titulo;
 
 }
+function fecha_formatmisiones() {
+   
+    var msg = '';
+    var formularios = document.forms;
+    var valuearray=new Array();
+    var idarray=new Array();
+    var typearray=new Array();
+    var disablearray=new Array();
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+                        var value = formularios[i].elements[j].id;
+                        var value2= formularios[i].elements[j].value;
+                        var value3= formularios[i].elements[j].type;
+                         var value4= formularios[i].elements[j].disabled;
+                        valuearray.push(value2);
+                        idarray.push(value);
+                        typearray.push(value3);
+//                        alert(value4);
+                         disablearray.push(value4);
+//                        if(value.includes("fecha") || value.includes("fdesde") || value.includes("fhasta") ){
+//                           
+//                                   var val= formularios[i].elements[j].value
+//                                    
+//                                    
+//                                    if(val!=""){
+//                                        val=nufecha(val)
+//                                        formularios[i].elements[j].value=val
+//                                        }
+//                                   
+//                                    }
+                    }
+    }
+    
+     var flag1=false;
+//                    
+                     for(var i=0;i<idarray.length;i++)
+                        {
+                            
+                            if (typearray[i].toString().includes("reset") || typearray[i].toString().includes("submit") || typearray[i].toString().includes("hidden") | typearray[i].toString().includes("file")){
+                                        }else{
+                                           var val= valuearray[i].toString()
+                                           var val2= disablearray[i].toString()
+//                                            alert("valor:"+val)
+                                            if(val=="" && val2==false){
+                                               flag1=true; 
+                                            } 
+                                        }
+
+                         }
+//                    alert(flag1);
+                    if(flag1==false){
+                    for(var i=0;i<idarray.length;i++)
+                    {
+                        
+                        if(idarray[i].toString().includes("fecha") || idarray[i].toString().includes("fdesde") || idarray[i].toString().includes("fhasta") ){
+                           
+                                   var val= valuearray[i].toString();
+                                    if(val!=""){
+                                        val=nufecha(val)
+//                                        formularios[i].elements[j].value=val
+//                                        alert("id:"+idarray[i].toString()+" val:"+val);
+                                       
+                                            for (var k=0; k<formularios.length;k++){
+                                                 for (var j=0; j<formularios[k].elements.length; j++){
+                                                     var idvalue = formularios[k].elements[j].id;
+                                                     if(idarray[i].toString()==idvalue){
+                                                        
+                                                        formularios[k].elements[j].value=val;     
+//                                                         alert("id:"+idarray[i].toString()+" idvalue:"+idvalue+" val:"+val);
+                                                     }
+                                                 }
+                                             }
+                                        
+                                        }
+                                   
+                                    }
+                    }  
+                    }
+
+}
 
 function fecha_format() {
+   
     var msg = '';
     var formularios = document.forms;
     var valuearray=new Array();

@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Fecha emision:(*)</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control fecha_format " id="femision" required="true" th:field="*{fechaemision}"onchange="isDat(this.value, 'fechaemisionn'); Fechas(this.value, $('#fdesde').val().toString(), 'fechaemisionn', 'fechainicio')"/>
+                                    <input type="text" class="form-control fecha_format " id="fechamision" required="true" th:field="*{fechaemision}"onchange="isDat(this.value, 'fechaemisionn'); Fechas(this.value, $('#fdesde').val().toString(), 'fechaemisionn', 'fechainicio')"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
                                         <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechaemisionn')" onmouseout ="javascript:ocultarAyuda('fechaemisionn')">a</a></b>
@@ -177,7 +177,7 @@
                         <div class="col-md-12">
                             <div class="row" align="center">
                                 <a href="#" th:href="@{/incapacidades/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                                <button type="submit" id="guardar"   class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                                <button type="submit" id="guardar"   onclick="fecha_format();"  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                                 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                             </div>
                         </div>
@@ -231,7 +231,7 @@
 		validate_value_field();
 	});
         
-    $('#femision').datepicker({
+    $('#fechamision').datepicker({
     dateFormat: 'dd/mm/yy'
     });
     $('#fdesde').datepicker({

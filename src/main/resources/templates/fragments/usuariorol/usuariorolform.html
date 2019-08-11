@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head lang="en">
-        <title>Agregar rol al usuario</title>
+        <title>Asignar rol al usuario</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -28,7 +28,8 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Usuario:</label>
                         <div class="col-sm-8">
-                        <select class="form-control" name="usuario.codigousuario" >
+                        <select class="form-control" name="usuario.codigousuario" required>
+                            <option value="">--seleccione un usuario--</option>
                                 <option th:each="c:${formusuariorol.usuarios}" th:value="${c.codigousuario}" th:text="${c.nombreusuario}"></option>
                         </select>
                         </div>
@@ -36,7 +37,8 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Rol:</label>
                         <div class="col-sm-8">
-                        <select class="form-control" name="rol.codigorol" >
+                            <select class="form-control" name="rol.codigorol" required>
+                             <option value="">--seleccione un rol--</option>
                                 <option th:each="c:${formusuariorol.roles}" th:value="${c.codigorol}" th:text="${c.nombrerol}"></option>
                         </select>
                         </div>
@@ -82,7 +84,7 @@ $('#guardar').click(function(){
 	});
   
     if ([[${msg}]] === 0){
-    $("#loader").addClass("loader");
+//    $("#loader").addClass("loader");
     swal({
     title: "Exito!",
             text: "Registro agregado correctamente",

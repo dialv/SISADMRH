@@ -271,3 +271,24 @@ function valida(e){
 <!--script type="text/javascript" th:src="@{/js/sweetalert.js}"></script>
 <script type="text/javascript" th:src="@{/js/SweetAlert.min.js}"></script>
 <script type="text/javascript" th:src="@{/ccs/sweetalert.ccs}"></script-->
+<script>
+    var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
+        if($('#duicap').val()!==""){
+                $('#resident').attr("readonly", true);
+            }else{
+                $('#resident').attr("readonly", false);    
+            }    
+            
+            if($('#resident').val()!==""){
+                $('#duicap').attr("readonly", true);
+            }else{
+                $('#duicap').attr("readonly", false);    
+            }
+            
+            if($('#resident').val()!=="" && $('#duicap').val()!==""){
+                $('#duicap').attr("readonly", false); 
+                $('#resident').attr("readonly", false);  
+            }
+    }
+</script>

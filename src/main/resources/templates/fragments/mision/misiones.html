@@ -33,8 +33,8 @@
             <tr th:each="mision : ${misiones}">
                 <td th:text="${mision.codigomision}">codigomision</td>
                 <td >
-                    <span th:if="${mision.tipomision} == 0"  th:text="Externa"  ></span>
-                    <span th:if="${mision.tipomision} == 1"  th:text="Interna"></span>
+                    <span th:if="${mision.tipomision} == 1"  th:text="Externa"  ></span>
+                    <span th:if="${mision.tipomision} == 2"  th:text="Interna"></span>
                 </td>
                 
                 <td th:text="${mision.nombremision}">nombremision</td>

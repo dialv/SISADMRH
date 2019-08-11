@@ -18,7 +18,7 @@
             }
         </style>
 
-        <title>Crear Hijo Con Capacidades especiales</title>
+        <title>Crear Hijo Con Capacidades Especiales</title>
     <th:block th:include="../templates/header"></th:block>
 </head>
 <body>
@@ -93,9 +93,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Fecha de nacimiento del hijo con discapacidad:</label>
+                        <label class="col-sm-3 control-label">Fecha de nacimiento del hijo con capacidades especiales:</label>
                         <div class="col-sm-2">
-                            <input class="form-control fecha_format"  type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value, 'fechasepr'); fechaNac(this.value, 'fechasepr')"/>
+                            <input class="form-control fecha_format"  type="text"  name="fechasepr" id="fechasepr"  th:field="*{fechanamimientohijosdiscapacidad}" onchange="isDat(this.value, 'fechasepr'); "/>
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
@@ -155,10 +155,19 @@ $('fechafcontrato').datepicker({        dateFormat: 'dd/mm/yy'      });
 $('fechahubf').datepicker({             dateFormat: 'dd/mm/yy'      });
 });
 $('#btnGuardar').click(function(){
-$("#loader").addClass("loader");
-$("#formcontacto").attr('action', '../hijodiscapacidad/' + $("#codem").val().toString());
-$("form#formcontacto").submit();
-});
+                    var flag =validate_value_field();
+        if(flag==false){
+            $("#formcontacto").attr('action', '../hijodiscapacidad/' + $("#codem").val().toString());
+            $("form#formcontacto").submit();
+        }
+            
+            
+        });
+//$('#btnGuardar').click(function(){
+//$("#loader").addClass("loader");
+//$("#formcontacto").attr('action', '../hijodiscapacidad/' + $("#codem").val().toString());
+//$("form#formcontacto").submit();
+//});
 </script>
 <script th:inline="javascript">
     $(document).ready(function () {

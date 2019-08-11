@@ -20,7 +20,7 @@
 inner join empleadoformacion f on e.codigoempleado=f.codigoempleado
 inner join formacionacademica fa on  fa.codigoformacionacademica=f.codigoformacionacademica
 inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%abogado' and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and fa.estadoformacion != 0 and estadopuesto != 0]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

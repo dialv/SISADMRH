@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Confirmacion de contraseña:</label>
                         <div class="col-sm-6">
-                            <input type="text" id="confpass" class="form-control" autocomplete="off" required="true" size="11" maxlength="11" th:field="*{controlcontrasenia}"/>
+                            <input type="text" id="confpass" class="form-control" autocomplete="off" required="true" size="100" maxlength="50" th:field="*{controlcontrasenia}"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('passwconf')" onmouseout ="javascript:ocultarAyuda('passwconf')">a</a></b>
@@ -72,7 +72,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha ingreso:</label>
                         <div class="col-sm-2">
-                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" required="true" th:field="*{fechaingreso}" onchange="isDate(this.value)"/>
+                            <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" required="true" th:field="*{fechaingreso}" onchange="isDate(this.value,'fingreso')"/>
                         </div>
                         <div class="popup col-sm-1"><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('finicio')" onmouseout ="javascript:ocultarAyuda('finicio')">a</a></b>
@@ -105,11 +105,15 @@
                         }
                     }
                     
-                    function isDate(val){
+                    function isDate(val,id){
                         var foo=FechaActualMayor(val);
                         if(foo!=null){
                             swal("ERROR!", "La fecha de ingreso no puede ser mayor que hoy");
                            // $("#fingreso").val("");
+                        }
+                        var foo1=ExisteFecha(val,id).split(",");;
+                        if(foo1[0]!=foo1[2]){
+                            swal(foo1[1], foo1[0]);
                         }
                     }
 

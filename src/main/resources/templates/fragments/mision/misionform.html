@@ -65,9 +65,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Tipo de misión(*):</label>
                 <div class="col-sm-5">
                     <select class="form-control" name="tipomision" id="tipomision" th:field="*{tipomision}"> 
-                        <option value="3">--seleccione el tipo de mision--</option>
-                        <option value="0">Externa</option>
-                        <option value="1">Interna</option>
+                        <option value="">--seleccione el tipo de mision--</option>
+                        <option value="1">Externa</option>
+                        <option value="2">Interna</option>
                         <!--<option>Gobierno</option>-->
 
                     </select>
@@ -180,7 +180,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label" id="lb1">Fecha de salida(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision" onchange="isDat(this.value,'fechasalidamision');Fechas(this.value,$('#fecharegresomision').val().toString(),'fechasalidamision','fecharegresomision')" />
+                     <input class="form-control fecha_format"  required="true" placeholder="dia/mes/año" type="text" th:field="*{fechasalidamision}" name="fechasalidamision" id="fechasalidamision" onchange="isDat(this.value,'fechasalidamision');Fechas(this.value,$('#fecharegresomision').val().toString(),'fechasalidamision','fecharegresomision')" />
                 </div>
                  <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>
@@ -247,7 +247,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <label class="col-sm-3 control-label">Fecha de regreso(*):</label>
                 <div class="col-sm-2">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
-                     <input class="form-control fecha_format"  placeholder="dia/mes/año" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" onchange="isDat(this.value,'fecharegresomision');Fechas($('#fechasalidamision').val().toString(),this.value,'fechasalidamision','fecharegresomision')"/>
+                     <input class="form-control fecha_format"  required="true" placeholder="dia/mes/año" type="text" th:field="*{fecharegresomision}" name="fecharegresomision" id="fecharegresomision" onchange="isDat(this.value,'fecharegresomision');Fechas($('#fechasalidamision').val().toString(),this.value,'fechasalidamision','fecharegresomision')"/>
                 </div>
                   <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup476')" onmouseout ="javascript:ocultarAyuda('poppup476')">a</a></b>
@@ -261,7 +261,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
            <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de acuerdo(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" th:field="*{fechaacuerdomision}" name="fechaacuerdomision" id="fechaacuerdo" onchange="isDat(this.value,'fechaacuerdo')" />
+                    <input class="form-control fecha_format" placeholder="dia/mes/año" type="text" required="true" th:field="*{fechaacuerdomision}" name="fechaacuerdomision" id="fechaacuerdo" onchange="isDat(this.value,'fechaacuerdo')" />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup477')" onmouseout ="javascript:ocultarAyuda('poppup477')">a</a></b>
@@ -364,7 +364,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="col-md-12">
                            <div class="row" align="center">
                                <a href="#" th:href="@{/misiones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-<button type="submit" id="guardar" class="btn btn-success" ><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="submit"  id="guardar" class="btn btn-success" ><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
 <!--                               <button type="button" class="btn btn-default"><a href="#" th:href="@{/misiones/}">Regresar</a></button>
@@ -388,7 +388,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 	        	<script>
             function load(){
 //                alert($("#tipomision").val());
-                 if($("#tipomision").val() !== "1"){
+                 if($("#tipomision").val() !== "2"){
 //                          $('lb1').html('some value');
                           $('#n1').prop('disabled', false);
                           $('#n2').prop('disabled', false);
@@ -405,7 +405,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                           $('#n13').prop('disabled', false);
                           $('#n14').prop('disabled', false);
                            $('#n15').prop('disabled', 'disabled');
-                           $('#n16').prop('disabled', 'disabled');
+//                           $('#n16').prop('disabled', 'disabled');
                         }else{
                           $('#n1').prop('disabled', 'disabled');
                           $('#n2').prop('disabled', 'disabled');
@@ -495,7 +495,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
                     
                      $("#tipomision").change(function() {
-                        if($("#tipomision").val() !== "1"){
+                        if($("#tipomision").val() !== "2"){
 //                          $('lb1').html('some value');
                           $('#n1').prop('disabled', false);
                           $('#n2').prop('disabled', false);
@@ -512,7 +512,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                           $('#n13').prop('disabled', false);
                           $('#n14').prop('disabled', false);
                            $('#n15').prop('disabled', 'disabled');
-                           $('#n16').prop('disabled', 'disabled');
+//                           $('#n16').prop('disabled', 'disabled');
                         }else{
                           $('#n1').prop('disabled', 'disabled');
                           $('#n2').prop('disabled', 'disabled');
@@ -529,7 +529,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                           $('#n13').prop('disabled', 'disabled');
                           $('#n14').prop('disabled', 'disabled');
                            $('#n15').prop('disabled', false);
-                            $('#n16').prop('disabled', false);
+//                            $('#n16').prop('disabled', false);
                         }
                       });
 		});
@@ -537,6 +537,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <script th:inline="javascript">
       $(document).ready(function () {
            $('#guardar').click(function(){
+               fecha_formatmisiones();
 		validate_value_field();
 	});
 //           $('#guardar').click(function(){

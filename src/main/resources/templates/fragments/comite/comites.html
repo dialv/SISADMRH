@@ -32,7 +32,7 @@
                         <tr th:each="comite : ${comites}">
                             <td th:text="${comite.codigocomite}">Código</td>
                             <td th:text="${comite.nombrecomite}">Nombre</td>
-                            <td th:text="${comite.codigoempleado.nombreempleado}+', '+${comite.codigoempleado.nombreempleado}">Responsable</td>
+                            <td th:text="${comite.codigoempleado.nombreempleado}+', '+${comite.codigoempleado.apellidoempleado}">Responsable</td>
                             <td th:text="${comite.desripcioncomite}">Descripción</td>
                             <td th:text="${comite.numeroacuerdocomite}">Numero Acuerdo</td>
                             <td th:text="${comite.miembromaximo}">Miembros Maximos</td>

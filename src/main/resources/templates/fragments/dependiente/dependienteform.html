@@ -100,7 +100,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Fecha de nacimiento del dependiente(*):</label>
                 <div class="col-sm-2">
-                     <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" onchange="isDat(this.value,'fechanacde');fechaNac(this.value,'fechanacde')"  />
+                    <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechanacde" id="fechanacde" th:field="*{fechanacimiento}" onchange="isDat(this.value,'fechanacde');" required="true"  />
                 </div>
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup4')" onmouseout ="javascript:ocultarAyuda('poppup4')">a</a></b>

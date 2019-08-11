@@ -202,6 +202,8 @@ public class EmpleadoController extends UtilsController {
                 empleado.setMunicipionacimiento("" + municipio.getCodigoestado());
                 modipuesto(empleado.getCodigopuesto());
                 empleadoService.saveEmpleado(empleado);
+                bitacoraService.BitacoraRegistry("se  creo un Empleado",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
                 model.addAttribute("msg", 0);
 
             } catch (Exception e) {

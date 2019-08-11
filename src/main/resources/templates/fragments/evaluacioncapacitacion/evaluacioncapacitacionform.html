@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Fecha y hora(*):</label>
                             <div class="col-sm-6">
-                                <input input-group date type="text"id="hra" class="form-control fecha_datetime" th:field="*{horaevualuacioncapacitacion}"/>
+                                <input input-group date type="text"id="fechahra" class="form-control fecha_datetime" th:field="*{horaevualuacioncapacitacion}"/>
                             </div>
                             <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('hora')" onmouseout ="javascript:ocultarAyuda('hora')">a</a></b>
@@ -399,7 +399,7 @@
                     <div class="col-md-12">
                         <div class="row" align="center">
                              <a href="#" th:href="@{/evaluacioncapacitaciones/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                            <button type="submit" id="guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit"  onclick="fecha_format();" id="guardar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
                         </div>
@@ -449,7 +449,7 @@
     });</script>    
 <script>
     $(document).ready(function () {
-    $('#hra').datepicker({
+    $('#fechahra').datepicker({
 //     format: 'DD-MM-YYYY HH:mm'
   dateFormat: 'dd/mm/yy 00:00:00'
     });

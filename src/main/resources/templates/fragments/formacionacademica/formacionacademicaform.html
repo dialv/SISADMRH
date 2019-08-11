@@ -76,7 +76,26 @@
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Centro educativo(*):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" required="true" size="50" maxlength="50"   th:field="*{centroeducativo}"   />
+                        <!--<input type="text" class="form-control" required="true" size="50" maxlength="50"   th:field="*{centroeducativo}"   />-->
+                     <select class="form-control" name="centroeducativo" th:field="*{centroeducativo}" >
+                            <!--th:field="*{departamentorecidencia}">-->
+                        <option value="">--seleccione el Centro Educativo--</option>
+                        <option value="Universidad de El Salvador">Universidad de El Salvador</option>
+                        <option value="Universidad Centro Americana Jose Simeon Canas">Universidad Centro Americana Jose Simeon Canas</option>
+                        <option value="Universidad Don Bosco">Universidad Don Bosco</option>
+                        <option value="Universidad Evangelica">Universidad Evangelica</option>
+                        <option value="Universidad Alberto Masferrer">Universidad Evangelica</option>
+                        <option value="Universidad  Albert Einstein">Universidad Albert Einstein</option>
+                        <option value="Universidad Tecnologica">Universidad Tecnologica</option>
+                        <option value="Universidad Pedagogica">Universidad Pedagogica</option>
+                        <option value="Universidad Tecnica Latinomericana">Universidad Tecnica Latinomericana</option>
+                        <option value="Universidad Panamericana">Universidad Panamericana</option>
+                        <option value="Universidad Modular Abierta">Universidad Modular Abierta</option>
+                        <option value="Universidad de Oriente">Universidad de Oriente"</option>
+                        <option value="Universidad de Sonsonate">Universidad de Sonsonate"</option>
+                        <option value="Universidad Francisco Gavidia">Universidad Francisco Gavidia</option>
+                        
+                    </select>
                     </div>
                       <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
@@ -184,7 +203,7 @@
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="submit" class="btn btn-success" onclick="fecha_format();" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>

@@ -54,8 +54,8 @@ public class UsuarioRolController {
     @RequestMapping("new/usuariorol")
     public String newUsuario(Model model) {
         UsuarioRolform form = new UsuarioRolform();
-        form.setRoles(rolService.listAllRoles());
-        form.setUsuarios(usuarioService.listAllUsuarios());
+        form.setRoles(rolService.listAllActivos());
+        form.setUsuarios(usuarioService.listAllActivos());
         form.setUsuariorol(new Usuariorol());
         model.addAttribute("formusuariorol", form);
         return PREFIX + "usuariorolform";
@@ -75,13 +75,11 @@ public class UsuarioRolController {
          model.addAttribute("msg", 1);
         }
         UsuarioRolform form = new UsuarioRolform();
-        form.setRoles(rolService.listAllRoles());
-        form.setUsuarios(usuarioService.listAllUsuarios());
+        form.setRoles(rolService.listAllActivos());
+        form.setUsuarios(usuarioService.listAllActivos());
         form.setUsuariorol(new Usuariorol());
         model.addAttribute("formusuariorol", form);
         return PREFIX + "usuariorolform";
-
-       // return "redirect:./show/" + usuariorol.getCodigousuariorol();
     }
     
     @RequestMapping("show/{id}")

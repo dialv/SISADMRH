@@ -22,7 +22,7 @@
                         <label class="col-sm-2 control-label">Nombre empleado:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="empleado.codigoempleado" >
-                             <option value="-1">-- Seleccione un empleado --</option>
+                             <option value="">-- Seleccione un empleado --</option>
                                 <option th:each="c:${formempleadocapacitacion.empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
                         </select>
                         </div>
@@ -31,7 +31,7 @@
                         <label class="col-sm-2 control-label">Nombre capacitación:</label>
                         <div class="col-sm-8">
                         <select class="form-control" name="capacitacion.codigocapacitacion" >
-                            <option value="-1">-- Seleccione una capacitación: --</option>
+                            <option value="">-- Seleccione una capacitación: --</option>
                                 <option th:each="c:${formempleadocapacitacion.capacitaciones}" th:value="${c.codigocapacitacion}" th:text="${c.nombrecapacitacion}"></option>
                         </select>
                         </div>
