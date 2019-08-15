@@ -39,7 +39,7 @@
                 <td th:text="${descuento.nombredescuento}">Nombre</td>
                 <td th:text="${descuento.tipodescuento}">Descripcion</td>
                 <td th:text="${descuento.tipobanco}">Categoria</td>
-                <td th:text="${descuento.codigoempleado.nombreempleado}+', '+${descuento.codigoempleado.nombreempleado}">Descripcion Cat</td>
+                <td th:text="${descuento.codigoempleado.nombreempleado}+', '+${descuento.codigoempleado.apellidoempleado}">Descripcion Cat</td>
                 <!--<td th:text="${descuento.montodescuento}">Descripcion Cat</td>-->
                 <td th:text="${#numbers.formatDecimal(descuento.montodescuento, 0, 'COMMA', 2, 'POINT')}">salarioactual</td>  
                 

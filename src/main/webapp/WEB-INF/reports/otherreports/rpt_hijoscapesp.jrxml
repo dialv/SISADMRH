@@ -176,11 +176,11 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Codigo de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="388" y="0" width="97" height="17" uuid="a05511e5-1861-4959-a097-bed05db3d284"/>
+				<reportElement x="373" y="0" width="112" height="17" uuid="a05511e5-1861-4959-a097-bed05db3d284"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Tipo de Discapacidad]]></text>
+				<text><![CDATA[Tipo de capacidad especial]]></text>
 			</staticText>
 			<line>
 				<reportElement x="206" y="0" width="1" height="17" uuid="2b3c3378-6314-4f1f-b469-be94bc2ad8f1"/>
@@ -210,7 +210,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="389" y="0" width="96" height="14" uuid="7577289a-031a-46f3-a27d-7efce72a54a0"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="377" y="0" width="96" height="14" uuid="7577289a-031a-46f3-a27d-7efce72a54a0"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -248,7 +248,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="495" y="8" width="109" height="13" backcolor="#FFFFFF" uuid="92bf961d-d003-49c6-926c-58c79f569cbe"/>
+				<reportElement mode="Opaque" x="549" y="8" width="109" height="13" backcolor="#FFFFFF" uuid="92bf961d-d003-49c6-926c-58c79f569cbe"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
