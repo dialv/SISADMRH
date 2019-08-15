@@ -14,20 +14,16 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e
-inner join empleadoformacion f on e.codigoempleado=f.codigoempleado
-inner join formacionacademica fa on  fa.codigoformacionacademica=f.codigoformacionacademica
-inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado
-inner join puesto p on ep.codigopuesto=p.codigopuesto where p.nombrepuesto like '%notario'and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e,empleadoformacion f,formacionacademica fa,puesto p
+where e.codigoempleado=f.codigoempleado and  fa.codigoformacionacademica=f.codigoformacionacademica
+and  e.codigopuesto=p.codigopuesto and  p.nombrepuesto like '%notario' and fa.estadoformacion=1 and fa.tituloobtenido like '%notario'  and e.ESTADOEMPLEADO=1 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Empleado" class="java.lang.String"/>
-	<field name="Fecha" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Fecha" class="java.lang.String"/>
 	<field name="centroeducativo" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -208,8 +204,8 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="623" y="0" width="1" height="14" uuid="d2121345-6cf8-4e77-a853-397185d67d99"/>
 			</line>
 			<staticText>
-				<reportElement x="361" y="0" width="100" height="14" uuid="21b7cc0e-ae85-424b-aa45-51890478ec10"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="351" y="0" width="110" height="14" uuid="21b7cc0e-ae85-424b-aa45-51890478ec10"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Universidad]]></text>
@@ -226,14 +222,14 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="86" y="0" width="66" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="86" y="0" width="79" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="638" y="0" width="67" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="638" y="0" width="87" height="14" uuid="fc937a42-323f-4b35-8ae4-ebcb6ec6f9a2"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -254,7 +250,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{centroeducativo}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="563" y="0" width="54" height="14" uuid="b4b01370-b5ad-4b90-ae3c-aa0acb906f28"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="558" y="0" width="59" height="14" uuid="b4b01370-b5ad-4b90-ae3c-aa0acb906f28"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

@@ -6,7 +6,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Comision;
+import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.service.ComisionService;
+import mj.gob.sisadmrh.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping(value = "comisiones")
 public class ComisionController extends UtilsController{
-    
+      @Autowired
+    private EmpleadoService empleadoService;
     private ComisionService comisionService;
     @Autowired
     public void setComisionService(ComisionService comisionService) {
@@ -46,6 +49,8 @@ public class ComisionController extends UtilsController{
     @RequestMapping("new/comision")
     public String newComision(Model model) {
         model.addAttribute("comision", new Comision());
+         Iterable<Empleado> empleados = empleadoService.listAllActivos();
+         model.addAttribute("empleados", empleados);
         return PREFIX + "comisionform";
     }
 

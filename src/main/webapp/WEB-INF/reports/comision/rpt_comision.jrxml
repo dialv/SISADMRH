@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="477"/>
 	<property name="ireport.y" value="48"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -19,18 +19,18 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
-WHERE  c.fechadesdecomite>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and c.fechadesdecomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomision,c.nombrecomision,DATE_FORMAT(c.fechadesdecomision, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomision, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comision c on e.codigoempleado=c.codigoempleado
+WHERE  c.fechadesdecomision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and c.fechadesdecomision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numeroacuerdocomite" class="java.lang.Integer">
+	<field name="numeroacuerdocomision" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombrecomite" class="java.lang.String">
+	<field name="nombrecomision" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Desde" class="java.lang.String"/>
@@ -48,7 +48,7 @@ and c.fechadesdecomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Reporte de Comités ]]></text>
+				<text><![CDATA[Reporte de Comisiones]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="150" y="61" width="100" height="15" uuid="04e4df16-4b67-4340-8a24-945fe1331771"/>
@@ -189,21 +189,21 @@ and c.fechadesdecomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Inicio Comité]]></text>
+				<text><![CDATA[Inicio Comisión]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="678" y="0" width="55" height="17" uuid="970e7ca7-832f-4f96-a6b9-963f678a40b6"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fin Comité]]></text>
+				<text><![CDATA[Fin Comisión]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="423" y="0" width="100" height="17" uuid="b0c4178c-b9e5-44a9-a803-d86696058694"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Comité]]></text>
+				<text><![CDATA[Nombre Comisión]]></text>
 			</staticText>
 			<line>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="211" y="2" width="1" height="17" uuid="c4fcf880-abce-49ec-a547-3b2558cd2771"/>
@@ -232,39 +232,39 @@ and c.fechadesdecomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="357" y="0" width="58" height="14" uuid="95e53dcc-0bab-432d-923a-2bb8db742b27"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{numeroacuerdocomite}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="423" y="0" width="164" height="14" uuid="5c39e05e-6a51-468e-856f-bbcf005647b6"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombrecomite}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="595" y="0" width="64" height="14" uuid="a64a7b8f-e3f0-4d52-9680-26df165d6162"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="669" y="0" width="62" height="14" uuid="1cb3c363-7aba-492c-af66-719474746919"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="52" y="0" width="152" height="14" uuid="9455007d-e1e2-45c5-ac53-c02a8043b73d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="0" width="107" height="14" uuid="993a32a2-2aa0-4889-a103-d4fede491a58"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrecomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="0" width="57" height="14" uuid="0e86cc65-9687-4c5e-a3f4-6e4a8d48c61b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="591" y="0" width="68" height="14" uuid="ef4c6c11-b02b-49cc-ac03-6a06564bf80a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="356" y="0" width="59" height="14" uuid="4309d95a-29cf-4422-8ab0-228ca7e43f17"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroacuerdocomision}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

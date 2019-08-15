@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="e4a411b8-6d7d-4bf2-a2a7-bd7ad308ab8d">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="83"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="85"/>
+	<property name="ireport.y" value="48"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -14,11 +14,13 @@
 	</parameter>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT concat(DAY(e.fechanacimientoempleado)," / ", MONTHNAME(e.fechanacimientoempleado)) AS Fecha,p.nombrepuesto,uf.nombreubicacion,concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado from SISADMRH.empleado e INNER JOIN SISADMRH.puesto p ON e.codigopuesto=p.codigopuesto INNER JOIN SISADMRH.ubicacionfisica uf on uf.codigoempleado=e.codigoempleado where  MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
+		<![CDATA[SELECT CONCAT( DAY( e.fechanacimientoempleado ) ,  "/", ELT( MONTH( e.fechanacimientoempleado ) ,  "Enero",  "Febrero",  "Marzo",  "Abril",  "Mayo",  "Junio",  "Julio",  "Agosto",  "Septiembre",  "Octubre", "Noviembre",  "Diciembre" ) ) AS Fecha, p.nombrepuesto, uf.nombreubicacion, CONCAT( e.nombreempleado,  ' ', e.apellidoempleado ) AS Empleado
+FROM empleado e
+INNER JOIN puesto p ON e.codigopuesto = p.codigopuesto
+INNER JOIN ubicacionfisica uf ON uf.codigoempleado = e.codigoempleado 
+where  MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
 	</queryString>
-	<field name="Fecha" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Fecha" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -127,29 +129,29 @@
 				<reportElement x="102" y="0" width="546" height="14" uuid="4fbb3c41-2519-4920-ba0f-9c7c4bc66270"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="111" y="0" width="68" height="14" uuid="29df9598-a1ae-4011-a45b-34199d7c288a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="114" y="0" width="71" height="14" uuid="29df9598-a1ae-4011-a45b-34199d7c288a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="329" y="0" width="128" height="14" uuid="3ae27eed-c5d5-4a04-a79e-b7f3d65fb221"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ Ubicación Física]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="191" y="0" width="100" height="14" uuid="84e6ab0f-2319-43e4-a9a6-54deaf829913"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="191" y="0" width="128" height="14" uuid="84e6ab0f-2319-43e4-a9a6-54deaf829913"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="486" y="0" width="126" height="14" uuid="472687eb-9e25-477b-aef0-69095f2f1e74"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="486" y="0" width="158" height="14" uuid="472687eb-9e25-477b-aef0-69095f2f1e74"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre de Empleado]]></text>
@@ -175,21 +177,24 @@
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="351" y="0" width="117" height="14" uuid="4e460696-4ed2-491f-bd7b-a23b0cbe1fc3"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="329" y="0" width="139" height="14" uuid="4e460696-4ed2-491f-bd7b-a23b0cbe1fc3"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreubicacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="108" y="0" width="68" height="14" uuid="ef4b1222-9ec7-4f87-b2ef-ba1506a8fc8b"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="118" y="0" width="68" height="14" uuid="ef4b1222-9ec7-4f87-b2ef-ba1506a8fc8b"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="491" y="0" width="165" height="14" uuid="6ccccdd5-4dbc-40e2-ac71-361a250909f5"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="486" y="0" width="170" height="14" uuid="6ccccdd5-4dbc-40e2-ac71-361a250909f5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -203,14 +208,14 @@
 	<summary>
 		<band height="55" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="539" y="6" width="110" height="14" backcolor="#FFFFFF" uuid="763a79d7-acc1-46dc-a8e1-634c440e9e0b"/>
+				<reportElement mode="Opaque" x="527" y="6" width="122" height="14" backcolor="#FFFFFF" uuid="763a79d7-acc1-46dc-a8e1-634c440e9e0b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="114" y="0" width="530" height="1" uuid="72299658-952c-4c33-ac2d-bc54c7425fb1"/>
+				<reportElement x="102" y="0" width="542" height="1" uuid="72299658-952c-4c33-ac2d-bc54c7425fb1"/>
 			</line>
 		</band>
 	</summary>

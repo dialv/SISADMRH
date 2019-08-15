@@ -10,13 +10,15 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT count(e.codigoempleado) as nempleados,sum(p.sueldobase) as sumsueldo,p.ubicacionpuesto FROM `empleado`e , puesto p WHERE e.estadoempleado=1 and
-e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and
-e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and
-e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
+		<![CDATA[SELECT concat(e.nombreempleado," ",e.apellidoempleado) as empleado,p.sueldobase as sumsueldo,p.ubicacionpuesto FROM `empleado`e 
+inner join  puesto p on e.codigopuesto=p.codigopuesto
+ WHERE e.estadoempleado=1 and
+e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') 
+]]>
 	</queryString>
-	<field name="nempleados" class="java.lang.Long"/>
-	<field name="sumsueldo" class="java.lang.Double"/>
+	<field name="empleado" class="java.lang.String"/>
+	<field name="sumsueldo" class="java.lang.Float"/>
 	<field name="ubicacionpuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -150,21 +152,21 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="69" y="0" width="67" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="f95cdd72-8e1e-46f6-bbfb-c4693e831623"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[No. Empleados]]></text>
+				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="140" y="0" width="250" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="1e42cf54-a6f7-411d-83f7-eb1f42b2815a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="398" y="0" width="76" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="94126c2f-eb63-4490-94b0-1cf7ffd17e03"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Suma Salarios($)]]></text>
@@ -180,13 +182,6 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="69" y="0" width="61" height="14" uuid="be321a19-81ec-4997-9809-55d45c2960c2"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nempleados}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="157" y="0" width="218" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
@@ -199,6 +194,13 @@ e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto]]>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{sumsueldo})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="68" y="0" width="68" height="14" uuid="89db8c0f-1370-47e7-a204-1d61360ad537"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

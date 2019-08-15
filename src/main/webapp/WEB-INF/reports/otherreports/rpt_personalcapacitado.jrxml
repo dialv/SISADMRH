@@ -12,7 +12,8 @@
 	<queryString>
 		<![CDATA[SELECT count(a.codigoempleado) as Noempleados, a.ubicacionasistenciacapacitacion as Ubicacion, count(c.nombrecapacitacion) as NoCapacitaciones,c.nombrecapacitacion, DATE_FORMAT(c.fechacapacitaciondesde, "%d/ %m /%Y") as FechaCapacitacion,c.fechacapacitacionhasta
 FROM `asistenciacapacitacion`a ,`capacitacion` c
-WHERE a.codigocapacitacion=c.codigocapacitacion group by c.nombrecapacitacion,c.fechacapacitaciondesde and
+WHERE a.codigocapacitacion=c.codigocapacitacion
+ group by c.nombrecapacitacion,Ubicacion and
 c.fechacapacitaciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and c.fechacapacitaciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
@@ -25,14 +26,14 @@ and c.fechacapacitaciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<field name="FechaCapacitacion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="fechacapacitacionhasta" class="java.sql.Timestamp">
+	<field name="fechacapacitacionhasta" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
 		<band/>
 	</background>
 	<pageHeader>
-		<band height="118">
+		<band height="117">
 			<staticText>
 				<reportElement x="50" y="93" width="114" height="20" uuid="908348f9-35c7-41c1-89f4-1481f51ad07c"/>
 				<textElement>
@@ -155,28 +156,28 @@ and c.fechacapacitaciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="50" y="0" width="45" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="3d993ab9-6305-4bb9-a23f-a339eca014b6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. Empleados]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="97" y="0" width="125" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="c70aa98a-8d06-4728-8331-69e9c9215c1c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="222" y="0" width="62" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="a64f9fa6-75a0-49bf-876f-205791d9ffb8"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. Capacitaciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="285" y="0" width="164" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="631eee16-ae86-4372-be95-6f1826e60a72"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="290" y="0" width="159" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="631eee16-ae86-4372-be95-6f1826e60a72"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tema de Capacitación]]></text>
@@ -206,7 +207,7 @@ and c.fechacapacitaciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="54" y="0" width="40" height="14" uuid="4a7557b2-98ec-47de-8ffc-82afd7e294fa"/>
-				<textElement textAlignment="Right">
+				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Noempleados}]]></textFieldExpression>

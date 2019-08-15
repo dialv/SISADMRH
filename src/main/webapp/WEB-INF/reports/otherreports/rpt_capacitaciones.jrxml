@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="5" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
-	<property name="ireport.zoom" value="0.75"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="1.0980750000000004"/>
+	<property name="ireport.x" value="40"/>
+	<property name="ireport.y" value="6"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -187,43 +187,43 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="31" y="2" width="704" height="28" uuid="2e141a51-ff3c-4e16-b5e4-9d4b9b8dd33c"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="51" y="0" width="79" height="28" uuid="db4def3b-df76-478d-9fab-55f1effade07"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="33" y="0" width="97" height="28" uuid="db4def3b-df76-478d-9fab-55f1effade07"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="176" y="0" width="100" height="28" uuid="a231cc83-c2d1-41f3-a2fa-03158a3d35c3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="305" y="0" width="32" height="28" uuid="7718e582-8633-4afa-818b-ca60e522e406"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Horas]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="507" y="0" width="115" height="28" uuid="d1efa746-ff31-49b9-b359-8776e5267773"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Departamento Resposable]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="623" y="0" width="54" height="28" uuid="71e63620-3be4-4465-9340-d422eab94726"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Inicio Capacitación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="682" y="0" width="57" height="28" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement x="680" y="0" width="55" height="28" uuid="00152fde-9097-4374-87d7-3d9f121f897d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fin  Capacitación]]></text>
@@ -248,7 +248,7 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</line>
 			<staticText>
 				<reportElement x="343" y="2" width="147" height="28" uuid="582ff30d-c86e-43e1-bea2-574d48a1fcfe"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Capacitación]]></text>
@@ -265,7 +265,7 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="303" y="0" width="25" height="14" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="303" y="0" width="25" height="14" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="100"/>
+	<property name="ireport.x" value="28"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -15,9 +15,9 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado, p.tipodiscapacidad,
-p.nombrehijodiscapacidad from empleadohijodiscapacidad h
+concat(p.nombrehijodiscapacidad," ",p.apellidohijodiscapacidad) as "Nombre hijo con capacidad especial"  from empleadohijodiscapacidad h
 inner join empleado e on e.codigoempleado=h.codigoempleado
-inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad and p.estadohijos!=0 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
@@ -27,9 +27,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<field name="tipodiscapacidad" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombrehijodiscapacidad" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Nombre hijo con capacidad especial" class="java.lang.String"/>
 	<group name="nombreempleado">
 		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
@@ -184,13 +182,6 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<text><![CDATA[Tipo de Discapacidad]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="498" y="0" width="171" height="17" uuid="f9a14dd0-046e-47fc-ab36-2052b06d71cf"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Nombre de Hijo con Discapacidad]]></text>
-			</staticText>
 			<line>
 				<reportElement x="206" y="0" width="1" height="17" uuid="2b3c3378-6314-4f1f-b469-be94bc2ad8f1"/>
 			</line>
@@ -202,42 +193,49 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</line>
 			<staticText>
 				<reportElement x="219" y="0" width="115" height="20" uuid="c0b00b37-7d6e-436b-b635-e8303dd7373f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="179" height="20" uuid="4247ec53-7c72-491a-990f-b8d4aa89e343"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Nombre hijo con capacidad especial]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="402" y="0" width="83" height="14" uuid="7577289a-031a-46f3-a27d-7efce72a54a0"/>
-				<textElement>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="389" y="0" width="96" height="14" uuid="7577289a-031a-46f3-a27d-7efce72a54a0"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipodiscapacidad}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="500" y="0" width="171" height="14" uuid="de99b313-a212-412c-8fd1-d9d805e7358f"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombrehijodiscapacidad}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="219" y="0" width="142" height="14" uuid="b9aaead2-389c-406a-b702-222cc29542b4"/>
-				<textElement>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="122" y="0" width="64" height="14" uuid="8591ebf6-9f70-425b-836d-b0a7c8e29eb7"/>
-				<textElement textAlignment="Right">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="104" y="0" width="90" height="14" uuid="8591ebf6-9f70-425b-836d-b0a7c8e29eb7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="495" y="0" width="176" height="14" uuid="9aef8ee0-e481-4357-96e7-fa0c1bd3d16e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre hijo con capacidad especial}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

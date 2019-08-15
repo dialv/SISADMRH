@@ -21,7 +21,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     diagnosticocapacitacion.`codigodiagnosticocapacitacion` AS diagnosticocapacitacion_codigodiagnosticocapacitacion,
+     diagnosticocapacitacion.`necesidadcapacitacion` AS diagnosticocapacitacion_codigodiagnosticocapacitacion,
      diagnosticocapacitacion.`cargoautorizadiagnosticocapacitacion` AS diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion,
      diagnosticocapacitacion.`direccion` AS diagnosticocapacitacion_direccion,
      diagnosticocapacitacion.`mescapacitacion` AS diagnosticocapacitacion_mescapacitacion,
@@ -33,13 +33,15 @@
 FROM
      `diagnosticocapacitacion` diagnosticocapacitacion]]>
 	</queryString>
-	<field name="diagnosticocapacitacion_temacapacitacion" class="java.lang.String"/>
-	<field name="diagnosticocapacitacion_direccion" class="java.lang.String"/>
-	<field name="diagnosticocapacitacion_necesidadcapacitacion" class="java.lang.String"/>
-	<field name="diagnosticocapacitacion_mescapacitacion" class="java.lang.String"/>
-	<field name="diagnosticocapacitacion_resultadoobtener" class="java.lang.String"/>
-	<field name="diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_codigodiagnosticocapacitacion" class="java.lang.String"/>
 	<field name="diagnosticocapacitacion_cargoautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_direccion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_mescapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_necesidadcapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_nombreautorizadiagnosticocapacitacion" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_resultadoobtener" class="java.lang.String"/>
+	<field name="diagnosticocapacitacion_codigocapacitacion" class="java.lang.Integer"/>
+	<field name="diagnosticocapacitacion_temacapacitacion" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -182,55 +184,55 @@ FROM
 			</line>
 			<staticText>
 				<reportElement style="Column header" x="27" y="-1" width="95" height="24" forecolor="#000000" uuid="8c8359fa-1916-4267-b5ff-49beffadff78"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tema]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="123" y="0" width="87" height="24" forecolor="#000000" uuid="cca56259-d6ea-4df7-9a2e-5804a0ed93bc"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Dirección]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="212" y="0" width="100" height="24" forecolor="#000000" uuid="2190657d-5372-48e2-a52d-7903820fbf29"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Necesidades de Capacitación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="317" y="0" width="60" height="24" forecolor="#000000" uuid="6f223216-894c-49e0-9ba6-d4b72a75374d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Mes de Capacitación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="378" y="-1" width="180" height="24" forecolor="#000000" uuid="9b8b9726-ff7b-4097-8c89-514478881e75"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Resultados a Obtener]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="560" y="0" width="96" height="24" forecolor="#000000" uuid="abb45af3-6c11-4329-b6a0-163a0490eae6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Autorizado Por]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="658" y="0" width="88" height="24" forecolor="#000000" uuid="2d32e380-6a43-4e16-a12b-b13735be93c1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cargo quien Autoriza]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="25" y="0" width="719" height="24" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
+				<reportElement mode="Transparent" x="23" y="0" width="725" height="24" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
 			</rectangle>
 		</band>
 	</columnHeader>

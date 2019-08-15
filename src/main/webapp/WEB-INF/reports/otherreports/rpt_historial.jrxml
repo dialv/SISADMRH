@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="30"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
@@ -15,36 +15,32 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado,d.nombrepuesto, d.sueldobase, d.sueldotopepuesto, DATE_FORMAT(d.fechacontrataciondesde, '%d/%m/%Y') as Desde,DATE_FORMAT(d.fechacontratacionhasta, '%d/%m/%Y')as Hasta
-FROM empleado e INNER JOIN empleadopuesto p
-on e.codigoempleado=p.codigoempleado  inner join puesto d on d.codigopuesto=p.codigopuesto
+		<![CDATA[select e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado ,el.cargo,el.salarioinicial,el.salariofinal,DATE_FORMAT(el.fechadesdeexperiencialaboral, '%d/%m/%Y') as Desde,DATE_FORMAT(el.fechahastaexperiencialaboral, '%d/%m/%Y') as Hasta from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join empleadoexperiencialaboral ex on e.codigoempleado=ex.codigoempleado inner join experiencialaboral el on ex.codigoexperiencialaboral=el.codigoexperiencialaboral
 where
-e.codigoempleado=$P{CODIGO} and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+e.codigoempleado=$P{CODIGO} and el.fechadesdeexperiencialaboral >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')and el.estadoexp!=0]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Empleado" class="java.lang.String"/>
-	<field name="nombrepuesto" class="java.lang.String">
+	<field name="cargo" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="sueldobase" class="java.lang.Float">
+	<field name="salarioinicial" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="sueldotopepuesto" class="java.lang.Float">
+	<field name="salariofinal" class="java.lang.Float">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
-	<variable name="sueldobase_1" class="java.lang.Float" calculation="Sum">
-		<variableExpression><![CDATA[$F{sueldobase}]]></variableExpression>
-	</variable>
+	<variable name="Salario_1" class="java.lang.String"/>
 	<group name="nombreempleado">
 		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombrepuesto">
-		<groupExpression><![CDATA[$F{nombrepuesto}]]></groupExpression>
+		<groupExpression><![CDATA[]]></groupExpression>
 	</group>
 	<group name="nombremision">
 		<groupExpression><![CDATA[]]></groupExpression>
@@ -181,36 +177,29 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="65" y="0" width="653" height="17" uuid="c57e2d9e-8f00-4ba7-a90e-32cc6e727163"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="99" y="0" width="76" height="17" uuid="7e48898a-1475-4ed7-8f5c-1b0cb9669341"/>
-				<textElement textAlignment="Center">
+				<reportElement x="65" y="0" width="110" height="17" uuid="7e48898a-1475-4ed7-8f5c-1b0cb9669341"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="252" y="0" width="73" height="17" uuid="de05b416-f450-450e-9a71-e275c6d175cd"/>
-				<textElement textAlignment="Center">
+				<reportElement x="218" y="0" width="107" height="17" uuid="de05b416-f450-450e-9a71-e275c6d175cd"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="365" y="0" width="65" height="17" uuid="1b38ed4d-db4c-4238-b75f-aa9194feee9a"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Sueldo Base($)]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="438" y="0" width="68" height="17" uuid="6add28a2-4948-4e1c-9a2b-2f23dd7335ca"/>
-				<textElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Sueldo final($)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="516" y="0" width="94" height="17" uuid="a1e8b592-2b67-45f9-ac83-75b897bb913a"/>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha de Contratación]]></text>
@@ -226,7 +215,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="213" y="0" width="1" height="17" uuid="550cbdcf-db01-409a-ad6d-6920dcb1194d"/>
 			</line>
 			<line>
-				<reportElement x="355" y="0" width="1" height="17" uuid="d2a3ada0-043a-4227-b1f7-d47d363d6d31"/>
+				<reportElement x="338" y="0" width="1" height="17" uuid="d2a3ada0-043a-4227-b1f7-d47d363d6d31"/>
 			</line>
 			<line>
 				<reportElement x="515" y="0" width="1" height="17" uuid="32e3830b-8fb1-4055-8701-b5623be68d4f"/>
@@ -237,31 +226,17 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			<line>
 				<reportElement x="437" y="0" width="1" height="17" uuid="9982b763-79dd-4651-8f97-acf7544c59d9"/>
 			</line>
+			<staticText>
+				<reportElement x="345" y="2" width="84" height="14" uuid="598c7448-fdfe-4117-814e-45c7ccd53715"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Sueldo inicial($)]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="16" splitType="Stretch">
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="218" y="0" width="136" height="14" uuid="9225867d-e615-4135-b591-459d852df725"/>
-				<textElement>
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="366" y="0" width="65" height="14" uuid="f33734f0-d5ac-4731-b5c5-548952b0c747"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new BigDecimal($F{sueldobase}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="445" y="0" width="47" height="14" uuid="a5509c64-7e35-433c-aae5-6438ce227ec0"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{sueldotopepuesto}]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="65" y="0" width="145" height="14" uuid="9e4e586d-f374-4b95-a60c-30d9ad8649a6"/>
 				<textElement>
@@ -270,18 +245,39 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="525" y="2" width="75" height="14" uuid="4c1aa081-c9f8-4f96-bbcc-1a8f112d3843"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="525" y="2" width="85" height="14" uuid="4c1aa081-c9f8-4f96-bbcc-1a8f112d3843"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="613" y="2" width="87" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="613" y="2" width="96" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="0" width="88" height="14" uuid="2a144233-38c9-4ef1-a119-5c03213740d6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new BigDecimal($F{salarioinicial}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="2" width="77" height="14" uuid="bf79cc56-9b0f-47a4-9b03-b2704295c2bb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new BigDecimal($F{salariofinal}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="0" width="110" height="14" uuid="ba718c67-1674-4959-b44f-e6793588d2ff"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -294,11 +290,11 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="29" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="344" y="6" width="241" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
+				<reportElement mode="Opaque" x="611" y="3" width="101" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total Sueldos:$" + new BigDecimal($V{sueldobase_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Registros:" + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="65" y="2" width="653" height="1" uuid="a548bbc2-78eb-42ed-b2ed-3e32f4b3d63f"/>

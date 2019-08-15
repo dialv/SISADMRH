@@ -20,6 +20,22 @@
         <div>
             <form class="form-horizontal" th:object="${comision}" th:action="@{../comision}" method="post" enctype="multipart/form-data">
                 <input type="hidden" th:field="*{codigocomision}"/>
+                     <div class="form-group">
+                            <label class="col-sm-3 control-label">Responsable de la comision(*):</label>
+                            <div class="col-sm-5">
+                                <select class="form-control" th:field="*{codigoempleado.codigoempleado}" >
+                                     <option value=""> Selecione un encargado del comision</option>
+                                    <option th:each="c:${empleados}"  th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
+                                </select>
+                                <!--<input type="number" class="form-control" th:field="*{codigoempleado.codigoempleado}"/>-->
+                            </div>
+                            <div class="popup col-sm-1"><b>
+                                    <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('encargadocmite')" onmouseout ="javascript:ocultarAyuda('encargadocmite')">a</a></b>
+
+                                <span class="popuptext" id="encargadocmite">Seleccione el encargado de la comision!</span>
+                            </div>
+                        </div>
+                
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Nombre de  comisión:</label>
                     <div class="col-sm-7">
