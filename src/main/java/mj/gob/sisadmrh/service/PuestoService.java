@@ -21,5 +21,7 @@ public interface PuestoService {
     void deletePuesto(Integer id);
 
     List<Object[]> PuestosoExcel(String finicial, String ffinal);
+    
+    Optional<Puesto> getPuestoByIdEmpleado(Integer id);
 
 }

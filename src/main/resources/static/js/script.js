@@ -271,13 +271,25 @@ function ValidarFechaReporte(fechainicio,fechafin,idinicial,idfinal){
         var info = string.split('/').reverse().join('/');
         return info;
    }
-
 function Textheader(texto,titulo){
      titulo=titulo.replace("SISADMRH-", "");
      document.getElementById('nombrepantalla').innerHTML = texto;
      document.getElementById('titulopantalla').innerHTML = titulo;
+     
+     var URLactual = window.location.href;
+     
+     if(URLactual.includes("edit")){
+        document.title= titulo.replace("Crear","Editar");
+        document.getElementById('titulopantalla').innerHTML = titulo.replace("Crear","Editar");
+     }
 
 }
+//function Textheader(texto,titulo){
+//     titulo=titulo.replace("SISADMRH-", "");
+//     document.getElementById('nombrepantalla').innerHTML = texto;
+//     document.getElementById('titulopantalla').innerHTML = titulo;
+//
+//}
 function fecha_formatmisiones() {
    
     var msg = '';

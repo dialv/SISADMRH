@@ -50,4 +50,9 @@ public class PuestoServiceImpl implements PuestoService {
     public Iterable<Puesto> listAllActivos() {
      return puestoRep.listAllActivos();
     }
+    
+     @Override
+    public Optional<Puesto> getPuestoByIdEmpleado(Integer id) {
+     return puestoRep.getPuestoByIdEmpleado(id);
+    }
 }

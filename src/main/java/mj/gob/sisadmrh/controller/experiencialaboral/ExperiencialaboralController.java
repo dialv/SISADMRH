@@ -5,9 +5,11 @@ import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadoexperiencialaboral;
 import mj.gob.sisadmrh.model.EmpleadoexperiencialaboralPK;
 import mj.gob.sisadmrh.model.Experiencialaboral;
+import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.EmpleadoExperiencialaboralService;
 import mj.gob.sisadmrh.service.EmpleadoService;
 import mj.gob.sisadmrh.service.ExperiencialaboralService;
+import mj.gob.sisadmrh.service.PuestoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +32,10 @@ public class ExperiencialaboralController extends UtilsController{
     private EmpleadoExperiencialaboralService empleadoExperiencialaboralService;
     @Autowired
     private EmpleadoService empleadoService;
+    @Autowired
+    private PuestoService puestoService;
+    @Autowired
+    private ContratoService contratoService;
 
 
     
@@ -68,6 +74,9 @@ model.addAttribute("msg", 2);
     @RequestMapping("new/{id}")
     public String newExperiencialaboral(Model model,@PathVariable Integer id) {
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
+        Integer idp=empleadoService.getEmpleadoById(id).get().getCodigopuesto();
+        model.addAttribute("puesto", puestoService.getPuestoByIdEmpleado(idp).get().getNombrepuesto());
+        model.addAttribute("salario",contratoService.getContratoById(id).get().getSalarioactual());
         model.addAttribute("experiencialaboral", new Experiencialaboral());
         return PREFIX + "experienciaform";
     }

@@ -1,6 +1,7 @@
 package mj.gob.sisadmrh.repository;
 
 import java.util.List;
+import java.util.Optional;
 import mj.gob.sisadmrh.model.Puesto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -44,4 +45,7 @@ public interface PuestoRepository extends CrudRepository<Puesto, Integer> {
 
     @Query("SELECT o FROM Puesto o WHERE o.estadopuesto != 0")
     public Iterable<Puesto> listAllActivos();
+    
+    @Query("SELECT o FROM Puesto o WHERE o.estadopuesto != 0 and o.codigopuesto=:id")
+    public Optional<Puesto> getPuestoByIdEmpleado(@Param("id") int dato);
 }
