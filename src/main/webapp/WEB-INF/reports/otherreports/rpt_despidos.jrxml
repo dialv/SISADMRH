@@ -10,7 +10,8 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT concat(e.nombreempleado,' ' ,e.apellidoempleado) as 'nombre',p.ubicacionpuesto,p.nombrepuesto,p.numeropartidapuesto, p.numerosubpartidapuesto,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=4]]>
+		<![CDATA[SELECT concat(e.nombreempleado,' ' ,e.apellidoempleado) as 'nombre',p.ubicacionpuesto,p.nombrepuesto, 
+c.partidacontrato, c.subpartidacontrato,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=4]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String"/>
 	<field name="ubicacionpuesto" class="java.lang.String">
@@ -19,10 +20,10 @@
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numeropartidapuesto" class="java.lang.String">
+	<field name="partidacontrato" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="numerosubpartidapuesto" class="java.lang.String">
+	<field name="subpartidacontrato" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="sueldobase" class="java.lang.Float">
@@ -170,7 +171,7 @@
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="143" y="0" width="75" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="8f49158b-50fa-492d-bf23-1e92033042cb"/>
+				<reportElement mode="Transparent" x="130" y="0" width="75" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="8f49158b-50fa-492d-bf23-1e92033042cb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -228,7 +229,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{numerosubpartidapuesto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{subpartidacontrato}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="440" y="0" width="58" height="14" uuid="426efd50-e02a-42ee-97b4-7211d5725570"/>
@@ -256,7 +257,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{numeropartidapuesto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{partidacontrato}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="49" y="0" width="93" height="14" uuid="1e563361-427a-4609-82b8-b40bc7771a7c"/>
