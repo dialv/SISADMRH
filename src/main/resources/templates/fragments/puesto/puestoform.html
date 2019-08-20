@@ -82,6 +82,26 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Numero de partida(*):</label>
+                        <div class="col-sm-2">
+                            <input type="text"  class="form-control" required="true" maxlength="10" th:field="*{numeropartidapuesto}"/>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                            <span class="popuptext" id="poppup3">Ingrese el numero de partida</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Numero de Sub partida(*):</label>
+                        <div class="col-sm-2">
+                            <input type="text"  class="form-control" required="true" maxlength="10" th:field="*{numerosubpartidapuesto}"/>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
+                            <span class="popuptext" id="poppup3">Ingrese el numero de subpartida del Puesto de Trabajo solo se admitiran dos decimales.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-3 control-label">Ubicacion Geografica(*):</label>
                         <div class="col-sm-5">
                             <select class="form-control" name="ubicacionpuesto" th:field="*{ubicacionpuesto}" >
