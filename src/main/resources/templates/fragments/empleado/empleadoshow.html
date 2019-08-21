@@ -200,6 +200,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 <p class="form-control-static">  <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span> <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span> <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"></span> <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span> <span th:if="${empleado.estadoempleado} == 0"  th:text="De Baja"></span> </p>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Puesto del empleado:</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" id="nombrepuesto" > nombrepuesto</p>
+                            </div>
+                        </div>
                     </div> 
                 </form>
 <!--                <div class="col-md-12">
@@ -876,6 +882,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </body>
 <script th:inline="javascript">
       $(document).ready(function () {
+          var puesto ='[[${nombrepuesto}]]' ;
+          puesto=puesto.replace('"','');
+          $('#nombrepuesto').text(puesto.replace('"',''));
             $('#tablita').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"

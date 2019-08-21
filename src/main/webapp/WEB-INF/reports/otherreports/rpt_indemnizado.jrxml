@@ -13,13 +13,19 @@
 		<![CDATA[SELECT
  concat(e.nombreempleado,' ',e.apellidoempleado) as nombreempleado,e.sexoempleado,p.acuerdo as
  "No Acuerdo",p.sueldobase as 'Salario',
- DATE_FORMAT(p.fechacontrataciondesde, "%d/ %m /%Y") as "Fecha Desde",
- DATE_FORMAT(p.fechacontratacionhasta, "%d/ %m /%Y") as "Fecha Hasta",
+ DATE_FORMAT(c.fechainiciocontrato, "%d/ %m /%Y") as "Fecha Desde",
+ DATE_FORMAT(c.fechafincontrato, "%d/ %m /%Y") as "Fecha Hasta",
  p.nombrepuesto,p.ubicacionpuesto
-FROM `empleado` e, puesto p
-WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3 and
-p.fechacontrataciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+FROM `empleado` e, puesto p, contrato c,empleadocontrato ec
+WHERE 
+e.codigopuesto=p.codigopuesto and e.estadoempleado=2 and
+e.codigoempleado=ec.codigoempleado and
+c.codigocontrato=ec.codigocontrato and
+c.fechainiciocontrato>= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and
+c.fechainiciocontrato <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and p.estadopuesto<>0
+and c.estadocontrato=1
+
+]]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -164,42 +170,42 @@ and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="85" y="0" width="160" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="243" y="0" width="50" height="14" uuid="0d30f8e2-2818-4bdc-9970-b3c12b06e28c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No Acuerdo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="345" y="0" width="75" height="14" uuid="c5818b64-8bcd-4a26-b9f2-cedc8ab55902"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Desde]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="421" y="0" width="75" height="14" uuid="f0fe30c8-e930-4553-b8fa-b31cdb02989e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Hasta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="592" y="0" width="122" height="14" uuid="5a6d96d2-49d9-4941-afd5-08b5fadf02cb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="495" y="0" width="97" height="14" uuid="5ee4a13b-06cf-46f9-9b4d-e96719fdaa81"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Puesto]]></text>
@@ -224,7 +230,7 @@ and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</line>
 			<staticText>
 				<reportElement mode="Transparent" x="294" y="0" width="55" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="bfb1a1e6-00ce-4cb7-8fda-1bd9b4b47c09"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Salario($)]]></text>

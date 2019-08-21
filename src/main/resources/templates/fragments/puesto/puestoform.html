@@ -49,11 +49,21 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nombre de Puesto(*):</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" th:field="*{nombrepuesto}" required="true"/>
+                            <input type="text" class="form-control" th:field="*{nombrepuesto}" maxlength="50" required="true"/>
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup2')" onmouseout ="javascript:ocultarAyuda('poppup2')">a</a></b>
                             <span class="popuptext" id="poppup2">Ingrese el Nombre  del Puesto de Trabajo solo se admitiran 50 caracteres.</span>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Numero de Acuerdo(*):</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control numeros" th:field="*{acuerdo}" maxlength="6" required="true"/>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup222')" onmouseout ="javascript:ocultarAyuda('poppup222')">a</a></b>
+                            <span class="popuptext" id="poppup222">Ingrese el Numero de acuerdo del Puesto de Trabajo solo se admitiran 6 caracteres numericos.</span>
                         </div>
                     </div>
                     <div class="form-group">

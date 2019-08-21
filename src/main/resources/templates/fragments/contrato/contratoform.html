@@ -78,12 +78,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <br>
                     <label class="col-sm-3 control-label">Salario actual $(*):</label>
                     <div class="col-sm-2">
-                        <input type="text"  class="form-control num_decimal3 numeros"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
+                        <input type="text" id="salario" class="form-control"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup3')" onmouseout ="javascript:ocultarAyuda('poppup3')">a</a></b>
                         
-                        <span class="popuptext" id="poppup3">Ingrese el salario actual del empleado. Solo se admiten cantidades numericas con dos decimales</span>
+                        <span class="popuptext" id="poppup3">Campo en el que se muestra el salario actual del empleado. campo no editable, valor extraido del puesto asignado al empleado</span>
                     </div>
                 </div>
                  <div class="form-group">
@@ -100,23 +100,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Sistema de pago(*):</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control"   required="true" size="50" maxlength="50" th:field="*{sistemapago}"   />
+                        <input type="text" class="form-control"  id="sispago" required="true" size="50" maxlength="50" th:field="*{sistemapago}"   />
                     </div>
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('sispago')" onmouseout ="javascript:ocultarAyuda('sispago')">a</a></b>
                         
-                        <span class="popuptext" id="sispago">Ingrese el sistema de pago del empleado solo se admitiran 50 caracteres .!</span>
+                        <span class="popuptext" id="sispago">Campo en el que se muestra el sistema de pago del empleado. campo no editable, valor extraido del puesto asignado al empleado!</span>
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Linea de trabajo(*):</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control"   required="true" size="100" maxlength="100" th:field="*{lineatrabajo}"   />
+                        <input type="text" class="form-control"  id="linea" required="true" size="100" maxlength="100" th:field="*{lineatrabajo}"   />
                     </div>
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup25')" onmouseout ="javascript:ocultarAyuda('poppup25')">a</a></b>
                         
-                        <span class="popuptext" id="poppup25">Ingrese la linea de trabajo del empleado solo se admitiran 50 caracteres .!</span>
+                        <span class="popuptext" id="poppup25">Campo en el que se muestra el la linea de trabajo del empleado. campo no editable, valor extraido del puesto asignado al empleado</span>
                     </div>
                 </div>
                  <div class="form-group">
@@ -163,7 +163,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup21')" onmouseout ="javascript:ocultarAyuda('poppup21')">a</a></b>
                         
-                        <span class="popuptext" id="poppup21">Seleccione o digite la fecha de inicio del contrato del empleado el formtado debe ser  dia/mes/año .!</span>
+                        <span class="popuptext" id="poppup21">Campo en el que se muestra la fecha de ingreso al ministerio . campo no editable, valor extraido de la informacion del empleado!</span>
                     </div>
             </div>
                 <div class="form-group">
@@ -278,6 +278,22 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  
 		
 		$(document).ready(function () {
+                    document.getElementById("salario").readOnly = true;
+                    document.getElementById("sispago").readOnly = true;
+                    document.getElementById("linea").readOnly = true;
+                    document.getElementById("fechaicontrato").readOnly = true;
+//                    $('#salario').prop('disabled', 'disabled');
+//                    $('#sispago').prop('disabled', 'disabled');
+//                    $('#linea').prop('disabled', 'disabled');
+//                    $('#fechaicontrato').prop('disabled', 'disabled');
+                    var salario ='[[${salario}]]' ;
+                    var sispago ='[[${sispago}]]' ;
+                    var linea ='[[${linea}]]' ;
+                    var fechaincontrato ='[[${#calendars.format(fechainicio, "dd/MM/yyyy")}]]' ;
+                    $('#salario').val(salario);
+                    $('#sispago').val(sispago);
+                    $('#linea').val(linea);
+                    $('#fechaicontrato').val(fechaincontrato);
                      
 		    var date = new Date();
 		    var currentMonth = date.getMonth();

@@ -14,8 +14,7 @@
 inner join  puesto p on e.codigopuesto=p.codigopuesto
  WHERE e.estadoempleado=1 and
 e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') 
-]]>
+and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="empleado" class="java.lang.String"/>
 	<field name="sumsueldo" class="java.lang.Float"/>
@@ -182,7 +181,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="157" y="0" width="218" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="145" y="0" width="230" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

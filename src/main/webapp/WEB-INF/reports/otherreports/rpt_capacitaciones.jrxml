@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="5" uuid="3efb06ae-db0d-441a-8882-24e35fcd8a5a">
 	<property name="ireport.zoom" value="1.0980750000000004"/>
 	<property name="ireport.x" value="40"/>
-	<property name="ireport.y" value="6"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -26,7 +26,10 @@ ca.departamentoresponsable,DATE_FORMAT(ca.fechacapacitaciondesde, '%d/%m/%Y') as
  INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion
 where
  ca.fechacapacitaciondesde>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')
+and p.estadopuesto<>0
+and ca.estadocapacitacion=1
+and e.estadoempleado in (1,3)]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -208,7 +211,7 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Horas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="507" y="0" width="115" height="28" uuid="d1efa746-ff31-49b9-b359-8776e5267773"/>
+				<reportElement x="500" y="0" width="122" height="28" uuid="d1efa746-ff31-49b9-b359-8776e5267773"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -256,30 +259,30 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="14" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="169" y="0" width="130" height="14" uuid="f4ae7cc1-6b28-4d72-a801-7f6cd0cd4606"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="176" y="0" width="123" height="14" uuid="f4ae7cc1-6b28-4d72-a801-7f6cd0cd4606"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="303" y="0" width="25" height="14" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="303" y="0" width="34" height="14" uuid="08c4f942-8efb-4034-9574-815d33d0cc9a"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{duracionhoracapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="343" y="0" width="156" height="14" uuid="415de10f-638b-4733-a1ed-4b4f04cf8454"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="343" y="0" width="156" height="26" uuid="415de10f-638b-4733-a1ed-4b4f04cf8454"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrecapacitacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="518" y="0" width="100" height="14" uuid="e37c0619-51bd-42f9-8b35-0d9f4900630f"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="500" y="0" width="118" height="14" uuid="e37c0619-51bd-42f9-8b35-0d9f4900630f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -309,7 +312,7 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="8" splitType="Stretch"/>
+		<band height="11" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="11" splitType="Stretch"/>

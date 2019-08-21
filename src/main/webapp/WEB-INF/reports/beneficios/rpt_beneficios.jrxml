@@ -23,7 +23,8 @@ inner join empleado e using(codigoempleado)
 inner join beneficio b using (codigobeneficio)
 where empben.codigoempleado =$P{CODIGO}
 and empben.fechabeneficio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and  b.estadobeneficio=1
+and e.estadoempleado<>0]]>
 	</queryString>
 	<field name="codigobeneficio" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -167,14 +168,14 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</rectangle>
 			<staticText>
 				<reportElement x="222" y="0" width="100" height="14" uuid="21013ac3-83d2-48e0-8663-b651fa613ff0"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="118" y="0" width="104" height="14" uuid="7e076150-d156-4236-aee8-35b1156f7138"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Nombre del Beneficio]]></text>
@@ -187,15 +188,15 @@ and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Descripcion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="324" y="0" width="50" height="14" uuid="2b1920bb-54aa-4296-bdc2-bce9dc33b72e"/>
-				<textElement textAlignment="Center">
+				<reportElement x="323" y="0" width="50" height="14" uuid="2b1920bb-54aa-4296-bdc2-bce9dc33b72e"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Sexo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="50" y="0" width="68" height="14" uuid="6f34145f-662c-4029-a33d-eae35bf8451a"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Código Beneficio]]></text>

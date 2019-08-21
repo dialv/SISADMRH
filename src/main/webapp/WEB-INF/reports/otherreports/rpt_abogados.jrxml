@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="47"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -19,7 +19,7 @@
 		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e
 inner join empleadoformacion f on e.codigoempleado=f.codigoempleado
 inner join formacionacademica fa on  fa.codigoformacionacademica=f.codigoformacionacademica
-inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%abogado' and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%Abogado' or p.nombrepuesto like '%abogado' and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and fa.estadoformacion != 0 and estadopuesto != 0]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">

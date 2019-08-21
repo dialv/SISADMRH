@@ -24,6 +24,7 @@ import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.EmpleadoContratoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.PuestoService;
 //import mj.gob.sisadmrh.service.ContratoContratoService;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,8 @@ public class ContratoController extends UtilsController{
     
  @Autowired
     private EmpleadoService empleadoService;
+  @Autowired
+  private PuestoService puestoService;
  @Autowired
     private EmpleadoContratoService empleadoContratoService;
     
@@ -104,6 +107,12 @@ model.addAttribute("msg", 2);
     public String newContrato(Model model,@PathVariable Integer id) {
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("contrato", new Contrato());
+        Integer idp=empleadoService.getEmpleadoById(id).get().getCodigopuesto();
+        model.addAttribute("salario", puestoService.getPuestoByIdEmpleado(idp).get().getSueldobase());
+        model.addAttribute("sispago", puestoService.getPuestoByIdEmpleado(idp).get().getFormapago());
+        model.addAttribute("linea", puestoService.getPuestoByIdEmpleado(idp).get().getSublinea());
+        model.addAttribute("fechainicio", empleadoService.getEmpleadoById(id).get().getFechaingresoministerio());
+        
         return PREFIX + "contratoform";
     }
 

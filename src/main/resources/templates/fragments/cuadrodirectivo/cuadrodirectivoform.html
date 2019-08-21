@@ -29,6 +29,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Numero de acuerdo(*):</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control numeros" required="true" size="6" maxlength="6" th:field="*{acuerdocuadrodirectivo}"/>
+                                </div>
+                                <div class="popup col-sm-1"><b>
+                                        <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('areaa1')" onmouseout ="javascript:ocultarAyuda('areaa1')">a</a></b>
+                                    <span class="popuptext" id="areaa1">Ingrese el numero de acuerdo del cuadro directivo. Solo se permiten 6 caracteres!</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-3 control-label">&Aacute;rea a que pertenece(*):</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control" required="true" size="30" maxlength="30" th:field="*{area}"/>

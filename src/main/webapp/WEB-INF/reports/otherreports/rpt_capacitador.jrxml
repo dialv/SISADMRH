@@ -9,7 +9,7 @@
 	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
      capacitador.`codigocapacitador` AS capacitador_codigocapacitador,
      capacitador.`carnetresidencia` AS capacitador_carnetresidencia,
@@ -25,7 +25,7 @@
      capacitador.`institucioncapacitador` AS capacitador_institucioncapacitador,
      capacitador.`tipoagrupacion` AS capacitador_tipoagrupacion
 FROM
-     `capacitador` capacitador]]>
+     `capacitador` capacitador where estadocapacitador=1]]>
 	</queryString>
 	<field name="capacitador_codigocapacitador" class="java.lang.Integer"/>
 	<field name="capacitador_nombrecapacitador" class="java.lang.String"/>
@@ -161,35 +161,35 @@ FROM
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="46" y="0" width="109" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="5bad4120-5e48-417e-93e9-744284a3fe27"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Capacitador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="155" y="0" width="51" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="90329b24-197c-409f-ad29-8bb7c4f12749"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="207" y="0" width="63" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="4bed08c9-10e1-4d1b-8112-5d8cdbc2fdcd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Teléfono Movil]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="271" y="0" width="146" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="e5b0ded0-c0d8-4746-a333-f306e0fe286e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Email]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="418" y="0" width="89" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="a80af39f-1e86-4180-8969-4323788b37d3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Temas de Dominio]]></text>
@@ -240,7 +240,7 @@ FROM
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="207" y="0" width="63" height="14" uuid="17518cf7-92f1-40ba-b458-314b9d67d4a4"/>
-				<textElement textAlignment="Right">
+				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{capacitador_telefonomovilcapacitador}]]></textFieldExpression>
