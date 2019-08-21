@@ -79,7 +79,7 @@ public class AsistenciaCapacitacionController extends UtilsController{
         AsistenciaCapacitacionForm form = new AsistenciaCapacitacionForm();
         //para jalar el nombre de capacitaciones
         form.setCapacitaciones(capacitacionService.listAllCapacitacion());
-        form.setEmpleados(empleadoService.listAllActivos());
+        form.setEmpleados(empleadoService.listAllActivosPensionados());//mostrara empleados activos y pensionados
         //para jalar los nombres de los empleados 
         model.addAttribute("formasistenciacapacitancion", form);
         return PREFIX + "asistenciacapacitacionform";

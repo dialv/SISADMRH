@@ -129,6 +129,16 @@
                             <span class="popuptext" id="poppup44">Ingrese la fecha de aprobación del puesto de trabajo</span>
                         </div>
                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Fecha de creación(*):</label>
+                        <div class="col-sm-2">
+                            <input class="form-control fecha_format " required="true" placeholder="dia/mes/año" type="text" th:field="*{fechacreacion}" name="fechacreacion" id="fechacreacion"  onchange="isDat(this.value, 'fechacreacion'); Fechas(this.value, $('#fechabaja').val().toString(), 'fechacreacion', 'fechabaja'); Fechas(this.value, $('#fechacontrataciondesde').val().toString(), 'fechacreacion', 'fechacontrataciondesde'); Fechas(this.value, $('#fechamodificacion').val().toString(), 'fechacreacion', 'fechamodificacion')"/>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup43')" onmouseout ="javascript:ocultarAyuda('poppup43')">a</a></b>
+                            <span class="popuptext" id="poppup43">Seleccione o digite la fecha de creación  del Puesto de trabajo.</span>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Fecha de inicio de contratación (*):</label>
                         <div class="col-sm-2">
@@ -149,16 +159,7 @@
                          <span class="popuptext" id="poppup42">Ingrese  la fecha fin de contratación  del puesto de trabajo </span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Fecha de creación(*):</label>
-                        <div class="col-sm-2">
-                            <input class="form-control fecha_format " required="true" placeholder="dia/mes/año" type="text" th:field="*{fechacreacion}" name="fechacreacion" id="fechacreacion"  onchange="isDat(this.value, 'fechacreacion'); Fechas(this.value, $('#fechabaja').val().toString(), 'fechacreacion', 'fechabaja'); Fechas(this.value, $('#fechacontrataciondesde').val().toString(), 'fechacreacion', 'fechacontrataciondesde'); Fechas(this.value, $('#fechamodificacion').val().toString(), 'fechacreacion', 'fechamodificacion')"/>
-                        </div>
-                        <div class="popup "><b>
-                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup43')" onmouseout ="javascript:ocultarAyuda('poppup43')">a</a></b>
-                            <span class="popuptext" id="poppup43">Seleccione o digite la fecha de creación  del Puesto de trabajo.</span>
-                        </div>
-                    </div>
+                   
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Fecha de Baja(*):</label>
                         <div class="col-sm-2">

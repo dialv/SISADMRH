@@ -46,7 +46,7 @@ public class IncapacidadController extends UtilsController {
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("incapacidad", incapacidadService.getIncapacidadById(id).get());
-         Iterable<Empleado> empleados = empleadoService.listAllActivos();
+         Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
         model.addAttribute("empleados", empleados);
         return PREFIX + "incapacidadform";
     }
@@ -56,7 +56,7 @@ public class IncapacidadController extends UtilsController {
         model.addAttribute("incapacidad", new Incapacidad());
 
         // -----------Manda a la vista los empleados
-        Iterable<Empleado> empleados = empleadoService.listAllActivos();
+        Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();//empleados activos y pensionados
         model.addAttribute("empleados", empleados);
         return PREFIX + "incapacidadform";
     }

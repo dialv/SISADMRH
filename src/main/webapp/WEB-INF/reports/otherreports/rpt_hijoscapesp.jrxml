@@ -17,7 +17,7 @@
 		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado, p.tipodiscapacidad,
 concat(p.nombrehijodiscapacidad," ",p.apellidohijodiscapacidad) as "Nombre hijo con capacidad especial"  from empleadohijodiscapacidad h
 inner join empleado e on e.codigoempleado=h.codigoempleado
-inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad and p.estadohijos!=0 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad where p.estadohijos!=0 and  e.estadoempleado!=0 and e.estadoempleado!=2  and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">

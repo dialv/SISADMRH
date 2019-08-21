@@ -53,9 +53,9 @@ public class EmpleadoCapacitacionController  {
      @RequestMapping("new/empleadocapacitacion")
     public String newEmpleadoCapacitacion(Model model) {
         EmpleadoCapacitacionForm form = new  EmpleadoCapacitacionForm();
-        form.setCapacitaciones(capacitacionService.listAllCapacitacion());
+        form.setCapacitaciones(capacitacionService.listAllActivos());
       
-      form.setEmpleados(empleadoService.listAllEmpleado());
+      form.setEmpleados(empleadoService.listAllActivosPensionados());
       form.setEmpleadocapacitacion(new Empleadocapacitacion());
        model.addAttribute("formempleadocapacitacion", form);
        

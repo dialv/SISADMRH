@@ -66,7 +66,7 @@ public class MisionController extends UtilsController {
      @RequestMapping("editlist/{id}")
     public String editlist(@PathVariable Integer id, Model model) {
           model.addAttribute("mision", misionService.getMisionById(id).get());
-          model.addAttribute("empleados", empleadoService.listAllActivos());
+          model.addAttribute("empleados", empleadoService.listAllActivosPensionados());//mostrara empleados activos y pensionados
         return PREFIX + "asignarmisionform1";
     }
 

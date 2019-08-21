@@ -57,7 +57,7 @@ public class DiagnosticoCapacitacionController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("diagnosticocapacitacion", diagnosticoCapacitacionService.getDiagnosticoCapacitacionById(id));
-        Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
+        Iterable<Capacitacion> capacitaciones= capacitacionService.listAllActivos();
         Iterable<Estado> direccion = estadoService.findBySuperior(1448);
          model.addAttribute("direccion", direccion);
         model.addAttribute("capacitaciones",capacitaciones);
@@ -70,7 +70,7 @@ public class DiagnosticoCapacitacionController extends UtilsController{
         Iterable<Ubicacionfisica> ubicacionfisicas= ubicacionFisicaService.listAllUbicacionFisica();
         Iterable<Estado> direccion = estadoService.findBySuperior(1448);
         model.addAttribute("ubicacionfisicas", ubicacionfisicas);
-        Iterable<Capacitacion> capacitaciones= capacitacionService.listAllCapacitacion();
+        Iterable<Capacitacion> capacitaciones= capacitacionService.listAllActivos();
         model.addAttribute("capacitaciones",capacitaciones);
         model.addAttribute("direccion", direccion);
         return PREFIX + "diagnosticocapacitacionform";

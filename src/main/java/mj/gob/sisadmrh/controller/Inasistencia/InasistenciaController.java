@@ -42,7 +42,7 @@ public class InasistenciaController extends UtilsController{
        @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("inasistencia",inasistenciaService.getInasistenciaById(id));
-         Iterable<Empleado> empleados = empleadoService.listAllActivos();
+         Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
 //         
       model.addAttribute("empleados", empleados);
 //       return PREFIX + "inasistenciaform";
@@ -52,8 +52,7 @@ public class InasistenciaController extends UtilsController{
      @RequestMapping("new/inasistencia")
     public String newInasistencia(Model model) {
         model.addAttribute("inasistencia", new Inasistencia());
-          Iterable<Empleado> empleados = empleadoService.listAllActivos();
-//         
+          Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();//mostrara empleados activos y pencionados
       model.addAttribute("empleados", empleados);
        return PREFIX + "inasistenciaform";
                 }

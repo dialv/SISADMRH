@@ -43,7 +43,7 @@ public class DescuentoController extends UtilsController {
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("descuento", descuentoService.getDescuentoById(id));
-         Iterable<Empleado> empleados = empleadoService.listAllActivos();
+         Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
         model.addAttribute("empleados", empleados);
         return PREFIX + "descuentoform";
     }
@@ -53,7 +53,7 @@ public class DescuentoController extends UtilsController {
         model.addAttribute("descuento", new Descuento());
 
         // -----------Manda a la vista los empleados
-        Iterable<Empleado> empleados = empleadoService.listAllActivos();
+        Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();////mostrara empleados activos y pensionados
         model.addAttribute("empleados", empleados);
         return PREFIX + "descuentoform";
     }

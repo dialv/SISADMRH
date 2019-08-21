@@ -49,7 +49,7 @@ public class CostoCapacitacionController extends UtilsController{
      @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("costocapacitacion", costoCapacitacionService.getCostoCapacitacionById(id));
-         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllActivos();
       model.addAttribute("capacitaciones", capacitaciones);
         return PREFIX + "costocapacitacionform";
     }
@@ -58,7 +58,7 @@ public class CostoCapacitacionController extends UtilsController{
     public String newCostoCapacitacion(Model model) {
         model.addAttribute("costocapacitacion", new CostoCapacitacion());
 //        manda a la vista las apacitaciones
-         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+         Iterable<Capacitacion> capacitaciones = capacitacionService.listAllActivos();
       model.addAttribute("capacitaciones", capacitaciones);
      //   model.addAttribute("capacitacion", new Capacitacion());
         return PREFIX + "costocapacitacionform";

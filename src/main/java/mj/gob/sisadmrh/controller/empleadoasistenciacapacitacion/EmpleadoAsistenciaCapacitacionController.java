@@ -40,18 +40,22 @@ public class EmpleadoAsistenciaCapacitacionController {
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("empleadoasistenciacapacitaciones", empleadoAsistenciaCapacitacionService.listAllEmpleadoAsistenciaCapacitacion());
+        
         return PREFIX + "empleadoasistenciacapacitaciones";
     }
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
+         model.addAttribute("empleados", empleadoService.listAllActivosPensionados());//mostrara empleados activos y pensionados
+         
         model.addAttribute("empleadoasistenciacapacitacion", empleadoAsistenciaCapacitacionService.getEmpleadoAsistenciaCapacitacionById(id));
+        
         return PREFIX + "empleadoasistenciacapacitacionform";
     }
      @RequestMapping("new/empleadoasistenciacapacitacion")
     public String newAsistenciaEmpleadoCapacitacion(Model model) {
        EmpleadoAsistenciaCapacitacionForm form = new  EmpleadoAsistenciaCapacitacionForm();
       form.setAsistenciacapacitaciones(asistenciaCapacitacionService.listAllAsistenciacapacitacion());
-      form.setEmpleados(empleadoService.listAllEmpleado());
+      form.setEmpleados(empleadoService.listAllActivosPensionados());
 //      form.setUbicacionesfisicas(ubicacionFisicaService.listAllUbicacionFisica());
       form.setEmpleadoasistenciacapacitacion(new Empleadoasistenciacapacitacion());
       model.addAttribute("formasistenciaempleadocapacitacion", form);

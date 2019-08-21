@@ -108,6 +108,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 <p class="form-control-static" th:text="${contrato.subpartidacontrato}">DUI</p>
                             </div>
                         </div>
+                          <div class="form-group">
+                            <label class="col-sm-7 control-label">Plaza Nominal</label>
+                            <div class="col-sm-5">
+                                <p class="form-control-static" th:text="${contrato.plazanominal}">Plaza Nominal</p>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-7 control-label">Fecha de inicio de contrato:</label>
                             <div class="col-sm-5">
