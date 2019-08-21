@@ -23,7 +23,7 @@ inner join empleado e using(codigoempleado)
 inner join beneficio b using (codigobeneficio)
 where empben.codigoempleado =$P{CODIGO}
 and empben.fechabeneficio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+and empben.fechabeneficio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and  b.estadobeneficio=1]]>
 	</queryString>
 	<field name="codigobeneficio" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

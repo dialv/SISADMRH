@@ -88,6 +88,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <p class="form-control-static" th:text="${mision.organismoinvita}">Gasto Viaje</p>
                     </div>
                 </div>
+                     <div class="form-group">
+                    <label class="col-sm-5 control-label">Numero de acuerdo</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" th:text="${mision.numeroacuerdo}">Numero acuerdo</p>
+                    </div>
+                </div>
                   </div> 
                       <div class="col-md-6">
                           <div class="form-group">
@@ -118,6 +124,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <label class="col-sm-7 control-label">Ciudad:</label>
                     <div class="col-sm-5">
                         <p class="form-control-static" th:text="${mision.ciudad}">Gasto Viaje</p>
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label class="col-sm-7 control-label">Departamento:</label>
+                    <div class="col-sm-5">
+                        <p class="form-control-static" th:text="${mision.departamentomision}">departamento</p>
                     </div>
                 </div>
                              <div class="form-group">

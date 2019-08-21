@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
 	<property name="ireport.zoom" value="1.100000000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="158"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -205,8 +205,9 @@ inner join empleadocontrato ec on e.codigoempleado=ec.codigoempleado
  inner join empleadoexperiencialaboral eel on e.codigoempleado=eel.codigoempleado inner 
  join experiencialaboral el on eel.codigoexperiencialaboral=el.codigoexperiencialaboral
 WHERE e.codigoempleado= $P{CODIGO} and
-c.fechainiciocontrato>=$P{FECHAINICIO} and
-c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and
+c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and 
+d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0]]>
 	</queryString>
 	<field name="Total" class="java.lang.Double"/>
 	<field name="Empleado" class="java.lang.String"/>
@@ -400,7 +401,7 @@ c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<pageHeader>
 		<band height="61" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table 5" style="table 5" x="8" y="10" width="360" height="35" uuid="de504ddf-b484-4a7a-8535-1c9c557f24dc"/>
+				<reportElement key="table 5" style="table 5" x="3" y="0" width="570" height="61" uuid="de504ddf-b484-4a7a-8535-1c9c557f24dc"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="rpt_salarial" uuid="ac777a64-d605-445d-bcac-a1161b025f04">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -550,7 +551,7 @@ c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="15" splitType="Stretch">
+		<band height="39" splitType="Stretch">
 			<elementGroup>
 				<elementGroup>
 					<elementGroup/>
