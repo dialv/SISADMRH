@@ -342,6 +342,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    var currentMonth = date.getMonth();
 		    var currentDate = date.getDate();
 		    var currentYear = date.getFullYear();
+                    document.getElementById("cargonom").readOnly = true;
+                    document.getElementById("salarioinicial").readOnly = true;
                     $('#cargonom').val('[[${puesto}]]' );
                     $('#salarioinicial').val('[[${salario}]]' );
                     
