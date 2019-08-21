@@ -18,7 +18,8 @@
 FROM empleado e
 INNER JOIN puesto p ON e.codigopuesto = p.codigopuesto
 INNER JOIN ubicacionfisica uf ON uf.codigoempleado = e.codigoempleado 
-where  MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
+where   e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and uf.estadoubicacion!=0 and
+MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
 	</queryString>
 	<field name="Fecha" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">

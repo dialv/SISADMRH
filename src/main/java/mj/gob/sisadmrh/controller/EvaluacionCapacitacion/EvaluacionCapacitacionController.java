@@ -49,15 +49,16 @@ public class EvaluacionCapacitacionController extends UtilsController {
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("evaluacioncapacitacion", evaluacionCapacitacionService.getEvualuacionCapacitacionById(id));
-        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllActivos();
         model.addAttribute("capacitaciones", capacitaciones);
+        
         return PREFIX + "evaluacioncapacitacionform";
     }
 
     @RequestMapping("new/evaluacioncapacitacion")
     public String newEvaluacionCapacitacion(Model model) {
         model.addAttribute("evaluacioncapacitacion", new EvaluacionCapacitacion());
-        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllCapacitacion();
+        Iterable<Capacitacion> capacitaciones = capacitacionService.listAllActivos();
         model.addAttribute("capacitaciones", capacitaciones);
         return PREFIX + "evaluacioncapacitacionform";
     }

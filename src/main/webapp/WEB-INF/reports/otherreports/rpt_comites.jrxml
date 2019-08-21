@@ -20,7 +20,11 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
-WHERE  c.fechadesdecomite>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+WHERE  e.estadoempleado!=0 
+and e.estadoempleado!=2
+ and p.estadopuesto!=0
+ and c.estadocomite!=0 
+and c.fechadesdecomite>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and c.fechadesdecomite<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String"/>

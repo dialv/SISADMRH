@@ -24,7 +24,7 @@ ca.departamentoresponsable,DATE_FORMAT(ca.fechacapacitaciondesde, '%d/%m/%Y') as
  inner join puesto p on e.codigopuesto=p.codigopuesto
  inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado
  INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion
-where
+where e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and ca.estadocapacitacion!=0 and
  ca.fechacapacitaciondesde>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')
 and p.estadopuesto<>0

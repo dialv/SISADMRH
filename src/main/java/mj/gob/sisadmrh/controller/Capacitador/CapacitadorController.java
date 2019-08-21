@@ -62,7 +62,7 @@ public class CapacitadorController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("capacitador", capacitadorService.getCapacitadorById(id));
-         Iterable<Empleado> empleados = empleadoService.listAllActivos();
+         Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
          Iterable<Estado> tinst = estadoService.findBySuperior(712);
        Iterable<Estado> dominio = estadoService.findBySuperior(1406);
         Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);
@@ -81,7 +81,7 @@ public class CapacitadorController extends UtilsController{
         model.addAttribute("capacitador", new Capacitador());
         
         // -----------Manda a la vista los empleados
-       Iterable<Empleado> empleados = empleadoService.listAllActivos();
+       Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();//mostrara empleados activos y pensionados
        Iterable<Estado> tinst = estadoService.findBySuperior(712);
        Iterable<Estado> dominio = estadoService.findBySuperior(1406);
         Iterable<Estado> tipoCapacitador = estadoService.findBySuperior(1422);

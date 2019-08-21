@@ -14,9 +14,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e,empleadoformacion f,formacionacademica fa,puesto p
-where e.codigoempleado=f.codigoempleado and  fa.codigoformacionacademica=f.codigoformacionacademica
-and  e.codigopuesto=p.codigopuesto and  p.nombrepuesto like '%notario' and fa.estadoformacion=1 and fa.tituloobtenido like '%notario'  and e.ESTADOEMPLEADO=1 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e inner join empleadoformacion f on e.codigoempleado=f.codigoempleado inner join formacionacademica fa on fa.codigoformacionacademica=f.codigoformacionacademica inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%notario' or p.nombrepuesto like '%Notario' and e.estadoempleado!=0 and e.estadoempleado!=2 and e.estadoempleado!=3 and fa.estadoformacion != 0 and estadopuesto != 0 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
@@ -178,7 +176,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Código de Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="182" y="0" width="126" height="14" uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6"/>
+				<reportElement x="190" y="0" width="118" height="14" uuid="42e93400-ab2e-4d3a-b579-c5c1dba947a6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>

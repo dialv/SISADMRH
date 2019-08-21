@@ -13,7 +13,7 @@ import mj.gob.sisadmrh.model.Capacitacion;
 
 public interface CapacitacionService {
  
-    Iterable<Capacitacion> listAllCapacitacion();
+  Iterable<Capacitacion> listAllCapacitacion();
     
     Iterable<Capacitacion> listAllActivos();
 

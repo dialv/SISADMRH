@@ -43,13 +43,15 @@ public class ComisionController extends UtilsController{
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("comision", comisionService.getComisionById(id));
+           Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
+         model.addAttribute("empleados", empleados);
         return PREFIX + "comisionform";
     }
 
     @RequestMapping("new/comision")
     public String newComision(Model model) {
         model.addAttribute("comision", new Comision());
-         Iterable<Empleado> empleados = empleadoService.listAllActivos();
+         Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
          model.addAttribute("empleados", empleados);
         return PREFIX + "comisionform";
     }

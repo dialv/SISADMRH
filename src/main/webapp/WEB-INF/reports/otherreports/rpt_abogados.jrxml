@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="47"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -16,11 +16,8 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e
-inner join empleadoformacion f on e.codigoempleado=f.codigoempleado
-inner join formacionacademica fa on  fa.codigoformacionacademica=f.codigoformacionacademica
-inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%Abogado' or p.nombrepuesto like '%abogado' and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and fa.estadoformacion != 0 and estadopuesto != 0]]>
+		<![CDATA[select e.codigoempleado, concat(e.nombreempleado," ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e inner join empleadoformacion f on e.codigoempleado=f.codigoempleado inner join formacionacademica fa on fa.codigoformacionacademica=f.codigoformacionacademica inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%abogado' or p.nombrepuesto like '%Abogado' and e.estadoempleado!=0 and e.estadoempleado!=2 and e.estadoempleado!=3 and fa.estadoformacion != 0 and estadopuesto != 0 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -194,7 +191,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and fa.est
 				<reportElement x="306" y="0" width="1" height="14" uuid="6073b3c8-5743-4b15-9374-4ba38044537b"/>
 			</line>
 			<staticText>
-				<reportElement x="138" y="0" width="150" height="14" uuid="8a01ccdf-3e10-45d7-9ecd-5076a09bf507"/>
+				<reportElement x="141" y="0" width="150" height="14" uuid="8a01ccdf-3e10-45d7-9ecd-5076a09bf507"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -253,7 +250,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and fa.est
 				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="48" y="0" width="89" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="46" y="0" width="82" height="14" uuid="536d7998-9fb0-42ae-92e5-f92c51b2a4d3"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

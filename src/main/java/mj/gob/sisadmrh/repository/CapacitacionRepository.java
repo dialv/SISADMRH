@@ -22,6 +22,7 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
             + "WHERE c.nombrecapacitacion LIKE :nom ", nativeQuery = true)
 
     Iterable<Capacitacion> findByDato(@Param("nom") String dato);
+    
 
     
     

@@ -55,7 +55,7 @@ public class CuadroDirectivoController extends UtilsController{
     @RequestMapping("new/cuadrodirectivo")
     public String newCuadroDirectivo(Model model) {
         model.addAttribute("cuadrodirectivo", new CuadroDirectivo());
-        Iterable<Empleado> empleados = empleadoService.listAllEmpleado();
+        Iterable<Empleado> empleados = empleadoService.listAllActivosPensionados();
 //         
       model.addAttribute("empleados", empleados);
         return PREFIX + "cuadrodirectivoform";
