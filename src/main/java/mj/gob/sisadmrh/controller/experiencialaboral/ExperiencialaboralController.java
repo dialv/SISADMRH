@@ -76,7 +76,7 @@ model.addAttribute("msg", 2);
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         Integer idp=empleadoService.getEmpleadoById(id).get().getCodigopuesto();
         model.addAttribute("puesto", puestoService.getPuestoByIdEmpleado(idp).get().getNombrepuesto());
-        model.addAttribute("salario",contratoService.getContratoById(id).get().getSalarioactual());
+        model.addAttribute("salario", puestoService.getPuestoByIdEmpleado(idp).get().getSueldobase());
         model.addAttribute("experiencialaboral", new Experiencialaboral());
         return PREFIX + "experienciaform";
     }
