@@ -58,7 +58,17 @@ public class PuestoController extends UtilsController {
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             
             model.addAttribute("msg", 0);
-        } catch (Exception e) {
+        } catch (Exception ex) {
+             System.out.println("Error {");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
             model.addAttribute("msg", 1);
         }
         return PREFIX + "puestoform";

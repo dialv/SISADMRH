@@ -338,12 +338,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 // 			});
 // 		});
 		$(document).ready(function () {
-		    var date = new Date();
-		    var currentMonth = date.getMonth();
-		    var currentDate = date.getDate();
-		    var currentYear = date.getFullYear();
-                    $('#cargonom').val('[[${puesto}]]' );
-                    $('#salarioinicial').val('[[${salario}]]' );
+//		    var date = new Date();
+//		    var currentMonth = date.getMonth();
+//		    var currentDate = date.getDate();
+//		    var currentYear = date.getFullYear();
+//                    document.getElementById("cargonom").readOnly = true;
+//                    document.getElementById("salarioinicial").readOnly = true;
+//                    $('#cargonom').val('[[${puesto}]]' );
+//                    $('#salarioinicial').val('[[${salario}]]' );
                     
 		    $('#fechadexlaborald').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
@@ -468,6 +470,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 //                    alert("str");
                 }
                 else{
+                     var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+                    document.getElementById("cargonom").readOnly = true;
+                    document.getElementById("salarioinicial").readOnly = true;
+                    $('#cargonom').val('[[${puesto}]]' );
+                    $('#salarioinicial').val('[[${salario}]]' );
 //                    alert("str1");
 var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
 //alert(str);
