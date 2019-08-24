@@ -16,7 +16,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado ,el.cargo,el.salarioinicial,el.salariofinal,DATE_FORMAT(el.fechadesdeexperiencialaboral, '%d/%m/%Y') as Desde,DATE_FORMAT(el.fechahastaexperiencialaboral, '%d/%m/%Y') as Hasta from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join empleadoexperiencialaboral ex on e.codigoempleado=ex.codigoempleado inner join experiencialaboral el on ex.codigoexperiencialaboral=el.codigoexperiencialaboral
-where e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and estadoexp!=0
+where e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and estadoexp!=0 and
 e.codigoempleado=$P{CODIGO} and el.fechadesdeexperiencialaboral >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
