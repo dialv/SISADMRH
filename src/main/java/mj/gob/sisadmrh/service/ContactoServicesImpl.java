@@ -54,4 +54,9 @@ public class ContactoServicesImpl implements ContactoService {
         
     }
     
+    @Override
+    public boolean findIntegrity(String nombre, String ape, String email){
+        return (contactoRep.findIntegrity(nombre, ape, email).spliterator().getExactSizeIfKnown()>0);
+    }
+    
 }
