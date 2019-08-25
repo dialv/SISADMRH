@@ -68,13 +68,12 @@ public class FormacionacaemicaController extends UtilsController{
             
         }
         formacionacademicaService.saveFormacionacademica(formacionacademica);
-         status.setComplete();
-         bitacoraService.BitacoraRegistry("se Modifico una formacion academica",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-//        return "redirect:/empleados/show/"+id;
-model.addAttribute("msg", 2);
-         model.addAttribute("empleado",id);
-          return PREFIX +"formacionacademicas";
+        status.setComplete();
+        bitacoraService.BitacoraRegistry("se Modifico una formacion academica",getRequest().getRemoteAddr(), 
+        getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        model.addAttribute("msg", 2);
+        model.addAttribute("empleado",id);
+        return PREFIX +"formacionacademicas";
     }
 
     @RequestMapping("new/{id}")
@@ -86,8 +85,8 @@ model.addAttribute("msg", 2);
 
     @RequestMapping(value = "descarga/{id}")
     public void verDocumento(HttpServletResponse response, @PathVariable(value = "id") Integer id) 
-           throws IOException{ 
-           streamReport(response, formacionacademicaService.getFormacionacademicaById(id).get().getDoctitulo(), "Titulo.pdf");
+        throws IOException{ 
+        streamReport(response, formacionacademicaService.getFormacionacademicaById(id).get().getDoctitulo(), "Titulo.pdf");
     }
     
     @RequestMapping(value = "formacionacademica/{id}")
@@ -102,26 +101,27 @@ model.addAttribute("msg", 2);
             
         }
          try {
-        formacionacademicaService.saveFormacionacademica(formacionacademica);
         
+        if(!formacionacademicaService.findIntegrity(formacionacademica.getEstudiosrealizados(),
+                                                   formacionacademica.getCentroeducativo(), 
+                                                   formacionacademica.getTituloobtenido())){     
+        formacionacademicaService.saveFormacionacademica(formacionacademica);
         Empleadoformacion emcon = new  Empleadoformacion();
         emcon.setFormacionacademica(formacionacademica);
-         status.setComplete();
+        status.setComplete();
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadoformacionPK emconpk = new EmpleadoformacionPK();
         emconpk.setCodigoformacionacademica(formacionacademica.getCodigoformacionacademica());
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoformacionPK(emconpk);
         empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
+        }
         model.addAttribute("msg", 0);
         model.addAttribute("empleado",id);
-         }catch(Exception e){
-            model.addAttribute("msg", 1);
+        }catch(Exception e){
+        model.addAttribute("msg", 1);
         }
-        
-//        return "redirect:./show/" + formacionacademica.getCodigoformacionacademica();
-//       return "redirect:/empleados/show/"+id;
- return PREFIX +"formacionacademicas";
+        return PREFIX +"formacionacademicas";
     }
     
     @RequestMapping("show/{id}/{idemp}")    

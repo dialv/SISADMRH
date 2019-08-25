@@ -51,7 +51,11 @@ public class FormacionacademicaServicesImpl implements FormacionacademicaService
     
     @Override
     public Iterable<Formacionacademica> findByDato(int id) {
-        return formacionacademicaRep.findByDato(id);
-        
+        return formacionacademicaRep.findByDato(id);   
+    }
+    
+    @Override
+    public boolean findIntegrity(String estudio, String cedu, String titulo) {
+        return (formacionacademicaRep.findIntegrity(estudio, cedu, titulo).spliterator().getExactSizeIfKnown()>0);   
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
@@ -15,7 +10,10 @@ import mj.gob.sisadmrh.model.Formacionacademica;
 
 public interface FormacionacademicaService {
     Iterable <Formacionacademica> listAllFormacionacademica();
+    
     Iterable <Formacionacademica> listAllActivos();
+    
+    boolean findIntegrity(String estudio, String cedu, String titulo);
     
     Optional<Formacionacademica> getFormacionacademicaById(Integer id);
 
