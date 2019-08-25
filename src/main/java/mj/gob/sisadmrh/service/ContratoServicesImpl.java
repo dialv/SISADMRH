@@ -8,7 +8,6 @@ package mj.gob.sisadmrh.service;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.repository.ContratoRepository;
-import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +52,11 @@ public class ContratoServicesImpl implements ContratoService {
     public Iterable<Contrato> findByDato(int id) {
         return contratoRep.findByDato(id);
         
+    }
+    
+    @Override
+    public boolean findIntegry(int dato, String npar, String subpar){
+     return (contratoRep.findIntegry(dato, npar, subpar).spliterator().getExactSizeIfKnown()>0);
     }
     
     

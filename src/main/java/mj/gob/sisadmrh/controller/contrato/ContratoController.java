@@ -138,9 +138,13 @@ model.addAttribute("msg", 2);
                      System.out.println("}");
               }
         try{
-            contrato.setEstadocontrato(1);
-            contratoService.saveContrato(contrato);
-             status.setComplete();
+        contrato.setEstadocontrato(1);
+        contrato.setCodigopuesto(0);
+        if (!contratoService.findIntegry(contrato.getCodigoempleado().getCodigoempleado(), 
+                                         contrato.getPartidacontrato(),
+                                         contrato.getSubpartidacontrato())){
+        contratoService.saveContrato(contrato);
+        status.setComplete();
         Empleadocontrato emcon = new  Empleadocontrato();
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadocontratoPK emconpk = new EmpleadocontratoPK();
@@ -148,9 +152,8 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocontratoPK(emconpk);
         empleadoContratoService.saveEmpleadocontrato(emcon);
-        bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());
-            model.addAttribute("msg", 0);
+        bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(),getRequest().getUserPrincipal().getName());
+            }model.addAttribute("msg", 0);
             model.addAttribute("empleado",id);
         }
         
