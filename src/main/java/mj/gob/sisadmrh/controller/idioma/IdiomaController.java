@@ -107,7 +107,7 @@ model.addAttribute("msg", 2);
     public String saveIdioma(Idioma idioma,Model model,@PathVariable Integer id,SessionStatus status) {
        try{
            idioma.setEstadoidioma(1);
-            idiomaService.saveIdioma(idioma);
+           idioma= idiomaService.saveIdioma(idioma);
             status.setComplete();
             Empleadoidioma emcon = new  Empleadoidioma();
         emcon.setIdioma(idioma);
@@ -117,7 +117,8 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoidiomaPK(emconpk);
         empleadoIdiomaService.saveEmpleadoidioma(emcon);
-            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
+        idiomaService.findIntegrity(idioma);
+        model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);

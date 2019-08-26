@@ -140,10 +140,7 @@ model.addAttribute("msg", 2);
         try{
         contrato.setEstadocontrato(1);
         contrato.setCodigopuesto(0);
-        if (!contratoService.findIntegry(contrato.getCodigoempleado().getCodigoempleado(), 
-                                         contrato.getPartidacontrato(),
-                                         contrato.getSubpartidacontrato())){
-        contratoService.saveContrato(contrato);
+        contrato = contratoService.saveContrato(contrato);
         status.setComplete();
         Empleadocontrato emcon = new  Empleadocontrato();
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -153,12 +150,10 @@ model.addAttribute("msg", 2);
         emcon.setEmpleadocontratoPK(emconpk);
         empleadoContratoService.saveEmpleadocontrato(emcon);
         bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(),getRequest().getUserPrincipal().getName());
-            }model.addAttribute("msg", 0);
+        contratoService.findIntegry(contrato);
+        model.addAttribute("msg", 0);
             model.addAttribute("empleado",id);
         }
-        
-       
-        
          catch (Exception ex) {
                   
                      System.out.println("Error {");

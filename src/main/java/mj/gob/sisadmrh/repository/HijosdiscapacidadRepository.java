@@ -32,6 +32,6 @@ public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapac
             + "and u.apellidohijodiscapacidad=:ape"
             + "and u.nombrediscapacidad=:disc", nativeQuery = true)
     
-    Iterable<Hijodiscapacidad> findByUbicacion(@Param("nom") String dato, @Param("ape") String ape, @Param("disc") String disc);
+    Iterable<Hijodiscapacidad> findIntegrity(@Param("nom") String dato, @Param("ape") String ape, @Param("disc") String disc);
     
 }

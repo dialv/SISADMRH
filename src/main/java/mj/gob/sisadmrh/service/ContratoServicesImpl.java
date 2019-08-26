@@ -54,10 +54,18 @@ public class ContratoServicesImpl implements ContratoService {
         
     }
     
-    @Override
-    public boolean findIntegry(int dato, String npar, String subpar){
-     return (contratoRep.findIntegry(dato, npar, subpar).spliterator().getExactSizeIfKnown()>0);
-    }
     
+    @Override
+    public void findIntegry(Contrato contrato) {
+        Iterable<Contrato> lista = contratoRep.findIntegry(
+                contrato.getCodigoempleado().getCodigoempleado(),
+                contrato.getPartidacontrato(),
+                contrato.getSubpartidacontrato());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadocontrato(0);
+            contratoRep.save(lista.iterator().next());
+            findIntegry(lista.iterator().next());
+        }
+    }
     
 }

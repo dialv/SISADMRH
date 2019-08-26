@@ -85,7 +85,7 @@ model.addAttribute("msg", 2);
     public String saveExperiencialaboral(Experiencialaboral experiencialaboral,Model model,@PathVariable Integer id,SessionStatus status) {
          try{
              experiencialaboral.setEstadoexp(1);
-             experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+             experiencialaboral=experiencialaboralService.saveExperiencialaboral(experiencialaboral);
              status.setComplete();
             Empleadoexperiencialaboral emcon = new  Empleadoexperiencialaboral();
             emcon.setExperiencialaboral(experiencialaboral);
@@ -95,6 +95,7 @@ model.addAttribute("msg", 2);
             emconpk.setCodigoempleado(em.getCodigoempleado());
             emcon.setEmpleadoexperiencialaboralPK(emconpk);
             empleadoExperiencialaboralService.saveEmpleadoexperiencialaboral(emcon);
+            experiencialaboralService.findIntegrity(experiencialaboral);
             model.addAttribute("msg", 0);
             model.addAttribute("empleado",id);
         }

@@ -102,10 +102,7 @@ public class FormacionacaemicaController extends UtilsController{
         }
          try {
         
-        if(!formacionacademicaService.findIntegrity(formacionacademica.getEstudiosrealizados(),
-                                                   formacionacademica.getCentroeducativo(), 
-                                                   formacionacademica.getTituloobtenido())){     
-        formacionacademicaService.saveFormacionacademica(formacionacademica);
+        formacionacademica=formacionacademicaService.saveFormacionacademica(formacionacademica);
         Empleadoformacion emcon = new  Empleadoformacion();
         emcon.setFormacionacademica(formacionacademica);
         status.setComplete();
@@ -115,8 +112,7 @@ public class FormacionacaemicaController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoformacionPK(emconpk);
         empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
-        }
-        
+        formacionacademicaService.findIntegrity(formacionacademica);
         model.addAttribute("msg", 0);
         model.addAttribute("empleado",id);
         }catch(Exception e){

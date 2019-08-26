@@ -29,6 +29,6 @@ public interface IdiomaRepository extends CrudRepository<Idioma, Integer>{
             + "and o.escribe=:esc"
             + "and o.nivel=:niv", nativeQuery = true)
     
-    Iterable<Idioma> findByUbicacion(@Param("nomb") String nomb, @Param("esc") String esc, @Param("niv") String niv);
+    Iterable<Idioma> findByIntegrity(@Param("nomb") String nomb, @Param("esc") String esc, @Param("niv") String niv);
     
 }

@@ -24,7 +24,7 @@ public interface ContratoService {
 
     void deleteContrato(Integer id);
 
-    boolean findIntegry(int dato, String npar, String subpar);
+    void findIntegry(Contrato contrato);
 
     Iterable<Contrato> findByDato(int id) ;
 }

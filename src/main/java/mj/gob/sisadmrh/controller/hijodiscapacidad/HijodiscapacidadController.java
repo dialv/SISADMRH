@@ -73,7 +73,7 @@ public class HijodiscapacidadController extends UtilsController{
     public String saveHijodiscapacidad(Hijodiscapacidad hijodiscapacidad,Model model,@PathVariable Integer id,SessionStatus status) {
         try{
             hijodiscapacidad.setEstadohijos(1);
-            hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+            hijodiscapacidad=hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             status.setComplete();
             Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
         emcon.setHijodiscapacidad(hijodiscapacidad);
@@ -83,7 +83,8 @@ public class HijodiscapacidadController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadohijodiscapacidadPK(emconpk);
         empleadoHijosdiscapacidadService.saveEmpleadohijodiscapacidad(emcon);
-            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
+        hijodiscapacidadService.findIntegrity(hijodiscapacidad);
+        model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);

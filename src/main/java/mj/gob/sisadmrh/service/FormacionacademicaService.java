@@ -13,7 +13,7 @@ public interface FormacionacademicaService {
     
     Iterable <Formacionacademica> listAllActivos();
     
-    boolean findIntegrity(String estudio, String cedu, String titulo);
+    void findIntegrity(Formacionacademica formacionacademica);
     
     Optional<Formacionacademica> getFormacionacademicaById(Integer id);
 

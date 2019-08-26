@@ -83,7 +83,7 @@ model.addAttribute("msg", 2);
         try{
             ubicacionFisica.setEstadoubicacion(1);
             ubicacionFisica.setCodigoempleado(id);
-           ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
+        ubicacionFisica=ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
            status.setComplete();
            Empleadoubicacionfisica emcon = new  Empleadoubicacionfisica();
         emcon.setUbicacionfisica(ubicacionFisica);
@@ -95,6 +95,7 @@ model.addAttribute("msg", 2);
         empleadoUbicacionfisicaService.saveEmpleadoubicacionfisica(emcon);
          bitacoraService.BitacoraRegistry("se Creo una Ubiscaion Fisica",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+         ubicacionFisicaService.findIntegrity(ubicacionFisica);
            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){

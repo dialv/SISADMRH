@@ -104,6 +104,7 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocaparecibidasPK(emconpk);
         empleadoCaparecibidasService.saveEmpleadocaprecibidas(emcon);
+        caparecibidasService.findIntegrity(caparecibidas);
             model.addAttribute("msg", 0);
               model.addAttribute("empleado",id);
         }
