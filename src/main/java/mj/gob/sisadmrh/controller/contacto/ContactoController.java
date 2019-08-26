@@ -75,10 +75,7 @@ public class ContactoController extends UtilsController{
     public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id,SessionStatus status) {
        try{
         contacto.setEstadocontacto("1");
-        if(!contactoService.findIntegrity(contacto.getNombrecontacto(), 
-                                          contacto.getApellidocontacto(), 
-                                          contacto.getEmailcontacto())){
-        contactoService.saveContacto(contacto);
+        contacto=contactoService.saveContacto(contacto);
         status.setComplete();
         Empleadocontacto emcon = new  Empleadocontacto();
         emcon.setContacto(contacto);
@@ -88,9 +85,9 @@ public class ContactoController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocontactoPK(emconpk);
         empleadoContactoService.saveEmpleadocontacto(emcon);
+        contactoService.findIntegrity(contacto);
         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
         getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        }
         model.addAttribute("msg", 0);
         model.addAttribute("empleado",id);
         }

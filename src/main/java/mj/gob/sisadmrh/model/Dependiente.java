@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -17,12 +12,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.springframework.format.annotation.DateTimeFormat;
-
 /**
  *
  * @author developer
@@ -30,25 +22,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "dependiente")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Dependiente.findAll", query = "SELECT d FROM Dependiente d"),
-//    @NamedQuery(name = "Dependiente.findByCodigodependiente", query = "SELECT d FROM Dependiente d WHERE d.codigodependiente = :codigodependiente"),
-//    @NamedQuery(name = "Dependiente.findByNombredependiente", query = "SELECT d FROM Dependiente d WHERE d.nombredependiente = :nombredependiente"),
-//    @NamedQuery(name = "Dependiente.findByApellidodependiente", query = "SELECT d FROM Dependiente d WHERE d.apellidodependiente = :apellidodependiente"),
-//    @NamedQuery(name = "Dependiente.findByFechanacimiento", query = "SELECT d FROM Dependiente d WHERE d.fechanacimiento = :fechanacimiento"),
-//    @NamedQuery(name = "Dependiente.findBySalarioinicial", query = "SELECT d FROM Dependiente d WHERE d.salarioinicial = :salarioinicial"),
-//    @NamedQuery(name = "Dependiente.findBySalariofinal", query = "SELECT d FROM Dependiente d WHERE d.salariofinal = :salariofinal"),
-//    @NamedQuery(name = "Dependiente.findByParentesco", query = "SELECT d FROM Dependiente d WHERE d.parentesco = :parentesco"),
-//    @NamedQuery(name = "Dependiente.findBySexo", query = "SELECT d FROM Dependiente d WHERE d.sexo = :sexo"),
-//    @NamedQuery(name = "Dependiente.findByEstadodependiente", query = "SELECT d FROM Dependiente d WHERE d.estadodependiente = :estadodependiente")
-})
 public class Dependiente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-@Basic(optional = false)
-@NotNull
-@GeneratedValue(strategy = GenerationType.AUTO)
+    @Basic(optional = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "codigodependiente")
     private Integer codigodependiente;
     @Size(max = 50)
@@ -168,7 +148,6 @@ public class Dependiente implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Dependiente)) {
             return false;
         }

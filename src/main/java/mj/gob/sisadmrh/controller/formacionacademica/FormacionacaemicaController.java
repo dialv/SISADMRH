@@ -116,11 +116,13 @@ public class FormacionacaemicaController extends UtilsController{
         emcon.setEmpleadoformacionPK(emconpk);
         empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
         }
+        
         model.addAttribute("msg", 0);
         model.addAttribute("empleado",id);
         }catch(Exception e){
         model.addAttribute("msg", 1);
         }
+         
         return PREFIX +"formacionacademicas";
     }
     

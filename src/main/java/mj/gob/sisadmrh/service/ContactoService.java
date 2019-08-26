@@ -13,7 +13,7 @@ public interface ContactoService {
 
     Iterable <Contacto> listAllActivos();
 
-    boolean findIntegrity(String nombre, String ape, String email);
+    void findIntegrity(Contacto contacto);
 
     Optional<Contacto> getContactoById(Integer id);
 
