@@ -150,7 +150,7 @@ model.addAttribute("msg", 2);
         emcon.setEmpleadocontratoPK(emconpk);
         empleadoContratoService.saveEmpleadocontrato(emcon);
         bitacoraService.BitacoraRegistry("se Creo un contrato",getRequest().getRemoteAddr(),getRequest().getUserPrincipal().getName());
-        contratoService.findIntegry(contrato);
+        
         model.addAttribute("msg", 0);
             model.addAttribute("empleado",id);
         }
@@ -168,6 +168,9 @@ model.addAttribute("msg", 2);
                      System.out.println("}");
                   model.addAttribute("msg", 1);
               }
+        try{
+            contratoService.findIntegry(contrato);
+        }catch(Exception e){} 
         return PREFIX +"contratos";
 //        return "redirect:./show/" + contrato.getCodigocontrato();
 // return "redirect:/empleados/show/"+id;

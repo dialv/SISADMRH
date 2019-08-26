@@ -95,7 +95,7 @@ model.addAttribute("msg", 2);
             emconpk.setCodigoempleado(em.getCodigoempleado());
             emcon.setEmpleadoexperiencialaboralPK(emconpk);
             empleadoExperiencialaboralService.saveEmpleadoexperiencialaboral(emcon);
-            experiencialaboralService.findIntegrity(experiencialaboral);
+            
             model.addAttribute("msg", 0);
             model.addAttribute("empleado",id);
         }
@@ -103,8 +103,9 @@ model.addAttribute("msg", 2);
             model.addAttribute("msg", 1);
         }
        
-//        return "redirect:./show/" + experiencialaboral.getCodigoexperiencialaboral();
-//  return "redirect:/empleados/show/"+id;
+        try{
+            experiencialaboralService.findIntegrity(experiencialaboral);
+        }catch(Exception e){} 
    return PREFIX +"experiencias";
     }
     

@@ -83,14 +83,16 @@ public class HijodiscapacidadController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadohijodiscapacidadPK(emconpk);
         empleadoHijosdiscapacidadService.saveEmpleadohijodiscapacidad(emcon);
-        try{
-        hijodiscapacidadService.findIntegrity(hijodiscapacidad);
-        }catch(Exception e){model.addAttribute("msg", 0);}
-        model.addAttribute("msg", 0);model.addAttribute("empleado",id);
+       
+        model.addAttribute("msg", 0);
+        model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
+         try{
+            hijodiscapacidadService.findIntegrity(hijodiscapacidad);
+        }catch(Exception e){} 
     return PREFIX +"hijodiscapacidads";
     }
     

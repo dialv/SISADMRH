@@ -19,7 +19,7 @@ public interface UbicacionFisicaRepository  extends CrudRepository<Ubicacionfisi
             + "WHERE u.nombreubicacion LIKE :nom ", nativeQuery = true)
     Iterable<Ubicacionfisica> findByUbicacion(@Param("nom") String dato);
     
-    @Query(value = "SELECT u.* FROM UbicacionFisica u WHERE u.estadoubicacion != 0 "
+    @Query(value = "SELECT u.* FROM ubicacionfisica u WHERE u.estadoubicacion != 0 "
             + " and u.nombreubicacion=:nomb "
             + " and u.jefeinmediato=:jefe "
             + " and u.cargofuncional=:cargo ", nativeQuery = true)

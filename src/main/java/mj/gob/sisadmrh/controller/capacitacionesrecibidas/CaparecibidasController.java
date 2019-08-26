@@ -104,17 +104,14 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocaparecibidasPK(emconpk);
         empleadoCaparecibidasService.saveEmpleadocaprecibidas(emcon);
-        caparecibidasService.findIntegrity(caparecibidas);
+        
             model.addAttribute("msg", 0);
               model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);
         }
-//        return PREFIX+"caprecibidasform";
         
-//        return "redirect:./show/" + caparecibidas.getCodigocaparecibidas();
-//        return "redirect:/empleados/show/"+id;
 return PREFIX +"caprecibidas";
     }
     

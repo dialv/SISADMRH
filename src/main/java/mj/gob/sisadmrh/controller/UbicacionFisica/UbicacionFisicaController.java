@@ -95,7 +95,7 @@ model.addAttribute("msg", 2);
         empleadoUbicacionfisicaService.saveEmpleadoubicacionfisica(emcon);
          bitacoraService.BitacoraRegistry("se Creo una Ubiscaion Fisica",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-         ubicacionFisicaService.findIntegrity(ubicacionFisica);
+         
            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
@@ -112,7 +112,9 @@ model.addAttribute("msg", 2);
                 }
                 System.out.println("}");
         }
-//       return "redirect:/empleados/show/"+id;
+        try{
+            ubicacionFisicaService.findIntegrity(ubicacionFisica);
+        }catch(Exception e){}
  return PREFIX +"ubicacionfisicas";
        
         //return "redirect:./show/" + capacitacion.getCodigocapacitacion();

@@ -112,13 +112,15 @@ public class FormacionacaemicaController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoformacionPK(emconpk);
         empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
-        formacionacademicaService.findIntegrity(formacionacademica);
+        
         model.addAttribute("msg", 0);
         model.addAttribute("empleado",id);
         }catch(Exception e){
         model.addAttribute("msg", 1);
         }
-         
+           try{
+        formacionacademicaService.findIntegrity(formacionacademica);
+        }catch(Exception e){} 
         return PREFIX +"formacionacademicas";
     }
     

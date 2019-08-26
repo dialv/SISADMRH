@@ -85,7 +85,7 @@ public class ContactoController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocontactoPK(emconpk);
         empleadoContactoService.saveEmpleadocontacto(emcon);
-        contactoService.findIntegrity(contacto);
+        
         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
         getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
@@ -105,7 +105,9 @@ public class ContactoController extends UtilsController{
                      System.out.println("}");
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-//        return "redirect:/empleados/show/"+id;
+        try{
+            contactoService.findIntegrity(contacto);
+        }catch(Exception e){}
          return PREFIX + "contactos";
     }
     

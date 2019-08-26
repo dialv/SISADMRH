@@ -92,14 +92,16 @@ model.addAttribute("msg", 2);
             empleadoDependienteService.saveEmpleadodependiente(emcon);
             bitacoraService.BitacoraRegistry("se Creo un dependiente",getRequest().getRemoteAddr(), 
             getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-            dependienteService.findIntegrity(dependiente);
+            
             model.addAttribute("msg", 0);
             model.addAttribute("empleado",id);
         } catch (Exception e) {
             model.addAttribute("msg", 1);
             Logger.getLogger(DependienteController.class.getName()).log(Level.SEVERE, null, e);
         }
-//       return "redirect:/empleados/show/"+id;
+         try{
+            dependienteService.findIntegrity(dependiente);
+        }catch(Exception e){}
  return PREFIX + "dependientes";
     }
 
