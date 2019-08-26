@@ -53,11 +53,12 @@ public class ContactoServicesImpl implements ContactoService {
 
     @Override
     public void findIntegrity(Contacto contacto) {
-        if (contactoRep.findIntegrity(contacto.getNombrecontacto(), contacto.getApellidocontacto(),
-                contacto.getEmailcontacto()).spliterator().getExactSizeIfKnown() > 1) {
-            contacto.setEstadocontacto("0");
-            contactoRep.save(contacto);
-            findIntegrity(contacto);
+        Iterable<Contacto> lista = contactoRep.findIntegrity(contacto.getNombrecontacto(), contacto.getApellidocontacto(),
+                contacto.getEmailcontacto());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadocontacto("0");
+            contactoRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
         }
     }
 }
