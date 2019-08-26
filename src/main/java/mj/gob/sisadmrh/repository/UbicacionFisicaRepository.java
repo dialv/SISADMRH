@@ -20,9 +20,9 @@ public interface UbicacionFisicaRepository  extends CrudRepository<Ubicacionfisi
     Iterable<Ubicacionfisica> findByUbicacion(@Param("nom") String dato);
     
     @Query(value = "SELECT u.* FROM UbicacionFisica u WHERE u.estadoubicacion != 0 "
-            + "and u.nombreubicacion=:nomb"
-            + "and u.jefeinmediato=:jefe"
-            + "and u.cargofuncional=:cargo", nativeQuery = true)
+            + " and u.nombreubicacion=:nomb "
+            + " and u.jefeinmediato=:jefe "
+            + " and u.cargofuncional=:cargo ", nativeQuery = true)
     Iterable<Ubicacionfisica> findIntegrity( @Param("nomb") String nomb, @Param("jefe") String jefe, @Param("cargo") String cargo);
 
             

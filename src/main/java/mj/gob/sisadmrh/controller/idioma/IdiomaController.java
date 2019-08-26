@@ -117,8 +117,11 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoidiomaPK(emconpk);
         empleadoIdiomaService.saveEmpleadoidioma(emcon);
+        try{
         idiomaService.findIntegrity(idioma);
-        model.addAttribute("msg", 0);model.addAttribute("empleado",id);
+        }catch(Exception e){model.addAttribute("msg", 0);}
+        model.addAttribute("msg", 0);
+        model.addAttribute("empleado",id);
         }
         catch(Exception e){
             model.addAttribute("msg", 1);

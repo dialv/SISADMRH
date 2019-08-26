@@ -13,8 +13,8 @@ public interface DependienteRepository extends CrudRepository<Dependiente, Integ
     @Query(value = "SELECT d.* FROM dependiente d , empleadodependiente ed WHERE d.estadodependiente!='0' and d.codigodependiente = ed.codigodependiente and ed.codigoempleado= :id ", nativeQuery = true)
     Iterable<Dependiente> findByDato(@Param("id") int dato);
     
-    @Query(value = "SELECT d.* FROM dependiente d WHERE d.estadodependiente!='0' and d.nombredependiente=:nomdep"
-            + "and d.apellidodependiente=:apedep and d.parentesco=:parent", nativeQuery = true)
+    @Query(value = " SELECT d.* FROM dependiente d WHERE d.estadodependiente!='0' and d.nombredependiente=:nomdep "
+                 + " and d.apellidodependiente=:apedep and d.parentesco=:parent ", nativeQuery = true)
     Iterable<Dependiente> findIntegrity(@Param("nomdep") String nomdep, @Param("apedep") String apedep,@Param("parent") String parent);
     
     @Query("SELECT o FROM Dependiente o WHERE o.estadodependiente != 0")

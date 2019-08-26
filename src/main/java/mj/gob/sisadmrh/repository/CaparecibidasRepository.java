@@ -21,10 +21,10 @@ public interface CaparecibidasRepository extends CrudRepository<Caparecibidas, I
      @Query("SELECT o FROM Caparecibidas o WHERE o.estadocapa != 0")
             public Iterable<Caparecibidas> listAllActivos(); 
             
-              @Query(value = "SELECT c.* FROM caparecibdas c WHERE c.estadocapa!=0 and "
-            + " d.tipoevento=:teven "
-            + "and d.especialidad=:esp"
-            + " and d.organismo=:cedu ", nativeQuery = true)
+              @Query(value = "SELECT c.* FROM caparecibidas c WHERE c.estadocapa!=0 and "
+            + " c.tipoevento=:teven  "
+            + " and c.especialidad=:esp "
+            + " and c.organismo=:cedu ", nativeQuery = true)
     Iterable<Caparecibidas> findIntegrity(@Param("teven") String teven, @Param("esp") String esp, @Param("cedu") String cedu);
 
     
