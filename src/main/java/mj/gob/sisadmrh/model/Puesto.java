@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
@@ -17,10 +12,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -29,40 +22,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "puesto")
 @NamedQueries({
-    @NamedQuery(name = "Puesto.findAll", query = "SELECT p FROM Puesto p")})
-//    @NamedQuery(name = "Puesto.findByCodigopuesto", query = "SELECT p FROM Puesto p WHERE p.codigopuesto = :codigopuesto"),
-//    @NamedQuery(name = "Puesto.findByCategoriapuesto", query = "SELECT p FROM Puesto p WHERE p.categoriapuesto = :categoriapuesto"),
-//    @NamedQuery(name = "Puesto.findByCategoriasueldo", query = "SELECT p FROM Puesto p WHERE p.categoriasueldo = :categoriasueldo"),
-//    @NamedQuery(name = "Puesto.findByCodigocargopuesto", query = "SELECT p FROM Puesto p WHERE p.codigocargopuesto = :codigocargopuesto"),
-//    @NamedQuery(name = "Puesto.findByEstadoplanilla", query = "SELECT p FROM Puesto p WHERE p.estadoplanilla = :estadoplanilla"),
-//    @NamedQuery(name = "Puesto.findByEstadopuesto", query = "SELECT p FROM Puesto p WHERE p.estadopuesto = :estadopuesto"),
-//    @NamedQuery(name = "Puesto.findByFechaaprobacion", query = "SELECT p FROM Puesto p WHERE p.fechaaprobacion = :fechaaprobacion"),
-//    @NamedQuery(name = "Puesto.findByFechaautorizacionpuesto", query = "SELECT p FROM Puesto p WHERE p.fechaautorizacionpuesto = :fechaautorizacionpuesto"),
-//    @NamedQuery(name = "Puesto.findByFechabaja", query = "SELECT p FROM Puesto p WHERE p.fechabaja = :fechabaja"),
-//    @NamedQuery(name = "Puesto.findByFechacontrataciondesde", query = "SELECT p FROM Puesto p WHERE p.fechacontrataciondesde = :fechacontrataciondesde"),
-//    @NamedQuery(name = "Puesto.findByFechacontratacionhasta", query = "SELECT p FROM Puesto p WHERE p.fechacontratacionhasta = :fechacontratacionhasta"),
-//    @NamedQuery(name = "Puesto.findByFechacreacion", query = "SELECT p FROM Puesto p WHERE p.fechacreacion = :fechacreacion"),
-//    @NamedQuery(name = "Puesto.findByFechamodificacion", query = "SELECT p FROM Puesto p WHERE p.fechamodificacion = :fechamodificacion"),
-//    @NamedQuery(name = "Puesto.findByFechanombramiento", query = "SELECT p FROM Puesto p WHERE p.fechanombramiento = :fechanombramiento"),
-//    @NamedQuery(name = "Puesto.findByFechavacante", query = "SELECT p FROM Puesto p WHERE p.fechavacante = :fechavacante"),
-//    @NamedQuery(name = "Puesto.findByFormapago", query = "SELECT p FROM Puesto p WHERE p.formapago = :formapago"),
-//    @NamedQuery(name = "Puesto.findByNivelpuesto", query = "SELECT p FROM Puesto p WHERE p.nivelpuesto = :nivelpuesto"),
-//    @NamedQuery(name = "Puesto.findByNombrejerarquia", query = "SELECT p FROM Puesto p WHERE p.nombrejerarquia = :nombrejerarquia"),
-//    @NamedQuery(name = "Puesto.findByNombrepuesto", query = "SELECT p FROM Puesto p WHERE p.nombrepuesto = :nombrepuesto"),
-//    @NamedQuery(name = "Puesto.findByNumeropartidapuesto", query = "SELECT p FROM Puesto p WHERE p.numeropartidapuesto = :numeropartidapuesto"),
-//    @NamedQuery(name = "Puesto.findByNumerosubpartidapuesto", query = "SELECT p FROM Puesto p WHERE p.numerosubpartidapuesto = :numerosubpartidapuesto"),
-//    @NamedQuery(name = "Puesto.findBySublinea", query = "SELECT p FROM Puesto p WHERE p.sublinea = :sublinea"),
-//    @NamedQuery(name = "Puesto.findBySueldobase", query = "SELECT p FROM Puesto p WHERE p.sueldobase = :sueldobase"),
-//    @NamedQuery(name = "Puesto.findBySueldotopepuesto", query = "SELECT p FROM Puesto p WHERE p.sueldotopepuesto = :sueldotopepuesto"),
-//    @NamedQuery(name = "Puesto.findByTipofinanza", query = "SELECT p FROM Puesto p WHERE p.tipofinanza = :tipofinanza"),
-//    @NamedQuery(name = "Puesto.findByUbicacionpuesto", query = "SELECT p FROM Puesto p WHERE p.ubicacionpuesto = :ubicacionpuesto"),
-//    @NamedQuery(name = "Puesto.findByUltimoempleado", query = "SELECT p FROM Puesto p WHERE p.ultimoempleado = :ultimoempleado"),
-//    @NamedQuery(name = "Puesto.findByAcuerdo", query = "SELECT p FROM Puesto p WHERE p.acuerdo = :acuerdo")})
+@NamedQuery(name = "Puesto.findAll", query = "SELECT p FROM Puesto p")})
 public class Puesto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "acuerdo")
-    private short acuerdo;
+    private Integer acuerdo;
     @Size(max = 50)
     @Column(name = "categoriapuesto")
     private String categoriapuesto;
@@ -115,39 +80,30 @@ public class Puesto implements Serializable {
     @Column(name = "estadopuesto")
     private Integer estadopuesto;
     @Column(name = "fechaaprobacion")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)  
     private Date fechaaprobacion;
     @Column(name = "fechaautorizacionpuesto")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaautorizacionpuesto;
     @Column(name = "fechabaja")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechabaja;
     @Column(name = "fechacontrataciondesde")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacontrataciondesde;
     @Column(name = "fechacontratacionhasta")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacontratacionhasta;
     @Column(name = "fechacreacion")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechacreacion;
     @Column(name = "fechamodificacion")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechamodificacion;
     @Column(name = "fechanombramiento")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechanombramiento;
     @Column(name = "fechavacante")
-//     
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechavacante;
     @Column(name = "sueldobase")
@@ -162,7 +118,7 @@ public class Puesto implements Serializable {
         this.codigopuesto = codigopuesto;
     }
 
-    public Puesto(Integer codigopuesto, short acuerdo) {
+    public Puesto(Integer codigopuesto, Integer acuerdo) {
         this.codigopuesto = codigopuesto;
         this.acuerdo = acuerdo;
     }
@@ -290,11 +246,11 @@ public class Puesto implements Serializable {
         return "mj.gob.sisadmrh.model.Puesto[ codigopuesto=" + codigopuesto + " ]";
     }
 
-    public short getAcuerdo() {
+    public Integer getAcuerdo() {
         return acuerdo;
     }
 
-    public void setAcuerdo(short acuerdo) {
+    public void setAcuerdo(Integer acuerdo) {
         this.acuerdo = acuerdo;
     }
 

@@ -48,13 +48,16 @@ public class DependienteServicesImpl implements DependienteService {
         return dependienteRep.findByDato(id);
         
     }
+   
     @Override
     public void findIntegrity(Dependiente dependiente) {
-        if (dependienteRep.findIntegrity(dependiente.getNombredependiente(),
-                dependiente.getApellidodependiente(), dependiente.getParentesco()).spliterator().getExactSizeIfKnown() > 1) {
-            dependiente.setEstadodependiente(0);
-            dependienteRep.save(dependiente);
-            findIntegrity(dependiente);
+        Iterable<Dependiente> lista = dependienteRep.findIntegrity(
+        dependiente.getNombredependiente(),  dependiente.getApellidodependiente(),
+        dependiente.getParentesco()        );
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadodependiente(0);
+            dependienteRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
         }
     }
     
