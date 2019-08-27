@@ -92,7 +92,9 @@ public class HijodiscapacidadController extends UtilsController{
         }
          try{
             hijodiscapacidadService.findIntegrity(hijodiscapacidad);
-        }catch(Exception e){} 
+        }catch(Exception e){
+         model.addAttribute("msg", 0);
+        } 
     return PREFIX +"hijodiscapacidads";
     }
     

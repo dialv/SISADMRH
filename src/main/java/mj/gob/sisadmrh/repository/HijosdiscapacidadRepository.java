@@ -27,11 +27,11 @@ public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapac
          @Query("SELECT o FROM Hijodiscapacidad o WHERE o.estadohijos != 0")
     public Iterable<Hijodiscapacidad> listAllActivos();    
     
-    @Query(value = "SELECT u.* FROM Hijodiscapacidad u WHERE u.estadohijos != 0 "
-            + "and u.nombrehijodiscapacidad=:nomb"
-            + "and u.apellidohijodiscapacidad=:ape"
-            + "and u.nombrediscapacidad=:disc", nativeQuery = true)
+    @Query(value = "SELECT u FROM Hijodiscapacidad u WHERE u.estadohijos != 0 "
+            + " and u.nombrehijodiscapacidad = :nomb "
+            + " and u.apellidohijodiscapacidad = :ape "
+            + " and u.nombrediscapacidad = :disc ", nativeQuery = true)
     
-    Iterable<Hijodiscapacidad> findIntegrity(@Param("nom") String dato, @Param("ape") String ape, @Param("disc") String disc);
+    Iterable<Hijodiscapacidad> findIntegrity(@Param("nomb") String dato, @Param("ape") String ape, @Param("disc") String disc);
     
 }
