@@ -15,10 +15,13 @@ import org.springframework.data.repository.query.Param;
  * @author IPalacios
  */
 public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
-       @Query(value = "SELECT d.* FROM contrato d  WHERE d.estadocontrato != 0 and d.codigoempleado= :id ", nativeQuery = true)
+    @Query(value = "SELECT d.* FROM contrato d  WHERE d.estadocontrato != 0 and d.codigoempleado= :id ", nativeQuery = true)
     Iterable<Contrato> findByDato(@Param("id") int dato);
 
+    @Query(value = "SELECT d.* FROM contrato d  WHERE d.estadocontrato != 0 and d.codigoempleado= :id and "
+            + "d.partidacontrato=:npar and d.subpartidacontrato=:subpar", nativeQuery = true)
+    Iterable<Contrato> findIntegry(@Param("id") int dato, @Param("npar") String npar, @Param("subpar") String subpar);
 
-     @Query("SELECT o FROM Contrato o WHERE o.estadocontrato != 0")
+    @Query("SELECT o FROM Contrato o WHERE o.estadocontrato != 0")
             public Iterable<Contrato> listAllActivos();     
 }

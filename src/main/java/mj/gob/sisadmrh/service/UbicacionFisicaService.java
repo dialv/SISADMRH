@@ -19,6 +19,7 @@ public interface UbicacionFisicaService {
     Optional<Ubicacionfisica> getUbicacionFisicaById(Integer id);
 
     Ubicacionfisica saveUbicacionFisica(Ubicacionfisica ubicacionFisica);
+    void findIntegrity(Ubicacionfisica ubicacionFisica);
 
     void deleteUbicacionFisica(Integer id);
    Iterable<Ubicacionfisica> findByUbicacion(String dato);

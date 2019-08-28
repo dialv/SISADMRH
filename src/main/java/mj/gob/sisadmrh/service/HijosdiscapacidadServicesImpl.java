@@ -60,4 +60,16 @@ public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
         return hijosdiscapacidadRep.findhijoscap();
         
     }
+
+    @Override
+    public void findIntegrity(Hijodiscapacidad hijodiscapacidad) {
+  Iterable<Hijodiscapacidad> lista = hijosdiscapacidadRep.findIntegrity(
+                hijodiscapacidad.getNombrehijodiscapacidad(),
+                hijodiscapacidad.getApellidohijodiscapacidad(),
+                hijodiscapacidad.getNombrediscapacidad());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadohijos(0);
+            hijosdiscapacidadRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }    }
 }

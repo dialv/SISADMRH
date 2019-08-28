@@ -23,6 +23,7 @@ public interface HijosdiscapacidadService {
     Hijodiscapacidad saveHijodiscapacidad(Hijodiscapacidad empleado);
 
     void deleteHijodiscapacidad(Integer id);
+    void findIntegrity(Hijodiscapacidad hijodiscapacidad);
     
     Iterable<Hijodiscapacidad> findByDato(int id) ;
     

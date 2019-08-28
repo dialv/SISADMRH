@@ -23,6 +23,8 @@ public interface CapacitacionService {
 
     void deleteCapacitacion(Integer id);
     
+    void findIntegrity(Capacitacion capacitacion);
+    
        Iterable<Capacitacion> findByDato(String dato);
      public  List <Object[]> findByCapacitacionesR(String finicial, String ffinal);//metood para generar el exel
     

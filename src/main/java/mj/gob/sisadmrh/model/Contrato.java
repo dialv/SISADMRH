@@ -55,8 +55,10 @@ public class Contrato implements Serializable {
     private String subpartidacontrato;
     @Column(name = "estadocontrato")
     private Integer estadocontrato;
-     @Column(name = "cambioplaza")
+    @Column(name = "cambioplaza")
     private Integer cambioplaza;
+    @Column(name = "codigopuesto")
+    private Integer codigopuesto;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -221,6 +223,14 @@ public class Contrato implements Serializable {
 
     public void setEstadocontrato(Integer estadocontrato) {
         this.estadocontrato = estadocontrato;
+    }
+
+    public Integer getCodigopuesto() {
+        return codigopuesto;
+    }
+
+    public void setCodigopuesto(Integer codigopuesto) {
+        this.codigopuesto = codigopuesto;
     }
     
 }
