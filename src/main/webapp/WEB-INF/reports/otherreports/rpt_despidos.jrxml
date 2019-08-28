@@ -11,7 +11,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT concat(e.nombreempleado,' ' ,e.apellidoempleado) as 'nombre',p.ubicacionpuesto,p.nombrepuesto, 
-c.partidacontrato, c.subpartidacontrato,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=4]]>
+c.partidacontrato, c.subpartidacontrato,p.sueldobase FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=4 and p.estadopuesto!=0 and c.estadocontrato=1 and c.estadocontrato=1]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String"/>
 	<field name="ubicacionpuesto" class="java.lang.String">
@@ -178,8 +178,8 @@ c.partidacontrato, c.subpartidacontrato,p.sueldobase FROM `empleado` e, puesto p
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="218" y="0" width="64" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="35a434c8-0888-4184-98d7-7f4514e38d9c"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="220" y="0" width="63" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="35a434c8-0888-4184-98d7-7f4514e38d9c"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Plaza]]></text>

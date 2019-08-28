@@ -49,6 +49,32 @@ public class PuestoController extends UtilsController {
         return PREFIX + "puestoform";
     }
     
+    @RequestMapping(value = "editpuesto")
+    public String saveeditPuesto(Puesto puesto, Model model) {
+        try {
+//            puesto.setEstadopuesto(1);
+            puestoService.savePuesto(puesto);
+            bitacoraService.BitacoraRegistry("se Edito un Puesto",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+            
+            model.addAttribute("msg", 0);
+        } catch (Exception ex) {
+             System.out.println("Error {");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
+            model.addAttribute("msg", 1);
+        }
+        return PREFIX + "puestoform";
+//        return "redirect:./show/" + puesto.getCodigopuesto();
+    }
+    
     @RequestMapping(value = "puesto")
     public String savePuesto(Puesto puesto, Model model) {
         try {

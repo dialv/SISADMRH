@@ -43,7 +43,7 @@
                 <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/puestos.png}"/>
             </div> 
             <h3 align="center">   </h3>
-            <form class="form-horizontal" th:object="${puesto}" th:action="@{../puesto}" method="post">
+            <form class="form-horizontal" id="idformp" th:object="${puesto}" th:action="@{../puesto}" method="post">
                 <input type="hidden" th:field="*{codigopuesto}"/>
                 <div class="col-md-12">
                     <div class="form-group">
@@ -365,4 +365,28 @@
     }
     });
 </script> 
+
+<script>
+    var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
+        var txtVal = document.getElementById('dep1').value;
+        var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+        doLoad(null, './../municipio/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
+        document.getElementById('mun1').style.width="120px";
+                   
+//                    document.getElementById('btngestionar').style.display = 'block';
+//                    document.getElementById('divpop').style.display = 'block';
+                    
+//                    $('#btngestionar')..show();
+//                    $('#divpop')..show();
+    }
+    else{
+        var id=document.getElementById('idformp').action
+        id=id.substring(0,id.lastIndexOf("/"));
+        id=id+"/editpuesto";
+                    alert(id);
+                    
+
+  }
+</script>
 </html>

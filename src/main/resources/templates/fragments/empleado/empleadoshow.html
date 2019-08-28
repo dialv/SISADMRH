@@ -197,7 +197,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                           <div class="form-group">
                             <label class="col-sm-7 control-label">Estado del empleado:</label>
                             <div class="col-sm-5">
-                                <p class="form-control-static">  <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span> <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span> <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"></span> <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span> <span th:if="${empleado.estadoempleado} == 0"  th:text="De Baja"></span> </p>
+                                <p class="form-control-static">  <span th:if="${empleado.estadoempleado} == 1"  th:text="Activo"  ></span> <span th:if="${empleado.estadoempleado} == 2"  th:text="Indemnizado"></span> <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"></span> <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span> <span th:if="${empleado.estadoempleado} == 0"  th:text="De Baja"></span> <span th:if="${empleado.estadoempleado} == 6"  th:text="Renuncio"  ></span> </p>
                             </div>
                         </div>
                         <div class="form-group">
