@@ -59,19 +59,9 @@ public class Hijodiscapacidad implements Serializable {
     @Size(max = 50)
     @Column(name = "tipodiscapacidad")
     private String tipodiscapacidad;
-<<<<<<< HEAD
-    @Column(name = "fechanamimientohijosdiscapacidad")
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fechanamimientohijosdiscapacidad;
-
-     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hijodiscapacidad", fetch = FetchType.LAZY)
-    private List<Empleadohijodiscapacidad> empleadohijodiscapacidadList;
-
-=======
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "contacto", fetch = FetchType.LAZY)
     private List<Empleadocontacto> empleadocontactoList;
     
->>>>>>> origin/respaldobetillo
     public Hijodiscapacidad() {
     }
 
