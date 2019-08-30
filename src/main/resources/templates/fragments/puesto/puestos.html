@@ -35,7 +35,7 @@
                     <td th:text="${#numbers.formatDecimal(puesto.sueldobase, 0, 'COMMA', 2, 'POINT')}">sueldobase</td>
                     <td>
                         <span th:if="${puesto.estadopuesto} == 1"  th:text="Activo"  ></span>
-                        <span th:if="${puesto.estadopuesto} == 2"  th:text="Inactivo"></span>
+                        <span th:if="${puesto.estadopuesto} == 2"  th:text="Plaza+' '+Ocupada"></span>
                     </td> 
                     <td th:text="${#calendars.format(puesto.fechaaprobacion, 'dd/MM/yyyy')}	">fecha ingreso</td>
                     <td th:text="${#calendars.format(puesto.fechabaja, 'dd/MM/yyyy')}	">fecha baja</td>

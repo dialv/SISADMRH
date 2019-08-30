@@ -87,7 +87,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Marcar si la Experiencia es en el Ministerio de Justicia(*):</label>
                     <div class="col-sm-2">
-                        <input type="checkbox"  onclick="chek()" id="check"   required="true"    />
+                        <!--<input type="checkbox"  onclick="chek()" id="check"   required="true"    />-->
+                        <input type="checkbox"  name="interno" th:field="*{interno}" onclick="chek()" id="check"    value="1" />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup131')" onmouseout ="javascript:ocultarAyuda('poppup131')">a</a></b>
@@ -110,6 +111,21 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup14')" onmouseout ="javascript:ocultarAyuda('poppup14')">a</a></b>
                         
                         <span class="popuptext" id="poppup14">Seleccione el sector de la ultima experiencia laboral del Empleado desplegando la lista.!</span>
+                    </div>
+            </div>
+                 <div class="form-group" id="divcontrato" >
+                     <br>
+                <label class="col-sm-3 control-label">Contrato(*):</label>
+                <div class="col-sm-6"  >
+                     <select class="form-control"   id="contrato" name="contrato" width="50" >
+                                  <option value="1">--seleccione un contrato para la experiencia laboral--</option>
+                                <option th:each="c:${contratos}" th:value="${c.codigocontrato}" th:text="${c.plazanominal}"></option>
+                            </select>
+                </div>
+                <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup14c')" onmouseout ="javascript:ocultarAyuda('poppup14c')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup14c">Seleccione el sector de la ultima experiencia laboral del Empleado desplegando la lista.!</span>
                     </div>
             </div>
                  <div class="form-group">
@@ -178,7 +194,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Salario inicial $(*):</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control num_decimal3 numeros"  required="true" maxlength="10" id="salarioinicial"   th:field="*{salarioinicial}" onchange="validar_salarios(this.value,$('#salariofinal').val().toString())" />
+                        <input type="text" class="form-control  numeros num_decimal3 "  required="true" maxlength="10" id="salarioinicial"   th:field="*{salarioinicial}" onchange="validar_salarios(this.value,$('#salariofinal').val().toString())" />
                     </div>
                      <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup7')" onmouseout ="javascript:ocultarAyuda('poppup7')">a</a></b>
@@ -243,24 +259,46 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
        
 </body>
-<script src="../static/css/hydro/js/jquery.js"></script>
+<!--<script src="../static/css/hydro/js/jquery.js"></script>-->
 	        
     	<script>
            
              function chek(){
                   var checkbox = document.getElementById('check');
+                    var x = document.getElementById("divcontrato");
+//                  alert(checkbox.checked);
                     if (checkbox.checked != true)
                     {
-                       document.getElementById('selectsector').value='Privado';
+                        x.style.display = "none";
+                        document.getElementById('selectsector').value='0';
                        document.getElementById('nombreinstitucion').value='';
-                        $('#nombreinstitucion').prop('disabled', false);
+                       document.getElementById("cargonom").readOnly = false;
+                       document.getElementById("salarioinicial").readOnly = false;
+                       document.getElementById("nombreinstitucion").readOnly = false;
+                        document.getElementById("fechadexlaborald").readOnly = false;
+                        document.getElementById("fechahexlaboralh").readOnly = false;
+                       
+                        $('#cargonom').val('' );
+                        $('#salarioinicial').val('' );
+                          $('#fechahexlaboralh').val('' );
+                           $('#fechadexlaborald').val('' );
+//                        $('#nombreinstitucion').prop('disabled', false);
                     
                     }else{
-                       document.getElementById('selectsector').value='Publico';
+                        x.style.display = "block";
+                        document.getElementById('selectsector').value='Publico';
                        document.getElementById('nombreinstitucion').value='Ministerio de Justicia';
-                       $('#nombreinstitucion').prop('disabled', 'disabled');
-                    }
-                               }
+//                       $('#nombreinstitucion').prop('disabled', 'disabled');
+                        document.getElementById("nombreinstitucion").readOnly = true;
+                        document.getElementById("cargonom").readOnly = true;
+                        document.getElementById("salarioinicial").readOnly = true;
+                        document.getElementById("fechadexlaborald").readOnly = true;
+                        document.getElementById("fechahexlaboralh").readOnly = true;
+//                        $('#cargonom').val('[[${puesto}]]' );
+//                        $('#salarioinicial').val('[[${salario}]]' );
+                        }
+                        
+                      }
              function Fechas(val1,val2,val3,val4){
                         var foo=ValidarFecha(val1,val2,val3,val4).split(",");;
                         if(foo[0]!=foo[2]){
@@ -318,8 +356,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         if(val.includes("Pasantia no Remunerada") || val.includes("Voluntariado") || val.includes("Horas Sociales")){
                             $("#salarioinicial").val("0.00"); 
                             $("#salariofinal").val("0.00");
-                            $('#salarioinicial').prop('disabled', 'disabled');
-                            $('#salariofinal').prop('disabled', 'disabled');
+                            document.getElementById("salarioinicial").readOnly = true;
+                             document.getElementById("salariofinal").readOnly = true;
+//                            $('#salarioinicial').prop('disabled', 'disabled');
+//                            $('#salariofinal').prop('disabled', 'disabled');
                         }else{
                             $('#salarioinicial').prop('disabled', false);
                             $('#salariofinal').prop('disabled', false);
@@ -338,12 +378,65 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 // 			});
 // 		});
 		$(document).ready(function () {
-		    var date = new Date();
-		    var currentMonth = date.getMonth();
-		    var currentDate = date.getDate();
-		    var currentYear = date.getFullYear();
-                    $('#cargonom').val('[[${puesto}]]' );
-                    $('#salarioinicial').val('[[${salario}]]' );
+//		    var date = new Date();
+//		    var currentMonth = date.getMonth();
+//		    var currentDate = date.getDate();
+//		    var currentYear = date.getFullYear();
+//                    document.getElementById("cargonom").readOnly = true;
+//                    document.getElementById("salarioinicial").readOnly = true;
+//                    $('#cargonom').val('[[${puesto}]]' );
+//                    $('#salarioinicial').val('[[${salario}]]' );
+                    
+                    
+                    $('#contrato').change(function () {
+                          var txtVal = jQuery('#contrato').val();
+                          var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+                           var lca = "new"
+                           var URLactual = window.location.href;
+                            if (URLactual.includes("edit")){
+                                lca='../../ex/searcontrato/' + txtVal + '/' + idemp;
+                                
+                            }
+                            else{
+                                lca='../ex/searcontrato/' + txtVal + '/' + idemp;
+                            }
+                           
+                    $.ajax({
+                        url: lca,
+                        success: function (data) {
+//                            var idpuesto ='[[${idpuesto}]]' ;
+                            var cargo="";
+                            var fechadesde="";
+                            var fechahasta="";
+                            var salario="";
+//                            alert("data.length"+data.length+" ");
+                             for (var i=0; i<data.length;i++){
+                                  cargo =data[2];
+                                  fechadesde =data[3];
+                                  fechahasta =data[4];
+                                  salario =data[1];
+//                                  alert("fechadesde["+i+"]="+fechadesde);
+                             }
+                             var output = (salario).toFixed(2);
+                            $('#salarioinicial').val(output);
+                            $('#cargonom').val(cargo);
+                            var d = fechadesde.split("-");
+                            var fed=d[2]+"/"+d[1]+"/"+d[0];
+                             var f = fechahasta.split("-");
+                            var fhs=f[2]+"/"+f[1]+"/"+f[0];
+                            $('#fechadexlaborald').val(fed);
+//                            $('#fechadexlaborald').val(fechadesde);
+                            $('#fechahexlaboralh').val(fhs);
+                        },
+                        error: function () {
+                           $('#salarioinicial').val("");
+                            $('#cargonom').val("");
+                            $('#fechadexlaborald').val("");
+                            $('#fechahexlaboralh').val("");
+                        }
+                    });
+                });
+                    
                     
 		    $('#fechadexlaborald').datepicker({
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
@@ -416,11 +509,13 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		});
 	 $('#btnGuardar').click(function(){
              var flag =validate_value_field();
-             var flag2=validar_salarios_guardar();
+//             var flag2=validar_salarios_guardar();
 //             alert(flag);
 //             if(flag2==true){
                 if(flag==false ){
-                    $("#formex").attr('action', '../experiencialaboral/'+ $("#codem").val().toString());
+                    var code=$("#codem").val().toString();
+//                    alert(code);
+                    $("#formex").attr('action', '../experiencialaboral/'+ code);
                     $("form#formex").submit();           
                 } 
 //             }else{
@@ -462,12 +557,36 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     }
     });
 </script> 
-        <script>       
+        <script>
+            function divcontratof() {
+                 var checkbox = document.getElementById('check');
+                 var x = document.getElementById("divcontrato");
+//                  alert(checkbox.checked);
+                    if (checkbox.checked != true)
+                    {
+                         x.style.display = "none";
+                    }else{
+                         x.style.display = "block";
+                    }
+              } 
+              divcontratof() ;
             var URLactual = window.location.href;
                 if (URLactual.includes("edit")){
 //                    alert("str");
+//                    document.getElementById("cargonom").readOnly = true;
+//                    document.getElementById("salarioinicial").readOnly = true;
+//                    $('#cargonom').val('[[${puesto}]]' );
+//                    $('#salarioinicial').val('[[${salario}]]' );
                 }
                 else{
+                     var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+//                    document.getElementById("cargonom").readOnly = true;
+//                    document.getElementById("salarioinicial").readOnly = true;
+//                    $('#cargonom').val('[[${puesto}]]' );
+//                    $('#salarioinicial').val('[[${salario}]]' );
 //                    alert("str1");
 var str =URLactual.substring(URLactual.indexOf("new")+4,URLactual.length);
 //alert(str);

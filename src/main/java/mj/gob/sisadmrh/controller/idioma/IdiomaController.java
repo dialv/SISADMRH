@@ -110,13 +110,15 @@ model.addAttribute("msg", 2);
             idiomaService.saveIdioma(idioma);
             status.setComplete();
             Empleadoidioma emcon = new  Empleadoidioma();
-        emcon.setIdioma(idioma);
+//        emcon.setIdioma(idioma);
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadoidiomaPK emconpk = new EmpleadoidiomaPK();
         emconpk.setCodigoidioma(idioma.getCodigoidioma());
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoidiomaPK(emconpk);
         empleadoIdiomaService.saveEmpleadoidioma(emcon);
+        bitacoraService.BitacoraRegistry("se Creo un idioma",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
         catch(Exception e){
@@ -145,6 +147,8 @@ model.addAttribute("msg", 2);
             idioma.setEstadoidioma(0);
           idiomaService.saveIdioma(idioma);
           Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          bitacoraService.BitacoraRegistry("se Elimino un idioma",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
 //           model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
            model.addAttribute("msg", 3);
@@ -159,20 +163,20 @@ model.addAttribute("msg", 2);
     }
     
     
-     @RequestMapping(value = "idioma")
-    public String saveRol(Idioma idioma, Model model, SessionStatus status) {
-        try{
-        idiomaService.saveIdioma(idioma);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se cambio registro de idioma ",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-          return "redirect:/empleados/";
-    }
+//     @RequestMapping(value = "idioma")
+//    public String saveRol(Idioma idioma, Model model, SessionStatus status) {
+//        try{
+//        idiomaService.saveIdioma(idioma);
+//        status.setComplete();
+//         bitacoraService.BitacoraRegistry("se cambio registro de idioma ",getRequest().getRemoteAddr(), 
+//                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+//        model.addAttribute("msg", 0);
+//        }
+//        catch(Exception e){
+//        model.addAttribute("msg", 1);
+//        }
+//          return "redirect:/empleados/";
+//    }
      
 
 }

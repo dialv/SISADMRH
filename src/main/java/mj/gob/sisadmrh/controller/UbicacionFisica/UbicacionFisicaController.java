@@ -86,7 +86,7 @@ model.addAttribute("msg", 2);
            ubicacionFisicaService.saveUbicacionFisica(ubicacionFisica);
            status.setComplete();
            Empleadoubicacionfisica emcon = new  Empleadoubicacionfisica();
-        emcon.setUbicacionfisica(ubicacionFisica);
+//        emcon.setUbicacionfisica(ubicacionFisica);
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadoubicacionfisicaPK emconpk = new EmpleadoubicacionfisicaPK();
         emconpk.setCodigoubicacion(ubicacionFisica.getCodigoubicacion());
@@ -132,6 +132,8 @@ model.addAttribute("msg", 2);
        ubicacionfisica.setEstadoubicacion(0);
         ubicacionFisicaService.saveUbicacionFisica(ubicacionfisica);
           Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          bitacoraService.BitacoraRegistry("se Elimino una Ubicacion Fisica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
          model.addAttribute("msg", 3);
 //          model.addAttribute("ubicacionfisica",ubicacionfisica);

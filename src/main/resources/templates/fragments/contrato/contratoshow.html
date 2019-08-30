@@ -129,8 +129,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                          <div class="form-group">
                             <label class="col-sm-7 control-label">Cambio de plaza:</label>
                             <div class="col-sm-5">
-                                  <span th:if="${contrato.plazanominal} == 1"  th:text="Si"  ></span>
-                    <span th:if="${contrato.plazanominal} == NULL"  th:text="No"></span>
+                                  <span th:if="${contrato.cambioplaza} == 1"  th:text="Si"  ></span>
+                    <span th:if="${contrato.cambioplaza} == NULL"  th:text="No"></span>
                                 <!--<p class="form-control-static" th:text="${contrato.plazanominal}" >Email Empleado</p>-->
                             </div>
                         </div>

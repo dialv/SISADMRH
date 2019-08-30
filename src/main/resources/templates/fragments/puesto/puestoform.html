@@ -43,7 +43,7 @@
                 <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/puestos.png}"/>
             </div> 
             <h3 align="center">   </h3>
-            <form class="form-horizontal" th:object="${puesto}" th:action="@{../puesto}" method="post">
+            <form class="form-horizontal" id="idformp" th:object="${puesto}"  method="post">
                 <input type="hidden" th:field="*{codigopuesto}"/>
                 <div class="col-md-12">
                     <div class="form-group">
@@ -118,6 +118,11 @@
                                 <option value="">--seleccione la ubicacion geografica del puesto--</option>
                                 <option value="Capacitacion de Personal">Capacitacion de Personal</option>
                                 <option value="Coordinacion Tecnica">Coordinacion Tecnica</option>
+                                <option value="Coordinacion de Personal">Coordinacion de Personal</option>
+                                <option value="Direccion de Personal">Direccion de Personal</option>
+                                <option value="Area Tecnica">Area Tecnica</option>
+                                <option value="Informatica">Informatica</option>
+                                <option value="Juridica">Juridica</option>
                             </select>
                         </div>
                         <div class="popup "><b>
@@ -128,7 +133,7 @@
                    <div class="form-group">
                         <label class="col-sm-3 control-label">Código de Cargo(*):</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control numeros" th:field="*{codigocargopuesto}" required="true"/>
+                            <input type="text" class="form-control numeros" maxlength="6" th:field="*{codigocargopuesto}" required="true"/>
                         </div>
                         <div class="popup "><b>
                                 <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup8')" onmouseout ="javascript:ocultarAyuda('poppup8')">a</a></b>
@@ -257,6 +262,7 @@
                         </div>
                     </div>
                     <div class="form-group">
+                         <input type="hidden" th:field="*{estadopuesto}"/>
 <!--                        <label class="col-sm-3 control-label">Estado de Puesto de Trabajo(*):</label>
                         <div class="col-sm-5">
                             <select class="form-control" name="estadopuesto" th:field="*{estadopuesto}" >
@@ -288,6 +294,19 @@
 </body>
 <script src="../static/css/hydro/js/jquery.js"></script>
 <script>
+ var x = document.getElementsByClassName("num_decimal3");
+  var i;
+  for (i = 0; i < x.length; i++) {
+//    x[i].style.backgroundColor = "red";
+//     x[i].value = (x[i].value).toFixed(2);
+    var id=x[i].id;
+//    alert("value="+x[i].value+" id="+x[i].id);
+    var monto=document.getElementById(id).value;
+//    var output = (monto).toFixed(2);
+    var output =Number.parseFloat(monto).toFixed(2);
+    document.getElementById(id).value=output
+//    alert("monto="+output);
+    }
                         function Fechas(val1, val2, val3, val4){
                         var foo = ValidarFecha(val1, val2, val3, val4).split(","); ;
                         if (foo[0] != foo[2]){
@@ -306,6 +325,31 @@
 //                        });
  $('#guardar').click(function(){
 		validate_value_field();
+       var URLactual = window.location.href;
+    if (URLactual.includes("edit")){
+        var id=document.getElementById('idformp').action
+        id=id.substring(0,id.lastIndexOf("/"));
+        id=id.replace("edit","editpuesto");
+        document.getElementById('idformp').action=id
+//        th:action="@{../puesto}"
+//                    alert(id);
+//        var txtVal = document.getElementById('dep1').value;
+//        var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+//        doLoad(null, './../municipio/' + txtVal + '/' + idemp , 'refresh-after-municipio', null);
+//        document.getElementById('mun1').style.width="120px";
+                   
+//                    document.getElementById('btngestionar').style.display = 'block';
+//                    document.getElementById('divpop').style.display = 'block';
+                    
+//                    $('#btngestionar')..show();
+//                    $('#divpop')..show();
+    }
+    else{
+        var id=document.getElementById('idformp').action
+        id=id.substring(0,id.lastIndexOf("/"));
+        id=id.replace("new","puesto");
+        document.getElementById('idformp').action=id
+       }
 	});
                         var date = new Date();
                         var currentMonth = date.getMonth();
@@ -365,4 +409,8 @@
     }
     });
 </script> 
+
+<script>
+
+</script>
 </html>

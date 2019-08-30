@@ -78,7 +78,7 @@ public class ContactoController extends UtilsController{
         contactoService.saveContacto(contacto);
          status.setComplete();
         Empleadocontacto emcon = new  Empleadocontacto();
-        emcon.setContacto(contacto);
+//        emcon.setContacto(contacto);
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadocontactoPK emconpk = new EmpleadocontactoPK();
         emconpk.setCodigocontacto(contacto.getCodigocontacto());
@@ -124,6 +124,8 @@ public class ContactoController extends UtilsController{
              
          contactoService.saveContacto(contacto);
          Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+          bitacoraService.BitacoraRegistry("se Elimino un contacto",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
           model.addAttribute("msg", 3);
         }

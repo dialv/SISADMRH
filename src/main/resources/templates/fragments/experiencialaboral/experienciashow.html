@@ -97,6 +97,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 <p class="form-control-static" th:text="${experiencialaboral.cargo}">Fecha de Nacimiento</p>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Experiencia Laboral es en el Ministerio de Justicia:</label>
+                            <div class="col-sm-7">
+                                  <span th:if="${experiencialaboral.interno} == 1"  th:text="Si"  ></span>
+                    <span th:if="${experiencialaboral.interno} == NULL"  th:text="No"></span>
+                                <!--<p class="form-control-static" th:text="${contrato.plazanominal}" >Email Empleado</p>-->
+                            </div>
+                        </div>
                     </div> 
                     <div class="col-md-6">
                         <div class="form-group">

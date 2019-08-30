@@ -74,10 +74,24 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <input type="hidden" th:field="*{codigocontrato}"/>
                 <input type="hidden" id="codemc" th:field="*{codigoempleado}"/>
             <div class="col-md-12"  >
+                <div class="form-group">
+                        <label class="col-sm-3 control-label">Puesto del empleado:</label>
+                        <div class="col-sm-5" >
+                            <select class="form-control"  th:field="*{codigopuesto}"  width="50" id="idpuesto" name="select" >
+                                  <option value="">--seleccione el puesto para el empleado--</option>
+                                <option th:each="c:${puestos}" th:value="${c.codigopuesto}" th:text="${c.nombrepuesto}"></option>
+                            </select>
+                        </div>
+                          <div class="popup "><b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup1')" onmouseout ="javascript:ocultarAyuda('poppup1')">a</a></b>
+                        
+                        <span class="popuptext" id="poppup1">Seleccione el Puesto del Empleado.!</span>
+                    </div>
+                    </div>
                  <div class="form-group">
                      <br>
                     <label class="col-sm-3 control-label">Salario actual $(*):</label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2"  id ="refresh-after-contrato">
                         <input type="text" id="salario" class="form-control"  required="true" maxlength="9"  th:field="*{salarioactual}"  />
                     </div>
                     <div class="popup "><b>
@@ -103,9 +117,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         <input type="text" class="form-control"  id="sispago" required="true" size="50" maxlength="50" th:field="*{sistemapago}"   />
                     </div>
                      <div class="popup "><b>
-                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('sispago')" onmouseout ="javascript:ocultarAyuda('sispago')">a</a></b>
+                            <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('sispago1')" onmouseout ="javascript:ocultarAyuda('sispago1')">a</a></b>
                         
-                        <span class="popuptext" id="sispago">Campo en el que se muestra el sistema de pago del empleado. campo no editable, valor extraido del puesto asignado al empleado!</span>
+                        <span class="popuptext" id="sispago1">Campo en el que se muestra el sistema de pago del empleado. campo no editable, valor extraido del puesto asignado al empleado!</span>
                     </div>
                 </div>
                  <div class="form-group">
@@ -133,7 +147,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                  <div class="form-group">
                     <label class="col-sm-3 control-label">Numero de subpartida(*):</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control"    required="true" size="100" maxlength="100" th:field="*{subpartidacontrato}"  />
+                        <input type="text" class="form-control"    required="true" size="9" maxlength="9" th:field="*{subpartidacontrato}"  />
                     </div>
                     <div class="popup "><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup22')" onmouseout ="javascript:ocultarAyuda('poppup22')">a</a></b>
@@ -184,9 +198,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
                             <ul>
                               
-                                    <input id="features1" name="cambioplaza" type="checkbox"  th:field="*{plazanominal}" value="1" />
-                                    <input name="_features" type="hidden" value="on" />
-                                    <label for="features1"></label>
+                                    <input id="cambioplaza" name="camb   <input id="cambioplaza" type="checkbox"  th:field="*{cambioplaza}" value="1" />
+                                    
                                     
                             </ul>  
                         </div>
@@ -199,7 +212,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
               <div class="form-group">
                             <label class="col-sm-3 control-label">Plaza nominal(*):</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control " required="true" maxlength="50" minlength="1" th:field="*{plazanominal}"/>
+                                <input type="text" class="form-control " id="nominal" required="true" maxlength="50" minlength="1" th:field="*{plazanominal}"/>
                             </div>
                              <div class="popup col-sm-1"><b>
                                     <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('plzaza')" onmouseout ="javascript:ocultarAyuda('plzaza')">a</a></b>
@@ -235,7 +248,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <button type="submit" class="btn btn-default" >Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
   <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
- 
+ <!--<button type="submit"  onclick="searchpuesto( document.getElementById('idpuesto') ,'1');"  class="btn btn-warning" id="btn"><span class="glyphicon glyphicon-floppy-disk"></span>test</button>-->
+
 <button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
@@ -256,9 +270,20 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
        
 </body>
+<script type="text/javascript">
+//    $(document).ready(function() {
+//        var refrescarid = setInterval(function() {
+//            $("#div1").load("url que quieres cargar")
+//            .error(function() { alert("Error"); });
+//        }, 1000); // Tiempo
+//        $.ajaxSetup({ cache: false });              
+//    });
+</script>
     <script type="text/javascript"  th:src="@{/js/script.js}"></script>
+    
 	<script  type="text/javascript">
-           
+             
+ 
 
            
              function Fechas(val1,val2,val3,val4){
@@ -278,22 +303,74 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  
 		
 		$(document).ready(function () {
-                    document.getElementById("salario").readOnly = true;
-                    document.getElementById("sispago").readOnly = true;
-                    document.getElementById("linea").readOnly = true;
-                    document.getElementById("fechaicontrato").readOnly = true;
-//                    $('#salario').prop('disabled', 'disabled');
-//                    $('#sispago').prop('disabled', 'disabled');
-//                    $('#linea').prop('disabled', 'disabled');
-//                    $('#fechaicontrato').prop('disabled', 'disabled');
-                    var salario ='[[${salario}]]' ;
-                    var sispago ='[[${sispago}]]' ;
-                    var linea ='[[${linea}]]' ;
-                    var fechaincontrato ='[[${#calendars.format(fechainicio, "dd/MM/yyyy")}]]' ;
-                    $('#salario').val(salario);
-                    $('#sispago').val(sispago);
-                    $('#linea').val(linea);
-                    $('#fechaicontrato').val(fechaincontrato);
+                    
+                    $('#idpuesto').change(function () {
+                          var txtVal = jQuery('#idpuesto').val();
+                          var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+                           var lca = "new"
+                           var URLactual = window.location.href;
+                            if (URLactual.includes("edit")){
+                                lca='../../contrato/searchpuesto/' + txtVal + '/' + idemp;
+                            }
+                            else{
+                                lca='../contrato/searchpuesto/' + txtVal + '/' + idemp;
+                            }
+                           
+                    $.ajax({
+                        url: lca,//'../contrato/searchpuesto/' + txtVal + '/' + idemp,
+                        success: function (data) {
+//                            var idpuesto ='[[${idpuesto}]]' ;
+                            var salario="";
+                            var sispago="";
+                            var linea="";
+                            var fechaincontrato="";
+                            var nominal="";
+//                            alert("data.length"+data.length+" ");
+                             for (var i=0; i<data.length;i++){
+                                  salario =data[1];
+                                  sispago =data[2];
+                                  linea =data[5];
+                                  fechaincontrato =data[3];
+                                  nominal =data[4];
+//                                  alert("variable["+i+"]="+salario);
+                             }
+                             var output = (salario).toFixed(2);
+                            $('#salario').val(output);
+                            $('#sispago').val(sispago);
+                            $('#linea').val(linea);
+                            $('#nominal').val(nominal);
+                        },
+                        error: function () {
+                           $('#salario').val("");
+                            $('#sispago').val("");
+                            $('#linea').val("");
+                            $('#nominal').val("");
+                        }
+                    });
+                });
+                    
+                     document.getElementById("salario").readOnly = true;
+                        document.getElementById("sispago").readOnly = true;
+                        document.getElementById("linea").readOnly = true;
+                    if (URLactual.includes("new")){
+                        
+    //                    document.getElementById("fechaicontrato").readOnly = true;
+    //                    $('#salario').prop('disabled', 'disabled');
+    //                    $('#sispago').prop('disabled', 'disabled');
+    //                    $('#linea').prop('disabled', 'disabled');
+    //                    $('#fechaicontrato').prop('disabled', 'disabled');
+                        var idpuesto ='[[${idpuesto}]]' ;
+                        var salario ='[[${salario}]]' ;
+                        var sispago ='[[${sispago}]]' ;
+                        var linea ='[[${linea}]]' ;
+    //                    var fechaincontrato ='[[${#calendars.format(fechainicio, "dd/MM/yyyy")}]]' ;
+                        $('#salario').val(salario);
+                        $('#sispago').val(sispago);
+                        $('#linea').val(linea);
+    //                    $('#fechaicontrato').val(fechaincontrato);
+                        $('#idpuesto').val(idpuesto);
+                    }
+                   
                      
 		    var date = new Date();
 		    var currentMonth = date.getMonth();
@@ -380,6 +457,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                                 $("form#formcontrato").submit();
                             }
                 });
+                
+      
                 
                 var URLactual = window.location.href;
                 if (URLactual.includes("edit")){
