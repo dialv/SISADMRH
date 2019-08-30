@@ -17,8 +17,15 @@ import org.springframework.data.repository.query.Param;
 public interface UbicacionFisicaRepository  extends CrudRepository<Ubicacionfisica, Integer>{
     @Query(value = "SELECT u.* FROM UbicacionFisica u "
             + "WHERE u.nombreubicacion LIKE :nom ", nativeQuery = true)
-
     Iterable<Ubicacionfisica> findByUbicacion(@Param("nom") String dato);
+    
+    @Query(value = "SELECT u.* FROM ubicacionfisica u WHERE u.estadoubicacion != 0 "
+            + " and u.nombreubicacion=:nomb "
+            + " and u.jefeinmediato=:jefe "
+            + " and u.cargofuncional=:cargo ", nativeQuery = true)
+    Iterable<Ubicacionfisica> findIntegrity( @Param("nomb") String nomb, @Param("jefe") String jefe, @Param("cargo") String cargo);
+
+            
     
       @Query(value = "SELECT d.* FROM ubicacionfisica d, empleadoubicacionfisica de  WHERE d.estadoubicacion != 0 and de.codigoubicacion=d.codigoubicacion and de.codigoempleado= :id ", nativeQuery = true)
     Iterable<Ubicacionfisica> findByDato(@Param("id") int dato);

@@ -147,7 +147,7 @@
                     </div>
             </div>
                  <div class="form-group">
-                <label class="col-sm-3 control-label">Departamentasdo de nacimiento del empleado(*):</label>
+                <label class="col-sm-3 control-label">Departamento de nacimiento del empleado(*):</label>
                 <div class="col-sm-4">
                     <select id="dep1" class="form-control" name="departamentonacimiento" th:field="*{departamentonacimiento}" onchange="searchmunicipio(this,'1');" >
                     <option th:value="${departamentonacimiento}" th:text="${departamentonacimiento==null}?'--seleccione un departamento--':${departamentonacimiento}"></option>
@@ -467,6 +467,7 @@
                         <option value="2">Indemnizado</option>
                         <option value="4">Despedido</option>
                         <option value="5">De Baja</option>
+                        <option value="6">Renuncia</option>
                     </select>
                 </div>
                 <div class="popup "><b>

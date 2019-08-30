@@ -39,6 +39,7 @@
                         <span th:if="${empleado.estadoempleado} == 3"  th:text="Pensionado"  ></span>
                         <span th:if="${empleado.estadoempleado} == 4"  th:text="Despedido"></span>
                         <span th:if="${empleado.estadoempleado} == 5"  th:text="De Baja"  ></span>
+                        <span th:if="${empleado.estadoempleado} == 6"  th:text="Renuncia"  ></span>
                     </td> 
                 <td th:text="${empleado.nombreempleado} + ' ' + ${empleado.apellidoempleado} ">nombreempleado</td>
                 <td th:text="${#calendars.format(empleado.fechanacimientoempleado, 'dd/MM/yyyy')}">Fecha nacimiento empleado</td>                

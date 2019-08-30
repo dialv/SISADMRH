@@ -55,4 +55,16 @@ public class IdiomaServicesImpl implements IdiomaService {
         
     }
     
+     @Override
+    public void findIntegrity(Idioma idioma) {
+  Iterable<Idioma> lista = idiomaRep.findByIntegrity(
+                idioma.getNombreidioma(),
+                idioma.getEscribe(),
+                idioma.getNivel());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadoidioma(0);
+            idiomaRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }    }
+    
 }

@@ -7,24 +7,27 @@ package mj.gob.sisadmrh.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author developer
+ * @author jorge
  */
 @Entity
 @Table(name = "hijodiscapacidad")
@@ -39,25 +42,26 @@ public class Hijodiscapacidad implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "codigohijodiscapacidad")
     private Integer codigohijodiscapacidad;
-    @Column(name = "estadohijos")
-    private Integer estadohijos;
-    @Size(max = 50)
-    @Column(name = "nombrehijodiscapacidad")
-    private String nombrehijodiscapacidad;
     @Size(max = 50)
     @Column(name = "apellidohijodiscapacidad")
     private String apellidohijodiscapacidad;
+    @Column(name = "estadohijos")
+    private Integer estadohijos;
+    @Column(name = "fechanamimientohijosdiscapacidad")
+    @Temporal(TemporalType.DATE)
+    private Date fechanamimientohijosdiscapacidad;
     @Size(max = 50)
     @Column(name = "nombrediscapacidad")
     private String nombrediscapacidad;
     @Size(max = 50)
+    @Column(name = "nombrehijodiscapacidad")
+    private String nombrehijodiscapacidad;
+    @Size(max = 50)
     @Column(name = "tipodiscapacidad")
     private String tipodiscapacidad;
-    @Column(name = "fechanamimientohijosdiscapacidad")
-    @Temporal(javax.persistence.TemporalType.DATE)
-//    
-    private Date fechanamimientohijosdiscapacidad;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contacto", fetch = FetchType.LAZY)
+    private List<Empleadocontacto> empleadocontactoList;
+    
     public Hijodiscapacidad() {
     }
 
@@ -73,20 +77,28 @@ public class Hijodiscapacidad implements Serializable {
         this.codigohijodiscapacidad = codigohijodiscapacidad;
     }
 
-    public String getNombrehijodiscapacidad() {
-        return nombrehijodiscapacidad;
-    }
-
-    public void setNombrehijodiscapacidad(String nombrehijodiscapacidad) {
-        this.nombrehijodiscapacidad = nombrehijodiscapacidad;
-    }
-
     public String getApellidohijodiscapacidad() {
         return apellidohijodiscapacidad;
     }
 
     public void setApellidohijodiscapacidad(String apellidohijodiscapacidad) {
         this.apellidohijodiscapacidad = apellidohijodiscapacidad;
+    }
+
+    public Integer getEstadohijos() {
+        return estadohijos;
+    }
+
+    public void setEstadohijos(Integer estadohijos) {
+        this.estadohijos = estadohijos;
+    }
+
+    public Date getFechanamimientohijosdiscapacidad() {
+        return fechanamimientohijosdiscapacidad;
+    }
+
+    public void setFechanamimientohijosdiscapacidad(Date fechanamimientohijosdiscapacidad) {
+        this.fechanamimientohijosdiscapacidad = fechanamimientohijosdiscapacidad;
     }
 
     public String getNombrediscapacidad() {
@@ -97,20 +109,20 @@ public class Hijodiscapacidad implements Serializable {
         this.nombrediscapacidad = nombrediscapacidad;
     }
 
+    public String getNombrehijodiscapacidad() {
+        return nombrehijodiscapacidad;
+    }
+
+    public void setNombrehijodiscapacidad(String nombrehijodiscapacidad) {
+        this.nombrehijodiscapacidad = nombrehijodiscapacidad;
+    }
+
     public String getTipodiscapacidad() {
         return tipodiscapacidad;
     }
 
     public void setTipodiscapacidad(String tipodiscapacidad) {
         this.tipodiscapacidad = tipodiscapacidad;
-    }
-
-    public Date getFechanamimientohijosdiscapacidad() {
-        return fechanamimientohijosdiscapacidad;
-    }
-
-    public void setFechanamimientohijosdiscapacidad(Date fechanamimientohijosdiscapacidad) {
-        this.fechanamimientohijosdiscapacidad = fechanamimientohijosdiscapacidad;
     }
 
     @Override
@@ -136,14 +148,6 @@ public class Hijodiscapacidad implements Serializable {
     @Override
     public String toString() {
         return "mj.gob.sisadmrh.model.Hijodiscapacidad[ codigohijodiscapacidad=" + codigohijodiscapacidad + " ]";
-    }
-
-    public Integer getEstadohijos() {
-        return estadohijos;
-    }
-
-    public void setEstadohijos(Integer estadohijos) {
-        this.estadohijos = estadohijos;
     }
     
 }

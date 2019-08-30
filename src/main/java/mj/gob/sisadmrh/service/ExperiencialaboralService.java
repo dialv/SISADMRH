@@ -23,5 +23,7 @@ public interface ExperiencialaboralService {
 
     void deleteExperiencialaboral(Integer id);
     
+    void findIntegrity(Experiencialaboral experiencialaboral);
+    
     Iterable<Experiencialaboral> findByDato(int id) ;
 }

@@ -22,6 +22,7 @@ public interface IdiomaService {
     Idioma saveIdioma(Idioma empleado);
 
     void deleteIdioma(Integer id);
+    void findIntegrity(Idioma idioma);
     
     Iterable<Idioma> findByDato(int id) ;
 }

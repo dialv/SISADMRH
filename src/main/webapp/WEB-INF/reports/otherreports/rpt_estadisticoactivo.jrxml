@@ -12,7 +12,7 @@
 	<queryString>
 		<![CDATA[SELECT concat(e.nombreempleado," ",e.apellidoempleado) as empleado,p.sueldobase as sumsueldo,p.ubicacionpuesto FROM `empleado`e 
 inner join  puesto p on e.codigopuesto=p.codigopuesto
- WHERE e.estadoempleado=1 and
+ WHERE e.estadoempleado=1 and e.estadoempleado=3 and p.estadopuesto!=0 and
 e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
@@ -150,28 +150,28 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="69" y="0" width="405" height="14" backcolor="#FFFFFF" uuid="d467e0d9-7f90-48ce-8cf5-3fe678caad3f"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="69" y="0" width="67" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="f95cdd72-8e1e-46f6-bbfb-c4693e831623"/>
+				<reportElement mode="Transparent" x="71" y="0" width="99" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="f95cdd72-8e1e-46f6-bbfb-c4693e831623"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="140" y="0" width="250" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="1e42cf54-a6f7-411d-83f7-eb1f42b2815a"/>
+				<reportElement mode="Transparent" x="247" y="0" width="140" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="1e42cf54-a6f7-411d-83f7-eb1f42b2815a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="398" y="0" width="76" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="94126c2f-eb63-4490-94b0-1cf7ffd17e03"/>
+				<reportElement mode="Transparent" x="396" y="0" width="76" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="94126c2f-eb63-4490-94b0-1cf7ffd17e03"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Suma Salarios($)]]></text>
 			</staticText>
 			<line direction="BottomUp">
-				<reportElement x="136" y="0" width="1" height="14" uuid="f17f63ef-9acb-4580-8489-75a95da4fc85"/>
+				<reportElement x="237" y="0" width="1" height="14" uuid="f17f63ef-9acb-4580-8489-75a95da4fc85"/>
 			</line>
 			<line direction="BottomUp">
 				<reportElement x="394" y="0" width="1" height="14" uuid="107be7fe-c48a-4f0b-9163-5c8723ba9829"/>
@@ -181,7 +181,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="145" y="0" width="230" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="246" y="0" width="140" height="14" uuid="0764aea5-f5b1-487d-b975-d9d29b31bb2b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -195,7 +195,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{sumsueldo})]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="68" y="0" width="68" height="14" uuid="89db8c0f-1370-47e7-a204-1d61360ad537"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="74" y="0" width="159" height="14" uuid="89db8c0f-1370-47e7-a204-1d61360ad537"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -209,7 +209,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="16">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="400" y="1" width="108" height="15" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
+				<reportElement mode="Opaque" x="407" y="1" width="108" height="15" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="79"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="CODIGO" class="java.lang.String"/>
@@ -15,8 +15,12 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado ,el.cargo,el.salarioinicial,el.salariofinal,DATE_FORMAT(el.fechadesdeexperiencialaboral, '%d/%m/%Y') as Desde,DATE_FORMAT(el.fechahastaexperiencialaboral, '%d/%m/%Y') as Hasta from empleado e inner join puesto p on e.codigopuesto=p.codigopuesto inner join empleadoexperiencialaboral ex on e.codigoempleado=ex.codigoempleado inner join experiencialaboral el on ex.codigoexperiencialaboral=el.codigoexperiencialaboral
-where e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and estadoexp!=0
+		<![CDATA[select e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado ,el.cargo,el.salarioinicial,el.salariofinal,DATE_FORMAT(el.fechadesdeexperiencialaboral, '%d/%m/%Y') as Desde,DATE_FORMAT(el.fechahastaexperiencialaboral, '%d/%m/%Y') as Hasta 
+from empleado e
+ inner join puesto p on e.codigopuesto=p.codigopuesto
+ inner join empleadoexperiencialaboral ex on e.codigoempleado=ex.codigoempleado
+ inner join experiencialaboral el on ex.codigoexperiencialaboral=el.codigoexperiencialaboral
+where e.estadoempleado!=0  and p.estadopuesto!=0 and estadoexp!=0 and
 e.codigoempleado=$P{CODIGO} and el.fechadesdeexperiencialaboral >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
@@ -177,7 +181,7 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="65" y="0" width="653" height="17" uuid="c57e2d9e-8f00-4ba7-a90e-32cc6e727163"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="65" y="0" width="110" height="17" uuid="7e48898a-1475-4ed7-8f5c-1b0cb9669341"/>
+				<reportElement x="67" y="0" width="110" height="17" uuid="7e48898a-1475-4ed7-8f5c-1b0cb9669341"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -191,7 +195,7 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="438" y="0" width="68" height="17" uuid="6add28a2-4948-4e1c-9a2b-2f23dd7335ca"/>
+				<reportElement x="441" y="0" width="68" height="17" uuid="6add28a2-4948-4e1c-9a2b-2f23dd7335ca"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -227,7 +231,7 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="437" y="0" width="1" height="17" uuid="9982b763-79dd-4651-8f97-acf7544c59d9"/>
 			</line>
 			<staticText>
-				<reportElement x="345" y="2" width="84" height="14" uuid="598c7448-fdfe-4117-814e-45c7ccd53715"/>
+				<reportElement x="346" y="2" width="84" height="14" uuid="598c7448-fdfe-4117-814e-45c7ccd53715"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -238,7 +242,7 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="16" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="65" y="0" width="145" height="14" uuid="9e4e586d-f374-4b95-a60c-30d9ad8649a6"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="66" y="0" width="145" height="14" uuid="9e4e586d-f374-4b95-a60c-30d9ad8649a6"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -252,7 +256,7 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="613" y="2" width="96" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="613" y="0" width="96" height="14" uuid="cd711d20-f0ce-425f-aca0-04e81d895903"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -290,7 +294,7 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="29" splitType="Stretch">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="624" y="3" width="101" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
+				<reportElement mode="Opaque" x="634" y="3" width="101" height="13" backcolor="#FFFFFF" uuid="a2630314-9f83-4d26-b287-ed5d193c58f1"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>

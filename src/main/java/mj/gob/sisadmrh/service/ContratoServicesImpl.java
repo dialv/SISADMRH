@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.repository.ContratoRepository;
-import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,6 +60,19 @@ public class ContratoServicesImpl implements ContratoService {
      @Override
      public List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2) {
      return contratoRep.getContratoByIdEmpleado(id,id2);
+    }
+    
+    @Override
+    public void findIntegry(Contrato contrato) {
+        Iterable<Contrato> lista = contratoRep.findIntegry(
+                contrato.getCodigoempleado().getCodigoempleado(),
+                contrato.getPartidacontrato(),
+                contrato.getSubpartidacontrato());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadocontrato(0);
+            contratoRep.save(lista.iterator().next());
+            findIntegry(lista.iterator().next());
+        }
     }
     
 }

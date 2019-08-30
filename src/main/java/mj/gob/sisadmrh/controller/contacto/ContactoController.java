@@ -75,8 +75,8 @@ public class ContactoController extends UtilsController{
     public String saveContacto(Contacto contacto,Model model,@PathVariable Integer id,SessionStatus status) {
        try{
         contacto.setEstadocontacto("1");
-        contactoService.saveContacto(contacto);
-         status.setComplete();
+        contacto=contactoService.saveContacto(contacto);
+        status.setComplete();
         Empleadocontacto emcon = new  Empleadocontacto();
 //        emcon.setContacto(contacto);
         Empleado em = empleadoService.getEmpleadoById(id).get();
@@ -85,11 +85,12 @@ public class ContactoController extends UtilsController{
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocontactoPK(emconpk);
         empleadoContactoService.saveEmpleadocontacto(emcon);
+        
         bitacoraService.BitacoraRegistry("se Creo un contacto",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+        getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
-         model.addAttribute("empleado",id);
-         }
+        model.addAttribute("empleado",id);
+        }
         catch(Exception e){
          model.addAttribute("msg", 1);
           System.out.println("Error {");
@@ -104,7 +105,9 @@ public class ContactoController extends UtilsController{
                      System.out.println("}");
          Logger.getLogger(ContactoController.class.getName()).log(Level.SEVERE, null, e);
         }
-//        return "redirect:/empleados/show/"+id;
+        try{
+            contactoService.findIntegrity(contacto);
+        }catch(Exception e){}
          return PREFIX + "contactos";
     }
     

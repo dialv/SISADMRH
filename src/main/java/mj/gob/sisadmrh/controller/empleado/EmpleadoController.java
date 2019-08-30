@@ -231,8 +231,7 @@ public class EmpleadoController extends UtilsController {
         empleado.setDepartamentonacimiento(depto.getNombreestado());
         empleado.setMunicipionacimiento(munic.getNombreestado());
         model.addAttribute("empleado", empleado);
-        Integer idp=empleadoService.getEmpleadoById(id).get().getCodigopuesto();
-        model.addAttribute("nombrepuesto", puestoService.getPuestoByIdEmpleado(idp).get().getNombrepuesto());
+        model.addAttribute("nombrepuesto", puestoService.getPuestoByIdEmpleado(empleado.getCodigopuesto()).get().getNombrepuesto());
         System.out.print("IDEMPLEADO" + id);
 
 //         model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));

@@ -8,6 +8,7 @@ package mj.gob.sisadmrh.service;
 import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Contrato;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -23,7 +24,9 @@ public interface ContratoService {
     Contrato saveContrato(Contrato empleado);
 
     void deleteContrato(Integer id);
-    
+
+    void findIntegry(Contrato contrato);
+
     Iterable<Contrato> findByDato(int id) ;
      List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2);
 }
