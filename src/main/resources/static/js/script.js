@@ -641,6 +641,29 @@ function pdffile(){
                 }
             }
           }
+          
+          function format_numbers() {
+   
+    var msg = '';
+    var formularios = document.forms;
+    var valuearray=new Array();
+    var idarray=new Array();
+    var typearray=new Array();
+    var disablearray=new Array();
+    for (var i=0; i<formularios.length;i++){
+                    for (var j=0; j<formularios[i].elements.length; j++){
+                        var value = formularios[i].elements[j].id;
+                        var value2= formularios[i].elements[j].getElementsByClassName('num_decimal3');
+                        var value3= formularios[i].elements[j].type;
+                         var value4= formularios[i].elements[j].disabled;
+//                        valuearray.push(value2);
+//                        idarray.push(value);
+//                        typearray.push(value3);
+                        alert(value2);
+//                         disablearray.push(value4);
+                    }
+    }
+    }
             
 
 

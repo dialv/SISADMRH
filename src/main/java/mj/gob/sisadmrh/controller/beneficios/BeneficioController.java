@@ -177,7 +177,7 @@ public class BeneficioController extends UtilsController {
     public String saveEmpleadoBeneficio(Beneficio beneficio, Model model, @PathVariable Integer id) {
         try {
             Empleadobeneficio emben = new Empleadobeneficio();
-            emben.setBeneficio(beneficio);
+//            emben.setBeneficio(beneficio);
             Empleado em = empleadoService.getEmpleadoById(id).get();
             emben.setEmpleado(empleadoService.getEmpleadoById(id).get());
             EmpleadobeneficioPK embenpk = new EmpleadobeneficioPK();
@@ -186,6 +186,8 @@ public class BeneficioController extends UtilsController {
             emben.setEmpleadobeneficioPK(embenpk);
             emben.setFechabeneficio(new Date());
             empleadoBeneficioService.saveEmpleadobeneficio(emben);
+             bitacoraService.BitacoraRegistry("se Asigno un beneficio", getRequest().getRemoteAddr(),
+                    getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 0);
             model.addAttribute("empleado", id);
         } catch (Exception e) {

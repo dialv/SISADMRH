@@ -75,17 +75,28 @@ public class HijodiscapacidadController extends UtilsController{
             hijodiscapacidad.setEstadohijos(1);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             status.setComplete();
-            Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
-        emcon.setHijodiscapacidad(hijodiscapacidad);
+        Empleadohijodiscapacidad emcon = new  Empleadohijodiscapacidad();
+//        emcon.setHijodiscapacidad(hijodiscapacidad);
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadohijodiscapacidadPK emconpk = new EmpleadohijodiscapacidadPK();
         emconpk.setCodigohijodiscapacidad(hijodiscapacidad.getCodigohijodiscapacidad());
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadohijodiscapacidadPK(emconpk);
+         System.out.println("objeto de save "+emcon.getEmpleado());
         empleadoHijosdiscapacidadService.saveEmpleadohijodiscapacidad(emcon);
-            model.addAttribute("msg", 0);model.addAttribute("empleado",id);
+        model.addAttribute("msg", 0);model.addAttribute("empleado",id);
         }
-        catch(Exception e){
+        catch(Exception ex){
+              System.out.println("Multipart {");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
             model.addAttribute("msg", 1);
         }
     return PREFIX +"hijodiscapacidads";
@@ -105,6 +116,8 @@ public class HijodiscapacidadController extends UtilsController{
             hijodiscapacidad.setEstadohijos(0);
             hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
             Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+            bitacoraService.BitacoraRegistry("se Elimino un hijo con discapacidad",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         }
@@ -114,18 +127,18 @@ public class HijodiscapacidadController extends UtilsController{
         return PREFIX +"hijodiscapacidads";
     }
     
-     @RequestMapping(value = "hijodiscapacidad")
-    public String saveRol(Hijodiscapacidad hijodiscapacidad, Model model, SessionStatus status) {
-        try{
-        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se cambio registro de hijos con disc ",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-            return "redirect:/empleados/";
-    }
+//     @RequestMapping(value = "hijodiscapacidad")
+//    public String saveRol(Hijodiscapacidad hijodiscapacidad, Model model, SessionStatus status) {
+//        try{
+//        hijodiscapacidadService.saveHijodiscapacidad(hijodiscapacidad);
+//        status.setComplete();
+//         bitacoraService.BitacoraRegistry("se cambio registro de hijos con disc ",getRequest().getRemoteAddr(), 
+//                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+//        model.addAttribute("msg", 0);
+//        }
+//        catch(Exception e){
+//        model.addAttribute("msg", 1);
+//        }
+//            return "redirect:/empleados/";
+//    }
 }

@@ -83,7 +83,7 @@ model.addAttribute("msg", 2);
             dependienteService.saveDependiente(dependiente);
              status.setComplete();
             Empleadodependiente emcon = new Empleadodependiente();
-            emcon.setDependiente(dependiente);
+//            emcon.setDependiente(dependiente);
             Empleado em = empleadoService.getEmpleadoById(id).get();
             EmpleadodependientePK emconpk = new EmpleadodependientePK();
             emconpk.setCodigodependiente(dependiente.getCodigodependiente());
@@ -117,6 +117,9 @@ model.addAttribute("msg", 2);
             dependiente.setEstadodependiente(0);
             dependienteService.saveDependiente(dependiente);
             Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+//             status.setComplete();
+         bitacoraService.BitacoraRegistry("se Elimino un dependiente",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         } catch (Exception e) {
@@ -124,19 +127,19 @@ model.addAttribute("msg", 2);
         }
         return PREFIX + "dependientes";
     }
-     @RequestMapping(value = "dependiente")
-    public String saveRol(Dependiente dependiente, Model model, SessionStatus status) {
-        try{
-        dependiente.setEstadodependiente(1);
-        dependienteService.saveDependiente(dependiente);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se Creo un dependiente",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-        return "redirect:/empleados/";
-    }
+//     @RequestMapping(value = "dependiente")
+//    public String saveRol(Dependiente dependiente, Model model, SessionStatus status) {
+//        try{
+//        dependiente.setEstadodependiente(1);
+//        dependienteService.saveDependiente(dependiente);
+//        status.setComplete();
+//         bitacoraService.BitacoraRegistry("se Creo un dependiente",getRequest().getRemoteAddr(), 
+//                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+//        model.addAttribute("msg", 0);
+//        }
+//        catch(Exception e){
+//        model.addAttribute("msg", 1);
+//        }
+//        return "redirect:/empleados/";
+//    }
 }

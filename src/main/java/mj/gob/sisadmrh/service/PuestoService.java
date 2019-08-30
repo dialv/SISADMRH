@@ -23,5 +23,7 @@ public interface PuestoService {
     List<Object[]> PuestosoExcel(String finicial, String ffinal);
     
     Optional<Puesto> getPuestoByIdEmpleado(Integer id);
+    
+     List<Object[]> getPuestoByIdEmpleado2(Integer id,Integer id2);
 
 }
