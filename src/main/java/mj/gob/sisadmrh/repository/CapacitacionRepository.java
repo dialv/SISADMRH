@@ -23,6 +23,11 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
 
     Iterable<Capacitacion> findByDato(@Param("nom") String dato);
     
+    @Query(value = "SELECT c.* FROM capacitacion c WHERE c.estadocapacitacion!=0 and "
+            + " d.tipoevento=:teven "
+            + "and d.especialidadevento=:esp"
+            + " and d.organismopatrocinador=:cedu ", nativeQuery = true)
+    Iterable<Capacitacion> findIntegrity(@Param("teven") String teven, @Param("esp") String esp, @Param("cedu") String cedu);
 
     
     

@@ -22,6 +22,7 @@ public interface CaparecibidasService {
     Caparecibidas saveCaparecibidas(Caparecibidas empleado);
 
     void deleteCaparecibidas(Integer id);
-    
+
+    void findIntegrity(Caparecibidas caparecibidas);
     Iterable<Caparecibidas> findByDato(int id) ;
 }

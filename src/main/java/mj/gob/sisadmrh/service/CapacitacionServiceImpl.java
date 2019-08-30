@@ -72,5 +72,18 @@ this.capacitacionRep=capacitacionRepository;
         return capacitacionRep.listAllActivos();
     }
     
+    @Override
+    public void findIntegrity(Capacitacion capacitacion) {
+        Iterable<Capacitacion> lista = capacitacionRep.findIntegrity(
+                capacitacion.getTipoevento(), 
+                capacitacion.getEspecialidadevento(),
+                capacitacion.getOrganismopatrocinador());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadocapacitacion(0);
+            capacitacionRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }
+    }
+    
     
 }

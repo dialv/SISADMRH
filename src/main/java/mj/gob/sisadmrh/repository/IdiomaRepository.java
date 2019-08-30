@@ -24,4 +24,11 @@ public interface IdiomaRepository extends CrudRepository<Idioma, Integer>{
     public Iterable<Idioma> listAllActivos();    
     
     
+    @Query(value = "SELECT o FROM Idioma o WHERE o.estadoidioma != 0"
+            + "and o.nombreidioma=:nomb"
+            + "and o.escribe=:esc"
+            + "and o.nivel=:niv", nativeQuery = true)
+    
+    Iterable<Idioma> findByIntegrity(@Param("nomb") String nomb, @Param("esc") String esc, @Param("niv") String niv);
+    
 }

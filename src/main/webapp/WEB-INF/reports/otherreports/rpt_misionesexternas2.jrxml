@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="241"/>
-	<property name="ireport.y" value="82"/>
+	<property name="ireport.x" value="120"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -20,7 +20,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadomision ep on m.codigomision=ep.codigomision inner join puesto p on p.codigopuesto=e.codigopuesto
-where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision =1]]>
+where e.estadoempleado=1 and e.estadoempleado=3 and m.estadomision=1 and p.estadopuesto!=0 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision =1]]>
 	</queryString>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
@@ -179,49 +179,49 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 			</rectangle>
 			<staticText>
 				<reportElement x="58" y="2" width="67" height="14" uuid="daf65d49-8d84-4aca-8fe1-97e5a9fb7140"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Inicio Misión]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="135" y="3" width="65" height="14" uuid="f214cfb5-ccad-4158-8387-3d2e94b2de4f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fin Misión]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="212" y="2" width="86" height="14" uuid="56e0ea94-aa33-4b1b-a28a-fb1bee4c9284"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Gasto($)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="2" width="60" height="14" uuid="544233b5-c405-4b1a-9bbe-0a7b06bda63f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="311" y="2" width="60" height="14" uuid="544233b5-c405-4b1a-9bbe-0a7b06bda63f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Acuerdo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="376" y="2" width="55" height="14" uuid="cc0f0862-0b00-401c-8751-053a34bfc7c5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="376" y="2" width="74" height="14" uuid="cc0f0862-0b00-401c-8751-053a34bfc7c5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Boleto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="452" y="2" width="100" height="14" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="455" y="2" width="100" height="14" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Patrocinador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="606" y="2" width="100" height="14" uuid="b28a9dfb-0916-4c30-8e13-329aba9f701a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Organismo que Invita]]></text>
@@ -257,7 +257,7 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="405" y="0" width="45" height="14" uuid="7f821bb7-e11a-4f25-a7ee-0f6f523812fb"/>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{boleto}]]></textFieldExpression>

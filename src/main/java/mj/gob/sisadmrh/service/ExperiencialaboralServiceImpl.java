@@ -50,5 +50,19 @@ public class ExperiencialaboralServiceImpl implements ExperiencialaboralService 
         return experiencialaboralRep.findByDato(id);
         
     }
+    
+    
+    @Override
+    public void findIntegrity(Experiencialaboral experiencialaboral) {
+        Iterable<Experiencialaboral> lista = experiencialaboralRep.findIntegrity(
+                experiencialaboral.getSectorexperiencialaboral(), 
+                experiencialaboral.getNombreinstitucion(),
+                experiencialaboral.getCargo());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadoexp(0);
+            experiencialaboralRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }
+    }
 
 }

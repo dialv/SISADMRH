@@ -53,5 +53,16 @@ public class CaparecibidasServicesImpl implements CaparecibidasService {
         return caparecibidasRep.findByDato(id);
         
     }
-    
+    @Override
+    public void findIntegrity(Caparecibidas caparecibidas) {
+        Iterable<Caparecibidas> lista = caparecibidasRep.findIntegrity(
+                caparecibidas.getTipoevento(), 
+                caparecibidas.getEspecialidad(),
+                caparecibidas.getOrganismo());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadocapa(0);
+            caparecibidasRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }
+    }
 }
