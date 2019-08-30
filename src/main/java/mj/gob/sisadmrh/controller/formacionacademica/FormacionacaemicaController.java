@@ -105,7 +105,7 @@ model.addAttribute("msg", 2);
         formacionacademicaService.saveFormacionacademica(formacionacademica);
         
         Empleadoformacion emcon = new  Empleadoformacion();
-        emcon.setFormacionacademica(formacionacademica);
+//        emcon.setFormacionacademica(formacionacademica);
          status.setComplete();
         Empleado em = empleadoService.getEmpleadoById(id).get();
         EmpleadoformacionPK emconpk = new EmpleadoformacionPK();
@@ -113,6 +113,9 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadoformacionPK(emconpk);
         empleadoFormacionaademicaService.saveEmpleadoformacionacademica(emcon);
+          status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo  una formacion academica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
         model.addAttribute("msg", 0);
         model.addAttribute("empleado",id);
          }catch(Exception e){
@@ -138,6 +141,9 @@ model.addAttribute("msg", 2);
             formacionacademica.setEstadoformacion(0);
             formacionacademicaService.saveFormacionacademica(formacionacademica);
               Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+//               status.setComplete();
+         bitacoraService.BitacoraRegistry("se Elimino una formacion academica",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
             model.addAttribute("formacionacademica", formacionacademica);
@@ -150,21 +156,5 @@ model.addAttribute("msg", 2);
     
     
     
-  @RequestMapping(value = "formacionacademica")
-    public String saveRol(Formacionacademica formacionacademica, Model model, SessionStatus status, @RequestParam("file") MultipartFile file) {
-        try{
-            formacionacademica.setDoctitulo(file.getBytes());
-            formacionacademica.setEstadoformacion(1);
-            
-        formacionacademicaService.saveFormacionacademica(formacionacademica);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se Creo una formacionacademica",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-          return "redirect:/empleados/";
-    }    
+   
 }

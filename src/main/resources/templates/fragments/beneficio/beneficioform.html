@@ -54,7 +54,7 @@
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de inicio(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" name="fdesde" id="fdesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fechadesde" id="fechadesde"  required="true" th:field="*{fechainiciobeneficio}"onchange="isDat(this.value,'fechadesde');Fechas(this.value,$('#fechahasta').val().toString(),'fechadesde','fechahasta')"/>
                 </div>
                <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechainicio')" onmouseout ="javascript:ocultarAyuda('fechainicio')">a</a></b>
@@ -66,7 +66,7 @@
 <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha de finalización(*):</label>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control fecha_format" name="fhasta" id="fhasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
+                    <input type="text" class="form-control fecha_format" name="fechahasta" id="fechahasta" required="true" th:field="*{fechafinalizarbeneficio}"onchange="isDat(this.value,'fechahasta');Fechas($('#fechadesde').val().toString(),this.value,'fechadesde','fechahasta')"/>
                 </div>
               <div class="popup"><b>
                             <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('fechafin')" onmouseout ="javascript:ocultarAyuda('fechafin')">a</a></b>
@@ -79,7 +79,7 @@
 <div class="col-md-12">
                         <div class="row" align="center">
                             <a href="#" th:href="@{/beneficios/}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>
-                            <button type="submit" id="guardar"  onclick=""  class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                            <button type="submit" id="guardar"  onclick="fecha_format();"   class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                             <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                             
                            
@@ -119,11 +119,11 @@
          $('#guardar').click(function(){
 		validate_value_field();
 	});
-        $('#fdesde').datepicker({
+        $('#fechadesde').datepicker({
               dateFormat: 'dd/mm/yy'
         });
 
-        $('#fhasta').datepicker({
+        $('#fechahasta').datepicker({
              dateFormat: 'dd/mm/yy'
         });
        

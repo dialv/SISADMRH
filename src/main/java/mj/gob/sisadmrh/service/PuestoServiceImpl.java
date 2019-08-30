@@ -55,4 +55,9 @@ public class PuestoServiceImpl implements PuestoService {
     public Optional<Puesto> getPuestoByIdEmpleado(Integer id) {
      return puestoRep.getPuestoByIdEmpleado(id);
     }
+    
+     @Override
+     public List<Object[]> getPuestoByIdEmpleado2(Integer id,Integer id2) {
+     return puestoRep.getPuestoByIdEmpleado2(id,id2);
+    }
 }

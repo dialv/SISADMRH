@@ -62,7 +62,7 @@ public class Puesto implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "acuerdo")
-    private short acuerdo;
+    private Integer acuerdo;
     @Size(max = 50)
     @Column(name = "categoriapuesto")
     private String categoriapuesto;
@@ -162,7 +162,7 @@ public class Puesto implements Serializable {
         this.codigopuesto = codigopuesto;
     }
 
-    public Puesto(Integer codigopuesto, short acuerdo) {
+    public Puesto(Integer codigopuesto, Integer acuerdo) {
         this.codigopuesto = codigopuesto;
         this.acuerdo = acuerdo;
     }
@@ -290,11 +290,11 @@ public class Puesto implements Serializable {
         return "mj.gob.sisadmrh.model.Puesto[ codigopuesto=" + codigopuesto + " ]";
     }
 
-    public short getAcuerdo() {
+    public Integer getAcuerdo() {
         return acuerdo;
     }
 
-    public void setAcuerdo(short acuerdo) {
+    public void setAcuerdo(Integer acuerdo) {
         this.acuerdo = acuerdo;
     }
 

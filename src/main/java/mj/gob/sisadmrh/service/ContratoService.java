@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Contrato;
 
@@ -24,4 +25,6 @@ public interface ContratoService {
     void deleteContrato(Integer id);
     
     Iterable<Contrato> findByDato(int id) ;
+    
+     List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2);
 }

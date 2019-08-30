@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.service;
 
+import java.util.List;
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.repository.ContratoRepository;
@@ -54,6 +55,10 @@ public class ContratoServicesImpl implements ContratoService {
         return contratoRep.findByDato(id);
         
     }
-    
+        
+     @Override
+     public List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2) {
+     return contratoRep.getContratoByIdEmpleado(id,id2);
+    }
     
 }

@@ -2638,6 +2638,7 @@ var doLoad = function(btn, url, div, func) {
     if (ismultipart===null || (ismultipart !== 'true' && ismultipart !== true && ismultipart !== 1 && ismultipart !== '1' && ismultipart !== 'yes' && ismultipart !== 'si' && ismultipart !== 'on')) {
         url = encodeURI(url);
         jQuery('#' + div).load(url + ' #' + div, function(responseTxt, statusTxt, xhr) {
+//            uialert(statusTxt);
             jQuery("#numsol").val("");
             if (statusTxt === 'success') {
 
@@ -2697,7 +2698,7 @@ var doLoad = function(btn, url, div, func) {
         }).always(
                 function(responseTxt, statusTxt, xhr) {
                     if (statusTxt === 'success') {
-//                        jQuery('#waitDiv').hide();
+                        jQuery('#waitDiv').hide();
                         var divname = div===null ? 'waitDiv' : div + 'waitDiv';
                         jQuery('#' + divname).hide();
                         jQuery('#' + div).html(jQuery(responseTxt).find('#' + div).html() + '<div id="#errorMessages">' + jQuery(responseTxt).find('#errorMessages').html() + '</div>');

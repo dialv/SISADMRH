@@ -20,6 +20,7 @@ import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadocontrato;
 import mj.gob.sisadmrh.model.EmpleadocontratoPK;
+import mj.gob.sisadmrh.model.Puesto;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.EmpleadoContratoService;
@@ -34,6 +35,7 @@ import org.springframework.web.bind.annotation.PathVariable ;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -71,6 +73,7 @@ public class ContratoController extends UtilsController{
     @RequestMapping("edit/{id}/{idemp}")
     public String edit(@PathVariable Integer id,@PathVariable Integer idemp, Model model) {
         model.addAttribute("empleado", empleadoService.getEmpleadoById(idemp).get());
+          model.addAttribute("puestos", puestoService.listAllActivos());
          model.addAttribute("contrato", contratoService.getContratoById(id));
         return PREFIX + "contratoform";
     }
@@ -107,7 +110,9 @@ model.addAttribute("msg", 2);
     public String newContrato(Model model,@PathVariable Integer id) {
         model.addAttribute("empleado", empleadoService.getEmpleadoById(id).get());
         model.addAttribute("contrato", new Contrato());
+        model.addAttribute("puestos", puestoService.listAllActivos());
         Integer idp=empleadoService.getEmpleadoById(id).get().getCodigopuesto();
+        model.addAttribute("idpuesto", idp);
         model.addAttribute("salario", puestoService.getPuestoByIdEmpleado(idp).get().getSueldobase());
         model.addAttribute("sispago", puestoService.getPuestoByIdEmpleado(idp).get().getFormapago());
         model.addAttribute("linea", puestoService.getPuestoByIdEmpleado(idp).get().getSublinea());
@@ -195,6 +200,8 @@ model.addAttribute("msg", 2);
              contrato.setEstadocontrato(0);
             contratoService.saveContrato(contrato);
             Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+            bitacoraService.BitacoraRegistry("se Elimino un Contrato",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
 //            model.addAttribute("contrato",contrato);
             model.addAttribute("msg", 3);
@@ -208,19 +215,17 @@ model.addAttribute("msg", 2);
         return PREFIX +"contratos";
     }
     
-                  @RequestMapping(value = "contrato1")
-    public String saveRol(Contrato contrato, Model model, SessionStatus status) {
-        try{
-        contratoService.saveContrato(contrato);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se cambio un contrato ",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-        return "redirect:/empleados/";
+
+    
+    @RequestMapping("contrato/searchpuesto/{act}/{idemp}")
+    public @ResponseBody
+        Object[] llenacombo(@PathVariable(value = "act") Integer act, @PathVariable(value = "idemp") Integer idem, Model model) {
+        System.out.println("idempleado"+idem);
+            Integer idp=act;
+        System.out.println("idpuesto"+idp);
+            return puestoService.getPuestoByIdEmpleado2(idp,idem).get(0);
     }
+    
+    
     
 }

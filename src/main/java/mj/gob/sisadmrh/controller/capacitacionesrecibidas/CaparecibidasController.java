@@ -96,7 +96,7 @@ model.addAttribute("msg", 2);
         caparecibidasService.saveCaparecibidas(caparecibidas);
              status.setComplete();
         Empleadocaparecibidas emcon = new  Empleadocaparecibidas();
-        emcon.setCaparecibidas(caparecibidas);
+//        emcon.setCaparecibidas(caparecibidas);
         Empleado em = empleadoService.getEmpleadoById(id).get();
         
         EmpleadocaparecibidasPK emconpk = new EmpleadocaparecibidasPK();
@@ -104,6 +104,9 @@ model.addAttribute("msg", 2);
         emconpk.setCodigoempleado(em.getCodigoempleado());
         emcon.setEmpleadocaparecibidasPK(emconpk);
         empleadoCaparecibidasService.saveEmpleadocaprecibidas(emcon);
+        status.setComplete();
+         bitacoraService.BitacoraRegistry("se Creo una capacitacion recibida",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             model.addAttribute("msg", 0);
               model.addAttribute("empleado",id);
         }
@@ -131,6 +134,9 @@ return PREFIX +"caprecibidas";
              caparecibidas.setEstadocapa(0);
             caparecibidasService.saveCaparecibidas(caparecibidas);
             Integer cod=empleadoService.getEmpleadoById(idemp).get().getCodigoempleado();
+//             status.setComplete();
+         bitacoraService.BitacoraRegistry("se Elimino una capacitacion recibida",getRequest().getRemoteAddr(), 
+                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
           model.addAttribute("empleado",cod);
             model.addAttribute("msg", 3);
         }
@@ -141,21 +147,6 @@ return PREFIX +"caprecibidas";
 //          return "redirect:/empleados/";
 //        return PREFIX  +"caparecibidas";
     }
-    
-      @RequestMapping(value = "caparecibida")
-    public String saveRol(Caparecibidas caparecibida, Model model, SessionStatus status) {
-        try{
-            caparecibida.setEstadocapa(0);
-        caparecibidasService.saveCaparecibidas(caparecibida);
-        status.setComplete();
-         bitacoraService.BitacoraRegistry("se Creo una capacitacion recibida",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
-        model.addAttribute("msg", 0);
-        }
-        catch(Exception e){
-        model.addAttribute("msg", 1);
-        }
-        return "redirect:/empleados/";
-    }
+
     
 }
