@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="792" pageHeight="610" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="2dcbe6cb-3379-4a1c-aaae-d0184a031b8a">
 	<property name="ireport.zoom" value="1.1000000000000005"/>
-	<property name="ireport.x" value="2"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -17,7 +17,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadomision ep on m.codigomision=ep.codigomision inner join puesto p on p.codigopuesto=e.codigopuesto
-where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision=1]]>
+where e.estadoempleado=1 and e.estadoempleado=3 and m.estadomision=1 and p.estadopuesto!=0 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision=1]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -167,50 +167,50 @@ where m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasa
 				<reportElement x="30" y="2" width="712" height="15" uuid="df68af47-5344-4bf5-84fb-224a74807bc6"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="30" y="0" width="80" height="14" uuid="3bb2c122-ff13-4d68-bec1-f29932908012"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="33" y="0" width="80" height="14" uuid="3bb2c122-ff13-4d68-bec1-f29932908012"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="171" y="0" width="68" height="14" uuid="c4694226-c427-4e66-afa9-72d194fcb439"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="174" y="0" width="68" height="14" uuid="c4694226-c427-4e66-afa9-72d194fcb439"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="248" y="0" width="80" height="14" uuid="b5e00516-df2f-4df5-b687-3221cf2f5319"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Misión]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="400" y="0" width="80" height="14" uuid="d09ab1bc-7338-49fe-a110-1bb7ce53dd38"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="379" y="0" width="80" height="14" uuid="d09ab1bc-7338-49fe-a110-1bb7ce53dd38"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Objetivo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="512" y="0" width="69" height="14" uuid="4aeb56b1-60af-4685-838e-947966acda20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Departamento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="592" y="0" width="65" height="14" uuid="6bbfd49e-22a2-4026-930f-dd9098ca6abd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[País Destino]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="660" y="0" width="80" height="14" uuid="0f16029b-06e6-4038-a832-80d8095c4959"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ciudad]]></text>

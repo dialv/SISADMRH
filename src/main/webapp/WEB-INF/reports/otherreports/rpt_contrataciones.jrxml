@@ -11,7 +11,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT e.codigoempleado,concat(e.nombreempleado,' ',e.apellidoempleado)as 'nombre',p.nombrepuesto,p.ubicacionpuesto,DATE_FORMAT(c.fechainiciocontrato, "%d/ %m /%Y") as 'fechainiciocontrato',c.salarioactual FROM `empleado` e, puesto p, contrato c where e.codigoempleado=c.codigoempleado and e.codigopuesto=p.codigopuesto and e.estadoempleado=1
-and
+and c.estadocontrato=1 and p.estadopuesto != 0 AND
 c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainiciocontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
@@ -159,36 +159,36 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainici
 				<reportElement x="50" y="0" width="457" height="24" backcolor="#FFFFFF" uuid="a32c0e7e-4766-4f7c-922c-9b972b3bbccd"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="104" y="0" width="110" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="e4e66651-0c88-4063-a2c0-741ac227aa51"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="107" y="0" width="105" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="e4e66651-0c88-4063-a2c0-741ac227aa51"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="213" y="0" width="90" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="b0756311-fe34-46f7-a804-a9a7437a9df2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="216" y="0" width="86" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="b0756311-fe34-46f7-a804-a9a7437a9df2"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cargo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="301" y="0" width="79" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="f41035a0-5ba4-4fb1-8489-c2679cd44b21"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="304" y="0" width="75" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="f41035a0-5ba4-4fb1-8489-c2679cd44b21"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="383" y="0" width="79" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="903c871b-fffd-439e-a5d2-46927fe1b1a5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Contratación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="462" y="0" width="46" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="dfb2173e-502c-43cf-bf60-fb49c1260741"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="459" y="0" width="44" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="dfb2173e-502c-43cf-bf60-fb49c1260741"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Salario($)]]></text>
@@ -210,7 +210,7 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainici
 			</line>
 			<staticText>
 				<reportElement mode="Transparent" x="51" y="0" width="54" height="24" forecolor="#000000" backcolor="#E6E6E6" uuid="695f1588-5de8-455b-aed9-ed6c73eeb60a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Código Contratación]]></text>

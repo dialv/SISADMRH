@@ -55,4 +55,18 @@ public class UbicacionFisicaServiceImpl implements UbicacionFisicaService{
         return ubicacionFisicaRep.findByDato(id);
         
     }
+    
+    
+    @Override
+    public void findIntegrity(Ubicacionfisica ubicacionfisica) {
+        Iterable<Ubicacionfisica> lista = ubicacionFisicaRep.findIntegrity(
+                ubicacionfisica.getNombreubicacion(),
+                ubicacionfisica.getJefeinmediato(),
+                ubicacionfisica.getCargofuncional());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadoubicacion(0);
+            ubicacionFisicaRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }
+    }
 }

@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.service;
 
 import java.util.Optional;
 import mj.gob.sisadmrh.model.Dependiente;
 import mj.gob.sisadmrh.repository.DependienteRepository;
-import mj.gob.sisadmrh.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 /**
  *
  * @author Mmachuca
@@ -54,6 +47,18 @@ public class DependienteServicesImpl implements DependienteService {
     public Iterable<Dependiente> findByDato(int id) {
         return dependienteRep.findByDato(id);
         
+    }
+   
+    @Override
+    public void findIntegrity(Dependiente dependiente) {
+        Iterable<Dependiente> lista = dependienteRep.findIntegrity(
+        dependiente.getNombredependiente(),  dependiente.getApellidodependiente(),
+        dependiente.getParentesco()        );
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadodependiente(0);
+            dependienteRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }
     }
     
 }

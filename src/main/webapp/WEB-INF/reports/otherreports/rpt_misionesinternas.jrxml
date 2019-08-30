@@ -17,7 +17,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  concat(e.nombreempleado, ' ', e.apellidoempleado) as Empleado,p.nombrepuesto,m.nombremision,m.objetivomision,DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join puesto p on e.codigopuesto=p.codigopuesto
-where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision =2]]>
+where e.estadoempleado=1 and e.estadoempleado=3 and m.estadomision=1 and p.estadopuesto!=0 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision =2]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -31,9 +31,6 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 	</field>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
-	<!--field name="departamentomision" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field-->
 	<background>
 		<band splitType="Stretch"/>
 	</background>

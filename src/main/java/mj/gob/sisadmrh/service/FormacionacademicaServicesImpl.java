@@ -51,7 +51,19 @@ public class FormacionacademicaServicesImpl implements FormacionacademicaService
     
     @Override
     public Iterable<Formacionacademica> findByDato(int id) {
-        return formacionacademicaRep.findByDato(id);
-        
+        return formacionacademicaRep.findByDato(id);   
+    }
+    
+    @Override
+    public void findIntegrity(Formacionacademica formacionacademica) {
+        Iterable<Formacionacademica> lista = formacionacademicaRep.findIntegrity(
+                formacionacademica.getEstudiosrealizados(), 
+                formacionacademica.getCentroeducativo(),
+                formacionacademica.getTituloobtenido());
+        if (lista.spliterator().getExactSizeIfKnown() > 1) {
+            lista.iterator().next().setEstadoformacion(0);
+            formacionacademicaRep.save(lista.iterator().next());
+            findIntegrity(lista.iterator().next());
+        }
     }
 }

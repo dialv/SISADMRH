@@ -194,15 +194,15 @@ FROM
 				<reportElement x="44" y="0" width="453" height="22" backcolor="#FFFFFF" uuid="5bda3ab7-36e4-46b1-9e7a-a3c1198eac36"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="75" y="0" width="79" height="22" uuid="deecbfa4-4054-4e18-a9de-2ce6b4cf3a44"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="78" y="0" width="76" height="22" uuid="deecbfa4-4054-4e18-a9de-2ce6b4cf3a44"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Nombre de Puesto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="155" y="0" width="60" height="22" uuid="f7565169-b918-48c0-846f-59b3cf97e954"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha Desde ]]></text>
@@ -215,15 +215,15 @@ FROM
 				<text><![CDATA[Fecha Hasta ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="0" width="90" height="22" uuid="bef44f85-92c5-4eb4-b1dd-293b1c10b91a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="277" y="0" width="90" height="22" uuid="bef44f85-92c5-4eb4-b1dd-293b1c10b91a"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="363" y="0" width="50" height="22" uuid="1d51b996-af76-4230-88bc-b375feeddddb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="366" y="0" width="50" height="22" uuid="1d51b996-af76-4230-88bc-b375feeddddb"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Sublinea]]></text>
@@ -251,14 +251,14 @@ FROM
 			</line>
 			<staticText>
 				<reportElement x="413" y="0" width="38" height="22" uuid="b09eee6d-f224-4cc8-80ec-afaca29afe4a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[No. Partida]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="451" y="0" width="45" height="22" uuid="2cc1aced-3ff2-4427-9106-7998591be07e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[No. Subpartida]]></text>
