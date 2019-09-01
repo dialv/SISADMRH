@@ -3,7 +3,7 @@
 <head lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+<!--      <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>-->
      <style type="text/css">
      .boton{
   width:30px;
@@ -151,7 +151,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>   
-<button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="button"    class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -171,7 +171,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         
        
 </body>
-<script src="../static/css/hydro/js/jquery.js"></script>
+<!--<script src="../static/css/hydro/js/jquery.js"></script>-->
 	        
    	<script>
             function fechaNac(val,id){
@@ -265,13 +265,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
                 $('#btnGuardar').click(function(){
-                    var flag =validate_value_field();
-        if(flag==false){
-            $("#formdependiente").attr('action', '../dependiente/'+ $("#codem").val().toString());
-            $("form#formdependiente").submit();
-        }
-            
-            
+                    enviar_form_personalizado("formdependiente",'../dependiente/' + $("#codem").val().toString());
+                    
         });
 	</script>
          <script th:inline="javascript">

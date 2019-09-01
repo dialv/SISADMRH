@@ -405,7 +405,7 @@ function fecha_format() {
                      for(var i=0;i<idarray.length;i++)
                         {
                             
-                            if (typearray[i].toString().includes("reset") || typearray[i].toString().includes("submit") || typearray[i].toString().includes("hidden") | typearray[i].toString().includes("file")){
+                            if (typearray[i].toString().includes("reset") || typearray[i].toString().includes("submit") || typearray[i].toString().includes("hidden") | typearray[i].toString().includes("file") | typearray[i].toString().includes("button")){
                                         }else{
                                            var val= valuearray[i].toString()
 //                                            alert("valor:"+val)
@@ -517,6 +517,12 @@ function required_field_select(){
             }
             return flag;
           }
+          /**
+           * 
+           * Esta funcion valida un formulario y si pasa devuelve true
+           * 
+           * @returns {Boolean}
+           */
 function validate_value_field(){
     var formularios = document.forms;
     var flag= false;
@@ -533,12 +539,12 @@ function validate_value_field(){
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
 //                            alert(value2+ " "+value3);
 //                        }
-                        if (value3.includes("reset") || value3.includes("submit") || value3.includes("hidden")|| value3.includes("file")){
+                        if (value3.includes("reset") || value3.includes("submit") || value3.includes("hidden")|| value3.includes("file") || value3.includes("button")){
                         }else{ 
                              valuearray.push(value2);
                               typearray.push(value3);
                              if(value3.includes("select") && value2==("0") ){
-                            formularios[i].elements[j].setAttribute("required","required");;
+                            formularios[i].elements[j].setAttribute("required","required");
 //                            formularios[i].elements[j].setAttribute("aria-required", "true");;
 //                            alert(value2+ " "+value3);
                             formularios[i].elements[j].value="";
@@ -583,6 +589,8 @@ function validate_value_field(){
 //                     onclik_validate_value_field();
                       $("#loader").addClass("loader");
                 }
+                
+                
             return flag;
           }
 
@@ -667,4 +675,22 @@ function pdffile(){
             
 
 
+
+
+function  enviar_form_personalizado(formName, url){
+     fecha_format(); 
+     var bandera =validate_value_field();   
+     const idForm = "#" + formName;
+        if(!bandera ){
+            
+        
+        // envia formulario
+         $(idForm).attr('action', url);
+         $(idForm).submit(); 
+         
+        }
+        
+        // muestra la validacion sobre los campos requeridos
+      $(idForm).get(0).reportValidity();
+}
 

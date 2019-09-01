@@ -28,6 +28,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <h3 align="center"></h3>
             <div>
                 <form class="form-horizontal">
+                    
+                    <div class="row"  >
+                        
+                         <div class="col-md-12" th:if="${empleado.avatar} != null">
+                            <img th:src="@{/image/${empleado.avatar}}" class="" />
+                         </div>
+                        <div class="col-md-12" th:unless="true">
+                            <img  />
+                         </div>
+                        
+                        
+                    </div>
+                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-5 control-label">Código de empleado:</label>
@@ -400,6 +413,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 															<th></th>
 															<th></th>
 															<th></th>
+                                                                                                                        <th></th>
 															</tr>
 															</thead>
 															<tr th:each="formacionacademica : ${formacionacademicas}">

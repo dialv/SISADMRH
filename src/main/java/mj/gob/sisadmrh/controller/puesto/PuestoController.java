@@ -24,7 +24,7 @@ public class PuestoController extends UtilsController {
     
     private PuestoService puestoService;
     
-    @Autowired
+    
     public void setPuestoService(PuestoService puestoService) {
         this.puestoService = puestoService;
     }
@@ -80,6 +80,8 @@ public class PuestoController extends UtilsController {
         try {
             puesto.setEstadopuesto(2);
             puestoService.savePuesto(puesto);
+            
+            
             bitacoraService.BitacoraRegistry("se  edito un Puesto",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
             

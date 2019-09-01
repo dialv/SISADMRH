@@ -68,6 +68,16 @@ public class Experiencialaboral implements Serializable {
     @Size(max = 10)
     @Column(name = "interno")
     private String interno;
+    @Column(name = "codigocontrato")
+    private Integer codigocontrato;
+
+    public Integer getCodigocontrato() {
+        return codigocontrato;
+    }
+
+    public void setCodigocontrato(Integer codigocontrato) {
+        this.codigocontrato = codigocontrato;
+    }
 
     public String getInterno() {
         return interno;

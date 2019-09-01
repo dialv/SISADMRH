@@ -21,7 +21,6 @@ public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
     
 
 
-
      @Query("SELECT o FROM Contrato o WHERE o.estadocontrato != 0")
             public Iterable<Contrato> listAllActivos();
             
@@ -34,4 +33,7 @@ public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
 "c.codigocontrato=:id and\n" +
 "e.codigoempleado=:id2",nativeQuery = true)
      public List<Object[]> getContratoByIdEmpleado(@Param("id") int dato,@Param("id2") int dato2);
+     
+      @Query(value = "SELECT d.* FROM contrato d  WHERE d.estadocontrato != 0 and d.codigopuesto=:id ", nativeQuery = true)
+    Iterable<Contrato>  findContratoByCodigopuesto(@Param("id") int dato);
 }

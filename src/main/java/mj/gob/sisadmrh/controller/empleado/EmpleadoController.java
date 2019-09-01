@@ -1,5 +1,6 @@
 package mj.gob.sisadmrh.controller.empleado;
 
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
@@ -40,6 +41,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -51,9 +53,13 @@ import org.springframework.web.bind.support.SessionStatus;
 public class EmpleadoController extends UtilsController {
 
     private EmpleadoService empleadoService;
+    
     private PuestoService puestoService;
+    
+    
     @Autowired
     private EstadoService estadoService;
+    
 
     @Autowired
     public void SetPuestoService(PuestoService puestoService) {
@@ -148,11 +154,18 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
+        
         Iterable<Puesto> puestos = puestoService.listAllActivos();
+        
+        Empleado emp = empleadoService.getEmpleadoById(id).get();
         model.addAttribute("puestos", puestos);
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
-        model.addAttribute("empleado", empleadoService.getEmpleadoById(id));
+        model.addAttribute("empleado",emp);
+        
+         model.addAttribute("municipios", estadoService.findBySuperior(Integer.valueOf(emp.getDepartamentonacimiento())));
+        
+        
         return PREFIX + "empleadoform";
     }
 
@@ -164,17 +177,25 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
+        
+        
         return PREFIX + "empleadoform";
     }
 
     @RequestMapping(value = "/municipio/{act}/{idemp}")
     public String acteco(@PathVariable(value = "act") Integer act, Model model, @PathVariable(value = "idemp") Integer idem) throws Exception {
+        
         model.addAttribute("empleado", (idem == 0) ? new Empleado() : empleadoService.getEmpleadoById(idem));
+        
         Iterable<Puesto> puestos = puestoService.listAllActivos();
+        
+        
         model.addAttribute("departamentos", estadoService.findBySuperior(2562));
         model.addAttribute("departamentosres", estadoService.findBySuperior(2562));
         model.addAttribute("puestos", puestos);
         model.addAttribute("municipios", estadoService.findBySuperior(act));
+        
+        
         return PREFIX + "empleadoform";
     }
 
@@ -188,22 +209,44 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("puestos", puestos);
         model.addAttribute("municipios", estadoService.findBySuperior(act2));
         model.addAttribute("mun", act3);
-        model.addAttribute("municipiores", estadoService.findBySuperior(act));
         return PREFIX + "empleadoform";
     }
 
     @RequestMapping(value = "empleado")
-    public String saveEmpleado(@Valid Empleado empleado, BindingResult result, Model model, SessionStatus status) {//,SessionStatus status
+    public String saveEmpleado(@Valid Empleado empleado, BindingResult result, Model model, SessionStatus status, @RequestParam("avatar") MultipartFile avatar) {//,SessionStatus status
         try {
             try {
+                
+                
                 Estado municipio = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
                 Estado depto = estadoService.getEstadoById(Integer.parseInt(municipio.getCodigoestadosuperior())).get();
-                empleado.setDepartamentonacimiento("" + depto.getCodigoestado());
-                empleado.setMunicipionacimiento("" + municipio.getCodigoestado());
+                
+                
+                empleado.setDepartamentonacimiento(depto.getCodigoestado().toString());          
+                empleado.setMunicipionacimiento(municipio.getCodigoestado().toString());
+                
+                
+                System.out.println("imagen data:"+avatar.isEmpty());
+                
+                
+                if(!avatar.isEmpty()){
+                 empleado.setAvatar(avatar.getBytes());
+                }else {
+                
+                    Empleado empleadoBack = empleadoService.getEmpleadoById(empleado.getCodigoempleado()).get();
+                    empleado.setAvatar(empleadoBack.getAvatar());
+                
+                }
+                  
+                
+                
                 modipuesto(empleado.getCodigopuesto());
+                
                 empleadoService.saveEmpleado(empleado);
-                bitacoraService.BitacoraRegistry("se  creo un Empleado",getRequest().getRemoteAddr(), 
-                getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+                
+                
+                bitacoraService.BitacoraRegistry("se  creo un Empleado",getRequest().getRemoteAddr(), getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+               
                 model.addAttribute("msg", 0);
 
             } catch (Exception e) {
@@ -214,6 +257,8 @@ public class EmpleadoController extends UtilsController {
         } catch (Exception e) {
             model.addAttribute("msg", 1);
         }
+        
+        
         return PREFIX + "empleadoform";
     }
 
@@ -225,13 +270,18 @@ public class EmpleadoController extends UtilsController {
 
     @RequestMapping("show/{id}")
     public String showEmpleado(@PathVariable Integer id, Model model) {
+        
         Empleado empleado = empleadoService.getEmpleadoById(id).get();
+        
         Estado depto = estadoService.getEstadoById(Integer.parseInt(empleado.getDepartamentonacimiento())).get();
         Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+        
         empleado.setDepartamentonacimiento(depto.getNombreestado());
         empleado.setMunicipionacimiento(munic.getNombreestado());
+        
         model.addAttribute("empleado", empleado);
         model.addAttribute("nombrepuesto", puestoService.getPuestoByIdEmpleado(empleado.getCodigopuesto()).get().getNombrepuesto());
+        
         System.out.print("IDEMPLEADO" + id);
 
 //         model.addAttribute("departamentos", estadoService.getEstadoById(Integer.parseInt(empleadoService.getEmpleadoById(id).get().getDepartamentonacimiento())));
@@ -266,16 +316,37 @@ public class EmpleadoController extends UtilsController {
         model.addAttribute("beneficio", beneficio);
 
         return PREFIX + "empleadoshow";
+        
+        
     }
 
     @RequestMapping("showcons/{id}")
     public String showEmpleadocons(@PathVariable Integer id, Model model) {
+        
+        
         Empleado empleado = empleadoService.getEmpleadoById(id).get();
+        
+        
         Estado depto = estadoService.getEstadoById(Integer.parseInt(empleado.getDepartamentonacimiento())).get();
         Estado munic = estadoService.getEstadoById(Integer.parseInt(empleado.getMunicipionacimiento())).get();
+        
+        
         empleado.setDepartamentonacimiento(depto.getNombreestado());
         empleado.setMunicipionacimiento(munic.getNombreestado());
+        
+        String avatar = "";
+        if(empleado.getAvatar() != null){
+          avatar = new String(Base64.getEncoder().encode(empleado.getAvatar()));
+       
+        }
+        
+        
         model.addAttribute("empleado", empleado);
+         model.addAttribute("avatar", avatar);
+        
+        
+        
+        
         Integer idp=empleadoService.getEmpleadoById(id).get().getCodigopuesto();
         model.addAttribute("nombrepuesto", puestoService.getPuestoByIdEmpleado(idp).get().getNombrepuesto());
         

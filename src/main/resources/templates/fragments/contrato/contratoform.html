@@ -198,7 +198,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                               <!--<input type="text" class="form-control "  maxlength="4" required="true" placeholder=""  th:field="*{mescapacitacion}"/>-->
                             <ul>
                               
-                                    <input id="cambioplaza" name="camb   <input id="cambioplaza" type="checkbox"  th:field="*{cambioplaza}" value="1" />
+                                    <input id="cambioplaza" name="cambioplaza"    type="checkbox"  th:field="*{cambioplaza}" value="1" />
                                     
                                     
                             </ul>  
@@ -283,7 +283,19 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     
 	<script  type="text/javascript">
              
- 
+ var x = document.getElementsByClassName("num_decimal3");
+  var i;
+  for (i = 0; i < x.length; i++) {
+//    x[i].style.backgroundColor = "red";
+//     x[i].value = (x[i].value).toFixed(2);
+    var id=x[i].id;
+//    alert("value="+x[i].value+" id="+x[i].id);
+    var monto=document.getElementById(id).value;
+//    var output = (monto).toFixed(2);
+    var output =Number.parseFloat(monto).toFixed(2);
+    document.getElementById(id).value=output
+//    alert("monto="+output);
+    }
 
            
              function Fechas(val1,val2,val3,val4){
@@ -462,6 +474,48 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                 var URLactual = window.location.href;
                 if (URLactual.includes("edit")){
+                     var txtVal = jQuery('#idpuesto').val();
+                          var idemp =(jQuery('#codem').val()=="")?0:jQuery('#codem').val();
+                           var lca = "new"
+                           var URLactual = window.location.href;
+                            if (URLactual.includes("edit")){
+                                lca='../../contrato/searchpuesto/' + txtVal + '/' + idemp;
+                            }
+                            else{
+                                lca='../contrato/searchpuesto/' + txtVal + '/' + idemp;
+                            }
+                           
+                    $.ajax({
+                        url: lca,//'../contrato/searchpuesto/' + txtVal + '/' + idemp,
+                        success: function (data) {
+//                            var idpuesto ='[[${idpuesto}]]' ;
+                            var salario="";
+                            var sispago="";
+                            var linea="";
+                            var fechaincontrato="";
+                            var nominal="";
+//                            alert("data.length"+data.length+" ");
+                             for (var i=0; i<data.length;i++){
+                                  salario =data[1];
+                                  sispago =data[2];
+                                  linea =data[5];
+                                  fechaincontrato =data[3];
+                                  nominal =data[4];
+//                                  alert("variable["+i+"]="+salario);
+                             }
+                             var output = (salario).toFixed(2);
+                            $('#salario').val(output);
+                            $('#sispago').val(sispago);
+                            $('#linea').val(linea);
+                            $('#nominal').val(nominal);
+                        },
+                        error: function () {
+                           $('#salario').val("");
+                            $('#sispago').val("");
+                            $('#linea').val("");
+                            $('#nominal').val("");
+                        }
+                    });
 //                    alert("str");
                 }
                 else{

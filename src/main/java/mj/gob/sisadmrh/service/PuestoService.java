@@ -25,5 +25,6 @@ public interface PuestoService {
     Optional<Puesto> getPuestoByIdEmpleado(Integer id);
     
      List<Object[]> getPuestoByIdEmpleado2(Integer id,Integer id2);
+     Puesto findCargoContratoByCodigopuesto(int id) ;
 
 }

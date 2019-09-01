@@ -26,4 +26,5 @@ public interface ExperiencialaboralService {
     void findIntegrity(Experiencialaboral experiencialaboral);
     
     Iterable<Experiencialaboral> findByDato(int id) ;
+    Experiencialaboral findByExperienciaBycodigoContrato(int id) ;
 }

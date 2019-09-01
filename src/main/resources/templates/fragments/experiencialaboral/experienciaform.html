@@ -117,7 +117,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                      <br>
                 <label class="col-sm-3 control-label">Contrato(*):</label>
                 <div class="col-sm-6"  >
-                     <select class="form-control"   id="contrato" name="contrato" width="50" >
+                     <select class="form-control"  th:field="*{codigocontrato}"  id="contrato" name="contrato" width="50" >
                                   <option value="1">--seleccione un contrato para la experiencia laboral--</option>
                                 <option th:each="c:${contratos}" th:value="${c.codigocontrato}" th:text="${c.plazanominal}"></option>
                             </select>
@@ -239,7 +239,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
  
 
-<button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="button"    class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -508,22 +508,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	 $('#btnGuardar').click(function(){
-             var flag =validate_value_field();
-//             var flag2=validar_salarios_guardar();
-//             alert(flag);
-//             if(flag2==true){
-                if(flag==false ){
-                    var code=$("#codem").val().toString();
-//                    alert(code);
-                    $("#formex").attr('action', '../experiencialaboral/'+ code);
-                    $("form#formex").submit();           
-                } 
-//             }else{
-//                  swal("Validacion de Salarios","El Salario Final no debe ser Mayor al inicial" );
-//                  location.href =  document.getElementById("codem").value+'/'+document.getElementById("codex").value;
-//             }
-        
-
+             var code=$("#codem").val().toString();
+             enviar_form_personalizado("formex", '../experiencialaboral/'+ code);
+            
             
         });
         

@@ -51,6 +51,12 @@ public class ExperiencialaboralServiceImpl implements ExperiencialaboralService 
         
     }
     
+     @Override
+    public Experiencialaboral findByExperienciaBycodigoContrato(int id) {
+        return experiencialaboralRep.findByExperienciaBycodigoContrato(id);
+        
+    }
+    
     
     @Override
     public void findIntegrity(Experiencialaboral experiencialaboral) {

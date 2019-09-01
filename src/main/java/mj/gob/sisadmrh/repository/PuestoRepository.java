@@ -51,4 +51,8 @@ public interface PuestoRepository extends CrudRepository<Puesto, Integer> {
     
     @Query(value ="SELECT o.CODIGOPUESTO,o.SUELDOBASE,o.SUBLINEA, e.fechaingresoministerio,o.NOMBREPUESTO,o.FORMAPAGO FROM `puesto` o ,`empleado` e WHERE  o.estadopuesto != 0 and o.codigopuesto=:id and e.codigoempleado=:id2",nativeQuery = true)
      public List<Object[]> getPuestoByIdEmpleado2(@Param("id") int dato,@Param("id2") int dato2);
+      
+     @Query(value = "SELECT d.* FROM puesto d  WHERE d.estadopuesto != 0 and d.codigopuesto=:id ", nativeQuery = true)
+    Puesto findCargoContratoByCodigopuesto(@Param("id") int dato);
+
 }

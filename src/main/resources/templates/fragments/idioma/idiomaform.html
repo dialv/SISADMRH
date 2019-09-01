@@ -167,7 +167,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>                  
                               
-<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="button" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -280,12 +280,9 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
 	 $('#btnGuardar').click(function(){
-             var flag =validate_value_field();
-        if(flag==false){
-            $("#formidioma").attr('action', '../idioma/'+ $("#codem").val().toString());
-            $("form#formidioma").submit();            
-        }
-
+             
+              enviar_form_personalizado("formidioma",'../idioma/'+ $("#codem").val().toString());
+             
             
         });
 	</script>

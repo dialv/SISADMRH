@@ -33,7 +33,7 @@
             </div>
             <h3 align="center">   </h3>
             <br>
-            <form class="form-horizontal" id="formempleado" th:object="${empleado}" >
+            <form class="form-horizontal" id="formdiscapacidad" th:object="${empleado}" >
                 <div class="col-md-12" style="background-color:#d9edf7;">
                     <div class="panel-info">
                         <div class="panel-heading row text-center">
@@ -106,7 +106,7 @@
                 <div class="col-md-12">
                     <div class="row" align="center">
                         <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-                        <button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                        <button type="button"    class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                         <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
                     </div>
                 </div>
@@ -155,12 +155,11 @@ $('fechafcontrato').datepicker({        dateFormat: 'dd/mm/yy'      });
 $('fechahubf').datepicker({             dateFormat: 'dd/mm/yy'      });
 });
 $('#btnGuardar').click(function(){
-                    var flag =validate_value_field();
-        if(flag==false){
-            $("#formcontacto").attr('action', '../hijodiscapacidad/' + $("#codem").val().toString());
-            $("form#formcontacto").submit();
-        }
-            
+    
+    //funcion que dara formato a los campos para que sean requeridos
+    enviar_form_personalizado("formcontacto",'../hijodiscapacidad/' + $("#codem").val().toString());
+    
+     
             
         });
 //$('#btnGuardar').click(function(){

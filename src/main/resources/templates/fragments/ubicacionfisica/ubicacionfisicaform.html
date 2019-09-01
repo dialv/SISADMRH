@@ -150,7 +150,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
 <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
 
-<button type="submit" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="button" class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -264,11 +264,10 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                 
                   $('#btnGuardar').click(function(){
 //                       $("#loader").addClass("loader");
-var flag =validate_value_field();
-        if(flag==false){
-                      $("#formubicacion").attr('action', '../ubicacionfisica/'+ $("#codem").val().toString());
-            $("form#formubicacion").submit();  
-        }
+//funcion que dara formato a los campos para que sean requeridos
+    enviar_form_personalizado("formubicacion", '../ubicacionfisica/'+ $("#codem").val().toString());
+
+
 
             
         });

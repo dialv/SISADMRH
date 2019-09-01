@@ -6,22 +6,24 @@ function obtener_url(url) {
     return proyecto;
 
 }
-jQuery(document).ready(function() {
 
-    jQuery("#captcha").keyup(function() {
-        jQuery("#captcha").val(jQuery(this).val().toUpperCase());
+
+$(document).ready(function() {
+
+    $("#captcha").keyup(function() {
+        $("#captcha").val($(this).val().toUpperCase());
     });
 
     function datepicked() {
-        var fromDate = jQuery('#desde').datepicker('getDate');
-        var toDate = jQuery('#hasta').datepicker('getDate');
+        var fromDate = $('#desde').datepicker('getDate');
+        var toDate = $('#hasta').datepicker('getDate');
         if (fromDate && toDate) {
             var difference_msec = toDate.getTime() - fromDate.getTime();
             var difference_days = difference_msec / 86400000;
-            jQuery("#nights").val(Math.ceil(difference_days));
+            $("#nights").val(Math.ceil(difference_days));
         }
     }
-    jQuery('#desde').datepicker({
+    $('#desde').datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -34,24 +36,24 @@ jQuery(document).ready(function() {
         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Jue', 'Vie', 'Sab'],
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onSelect: function(dateSt) {
-            var d1 = jQuery(this).datepicker("getDate");
+            var d1 = $(this).datepicker("getDate");
             d1.setDate(d1.getDate() + 0); // change to + 1 if necessary
-            var d2 = jQuery(this).datepicker("getDate");
+            var d2 = $(this).datepicker("getDate");
             d2.setDate(d2.getDate() + 700); // change to + 29 if necessary
 //            d2.setDate(d2.getDate() + 31); // change to + 29 if necessary
-            jQuery("#hasta2").datepicker("setDate", null);
-            jQuery("#hasta2").datepicker("option", "minDate", d1);
-            jQuery("#hasta2").datepicker("option", "maxDate", d2);
+            $("#hasta2").datepicker("setDate", null);
+            $("#hasta2").datepicker("option", "minDate", d1);
+            $("#hasta2").datepicker("option", "maxDate", d2);
             datepicked();
-            jQuery('#desde2').focus();
+            $('#desde2').focus();
         }
     });
 
-    jQuery('#desde').click(function() {
-        jQuery('#desde').datepicker("show");
+    $('#desde').click(function() {
+        $('#desde').datepicker("show");
     });
 
-    jQuery('#hasta').datepicker({
+    $('#hasta').datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -65,11 +67,11 @@ jQuery(document).ready(function() {
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onSelect: function(dateStr) {
             datepicked();
-            jQuery('#hasta2').focus();
+            $('#hasta2').focus();
         }
     });
 
-    jQuery('#desde3').datepicker({
+    $('#desde3').datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -85,17 +87,17 @@ jQuery(document).ready(function() {
     });
 
     function datepicked2() {
-        var fromDate = jQuery('#desde2').datepicker('getDate');
-        var toDate = jQuery('#hasta2').datepicker('getDate');
+        var fromDate = $('#desde2').datepicker('getDate');
+        var toDate = $('#hasta2').datepicker('getDate');
         if (fromDate && toDate) {
             var difference_msec = toDate.getTime() - fromDate.getTime();
             var difference_days = difference_msec / 86400000;
-            jQuery("#nights").val(Math.ceil(difference_days));
+            $("#nights").val(Math.ceil(difference_days));
         }
     }
 
 
-    jQuery('#desde2').datepicker({
+    $('#desde2').datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -108,19 +110,19 @@ jQuery(document).ready(function() {
         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Jue', 'Vie', 'Sab'],
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onSelect: function(dateStr) {
-            var d1 = jQuery(this).datepicker("getDate");
+            var d1 = $(this).datepicker("getDate");
             d1.setDate(d1.getDate() + 0); // change to + 1 if necessary
-            var d2 = jQuery(this).datepicker("getDate");
+            var d2 = $(this).datepicker("getDate");
 //            d2.setDate(d2.getDate() + 700); // change to + 29 if necessary
             d2.setDate(d2.getDate() + 31); // change to + 29 if necessary
-            jQuery("#hasta2").datepicker("setDate", null);
-            jQuery("#hasta2").datepicker("option", "minDate", d1);
-            jQuery("#hasta2").datepicker("option", "maxDate", d2);
+            $("#hasta2").datepicker("setDate", null);
+            $("#hasta2").datepicker("option", "minDate", d1);
+            $("#hasta2").datepicker("option", "maxDate", d2);
             datepicked2();
-            jQuery("#desde2").focus();
+            $("#desde2").focus();
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -128,15 +130,15 @@ jQuery(document).ready(function() {
         }
     });
 
-    jQuery('#desde2').click(function() {
-        jQuery('#desde2').datepicker("show");
+    $('#desde2').click(function() {
+        $('#desde2').datepicker("show");
     });
 
-    jQuery('#hasta2').click(function() {
-        jQuery('#hasta2').datepicker("show");
+    $('#hasta2').click(function() {
+        $('#hasta2').datepicker("show");
     });
 
-    jQuery('#hasta2').datepicker({
+    $('#hasta2').datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -152,7 +154,7 @@ jQuery(document).ready(function() {
             datepicked2();
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -160,7 +162,7 @@ jQuery(document).ready(function() {
         }
     });
 
-    jQuery('#desde5').datepicker({
+    $('#desde5').datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -175,12 +177,12 @@ jQuery(document).ready(function() {
 
     });
 
-    jQuery('#desde5').click(function() {
-        jQuery('#desde5').datepicker("show");
+    $('#desde5').click(function() {
+        $('#desde5').datepicker("show");
     });
 
 
-    jQuery(".alfanumerico").keypress(function(event) {
+    $(".alfanumerico").keypress(function(event) {
 
         if (event.which) {
             if (event.which > 64 && event.which < 91 || event.which == 8 || event.which == 32) {
@@ -223,7 +225,7 @@ jQuery(document).ready(function() {
             }
         }
     });
-    jQuery(".alfa_mayus").keypress(function(event) {
+    $(".alfa_mayus").keypress(function(event) {
 
         if (event.which) {
             if (event.which > 64 && event.which < 91 || event.which == 8 || event.which == 32) {
@@ -257,10 +259,10 @@ jQuery(document).ready(function() {
             }
         }
     });
-    jQuery('.num_decimal').mask('000000.00');
-//    jQuery('.moneda').mask('000000000000.00', {reverse: true});    
+    $('.num_decimal').mask('000000.00');
+//    $('.moneda').mask('000000000000.00', {reverse: true});    
 
-    jQuery("#iconalert").dialog({
+    $("#iconalert").dialog({
         autoOpen: false,
         show: {
             effect: "clip",
@@ -272,15 +274,15 @@ jQuery(document).ready(function() {
         },
         buttons: {
             "Cerrar": function() {
-                jQuery(this).dialog("close");
+                $(this).dialog("close");
             }
         }
     });
 
-    jQuery("div.alerticons").click(function() {
-        jQuery("#iconalert").dialog("open");
+    $("div.alerticons").click(function() {
+        $("#iconalert").dialog("open");
         setTimeout(function() {
-            jQuery("#iconalert").dialog("close");
+            $("#iconalert").dialog("close");
         }, 5000);
     });
     NumTelefono();
@@ -336,8 +338,8 @@ jQuery(document).ready(function() {
 
 
 function deshabilitarIpt() {
-    jQuery(".deshabilitado").focus(function() {
-        jQuery(this).blur();
+    $(".deshabilitado").focus(function() {
+        $(this).blur();
     })
 }
 var Configfechas = function() {
@@ -348,58 +350,58 @@ var Configfechas = function() {
     onlynumber();
 };
 var NumNIT = function() {
-    jQuery('.num_nit').each(function() {
+    $('.num_nit').each(function() {
         NumNITs(this);
     });
 };
 var NumNITs = function(num_nit) {
-    jQuery(num_nit).mask('0000-000000-000-0');
+    $(num_nit).mask('0000-000000-000-0');
 };
 var NumDUI = function() {
-    jQuery('.num_dui').each(function() {
-        jQuery(this).mask('00000000-0');
+    $('.num_dui').each(function() {
+        $(this).mask('00000000-0');
     });
 };
 var NumISSS = function() {
-    jQuery('.num_isss').each(function() {
-        jQuery(this).mask('000000000');
+    $('.num_isss').each(function() {
+        $(this).mask('000000000');
     });
 };
 var Fechaformat = function() {
-    jQuery('.fecha_format').each(function() {
-        jQuery(this).mask('00/00/0000');
+    $('.fecha_format').each(function() {
+        $(this).mask('00/00/0000');
     });
 };
 var fecha_format = function() {
-    jQuery("#loader").addClass("loader");
+    $("#loader").addClass("loader");
 };
 var NumCuenta = function() {
-    jQuery('.num_cuenta').each(function() {
-        jQuery(this).mask('00000000000000000');
+    $('.num_cuenta').each(function() {
+        $(this).mask('00000000000000000');
     });
 };
 var NumNUP = function() {
-    jQuery('.num_nup').each(function() {
-        jQuery(this).mask('000000000000');
+    $('.num_nup').each(function() {
+        $(this).mask('000000000000');
     });
 };
 var FechaOcho = function() {
-    jQuery('.fecha_ocho').each(function() {
-        jQuery(this).mask('00/00/00');
+    $('.fecha_ocho').each(function() {
+        $(this).mask('00/00/00');
     });
 };
 var NumTelefono = function() {
-    jQuery('.num_telefono').each(function() {
-        jQuery(this).mask('0000-0000');
+    $('.num_telefono').each(function() {
+        $(this).mask('0000-0000');
     });
 };
 var Spinners = function() {
-    jQuery(".Spinner").each(function() {
+    $(".Spinner").each(function() {
         Spinner(this);
     });
 };
 var Spinner = function(Obj) {
-    jQuery(Obj).spinner({
+    $(Obj).spinner({
         min: 0,
         max: 32
     });
@@ -459,32 +461,32 @@ function mask(inputField, separator, pattern, nums) {
 
 
 var espere = function(element) {
-    if (!isUndefinedOrNull(element) && !isUndefinedOrNull(jQuery(element).position())) {
+    if (!isUndefinedOrNull(element) && !isUndefinedOrNull($(element).position())) {
         var width = 350;
         var height = 60;
         var offset = 30; // 22
         var outset = 6; // 22
-        var vH = jQuery(element).height();
+        var vH = $(element).height();
         if (vH == "0") {
             vH = "150"
         }
         var message = 'Espere por favor, actualizando...';
         var top = vH / 2 - height / 2;
 
-        var left = jQuery(element).width() / 2 - width / 2;
-        var divname = jQuery(element).attr('id');
+        var left = $(element).width() / 2 - width / 2;
+        var divname = $(element).attr('id');
         var divname = isUndefinedOrNull(divname) ? 'waitDiv' : divname + 'waitDiv';
-        var newDiv = '<div id="' + divname + '" class="ui-overlay ui-corner-all"  style="opacity:0.85;background:#f0f0f0;margin-top: ' + jQuery(element).css('marginTop') + '; width:48px;height:48px;margin-left:' + jQuery(element).css('marginLeft') + '; margin-right:' + jQuery(element).css('marginRight') + '; margin-bottom:' + jQuery(element).css('marginBottom') + '; width: ' + jQuery(element).width() + 'px; height: ' + vH + 'px; position: absolute; left: ' + jQuery(element).position().left + 'px; top: ' + jQuery(element).position().top + 'px;">'
+        var newDiv = '<div id="' + divname + '" class="ui-overlay ui-corner-all"  style="opacity:0.85;background:#f0f0f0;margin-top: ' + $(element).css('marginTop') + '; width:48px;height:48px;margin-left:' + $(element).css('marginLeft') + '; margin-right:' + $(element).css('marginRight') + '; margin-bottom:' + $(element).css('marginBottom') + '; width: ' + $(element).width() + 'px; height: ' + vH + 'px; position: absolute; left: ' + $(element).position().left + 'px; top: ' + $(element).position().top + 'px;">'
                 + '<div class="ui-widget-overlay ui-corner-all"></div>'
                 + '<div class="ui-widget-shadow ui-corner-all" style="position: absolute; width: ' + (width + outset) + 'px; height: ' + (height + outset) + 'px; left: ' + left + 'px; top: ' + top + 'px;"></div>'
-                + '<div class="ui-widget ui-widget-content ui-corner-all" style="vertical-align:middle; position: absolute; width: ' + (width - offset) + 'px; height: ' + (height - offset) + 'px; left: ' + (left + offset / 5) + 'px; top: ' + (top + offset / 5) + 'px; padding: 10px;"><div class="w100" style="text-align:center"><img  style="border-radius:50px; paddin:0 0; margin: 0 0;" id="loadingIcon" src="/' + url_modulos + '/images/img_plantilla/loading.gif" title="' + message + '" /></div><div style="text-align:center" class="waitmessagetext">' + message + '</div></div></div>';
-        jQuery(element).append(newDiv);
+                + '<div class="ui-widget ui-widget-content ui-corner-all" style="vertical-align:middle; position: absolute; width: ' + (width - offset) + 'px; height: ' + (height - offset) + 'px; left: ' + (left + offset / 5) + 'px; top: ' + (top + offset / 5) + 'px; padding: 10px;"><div class="w100" style="text-align:center"><img  style="border-radius:50px; paddin:0 0; margin: 0 0;" id="loadingIcon" src="./image/loading.gif" title="' + message + '" /></div><div style="text-align:center" class="waitmessagetext">' + message + '</div></div></div>';
+        $(element).append(newDiv);
 
     }
 };
 
 var DateRestrictBeforeYears = function() {
-    jQuery(".DateYearTwo").each(function() {
+    $(".DateYearTwo").each(function() {
         DateRestrictBeforeYear(this);
 //        BtnDateRestrictBeforeYear(this);
         afterShowCalendarTwo();
@@ -492,7 +494,7 @@ var DateRestrictBeforeYears = function() {
 };
 var DateRestrictBeforeYear = function(Datapicker) {
 
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -515,11 +517,11 @@ var DateRestrictBeforeYear = function(Datapicker) {
             restrictAct(this);
         },
         onClose: function() {
-            var iMonth = jQuery("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, iMonth, 1));
-            jQuery("#msgPeriodo").remove();
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+            $("#msgPeriodo").remove();
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -529,7 +531,7 @@ var DateRestrictBeforeYear = function(Datapicker) {
 
 };
 var DatePeriodos = function() {
-    jQuery(".DatePeriodo").each(function() {
+    $(".DatePeriodo").each(function() {
         DatePeriodo(this);
         afterShowCalendarTwo();
     });
@@ -538,7 +540,7 @@ var DatePeriodo = function(Datapicker) {
     var date = new Date();
     var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -558,11 +560,11 @@ var DatePeriodo = function(Datapicker) {
         showButtonPanel: true,
         closeText: "Aceptar",
         onClose: function() {
-            var iMonth = jQuery("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+            var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
             restrictAct3(iMonth, iYear);
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -575,32 +577,32 @@ var DatePeriodo = function(Datapicker) {
 
 
 function restrictAct3(month, year) {
-    jQuery(".DatePeriodoH").datepicker("option", "minDate", new Date(year, month));
-    jQuery(".DatePeriodoH").datepicker("option", "maxDate", new Date(year, 11));
+    $(".DatePeriodoH").datepicker("option", "minDate", new Date(year, month));
+    $(".DatePeriodoH").datepicker("option", "maxDate", new Date(year, 11));
 }
 ;
 var DatePeriodosH = function() {
-    jQuery(".DatePeriodoH").each(function() {
+    $(".DatePeriodoH").each(function() {
         DatePeriodoH(this);
         afterShowCalendarTwo();
     });
 };
 var DateTodayBefores = function() {
-    jQuery(".DateTodayBefore").each(function() {
+    $(".DateTodayBefore").each(function() {
         DateTodayBefore(this);
         BtnDateTodayBefore(this);
     });
 };
 var BtnDateTodayBefore = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var DatePeriodoH = function(Datapicker) {
     var date = new Date();
     var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -620,11 +622,11 @@ var DatePeriodoH = function(Datapicker) {
         showButtonPanel: true,
         closeText: "Aceptar",
         onClose: function() {
-            var iMonth = jQuery("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, iMonth, 1));
-            jQuery(".DatePeriodoYear").datepicker('setDate', new Date(iYear, 0, 1));
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+            $(".DatePeriodoYear").datepicker('setDate', new Date(iYear, 0, 1));
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -636,7 +638,7 @@ var DatePeriodoH = function(Datapicker) {
 var DateTodayBefore = function(Datapicker) {
     var date = new Date();
     var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         showOn: "button",
@@ -655,54 +657,54 @@ var DateTodayBefore = function(Datapicker) {
 
 };
 var afterShowCalendarTwo = function() {
-    jQuery("#ui-datepicker-div").addClass("myclassdoesntgo");
+    $("#ui-datepicker-div").addClass("myclassdoesntgo");
 };
 var BtnDateRestrictBeforeYear = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var DateShowMonthYears = function() {
-    jQuery(".DateMonthYears").each(function() {
+    $(".DateMonthYears").each(function() {
         DateShowMonthYear(this);
         BtnShowMonthYear(this);
     });
 };
 var BtnShowMonthYear = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var DateSimples = function() {
-    jQuery(".Datesimple").each(function() {
+    $(".Datesimple").each(function() {
         DateSimple(this);
         BtnDate(this);
     });
 };
 var DateSimples2 = function() {
-    jQuery(".Datesimple2").each(function() {
+    $(".Datesimple2").each(function() {
         DateSimple2(this);
         BtnDate(this);
     });
 };
 var DateSimpleAnts = function() {
-    jQuery(".DatesimpleAnt").each(function() {
+    $(".DatesimpleAnt").each(function() {
         DateSimpleAnt(this);
         BtnDateAnt(this);
     });
 };
 var BtnDateAnt = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var BtnDate = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var DateShowMonthYear = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         changeMonth: true,
@@ -717,7 +719,7 @@ var DateShowMonthYear = function(Datapicker) {
         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Jue', 'Vie', 'Sab'],
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -726,7 +728,7 @@ var DateShowMonthYear = function(Datapicker) {
     });
 };
 var DateSimple = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -739,7 +741,7 @@ var DateSimple = function(Datapicker) {
         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Jue', 'Vie', 'Sab'],
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -748,7 +750,7 @@ var DateSimple = function(Datapicker) {
     });
 };
 var DateSimple2 = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'dd/mm/yy',
@@ -764,7 +766,7 @@ var DateSimple2 = function(Datapicker) {
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         maxDate: '0',
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -773,7 +775,7 @@ var DateSimple2 = function(Datapicker) {
     });
 };
 var DateSimpleAnt = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -792,7 +794,7 @@ var DateSimpleAnt = function(Datapicker) {
             restrictActAnt(this);
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -801,18 +803,18 @@ var DateSimpleAnt = function(Datapicker) {
     });
 };
 var DateDiez = function() {
-    jQuery(".Datediez").each(function() {
+    $(".Datediez").each(function() {
         DateTen(this);
         BtnDateTen(this);
     });
 };
 var BtnDateTen = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var DateTen = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yyyy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -825,7 +827,7 @@ var DateTen = function(Datapicker) {
         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Jue', 'Vie', 'Sab'],
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -835,47 +837,47 @@ var DateTen = function(Datapicker) {
 };
 
 var DesdeBefores = function() {
-    jQuery(".DesdeBefore").each(function() {
+    $(".DesdeBefore").each(function() {
         DesdeBefore(this);
         BtnDesdeBefore(this);
     });
 };
 var DesdeBefores2 = function() {
-    jQuery(".DesdeBefore2").each(function() {
+    $(".DesdeBefore2").each(function() {
         DesdeBefore2(this);
         BtnDesdeBefore(this);
     });
 };
 var BtnDesdeBefore = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var DateRanges = function() {
-    jQuery(".Datedesde").each(function() {
+    $(".Datedesde").each(function() {
         Datedesde(this);
         BtnDateDesde(this);
     });
 };
 var DateRangesCrit = function() {
-    jQuery(".DatedesdeCrit").each(function() {
+    $(".DatedesdeCrit").each(function() {
         DatedesdeCrit(this);
         BtnDateDesde(this);
     });
 };
 var BtnDateDesde = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 function restrictAct(date) {
-    var d1 = jQuery(date).datepicker("getDate");
+    var d1 = $(date).datepicker("getDate");
     d1.setDate(d1.getDate() + 1);
-    jQuery(".Datehasta").datepicker("setDate", null);
-    jQuery(".Datehasta").datepicker("option", "minDate", d1);
+    $(".Datehasta").datepicker("setDate", null);
+    $(".Datehasta").datepicker("option", "minDate", d1);
 }
 var DesdeBefore = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -894,7 +896,7 @@ var DesdeBefore = function(Datapicker) {
             restrictAct(this);
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -908,8 +910,8 @@ var DesdeBefore2 = function(Datapicker) {
     var dia = (d < 10) ? "0" + d : d;
     var mes = ((m + 1) < 10) ? "0" + (m + 1) : (m + 1);
     var title = "Solamente se permite seleccionar Fechas a partir del " + dia + "/" + mes + "/" + y + " hasta " + dia + "/" + mes + "/" + (y + 1);
-    jQuery(Datapicker).attr("title", title);
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).attr("title", title);
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -926,7 +928,7 @@ var DesdeBefore2 = function(Datapicker) {
         changeMonth: true,
         changeYear: true,
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -936,25 +938,25 @@ var DesdeBefore2 = function(Datapicker) {
 
 };
 function restrictAct(date) {
-    var d1 = jQuery(date).datepicker("getDate");
+    var d1 = $(date).datepicker("getDate");
     d1.setDate(d1.getDate() + 1);
-    jQuery(".Datehasta").datepicker("setDate", null);
-    jQuery(".Datehasta").datepicker("option", "minDate", d1);
+    $(".Datehasta").datepicker("setDate", null);
+    $(".Datehasta").datepicker("option", "minDate", d1);
 }
 function restrictActAnt(date) {
-    var d1 = jQuery(date).datepicker("getDate");
+    var d1 = $(date).datepicker("getDate");
     d1.setDate(d1.getDate() + 1);
-    jQuery(".DatehastaAnt").datepicker("setDate", null);
-    jQuery(".DatehastaAnt").datepicker("option", "minDate", d1);
+    $(".DatehastaAnt").datepicker("setDate", null);
+    $(".DatehastaAnt").datepicker("option", "minDate", d1);
 }
 function restrictAct4(date) {
-    var d1 = jQuery(date).datepicker("getDate");
+    var d1 = $(date).datepicker("getDate");
     d1.setDate(d1.getDate());
-    jQuery(".Datehasta").datepicker("setDate", null);
-    jQuery(".Datehasta").datepicker("option", "minDate", d1);
+    $(".Datehasta").datepicker("setDate", null);
+    $(".Datehasta").datepicker("option", "minDate", d1);
 }
 var Datedesde = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -970,7 +972,7 @@ var Datedesde = function(Datapicker) {
             restrictAct(this);
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -979,7 +981,7 @@ var Datedesde = function(Datapicker) {
     });
 };
 var DatedesdeCrit = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -995,7 +997,7 @@ var DatedesdeCrit = function(Datapicker) {
             restrictAct4(this);
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1004,18 +1006,18 @@ var DatedesdeCrit = function(Datapicker) {
     });
 };
 var DateRestrictActuals = function() {
-    jQuery(".Datehasta").each(function() {
+    $(".Datehasta").each(function() {
         Datehasta(this);
         BtnDatehasta(this);
     });
 };
 var BtnDatehasta = function(Datapicker) {
-    jQuery(Datapicker).click(function() {
-        jQuery(Datapicker).datepicker("show");
+    $(Datapicker).click(function() {
+        $(Datapicker).datepicker("show");
     });
 };
 var Datehasta = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -1028,7 +1030,7 @@ var Datehasta = function(Datapicker) {
         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Jue', 'Vie', 'Sab'],
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1037,13 +1039,13 @@ var Datehasta = function(Datapicker) {
     });
 };
 var DateRestrictActualsAnt = function() {
-    jQuery(".DatehastaAnt").each(function() {
+    $(".DatehastaAnt").each(function() {
         DatehastaAnt(this);
         BtnDatehasta(this);
     });
 };
 var DatehastaAnt = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -1057,7 +1059,7 @@ var DatehastaAnt = function(Datapicker) {
         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
         maxDate: 0,
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1078,12 +1080,12 @@ function restrictAct2(month, year) {
     } else if ((y - year) == 2) {
         diff = m + 12 + (12 - month) + 1;
     }
-    jQuery(".DateYearTwoH").datepicker("option", "minDate", "-" + diff + "m");
+    $(".DateYearTwoH").datepicker("option", "minDate", "-" + diff + "m");
 }
 ;
 var DateRestrictBeforeYearD = function(Datapicker) {
 
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -1106,15 +1108,15 @@ var DateRestrictBeforeYearD = function(Datapicker) {
 //            restrictAct2(this);
 //        },
         onClose: function() {
-            var iMonth = jQuery("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+            var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
             restrictAct2(iMonth, iYear);
-            if (jQuery("#msgPeriodo").length)
-                jQuery("#msgPeriodo").remove();
-            if (jQuery("#msgPeriodoD").length)
-                jQuery("#msgPeriodoD").remove();
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($("#msgPeriodo").length)
+                $("#msgPeriodo").remove();
+            if ($("#msgPeriodoD").length)
+                $("#msgPeriodoD").remove();
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1125,7 +1127,7 @@ var DateRestrictBeforeYearD = function(Datapicker) {
 };
 var DateRestrictBeforeYearH = function(Datapicker) {
 
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -1144,12 +1146,12 @@ var DateRestrictBeforeYearH = function(Datapicker) {
         closeText: "Aceptar",
         showButtonPanel: true,
         onClose: function() {
-            var iMonth = jQuery("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, iMonth, 1));
-            if (jQuery("#msgPeriodoH").length)
-                jQuery("#msgPeriodoH").remove();
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+            if ($("#msgPeriodoH").length)
+                $("#msgPeriodoH").remove();
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1161,7 +1163,7 @@ var DateRestrictBeforeYearH = function(Datapicker) {
 
 var DateRestrictBeforeYearZ = function(Datapicker) {
 
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -1180,12 +1182,12 @@ var DateRestrictBeforeYearZ = function(Datapicker) {
         closeText: "Aceptar",
         showButtonPanel: true,
         onClose: function() {
-            var iMonth = jQuery("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, iMonth, 1));
-            if (jQuery("#msgPeriodoZ").length)
-                jQuery("#msgPeriodoZ").remove();
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+            if ($("#msgPeriodoZ").length)
+                $("#msgPeriodoZ").remove();
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1196,34 +1198,34 @@ var DateRestrictBeforeYearZ = function(Datapicker) {
 };
 
 var DateRestrictBeforeYearsD = function() {
-    jQuery(".DateYearTwoD").each(function() {
+    $(".DateYearTwoD").each(function() {
         DateRestrictBeforeYearD(this);
 //        BtnDateRestrictBeforeYear(this);
         afterShowCalendarTwo();
     });
 };
 var DateRestrictBeforeYearsZ = function() {
-    jQuery(".DateYearTree").each(function() {
+    $(".DateYearTree").each(function() {
         DateRestrictBeforeYearZ(this);
 //        BtnDateRestrictBeforeYear(this);
         afterShowCalendarTwo();
     });
 };
 var DateRestrictBeforeYearsH = function() {
-    jQuery(".DateYearTwoH").each(function() {
+    $(".DateYearTwoH").each(function() {
         DateRestrictBeforeYearH(this);
 //        BtnDateRestrictBeforeYear(this);
         afterShowCalendarTwo();
     });
 };
 var DatedesdeHoyRange = function() {
-    jQuery(".DatedesdeHoy").each(function() {
+    $(".DatedesdeHoy").each(function() {
         DatedesdeHoy(this);
         BtnDateDesde(this);
     });
 };
 var DatedesdeHoy = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         dateFormat: 'dd/mm/yy',
         showOn: "button",
         buttonImage: "/" + url_modulos + "/images/img_plantilla/ico-calendario.png",
@@ -1240,7 +1242,7 @@ var DatedesdeHoy = function(Datapicker) {
             restrictAct(this);
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1249,14 +1251,14 @@ var DatedesdeHoy = function(Datapicker) {
     });
 };
 var DatedesdeHoyOnes = function() {
-    jQuery(".DatedesdeHoyOne").each(function() {
+    $(".DatedesdeHoyOne").each(function() {
         DatedesdeHoyOne(this);
         BtnDateDesde(this);
-        jQuery(this).attr("readonly", true);
+        $(this).attr("readonly", true);
     });
 };
 var DatedesdeHoyOne = function(Datapicker) {
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'dd/mm/yy',
@@ -1276,7 +1278,7 @@ var DatedesdeHoyOne = function(Datapicker) {
             restrictAct(this);
         },
         onClose: function() {
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -1289,76 +1291,76 @@ var DateRestrictBeforeYearsDH = function() {
     DateRestrictBeforeYearsH();
     validarPeriodoH();
     validarPeriodo();
-    jQuery('.fecha_seis').mask('00/0000');
+    $('.fecha_seis').mask('00/0000');
 };
 var numberSerieEstravio = function() {
-    jQuery(".nSerieExtravio").each(function() {
+    $(".nSerieExtravio").each(function() {
         nSerieExtravio(this);
     });
 };
 // Focus Metodo
 var DecimalMonedas = function() {
-    jQuery(".DecimalMoneda").each(function() {
+    $(".DecimalMoneda").each(function() {
         DecimalMoneda(this);
         FocusDecimalMoneda(this);
     });
 
 };
 var numerodecimal = function() {
-    jQuery(".numero_decimal").each(function() {
+    $(".numero_decimal").each(function() {
         formatdecimal(this);
     });
 };
 var formatdecimalNegativos = function() {
-    jQuery(".numeroDecimalNega").each(function() {
+    $(".numeroDecimalNega").each(function() {
         formatdecimalNegativo(this);
         FocusformatdecimalNegativo(this);
     });
 };
 // Focus Metodo
 var formatporcents = function() {
-    jQuery(".numeroPorcentaje").each(function() {
+    $(".numeroPorcentaje").each(function() {
         formatporcent(this);
         FocusFormatporcent(this);
     });
 };
 var fechaSeis = function() {
-    jQuery('.fecha_seis').each(function() {
+    $('.fecha_seis').each(function() {
         formatFechaSeis(this);
     });
 };
 var formatFechaSeis = function(objFechaSeis) {
-    jQuery(objFechaSeis).mask('00/0000');
+    $(objFechaSeis).mask('00/0000');
 };
 var fechaCinco = function() {
-    jQuery('.fecha_cinco').each(function() {
+    $('.fecha_cinco').each(function() {
         formatFechaCinco(this);
     });
 };
 var formatFechaCinco = function(objFechaCinco) {
-    jQuery(objFechaCinco).mask('00/00');
+    $(objFechaCinco).mask('00/00');
 };
 var fechaDiez = function() {
-    jQuery('.fecha_dies').each(function() {
+    $('.fecha_dies').each(function() {
         formatFechaDiez(this);
     });
 };
 var formatFechaDiez = function(objFechaDiez) {
-    jQuery(objFechaDiez).mask('00/00/0000');
+    $(objFechaDiez).mask('00/00/0000');
 };
 var onlyletters = function() {
-    jQuery(".letras").each(function() {
+    $(".letras").each(function() {
         formatletters(this);
     });
 };
 var onlynumber = function() {
-    jQuery(".numeros").not(".user_box .numeros").each(function() {
+    $(".numeros").not(".user_box .numeros").each(function() {
         formatnumber(this);
         Focusformatnumber(this);
     });
 };
 var formatletters = function(objletter) {
-    jQuery(objletter).keypress(function(event) {
+    $(objletter).keypress(function(event) {
         if (event.which) {
             if (event.which > 64 && event.which < 91 || event.which == 8 || event.which == 32) {
                 return true;
@@ -1392,7 +1394,7 @@ var formatletters = function(objletter) {
     });
 };
 var formatdecimal = function(objdecimal) {
-    jQuery(objdecimal).keypress(function(event) {
+    $(objdecimal).keypress(function(event) {
         var decim = "";
         var dec = "";
         var deci = "";
@@ -1404,17 +1406,17 @@ var formatdecimal = function(objdecimal) {
         if (codigo === 45 && objdecimal.selectionStart === 0) {
             return true;
         } else
-        if ((jQuery(objdecimal).val().indexOf(".") > -1) || (jQuery(objdecimal).val() == "")) {
+        if (($(objdecimal).val().indexOf(".") > -1) || ($(objdecimal).val() == "")) {
             if (codigo > 96 && codigo < 123) {
                 return (codigo == 8);
             } else {
-                deci = jQuery(objdecimal).val().split(".");
+                deci = $(objdecimal).val().split(".");
                 dec = deci[1];
                 if (isUndefinedOrNull(dec)) {
                     return (codigo > 47 && codigo < 58 || codigo === 8);
                 } else {
                     decim = dec.toString().length;
-                    datosdeci = jQuery(objdecimal).data("ndecimal");
+                    datosdeci = $(objdecimal).data("ndecimal");
                     if (!isUndefinedOrNull(datosdeci)) {
                         if (decim < datosdeci) {
                             return (codigo > 47 && codigo < 58 || codigo == 8);
@@ -1431,9 +1433,9 @@ var formatdecimal = function(objdecimal) {
         }
 
     });
-    jQuery(objdecimal).on("paste", function() {
+    $(objdecimal).on("paste", function() {
         var e = this;
-        datosdeci = jQuery(objdecimal).data("ndecimal");
+        datosdeci = $(objdecimal).data("ndecimal");
         setTimeout(function() {
             monto = e.value;
             if (isNaN(monto)) {
@@ -1458,15 +1460,15 @@ var formatdecimal = function(objdecimal) {
 };
 var FocusformatdecimalNegativo = function(objdecimal) {
     var simbolo = "";
-    jQuery(objdecimal).focusout(function() {
-        if (jQuery.trim(jQuery(this).val()) === "") {
-            jQuery(this).val("0");
+    $(objdecimal).focusout(function() {
+        if ($.trim($(this).val()) === "") {
+            $(this).val("0");
         }
         ReglasJson(objdecimal);
     });
-    jQuery(objdecimal).focusin(function() {
+    $(objdecimal).focusin(function() {
         var pausa = 0;
-        simbolo = jQuery(this).val();
+        simbolo = $(this).val();
         var cont = "";
         for (var i = 0; i < simbolo.length; i++) {
 
@@ -1477,15 +1479,15 @@ var FocusformatdecimalNegativo = function(objdecimal) {
                 cont += simbolo[i];
             }
         }
-        jQuery(this).val("");
+        $(this).val("");
         if (pausa === 0) {
             if (parseFloat(cont) === 0) {
-                jQuery(this).val("");
+                $(this).val("");
             } else {
-                jQuery(this).val(cont);
+                $(this).val(cont);
             }
         } else {
-            jQuery(this).val("-" + cont);
+            $(this).val("-" + cont);
         }
     });
 
@@ -1496,17 +1498,17 @@ var formatdecimalNegativo = function(objdecimal) {
     var flagPunto = "";
     var ret = "";
     var keynum = "";
-    nDecimales = jQuery(objdecimal).data("ndecimalneg");
-    jQuery(objdecimal).keypress(function(event) {
+    nDecimales = $(objdecimal).data("ndecimalneg");
+    $(objdecimal).keypress(function(event) {
         var Code = getKeyCodes(event);
         var regreso = "";
         keynum = getKeyCodes(event);
         if (Code === 39 || Code === 37) {
             return true;
         }
-        flagPunto = jQuery(this).val().split(".");
+        flagPunto = $(this).val().split(".");
         if (Code === 45 && objdecimal.selectionStart === 0) {
-            if (jQuery(this).val().indexOf("-") > -1) {
+            if ($(this).val().indexOf("-") > -1) {
                 regreso = (Code > 47 && Code < 58 || Code === 8 || Code === 9);
                 return  (Code > 47 && Code < 58 || Code === 8 || Code === 9);
             } else {
@@ -1524,21 +1526,21 @@ var formatdecimalNegativo = function(objdecimal) {
         return ret;
     });
 
-    jQuery(objdecimal).keyup(function(ev) {
-        var Valor = jQuery(this).val();
+    $(objdecimal).keyup(function(ev) {
+        var Valor = $(this).val();
         var a = Valor.split('.');
         var index;
         var limit;
         if (a.length == '2' && nDecimales > 0 && a[1].length > nDecimales)
         {
-            index = parseFloat(jQuery(this).val().indexOf("."));
+            index = parseFloat($(this).val().indexOf("."));
             if (index <= 9) {
                 limit = index + parseFloat(nDecimales) + 1;
-                jQuery(this).val(jQuery(this).val().substring(0, limit));
+                $(this).val($(this).val().substring(0, limit));
             }
         } else
         if (nDecimales == 0) {
-            jQuery(this).val(jQuery(this).val().replace(".", ""));
+            $(this).val($(this).val().replace(".", ""));
         }
     });
 
@@ -1548,7 +1550,7 @@ var formatdecimalNegativo = function(objdecimal) {
 //    
 //    
 //    
-//    jQuery(objdecimal).keypress(function(event) {
+//    $(objdecimal).keypress(function(event) {
 //        var decim = "";
 //        var dec = "";
 //        var deci = "";
@@ -1557,18 +1559,18 @@ var formatdecimalNegativo = function(objdecimal) {
 //            if (event.which === 45 && objdecimal.selectionStart === 0) {
 //                return  (event.which > 47 && event.which < 58 || event.which === 8 || event.which === 45);
 //            } else {
-//                if ((jQuery(objdecimal).val().indexOf(".") > -1) || (jQuery(objdecimal).val() === "")) {
+//                if (($(objdecimal).val().indexOf(".") > -1) || ($(objdecimal).val() === "")) {
 //
 //                    if (event.which > 96 && event.which < 123) {
 //                        return (event.which === 8);
 //                    } else {
-//                        deci = jQuery(objdecimal).val().split(".");
+//                        deci = $(objdecimal).val().split(".");
 //                        dec = deci[1];
 //                        if (isUndefinedOrNull(dec)) {
 //                            return (event.which > 47 && event.which < 58 || event.which === 8);
 //                        } else {
 //                            decim = dec.toString().length;
-//                            datosdeci = jQuery(objdecimal).data("ndecimalneg");
+//                            datosdeci = $(objdecimal).data("ndecimalneg");
 //                            if (!isUndefinedOrNull(datosdeci)) {
 //                                if (decim < datosdeci) {
 //                                    return (event.which > 47 && event.which < 58 || event.which === 8);
@@ -1585,20 +1587,20 @@ var formatdecimalNegativo = function(objdecimal) {
 //                }
 //            }
 //        } else if (event.charCode) {
-//            if (event.charCode === 45 && jQuery(this).val().length === 0) {
+//            if (event.charCode === 45 && $(this).val().length === 0) {
 //                return  (event.charCode > 47 && event.charCode < 58 || event.charCode === 8 || event.charCode === 45);
 //            } else {
-//                if ((jQuery(objdecimal).val().indexOf(".") > -1) || (jQuery(objdecimal).val() === "")) {
+//                if (($(objdecimal).val().indexOf(".") > -1) || ($(objdecimal).val() === "")) {
 //                    if (event.charCode > 96 && event.charCode < 123) {
 //                        return (event.charCode === 8);
 //                    } else {
-//                        deci = jQuery(objdecimal).val().split(".");
+//                        deci = $(objdecimal).val().split(".");
 //                        dec = deci[1];
 //                        if (isUndefinedOrNull(dec)) {
 //                            return (event.charCode > 47 && event.charCode < 58 || event.charCode === 8);
 //                        } else {
 //                            decim = dec.toString().length;
-//                            datosdeci = jQuery(objdecimal).data("ndecimalneg");
+//                            datosdeci = $(objdecimal).data("ndecimalneg");
 //                            if (!isUndefinedOrNull(datosdeci)) {
 //                                if (decim < datosdeci) {
 //                                    return (event.charCode > 47 && event.charCode < 58 || event.charCode == 8);
@@ -1615,20 +1617,20 @@ var formatdecimalNegativo = function(objdecimal) {
 //                }
 //            }
 //        } else if (window.event.keyCode) {
-//            if (window.event.keyCode === 45 && jQuery(this).val().length === 0) {
+//            if (window.event.keyCode === 45 && $(this).val().length === 0) {
 //                return  (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode === 8 || window.event.keyCode === 45);
 //            } else {
-//                if ((jQuery(objdecimal).val().indexOf(".") > -1) || (jQuery(objdecimal).val() == "")) {
+//                if (($(objdecimal).val().indexOf(".") > -1) || ($(objdecimal).val() == "")) {
 //                    if (window.event.keyCode > 96 && window.event.keyCode < 123) {
 //                        return (window.event.keyCode === 8);
 //                    } else {
-//                        deci = jQuery(objdecimal).val().split(".");
+//                        deci = $(objdecimal).val().split(".");
 //                        dec = deci[1];
 //                        if (isUndefinedOrNull(dec)) {
 //                            return (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode === 8);
 //                        } else {
 //                            decim = dec.toString().length;
-//                            datosdeci = jQuery(objdecimal).data("ndecimalneg");
+//                            datosdeci = $(objdecimal).data("ndecimalneg");
 //                            if (!isUndefinedOrNull(datosdeci)) {
 //                                if (decim < datosdeci) {
 //                                    return (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode == 8);
@@ -1654,10 +1656,10 @@ var DeleteSigno = function() {
 };
 
 var DeleteSignoPorcent = function() {
-    jQuery(".numeroPorcentaje").each(function() {
+    $(".numeroPorcentaje").each(function() {
         var dat = "";
         var newString = "";
-        dat = jQuery(this).val();
+        dat = $(this).val();
         for (var j = 0; j < dat.length; j++) {
             if (dat[j] !== "%") {
                 newString += dat[j];
@@ -1665,15 +1667,15 @@ var DeleteSignoPorcent = function() {
                 newString += "";
             }
         }
-        jQuery(this).val("");
-        jQuery(this).val(newString);
+        $(this).val("");
+        $(this).val(newString);
     });
 };
 var DeleteSignoMoneda = function() {
-    jQuery(".DecimalMoneda").each(function() {
+    $(".DecimalMoneda").each(function() {
         var dat = "";
         var newString = "";
-        dat = jQuery(this).val();
+        dat = $(this).val();
         for (var j = 0; j < dat.length; j++) {
             if (dat[j] !== "$") {
                 if (dat[j] === "(") {
@@ -1688,17 +1690,17 @@ var DeleteSignoMoneda = function() {
                 newString += "";
             }
         }
-        jQuery(this).val("");
-        jQuery(this).val(newString);
+        $(this).val("");
+        $(this).val(newString);
     });
 };
 //var Calculo30Porcent = function() {
 //    var TreintaPorc = 0;
-//    if (jQuery("td#10028 .DecimalMoneda").length > 0 && jQuery("td#10036 .DecimalMoneda").length > 0) {
-//        var valorNeto = jQuery("td#10028 .DecimalMoneda").val();
+//    if ($("td#10028 .DecimalMoneda").length > 0 && $("td#10036 .DecimalMoneda").length > 0) {
+//        var valorNeto = $("td#10028 .DecimalMoneda").val();
 //        TreintaPorc = parseFloat((valorNeto * 30) / 100);
-//        jQuery("td#10036 .DecimalMoneda").val(TreintaPorc);
-//        jQuery("td#10036 .DecimalMoneda").attr("value", TreintaPorc);
+//        $("td#10036 .DecimalMoneda").val(TreintaPorc);
+//        $("td#10036 .DecimalMoneda").attr("value", TreintaPorc);
 //    }
 //};
 var AddSigno = function() {
@@ -1708,11 +1710,11 @@ var AddSigno = function() {
     AddSignoPorcent();
 };
 var AddSignoPorcent = function() {
-    jQuery(".numeroPorcentaje").each(function() {
+    $(".numeroPorcentaje").each(function() {
         var Stringnew = "";
         var newString = "";
         var dat = "";
-        dat = jQuery(this).val();
+        dat = $(this).val();
         for (var j = 0; j < dat.length; j++) {
             if (dat[j] !== "%") {
                 newString += dat[j];
@@ -1720,46 +1722,46 @@ var AddSignoPorcent = function() {
                 newString += "";
             }
         }
-        jQuery(this).val("");
+        $(this).val("");
         Stringnew = newString + "%";
-        jQuery(this).val(Stringnew);
+        $(this).val(Stringnew);
     });
 };
 var dato1 = "", dato2 = "", est = 0;
 var RentaNetaPerdidaFiscal = function() {
 
     if (est == 0) {
-        dato1 = jQuery("td#10028 .DecimalMoneda").data("regla");
-        dato2 = jQuery("td#10032 .DecimalMoneda").data("regla");
+        dato1 = $("td#10028 .DecimalMoneda").data("regla");
+        dato2 = $("td#10032 .DecimalMoneda").data("regla");
         est = 1;
 
     }
-    var input1 = jQuery("td#10028 .DecimalMoneda");
-    var input2 = jQuery("td#10032 .DecimalMoneda");
+    var input1 = $("td#10028 .DecimalMoneda");
+    var input2 = $("td#10032 .DecimalMoneda");
     if ((input1.length > 0) && (input2.length > 0)) {
         DeleteSignoMoneda();
-        if (jQuery("td#10028 .DecimalMoneda").val().indexOf("-") > -1) {
-            jQuery("td#10028 .DecimalMoneda").val("0");
-            jQuery("td#10028 .DecimalMoneda").attr("value", "0");
-            jQuery("td#10028 .DecimalMoneda").data('regla', '[{"tipo": "cxc","regla": "300000-500000"}]');
-            jQuery("td#10032 .DecimalMoneda").data('regla', dato2);
+        if ($("td#10028 .DecimalMoneda").val().indexOf("-") > -1) {
+            $("td#10028 .DecimalMoneda").val("0");
+            $("td#10028 .DecimalMoneda").attr("value", "0");
+            $("td#10028 .DecimalMoneda").data('regla', '[{"tipo": "cxc","regla": "300000-500000"}]');
+            $("td#10032 .DecimalMoneda").data('regla', dato2);
         }
-        if (jQuery("td#10032 .DecimalMoneda").val().indexOf("-") === -1) {
-            jQuery("td#10032 .DecimalMoneda").val("0");
-            jQuery("td#10032 .DecimalMoneda").attr("value", "0");
-            jQuery("td#10032 .DecimalMoneda").data('regla', '[{"tipo": "cxc","regla": "300000-500000"}]');
-            jQuery("td#10028 .DecimalMoneda").data('regla', dato1);
+        if ($("td#10032 .DecimalMoneda").val().indexOf("-") === -1) {
+            $("td#10032 .DecimalMoneda").val("0");
+            $("td#10032 .DecimalMoneda").attr("value", "0");
+            $("td#10032 .DecimalMoneda").data('regla', '[{"tipo": "cxc","regla": "300000-500000"}]');
+            $("td#10028 .DecimalMoneda").data('regla', dato1);
         }
         RecalculoReglas();
     }
 };
 var AddSignoMoneda = function() {
-    jQuery(".DecimalMoneda").each(function() {
+    $(".DecimalMoneda").each(function() {
         var Stringnew = "";
         var newString = "";
         var dat = "";
         var pausa = 0;
-        dat = jQuery(this).val();
+        dat = $(this).val();
         for (var j = 0; j < dat.length; j++) {
             if (dat[j] !== "$") {
                 if (dat[j] === "-") {
@@ -1772,35 +1774,35 @@ var AddSignoMoneda = function() {
                 newString += "";
             }
         }
-        jQuery(this).val("");
+        $(this).val("");
         if (pausa === 0) {
             Stringnew = "$" + newString;
         } else {
             Stringnew = "$(" + newString + ")";
         }
-        jQuery(this).val(Stringnew);
+        $(this).val(Stringnew);
     });
 };
 function separadorMiles() {
-    jQuery(".DecimalMoneda,.numero_decimal").each(function() {
+    $(".DecimalMoneda,.numero_decimal").each(function() {
         var Monto = "";
         var NewMonto = "";
-        Monto = jQuery(this);
+        Monto = $(this);
         Monto = Monto.val().replace(/[\,]/g, "");
         NewMonto = Miles(Monto);
-        jQuery(this).val(NewMonto);
+        $(this).val(NewMonto);
     });
 }
 var DeleteMilesActual = function(objdecimal) {
     var Newvalor = "";
-    Newvalor = jQuery(objdecimal).val().replace(/[\,]/g, "");
-    jQuery(objdecimal).val(Newvalor);
+    Newvalor = $(objdecimal).val().replace(/[\,]/g, "");
+    $(objdecimal).val(Newvalor);
 };
 var DeleteMiles = function() {
-    jQuery(".DecimalMoneda").each(function() {
+    $(".DecimalMoneda").each(function() {
         var Newvalor = "";
-        Newvalor = jQuery(this).val().replace(/[\,]/g, "");
-        jQuery(this).val(Newvalor);
+        Newvalor = $(this).val().replace(/[\,]/g, "");
+        $(this).val(Newvalor);
     });
 };
 function Miles(monto) {
@@ -1819,17 +1821,17 @@ var FocusDecimalMoneda = function(objdecimal) {
     var valor = "";
     var simbolo = "";
 
-    jQuery(objdecimal).focusout(function() {
-        if (jQuery(this).val() === "") {
-            jQuery(this).val("0");
+    $(objdecimal).focusout(function() {
+        if ($(this).val() === "") {
+            $(this).val("0");
         }
         ReglasJson(objdecimal);
     });
-    jQuery(objdecimal).focusin(function() {
+    $(objdecimal).focusin(function() {
         DeleteMilesActual(objdecimal);
         var pausa2 = 0;
-        valor = jQuery(this).val();
-        simbolo = jQuery(this).val();
+        valor = $(this).val();
+        simbolo = $(this).val();
         var cont = "";
         for (var i = 0; i < simbolo.length; i++) {
             if (simbolo[i] !== "$" && i === 0) {
@@ -1847,24 +1849,24 @@ var FocusDecimalMoneda = function(objdecimal) {
                 }
             }
         }
-        jQuery(this).val("");
+        $(this).val("");
         if (pausa2 === 0) {
             if (parseFloat(cont) === 0) {
-                jQuery(this).val("");
+                $(this).val("");
             } else {
-                jQuery(this).val(cont);
+                $(this).val(cont);
             }
         } else {
-            jQuery(this).val("-" + cont);
+            $(this).val("-" + cont);
         }
     });
 
 };
 var InitDecimalMoneda = function() {
-    jQuery(".DecimalMoneda").each(function() {
+    $(".DecimalMoneda").each(function() {
         var initValor = "";
-        initValor = "$" + jQuery(this).val();
-        jQuery(this).val(initValor);
+        initValor = "$" + $(this).val();
+        $(this).val(initValor);
     });
 };
 var getKeyCodes = function(e) {
@@ -1885,17 +1887,17 @@ var DecimalMoneda = function(objdecimal) {
     var flagPunto = "";
     var ret = "";
     var keynum = "";
-    nDecimales = jQuery(objdecimal).data("ndecimalneg");
-    jQuery(objdecimal).keypress(function(event) {
+    nDecimales = $(objdecimal).data("ndecimalneg");
+    $(objdecimal).keypress(function(event) {
         var Code = getKeyCodes(event);
         var regreso = "";
         keynum = getKeyCodes(event);
         if (Code === 39 || Code === 37) {
             return true;
         }
-        flagPunto = jQuery(this).val().split(".");
+        flagPunto = $(this).val().split(".");
         if (Code === 45 && objdecimal.selectionStart === 0) {
-            if (jQuery(this).val().indexOf("-") > -1) {
+            if ($(this).val().indexOf("-") > -1) {
                 regreso = (Code > 47 && Code < 58 || Code === 8 || Code === 9);
                 return  (Code > 47 && Code < 58 || Code === 8 || Code === 9);
             } else {
@@ -1913,41 +1915,41 @@ var DecimalMoneda = function(objdecimal) {
         return ret;
     });
 
-    jQuery(objdecimal).keyup(function(ev) {
-        var Valor = jQuery(this).val();
+    $(objdecimal).keyup(function(ev) {
+        var Valor = $(this).val();
         var a = Valor.split('.');
         var index;
         var limit;
         if (a.length == '2' && nDecimales > 0 && a[1].length > nDecimales)
         {
-            index = parseFloat(jQuery(this).val().indexOf("."));
+            index = parseFloat($(this).val().indexOf("."));
             if (index <= 9) {
                 limit = index + parseFloat(nDecimales) + 1;
-                jQuery(this).val(jQuery(this).val().substring(0, limit));
+                $(this).val($(this).val().substring(0, limit));
             }
         } else
         if (nDecimales == 0) {
-            jQuery(this).val(jQuery(this).val().replace(".", ""));
+            $(this).val($(this).val().replace(".", ""));
         }
     });
 };
 var InitFormatporcent = function() {
-    jQuery(".numeroPorcentaje").each(function() {
+    $(".numeroPorcentaje").each(function() {
         var initValor = "";
-        initValor = jQuery(this).val() + "%";
-        jQuery(this).val(initValor);
+        initValor = $(this).val() + "%";
+        $(this).val(initValor);
     });
 };
 var FocusFormatporcent = function(objdecimal) {
     var simbolo = "";
     var newData = "";
-    jQuery(objdecimal).focusout(function() {
+    $(objdecimal).focusout(function() {
         ReglasJson(objdecimal);
         RentaNetaPerdidaFiscal();
         var newValor = "";
         var datainput = "";
         var valorinput = "";
-        valorinput = jQuery(this).val();
+        valorinput = $(this).val();
         for (var j = 0; j < valorinput.length; j++) {
             if (valorinput[j] === "%") {
                 datainput += "";
@@ -1957,10 +1959,10 @@ var FocusFormatporcent = function(objdecimal) {
         }
         newData = (datainput === "") ? "0" : datainput;
         newValor = newData + "%";
-        jQuery(this).val(newValor);
+        $(this).val(newValor);
     });
-    jQuery(objdecimal).focusin(function() {
-        simbolo = jQuery(this).val();
+    $(objdecimal).focusin(function() {
+        simbolo = $(this).val();
         var cont = "";
         for (var i = 0; i < simbolo.length; i++) {
             if (simbolo[i] === "%") {
@@ -1969,38 +1971,38 @@ var FocusFormatporcent = function(objdecimal) {
                 cont += simbolo[i];
             }
         }
-        (cont === "0") ? jQuery(this).val("") : jQuery(this).val(cont);
+        (cont === "0") ? $(this).val("") : $(this).val(cont);
     });
 };
 
 
 
 var formatporcent = function(objdecimal) {
-    jQuery(objdecimal).keypress(function(event) {
+    $(objdecimal).keypress(function(event) {
         var decim = "";
         var dec = "";
         var deci = "";
         var datosdeci = "";
         if (event.which) {
             if (event.which === 45 && objdecimal.selectionStart === 0) {
-                if (jQuery(this).val().indexOf("-") > -1) {
+                if ($(this).val().indexOf("-") > -1) {
                     return  (event.which > 47 && event.which < 58 || event.which === 8);
                 } else {
                     return  (event.which > 47 && event.which < 58 || event.which === 8 || event.which === 45);
                 }
             } else {
-                if (jQuery(objdecimal).val().indexOf(".") > -1) {
+                if ($(objdecimal).val().indexOf(".") > -1) {
 
                     if (event.which > 96 && event.which < 123) {
                         return (event.which === 8);
                     } else {
-                        deci = jQuery(objdecimal).val().split(".");
+                        deci = $(objdecimal).val().split(".");
                         dec = deci[1];
                         if (isUndefinedOrNull(dec)) {
                             return (event.which > 47 && event.which < 58 || event.which === 8);
                         } else {
                             decim = dec.toString().length;
-                            datosdeci = jQuery(objdecimal).data("ndecimalneg");
+                            datosdeci = $(objdecimal).data("ndecimalneg");
                             if (!isUndefinedOrNull(datosdeci)) {
                                 if (decim < datosdeci) {
                                     return (event.which > 47 && event.which < 58 || event.which === 8);
@@ -2017,24 +2019,24 @@ var formatporcent = function(objdecimal) {
                 }
             }
         } else if (event.charCode) {
-            if (event.charCode === 45 && jQuery(this).val().length === 0) {
-                if (jQuery(this).val().indexOf("-") > -1) {
+            if (event.charCode === 45 && $(this).val().length === 0) {
+                if ($(this).val().indexOf("-") > -1) {
                     return  (event.charCode > 47 && event.charCode < 58 || event.charCode === 8);
                 } else {
                     return  (event.charCode > 47 && event.charCode < 58 || event.charCode === 8 || event.charCode === 45);
                 }
             } else {
-                if (jQuery(objdecimal).val().indexOf(".") > -1) {
+                if ($(objdecimal).val().indexOf(".") > -1) {
                     if (event.charCode > 96 && event.charCode < 123) {
                         return (event.charCode === 8);
                     } else {
-                        deci = jQuery(objdecimal).val().split(".");
+                        deci = $(objdecimal).val().split(".");
                         dec = deci[1];
                         if (isUndefinedOrNull(dec)) {
                             return (event.charCode > 47 && event.charCode < 58 || event.charCode === 8);
                         } else {
                             decim = dec.toString().length;
-                            datosdeci = jQuery(objdecimal).data("ndecimalneg");
+                            datosdeci = $(objdecimal).data("ndecimalneg");
                             if (!isUndefinedOrNull(datosdeci)) {
                                 if (decim < datosdeci) {
                                     return (event.charCode > 47 && event.charCode < 58 || event.charCode == 8);
@@ -2051,24 +2053,24 @@ var formatporcent = function(objdecimal) {
                 }
             }
         } else if (window.event.keyCode) {
-            if (window.event.keyCode === 45 && jQuery(this).val().length === 0) {
-                if (jQuery(this).val().indexOf("-") > -1) {
+            if (window.event.keyCode === 45 && $(this).val().length === 0) {
+                if ($(this).val().indexOf("-") > -1) {
                     return  (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode === 8);
                 } else {
                     return  (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode === 8 || window.event.keyCode === 45);
                 }
             } else {
-                if (jQuery(objdecimal).val().indexOf(".") > -1) {
+                if ($(objdecimal).val().indexOf(".") > -1) {
                     if (window.event.keyCode > 96 && window.event.keyCode < 123) {
                         return (window.event.keyCode === 8);
                     } else {
-                        deci = jQuery(objdecimal).val().split(".");
+                        deci = $(objdecimal).val().split(".");
                         dec = deci[1];
                         if (isUndefinedOrNull(dec)) {
                             return (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode === 8);
                         } else {
                             decim = dec.toString().length;
-                            datosdeci = jQuery(objdecimal).data("ndecimalneg");
+                            datosdeci = $(objdecimal).data("ndecimalneg");
                             if (!isUndefinedOrNull(datosdeci)) {
                                 if (decim < datosdeci) {
                                     return (window.event.keyCode > 47 && window.event.keyCode < 58 || window.event.keyCode == 8);
@@ -2088,20 +2090,20 @@ var formatporcent = function(objdecimal) {
     });
 };
 var Focusformatnumber = function(objdecimal) {
-    jQuery(objdecimal).focusout(function() {
-        if (jQuery.trim(jQuery(this).val()) == "") {
-            jQuery(this).val("0");
+    $(objdecimal).focusout(function() {
+        if ($.trim($(this).val()) == "") {
+            $(this).val("0");
         }
         ReglasJson(objdecimal);
     });
-    jQuery(objdecimal).focusin(function() {
-        if (parseFloat(jQuery(this).val()) === 0) {
-            jQuery(this).val("");
+    $(objdecimal).focusin(function() {
+        if (parseFloat($(this).val()) === 0) {
+            $(this).val("");
         }
     });
 };
 var formatnumber = function(objnumber) {
-    jQuery(objnumber).keypress(function(event) {
+    $(objnumber).keypress(function(event) {
 
         if (event.which) {
             return (event.which > 47 && event.which < 58 || event.which == 8);
@@ -2113,7 +2115,7 @@ var formatnumber = function(objnumber) {
     });
 };
 var nSerieExtravio = function(objserie) {
-    jQuery(objserie).keypress(function(e) {
+    $(objserie).keypress(function(e) {
         if (e.which) {
             return (e.which > 47 && e.which < 58 || e.which === 8 || e.which > 43 && e.which < 46);
         } else if (e.charCode) {
@@ -2124,7 +2126,7 @@ var nSerieExtravio = function(objserie) {
     });
 };
 var DatePeriodosYear = function() {
-    jQuery(".DatePeriodoYear").each(function() {
+    $(".DatePeriodoYear").each(function() {
         DatePeriodoYear(this);
         afterShowCalendarThree();
     });
@@ -2132,7 +2134,7 @@ var DatePeriodosYear = function() {
 var DatePeriodoYear = function(Datapicker) {
     var date = new Date();
     var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
-    jQuery(Datapicker).datepicker({
+    $(Datapicker).datepicker({
         changeMonth: true,
         changeYear: true,
         dateFormat: 'mm/yy',
@@ -2152,10 +2154,10 @@ var DatePeriodoYear = function(Datapicker) {
         showButtonPanel: true,
         closeText: "Aceptar",
         onClose: function() {
-            var iYear = jQuery("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            jQuery(this).datepicker('setDate', new Date(iYear, 0, 1));
+            var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(iYear, 0, 1));
             restrictAct5(iYear);
-            if (jQuery.trim(jQuery(this).val()) !== "") {
+            if ($.trim($(this).val()) !== "") {
                 hideRequired(this);
             } else {
                 showRequired(this);
@@ -2164,14 +2166,14 @@ var DatePeriodoYear = function(Datapicker) {
     });
 };
 function restrictAct5(year) {
-    jQuery(".DatePeriodoH").datepicker("option", "minDate", new Date(year, 11));
-    jQuery(".DatePeriodoH").datepicker("option", "maxDate", new Date(year, 11));
-    jQuery(".DatePeriodoH").datepicker('setDate', new Date(year, 11, 1));
+    $(".DatePeriodoH").datepicker("option", "minDate", new Date(year, 11));
+    $(".DatePeriodoH").datepicker("option", "maxDate", new Date(year, 11));
+    $(".DatePeriodoH").datepicker('setDate', new Date(year, 11, 1));
 }
 ;
 var afterShowCalendarThree = function() {
-    jQuery("#ui-datepicker-div").addClass("myclassdoesntgo");
-    jQuery("#ui-datepicker-div").addClass("removeMonthsAndDays");
+    $("#ui-datepicker-div").addClass("myclassdoesntgo");
+    $("#ui-datepicker-div").addClass("removeMonthsAndDays");
 };
 var EvaluarRegla = function(campo, nfila, exclusiones) {
     var sumaFil = 0;
@@ -2179,18 +2181,18 @@ var EvaluarRegla = function(campo, nfila, exclusiones) {
     var valCasilla = "";
     var arregloExcusiones = "";
     arregloExcusiones = new String(exclusiones).split(",");
-    jQuery("table.TablaReglas tr").eq(nfila).find("td input").each(function() {
-        valCasilla = jQuery(this).data("casilla");
-        if (jQuery.inArray(valCasilla.toString(), arregloExcusiones) === -1) {
-            if (jQuery(this).attr("id") !== jQuery("table.TablaReglas tr").eq(nfila).find(campo).attr("id") && jQuery(this).val() !== "") {
-                sumaFil += Number(parseFloat(jQuery(this).val()));
+    $("table.TablaReglas tr").eq(nfila).find("td input").each(function() {
+        valCasilla = $(this).data("casilla");
+        if ($.inArray(valCasilla.toString(), arregloExcusiones) === -1) {
+            if ($(this).attr("id") !== $("table.TablaReglas tr").eq(nfila).find(campo).attr("id") && $(this).val() !== "") {
+                sumaFil += Number(parseFloat($(this).val()));
             }
         }
     });
     TotalFil = parseFloat(sumaFil).toFixed(2);
-    jQuery("table.TablaReglas tr#" + nfila).find(campo).val("");
-    jQuery("table.TablaReglas tr#" + nfila).find(campo).val(TotalFil.toString());
-    jQuery("table.TablaReglas tr#" + nfila).find(campo).attr("value", TotalFil.toString());
+    $("table.TablaReglas tr#" + nfila).find(campo).val("");
+    $("table.TablaReglas tr#" + nfila).find(campo).val(TotalFil.toString());
+    $("table.TablaReglas tr#" + nfila).find(campo).attr("value", TotalFil.toString());
 };
 var convertCasillas = function(casilla) {
     var Casillas = "";
@@ -2241,8 +2243,8 @@ var CalculoCxC = function(objtotal, ReglaCxC) {
     var Tcasilla = "";
     var cont = 0;
     var cas = "";
-    jQuery("table.TablaReglas tr td input").each(function() {
-        cas = jQuery(this).data("casilla");
+    $("table.TablaReglas tr td input").each(function() {
+        cas = $(this).data("casilla");
         if (!isUndefinedOrNull(cas)) {
             cont += 1;
         }
@@ -2250,7 +2252,7 @@ var CalculoCxC = function(objtotal, ReglaCxC) {
 
     for (var s = 0; s <= cont; s++) {
         var valorCasilla = "";
-        valorCasilla = jQuery("table.TablaReglas tr td input").eq(s).data("casilla");
+        valorCasilla = $("table.TablaReglas tr td input").eq(s).data("casilla");
         if (!isUndefinedOrNull(valorCasilla)) {
             Tcasilla += "C" + valorCasilla + ",";
         }
@@ -2261,7 +2263,7 @@ var CalculoCxC = function(objtotal, ReglaCxC) {
         var arregloMoneda = 0;
         var dataCelda = "";
         var casillaTable = ArraryCasillas[j].toString().split("C");
-        if (jQuery.inArray(ArraryCasillas[j].toString(), CasillasArray) === -1) {
+        if ($.inArray(ArraryCasillas[j].toString(), CasillasArray) === -1) {
             dataCelda = ArraryCasillas[j].toString();
             var porcent = "";
             porcent = dataCelda.split("%");
@@ -2285,7 +2287,7 @@ var CalculoCxC = function(objtotal, ReglaCxC) {
             }
         } else {
             if (!isUndefinedOrNull(casillaTable[1])) {
-                arregloMoneda = jQuery("table.TablaReglas tr").find("td input[data-casilla='" + casillaTable[1].toString() + "']").val();
+                arregloMoneda = $("table.TablaReglas tr").find("td input[data-casilla='" + casillaTable[1].toString() + "']").val();
                 if (arregloMoneda === "") {
                     arregloMoneda = "0";
                 }
@@ -2319,14 +2321,14 @@ var CalculoCxC = function(objtotal, ReglaCxC) {
 
             if (!isNaN(e)) {
                 if (isFinite(e)) {
-                    jQuery("table.TablaReglas tr td").find(objtotal).val("");
-                    jQuery("table.TablaReglas tr td").find(objtotal).val(e.toString());
-                    jQuery("table.TablaReglas tr td").find(objtotal).attr("value", e.toString());
+                    $("table.TablaReglas tr td").find(objtotal).val("");
+                    $("table.TablaReglas tr td").find(objtotal).val(e.toString());
+                    $("table.TablaReglas tr td").find(objtotal).attr("value", e.toString());
                 } else {
-                    jQuery("table.TablaReglas tr td").find(objtotal).val("0");
+                    $("table.TablaReglas tr td").find(objtotal).val("0");
                 }
             } else {
-                jQuery("table.TablaReglas tr td").find(objtotal).val("0");
+                $("table.TablaReglas tr td").find(objtotal).val("0");
             }
 
         }
@@ -2335,14 +2337,14 @@ var CalculoCxC = function(objtotal, ReglaCxC) {
         TotalCxC = parseFloat(TotalCalc).toFixed(2);
         if (!isNaN(TotalCalc)) {
             if (isFinite(TotalCalc)) {
-                jQuery("table.TablaReglas tr td").find(objtotal).val("");
-                jQuery("table.TablaReglas tr td").find(objtotal).val(TotalCxC.toString());
-                jQuery("table.TablaReglas tr td").find(objtotal).attr("value", TotalCxC.toString());
+                $("table.TablaReglas tr td").find(objtotal).val("");
+                $("table.TablaReglas tr td").find(objtotal).val(TotalCxC.toString());
+                $("table.TablaReglas tr td").find(objtotal).attr("value", TotalCxC.toString());
             } else {
-                jQuery("table.TablaReglas tr td").find(objtotal).val("0");
+                $("table.TablaReglas tr td").find(objtotal).val("0");
             }
         } else {
-            jQuery("table.TablaReglas tr td").find(objtotal).val("0");
+            $("table.TablaReglas tr td").find(objtotal).val("0");
         }
     }
 };
@@ -2368,16 +2370,16 @@ var evalDivisionPorcent = function(e1, e2) {
 };
 var RecalculoReglas = function() {
     DeleteSigno();
-    jQuery("table.TablaReglas tr td input").each(function() {
+    $("table.TablaReglas tr td input").each(function() {
         var total = "";
         var data = "";
-        data = jQuery(this).data("regla");
-        total = jQuery(this);
+        data = $(this).data("regla");
+        total = $(this);
         if (!isUndefinedOrNull(data)) {
             if (typeof data !== "object") {
-                data = jQuery.parseJSON(data);
+                data = $.parseJSON(data);
             }
-            jQuery.each(data, function(keytd, valtd) {
+            $.each(data, function(keytd, valtd) {
                 if (valtd.tipo === "f") {
                     CalculoFilas();
                 } else
@@ -2394,16 +2396,16 @@ var RecalculoReglas = function() {
 };
 var InitRecalcReglas = function() {
     DeleteSigno();
-    jQuery("table.TablaReglas tr td input").each(function() {
+    $("table.TablaReglas tr td input").each(function() {
         var total = "";
         var data = "";
-        data = jQuery(this).data("regla");
-        total = jQuery(this);
+        data = $(this).data("regla");
+        total = $(this);
         if (!isUndefinedOrNull(data)) {
             if (typeof data !== "object") {
-                data = jQuery.parseJSON(data);
+                data = $.parseJSON(data);
             }
-            jQuery.each(data, function(keytd, valtd) {
+            $.each(data, function(keytd, valtd) {
                 if (valtd.tipo === "f") {
                     CalculoFilas();
                 } else
@@ -2424,29 +2426,29 @@ var InitRecalcReglas = function() {
 
 var extraerTipoRegla = function(json) {
     var tipoRegla = "";
-    jQuery.each(json, function(keytd, valtd) {
+    $.each(json, function(keytd, valtd) {
         tipoRegla = valtd.tipo;
     });
     return tipoRegla;
 };
 var extraerExclusiones = function(json) {
     var exclusiones = "";
-    jQuery.each(json, function(keytd, valtd) {
+    $.each(json, function(keytd, valtd) {
         exclusiones = valtd.exclusiones;
     });
     return exclusiones;
 };
 var extraerResta = function(json) {
     var resta = "";
-    jQuery.each(json, function(keytd, valtd) {
+    $.each(json, function(keytd, valtd) {
         resta = valtd.resta;
     });
     return resta;
 };
 var CalculoFilas = function() {
-    jQuery("table.TablaReglas tr").each(function() {
+    $("table.TablaReglas tr").each(function() {
         var IdFile = "";
-        IdFile = jQuery("table.TablaReglas tr").index(jQuery(this));
+        IdFile = $("table.TablaReglas tr").index($(this));
         var recalSuma = 0;
         var Restaparam = 0;
         var TsumaFil = 0;
@@ -2455,14 +2457,14 @@ var CalculoFilas = function() {
         var valCasilla = "";
         var exclusiones = "";
         var resta = "";
-        idlasin = jQuery("table.TablaReglas tr").eq(IdFile).find("td input").last().attr("id");
-        if (!isUndefinedOrNull(jQuery("#" + idlasin).data("regla"))) {
+        idlasin = $("table.TablaReglas tr").eq(IdFile).find("td input").last().attr("id");
+        if (!isUndefinedOrNull($("#" + idlasin).data("regla"))) {
             var arregloExcusiones = "";
             var arregloRestas = "";
             var tipoRegla = "";
-            var reglaInput = jQuery("#" + idlasin).data("regla");
+            var reglaInput = $("#" + idlasin).data("regla");
             if (typeof reglaInput !== "object") {
-                reglaInput = jQuery.parseJSON(reglaInput);
+                reglaInput = $.parseJSON(reglaInput);
             }
             tipoRegla = extraerTipoRegla(reglaInput);
             exclusiones = extraerExclusiones(reglaInput);
@@ -2470,26 +2472,26 @@ var CalculoFilas = function() {
             arregloExcusiones = isUndefinedOrNull(exclusiones) ? '' : new String(exclusiones).split(",");
             arregloRestas = isUndefinedOrNull(resta) ? '' : new String(resta).split(",");
             if (tipoRegla === "f") {
-                jQuery("table.TablaReglas tr").eq(IdFile).find("td input").each(function() {
+                $("table.TablaReglas tr").eq(IdFile).find("td input").each(function() {
                     var valor = 0;
                     var idin = "";
-                    valor = jQuery(this).val();
-                    valCasilla = jQuery(this).data("casilla");
-                    idin = jQuery(this).attr("id");
+                    valor = $(this).val();
+                    valCasilla = $(this).data("casilla");
+                    idin = $(this).attr("id");
                     if (idin !== idlasin && valor !== "") {
-                        if (jQuery.inArray(valCasilla.toString(), arregloExcusiones) === -1) {
+                        if ($.inArray(valCasilla.toString(), arregloExcusiones) === -1) {
                             recalSuma += Number(parseFloat(valor));
                         }
-                        if (jQuery.inArray(valCasilla.toString(), arregloRestas) > -1) {
+                        if ($.inArray(valCasilla.toString(), arregloRestas) > -1) {
                             Restaparam += Number(parseFloat(valor));
                         }
                     }
                 });
                 TsumaFil = eval(recalSuma - Restaparam);
                 TotalFilas = parseFloat(TsumaFil).toFixed(2);
-                jQuery("#" + idlasin).val("");
-                jQuery("#" + idlasin).val(TotalFilas.toString());
-                jQuery("#" + idlasin).attr("value", TotalFilas.toString());
+                $("#" + idlasin).val("");
+                $("#" + idlasin).val(TotalFilas.toString());
+                $("#" + idlasin).attr("value", TotalFilas.toString());
             }
         }
     });
@@ -2505,20 +2507,20 @@ var CalculoColumnas = function(objtotal, exclusiones, resta) {
     var arregloRestas = "";
     arregloExcusiones = isUndefinedOrNull(exclusiones) ? '' : new String(exclusiones).split(",");
     arregloRestas = isUndefinedOrNull(resta) ? '' : new String(resta).split(",");
-    valorDataTolal = jQuery(objtotal).data("identify");
-    jQuery("table.TablaReglas tr td").find("input").each(function() {
+    valorDataTolal = $(objtotal).data("identify");
+    $("table.TablaReglas tr td").find("input").each(function() {
         var valorData = "";
-        if (jQuery(this).val() !== "undefined" && jQuery(this).val().length !== 0) {
-            valorData = jQuery(this).data("identify");
-            valCasilla = jQuery(this).data("casilla");
-            if (jQuery.inArray(valCasilla.toString(), arregloExcusiones) === -1) {
-                if (valorData === valorDataTolal && jQuery(this).attr("id") !== jQuery(objtotal).attr("id")) {
-                    sumaCol += Number(parseFloat(jQuery(this).val()));
+        if ($(this).val() !== "undefined" && $(this).val().length !== 0) {
+            valorData = $(this).data("identify");
+            valCasilla = $(this).data("casilla");
+            if ($.inArray(valCasilla.toString(), arregloExcusiones) === -1) {
+                if (valorData === valorDataTolal && $(this).attr("id") !== $(objtotal).attr("id")) {
+                    sumaCol += Number(parseFloat($(this).val()));
                 }
             }
-            if (jQuery.inArray(valCasilla.toString(), arregloRestas) > -1) {
-                if (valorData === valorDataTolal && jQuery(this).attr("id") !== jQuery(objtotal).attr("id")) {
-                    sumaColRestar += Number(parseFloat(jQuery(this).val()));
+            if ($.inArray(valCasilla.toString(), arregloRestas) > -1) {
+                if (valorData === valorDataTolal && $(this).attr("id") !== $(objtotal).attr("id")) {
+                    sumaColRestar += Number(parseFloat($(this).val()));
                 }
             }
         }
@@ -2526,28 +2528,28 @@ var CalculoColumnas = function(objtotal, exclusiones, resta) {
 
     TsumaCol = eval(sumaCol - sumaColRestar);
     TotalColumnas = parseFloat(TsumaCol).toFixed(2);
-    jQuery("table.TablaReglas tr td").find(objtotal).val("");
-    jQuery("table.TablaReglas tr td").find(objtotal).val(TotalColumnas);
-    jQuery("table.TablaReglas tr td").find(objtotal).attr("value", TotalColumnas);
+    $("table.TablaReglas tr td").find(objtotal).val("");
+    $("table.TablaReglas tr td").find(objtotal).val(TotalColumnas);
+    $("table.TablaReglas tr td").find(objtotal).attr("value", TotalColumnas);
     CalculoFilas();
 };
 
 var ReglasJson = function(objInput) {
     DeleteSigno();
-    isUndefinedOrNull(jQuery("#btnDicc")) ? '' : jQuery("#btnDicc").attr({"dir": "true"});
-    jQuery("table.TablaReglas tr td input").each(function() {
+    isUndefinedOrNull($("#btnDicc")) ? '' : $("#btnDicc").attr({"dir": "true"});
+    $("table.TablaReglas tr td input").each(function() {
         var total = "";
         var data = "";
         var valOld = "";
         var valNew = "";
-        data = jQuery(this).data("regla");
-        total = jQuery(this);
+        data = $(this).data("regla");
+        total = $(this);
         if (!isUndefinedOrNull(data)) {
-            valOld = jQuery(total).val();
+            valOld = $(total).val();
             if (typeof data !== "object") {
-                data = jQuery.parseJSON(data);
+                data = $.parseJSON(data);
             }
-            jQuery.each(data, function(keytd, valtd) {
+            $.each(data, function(keytd, valtd) {
                 if (valtd.tipo === "f") {
                     CalculoFilas();
                 } else
@@ -2558,8 +2560,8 @@ var ReglasJson = function(objInput) {
                     CalculoCxC(total, valtd.regla);
                 }
             });
-            valNew = jQuery(this).val();
-            verificarCalculoRenta(jQuery(this), valNew, valOld);
+            valNew = $(this).val();
+            verificarCalculoRenta($(this), valNew, valOld);
         }
     });
     RentaNetaPerdidaFiscal();
@@ -2586,7 +2588,7 @@ var afterRestablecer = function() {
     DecimalMonedas();
     separadorMiles();
     mascaraDecimales("inputDecimalMI", 2);
-    obj = jQuery("#valorsujetocalculo");
+    obj = $("#valorsujetocalculo");
     if (!isUndefinedOrNull(obj.val()))
     {
         obj.blur();
@@ -2597,7 +2599,7 @@ var afterRestablecer = function() {
 
 var compDate = function(input) {
     //console.log(input);
-    var input$ = jQuery(input);
+    var input$ = $(input);
     var valor = input$.val();
     //console.log(valor.length);
     if (valor.length > 9) {
@@ -2634,28 +2636,28 @@ var existeFecha = function(fecha) {
 
 var doLoad = function(btn, url, div, func) {
     wait('#' + div);
-    var ismultipart = jQuery(btn).hasClass('multipart');
+    var ismultipart = $(btn).hasClass('multipart');
     if (ismultipart===null || (ismultipart !== 'true' && ismultipart !== true && ismultipart !== 1 && ismultipart !== '1' && ismultipart !== 'yes' && ismultipart !== 'si' && ismultipart !== 'on')) {
         url = encodeURI(url);
-        jQuery('#' + div).load(url + ' #' + div, function(responseTxt, statusTxt, xhr) {
+        $('#' + div).load(url + ' #' + div, function(responseTxt, statusTxt, xhr) {
 //            uialert(statusTxt);
-            jQuery("#numsol").val("");
+            $("#numsol").val("");
             if (statusTxt === 'success') {
 
                 unlockButton(btn);
                 var f = func + '(responseTxt, statusTxt, xhr)';
-                var hide = jQuery(btn).attr('hide');
+                var hide = $(btn).attr('hide');
                 if (!hide===null) {
                     if (hide === 'true') {
                         try {
-                            jQuery(btn).hide();
+                            $(btn).hide();
                         } catch (e) {
                         }
                     }
                 }
                 else {
                     try {
-                        jQuery(btn).button('option', 'disabled', false);
+                        $(btn).button('option', 'disabled', false);
                     } catch (e) {
                     }
                 }
@@ -2666,19 +2668,19 @@ var doLoad = function(btn, url, div, func) {
             } else {
                 var divname = div===null ? 'waitDiv' : div + 'waitDiv';
                 var msg = "Ha ocurrido un error inesperado: ";
-                jQuery('#' + divname).hide();
-                jQuery('#' + divname).remove();
+                $('#' + divname).hide();
+                $('#' + divname).remove();
                 uialert('ERROR: ' + msg + xhr.status + " " + xhr.statusText, '¡Error Inesperado!');
             }
         });
     } else {
         var data = new FormData();
-        jQuery("input[type=file]").each(function() {
-            var files = jQuery(this)[0].files;
+        $("input[type=file]").each(function() {
+            var files = $(this)[0].files;
             if (!files===null) {
-                var filenameseparator = jQuery(files).length > 1 ? '_' : '';
-                jQuery.each(jQuery(this)[0].files, function(i, file) {
-                    var filename = jQuery(this).attr('id');
+                var filenameseparator = $(files).length > 1 ? '_' : '';
+                $.each($(this)[0].files, function(i, file) {
+                    var filename = $(this).attr('id');
                     filename = (filename===null ? 'archivo' : filename)
                             + ((!filenameseparator===null && filenameseparator !== '') ? (filenameseparator + i) : '');
                     data.append(filename, file);
@@ -2687,7 +2689,7 @@ var doLoad = function(btn, url, div, func) {
             }
         });
 
-        jQuery.ajax({
+        $.ajax({
             url: url,
             data: data,
             cache: false,
@@ -2698,24 +2700,24 @@ var doLoad = function(btn, url, div, func) {
         }).always(
                 function(responseTxt, statusTxt, xhr) {
                     if (statusTxt === 'success') {
-                        jQuery('#waitDiv').hide();
+                        $('#waitDiv').hide();
                         var divname = div===null ? 'waitDiv' : div + 'waitDiv';
-                        jQuery('#' + divname).hide();
-                        jQuery('#' + div).html(jQuery(responseTxt).find('#' + div).html() + '<div id="#errorMessages">' + jQuery(responseTxt).find('#errorMessages').html() + '</div>');
-                        jQuery('#errorMessages').hide();
+                        $('#' + divname).hide();
+                        $('#' + div).html($(responseTxt).find('#' + div).html() + '<div id="#errorMessages">' + $(responseTxt).find('#errorMessages').html() + '</div>');
+                        $('#errorMessages').hide();
                         unlockButton(btn);
                         var f = func + '(responseTxt, statusTxt, xhr)';
-                        var hide = jQuery(btn).attr('hide');
+                        var hide = $(btn).attr('hide');
                         if (!hide===null) {
                             if (hide === 'true') {
                                 try {
-                                    jQuery(btn).hide();
+                                    $(btn).hide();
                                 } catch (e) {
                                 }
                             }
                         } else {
                             try {
-                                jQuery(btn).button('option', 'disabled', false);
+                                $(btn).button('option', 'disabled', false);
                             } catch (e) {
                             }
                         }
@@ -2732,38 +2734,38 @@ var doLoad = function(btn, url, div, func) {
 
 var uialert = function(msg, title) {
     title = isUndefinedOrNull(title) ? '&#161;ALERTA&#33;' : title;
-    var div = jQuery('<div id="uialert" title="' + title + '">'
+    var div = $('<div id="uialert" title="' + title + '">'
             + '<p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>' + msg + '</p>'
             + '</div>');
-    jQuery(div).dialog({
+    $(div).dialog({
         resizable: false,
         height: 140,
         modal: true,
         buttons: {
             "Ok": {text: 'Ok', class: 'yeahbutton', click: function() {
-                    jQuery(this).dialog("close");
+                    $(this).dialog("close");
                 }}
         }
     }).dialog("open");
 };
 
 var wait = function(element) {
-    if (!isUndefinedOrNull(element) && !isUndefinedOrNull(jQuery(element).position())) {
+    if (!isUndefinedOrNull(element) && !isUndefinedOrNull($(element).position())) {
         var width = 350;
         var height = 60;
         var offset = 30; // 22
         var outset = 6; // 22
         var message = 'Espere por favor, actualizando...';
-        var top = jQuery(element).height() / 2 - height / 2;
-        var left = jQuery(element).width() / 2 - width / 2;
-        var divname = jQuery(element).attr('id');
+        var top = $(element).height() / 2 - height / 2;
+        var left = $(element).width() / 2 - width / 2;
+        var divname = $(element).attr('id');
         var divname = isUndefinedOrNull(divname) ? 'waitDiv' : divname + 'waitDiv';
 //    console.log('element:'+element);
-        var newDiv = '<div id="' + divname + '" class="ui-overlay ui-corner-all"  style="margin-top: ' + jQuery(element).css('marginTop') + '; margin-left:' + jQuery(element).css('marginLeft') + '; margin-right:' + jQuery(element).css('marginRight') + '; margin-bottom:' + jQuery(element).css('marginBottom') + '; width: ' + jQuery(element).width() + 'px; height: ' + jQuery(element).height() + 'px; position: absolute; left: ' + jQuery(element).position().left + 'px; top: ' + jQuery(element).position().top + 'px;">'
+        var newDiv = '<div id="' + divname + '" class="ui-overlay ui-corner-all"  style="margin-top: ' + $(element).css('marginTop') + '; margin-left:' + $(element).css('marginLeft') + '; margin-right:' + $(element).css('marginRight') + '; margin-bottom:' + $(element).css('marginBottom') + '; width: ' + $(element).width() + 'px; height: ' + $(element).height() + 'px; position: absolute; left: ' + $(element).position().left + 'px; top: ' + $(element).position().top + 'px;">'
                 + '<div class="ui-widget-overlay ui-corner-all"></div>'
                 + '<div class="ui-widget-shadow ui-corner-all"            style="position: absolute; width: ' + (width + outset) + 'px; height: ' + (height + outset) + 'px; left: ' + left + 'px; top: ' + top + 'px;"></div>'
-                + '<div class="ui-widget ui-widget-content ui-corner-all" style="vertical-align:middle; position: absolute; width: ' + (width - offset) + 'px; height: ' + (height - offset) + 'px; left: ' + (left + offset / 5) + 'px; top: ' + (top + offset / 5) + 'px; padding: 10px;"><img style=" float:left; paddin:0 0; margin: 0 0;" id="loadingIcon" src="./images/loading.gif" title="' + message + '" /><div class="waitmessagetext">' + message + '</div></div></div>';
-        jQuery(element).append(newDiv);
+                + '<div class="ui-widget ui-widget-content ui-corner-all" style="vertical-align:middle; position: absolute; width: ' + (width - offset) + 'px; height: ' + (height - offset) + 'px; left: ' + (left + offset / 5) + 'px; top: ' + (top + offset / 5) + 'px; padding: 10px;"><img style=" float:left; paddin:0 0; margin: 0 0;" id="loadingIcon" src="/sisadmrh/image/loading.gif" title="' + message + '" /><div class="waitmessagetext">' + message + '</div></div></div>';
+        $(element).append(newDiv);
 //        console.log(newDiv);
     }
 };
@@ -2774,12 +2776,12 @@ var isUndefinedOrNull = function(o) {
 
 var unlockButton = function(btn) {
     try {
-//        console.log('unlockButton(' + jQuery(btn).attr('id') + ')');
-        jQuery(btn).removeClass('disabled');
+//        console.log('unlockButton(' + $(btn).attr('id') + ')');
+        $(btn).removeClass('disabled');
     } catch (e) {
     }
     try {
-        jQuery(btn).button('option', 'disabled', false);
+        $(btn).button('option', 'disabled', false);
     } catch (e) {
     }
 };

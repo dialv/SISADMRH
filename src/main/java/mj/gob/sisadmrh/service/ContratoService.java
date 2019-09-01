@@ -18,6 +18,7 @@ public interface ContratoService {
     Iterable <Contrato> listAllContrato();
     Iterable <Contrato> listAllActivos();
     
+    
     Optional<Contrato> getContratoById(Integer id);
 
     Contrato saveContrato(Contrato empleado);
@@ -27,4 +28,5 @@ public interface ContratoService {
     Iterable<Contrato> findByDato(int id) ;
     
      List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2);
+     Iterable<Contrato>  findContratoByCodigopuesto(int id) ;
 }

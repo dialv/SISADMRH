@@ -20,11 +20,13 @@ import mj.gob.sisadmrh.model.Contrato;
 import mj.gob.sisadmrh.model.Empleado;
 import mj.gob.sisadmrh.model.Empleadocontrato;
 import mj.gob.sisadmrh.model.EmpleadocontratoPK;
+import mj.gob.sisadmrh.model.Experiencialaboral;
 import mj.gob.sisadmrh.model.Puesto;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.EmpleadoContratoService;
 import mj.gob.sisadmrh.service.EmpleadoService;
+import mj.gob.sisadmrh.service.ExperiencialaboralService;
 import mj.gob.sisadmrh.service.PuestoService;
 //import mj.gob.sisadmrh.service.ContratoContratoService;
 import net.sf.jasperreports.engine.JRException;
@@ -57,6 +59,8 @@ public class ContratoController extends UtilsController{
   private PuestoService puestoService;
  @Autowired
     private EmpleadoContratoService empleadoContratoService;
+ @Autowired
+ private ExperiencialaboralService experiencialaboralService;
     
     @Autowired
     public void setContratoService(ContratoService contratoService) {
@@ -96,7 +100,23 @@ public class ContratoController extends UtilsController{
                      }
                      System.out.println("}");
               }
+           int codcontrato =contrato.getCodigocontrato();
+        
+        
+        Experiencialaboral experiencialaboral=experiencialaboralService.findByExperienciaBycodigoContrato(codcontrato);
+        
+        
+        experiencialaboral.setCodigocontrato(contrato.getCodigocontrato());
+        experiencialaboral.setFechadesdeexperiencialaboral(contrato.getFechainiciocontrato());
+        experiencialaboral.setFechahastaexperiencialaboral(contrato.getFechafincontrato());
+        experiencialaboral.setSalarioinicial(contrato.getSalarioactual());
+        int codp=contrato.getCodigopuesto();
+        Puesto puesto=puestoService.findCargoContratoByCodigopuesto(codp);
+        experiencialaboral.setCargo(puesto.getNombrepuesto());
         contratoService.saveContrato(contrato);
+        experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+//        experiencialaboral.setCodigocontrato(contrato.);
+        
          status.setComplete();
          bitacoraService.BitacoraRegistry("se Modifico un contrato",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA

@@ -5,6 +5,7 @@
  */
 package mj.gob.sisadmrh.repository;
 
+import java.util.Optional;
 import mj.gob.sisadmrh.model.Experiencialaboral;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -26,5 +27,7 @@ public interface ExperiencialaboralRepository extends CrudRepository<Experiencia
 
     @Query("SELECT o FROM Experiencialaboral o WHERE o.estadoexp != 0")
             public Iterable<Experiencialaboral> listAllActivos(); 
-       
+     
+    @Query(value = "SELECT d.* FROM experiencialaboral d  WHERE d.estadoexp != 0 and d.codigocontrato=:id ", nativeQuery = true)
+    Experiencialaboral findByExperienciaBycodigoContrato(@Param("id") int dato);
 }

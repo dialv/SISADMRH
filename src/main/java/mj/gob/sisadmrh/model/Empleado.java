@@ -31,58 +31,93 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Size(max = 50)
     @Column(name = "NOMBREEMPLEADO")
     private String nombreempleado;
+    
+    
     @Size(max = 50)
     @Column(name = "APELLIDOEMPLEADO")
     private String apellidoempleado;
+    
+    
     @Column(name = "FECHANACIMIENTOEMPLEADO")
 //    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechanacimientoempleado;
+    
+    
     @Size(max = 50)
     @Column(name = "NACIONALIDAD")
     private String nacionalidad;
+    
+    
     @Size(max = 50)
     @Column(name = "TIPONACIONALIDAD")
     private String tiponacionalidad;
+    
+    
     @Size(max = 50)
     @Column(name = "DEPARTAMENTONACIMIENTO")
     private String departamentonacimiento;
+    
+    
     @Size(max = 50)
     @Column(name = "MUNICIPIONACIMIENTO")
     private String municipionacimiento;
+    
+    
     @Size(max = 20)
     @Column(name = "GRUPOSANQUINEO")
     private String gruposanquineo;
+    
+    
     @Size(max = 11)
     @Column(name = "TELEFONOMOVILEMPLEADO")
     private String telefonomovilempleado;
+    
+    
     @Size(max = 11)
     @Column(name = "TELEFONOFIJOEMPLEADO")
     private String telefonofijoempleado;
+    
+    
     @Size(max = 50)
     @Column(name = "RESIDENCIAPERMANENTE")
     private String residenciapermanente;
+    
+    
     @Size(max = 50)
     @Column(name = "ESTADOFAMILIAR")
     private String estadofamiliar;
+    
+    
     @Size(max = 50)
     @Column(name = "DEPARTAMENTORECIDENCIA")
     private String departamentorecidencia;
+    
+    
     @Size(max = 50)
     @Column(name = "MUNICIPIORESIDENCIA")
     private String municipioresidencia;
+    
+    
     @Size(max = 10)
     @Column(name = "DUIEMPLEADO")
     private String duiempleado;
+    
+    
     @Size(max = 17)
     @Column(name = "NITEMPLEADOR")
     private String nitempleador;
+    
+    
     @Size(max = 9)
     @Column(name = "ISSSEMPLEADO")
     private String isssempleado;
+    
+    
     @Column(name = "FECHAINGRESOSECPUB")
 //    
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -95,43 +130,73 @@ public class Empleado implements Serializable {
 //    
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaingresoministerio;
+    
+    
     @Size(max = 12)
     @Column(name = "AFILIACIONPENSION")
     private String afiliacionpension;
+    
+    
     @Size(max = 12)
     @Column(name = "NUMEROAFILIACION")
     private String numeroafiliacion;
+    
+    
     @Size(max = 12)
     @Column(name = "TIPOCUENTA")
     private String tipocuenta;
+    
+    
     @Size(max = 50)
     @Column(name = "NOMBREINSTIUCIONDEPOSITAR")
     private String nombreinstiuciondepositar;
+    
+    
     @Size(max = 30)
     @Column(name = "NUMEROCUENTA")
     private String numerocuenta;
+    
+    
     @Size(max = 50)
     @Column(name = "EMAILEMPLEADO")
     private String emailempleado;
+    
+    
     @Column(name = "ESTADOEMPLEADO")
     private Integer estadoempleado;
+    
+    
     @Size(max = 12)
     @Column(name = "SEXOEMPLEADO")
     private String sexoempleado;
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Column(name = "CODIGOEMPLEADO")
     private Integer codigoempleado;
+    
+    
     @Size(max = 50)
     @Column(name = "recidenciapermanente")
     private String recidenciapermanente;
+    
+    
     @Basic(optional = false)
     @NotNull
 //    @JoinColumn(name = "codigopuesto", referencedColumnName = "codigopuesto")
 //    @OneToOne(optional = false)
     @Column(name = "codigopuesto")
     private int  codigopuesto;
+    
+    
+   
+    @Column(name = "avatar")
+    private byte[] avatar;
+
+   
+    
  @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<Empleadocapacitacion> empleadocapacitacionList;
  
@@ -149,6 +214,15 @@ public class Empleado implements Serializable {
         this.codigopuesto = codigopuesto;
     }
 
+    
+     public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
+    }
+    
     public String getNombreempleado() {
         return nombreempleado;
     }

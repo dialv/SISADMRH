@@ -203,7 +203,7 @@
                 <button type="submit" class="btn btn-default" id="btnGuardar">Guardar</button>
                 <button type="reset" class="btn btn-default">Limpiar</button>-->
  <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
-<button type="submit" class="btn btn-success" onclick="fecha_format();" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="button" class="btn btn-success"  id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -317,6 +317,7 @@
 		    });
 		});
                 $('#btnGuardar').click(function(){
+                    enviar_form_personalizado("formformacion",'../formacionacademica/'+ $("#codem").val().toString());
 //                     $("#loader").addClass("loader");
         var flag =validate_value_field();
         if(flag==false){

@@ -167,7 +167,7 @@
 
                           <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
 
-                        <button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+                        <button type="button"   class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
                         <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
                     </div>
@@ -258,13 +258,9 @@
                                     dateFormat: 'dd/mm/yy'
                                     });
                                     });$('#btnGuardar').click(function(){
-                                        var flag =validate_value_field();
-//                                        alert(flag);
-                                        if(flag==false){
-//                                            alert(flag);
-                                            $("#formcontacto").attr('action', '../contacto/' + $("#codem").val().toString());
-                                            $("form#formcontacto").submit(); 
-                                        }
+                                        enviar_form_personalizado("formcontacto",'../contacto/' + $("#codem").val().toString());
+                                        
+                                     
                                     });</script>
 <script th:inline="javascript">
 

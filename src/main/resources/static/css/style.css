@@ -311,3 +311,18 @@ img1 {
    display: block;
    width: 100%;
 }
+
+
+
+
+
+.img-avatar {
+    
+  display: inline-block;
+  width: 200px;
+  border-radius: 50% !important;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

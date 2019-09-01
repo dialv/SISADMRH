@@ -56,6 +56,12 @@ public class PuestoServiceImpl implements PuestoService {
      return puestoRep.getPuestoByIdEmpleado(id);
     }
     
+    @Override
+    public Puesto findCargoContratoByCodigopuesto(int id) {
+        return puestoRep.findCargoContratoByCodigopuesto(id);
+        
+    }
+    
      @Override
      public List<Object[]> getPuestoByIdEmpleado2(Integer id,Integer id2) {
      return puestoRep.getPuestoByIdEmpleado2(id,id2);

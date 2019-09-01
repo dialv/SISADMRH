@@ -55,6 +55,15 @@ public class ContratoServicesImpl implements ContratoService {
         return contratoRep.findByDato(id);
         
     }
+    
+    @Override
+    public Iterable<Contrato>  findContratoByCodigopuesto(int id) {
+        return contratoRep.findContratoByCodigopuesto(id);
+        
+    }
+    
+    
+    
         
      @Override
      public List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2) {
