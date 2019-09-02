@@ -18,11 +18,11 @@
 
 
 
-            <div  th:if="${contratos !=null }" class="modal fade" id="modalcontratos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div sec:authorize="hasRole('ROLE_TACTICO')"  th:if="${contratos !=null }" class="modal fade" id="modalcontratos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLongTitle">Contratos por vencer!</h3>
+                            <h3 class="modal-title" id="exampleModalLongTitle">Contratos por vencer! BY Chalo</h3>
                               
                         </div>
                         <div class="modal-body">
@@ -30,8 +30,8 @@
                                 <thead>
                                     <tr>
                                         <td>Empleado</td>
-                                        <td>Fecha fin de contrato</td>
-                                        <td>Código de contrato</td>
+                                        <td>Codito Contrato</td>
+                                        <td>Fecha de Caducidad</td>
                                     </tr>
                                 </thead>
                                 <tbody>

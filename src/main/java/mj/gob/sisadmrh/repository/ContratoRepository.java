@@ -39,7 +39,7 @@ public interface ContratoRepository extends CrudRepository<Contrato, Integer>{
       @Query(value = "SELECT d.* FROM contrato d  WHERE d.estadocontrato != 0 and d.codigopuesto=:id ", nativeQuery = true)
     Iterable<Contrato>  findContratoByCodigopuesto(@Param("id") int dato);
     
-    
+    //para contratos a vencer en un alerta
       @Query(value = "SELECT CONCAT(e.nombreempleado,e.apellidoempleado) as nombreEmpleado, c.fechafincontrato as fechafincontrato, c.codigocontrato as codigocontrato  FROM empleado e, contrato c  WHERE e.codigoempleado = c.codigoempleado and (c.fechafincontrato BETWEEN :start and :end ) ORDER BY c.fechafincontrato ASC", nativeQuery = true)
     List<Object[]> findAlmostExpired(@Param("start") String start, @Param("end") String end);
     

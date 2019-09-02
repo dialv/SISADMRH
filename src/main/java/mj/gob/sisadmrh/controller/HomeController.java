@@ -88,7 +88,7 @@ public class HomeController extends UtilsController{
         model.addAttribute("messageuser", "Usuario :" + principal.getName());
         
         
-       
+       //Para generar los empleados con contrato a vencer
         if(request.getSession().getAttribute("listado") == null){
          List<ContratoEmpleadoBean> contratos = contratoService.findAlmostExpired();
          model.addAttribute("contratos",contratos );
