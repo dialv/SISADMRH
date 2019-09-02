@@ -22,23 +22,23 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             <th:block th:include="../templates/menu"></th:block>
         </div>
         <div class="col-md-9">
-		 <div class="row text-center">
-                        <img src="../../static/image/images.jpeg" width="100" th:src="@{/image/images.jpeg}"/>
-                    </div>
+		
             <h3 align="center"></h3>
             <div>
                 <form class="form-horizontal">
                     
-                    <div class="row"  >
-                        
-                         <div class="col-md-12" th:if="${empleado.avatar} != null">
-                            <img th:src="@{/image/${empleado.avatar}}" class="" />
-                         </div>
-                        <div class="col-md-12" th:unless="true">
-                            <img  />
-                         </div>
-                        
-                        
+                   <div class="row">
+
+                         <div class="col-md-12 text-center" th:if="${avatar.length()  > 0}">
+                            <img  class="img-thumbnail img-avatar" th:src="@{'data:image/png;base64,'+${avatar}}" />
+                             <hr />
+                        </div>
+                         
+                         
+                          <div class="col-md-12 text-center" th:if="${avatar.length()  == 0}">
+                            <img  class="img-thumbnail img-avatar" th:src="@{/image/blank-profile.png}" />
+                             <hr />
+                        </div>
                     </div>
                     
                     <div class="col-md-6">

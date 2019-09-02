@@ -1,9 +1,15 @@
 package mj.gob.sisadmrh.controller;
 import java.security.Principal;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import mj.gob.sisadmrh.bean.ContratoEmpleadoBean;
 import mj.gob.sisadmrh.model.Usuario;
 import mj.gob.sisadmrh.repository.UsuarioRepository;
+import mj.gob.sisadmrh.service.ContratoService;
 import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,12 +25,17 @@ import org.springframework.web.bind.support.SessionStatus;
  * @author dialv
  */
 @Controller
+@Scope("session")
 public class HomeController extends UtilsController{
 //   @RequestMapping("/")
 //    public String index() {
 //        return "index";
 //    }
     private UsuarioService usuarioService;
+   
+    
+    @Autowired
+    private ContratoService contratoService;
     
     @Autowired
     public void setUsuarioService(UsuarioService usuarioService) {
@@ -71,10 +82,23 @@ public class HomeController extends UtilsController{
     }
  
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String homePage(Model model, Principal principal) {
+    public String homePage(Model model, Principal principal, HttpServletRequest request) {
         Usuario loginedUser = usr.findbyusername(principal.getName());
         model.addAttribute("usuario", loginedUser);
         model.addAttribute("messageuser", "Usuario :" + principal.getName());
+        
+        
+       
+        if(request.getSession().getAttribute("listado") == null){
+         List<ContratoEmpleadoBean> contratos = contratoService.findAlmostExpired();
+         model.addAttribute("contratos",contratos );
+        request.getSession().setAttribute("listado", contratos.size());
+        }else{
+        
+         model.addAttribute("contratos",null );
+         
+        }
+        
         return ("1".equals(loginedUser.getControlcontrasenia()))?"passform":"index";
     }
  

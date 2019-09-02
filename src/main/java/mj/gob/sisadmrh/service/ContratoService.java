@@ -6,7 +6,9 @@
 package mj.gob.sisadmrh.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import mj.gob.sisadmrh.bean.ContratoEmpleadoBean;
 import mj.gob.sisadmrh.model.Contrato;
 
 /**
@@ -29,4 +31,7 @@ public interface ContratoService {
     
      List<Object[]> getContratoByIdEmpleado(Integer id,Integer id2);
      Iterable<Contrato>  findContratoByCodigopuesto(int id) ;
+     
+     
+     List<ContratoEmpleadoBean> findAlmostExpired() ;
 }

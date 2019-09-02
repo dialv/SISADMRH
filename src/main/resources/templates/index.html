@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>SISADMRH-Inicio</title>
-   <th:block th:include="header"></th:block>
+    <head>
+        <meta charset="UTF-8" />
+        <title>SISADMRH-Inicio</title>
+    <th:block th:include="header"></th:block>
 </head>
 <body>
     <div class="row">
@@ -13,14 +13,63 @@
         <div class="col-md-8">
             <br>  <br>
             <div class="row text-center">
-                        <img src="../../static/image/rrh.png" width="600" th:src="@{/image/rrh.png}"/>
+                <img src="../../static/image/rrh.png" width="600" th:src="@{/image/rrh.png}"/>
+            </div>
+
+
+
+            <div  th:if="${contratos !=null }" class="modal fade" id="modalcontratos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLongTitle">Contratos por vencer!</h3>
+                              
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>Empleado</td>
+                                        <td>Fecha fin de contrato</td>
+                                        <td>Código de contrato</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="c : ${contratos}">
+                                        <td  th:text="${c.nombreEmpleado}"></td>
+                                        
+                                        <td th:text="${c.codigoContrato}"></td>
+                                        <td style="color:red" th:text="${c.fechaFinContrato}"></td>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-12">
             <th:block th:include="footer"></th:block>
         </div>
-        
+
     </div>
 
+
+
+
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#modalcontratos").modal("show");
+        });
+
+    </script>
 </body>
 </html>

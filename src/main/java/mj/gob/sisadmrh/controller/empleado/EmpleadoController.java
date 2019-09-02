@@ -279,7 +279,16 @@ public class EmpleadoController extends UtilsController {
         empleado.setDepartamentonacimiento(depto.getNombreestado());
         empleado.setMunicipionacimiento(munic.getNombreestado());
         
+        
+         String avatar = "";
+        if(empleado.getAvatar() != null){
+          avatar = new String(Base64.getEncoder().encode(empleado.getAvatar()));
+       
+        }
+        
+        
         model.addAttribute("empleado", empleado);
+        model.addAttribute("avatar", avatar);
         model.addAttribute("nombrepuesto", puestoService.getPuestoByIdEmpleado(empleado.getCodigopuesto()).get().getNombrepuesto());
         
         System.out.print("IDEMPLEADO" + id);
