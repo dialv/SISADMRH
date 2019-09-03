@@ -34,4 +34,5 @@ public interface ContratoService {
      
      
      List<ContratoEmpleadoBean> findAlmostExpired() ;
+     Iterable<Contrato>  findContratoByCodigoPuesto(int id) ;
 }

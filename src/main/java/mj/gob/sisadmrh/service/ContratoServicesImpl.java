@@ -114,5 +114,10 @@ public class ContratoServicesImpl implements ContratoService {
         return contratos;
         
     }
+     @Override
+    public   Iterable<Contrato>  findContratoByCodigoPuesto(int id) {
+        return contratoRep.findContratoByCodigoPuesto(id);
+        
+    }
     
 }
