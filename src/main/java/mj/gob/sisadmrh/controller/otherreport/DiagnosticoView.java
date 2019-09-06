@@ -41,10 +41,10 @@ public class DiagnosticoView extends AbstractXlsView{
   
  header.createCell(2).setCellValue("Temas");
  header.createCell(3).setCellValue("Direccion");
- header.createCell(4).setCellValue("Necesidades");
- header.createCell(5).setCellValue("Mes");
+ header.createCell(4).setCellValue("Necesidades de Capacitacion");
+ header.createCell(5).setCellValue("Mes de Capacitacion");
  header.createCell(6).setCellValue("Resultados a Obtener");
- header.createCell(7).setCellValue("Quien autoriza");
+ header.createCell(7).setCellValue("Autorizado por:");
  header.createCell(8).setCellValue("Cargo quien autoriza");
   
  int rowNum = 3;

@@ -169,22 +169,22 @@
 				<reportElement x="134" y="0" width="514" height="14" uuid="3f5ec224-6683-4c36-a60c-4919fc60e52c"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="167" y="0" width="99" height="14" uuid="eaa00365-c1e7-4670-b312-dcdf1f623e84"/>
-				<textElement textAlignment="Center">
+				<reportElement x="145" y="0" width="99" height="14" uuid="eaa00365-c1e7-4670-b312-dcdf1f623e84"/>
+				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Evento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="456" y="0" width="101" height="14" uuid="a1603e0d-1ec8-41e4-b2d1-4035439ead8a"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ip]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="573" y="0" width="80" height="14" uuid="00e8157b-f688-499d-9c58-ae09bb4b3c64"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Usuario]]></text>
@@ -199,8 +199,8 @@
 				<reportElement x="563" y="0" width="1" height="14" uuid="08f8a1f0-dcde-498a-a25d-44fd132e74a0"/>
 			</line>
 			<staticText>
-				<reportElement x="369" y="0" width="68" height="14" uuid="d151d411-ef4f-4c8e-a6ea-35b65e1513c1"/>
-				<textElement textAlignment="Center">
+				<reportElement x="366" y="0" width="68" height="14" uuid="d151d411-ef4f-4c8e-a6ea-35b65e1513c1"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Fecha Evento]]></text>

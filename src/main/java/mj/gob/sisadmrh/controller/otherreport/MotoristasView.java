@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mj.gob.sisadmrh.controller.otherreport;
 
 import java.util.List;
@@ -30,21 +25,23 @@ public class MotoristasView extends AbstractXlsView{
  HttpServletResponse response) throws Exception {
  
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
- response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_motoristas.xls\"");
+ response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_abogados.xls\"");
         
- Iterable<Empleado> abogadoList = (Iterable<Empleado>) model.get("motoristasList");
- Sheet sheet = workbook.createSheet("Motoristas Data");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Codigo de empleado");
- header.createCell(1).setCellValue("Fecha de ingreso");
- header.createCell(2).setCellValue("Nombre completo");
+  List<Object[]>  motoristaList = ( List<Object[]>)  model.get("motoristasList");
+Sheet sheet = workbook.createSheet("Reporte de Motoristas Activos");
+ sheet.createRow(1).createCell(4).setCellValue("Reporte de Motoristas Activos");
+ Row header = sheet.createRow(2);
+ 
+ header.createCell(3).setCellValue("Codigo de empleado");
+ header.createCell(4).setCellValue("Nombre de Empleado");
+ header.createCell(5).setCellValue("Fin Contrato");
   
- int rowNum = 1;
- for(Empleado abogadosPojo:abogadoList){
+ int rowNum = 3;
+ for(Object[] motorista:motoristaList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue(abogadosPojo.getCodigoempleado());
- row.createCell(1).setCellValue(abogadosPojo.getFechaingresoministerio());
- row.createCell(2).setCellValue(abogadosPojo.getNombreempleado());
+ row.createCell(3).setCellValue(((Integer) motorista[0]));
+ row.createCell(4).setCellValue(((String) motorista[1]));
+ row.createCell(5).setCellValue(((String) motorista[2]));
  }
  }
 }

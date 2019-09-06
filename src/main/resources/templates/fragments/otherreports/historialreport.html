@@ -24,18 +24,55 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 </div> 
             <div>
                 <br>
-               <form class="form-horizontal" id="formreport" th:object="${empleados}">
+               <form class="form-horizontal" id="formreport" >
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Estado del empleado(*):</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="estadoempleado" required id="combo">
+                                <!--th:field="*{tipocuenta}">-->
+                                <option value="">--seleccione el estado del empleado--</option>
+                                <option value="1">Activo</option>
+                                <option value="3">Pensionado</option>
+                                <option value="2">Indemnizado</option>
+                                <option value="4">Despedido</option>
+                                <option value="5">De Baja</option>
+                                <option value="6">Renuncia</option>
+                            </select>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup263')" onmouseout ="javascript:ocultarAyuda('poppup263')">a</a></b>
 
+                            <span class="popuptext" id="poppup263">Seleccione el estado del empleado desplegando la lista.!</span>
+                        </div>
+
+                    </div>
+                   
                     <div class="form-group">
+                        <label class="col-sm-4 control-label">Nombre del empleado(*):</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="empleadoc" required id="empleadoc">
+                                <!--th:field="*{tipocuenta}">-->
+                                <option value="">--seleccione un empleado--</option>
+                             </select>
+                        </div>
+                        <div class="popup "><b>
+                                <a id="" class="btnayuda btn btn-info" href="#" onmouseover="javascript:mostrarAyuda('poppup263e')" onmouseout ="javascript:ocultarAyuda('poppup263e')">a</a></b>
+
+                            <span class="popuptext" id="poppup263e">Seleccione un empleado desplegando la lista.!</span>
+                        </div>
+
+                    </div>
+                   
+<!--                    <div class="form-group">
                         <label class="col-sm-3 control-label" >Nombre de empleado:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="codigo" name="codigo">
                             <option value="0">-- Seleccione El empleado --</option>
                             <option th:each="d:${empleados}" th:value="${d.codigoempleado}" th:text="${d.nombreempleado}+', '+${d.apellidoempleado}"></option>
                             </select>
-                            <!--<input type="text" class="form-control" id="codigo" name="codigo"/>-->
+                            <input type="text" class="form-control" id="codigo" name="codigo"/>
                         </div>
-                    </div>
+                    </div>-->
 <!--                     <div class="form-group">    
                         <label class="col-sm-3 control-label">Fecha Inicial:</label>
                         <div class="col-sm-3">
@@ -47,8 +84,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         </div>
                     </div>-->
  <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha desde(*):</label>
-                <div class="col-sm-4">
+                <label class="col-sm-4 control-label">Fecha desde(*):</label>
+                <div class="col-sm-6">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechainicial" id="fechainicial"  onchange="isDat(this.value,'fechainicial');Fechas(this.value,$('#fechafinal').val().toString(),'fechainicial','fechafinal')"/>
                 </div>
@@ -60,8 +97,8 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Fecha hasta(*):</label>
-                <div class="col-sm-4">
+                <label class="col-sm-4 control-label">Fecha hasta(*):</label>
+                <div class="col-sm-6">
                     <!--<input type="text" class="form-control" th:field="*{ubicacionpuesto}"/>-->
                      <input class="form-control fecha_format" placeholder="dia/mes/año" type="text"  name="fechafinal" id="fechafinal" onchange="isDat(this.value,'fechafinal');Fechas($('#fechainicial').val().toString(),this.value,'fechainicial','fechafinal')" />
                 </div>
@@ -102,6 +139,35 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                         }
                     }
     $(document).ready(function () {
+        
+        $('#combo').change(function () {
+                          var id =(jQuery('#combo').val()=="")?0:jQuery('#combo').val();
+                           var lca = '../../empleados/historialempleadosearch/'+ id;
+                           
+                    $.ajax({
+                        url: lca,
+                        success: function (data) {
+                            
+//                            alert("data.length"+data.length+" ");
+                            $('#empleadoc')
+                                .empty()
+                                .append('<option selected="selected" value="">--seleccione un empleado--</option>');
+                        
+                            $.each(data, function(index, currEmp) {
+//                                console.log(currEmp.codigoempleado+' '+currEmp.nombreempleado+' '+currEmp.apellidoempleado); //to print name of employee
+                                $("#empleadoc").append('<option value="'+currEmp.codigoempleado+'">'+currEmp.nombreempleado+' '+currEmp.apellidoempleado+'</option>');
+                            }); 
+
+                            
+                        },
+                        error: function () {
+                           alert("ERROR "+data.length+" ");
+                        }
+                    });
+                });
+        
+        
+        
         $('#fechainicial').datepicker({
             dateFormat: 'dd/mm/yy'
         });
@@ -110,12 +176,14 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
             dateFormat: 'dd/mm/yy'
         });
         $('#generar').click(function(){
-            $("#formreport").attr('action', '../historial/'+ $("#codigo").val().toString());
+            $("#formreport").attr('action', '../historial/'+ $("#empleadoc").val().toString());
             $("form#formreport").submit();
             
         });
         $('#excel').click(function(){
-            $("#formreport").attr('action', '../historialxls');
+            var idemp=$("#empleadoc").val().toString();
+//            alert(idemp);
+            $("#formreport").attr('action', '../historialxls/'+idemp );
             $("form#formreport").submit();
             
         });

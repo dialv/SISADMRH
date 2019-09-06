@@ -35,10 +35,10 @@ public class HijoscapView extends AbstractXlsView{
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE HIJOS CON CAPACIDADES ESPECIALES");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Codigo de Empleado");
- header.createCell(3).setCellValue("Nombre de Empleado");
- header.createCell(4).setCellValue("Tipo de discapacidad");
- header.createCell(5).setCellValue("Nombre de hijo con discapacidad");
+header.createCell(2).setCellValue("Codigo de Empleado");
+ header.createCell(3).setCellValue("Empleado");
+ header.createCell(4).setCellValue("Tipo de capacidad especial");
+ header.createCell(5).setCellValue("Nombre hijo con capacidad especial");
   
  int rowNum = 3;
  for(Object[] hijoscap :hijoscapList){

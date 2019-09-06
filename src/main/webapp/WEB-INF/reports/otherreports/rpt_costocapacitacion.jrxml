@@ -15,7 +15,7 @@ FROM `costocapacitacion`co,capacitacion c
 WHERE co.`codigocapacitacion`=c.`codigocapacitacion` and 
 c.fechacapacitaciondesde>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')
-and co.estadocostocapacitacion=1]]>
+and co.estadocostocapacitacion=1 and c.estadocapacitacion=1]]>
 	</queryString>
 	<field name="Cantidad de Personas" class="java.lang.Integer"/>
 	<field name="Tema" class="java.lang.String"/>
@@ -176,7 +176,7 @@ and co.estadocostocapacitacion=1]]>
 				<text><![CDATA[Tema]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="305" y="0" width="76" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="3a2220b7-0367-4a79-99d1-35ea6c6bcbab"/>
+				<reportElement mode="Transparent" x="306" y="0" width="72" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="3a2220b7-0367-4a79-99d1-35ea6c6bcbab"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -192,7 +192,7 @@ and co.estadocostocapacitacion=1]]>
 				<reportElement x="381" y="0" width="1" height="14" uuid="a7cde06e-6841-475d-85f3-4628bb8c4b8b"/>
 			</line>
 			<staticText>
-				<reportElement mode="Transparent" x="382" y="0" width="84" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="b6ead696-335c-474a-85ff-2cb3431470c8"/>
+				<reportElement mode="Transparent" x="380" y="0" width="80" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="b6ead696-335c-474a-85ff-2cb3431470c8"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>

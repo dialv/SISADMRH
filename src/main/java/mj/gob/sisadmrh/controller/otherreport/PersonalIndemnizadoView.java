@@ -45,7 +45,7 @@ public class PersonalIndemnizadoView extends AbstractXlsView{
  header.createCell(6).setCellValue("Fecha Desde");
  header.createCell(7).setCellValue("Fecha Hasta");
  header.createCell(8).setCellValue("Nombre de Puesto");
- header.createCell(9).setCellValue("Ubicacion");
+ header.createCell(9).setCellValue("Ubicación");
   
  int rowNum = 3;
  for(Object[] List : IndemnizadoList){

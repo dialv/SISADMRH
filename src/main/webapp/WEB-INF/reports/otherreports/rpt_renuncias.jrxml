@@ -20,7 +20,7 @@
 from empleado e ,puesto p,contrato c where 
 e.codigopuesto=p.codigopuesto and
  e.codigoempleado=c.codigoempleado and 
-c.estadocontrato=1 and e.estadoempleado!=0 and e.estadoempleado!=6 and p.estadopuesto<>0 and
+c.estadocontrato=1 and e.estadoempleado!=0 and e.estadoempleado=6 and p.estadopuesto<>0 and
  
  c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and
 c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>

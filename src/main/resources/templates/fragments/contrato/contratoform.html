@@ -250,7 +250,7 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
   <a href="#" th:href="@{/empleados/show/}+${empleado.codigoempleado}" class="btn btn-primary glyphicon glyphicon-arrow-left">Regresar</a>  
  <!--<button type="submit"  onclick="searchpuesto( document.getElementById('idpuesto') ,'1');"  class="btn btn-warning" id="btn"><span class="glyphicon glyphicon-floppy-disk"></span>test</button>-->
 
-<button type="submit"  onclick="fecha_format();"  class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
+<button type="button"    class="btn btn-success" id="btnGuardar"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
 <button type="reset" class="btn btn-secondary"><span class="glyphicon glyphicon-erase"></span>Limpiar</button>
 
             </div>
@@ -462,12 +462,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
 		    });
 		});
                  $('#btnGuardar').click(function(){
-//                      $("#loader").addClass("loader");
-                    var flag =validate_value_field();
-                            if(flag==false){
-                                $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
-                                $("form#formcontrato").submit();
-                            }
+                   enviar_form_personalizado("formcontrato",'../contrato/'+ $("#codem").val().toString());
+//                    var flag =validate_value_field();
+//                            if(flag==false){
+//                                $("#formcontrato").attr('action', '../contrato/'+ $("#codem").val().toString());
+//                                $("form#formcontrato").submit();
+//                            }
                 });
                 
       

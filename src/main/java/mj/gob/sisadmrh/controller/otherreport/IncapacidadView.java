@@ -32,17 +32,17 @@ public class IncapacidadView  extends AbstractXlsView {
  Sheet sheet = workbook.createSheet("Reporte de incapacidades");
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE INCAPACIDADES");
  Row header = sheet.createRow(2);
- header.createCell(2).setCellValue("Nombre de empleado");
- header.createCell(3).setCellValue("Nombre de incapacidad");
- header.createCell(4).setCellValue("cargo ");
+ header.createCell(2).setCellValue("Empleado");
+ header.createCell(3).setCellValue("Incapacidad");
+ header.createCell(4).setCellValue("Puesto ");
  header.createCell(5).setCellValue("DUI ");
- header.createCell(6).setCellValue("Fecha Desde");
- header.createCell(7).setCellValue("Fecha Hasta");
- header.createCell(8).setCellValue("Afiliacion al ISSS");
- header.createCell(9).setCellValue("Tipo de Incapacidad");
+ header.createCell(6).setCellValue("Incapacidad Inicio");
+ header.createCell(7).setCellValue("Incapacidad Fin");
+ header.createCell(8).setCellValue("ISSS");
+ header.createCell(9).setCellValue("Tipo");
  header.createCell(10).setCellValue("Forma de Incapacidad");
  header.createCell(11).setCellValue("Subsidio");
- header.createCell(12).setCellValue("Fecha de Emision");
+ header.createCell(12).setCellValue("Fecha Emision");
 ;
   
  int rowNum = 3;

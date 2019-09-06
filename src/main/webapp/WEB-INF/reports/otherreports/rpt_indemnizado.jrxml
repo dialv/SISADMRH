@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.2100000000000002"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
@@ -16,16 +16,13 @@
  DATE_FORMAT(c.fechainiciocontrato, "%d/ %m /%Y") as "Fecha Desde",
  DATE_FORMAT(c.fechafincontrato, "%d/ %m /%Y") as "Fecha Hasta",
  p.nombrepuesto,p.ubicacionpuesto
-FROM `empleado` e, puesto p, contrato c,empleadocontrato ec
+FROM empleado e, puesto p, contrato c,empleadocontrato ec
 WHERE 
-e.codigopuesto=p.codigopuesto and e.estadoempleado=2 and
+e.codigopuesto=p.codigopuesto and 
 e.codigoempleado=ec.codigoempleado and
-c.codigocontrato=ec.codigocontrato and
+c.codigocontrato=ec.codigocontrato and c.estadocontrato=1  and e.estadoempleado=2  and p.estadopuesto<>0 and
 c.fechainiciocontrato>= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and
-c.fechainiciocontrato <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and p.estadopuesto<>0
-and c.estadocontrato=1
-
-]]>
+c.fechainiciocontrato <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="nombreempleado" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -166,10 +163,10 @@ and c.estadocontrato=1
 	<columnHeader>
 		<band height="14">
 			<rectangle>
-				<reportElement x="84" y="0" width="630" height="14" backcolor="#FFFFFF" uuid="24dded56-e0ac-4ff6-a3f3-9957792b6f79"/>
+				<reportElement x="85" y="0" width="630" height="14" backcolor="#FFFFFF" uuid="24dded56-e0ac-4ff6-a3f3-9957792b6f79"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="85" y="0" width="160" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
+				<reportElement mode="Transparent" x="85" y="0" width="120" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -190,21 +187,14 @@ and c.estadocontrato=1
 				<text><![CDATA[Fecha Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="421" y="0" width="75" height="14" uuid="f0fe30c8-e930-4553-b8fa-b31cdb02989e"/>
+				<reportElement x="419" y="0" width="70" height="14" uuid="f0fe30c8-e930-4553-b8fa-b31cdb02989e"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Hasta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="592" y="0" width="122" height="14" uuid="5a6d96d2-49d9-4941-afd5-08b5fadf02cb"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Ubicación]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="495" y="0" width="97" height="14" uuid="5ee4a13b-06cf-46f9-9b4d-e96719fdaa81"/>
+				<reportElement x="499" y="0" width="90" height="14" uuid="5ee4a13b-06cf-46f9-9b4d-e96719fdaa81"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -235,17 +225,24 @@ and c.estadocontrato=1
 				</textElement>
 				<text><![CDATA[Salario($)]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="213" y="0" width="29" height="14" uuid="b5223a0b-6feb-49ab-ac69-fa9063816296"/>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="592" y="0" width="122" height="14" uuid="5a6d96d2-49d9-4941-afd5-08b5fadf02cb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ubicación]]></text>
+			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="212" y="0" width="1" height="14" uuid="8b6ad0ac-deae-4e0f-ae97-74dbaa9c2646"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="14">
-			<textField isStretchWithOverflow="true" pattern="#,##0.00">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="292" y="0" width="51" height="14" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
-				<textElement textAlignment="Right">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="242" y="0" width="50" height="14" uuid="633c825f-385f-4ae8-8ee9-15fbb1ed14eb"/>
 				<textElement textAlignment="Right">
@@ -268,25 +265,36 @@ and c.estadocontrato=1
 				<textFieldExpression><![CDATA[$F{Fecha Hasta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="601" y="0" width="117" height="14" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="597" y="0" width="117" height="14" uuid="a0a02a5d-05ae-4197-8d69-45036b2a3e0c"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ubicacionpuesto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="86" y="0" width="158" height="14" uuid="29eb0b63-6442-47a5-a450-6e6f7e804f04"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="86" y="0" width="120" height="14" uuid="29eb0b63-6442-47a5-a450-6e6f7e804f04"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreempleado}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="501" y="0" width="99" height="14" uuid="5187dc3f-9202-43a1-9196-1869ae28ae30"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="499" y="0" width="99" height="14" uuid="5187dc3f-9202-43a1-9196-1869ae28ae30"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrepuesto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="214" y="0" width="29" height="14" uuid="44954603-b4f2-4229-910c-de8906ae7a5f"/>
+				<textFieldExpression><![CDATA[$F{sexoempleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="295" y="0" width="51" height="14" uuid="a76484c8-d591-4ac8-b2a6-1054b186d3ae"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

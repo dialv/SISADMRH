@@ -39,13 +39,13 @@ public class PuestosCaducarView  extends AbstractXlsView{
 
  header.createCell(2).setCellValue("Codigo");
  header.createCell(3).setCellValue("Nombre Puesto");
- header.createCell(4).setCellValue("Fecha Desde Contratacion");
+ header.createCell(4).setCellValue("Fecha Desde");
 // header.createCell(5).setCellValue("apelldio");
- header.createCell(5).setCellValue("Fecha de Contratacion Hasta");
+ header.createCell(5).setCellValue("Fecha Hasta");
  header.createCell(6).setCellValue("Ubicacion");
  header.createCell(7).setCellValue("Sub Linea");
-  header.createCell(8).setCellValue("Numero de Partida");
-   header.createCell(9).setCellValue("Numero de Sub Partida");
+  header.createCell(8).setCellValue("No. Partida");
+   header.createCell(9).setCellValue("No.  Sub Partida");
 // header.createCell(10).setCellValue("Sub lineade Trabajo");
   
  int rowNum = 3;

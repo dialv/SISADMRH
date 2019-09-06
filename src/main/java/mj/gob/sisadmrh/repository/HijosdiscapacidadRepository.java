@@ -22,8 +22,13 @@ public interface HijosdiscapacidadRepository extends CrudRepository<Hijodiscapac
     @Query(value =  " select  e.codigoempleado, e.nombreempleado, p.tipodiscapacidad," +
                     " p.nombrehijodiscapacidad from empleadohijodiscapacidad h" +
                     " inner join empleado e on e.codigoempleado=h.codigoempleado" +
-                    " inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad ", nativeQuery = true)
-     List<Object[]> findhijoscap();
+                    " inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad where \n" +
+"p.estadohijos!=0 and e.estadoempleado in(1,3) and \n" +
+" e.fechaingresoministerio >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y')\n" +
+"and e.fechaingresoministerio <= STR_TO_DATE(:FFINAL, '%d/%m/%Y')", nativeQuery = true)
+     List<Object[]> findhijoscap(@Param("FINICIAL") String finicial,
+            @Param("FFINAL") String ffinal);
+     
          @Query("SELECT o FROM Hijodiscapacidad o WHERE o.estadohijos != 0")
     public Iterable<Hijodiscapacidad> listAllActivos();    
     

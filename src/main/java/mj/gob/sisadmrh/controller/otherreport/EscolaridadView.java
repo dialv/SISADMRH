@@ -33,7 +33,7 @@ public class EscolaridadView  extends AbstractXlsView{
 sheet.createRow(1).createCell(5).setCellValue("REPORTE DE NIVELES ESCOLARES");
  Row header = sheet.createRow(2);
  header.createCell(2).setCellValue("Nombre de empleado");
- header.createCell(3).setCellValue("Nombre Puesto");
+ header.createCell(3).setCellValue("Nombre de Plaza");
  header.createCell(4).setCellValue("Nivel Escolar");
  header.createCell(5).setCellValue("Estudios Realizados");
  header.createCell(6).setCellValue("Fecha Desde");

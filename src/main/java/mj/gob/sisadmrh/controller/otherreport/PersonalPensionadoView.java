@@ -38,7 +38,7 @@ public class PersonalPensionadoView extends AbstractXlsView {
 
         header.createCell(2).setCellValue("Empleado");
         header.createCell(3).setCellValue("Nombre Puesto");
-        header.createCell(4).setCellValue("Sueldo Base ($)");
+        header.createCell(4).setCellValue("Salario($)");
         header.createCell(5).setCellValue("Año");
         header.createCell(6).setCellValue("Mes");
         header.createCell(7).setCellValue("Institucion Pensionadora");

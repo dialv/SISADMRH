@@ -469,13 +469,13 @@ public String getNumerocuenta() {
         this.codigopuesto = codigopuesto;
     }
 
-    public List<Empleadocapacitacion> getEmpleadocapacitacionList() {
-        return empleadocapacitacionList;
-    }
-
-    public void setEmpleadocapacitacionList(List<Empleadocapacitacion> empleadocapacitacionList) {
-        this.empleadocapacitacionList = empleadocapacitacionList;
-    }
+//    public List<Empleadocapacitacion> getEmpleadocapacitacionList() {
+//        return empleadocapacitacionList;
+//    }
+//
+//    public void setEmpleadocapacitacionList(List<Empleadocapacitacion> empleadocapacitacionList) {
+//        this.empleadocapacitacionList = empleadocapacitacionList;
+//    }
 
 //    public List<Empleadoasistenciacapacitacion> getEmpleadoasistenciacapacitacionList() {
 //        return empleadoasistenciacapacitacionList;

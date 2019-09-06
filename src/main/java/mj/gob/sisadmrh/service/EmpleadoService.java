@@ -25,7 +25,9 @@ public interface EmpleadoService {
 
     void deleteEmpleado(Integer id);
     
-    Iterable <Empleado> findabogados(String finicial, String ffinal, Integer tipo);
+    List<Object[]>  findabogados(String finicial, String ffinal);
+   List<Object[]>  motoristaexel(String finicial, String ffinal);
+    List<Object[]>  findByNotario(String finicial, String ffinal);
 
     List<Object[]> renuncias(String finicial, String ffinal);
 
@@ -44,7 +46,8 @@ public interface EmpleadoService {
     List<Object[]> findByExoneradoMarcacion(String finicial, String ffinal);
     List<Object[]> findByPensionados(String finicial, String ffinal);
     List<Object[]> findByPuestosCaducarExcel(String finicial, String ffinal);
-    List<Object[]> findByPuestosEmpleados( String codigo);//para el historial laboral
+    Iterable<Empleado> getEmpleadosByEstado(Integer id);
+    List<Object[]> historialempleadoexcel(String finicial, String ffinal, String id);//para el historial laboral
     List<Object[]> findByIncapacidad(String finicial, String ffinal);
     List<Object[]> findByDato(int id) ;
     List<Object[]> findByAsistenciaCapacitacion(int id) ;

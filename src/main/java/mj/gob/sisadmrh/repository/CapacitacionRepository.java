@@ -23,7 +23,7 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
 
     Iterable<Capacitacion> findByDato(@Param("nom") String dato);
     
-    @Query(value = "SELECT c.* FROM capacitacion c WHERE c.estadocapacitacion!=0 and "
+    @Query(value = "SELECT c.* FROM capacitacion c WHERE and co.estadocostocapacitacion=1 and c.estadocapacitacion=1 and "
             + " d.tipoevento=:teven "
             + "and d.especialidadevento=:esp"
             + " and d.organismopatrocinador=:cedu ", nativeQuery = true)
@@ -42,7 +42,9 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
 " inner join puesto p on e.codigopuesto=p.codigopuesto \n" +
 " inner join empleadocapacitacion ec on e.codigoempleado=ec.codigoempleado\n" +
 " INNER JOIN capacitacion ca on ec.codigocapacitacion=ca.codigocapacitacion" 
-+ " where " 
++ " where  e.estadoempleado!=0 and e.estadoempleado!=2 and e.estadoempleado!=4 and e.estadoempleado!=5 and p.estadopuesto!=0 and ca.estadocapacitacion!=0  and p.estadopuesto<>0\n" +
+"and ca.estadocapacitacion=1\n" +
+" and" 
 + " ca.fechacapacitaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') " 
 + " and ca.fechacapacitaciondesde  <= STR_TO_DATE(:FFINAL, '%d/%m/%Y') ", 
          nativeQuery = true)
@@ -101,7 +103,7 @@ public interface CapacitacionRepository extends CrudRepository<Capacitacion, Int
             "e.contenidoaplicadotrabajo,\n" +
             "e.satisfechocontenido \n" +
 "           FROM `evaluacioncapacitacion` e, capacitacion c,capacitador ca  WHERE e.`codigocapacitacion`=c.`codigocapacitacion` and c.`codigocapacitador`=ca.`codigocapacitador` and  e.`codigocapacitacion`= :CODIGO \n" +
-"and c.fechacapacitaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') \n" +
+"and  c.estadocapacitacion=1 and ca.estadocapacitador=1 and e.estadoevaluacion=1 and c.fechacapacitaciondesde >= STR_TO_DATE(:FINICIAL, '%d/%m/%Y') \n" +
 "and c.fechacapacitacionhasta <= STR_TO_DATE(:FFINAL, '%d/%m/%Y')", 
          nativeQuery = true)
 

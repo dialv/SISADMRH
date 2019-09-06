@@ -40,10 +40,10 @@ public class DespidosView extends AbstractXlsView{
 
  header.createCell(2).setCellValue("Nombre Empleado");
 // header.createCell(3).setCellValue("Apellido Empleado");
- header.createCell(3).setCellValue("Ubicacion");
+ header.createCell(3).setCellValue("Ubicación");
  header.createCell(4).setCellValue("Plaza");
  header.createCell(5).setCellValue("Numero de Partida");
- header.createCell(6).setCellValue("Numero Subpartida");
+ header.createCell(6).setCellValue("Numero SubPartida");
   header.createCell(7).setCellValue("Salario Base");
   
  int rowNum = 3;

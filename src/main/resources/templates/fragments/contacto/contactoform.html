@@ -257,11 +257,13 @@
 // 		        minDate: new Date(currentYear, currentMonth, currentDate),
                                     dateFormat: 'dd/mm/yy'
                                     });
-                                    });$('#btnGuardar').click(function(){
+                                    });
+                                    $('#btnGuardar').click(function(){
                                         enviar_form_personalizado("formcontacto",'../contacto/' + $("#codem").val().toString());
                                         
                                      
-                                    });</script>
+                                    });
+                            </script>
 <script th:inline="javascript">
 
     $(document).ready(function () {

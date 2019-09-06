@@ -14,7 +14,22 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select e.codigoempleado,concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,DATE_FORMAT(c.fechafincontrato,'%d/%m/%Y') AS "Fin contrato"from empleado e inner join contrato c on e.CODIGOEMPLEADO = c.codigoempleado inner join puesto p on p.codigopuesto = e.codigopuesto where  e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and c.estadocontrato=1 and p.nombrepuesto='Motorista' or p.nombrepuesto='motorista'  and c.estadocontrato!=0 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+		<![CDATA[select 
+e.codigoempleado,concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,
+DATE_FORMAT(c.fechafincontrato,'%d/%m/%Y') AS "Fin contrato"
+from 
+empleado e 
+inner join contrato c on e.CODIGOEMPLEADO = c.codigoempleado 
+inner join puesto p on p.codigopuesto = e.codigopuesto 
+where  
+e.estadoempleado!=0 and
+e.estadoempleado!=2 and
+e.estadoempleado!=4 and
+ p.estadopuesto!=0 and 
+c.estadocontrato=1 and p.nombrepuesto='Motorista' and
+c.estadocontrato!=0 and
+c.fechafincontrato >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and 
+c.fechafincontrato <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

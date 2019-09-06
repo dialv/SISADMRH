@@ -39,7 +39,7 @@
      DATE_FORMAT(puesto.`FECHACREACION`, "%d/ %m /%Y") AS puesto_FECHACREACION,
      puesto.`ESTADOPUESTO` AS puesto_ESTADOPUESTO
 FROM
-     `puesto` puesto]]>
+     `puesto` puesto where puesto.fechacontratacionhasta>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and puesto.fechacontratacionhasta<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') ]]>
 	</queryString>
 	<field name="puesto_CODIGOPUESTO" class="java.lang.Integer"/>
 	<field name="puesto_CATEGORIAPUESTO" class="java.lang.String"/>

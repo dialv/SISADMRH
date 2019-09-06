@@ -38,16 +38,16 @@ public class PlazasOcupadasView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE PLAZAS OCUPADAS");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Codigo");
+ header.createCell(2).setCellValue("Codigo Puesto");
  header.createCell(3).setCellValue("Nombre Puesto");
- header.createCell(4).setCellValue("Nombre Empleado");
+ header.createCell(4).setCellValue("Empleado");
 // header.createCell(5).setCellValue("apelldio");
  header.createCell(5).setCellValue("Sexo");
  header.createCell(6).setCellValue("Sueldo Basico");
- header.createCell(7).setCellValue("Fecha de nombramiento");
-  header.createCell(8).setCellValue("Fecha de desvinculacion");
-   header.createCell(9).setCellValue("Ubicacion");
- header.createCell(10).setCellValue("Sub lineade Trabajo");
+ header.createCell(7).setCellValue("Fecha de Nombramiento");
+  header.createCell(8).setCellValue("Fecha de Desvinculacion");
+   header.createCell(9).setCellValue("Ubicación");
+ header.createCell(10).setCellValue("Sub linea de Trabajo");
   
  int rowNum = 3;
  for(Object[] plazasOcupadas : plazasocupadasList){

@@ -157,13 +157,13 @@ public class Capacitador implements Serializable {
     public String toString() {
         return "mj.gob.sisadmrh.model.Capacitador[ codigocapacitador=" + codigocapacitador + " ]";
     }
-    @XmlTransient
-    public List<Capacitacion> getCapacitacionList() {
-        return capacitacionList;
-    }
-    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
-        this.capacitacionList = capacitacionList;
-    }
+//    @XmlTransient
+//    public List<Capacitacion> getCapacitacionList() {
+//        return capacitacionList;
+//    }
+//    public void setCapacitacionList(List<Capacitacion> capacitacionList) {
+//        this.capacitacionList = capacitacionList;
+//    }
 
     public String getTemadominio() {
         return temadominio;

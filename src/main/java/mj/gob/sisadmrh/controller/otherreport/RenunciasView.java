@@ -34,26 +34,27 @@ public class RenunciasView extends AbstractXlsView{
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_renunciasvoluntarias.xls\"");
         
  List<Object[]> renunciasList = (List<Object[]>) model.get("renunciasList");
- Sheet sheet = workbook.createSheet("Renuncia Data");
- Row header = sheet.createRow(0);
- header.createCell(0).setCellValue("Nombre de empleado");
- header.createCell(1).setCellValue("Nombre de puesto");
- header.createCell(2).setCellValue("Salario Actual($)");
- header.createCell(3).setCellValue("Fecha Inicio Contrato");
- header.createCell(4).setCellValue("partida Contro");
- header.createCell(5).setCellValue("Nivel Puesto");
- header.createCell(5).setCellValue("Fecha Baja");
+     Sheet sheet = workbook.createSheet("Reporte de incapacidades");
+ sheet.createRow(2).createCell(5).setCellValue("REPORTE DE RENUNCIAS");
+ Row header = sheet.createRow(3);
+ header.createCell(3).setCellValue("Empleado");
+ header.createCell(4).setCellValue("Puesto");
+ header.createCell(5).setCellValue("Salario Actual($)");
+ header.createCell(6).setCellValue("Fecha Inicio Contrato");
+ header.createCell(7).setCellValue("Partida Contrato");
+ header.createCell(8).setCellValue("Nivel Puesto");
+ header.createCell(9).setCellValue("Fecha Baja contrato");
   
- int rowNum = 1;
+ int rowNum = 4;
  for(Object[] renuncias : renunciasList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(0).setCellValue((String) renuncias[0]);
- row.createCell(1).setCellValue((String) renuncias[1]);
- row.createCell(2).setCellValue((String) ""+"$  "+renuncias[2]);
- row.createCell(3).setCellValue((String) renuncias[3]);
- row.createCell(4).setCellValue((String) ""+renuncias[4]);
- row.createCell(5).setCellValue((String) ""+renuncias[5]);
-  row.createCell(6).setCellValue((String) ""+renuncias[6]);
+ row.createCell(3).setCellValue((String) renuncias[0]);
+ row.createCell(4).setCellValue((String) renuncias[1]);
+ row.createCell(5).setCellValue((String) ""+"$  "+renuncias[2]);
+ row.createCell(6).setCellValue((String) renuncias[3]);
+ row.createCell(7).setCellValue((String) ""+renuncias[4]);
+ row.createCell(8).setCellValue((String) ""+renuncias[5]);
+  row.createCell(9).setCellValue((String) ""+renuncias[6]);
  }
  }
 }

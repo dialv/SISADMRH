@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c79f703b-bf01-4865-bd2b-701eb356ba3a">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -21,7 +21,7 @@
 	<queryString>
 		<![CDATA[select concat(e.nombreempleado,' ',e.apellidoempleado) as Nombre,p.nombrepuesto,c.numeroacuerdocomite,c.nombrecomite,DATE_FORMAT(c.fechadesdecomite, '%d/%m/%Y') as Desde,DATE_FORMAT(c.fechahastacomite, '%d/%m/%Y') as Hasta from empleado e INNER JOIN puesto p on e.codigopuesto=p.codigopuesto INNER join comite c on e.codigoempleado=c.codigoempleado
 WHERE  e.estadoempleado!=0 
-and e.estadoempleado!=2
+and e.estadoempleado!=2 and e.estadoempleado!=4  and e.estadoempleado!=5
  and p.estadopuesto!=0
  and c.estadocomite!=0 
 and c.fechadesdecomite>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')

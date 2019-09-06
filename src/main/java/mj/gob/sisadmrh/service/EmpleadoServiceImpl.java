@@ -57,10 +57,11 @@ public class EmpleadoServiceImpl implements EmpleadoService{
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Iterable<Empleado> findabogados(String finicial, String ffinal, Integer tipo) {
-        return empleadoRep.findabogados(finicial, ffinal, tipo);
+   @Override
+    public  List<Object[]>  findabogados(String finicial, String ffinal) {
+        return empleadoRep.findabogados(finicial, ffinal);
     }
+	
 
     @Override
     public List<Object[]> renuncias(String finicial, String ffinal) {
@@ -123,10 +124,18 @@ return empleadoRep.findByExoneradoMarcacion(finicial, ffinal);
 return  empleadoRep.findByPuestosCaducarExcel(finicial, ffinal);
     }
 
-    @Override
-    public List<Object[]> findByPuestosEmpleados(String codigo) {
-return  empleadoRep.findByPuestosEmpleados(codigo);
+    
+ @Override
+    public  List<Object[]>  historialempleadoexcel(String finicial, String ffinal,String id) {
+        return empleadoRep.historialempleadoexcel(finicial, ffinal,id);
     }
+	
+	 @Override
+    public Iterable<Empleado> getEmpleadosByEstado(Integer id) {
+     return empleadoRep.getEmpleadosByEstado( id);
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    	
 
     @Override
     public List<Object[]> findByIncapacidad(String finicial, String ffinal) {
@@ -173,6 +182,16 @@ return empleadoRep.findByIncapacidad(finicial, ffinal);
      @Override
         public void DeleteListadoMision(int id) {
         empleadoRep.DeleteListadoMision(id);
+    }
+
+    @Override
+    public List<Object[]> motoristaexel(String finicial, String ffinal) {
+      return  empleadoRep.motoristaexel(finicial, ffinal);
+    }
+
+    @Override
+    public List<Object[]> findByNotario(String finicial, String ffinal) {
+      return  empleadoRep.findByNotario(finicial, ffinal) ;
     }
     
     

@@ -38,7 +38,7 @@ public class CapacitadorView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE CAPACITADORES");
  Row header = sheet.createRow(2);
  header.createCell(2).setCellValue("Nombre de Capacitador");
- header.createCell(3).setCellValue("Tipo Capacitador");
+ header.createCell(3).setCellValue("Tipo");
  header.createCell(4).setCellValue("Telefono movil");
   header.createCell(5).setCellValue("Email");
    header.createCell(6).setCellValue("Temas de Dominio");

@@ -38,11 +38,11 @@ public class BeneficioView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE BENEFICIOS DE EMPLEADO");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Codigo de Beneficio");
+ header.createCell(2).setCellValue("Código");
  header.createCell(3).setCellValue("Nombre de Beneficio");
   header.createCell(4).setCellValue("Nombre de Empleado");
- header.createCell(5).setCellValue("Sexo del Empleado");
-  header.createCell(6).setCellValue("Descripcion del Beneficio");
+ header.createCell(5).setCellValue("Sexo");
+  header.createCell(6).setCellValue("Descripción");
   
  int rowNum = 3;
  for(Object[] List : costoList){

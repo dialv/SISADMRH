@@ -187,7 +187,7 @@ private HijosdiscapacidadService hijosdiscapacidadService;
        public ModelAndView abogadosxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <Empleado> abogadosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
+               List<Object[]>  abogadosList = empleadoService.findabogados(fechainicio, fechafin); 
               return new ModelAndView(new AbogadosView(), "abogadosList", abogadosList);
        }
         @RequestMapping(value = "bitacoras/{indice}", method = { RequestMethod.POST, RequestMethod.GET })
@@ -231,7 +231,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
        public ModelAndView motoristasxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <Empleado> motoristasList = empleadoService.findabogados(fechainicio, fechafin, 5); 
+              List<Object[]>   motoristasList = empleadoService.motoristaexel(fechainicio, fechafin); 
               return new ModelAndView(new MotoristasView(), "motoristasList", motoristasList);
        }
 
@@ -273,12 +273,12 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
 		params.put("FECHAFIN", fechafin);
         	generatePdf("otherreports", "rpt_hijoscapesp", params, download,response);
     }
-    
+    //Reporte de hijos condiscapacidad
     @RequestMapping("/hijoscapxls")
        public ModelAndView hijoscapxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              List<Object[]>  hijoscapList = hijosdiscapacidadService.findhijoscap();
+              List<Object[]>  hijoscapList = hijosdiscapacidadService.findhijoscap(fechainicio,fechafin);
               return new ModelAndView(new HijoscapView(), "hijoscapList", hijoscapList);
        }
 
@@ -297,12 +297,12 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
         	generatePdf("otherreports", "rpt_historial", params, download,response);
     }
 
-   @RequestMapping("/historialxls")
+   @RequestMapping("/historialxls/{codigo}")
        public ModelAndView historialxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
-              @RequestParam(value="codigo",required = false) String codigo, 
+              @RequestParam(value="empleadoc",required = false) String codigo, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              List<Object[]>  historialList = empleadoService.findByPuestosEmpleados(codigo);//PARA GERNARAR EL HISTORIAL LABORAL
+              List<Object[]>  historialList = empleadoService.historialempleadoexcel(fechainicio,fechafin,codigo);//PARA GERNARAR EL HISTORIAL LABORAL
               return new ModelAndView(new HistorialView(), "historialList", historialList);
        }
 
@@ -326,7 +326,7 @@ params.put("USUARIO",  getRequest().getUserPrincipal().getName());
        public ModelAndView notariosxls(
               @RequestParam(value="fechainicial",required = false) String fechainicio, 
               @RequestParam(value="fechafinal", required = false) String fechafin){
-              Iterable <Empleado> notariosList = empleadoService.findabogados(fechainicio, fechafin, 3); 
+                List<Object[]>  notariosList = empleadoService.findByNotario(fechainicio, fechafin);
               return new ModelAndView(new NotariosView(), "notariosList", notariosList);
               
               

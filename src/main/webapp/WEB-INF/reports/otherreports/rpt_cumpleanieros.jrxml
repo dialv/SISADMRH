@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="e4a411b8-6d7d-4bf2-a2a7-bd7ad308ab8d">
 	<property name="ireport.zoom" value="1.3310000000000004"/>
-	<property name="ireport.x" value="85"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="USUARIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -14,14 +14,14 @@
 	</parameter>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT CONCAT( DAY( e.fechanacimientoempleado ) ,  "/", ELT( MONTH( e.fechanacimientoempleado ) ,  "Enero",  "Febrero",  "Marzo",  "Abril",  "Mayo",  "Junio",  "Julio",  "Agosto",  "Septiembre",  "Octubre", "Noviembre",  "Diciembre" ) ) AS Fecha, p.nombrepuesto, uf.nombreubicacion, CONCAT( e.nombreempleado,  ' ', e.apellidoempleado ) AS Empleado
+		<![CDATA[SELECT CONCAT( DAY( e.fechanacimientoempleado ) ,  "/", ELT( MONTH( e.fechanacimientoempleado ) ,  "Enero",  "Febrero",  "Marzo",  "Abril",  "Mayo",  "Junio",  "Julio",  "Agosto",  "Septiembre",  "Octubre", "Noviembre",  "Diciembre" ) ) AS "Dia/Mes", p.nombrepuesto, uf.nombreubicacion, CONCAT( e.nombreempleado,  ' ', e.apellidoempleado ) AS Empleado
 FROM empleado e
 INNER JOIN puesto p ON e.codigopuesto = p.codigopuesto
 INNER JOIN ubicacionfisica uf ON uf.codigoempleado = e.codigoempleado 
-where   e.estadoempleado!=0 and e.estadoempleado!=2 and p.estadopuesto!=0 and uf.estadoubicacion!=0 and
+where   e.estadoempleado!=0 and e.estadoempleado!=2 and e.estadoempleado!=4  and e.estadoempleado!=5 and  p.estadopuesto!=0 and uf.estadoubicacion!=0 and
 MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
 	</queryString>
-	<field name="Fecha" class="java.lang.String"/>
+	<field name="Dia/Mes" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -134,7 +134,7 @@ MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha]]></text>
+				<text><![CDATA[Dia/Mes]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="329" y="0" width="128" height="14" uuid="3ae27eed-c5d5-4a04-a79e-b7f3d65fb221"/>
@@ -185,18 +185,18 @@ MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
 				<textFieldExpression><![CDATA[$F{nombreubicacion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="118" y="0" width="68" height="14" uuid="ef4b1222-9ec7-4f87-b2ef-ba1506a8fc8b"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="486" y="0" width="170" height="14" uuid="6ccccdd5-4dbc-40e2-ac71-361a250909f5"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="0" width="70" height="14" uuid="5319f2b7-bbae-43e0-afcf-e453046f9df7"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Dia/Mes}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

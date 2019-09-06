@@ -33,13 +33,13 @@ public class CumpleanierosView extends AbstractXlsView{
 //               e.nombreempleado,p.nombrepuesto ,uf.nombreubicacion from empleado e inner join empleadopuesto ep on e.codigopuesto=ep.codigopuesto inner join puesto p on ep.codigopuesto=p.codigopuesto inner join empleadoubicacionfisica euf on e.codigoempleado=euf.codigoempleado INNER JOIN ubicacionfisica uf on euf.codigoubicacion=uf.codigoubicacion where month(e.fechanacimientoempleado)=month(NOW())
         List<Object[]> cumplesList = (List<Object[]>) model.get("cumplesList");
  Sheet sheet = workbook.createSheet("Lista de cumpleanieros");
- sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CUMPLEANIEROS");
+ sheet.createRow(1).createCell(3).setCellValue("REPORTE DE CUMPLEAÑIEROS");
  Row header = sheet.createRow(2);
 // header.createCell(0).setCellValue("Codigo empleado");
- header.createCell(2).setCellValue("Fecha");
- header.createCell(3).setCellValue("Puesto");
- header.createCell(4).setCellValue("Ubicacion");
- header.createCell(5).setCellValue("Empleado");
+ header.createCell(2).setCellValue("Dia/Mes");
+ header.createCell(3).setCellValue("Nombre Puesto");
+ header.createCell(4).setCellValue("Ubicacion Fisica");
+ header.createCell(5).setCellValue("Nombre Empleado");
 
  
  int rowNum = 3;

@@ -31,8 +31,8 @@ protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, 
   sheet.createRow(1).createCell(3).setCellValue("REPORTE DE MISIONES EXTERNAS 2");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Fecha de Llegada");
- header.createCell(3).setCellValue("Fecha de Regreso");
+ header.createCell(2).setCellValue("Inicio Mision");
+ header.createCell(3).setCellValue("Fin Mision");
  header.createCell(4).setCellValue("Gastos($)");
  header.createCell(5).setCellValue("Acuerdo");
  header.createCell(6).setCellValue("Boleto");
@@ -45,11 +45,11 @@ protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, 
  Row row = sheet.createRow(rowNum++);
  row.createCell(2).setCellValue((String) ""+misiones[0]);
  row.createCell(3).setCellValue((String) ""+misiones[1]);
- row.createCell(4).setCellValue((String) ""+"$ "+misiones[2]);
+ row.createCell(4).setCellValue((String) ""+misiones[2]);
  row.createCell(5).setCellValue((String) ""+misiones[3]);
- row.createCell(6).setCellValue((String) misiones[4]);
- row.createCell(7).setCellValue((String) misiones[5]);
-// row.createCell(6).setCellValue((String) misiones[6]);
+ row.createCell(6).setCellValue((String) ""+misiones[4]);
+ row.createCell(7).setCellValue((String)""+ misiones[5]);
+ row.createCell(8).setCellValue((String)""+ misiones[6]);
 
  }
  }

@@ -167,22 +167,22 @@ and e.estadoempleado<>0]]>
 				<reportElement x="50" y="0" width="457" height="14" backcolor="#FFFFFF" uuid="c643668e-ad3f-4504-983e-0cad884338b2"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="222" y="0" width="100" height="14" uuid="21013ac3-83d2-48e0-8663-b651fa613ff0"/>
+				<reportElement x="224" y="0" width="98" height="14" uuid="21013ac3-83d2-48e0-8663-b651fa613ff0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="118" y="0" width="104" height="14" uuid="7e076150-d156-4236-aee8-35b1156f7138"/>
+				<reportElement x="120" y="0" width="102" height="14" uuid="7e076150-d156-4236-aee8-35b1156f7138"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Nombre del Beneficio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="374" y="0" width="133" height="14" uuid="04190aba-1eb9-4136-b324-34ffd66d26d0"/>
-				<textElement textAlignment="Center">
+				<reportElement x="374" y="0" width="132" height="14" uuid="04190aba-1eb9-4136-b324-34ffd66d26d0"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Descripcion]]></text>

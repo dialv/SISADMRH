@@ -27,7 +27,10 @@ public interface ComiteRepository extends PagingAndSortingRepository<Comite, Int
             + "c.fechahastacomite from empleado e "
             + " inner join puesto p on e.codigopuesto=p.codigopuesto "
             + " inner join comite c on e.codigoempleado=c.codigoempleado "
-            + " WHERE"
+            + " WHERE   e.estadoempleado!=0 \n" +
+"and e.estadoempleado!=2 and e.estadoempleado!=4 and  e.estadoempleado!=5\n" +
+" and p.estadopuesto!=0\n" +
+" and c.estadocomite!=0 and"
             + "  c.fechadesdecomite>=STR_TO_DATE(:FINICIAL, '%d/%m/%Y')"
             + " and c.fechadesdecomite<=STR_TO_DATE(:FFINAL, '%d/%m/%Y') ",
              nativeQuery = true)

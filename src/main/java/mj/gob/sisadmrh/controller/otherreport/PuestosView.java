@@ -44,7 +44,7 @@ public class PuestosView extends AbstractXlsView{
  header.createCell(4).setCellValue("Fecha Hasta");
   header.createCell(5).setCellValue("Sublinea");
    header.createCell(6).setCellValue("No Partida");
-   header.createCell(7).setCellValue("SubPartida");
+   header.createCell(7).setCellValue("No SubPartida");
   
  int rowNum = 3;
  for(Object[] List : puestoList){

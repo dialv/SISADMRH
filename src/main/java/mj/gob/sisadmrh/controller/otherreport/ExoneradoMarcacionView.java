@@ -35,7 +35,7 @@ public class ExoneradoMarcacionView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE EXONERADO DE MARCACION");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Nombre empleado");
+ header.createCell(2).setCellValue("Nombre Empleado");
  header.createCell(3).setCellValue("Nombre Puesto");
  header.createCell(4).setCellValue("Ubicacion");
  header.createCell(5).setCellValue("No. Acuerdo ");

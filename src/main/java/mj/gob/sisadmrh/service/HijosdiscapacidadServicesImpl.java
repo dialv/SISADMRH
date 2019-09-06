@@ -56,8 +56,8 @@ public class HijosdiscapacidadServicesImpl implements HijosdiscapacidadService {
     }
     
     @Override
-    public List<Object[]> findhijoscap(){
-        return hijosdiscapacidadRep.findhijoscap();
+    public List<Object[]> findhijoscap(String finicial,String ffinal){
+        return hijosdiscapacidadRep.findhijoscap(finicial,ffinal);
         
     }
 

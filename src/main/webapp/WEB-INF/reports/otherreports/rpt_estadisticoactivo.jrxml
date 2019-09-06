@@ -10,14 +10,12 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT concat(e.nombreempleado," ",e.apellidoempleado) as empleado,p.sueldobase as sumsueldo,p.ubicacionpuesto FROM `empleado`e 
-inner join  puesto p on e.codigopuesto=p.codigopuesto
- WHERE e.estadoempleado=1 and e.estadoempleado=3 and p.estadopuesto!=0 and
+		<![CDATA[SELECT count(e.codigoempleado) as nempleados,sum(p.sueldobase) as sumsueldo,p.ubicacionpuesto FROM `empleado`e , puesto p WHERE e.estadoempleado=1 or e.estadoempleado=3 and p.estadopuesto!=0 and e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto and
 e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
-	<field name="empleado" class="java.lang.String"/>
-	<field name="sumsueldo" class="java.lang.Float"/>
+	<field name="nempleados" class="java.lang.Long"/>
+	<field name="sumsueldo" class="java.lang.Double"/>
 	<field name="ubicacionpuesto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -150,8 +148,8 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="69" y="0" width="405" height="14" backcolor="#FFFFFF" uuid="d467e0d9-7f90-48ce-8cf5-3fe678caad3f"/>
 			</rectangle>
 			<staticText>
-				<reportElement mode="Transparent" x="71" y="0" width="99" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="f95cdd72-8e1e-46f6-bbfb-c4693e831623"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement mode="Transparent" x="71" y="0" width="100" height="14" forecolor="#000000" backcolor="#E6E6E6" uuid="f95cdd72-8e1e-46f6-bbfb-c4693e831623"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Empleado]]></text>
@@ -194,12 +192,12 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				</textElement>
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{sumsueldo})]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="74" y="0" width="159" height="14" uuid="89db8c0f-1370-47e7-a204-1d61360ad537"/>
-				<textElement>
+			<textField>
+				<reportElement x="71" y="0" width="100" height="14" uuid="59a6a96a-f1ab-45e7-b799-e8ea30364687"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{empleado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nempleados}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

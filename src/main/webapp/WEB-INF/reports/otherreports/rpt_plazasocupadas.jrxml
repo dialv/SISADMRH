@@ -26,7 +26,8 @@
 		<![CDATA[SELECT p.codigopuesto as 'codigo Puesto',p.nombrepuesto as 'Nombre Puesto',concat(e.nombreempleado,' ',e.apellidoempleado) as 'Nombre de Empleado',e.sexoempleado as 'Sexo',p.sueldobase as 'sueldo Basico',
 DATE_FORMAT(p.fechacontrataciondesde, "%d/ %m /%Y") as 'Fecha de Nombramiento', DATE_FORMAT(p.fechacontratacionhasta, "%d/ %m /%Y") as 'Fecha de Desvinculacion',
 p.ubicacionpuesto as 'Ubicacion',p.sublinea as 'Linea de Trabajo'
- FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and  p.estadopuesto=1
+ FROM `puesto` p , empleado e WHERE  e.codigopuesto=p.codigopuesto and  p.estadopuesto=2
+and  e.estadoempleado in(1,3)
 and p.fechacontrataciondesde >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
@@ -178,36 +179,36 @@ and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[código Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="65" y="0" width="105" height="22" forecolor="#000000" uuid="f42acce1-d8ab-457c-9b43-293a0e1bb627"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement style="Column header" x="67" y="0" width="102" height="22" forecolor="#000000" uuid="f42acce1-d8ab-457c-9b43-293a0e1bb627"/>
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre Puesto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="170" y="0" width="151" height="22" forecolor="#000000" uuid="0fff6c45-23db-425b-ba35-69035b20ea10"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement style="Column header" x="173" y="0" width="148" height="22" forecolor="#000000" uuid="0fff6c45-23db-425b-ba35-69035b20ea10"/>
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del Empleado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="321" y="0" width="54" height="22" forecolor="#000000" uuid="3dccecb8-9ed3-4f76-b7dd-e4611fd3ec8f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement style="Column header" x="321" y="0" width="51" height="22" forecolor="#000000" uuid="3dccecb8-9ed3-4f76-b7dd-e4611fd3ec8f"/>
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Sexo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="374" y="0" width="51" height="22" forecolor="#000000" uuid="d696b63c-c4cc-4e3c-a6a3-62730c1ee9f0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement style="Column header" x="372" y="0" width="51" height="22" forecolor="#000000" uuid="d696b63c-c4cc-4e3c-a6a3-62730c1ee9f0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Sueldo Básico($)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="682" y="0" width="49" height="22" forecolor="#000000" uuid="4115a89b-2946-48e8-9b8e-349d6da22399"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Línea de Trabajo]]></text>
@@ -238,21 +239,21 @@ and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</line>
 			<staticText>
 				<reportElement style="Column header" x="425" y="0" width="68" height="22" forecolor="#000000" uuid="2c92bff4-556c-4fc9-b90b-305c3deff435"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Nombramiento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="492" y="0" width="63" height="22" forecolor="#000000" uuid="9356d26f-063d-419f-b867-bc993e916e13"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Desvinculación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="556" y="0" width="125" height="22" forecolor="#000000" uuid="bcbd7a45-e6be-4092-b0d7-befb19b93c8a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement style="Column header" x="558" y="0" width="120" height="22" forecolor="#000000" uuid="bcbd7a45-e6be-4092-b0d7-befb19b93c8a"/>
+				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Ubicación]]></text>
@@ -278,7 +279,7 @@ and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<textFieldExpression><![CDATA[$F{Nombre Puesto}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="325" y="0" width="48" height="14" uuid="7d4ad7b1-028e-4b59-a612-9bb8c46434ac"/>
+					<reportElement style="Detail" positionType="Float" stretchType="RelativeToTallestObject" x="322" y="0" width="48" height="14" uuid="7d4ad7b1-028e-4b59-a612-9bb8c46434ac"/>
 					<textElement>
 						<font size="9"/>
 					</textElement>
@@ -320,7 +321,7 @@ and p.fechacontrataciondesde <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 					<textFieldExpression><![CDATA[$F{Linea de Trabajo}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="174" y="0" width="145" height="14" uuid="5523e741-5360-426d-b33e-dced0ac3be68"/>
+					<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="172" y="0" width="145" height="14" uuid="5523e741-5360-426d-b33e-dced0ac3be68"/>
 					<textElement>
 						<font fontName="Times New Roman" size="9"/>
 					</textElement>

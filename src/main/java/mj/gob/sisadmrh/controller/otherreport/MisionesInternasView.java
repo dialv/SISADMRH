@@ -30,14 +30,14 @@ public class MisionesInternasView extends AbstractXlsView{
         
  List<Object[]> misionInternaList = (List<Object[]>) model.get("misionInternaList");
  Sheet sheet = workbook.createSheet("Mision interna");
- sheet.createRow(1).createCell(4).setCellValue("REPORTE DE MISIONES INTERAS");
+ sheet.createRow(1).createCell(4).setCellValue("REPORTE DE MISIONES INTERNAS");
  Row header = sheet.createRow(2);
- header.createCell(3).setCellValue("Nombre de empleado");
- header.createCell(4).setCellValue("Nombre de puesto");
- header.createCell(5).setCellValue("Nombre Mision");
- header.createCell(6).setCellValue("Objetivo de Mision");
- header.createCell(7).setCellValue("Instirucion o departamento");
- header.createCell(8).setCellValue("Fecha");
+ header.createCell(3).setCellValue("Empleado");
+ header.createCell(4).setCellValue("Puesto");
+ header.createCell(5).setCellValue("Misión");
+ header.createCell(6).setCellValue("Objetivo");
+ header.createCell(7).setCellValue("Mision Inicio");
+ header.createCell(8).setCellValue("Mision Fin");
 
 ;
   

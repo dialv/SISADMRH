@@ -14,7 +14,11 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e inner join empleadoformacion f on e.codigoempleado=f.codigoempleado inner join formacionacademica fa on fa.codigoformacionacademica=f.codigoformacionacademica inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%notario' or p.nombrepuesto like '%Notario' and e.estadoempleado!=0 and e.estadoempleado!=2 and e.estadoempleado!=3 and fa.estadoformacion != 0 and estadopuesto != 0 and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,"  ",e.apellidoempleado)as Empleado,DATE_FORMAT(e.fechaingresoministerio, '%d/%m/%Y') AS Fecha, fa.centroeducativo, e.duiempleado from empleado e inner join empleadoformacion f on e.codigoempleado=f.codigoempleado inner join formacionacademica fa on fa.codigoformacionacademica=f.codigoformacionacademica inner join puesto p on e.codigopuesto=p.codigopuesto where p.nombrepuesto like '%notario' or p.nombrepuesto like '%Notario' and e.estadoempleado!= 0  and
+e.estadoempleado!= 2  and
+e.estadoempleado!= 4  and  
+fa.estadoformacion = 1 and 
+p.estadopuesto != 0  and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">

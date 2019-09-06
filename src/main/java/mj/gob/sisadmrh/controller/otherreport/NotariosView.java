@@ -24,7 +24,6 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
  * @author root
  */
 public class NotariosView extends AbstractXlsView{
- 
  @Override
  protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
  HttpServletResponse response) throws Exception {
@@ -32,20 +31,25 @@ public class NotariosView extends AbstractXlsView{
 // response.setHeader("Content-Disposition", "<span id="IL_AD8" class="IL_AD">attachment</span>;filename=\"student.xls\"");    
  response.setHeader("Content-Disposition", "attachment; filename=\"Reporte_de_notarios.xls\"");
         
- Iterable<Empleado> abogadoList = (Iterable<Empleado>) model.get("notariosList");
-Sheet sheet = workbook.createSheet("Lista de notarios");
- sheet.createRow(1).createCell(3).setCellValue("REPORTE DE NOTARIOS");
+  List<Object[]>  notarioList = ( List<Object[]>)  model.get("notariosList");
+Sheet sheet = workbook.createSheet("Lista de Notarios");
+ sheet.createRow(1).createCell(5).setCellValue("Reporte de Notarios");
  Row header = sheet.createRow(2);
+ 
  header.createCell(3).setCellValue("Codigo de empleado");
- header.createCell(4).setCellValue("Fecha de ingreso");
- header.createCell(5).setCellValue("Nombre completo");
+ header.createCell(4).setCellValue("Empleado");
+ header.createCell(5).setCellValue("Universidad");
+  header.createCell(6).setCellValue("DUI");
+   header.createCell(7).setCellValue("Fecha de aprobación");
   
  int rowNum = 3;
- for(Empleado abogadosPojo:abogadoList){
+ for(Object[] notarios:notarioList){
  Row row = sheet.createRow(rowNum++);
- row.createCell(3).setCellValue(abogadosPojo.getCodigoempleado());
- row.createCell(4).setCellValue(abogadosPojo.getFechaingresoministerio());
- row.createCell(5).setCellValue(abogadosPojo.getNombreempleado());
+ row.createCell(3).setCellValue(((Integer) notarios[0]));
+ row.createCell(4).setCellValue(((String) notarios[1]));
+ row.createCell(5).setCellValue(((String) notarios[3]));
+  row.createCell(6).setCellValue(((String) notarios[4]));
+   row.createCell(7).setCellValue(((String) notarios[2]));
  }
  }
 }

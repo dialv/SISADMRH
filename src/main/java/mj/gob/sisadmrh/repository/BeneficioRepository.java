@@ -20,7 +20,8 @@ public interface BeneficioRepository extends CrudRepository<Beneficio, Integer>{
 "b.descripcionbeneficio from empleadobeneficio empben\n" +
 "inner join empleado e using(codigoempleado)\n" +
 "inner join beneficio b using (codigobeneficio)\n" +
-"where empben.codigoempleado =:CODIGO \n" +
+"where b.estadobeneficio=1\n" +
+"and  e.estadoempleado in(1,3) and empben.codigoempleado =:CODIGO \n" +
 "and empben.fechabeneficio >= :FINICIAL \n" +
 "and empben.fechabeneficio <= :FFINAL",
              nativeQuery = true)

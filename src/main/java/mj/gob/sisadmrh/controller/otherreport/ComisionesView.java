@@ -44,12 +44,12 @@ public class ComisionesView   extends AbstractXlsView{
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE COMISIONES");
  Row header = sheet.createRow(2);
  
- header.createCell(2).setCellValue("Nombre Empleado");
+ header.createCell(2).setCellValue("Empleado");
  header.createCell(3).setCellValue("Puesto");
-  header.createCell(4).setCellValue("Acuerdo");
+  header.createCell(4).setCellValue("Nº Acuerdo");
  header.createCell(5).setCellValue("Nombre Comision");
-  header.createCell(6).setCellValue("Desde");
-  header.createCell(7).setCellValue("Hasta");
+  header.createCell(6).setCellValue("Inicio Comisión");
+  header.createCell(7).setCellValue("Fin Comisión");
   
   
    

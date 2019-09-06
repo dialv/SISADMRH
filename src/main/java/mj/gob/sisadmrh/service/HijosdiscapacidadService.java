@@ -27,5 +27,5 @@ public interface HijosdiscapacidadService {
     
     Iterable<Hijodiscapacidad> findByDato(int id) ;
     
-    List<Object[]> findhijoscap();
+    List<Object[]> findhijoscap(String finicial,String ffinal);
 }

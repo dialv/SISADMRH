@@ -40,6 +40,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -456,5 +457,28 @@ public class EmpleadoController extends UtilsController {
             HttpServletResponse response) throws Exception {
         Map<String, Object> params = new HashMap<>();
         generatePdf("estadisticoactivo", "rpt_estadisticoactivo", params, download, response);
+    }
+    @RequestMapping("historialempleadosearch/{id}")
+     public @ResponseBody Iterable<Empleado> llenacombouiuiui(@PathVariable(value = "id") Integer id) {
+        Iterable<Empleado> emp= null;
+         try {
+              System.out.println("estado del empleado"+id);
+               emp=empleadoService.getEmpleadosByEstado(id);
+         } catch (Exception ex) {
+               System.out.println("Error {");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
+             
+         }
+
+        return emp;
+            
     }
 }

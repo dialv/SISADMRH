@@ -40,9 +40,9 @@ public class PersonalActivoView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE PERSONAL ACTIVO");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("No de Empleados");
- header.createCell(3).setCellValue("Ubicacion");
- header.createCell(4).setCellValue("Suma de Salarios");
+ header.createCell(2).setCellValue("Empleados");
+ header.createCell(3).setCellValue("Ubicación");
+ header.createCell(4).setCellValue("Suma Salarios");
   
  int rowNum = 3;
  for(Object[] List : personalactivoList){

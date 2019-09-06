@@ -38,7 +38,7 @@ public class CostoCapView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE COSTO DE CAPACITACIONES");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Cantidad de Personas");
+ header.createCell(2).setCellValue("Nº Personas");
  header.createCell(3).setCellValue("Tema");
  header.createCell(4).setCellValue("Costo por Persona ($)");
   header.createCell(5).setCellValue("Costo Total ($)");

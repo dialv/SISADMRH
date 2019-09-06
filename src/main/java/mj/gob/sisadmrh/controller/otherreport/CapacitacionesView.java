@@ -33,14 +33,14 @@ public class CapacitacionesView  extends AbstractXlsView{
  Sheet sheet = workbook.createSheet("Comites Data");
  sheet.createRow(1).createCell(5).setCellValue("REPORTE DE CAPACITACIONES");
  Row header = sheet.createRow(2);
- header.createCell(3).setCellValue("Nombre Empleado");
+ header.createCell(3).setCellValue("Empleado");
  header.createCell(4).setCellValue("Puesto");
  header.createCell(5).setCellValue("Horas");
 //  header.createCell(3).setCellValue("Capacitador");
- header.createCell(6).setCellValue("Capacitacion");
+ header.createCell(6).setCellValue("Capacitación");
  header.createCell(7).setCellValue("Departamento Responsable");
-  header.createCell(8).setCellValue("Desde");
-  header.createCell(9).setCellValue("Hasta");
+  header.createCell(8).setCellValue("Inicio Capacitación");
+  header.createCell(9).setCellValue("Fin Capacitación");
   
   
    

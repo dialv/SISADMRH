@@ -31,12 +31,12 @@ public class MisionesExternas1View extends AbstractXlsView{
  Sheet sheet = workbook.createSheet("Reporte de Misiones externas1");
  sheet.createRow(1).createCell(3).setCellValue("REPORTE DE MISIONES EXTERNAS 1");
  Row header = sheet.createRow(2);
- header.createCell(2).setCellValue("Nombre de empleado");
- header.createCell(3).setCellValue("Nombre de puesto");
- header.createCell(4).setCellValue("Nombre Mision");
- header.createCell(5).setCellValue("Objetivo de Mision");
+ header.createCell(2).setCellValue("Empleado");
+ header.createCell(3).setCellValue("Puesto");
+ header.createCell(4).setCellValue("Mision");
+ header.createCell(5).setCellValue("Objetivo");
  header.createCell(6).setCellValue("Instirucion o departamento");
- header.createCell(7).setCellValue("Pais Destino");
+ header.createCell(7).setCellValue("Pais");
  header.createCell(8).setCellValue("Ciudad");
 ;
   

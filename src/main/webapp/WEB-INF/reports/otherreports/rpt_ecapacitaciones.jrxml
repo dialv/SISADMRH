@@ -313,7 +313,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="293" y="0" width="160" height="14" uuid="92bbe8bf-2f24-4ed9-96d1-aefe4afb5a06"/>
 				<textElement>
@@ -322,7 +322,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{nombrecapacitador}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="458" y="0" width="111" height="14" uuid="68a8ec53-891a-4a09-8480-1a08aaf44ab7"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="458" y="0" width="111" height="28" uuid="68a8ec53-891a-4a09-8480-1a08aaf44ab7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>

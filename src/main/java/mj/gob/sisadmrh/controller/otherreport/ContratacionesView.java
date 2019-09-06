@@ -38,13 +38,13 @@ public class ContratacionesView extends AbstractXlsView{
   sheet.createRow(1).createCell(4).setCellValue("REPORTE DE CONTRATACIONES");
  Row header = sheet.createRow(2);
 
- header.createCell(2).setCellValue("Codigo");
- header.createCell(3).setCellValue("Nombre Empleado");
+ header.createCell(2).setCellValue("Codigo Contratacion");
+ header.createCell(3).setCellValue("Nombre del Empleado");
 // header.createCell(4).setCellValue("Nombre Empleado");
 // header.createCell(5).setCellValue("apelldio");
  header.createCell(4).setCellValue("Cargo");
  header.createCell(5).setCellValue("Ubicacion");
- header.createCell(6).setCellValue("Fecha e Inicio");
+ header.createCell(6).setCellValue("Fecha Contratacion");
   header.createCell(7).setCellValue("Salario ($)");
   
  int rowNum = 3;

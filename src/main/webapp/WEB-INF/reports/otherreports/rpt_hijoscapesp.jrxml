@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="1ef4d0a4-db8a-4cc6-81ad-b4ec81f2231d">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="28"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="FECHAFIN" class="java.lang.String">
@@ -17,7 +17,7 @@
 		<![CDATA[select  e.codigoempleado, concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado, p.tipodiscapacidad,
 concat(p.nombrehijodiscapacidad," ",p.apellidohijodiscapacidad) as "Nombre hijo con capacidad especial"  from empleadohijodiscapacidad h
 inner join empleado e on e.codigoempleado=h.codigoempleado
-inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad where p.estadohijos!=0 and  e.estadoempleado!=0 and e.estadoempleado!=2  and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+inner join hijodiscapacidad p on h.codigohijodiscapacidad = p.codigohijodiscapacidad where p.estadohijos!=0 and  e.estadoempleado in(1,3) and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="codigoempleado" class="java.lang.Integer">

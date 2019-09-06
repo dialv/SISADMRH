@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_pensionado" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="e2ab7c88-ec1e-4664-8b48-0ba3162a7a04">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="46"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAFIN" class="java.lang.String"/>
 	<parameter name="FECHAINICIO" class="java.lang.String"/>
 	<parameter name="USUARIO" class="java.lang.String"/>
@@ -13,7 +13,7 @@
 		<![CDATA[SELECT
  concat(e.nombreempleado,' ',e.apellidoempleado)as Empleado, p.nombrepuesto as 'Nombre de Puesto',p.sueldobase as 'Salario',year(e.fechaingresoministerio) as Año, month(e.fechaingresoministerio) as Mes, e.afiliacionpension as 'Institucion Pensionadora'
 FROM `empleado` e, puesto p
-WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3 and
+WHERE e.codigopuesto=p.codigopuesto and e.estadoempleado=3 and p.estadopuesto!=0 and
 e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
 and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
@@ -153,7 +153,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="164" y="1" width="119" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="782b81cf-5a2f-4f7a-a3f2-0d8bb004eae1"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
 				</textElement>
@@ -161,7 +161,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="285" y="0" width="53" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="bfb1a1e6-00ce-4cb7-8fda-1bd9b4b47c09"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
 				</textElement>
@@ -169,15 +169,15 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="342" y="1" width="37" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="8e04b80d-49e3-4e7c-ba8f-082d74e20660"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
 				</textElement>
 				<text><![CDATA[Año]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="379" y="1" width="47" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="50b17b73-84ef-492e-80e8-2f479c44cd44"/>
-				<textElement textAlignment="Center">
+				<reportElement mode="Transparent" x="385" y="1" width="40" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="50b17b73-84ef-492e-80e8-2f479c44cd44"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
 				</textElement>
@@ -194,7 +194,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</line>
 			<staticText>
 				<reportElement mode="Transparent" x="51" y="0" width="111" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="5967908c-07e4-4274-b6a5-7998a7c41ce9"/>
-				<textElement textAlignment="Center">
+				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
 				</textElement>
@@ -204,8 +204,8 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="162" y="0" width="1" height="12" uuid="f898543d-758b-4c34-825e-fa6645b17de6"/>
 			</line>
 			<staticText>
-				<reportElement mode="Transparent" x="427" y="1" width="62" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="e8801be8-7ec8-4b3d-96bc-aeaf4b652996"/>
-				<textElement textAlignment="Center">
+				<reportElement mode="Transparent" x="430" y="1" width="55" height="12" forecolor="#000000" backcolor="#E6E6E6" uuid="e8801be8-7ec8-4b3d-96bc-aeaf4b652996"/>
+				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 					<paragraph tabStopWidth="14"/>
 				</textElement>
@@ -219,7 +219,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<detail>
 		<band height="15">
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="177" y="0" width="106" height="14" uuid="49110043-0eb6-4a2a-9fc5-81288c3d9cde"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="168" y="0" width="106" height="14" uuid="49110043-0eb6-4a2a-9fc5-81288c3d9cde"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>

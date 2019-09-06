@@ -157,7 +157,7 @@ and c.estadocapacitacion!=0 and a.estadoasistencia!=0]]>
 			</rectangle>
 			<staticText>
 				<reportElement mode="Transparent" x="50" y="0" width="45" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="3d993ab9-6305-4bb9-a23f-a339eca014b6"/>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. Empleados]]></text>
@@ -177,7 +177,7 @@ and c.estadocapacitacion!=0 and a.estadoasistencia!=0]]>
 				<text><![CDATA[No. Capacitaciones]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="290" y="0" width="159" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="631eee16-ae86-4372-be95-6f1826e60a72"/>
+				<reportElement mode="Transparent" x="290" y="0" width="151" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="631eee16-ae86-4372-be95-6f1826e60a72"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
@@ -185,7 +185,7 @@ and c.estadocapacitacion!=0 and a.estadoasistencia!=0]]>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="449" y="0" width="55" height="22" forecolor="#000000" backcolor="#E6E6E6" uuid="0e0e635e-29b8-45a7-8e7a-2dd44f54a5c1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de Capacitación]]></text>
@@ -207,8 +207,8 @@ and c.estadocapacitacion!=0 and a.estadoasistencia!=0]]>
 	<detail>
 		<band height="14">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="54" y="0" width="40" height="14" uuid="4a7557b2-98ec-47de-8ffc-82afd7e294fa"/>
-				<textElement>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="54" y="0" width="41" height="14" uuid="4a7557b2-98ec-47de-8ffc-82afd7e294fa"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Noempleados}]]></textFieldExpression>
