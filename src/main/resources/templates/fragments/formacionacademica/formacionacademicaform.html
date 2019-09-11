@@ -319,11 +319,7 @@
                 $('#btnGuardar').click(function(){
                     enviar_form_personalizado("formformacion",'../formacionacademica/'+ $("#codem").val().toString());
 //                     $("#loader").addClass("loader");
-        var flag =validate_value_field();
-        if(flag==false){
-             $("#formformacion").attr('action', '../formacionacademica/'+ $("#codem").val().toString());
-            $("form#formformacion").submit();           
-        }
+      
 
             
         });
