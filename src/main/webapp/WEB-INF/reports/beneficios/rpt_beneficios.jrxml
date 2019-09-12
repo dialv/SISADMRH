@@ -72,7 +72,7 @@ and e.estadoempleado<>0]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<image>
 				<reportElement x="437" y="0" width="70" height="70" uuid="4d12124f-2dec-4cd6-b9e0-3a3978d776fb"/>

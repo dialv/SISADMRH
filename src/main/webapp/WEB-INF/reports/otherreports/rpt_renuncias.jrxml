@@ -158,11 +158,11 @@ c.fechainiciocontrato<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="332" y="14" width="132" height="17" uuid="eb15d962-1faf-47fb-a33d-04fe57d3f2b9"/>
+				<reportElement x="310" y="14" width="172" height="17" uuid="eb15d962-1faf-47fb-a33d-04fe57d3f2b9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<image>
 				<reportElement x="660" y="0" width="70" height="70" uuid="a288a950-2134-4b57-8e88-2ef50ed71fe7"/>

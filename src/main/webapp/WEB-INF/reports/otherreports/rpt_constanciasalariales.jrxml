@@ -261,7 +261,7 @@ d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="166" y="13" width="233" height="17" uuid="92646f55-b86a-406f-b483-3937bdd29a9a"/>

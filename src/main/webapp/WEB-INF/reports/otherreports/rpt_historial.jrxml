@@ -167,11 +167,11 @@ and el.fechadesdeexperiencialaboral <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[SISASMRH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="326" y="23" width="132" height="17" uuid="15b3d772-00ea-4184-b465-b7a9927ab196"/>
+				<reportElement x="308" y="23" width="172" height="17" uuid="15b3d772-00ea-4184-b465-b7a9927ab196"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

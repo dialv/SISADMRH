@@ -20,7 +20,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadomision ep on m.codigomision=ep.codigomision inner join puesto p on p.codigopuesto=e.codigopuesto
-where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and tipomision =1 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') ]]>
+where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and tipomision =1 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
@@ -156,11 +156,11 @@ where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and ti
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="319" y="19" width="140" height="20" uuid="387a90a2-a84c-4be3-abaa-22bc4b08ca80"/>
+				<reportElement x="300" y="19" width="185" height="20" uuid="387a90a2-a84c-4be3-abaa-22bc4b08ca80"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<image>
 				<reportElement x="61" y="3" width="80" height="70" uuid="62ab98e5-16d8-45bf-bae8-6eb98ff1fb48"/>

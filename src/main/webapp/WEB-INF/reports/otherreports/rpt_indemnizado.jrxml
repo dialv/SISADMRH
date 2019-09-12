@@ -149,7 +149,7 @@ c.fechainiciocontrato <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Direccion de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="286" y="29" width="265" height="20" uuid="4a968a93-b0c7-4bea-b9b3-358e49ccc50b"/>

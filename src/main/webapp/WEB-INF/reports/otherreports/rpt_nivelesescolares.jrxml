@@ -38,7 +38,7 @@ and n.fechadesdeformacionacademica <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="103" y="53" width="70" height="20" uuid="f9ebfcbb-4bfc-45e1-9578-33ada4a71257"/>

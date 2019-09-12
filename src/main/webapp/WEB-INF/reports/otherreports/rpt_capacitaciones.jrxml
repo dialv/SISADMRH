@@ -168,11 +168,11 @@ and ca.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="323" y="26" width="138" height="15" uuid="caf94bec-5f08-4951-bb40-8e96cdcc5fe0"/>
+				<reportElement x="301" y="26" width="187" height="15" uuid="caf94bec-5f08-4951-bb40-8e96cdcc5fe0"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recuros Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="306" y="11" width="181" height="15" uuid="d4179ad2-eb92-499f-9b87-5f0c0b21182b"/>

@@ -149,11 +149,11 @@ c.fechafincontrato <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="220" y="18" width="132" height="17" uuid="3d8d22ee-a8b5-4056-be01-6610a915e735"/>
+				<reportElement x="199" y="18" width="172" height="17" uuid="3d8d22ee-a8b5-4056-be01-6610a915e735"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Dirección de Recursos Humanos]]></text>
+				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="212" y="62" width="32" height="17" uuid="618f3778-4f49-4a0e-9d5c-5b2351c841e1"/>
