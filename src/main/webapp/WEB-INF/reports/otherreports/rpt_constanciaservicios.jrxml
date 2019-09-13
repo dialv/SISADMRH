@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="61040501-82b0-436f-934f-a899fdfcb57e">
 	<property name="ireport.zoom" value="1.2100000000000009"/>
-	<property name="ireport.x" value="60"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="72"/>
+	<property name="ireport.y" value="189"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -108,7 +108,7 @@
  WHERE e.codigoempleado=$P{CODIGO} and
  
 c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainiciocontrato<= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and 
-d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0]]>
+d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0 ]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="desde" class="java.lang.String"/>
@@ -234,11 +234,11 @@ d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0]]>
 				<text><![CDATA[SISADMRH]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="193" y="22" width="175" height="14" uuid="04cbd8d9-60f2-4ecb-a1a9-84f960a22072"/>
+				<reportElement x="211" y="22" width="150" height="14" uuid="04cbd8d9-60f2-4ecb-a1a9-84f960a22072"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Direccion de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="198" y="7" width="188" height="14" uuid="e0dac18e-05c1-4ee9-bd53-d4213a544e47"/>

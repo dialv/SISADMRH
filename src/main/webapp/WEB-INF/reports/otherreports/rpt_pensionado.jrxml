@@ -135,7 +135,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="415" y="95" width="55" height="20" uuid="9b4c84c3-5c3c-43be-819c-a5f1e3e55e6e"/>

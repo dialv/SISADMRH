@@ -141,11 +141,11 @@ and co.estadocostocapacitacion=1 and c.estadocapacitacion=1]]>
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="152" y="23" width="265" height="14" uuid="997e1e06-7387-48b9-b0ca-ebe7808fd603"/>
+				<reportElement x="150" y="23" width="265" height="14" uuid="997e1e06-7387-48b9-b0ca-ebe7808fd603"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="186" y="36" width="194" height="14" uuid="32692b05-992a-4d77-9394-cea3b6215c2e"/>

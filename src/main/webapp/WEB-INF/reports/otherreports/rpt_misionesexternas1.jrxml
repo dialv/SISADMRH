@@ -17,7 +17,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select  concat(e.nombreempleado,' ',e.apellidoempleado) as Empleado,p.nombrepuesto,m.nombremision,m.objetivomision,m.departamentomision,m.paisdestino,m.ciudad from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadomision ep on m.codigomision=ep.codigomision inner join puesto p on p.codigopuesto=e.codigopuesto
-where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and  tipomision=1 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and  tipomision=1 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') ]]>
 	</queryString>
 	<field name="Empleado" class="java.lang.String"/>
 	<field name="nombrepuesto" class="java.lang.String">
@@ -135,11 +135,11 @@ where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and  t
 				<imageExpression><![CDATA[$P{IMAGE_PATH}.concat("/GOES.jpg")]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="309" y="16" width="172" height="17" uuid="f6364ad1-a050-45f6-aa5c-c75d3e4c6be4"/>
+				<reportElement x="330" y="16" width="132" height="17" uuid="f6364ad1-a050-45f6-aa5c-c75d3e4c6be4"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="355" y="29" width="66" height="17" uuid="53c61a65-662c-4ca2-9136-495a026f2ca8"/>

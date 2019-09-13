@@ -56,11 +56,11 @@
 				<text><![CDATA[Usuario:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="306" y="22" width="177" height="17" uuid="bd48dc4f-4177-406d-b9e3-cd8b778bfa72"/>
+				<reportElement x="329" y="22" width="132" height="17" uuid="bd48dc4f-4177-406d-b9e3-cd8b778bfa72"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="229" y="65" width="100" height="14" uuid="683af6a7-7e30-463b-a76f-b4b2fcfcb8da"/>

@@ -147,7 +147,7 @@ c.partidacontrato, c.subpartidacontrato,p.sueldobase FROM `empleado` e, puesto p
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="156" y="66" width="265" height="20" uuid="719e4ea3-eaf5-441a-9892-b1974c8d2db3"/>

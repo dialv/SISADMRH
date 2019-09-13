@@ -132,7 +132,7 @@ and c.estadocapacitacion!=0 and a.estadoasistencia!=0]]>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="160" y="66" width="265" height="20" uuid="f465284f-943f-4a3c-8234-5ea9f61d76e5"/>

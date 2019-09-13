@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9e2a8e50-efd2-42d9-ab62-dda75ce1c952">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="54"/>
+	<property name="ireport.x" value="53"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FECHAINICIO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -124,18 +124,18 @@ where e.estadoempleado=1 and e.estadoempleado=3 and m.estadomision=1 and p.estad
 				<text><![CDATA[rpt_mint]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="294" y="3" width="165" height="17" uuid="a8d5cebb-86ae-4957-aae0-f594effd500b"/>
+				<reportElement x="294" y="3" width="178" height="17" uuid="a8d5cebb-86ae-4957-aae0-f594effd500b"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="290" y="19" width="172" height="17" uuid="5ac6dd6a-3d30-4bbf-9c0e-c2cda678b5df"/>
+				<reportElement x="313" y="19" width="137" height="17" uuid="5ac6dd6a-3d30-4bbf-9c0e-c2cda678b5df"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="344" y="36" width="59" height="17" uuid="ae7366e4-f6cc-4e0c-bcc1-b72ef6d86f38"/>

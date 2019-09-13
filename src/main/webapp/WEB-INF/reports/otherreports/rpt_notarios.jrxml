@@ -159,11 +159,11 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Ministerio de Justicia  y Segurdiad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="25" width="172" height="17" uuid="4e6f63e2-6f4e-48df-b12e-670594cabedf"/>
+				<reportElement x="318" y="25" width="132" height="17" uuid="4e6f63e2-6f4e-48df-b12e-670594cabedf"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

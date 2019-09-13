@@ -105,11 +105,11 @@ MONTH(e.fechanacimientoempleado)=$P{FECHAINICIO}]]>
 				<text><![CDATA[pnt_reporte_cump]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="298" y="21" width="180" height="17" uuid="eefffee2-3425-45e9-8606-d5169f2d9aff"/>
+				<reportElement x="320" y="21" width="136" height="17" uuid="eefffee2-3425-45e9-8606-d5169f2d9aff"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="561" y="56" width="34" height="17" uuid="809b19fc-cd75-4df6-8b42-1fef861a6e3c"/>

@@ -138,11 +138,11 @@ c.fechainiciocontrato>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and c.fechainici
 				<text><![CDATA[Ministerio de Justicia y Seguridad Pública]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="162" y="49" width="265" height="20" uuid="b6217f52-beae-478b-89f1-906f22c8f993"/>
+				<reportElement x="160" y="49" width="265" height="20" uuid="b6217f52-beae-478b-89f1-906f22c8f993"/>
 				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Direccion de Desarrollo del Talento Humano]]></text>
+				<text><![CDATA[Dirección de Recursos Humanos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="160" y="65" width="265" height="20" uuid="12b1d51a-1bef-438d-90aa-22a259dafb3b"/>
