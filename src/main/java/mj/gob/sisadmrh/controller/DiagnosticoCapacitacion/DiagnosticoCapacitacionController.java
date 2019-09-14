@@ -76,10 +76,18 @@ public class DiagnosticoCapacitacionController extends UtilsController{
         return PREFIX + "diagnosticocapacitacionform";
     }
     
-    @RequestMapping(value = "diagnosticocapacitacion")
+     @RequestMapping(value = "diagnosticocapacitacion")
     public String saveDiagnosticoCapacitacion(DiagnosticoCapacitacion diagnosticoCapacitacion,Model model,SessionStatus status) {
         try{
             diagnosticoCapacitacion.setEstadodiagnostico(1);
+            String mes= diagnosticoCapacitacion.getMescapacitacion().substring(0,1);
+            String meses= diagnosticoCapacitacion.getMescapacitacion();
+            System.out.println("mes:"+mes+" meses:"+meses);
+            if(mes.equals(",")){
+                meses=meses.substring(1, meses.length());
+                diagnosticoCapacitacion.setMescapacitacion(meses);
+            }
+                
           diagnosticoCapacitacionService.saveDiagnosticoCapacitacion(diagnosticoCapacitacion);
           status.setComplete();
           bitacoraService.BitacoraRegistry("se creo un Diagnostico Capacitacion",getRequest().getRemoteAddr(), 

@@ -183,14 +183,14 @@ FROM
 				<reportElement x="658" y="0" width="1" height="24" uuid="a1d6c029-0557-461b-80ee-c671676efc28"/>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="27" y="-1" width="95" height="24" forecolor="#000000" uuid="8c8359fa-1916-4267-b5ff-49beffadff78"/>
+				<reportElement style="Column header" x="32" y="-1" width="80" height="24" forecolor="#000000" uuid="8c8359fa-1916-4267-b5ff-49beffadff78"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tema]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="123" y="0" width="87" height="24" forecolor="#000000" uuid="cca56259-d6ea-4df7-9a2e-5804a0ed93bc"/>
+				<reportElement style="Column header" x="126" y="0" width="80" height="24" forecolor="#000000" uuid="cca56259-d6ea-4df7-9a2e-5804a0ed93bc"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
@@ -211,28 +211,28 @@ FROM
 				<text><![CDATA[Mes de Capacitación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="378" y="-1" width="180" height="24" forecolor="#000000" uuid="9b8b9726-ff7b-4097-8c89-514478881e75"/>
+				<reportElement style="Column header" x="381" y="-1" width="170" height="24" forecolor="#000000" uuid="9b8b9726-ff7b-4097-8c89-514478881e75"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Resultados a Obtener]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="560" y="0" width="96" height="24" forecolor="#000000" uuid="abb45af3-6c11-4329-b6a0-163a0490eae6"/>
+				<reportElement style="Column header" x="563" y="0" width="90" height="24" forecolor="#000000" uuid="abb45af3-6c11-4329-b6a0-163a0490eae6"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Autorizado Por]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="658" y="0" width="88" height="24" forecolor="#000000" uuid="2d32e380-6a43-4e16-a12b-b13735be93c1"/>
+				<reportElement style="Column header" x="662" y="0" width="88" height="24" forecolor="#000000" uuid="2d32e380-6a43-4e16-a12b-b13735be93c1"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cargo quien Autoriza]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="23" y="0" width="725" height="24" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
+				<reportElement mode="Transparent" x="25" y="0" width="735" height="24" backcolor="#FFFFFF" uuid="2077d095-b63c-4cf3-84f8-adbd8776b298"/>
 			</rectangle>
 		</band>
 	</columnHeader>
@@ -299,7 +299,7 @@ FROM
 				<textFieldExpression><![CDATA["Total de Registros:" + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="25" y="1" width="719" height="1" uuid="6788b20a-04ea-41c5-9fa5-d00410d30e05"/>
+				<reportElement x="25" y="1" width="735" height="1" uuid="6788b20a-04ea-41c5-9fa5-d00410d30e05"/>
 			</line>
 		</band>
 	</summary>

@@ -133,3 +133,12 @@
 .dataTables_wrapper{
     max-width: 950px !important;
 }
+
+.form-group .required .control-label:after {
+  content:"*";color:red;
+}
+/*//funcion para que salga requerido con asterisco en rojo*/
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}

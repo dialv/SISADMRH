@@ -326,3 +326,7 @@ img1 {
   background-position: center center;
   background-size: cover;
 }
+
+.form-group .required .control-label:after {
+  content:"*";color:red;
+}

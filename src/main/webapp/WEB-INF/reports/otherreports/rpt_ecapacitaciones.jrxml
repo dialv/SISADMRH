@@ -239,7 +239,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<columnHeader>
 		<band height="14" splitType="Stretch">
 			<staticText>
-				<reportElement x="71" y="0" width="218" height="14" uuid="697ea235-f9cd-467d-a258-5599799af29e"/>
+				<reportElement x="75" y="0" width="200" height="14" uuid="697ea235-f9cd-467d-a258-5599799af29e"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 					<leftPen lineWidth="0.25"/>
@@ -251,7 +251,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Tema de Capacitación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="288" y="0" width="164" height="14" uuid="6ac16bc1-207f-4027-80f4-b18ce3e8a5a0"/>
+				<reportElement x="292" y="0" width="160" height="14" uuid="6ac16bc1-207f-4027-80f4-b18ce3e8a5a0"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 					<bottomPen lineWidth="0.25"/>
@@ -262,7 +262,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Facilitador]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="454" y="0" width="115" height="14" uuid="1cfac1e1-77c0-43d6-aa61-1a6c4796674c"/>
+				<reportElement x="459" y="0" width="100" height="14" uuid="1cfac1e1-77c0-43d6-aa61-1a6c4796674c"/>
 				<box>
 					<topPen lineWidth="0.25"/>
 					<bottomPen lineWidth="0.25"/>
@@ -308,7 +308,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<text><![CDATA[Fecha y Hora evaluaciòn]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="71" y="0" width="695" height="14" uuid="66e7cf19-2f43-494c-bc10-8888aad285f8"/>
+				<reportElement mode="Transparent" x="64" y="0" width="702" height="14" uuid="66e7cf19-2f43-494c-bc10-8888aad285f8"/>
 			</rectangle>
 		</band>
 	</columnHeader>
@@ -343,7 +343,7 @@ and c.fechacapacitaciondesde<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA[$F{fdesde}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="658" y="0" width="108" height="20" uuid="0fea479b-9508-4545-8b77-d4a9515126fb"/>
+				<reportElement x="667" y="0" width="92" height="20" uuid="0fea479b-9508-4545-8b77-d4a9515126fb"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
