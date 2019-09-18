@@ -13,8 +13,11 @@
         </div> 
         <div class="col-md-8">
             <br><br>
-            <div class="row text-center">
-                <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
+           <div class="row ">
+               <div class="row text-center">
+                   <img src="../../static/image/asistencia.png" width="75" th:src="@{/image/asistencia.png}"/>
+                    </div>
+                
                 <div>
                     <form class="form-horizontal" onsubmit="return validateForm()" th:object="${incapacidad}" th:action="@{../incapacidad}"  method="post" enctype="multipart/form-data">
                         <div class="col-md-6">

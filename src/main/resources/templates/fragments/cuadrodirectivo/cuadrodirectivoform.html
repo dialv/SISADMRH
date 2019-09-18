@@ -10,8 +10,11 @@
             </div> 
             <div class="col-md-8">
                 <br><br>
-                <div class="row text-center">
-                    <img src="../../static/image/cuadro.png" width="75" th:src="@{/image/cuadro.png}"/>
+                <div class="row ">
+                      <div class="row text-center">
+                           <img src="../../static/image/cuadro.png" width="75" th:src="@{/image/cuadro.png}"/>
+                    </div>
+                   
                     <div>
                         <form class="form-horizontal" th:object="${cuadrodirectivo}" th:action="@{../cuadrodirectivo}" method="post">
                             <input type="hidden" th:field="*{codigocuadrodirectivo}"/>
