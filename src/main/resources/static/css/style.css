@@ -327,6 +327,14 @@ img1 {
   background-size: cover;
 }
 
-.form-group .required .control-label:after {
+/*.form-group .required .control-label:after {
   content:"*";color:red;
 }
+
+
+
+
+.form-custom-validate {
+    background-color: greenyellow;
+    
+}*/

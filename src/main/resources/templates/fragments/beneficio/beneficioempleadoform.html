@@ -53,11 +53,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
                     <input type="text" class="form-control" th:field="*{codigobeneficio}"/>
                 </div>
             </div>-->
+<input type="hidden" id="codben" />
               <div class="form-group">
                         <label class="col-sm-3 control-label">Beneficios:</label>
                         <div class="col-sm-7" >
                             <br>
-                            <select class="form-control"  th:field="*{codigobeneficio}" >
+                            <select class="form-control"  th:field="*{codigobeneficio}" id="codigobeneficio">
                                  <option value="0">--seleccione el beneficio a asignar--</option>
                                 <option th:each="c:${beneficios}" th:value="${c.codigobeneficio}" th:text="${c.nombrebeneficio}"></option>
                             </select>
@@ -111,7 +112,15 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
     $('#Asignarbtn').click(function(){
         var flag =validate_value_field();
         if(flag==false){
-            $("#asignar").attr('action', '../beneficio/asignar/'+ $("#codem").val().toString());
+            var URLactual = window.location.href;
+            var metodo="";
+                if (URLactual.includes("edit")){
+                    metodo='../beneficio/asignar/'+ $("#codem").val().toString()+'/'+ $("#codben").val().toString();
+                }
+                 else{
+                     metodo='../beneficio/asignar/'+ $("#codem").val().toString();
+                                 }
+            $("#asignar").attr('action',metodo );
             $("form#asignar").submit();  
         }  
         });
@@ -123,7 +132,12 @@ document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
         <script>       
             var URLactual = window.location.href;
                 if (URLactual.includes("edit")){
-//                    alert("str");
+                    var str =URLactual.substring(URLactual.indexOf("edit2")+6,URLactual.length);
+                    str=str.substring(0,str.indexOf("/"));
+//                    alert(str);
+                      document.getElementById("codigobeneficio").value = str;
+                      document.getElementById("codben").value = str;
+                      
                 }
                 else{
 //                    alert("str1");

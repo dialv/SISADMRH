@@ -149,6 +149,7 @@ public class BeneficioController extends UtilsController {
         model.addAttribute("beneficio", new Beneficio());
         Iterable<Beneficio> beneficio = beneficioService.listAllBeneficios();
         model.addAttribute("beneficios", beneficio);
+        model.addAttribute("beneficios", beneficio);
         return PREFIX + "beneficioempleadoform";
     }
 
@@ -171,6 +172,39 @@ public class BeneficioController extends UtilsController {
             Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
         }
         return "redirect:/empleados/show/" + id;
+    }
+    
+    @RequestMapping(value = "edit2/beneficio/asignar/{idemp}/{id}")
+    public String EditaragsignarEmpleadoBeneficio(Beneficio beneficio, Model model, @PathVariable Integer idemp, @PathVariable Integer id) {
+        try {
+            
+             EmpleadobeneficioPK llavemp = new EmpleadobeneficioPK();
+            llavemp.setCodigobeneficio(id);
+            llavemp.setCodigoempleado(idemp);
+            Empleadobeneficio emp = new Empleadobeneficio();
+            emp.setEmpleadobeneficioPK(llavemp);
+            empleadoBeneficioService.deleteEmpleadobeneficio(emp);
+            
+            
+            Empleadobeneficio emben = new Empleadobeneficio();
+            emben.setBeneficio(beneficio);
+            Empleado em = empleadoService.getEmpleadoById(idemp).get();
+            emben.setEmpleado(empleadoService.getEmpleadoById(idemp).get());
+            EmpleadobeneficioPK embenpk = new EmpleadobeneficioPK();
+            embenpk.setCodigobeneficio(beneficio.getCodigobeneficio());
+            embenpk.setCodigoempleado(em.getCodigoempleado());
+            emben.setEmpleadobeneficioPK(embenpk);
+            emben.setFechabeneficio(new Date());
+            empleadoBeneficioService.saveEmpleadobeneficio(emben);
+            
+             bitacoraService.BitacoraRegistry("se Modifico un beneficio asignado a un empleado", getRequest().getRemoteAddr(),
+                    getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA
+            model.addAttribute("msg", 0);
+        } catch (Exception e) {
+            model.addAttribute("msg", 1);
+            Logger.getLogger(BeneficioController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return "redirect:/empleados/show/" + idemp;
     }
 
     @RequestMapping(value = "beneficio/asignar/{id}")

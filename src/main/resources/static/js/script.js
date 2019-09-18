@@ -676,7 +676,7 @@ function pdffile(){
 
 
 
-
+//funcion para que los campos de los formularios sean requeridos
 function  enviar_form_personalizado(formName, url){
      fecha_format(); 
      var bandera =validate_value_field();   
@@ -691,6 +691,66 @@ function  enviar_form_personalizado(formName, url){
         }
         
         // muestra la validacion sobre los campos requeridos
-      $(idForm).get(0).reportValidity();
+      //$(idForm).get(0).reportValidity();
+      
+      $(idForm).validator('validate');
 }
 
+
+
+//funcion para validar formularios con asterisco
+function  activate_bootstrap_validator() {
+    
+    
+    
+     $(document).ready(function(){
+         
+               var formsValidator = $('form');
+    
+           var inputsRequired = formsValidator.find('input[required], textarea[required],select[required]');
+           
+           
+           inputsRequired.each(function (index, input){
+               
+               $(input).after('<span class="glyphicon form-control-feedback" aria-hidden="true"></span>');
+               $(input).parents("div.form-group").addClass("has-feedback");
+           });
+           
+           
+           
+           
+           formsValidator.validator();
+    
+     } );
+   
+    
+   
+}
+
+
+activate_bootstrap_validator();
+
+function label_obg() {
+    var URLactual = window.location.href;
+     var fi=0;
+     var ff=1;
+     if(URLactual.includes("new") || URLactual.includes("edit") || URLactual.includes("asignar")){
+
+                        if(URLactual.includes("contacto") || URLactual.includes("dependiente") || URLactual.includes("formacionacademicas") ||
+                           URLactual.includes("caparecibidas") || URLactual.includes("contrato") || URLactual.includes("experiencialaborales")||
+                           URLactual.includes("ubicacionfisicas") || URLactual.includes("idiomas") || URLactual.includes("beneficios/asignar")    
+                        || URLactual.includes("misiones/editlist") || URLactual.includes("beneficios/edit2") 
+                        ){
+                            fi=1;
+                            ff=2;
+                        }
+                             var x = document.getElementsByClassName("col-md-12");
+                             var i;
+                            for (i = fi; i < ff; i++) {
+                               var h1 = document.createElement("p");
+                               h1.style.color = 'red';
+                               h1.innerHTML = "Campos obligatorios (*)";
+                               x[i].appendChild(h1);
+                              }
+ }
+}
