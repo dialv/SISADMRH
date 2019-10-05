@@ -717,9 +717,9 @@ function  activate_bootstrap_validator() {
            });
            
            
+          //lo comente para que no salga el requerido en todos los formularios 
            
-           
-           formsValidator.validator();
+         //  formsValidator.validator();
     
      } );
    
