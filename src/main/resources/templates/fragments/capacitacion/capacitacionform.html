@@ -191,7 +191,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha  de inicio  capacitación(*):</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control fecha_format" id="fdesde" required="true" th:field="*{fechacapacitaciondesde}" onchange="isDat(this.value,'fdesde');Fechas(this.value,$('#fhasta').val().toString(),'fdesde','fhasta')"/>
                         </div>
                            <div class="popup col-sm-1"><b>
@@ -202,7 +202,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha  fin capacitación(*):</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control fecha_format" id="fhasta" required="true" th:field="*{fechacapacitacionhasta}" onchange="isDat(this.value,'fhasta');Fechas($('#fdesde').val().toString(),this.value,'fdesde','fhasta')"/>
                         </div>
                           <div class="popup col-sm-1"><b>

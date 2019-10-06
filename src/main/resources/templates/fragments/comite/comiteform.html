@@ -97,7 +97,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Fecha inicio del comité(*):</label>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <input type="text" class="form-control fecha_format" required="true" th:field="*{fechadesdecomite}" id="fechadesdecomite" onchange="isDat(this.value,'fechadesdecomite');Fechas(this.value,$('#fechahastacomite').val().toString(),'fechadesdecomite','fechahastacomite')"/>
                             </div>
                               <div class="popup col-sm-1"><b>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Fecha fin del comité(*):</label>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <input type="text" class="form-control fecha_format" required="true" th:field="*{fechahastacomite}" id="fechahastacomite" onchange="isDat(this.value,'fechahastacomite');Fechas($('#fechadesdecomite').val().toString(),this.value,'fechadesdecomite','fechahastacomite')"/>
                             </div>
                                <div class="popup col-sm-1"><b>

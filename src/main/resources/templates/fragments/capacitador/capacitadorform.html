@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Empleado responsable del capacitador(*):</label>
-                        <div class="col-sm-5" >
+                        <div class="col-sm-6" >
                             <select class="form-control"  th:field="*{codigoempleado.codigoempleado}" >
                                  <option value="0">-- Seleccione un encargado del capacitador --</option>
                                 <option th:each="c:${empleados}" th:value="${c.codigoempleado}" th:text="${c.nombreempleado}+', '+${c.apellidoempleado}"></option>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Teléfono fijo de capacitador(*):</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonocapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonocapacitador')}" th:errors="*{telefonocapacitador}"></small>
                         </div>
@@ -164,7 +164,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Teléfono móvil de capacitador(*):</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="text" class="form-control num_telefono" required="true" th:field="*{telefonomovilcapacitador}"/>
                             <small class="form-text text-danger" th:if="${#fields.hasErrors('telefonomovilcapacitador')}" th:errors="*{telefonomovilcapacitador}"></small>
                         </div>

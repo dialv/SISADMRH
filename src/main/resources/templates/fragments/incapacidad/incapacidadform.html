@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">DUI empleado:(*)</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control num_dui"  id = "duiemp" max="12"  maxlength="12" required="true" th:field="*{dui}"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Nº ISSS empleado:(*)</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control num_dui" id = "nupemp" max="12"  maxlength="12" required="true" th:field="*{isss}"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Fecha emision:(*)</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control fecha_format " id="fechamision" required="true" th:field="*{fechaemision}"onchange="isDat(this.value, 'fechaemisionn'); Fechas(this.value, $('#fdesde').val().toString(), 'fechaemisionn', 'fechainicio')"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Fecha inicio incapacidad:(*)</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control fecha_format " id="fdesde" required="true" th:field="*{fechadesdeincapacidad}"onchange="isDat(this.value, 'fdesde'); Fechas(this.value, $('#fhasta').val().toString(), 'fdesde', 'fhasta')"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Fecha fin incapacidad:(*)</label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control fecha_format " id="fhasta" required="true" th:field="*{fechahastaincapacidad}"onchange="isDat(this.value, 'fhasta'); Fechas($('#fdesde').val().toString(), this.value, 'fdesde', 'fhasta')"/>
                                 </div>
                                 <div class="popup col-sm-1"><b>
