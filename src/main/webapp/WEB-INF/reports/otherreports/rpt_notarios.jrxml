@@ -60,7 +60,7 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="653" y="69" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
+				<reportElement x="667" y="69" width="40" height="17" uuid="d63d0eb3-1543-473d-a0be-53844c71f01f"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
