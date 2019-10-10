@@ -195,7 +195,7 @@ e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 			</rectangle>
 			<staticText>
 				<reportElement x="44" y="0" width="93" height="14" uuid="45933b9f-8ac2-4df1-a559-c0d867795b56"/>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Código de Empleado]]></text>
@@ -293,11 +293,11 @@ e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 				<reportElement x="44" y="4" width="670" height="1" uuid="8c485f04-7b32-4568-8481-6fd9370cb776"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="595" y="10" width="107" height="15" backcolor="#FFFFFF" uuid="73496534-6f63-4f27-99dc-0bcafb6ec819"/>
+				<reportElement mode="Opaque" x="570" y="10" width="132" height="15" backcolor="#FFFFFF" uuid="73496534-6f63-4f27-99dc-0bcafb6ec819"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total de Registros:    " + $V{COLUMN_COUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>
