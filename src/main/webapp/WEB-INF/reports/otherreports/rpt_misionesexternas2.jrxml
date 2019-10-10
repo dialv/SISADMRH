@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="5c97d53c-6c6d-4cd7-8205-e7d0bdf541e2">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="350"/>
-	<property name="ireport.y" value="21"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="CODIGO" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -19,9 +19,12 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT  DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadopuesto ep on e.codigoempleado=ep.codigoempleado inner join puesto p on p.codigopuesto=ep.codigopuesto
-where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y') and tipomision =0]]>
+		<![CDATA[SELECT e.codigoempleado, DATE_FORMAT(m.fechasalidamision, '%d/%m/%Y') as Desde, DATE_FORMAT(m.fecharegresomision, '%d/%m/%Y') as Hasta, m.gastoviaje,m.numeroacuerdo,m.boleto,m.viaticos ,m.organismopatrocinador,m.organismoinvita from mision m inner join empleadomision em on m.codigomision=em.codigomision inner join empleado e on e.codigoempleado=em.codigoempleado inner join empleadomision ep on m.codigomision=ep.codigomision inner join puesto p on p.codigopuesto=e.codigopuesto
+where e.estadoempleado in(1,3) and m.estadomision=1 and p.estadopuesto!=0 and tipomision =1 and m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechasalidamision<=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
+	<field name="codigoempleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="Desde" class="java.lang.String"/>
 	<field name="Hasta" class="java.lang.String"/>
 	<field name="gastoviaje" class="java.lang.Float">
@@ -65,21 +68,21 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 				<text><![CDATA[Reporte de Misiones Externas 2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="310" y="80" width="30" height="14" uuid="5ae09e3c-4d04-4aa4-8d66-5b2dd48c27b7"/>
+				<reportElement x="392" y="80" width="30" height="14" uuid="5ae09e3c-4d04-4aa4-8d66-5b2dd48c27b7"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="395" y="80" width="32" height="14" uuid="243a036b-da4b-445b-a446-0ed357029cac"/>
+				<reportElement x="477" y="80" width="32" height="14" uuid="243a036b-da4b-445b-a446-0ed357029cac"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="173" y="79" width="100" height="14" uuid="f95dbd3b-8178-4474-a582-79b75e0bdbc9"/>
+				<reportElement x="255" y="79" width="100" height="14" uuid="f95dbd3b-8178-4474-a582-79b75e0bdbc9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -100,14 +103,14 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="339" y="80" width="44" height="14" uuid="c7240493-273a-49fd-a8d7-4ef5ad1edfaa"/>
+				<reportElement x="421" y="80" width="44" height="14" uuid="c7240493-273a-49fd-a8d7-4ef5ad1edfaa"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{FECHAINICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="422" y="80" width="48" height="14" uuid="b82db202-2306-4820-8467-03e8f4ebc231"/>
+				<reportElement x="504" y="80" width="48" height="14" uuid="b82db202-2306-4820-8467-03e8f4ebc231"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -128,7 +131,7 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="74" y="79" width="99" height="14" uuid="6a069d59-e199-4f16-ac10-6c2677207567"/>
+				<reportElement x="156" y="79" width="99" height="14" uuid="6a069d59-e199-4f16-ac10-6c2677207567"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -175,130 +178,147 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 	<columnHeader>
 		<band height="19" splitType="Stretch">
 			<rectangle>
-				<reportElement x="57" y="2" width="663" height="15" uuid="e0d1f52c-0caf-4650-aa00-8b3c0f4bca9f"/>
+				<reportElement x="30" y="2" width="690" height="15" uuid="e0d1f52c-0caf-4650-aa00-8b3c0f4bca9f"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="57" y="2" width="67" height="14" uuid="daf65d49-8d84-4aca-8fe1-97e5a9fb7140"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="106" y="2" width="67" height="14" uuid="daf65d49-8d84-4aca-8fe1-97e5a9fb7140"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Inicio Misión]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="139" y="3" width="65" height="14" uuid="f214cfb5-ccad-4158-8387-3d2e94b2de4f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="9"/>
-				</textElement>
-				<text><![CDATA[Fin Misión]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="212" y="2" width="86" height="14" uuid="56e0ea94-aa33-4b1b-a28a-fb1bee4c9284"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="260" y="2" width="86" height="14" uuid="56e0ea94-aa33-4b1b-a28a-fb1bee4c9284"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Gasto($)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="307" y="2" width="60" height="14" uuid="544233b5-c405-4b1a-9bbe-0a7b06bda63f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="359" y="2" width="60" height="14" uuid="544233b5-c405-4b1a-9bbe-0a7b06bda63f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Acuerdo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="393" y="2" width="55" height="14" uuid="cc0f0862-0b00-401c-8751-053a34bfc7c5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="424" y="2" width="74" height="14" uuid="cc0f0862-0b00-401c-8751-053a34bfc7c5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Boleto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="452" y="2" width="100" height="14" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="504" y="3" width="100" height="14" uuid="cadd1413-9292-4f0e-b937-cc285eb09ef0"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Patrocinador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="606" y="2" width="100" height="14" uuid="b28a9dfb-0916-4c30-8e13-329aba9f701a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<text><![CDATA[Organismo que Invita]]></text>
 			</staticText>
 			<line>
-				<reportElement x="134" y="2" width="1" height="14" uuid="c8f6945f-cecf-4e46-9c7a-9487985c2f6b"/>
+				<reportElement x="182" y="2" width="1" height="14" uuid="c8f6945f-cecf-4e46-9c7a-9487985c2f6b"/>
 			</line>
 			<line>
-				<reportElement x="209" y="3" width="1" height="14" uuid="e710308f-165e-419b-a49b-c982603438eb"/>
+				<reportElement x="257" y="3" width="1" height="14" uuid="e710308f-165e-419b-a49b-c982603438eb"/>
 			</line>
 			<line>
-				<reportElement x="298" y="2" width="1" height="14" uuid="c9e1519e-1911-4114-ac4c-56c45609ca19"/>
+				<reportElement x="346" y="2" width="1" height="14" uuid="c9e1519e-1911-4114-ac4c-56c45609ca19"/>
 			</line>
 			<line>
-				<reportElement x="374" y="2" width="1" height="14" uuid="e9c5b065-7ad8-4859-bfc6-0d71bc5d77ed"/>
+				<reportElement x="422" y="2" width="1" height="14" uuid="e9c5b065-7ad8-4859-bfc6-0d71bc5d77ed"/>
 			</line>
 			<line>
-				<reportElement x="451" y="2" width="1" height="14" uuid="874e3df6-0736-4283-9d3c-9a2374f810ff"/>
+				<reportElement x="499" y="2" width="1" height="14" uuid="874e3df6-0736-4283-9d3c-9a2374f810ff"/>
 			</line>
 			<line>
 				<reportElement x="604" y="3" width="1" height="14" uuid="8c247b14-213b-4152-9c35-5d89a3e6e49d"/>
 			</line>
+			<staticText>
+				<reportElement x="30" y="5" width="74" height="14" uuid="a46d4632-dfa0-4dde-a411-9151c53742e6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Codigo Empleado]]></text>
+			</staticText>
+			<line>
+				<reportElement x="104" y="3" width="1" height="14" uuid="9b50cf21-ad95-45df-962a-0d2fbe1fcfe5"/>
+			</line>
+			<staticText>
+				<reportElement x="184" y="5" width="65" height="14" uuid="f214cfb5-ccad-4158-8387-3d2e94b2de4f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[Fin Misión]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="14" splitType="Stretch">
+		<band height="15" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="307" y="0" width="39" height="14" uuid="df87ecc2-2131-46fa-87a6-4ddd11dd4653"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="380" y="0" width="39" height="14" uuid="df87ecc2-2131-46fa-87a6-4ddd11dd4653"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numeroacuerdo}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="402" y="0" width="45" height="14" uuid="7f821bb7-e11a-4f25-a7ee-0f6f523812fb"/>
-				<textElement verticalAlignment="Middle">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="452" y="0" width="45" height="14" uuid="7f821bb7-e11a-4f25-a7ee-0f6f523812fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{boleto}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="605" y="0" width="115" height="14" uuid="331ffb0f-7fdd-45f9-820a-f3e4a7f354a2"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="606" y="0" width="110" height="14" uuid="331ffb0f-7fdd-45f9-820a-f3e4a7f354a2"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{organismoinvita}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="61" y="0" width="60" height="14" uuid="2b866d77-3fb7-4570-91d5-950ebc6ba5d4"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="105" y="0" width="60" height="14" uuid="2b866d77-3fb7-4570-91d5-950ebc6ba5d4"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Desde}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="139" y="0" width="61" height="14" uuid="f7367943-23df-4a2e-a746-e7d7176c9c8a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="182" y="0" width="61" height="14" uuid="f7367943-23df-4a2e-a746-e7d7176c9c8a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hasta}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="220" y="0" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="291" y="1" width="54" height="14" uuid="2236456c-c864-4921-8286-d9f535d54d1a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,##0.00").format($F{gastoviaje})]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="459" y="0" width="100" height="14" uuid="c3bb2880-969f-43b1-a0aa-c17e81e91743"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="504" y="0" width="100" height="14" uuid="c3bb2880-969f-43b1-a0aa-c17e81e91743"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{organismopatrocinador}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="67" height="14" uuid="409cf5db-f559-49b9-883e-6e1a25186e06"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoempleado}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="2" splitType="Stretch"/>
+		<band height="4" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="4" splitType="Stretch"/>
@@ -309,12 +329,19 @@ where  m.fechasalidamision>=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')and m.fechas
 				<reportElement x="57" y="2" width="663" height="1" uuid="7f6b219c-d6c8-4d1a-baa5-521dd4b482db"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="166" y="6" width="107" height="13" backcolor="#FFFFFF" uuid="f510e194-2ca5-4577-8f74-b422bc3704ff"/>
+				<reportElement mode="Opaque" x="184" y="6" width="117" height="13" backcolor="#FFFFFF" uuid="f510e194-2ca5-4577-8f74-b422bc3704ff"/>
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Gasatos Totales:$" + 
 new BigDecimal($V{gastoviaje_1}).setScale(2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0">
+				<reportElement mode="Opaque" x="593" y="6" width="123" height="13" backcolor="#FFFFFF" uuid="8ca7d1b3-c1d1-4e61-b6c4-a1ff01a82036"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de Registros:    " + $V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 		</band>
 	</summary>
