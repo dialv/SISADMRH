@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="c3d8ea19-1295-4cd5-beff-28727f321760">
 	<property name="ireport.zoom" value="1.100000000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="139"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -461,28 +461,28 @@ d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0]]>
 				<reportElement x="168" y="12" width="1" height="40" uuid="05fc3b2f-7468-42d3-8cbb-75c901965408"/>
 			</line>
 			<textField>
-				<reportElement x="171" y="36" width="87" height="14" uuid="e1d96d2b-2657-4d39-aa1e-a6a8b9f820c3"/>
+				<reportElement x="171" y="34" width="87" height="14" uuid="e1d96d2b-2657-4d39-aa1e-a6a8b9f820c3"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sistemapago}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="275" y="36" width="73" height="14" uuid="bd2d1892-b290-4679-821f-5e8c13600003"/>
+				<reportElement x="283" y="34" width="73" height="14" uuid="bd2d1892-b290-4679-821f-5e8c13600003"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{salarioactual}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="365" y="34" width="73" height="14" uuid="abdb998d-5fe1-412e-943b-da88d7110d02"/>
+				<reportElement x="373" y="34" width="73" height="14" uuid="abdb998d-5fe1-412e-943b-da88d7110d02"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{montodescuento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="12" y="30" width="83" height="14" uuid="acb3f03e-ee1a-4f5d-8a4c-1c4ae2ea3054"/>
+				<reportElement x="12" y="34" width="83" height="14" uuid="acb3f03e-ee1a-4f5d-8a4c-1c4ae2ea3054"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
@@ -496,39 +496,39 @@ d.estadodescuento != 0 and c.estadocontrato != 0 and el.estadoexp != 0]]>
 				<textFieldExpression><![CDATA[$F{fechainiciocontrato}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="458" y="34" width="60" height="14" uuid="ed67bbde-5b4c-4453-895d-e5db299d9248"/>
+				<reportElement x="472" y="34" width="60" height="14" uuid="ed67bbde-5b4c-4453-895d-e5db299d9248"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="23" y="14" width="73" height="14" uuid="fd08fb06-4853-43ff-8dd3-cd5d9c0f3fd4"/>
+				<reportElement x="28" y="13" width="66" height="16" uuid="fd08fb06-4853-43ff-8dd3-cd5d9c0f3fd4"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Desde]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="171" y="12" width="87" height="14" uuid="7a9fba9c-6f24-4262-97c2-f0b113dc324a"/>
+				<reportElement x="171" y="13" width="100" height="18" uuid="7a9fba9c-6f24-4262-97c2-f0b113dc324a"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Sistema Pago]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="103" y="16" width="63" height="14" uuid="8f63a7ac-0335-4336-ae6e-cf617f1b5d7b"/>
+				<reportElement x="102" y="13" width="63" height="18" uuid="8f63a7ac-0335-4336-ae6e-cf617f1b5d7b"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
-				<text><![CDATA[Desde]]></text>
+				<text><![CDATA[Hasta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="10" width="73" height="14" uuid="54b6a406-d57c-445d-8121-d50a56616661"/>
+				<reportElement x="272" y="14" width="84" height="15" uuid="54b6a406-d57c-445d-8121-d50a56616661"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Salario Actual]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="362" y="10" width="73" height="14" uuid="c2a8b62b-3103-43ea-9d67-289804d9e20c"/>
+				<reportElement x="357" y="13" width="91" height="17" uuid="c2a8b62b-3103-43ea-9d67-289804d9e20c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Descuento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="459" y="12" width="73" height="14" uuid="3b49b42d-abb8-4abe-aa13-c282343cea86"/>
+				<reportElement x="457" y="12" width="74" height="18" uuid="3b49b42d-abb8-4abe-aa13-c282343cea86"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Total]]></text>
 			</staticText>
