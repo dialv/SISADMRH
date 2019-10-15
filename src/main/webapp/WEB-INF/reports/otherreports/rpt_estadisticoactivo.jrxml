@@ -10,9 +10,14 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT count(e.codigoempleado) as nempleados,sum(p.sueldobase) as sumsueldo,p.ubicacionpuesto FROM `empleado`e , puesto p WHERE e.estadoempleado=1 or e.estadoempleado=3 and p.estadopuesto!=0 and e.codigopuesto=p.codigopuesto group by p.ubicacionpuesto and
-e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
-and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
+		<![CDATA[SELECT count(e.codigoempleado) as nempleados,sum(p.sueldobase) as sumsueldo,
+p.ubicacionpuesto FROM `empleado`e , puesto p WHERE 
+e.estadoempleado in(1,3) and p.estadopuesto!=0 and e.codigopuesto=p.codigopuesto  
+and e.fechaingresoministerio >= STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')
+and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')	
+GROUP BY p.ubicacionpuesto 
+
+]]>
 	</queryString>
 	<field name="nempleados" class="java.lang.Long"/>
 	<field name="sumsueldo" class="java.lang.Double"/>
@@ -207,8 +212,8 @@ and e.fechaingresoministerio <= STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	<summary>
 		<band height="16">
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="407" y="1" width="108" height="15" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
-				<textElement>
+				<reportElement mode="Opaque" x="386" y="1" width="79" height="15" backcolor="#FFFFFF" uuid="caf72543-617d-4d0f-b4d8-f291b880a29e"/>
+				<textElement textAlignment="Right">
 					<font fontName="Times New Roman" size="9" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Total $" +new DecimalFormat("###,###,##0.00").format($V{sumsueldo_1})]]></textFieldExpression>

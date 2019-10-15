@@ -101,20 +101,38 @@ public class ContratoController extends UtilsController{
                      System.out.println("}");
               }
            int codcontrato =contrato.getCodigocontrato();
-        
-        
-        Experiencialaboral experiencialaboral=experiencialaboralService.findByExperienciaBycodigoContrato(codcontrato);
-        
-        
-        experiencialaboral.setCodigocontrato(contrato.getCodigocontrato());
-        experiencialaboral.setFechadesdeexperiencialaboral(contrato.getFechainiciocontrato());
-        experiencialaboral.setFechahastaexperiencialaboral(contrato.getFechafincontrato());
-        experiencialaboral.setSalarioinicial(contrato.getSalarioactual());
-        int codp=contrato.getCodigopuesto();
-        Puesto puesto=puestoService.findCargoContratoByCodigopuesto(codp);
-        experiencialaboral.setCargo(puesto.getNombrepuesto());
+             int codp=contrato.getCodigopuesto();
+        Puesto puesto=puestoService.findCargoContratoByCodigopuesto(codp);      
         contratoService.saveContrato(contrato);
-        experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+      
+        
+         try {
+             Experiencialaboral experiencialaboral=experiencialaboralService.findByExperienciaBycodigoContrato(codcontrato);
+        
+        
+            experiencialaboral.setCodigocontrato(contrato.getCodigocontrato());
+            experiencialaboral.setFechadesdeexperiencialaboral(contrato.getFechainiciocontrato());
+            experiencialaboral.setFechahastaexperiencialaboral(contrato.getFechafincontrato());
+            experiencialaboral.setSalarioinicial(contrato.getSalarioactual());
+            
+            experiencialaboral.setCargo(puesto.getNombrepuesto());
+            experiencialaboralService.saveExperiencialaboral(experiencialaboral);
+             
+         }  catch (Exception ex) {
+                  
+                     System.out.println("Multipart EditFormacion{");
+                     StackTraceElement[] elementRaster3 = ex.getStackTrace();
+                     for (int in3=0;in3<elementRaster3.length;in3++) {
+                         final StackTraceElement elementSTD=elementRaster3[in3];
+                         System.out.println("   "+ in3 +" - getClassName="+elementSTD.getClassName());
+                         System.out.println("   getMethodName="+elementSTD.getMethodName());
+                         System.out.println("   getLineNumber="+elementSTD.getLineNumber());
+                         System.out.println("   errorMSG="+ex.getMessage());
+                     }
+                     System.out.println("}");
+              }
+        
+      
 //        experiencialaboral.setCodigocontrato(contrato.);
         
          status.setComplete();
