@@ -728,7 +728,7 @@ function  activate_bootstrap_validator() {
 }
 
 
-activate_bootstrap_validator();
+//activate_bootstrap_validator();
 
 function label_obg() {
     var URLactual = window.location.href;
