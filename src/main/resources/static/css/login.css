@@ -167,6 +167,14 @@ label:hover ~ input[type=password] {
   text-align:center;
   position:relative;
 }
+.bad {
+  font-size:20px;
+  text-shadow:1px 1px 6px red;
+  text-align:center;
+  position:relative;
+  font-weight: 700;
+  color: white;
+}
 .fotmod {
   font-size:20px;
   text-shadow:1px 1px 10px white;
