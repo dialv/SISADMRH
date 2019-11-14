@@ -2,6 +2,9 @@ package mj.gob.sisadmrh.controller.usuario;
 
 import mj.gob.sisadmrh.controller.UtilsController;
 import mj.gob.sisadmrh.model.Usuario;
+import mj.gob.sisadmrh.model.Usuariorol;
+import mj.gob.sisadmrh.model.UsuariorolPK;
+import mj.gob.sisadmrh.service.RolService;
 import mj.gob.sisadmrh.service.UsuarioRolService;
 import mj.gob.sisadmrh.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,9 @@ public class UsuarioController extends UtilsController{
     private UsuarioRolService usuarioRolService;
     
     @Autowired
+    RolService rolService;
+    
+    @Autowired
     BCryptPasswordEncoder paswordEnc; 
     
     private final String PREFIX = "fragments/usuario/";
@@ -53,12 +59,16 @@ public class UsuarioController extends UtilsController{
 
     @RequestMapping("new/usuario")
     public String newUsuario(Model model) {
+        
         model.addAttribute("usuario", new Usuario());
+        model.addAttribute("roles",rolService.listAllActivos());
         return PREFIX + "usuarioform";
     }
 
     @RequestMapping(value = "usuario")
-    public String saveUsuario(@ModelAttribute("fingreso") String fingreso, Usuario usuario,Model model, SessionStatus status) {
+    public String saveUsuario(@ModelAttribute("fingreso") String fingreso, 
+        @ModelAttribute("rol") String rol, Usuario usuario,Model model, 
+        SessionStatus status) {
         Usuario aux=new Usuario();
         aux.setNombrecompleto(usuario.getNombrecompleto());
         aux.setNombreusuario(usuario.getNombreusuario());
@@ -73,6 +83,14 @@ public class UsuarioController extends UtilsController{
         usuario.setNombrecompleto(usuario.getNombrecompleto()+","+usuario.getNombreusuario());
         usuario.setNombreusuario(generaUser(usuario.getNombrecompleto(),usuario.getNombreusuario(), "0"));
         usuarioService.saveUsuario(usuario);
+        
+        UsuariorolPK llave = new UsuariorolPK();
+        Usuariorol usuariorol = new Usuariorol();
+        llave.setCodigorol(Integer.parseInt(rol));
+        llave.setCodigousuario(usuarioService.findbyUser(usuario.getNombreusuario()).getCodigousuario());
+        usuariorol.setUsuariorolPK(llave);
+        usuarioRolService.saveUsuariorol(usuariorol);
+        
         status.setComplete();
         bitacoraService.BitacoraRegistry("se Creo un Usuario",getRequest().getRemoteAddr(), 
                 getRequest().getUserPrincipal().getName());//COBTROLARA EVENTO DE LA BITACORA

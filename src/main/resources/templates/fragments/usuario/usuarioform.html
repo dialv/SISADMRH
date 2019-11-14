@@ -70,6 +70,15 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Rol:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" name="rol" id="rol" required>
+                             <option value="">--seleccione un rol--</option>
+                                <option th:each="c:${roles}" th:value="${c.codigorol}" th:text="${c.nombrerol}"></option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Fecha ingreso:</label>
                         <div class="col-sm-2">
                             <input type="text" placeholder="dia/mes/año" class="form-control fecha_format" id="fingreso" required="true" th:field="*{fechaingreso}" onchange="isDate(this.value,'fingreso')"/>
