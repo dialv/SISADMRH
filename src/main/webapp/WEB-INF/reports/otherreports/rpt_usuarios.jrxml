@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="59bc4ce1-3b42-49cf-9224-91ada3447f2e">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="157"/>
+	<property name="ireport.x" value="129"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="IMAGE_PATH" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -223,24 +223,24 @@
 	<detail>
 		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="120" y="2" width="184" height="12" uuid="ca4bc228-5dbf-4dd3-b9d7-343ffee59625"/>
+				<reportElement x="172" y="4" width="184" height="12" uuid="ca4bc228-5dbf-4dd3-b9d7-343ffee59625"/>
 				<textFieldExpression><![CDATA[$F{nombrecompleto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="309" y="0" width="98" height="14" uuid="041767d2-a670-4236-bd5f-e4288adf5786"/>
+				<reportElement x="489" y="2" width="98" height="14" uuid="041767d2-a670-4236-bd5f-e4288adf5786"/>
 				<textFieldExpression><![CDATA[$F{nombreusuario}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="418" y="1" width="73" height="12" uuid="c14aaf61-b16f-4878-ad88-bc72d3dc7916"/>
-				<textFieldExpression><![CDATA[($F{estadousuario}==0)?"INACTIVO":"ACTIVO";]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="640" y="2" width="70" height="12" uuid="93008586-b497-43ed-a27f-5a3b9dcc0bab"/>
 				<textFieldExpression><![CDATA[$F{Fecha Ingreso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="493" y="2" width="123" height="12" uuid="076ff7f3-ba7a-472f-bdc0-8818bd844672"/>
+				<reportElement x="216" y="2" width="123" height="12" uuid="076ff7f3-ba7a-472f-bdc0-8818bd844672"/>
 				<textFieldExpression><![CDATA[$F{nombrerol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="10" width="73" height="12" uuid="c14aaf61-b16f-4878-ad88-bc72d3dc7916"/>
+				<textFieldExpression><![CDATA[($F{estadousuario}==0)?"INACTIVO":"ACTIVO";]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -253,10 +253,10 @@
 	<summary>
 		<band height="20" splitType="Stretch">
 			<line>
-				<reportElement x="104" y="4" width="602" height="2" uuid="ff460cd9-1bff-4a9b-8e4f-d06fee233b2a"/>
+				<reportElement x="104" y="2" width="602" height="2" uuid="ff460cd9-1bff-4a9b-8e4f-d06fee233b2a"/>
 			</line>
 			<textField isStretchWithOverflow="true" pattern="###0">
-				<reportElement mode="Opaque" x="520" y="6" width="102" height="14" backcolor="#FFFFFF" uuid="0624c5b7-46ff-4a97-88cc-f2790304259d"/>
+				<reportElement mode="Opaque" x="602" y="6" width="102" height="14" backcolor="#FFFFFF" uuid="0624c5b7-46ff-4a97-88cc-f2790304259d"/>
 				<textElement>
 					<font fontName="Times New Roman" size="9" isBold="true" isUnderline="false"/>
 				</textElement>
