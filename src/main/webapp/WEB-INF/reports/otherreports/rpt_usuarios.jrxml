@@ -16,7 +16,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select nombrecompleto,DATE_FORMAT(fechaingreso,'%d/%m/%Y') AS "Fecha Ingreso",estadousuario,nombreusuario, rol.nombrerol nombrerol from usuario inner join usuariorol on usuario.codigousuario=usuariorol.codigousuario inner join rol on rol.codigorol=usuariorol.codigorol where fechaingreso >=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and fechaingreso <=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y')]]>
+		<![CDATA[select nombrecompleto,DATE_FORMAT(fechaingreso,'%d/%m/%Y') AS "Fecha Ingreso",estadousuario,nombreusuario, rol.nombrerol nombrerol from usuario inner join usuariorol on usuario.codigousuario=usuariorol.codigousuario inner join rol on rol.codigorol=usuariorol.codigorol where fechaingreso >=STR_TO_DATE($P{FECHAINICIO}, '%d/%m/%Y') and fechaingreso <=STR_TO_DATE($P{FECHAFIN}, '%d/%m/%Y')]]>
 	</queryString>
 	<field name="nombrecompleto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
